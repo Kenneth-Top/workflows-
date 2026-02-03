@@ -43,7 +43,7 @@ def scrape_single_model(playwright_instance, model_id):
     url = f"https://openrouter.ai/{model_id}"
     print(f"\n🚀 [开始处理] 模型: {model_id}")
     
-    browser = playwright_instance.chromium.launch(headless=False)
+    browser = playwright_instance.chromium.launch(headless=True)
     page = browser.new_page()
     
     print(f"🔗 正在访问: {url} ...")
@@ -241,4 +241,5 @@ def run_batch_process():
 
 if __name__ == "__main__":
     run_batch_process()
+
     
