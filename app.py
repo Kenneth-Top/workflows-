@@ -51,8 +51,11 @@ if page == "📊 T+N 横向对比":
             m_df = df[df['Model'] == m].sort_values('Date')
             if m_df.empty: continue
             
+            if len(m_df) > 1:
+                m_df = m_df.iloc[:-1]
+
             start_date = m_df.iloc[0]['Date']
-            latest_date = m_df.iloc[-1]['Date']
+            latest_date = m_df.iloc[-1]['Date'] 
             
             for _, row in m_df.iterrows():
                 day_diff = (row['Date'] - start_date).days
@@ -126,4 +129,5 @@ else:
         }), 
         use_container_width=True
     )
+
 
