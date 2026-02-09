@@ -8,16 +8,30 @@ import time
 
 # === 配置 ===
 DATA_FILE = "history_database.csv"
+# ================= 批量配置区域 =================
 MODELS = [
+    "deepseek/deepseek-r1",
+    "deepseek/deepseek-v3.2",
     "moonshotai/kimi-k2-thinking",
     "moonshotai/kimi-k2.5",
-    "deepseek/deepseek-v3.2",
-    "deepseek/deepseek-v3.2-speciale",
+    "z-ai/glm-4.7",
+    "z-ai/glm-4.7-flash",
+    "z-ai/glm-4.6v",
     "minimax/minimax-m2.1",
-    "x-ai/grok-4.1-fast",
-    "openai/gpt-5.1",
-    # 在这里添加更多模型...
+    "minimax/minimax-m2-her",
+    "qwen/qwen3-coder-next",
+    "qwen/qwen3-embedding-8b",
+    "qwen/qwen3-embedding-4b",
+    "anthropic/claude-opus-4.6",
+    "anthropic/claude-opus-4.5",
+    "google/gemini-3-pro-preview",
+    "google/gemini-3-flash-preview",
+    "google/gemini-3-pro-image-preview"
+    "openai/gpt-5.2-codex",
+    "openai/gpt-5.2",
+    "x-ai/grok-4.1-fast"
 ]
+# ===========================================
 
 def fetch_data(model_id):
     url = f"https://openrouter.ai/{model_id}"
@@ -101,3 +115,4 @@ def update_database():
 if __name__ == "__main__":
     if "HTTP_PROXY" in os.environ: del os.environ["HTTP_PROXY"]
     update_database()
+
