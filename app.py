@@ -37,56 +37,104 @@ page = st.sidebar.radio("选择视图", ["📊 T+N 横向对比", "📈 单模�
 # === 页面 1: T+N 对比 ===
 if page == "📊 T+N 横向对比":
     st.subheader("🏆 模型增长曲线对比 (T+N)")
-    st.info("💡 横轴：上线天数 | 纵轴：Token 总量 (Billion)") # <--- 补充单位提示
-    
+    st.info("💡 横轴：上线天数 | 纵轴：Token 总量 (Billion)")
+
     # 1. 筛选器
     all_models = df['Model'].unique()
-    # 默认只选中列表里的第一个模型
-    selected_models = st.multiselect("选择要对比的模型:", all_models, default=all_models[:1])
+    selected_models = st.multiselect(
+        "选择要对比的模型:", 
+        all_models, 
+        default=all_models[:1] 
+    )
     
     if selected_models:
-        # 2. 计算逻辑
+        # 2. 数据准备 & 刻度计算
         tn_data = []
+        # 定义标准刻度列表
+        standard_ticks = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
+        # 用集合来存储最终要显示的 X 轴刻度 (会自动去重)
+        final_tick_values = set(standard_ticks)
+
         for m in selected_models:
             m_df = df[df['Model'] == m].sort_values('Date')
             if m_df.empty: continue
             
+            # === 逻辑：切掉今天，只取到昨天 ===
             if len(m_df) > 1:
                 m_df = m_df.iloc[:-1]
 
             start_date = m_df.iloc[0]['Date']
-            latest_date = m_df.iloc[-1]['Date'] 
+            latest_date = m_df.iloc[-1]['Date']
             
+            # 计算该模型的 Latest 是第几天，并加入到刻度列表里
+            latest_day_diff = (latest_date - start_date).days
+            final_tick_values.add(latest_day_diff)
+
             for _, row in m_df.iterrows():
                 day_diff = (row['Date'] - start_date).days
-                is_latest = (row['Date'] == latest_date)
                 
-                # 只保留关键节点 (0,1...60) + 最新数据
-                target_days = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
-                if day_diff in target_days or is_latest:
+                # 只保留标准节点 OR 最新节点
+                if day_diff in standard_ticks or day_diff == latest_day_diff:
                     tn_data.append({
                         'Model': m,
                         'Days_Since_Start': day_diff,
                         'Total_Tokens': row['Total_Tokens'],
-                        'Label': f"T+{day_diff}" if not is_latest else "Latest"
+                        'Label': f"T+{day_diff}" if day_diff != latest_day_diff else f"Latest (T+{day_diff})",
+                        'Real_Date': row['Date'].strftime('%Y-%m-%d')
                     })
         
         if tn_data:
             df_tn = pd.DataFrame(tn_data)
             
-            # 3. 绘图
-            chart = alt.Chart(df_tn).mark_line(point=True).encode(
-                x=alt.X('Days_Since_Start', title='上线天数 (Days)', scale=alt.Scale(type='linear')),
-                y=alt.Y('Total_Tokens', title='Total Tokens (Billion)'), # <--- 修改单位
-                color='Model',
-                tooltip=['Model', 'Days_Since_Start', 'Total_Tokens', 'Label']
+            # 3. 强力绘图 (大字体、粗线条)
+            chart = alt.Chart(df_tn).mark_line(
+                point=alt.OverlayMarkDef(size=100, filled=True, color="white", strokeWidth=2) # 点放大，白芯
+            ).encode(
+                x=alt.X(
+                    'Days_Since_Start', 
+                    title='上线天数 (Days)',
+                    # 核心修改：指定只显示这些刻度，并加大加粗
+                    axis=alt.Axis(
+                        values=list(final_tick_values), # 强制只显示 T+N 和 Latest 的数字
+                        labelFontSize=14,    # 刻度数字大小
+                        labelFontWeight='bold', # 刻度加粗
+                        titleFontSize=16,    # 标题大小
+                        titleFontWeight='bold', # 标题加粗
+                        grid=True            # 显示网格辅助看线
+                    ),
+                    scale=alt.Scale(type='linear') # 保持线性间距 (0-30短, 30-60长)
+                ),
+                y=alt.Y(
+                    'Total_Tokens', 
+                    title='Total Tokens (Billion)',
+                    # 核心修改：Y轴也加大加粗
+                    axis=alt.Axis(
+                        labelFontSize=14,
+                        labelFontWeight='bold',
+                        titleFontSize=16,
+                        titleFontWeight='bold'
+                    )
+                ),
+                color=alt.Color('Model', legend=alt.Legend(
+                    title="模型名称",
+                    titleFontSize=14,
+                    labelFontSize=13,
+                    labelFontWeight='bold',
+                    orient='bottom' # 图例放到底部，给图表留更宽的空间
+                )),
+                tooltip=['Model', 'Label', 'Total_Tokens', 'Real_Date']
+            ).properties(
+                height=500 # 增加图表高度，让纵轴更舒展
             ).interactive()
             
             st.altair_chart(chart, use_container_width=True)
             
             # 4. 表格
+            st.markdown("#### 📋 数据明细")
             df_pivot = df_tn.pivot_table(index='Model', columns='Days_Since_Start', values='Total_Tokens')
-            st.dataframe(df_pivot.style.format("{:.4f} B"), use_container_width=True) # <--- 表格格式化加单位
+            # 列名重命名，让表格也显示 T+
+            df_pivot.columns = [f"T+{c}" for c in df_pivot.columns]
+            st.dataframe(df_pivot.style.format("{:.4f} B"), use_container_width=True)
 
 # === 页面 2: 单模型详情 ===
 elif page == "📈 单模型历史详情":
@@ -129,5 +177,6 @@ else:
         }), 
         use_container_width=True
     )
+
 
 
