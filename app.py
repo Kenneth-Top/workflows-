@@ -41,7 +41,8 @@ if page == "📊 T+N 横向对比":
     
     # 1. 筛选器
     all_models = df['Model'].unique()
-    selected_models = st.multiselect("选择要对比的模型:", all_models, default=all_models[:5] if len(all_models)>5 else all_models)
+    # 默认只选中列表里的第一个模型
+    selected_models = st.multiselect("选择要对比的模型:", all_models, default=all_models[:1])
     
     if selected_models:
         # 2. 计算逻辑
@@ -125,3 +126,4 @@ else:
         }), 
         use_container_width=True
     )
+
