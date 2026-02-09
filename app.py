@@ -146,8 +146,8 @@ if page == "📊 T+N 横向对比":
 # ========================================================
 
 elif page == "📈 单模型累积增长 (历史总量)":
-    st.subheader("🏔️ 单模型历史累计增长 (全堆叠透视)")
-    st.info("💡 每一根柱子都展示了从上线第一天到当天的**全部分层结构**。您可以清晰看到早期的增量是如何垫高后期的总量的。")
+    st.subheader("🏔️ 单模型历史累计增长 (真实时间轴)")
+    st.info("💡 **X轴已改为线性刻度**：现在的横轴距离代表真实的时间间隔（例如 T+30 到 T+60 的距离是 T+0 到 T+1 的 30 倍）。")
 
     # 1. 选择模型
     all_models = df['Model'].unique()
@@ -170,10 +170,13 @@ elif page == "📈 单模型累积增长 (历史总量)":
             # 筛选关键节点
             standard_ticks = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
             
-            # --- 第一步：计算每个节点的“纯增量” ---
+            # --- 第一步：计算增量 ---
             node_data = [] 
             previous_cum = 0
             
+            # 收集关键刻度用于 X 轴固定显示
+            tick_values = []
+
             for _, row in m_df.iterrows():
                 day = (row['Date'] - start_date).days
                 if day in standard_ticks or day == latest_day:
@@ -181,31 +184,27 @@ elif page == "📈 单模型累积增长 (历史总量)":
                     inc = current_cum - previous_cum
                     
                     node_data.append({
-                        'Day': day,
+                        'Day': day, # 这是一个数字，用于线性绘图
                         'Label': f"T+{day}" if day != latest_day else f"Latest (T+{day})",
                         'Increment': inc,
                         'Total_Cum': current_cum,
                         'Date': row['Date'].strftime('%Y-%m-%d')
                     })
                     previous_cum = current_cum
-
-            # 【核心修复】提取正确的排序列表
-            # 因为 node_data 是按时间循环生成的，所以这里的顺序一定是正确的 (0, 1, 2... Latest)
-            x_sort_order = [item['Label'] for item in node_data]
+                    tick_values.append(day)
 
             # --- 第二步：构建“全堆叠”数据 ---
             stack_plot_data = []
             
             for i, target_node in enumerate(node_data):
-                target_label = target_node['Label']
                 target_day_num = target_node['Day']
                 
                 for j in range(i + 1):
                     source_node = node_data[j]
                     
                     stack_plot_data.append({
-                        'X_Label': target_label,       
-                        'X_Order': target_day_num,     
+                        'X_Pos': target_day_num,       # X轴：数值型 (0, 1, 30...)
+                        'X_Label': target_node['Label'], # 标签：用于 Tooltip
                         'Component_Label': source_node['Label'], 
                         'Component_Order': source_node['Day'],   
                         'Increment_Value': source_node['Increment'], 
@@ -215,49 +214,57 @@ elif page == "📈 单模型累积增长 (历史总量)":
 
             df_stack = pd.DataFrame(stack_plot_data)
 
-            # === 3. 绘图 (全彩堆叠 + 强制排序) ===
+            # === 3. 绘图 (线性轴 Linear Scale) ===
             
-            # 基础图表
+            # 基础配置
+            # type='quantitative' 告诉 Altair 这是连续数值，要按比例画
             base = alt.Chart(df_stack).encode(
                 x=alt.X(
-                    'X_Label', 
-                    # 【关键修改】直接把排好序的列表传给 sort，强制按此顺序排列
-                    sort=x_sort_order, 
-                    title="时间节点 (T+N)",
-                    axis=alt.Axis(labelFontSize=20, labelFontWeight='bold', labelAngle=0, titleFontSize=24)
+                    'X_Pos:Q',  # :Q 表示 Quantitative (数值)
+                    title="上线天数 (真实时间间距)",
+                    # 强制只显示我们有数据的那些天作为刻度
+                    axis=alt.Axis(
+                        values=tick_values, 
+                        labelFontSize=16, 
+                        labelFontWeight='bold', 
+                        titleFontSize=20,
+                        grid=True
+                    ),
+                    scale=alt.Scale(domain=[-1, latest_day + 5]) #稍微留点边距
                 )
             )
 
             # 图层 A: 彩色堆叠柱
-            bars = base.mark_bar(size=55).encode(
+            # 注意：由于 T+0 和 T+1 距离很近，size 不能太大，否则会重叠
+            bars = base.mark_bar(size=15).encode(
                 y=alt.Y('Increment_Value', title='累计 Token (Billion)', stack='zero',
                         axis=alt.Axis(labelFontSize=20, titleFontSize=24)),
                 color=alt.Color('Component_Label', 
-                                # 图例也用同样的顺序排序
-                                sort=x_sort_order,
-                                legend=alt.Legend(title="增量来源阶段", orient='bottom', columns=6),
+                                # 图例排序
+                                sort=[x['Label'] for x in node_data],
+                                legend=alt.Legend(title="增量来源阶段", orient='bottom', columns=6, symbolLimit=50),
                                 scale=alt.Scale(scheme='tableau20')),
                 order=alt.Order('Component_Order', sort='ascending'),
                 tooltip=[
-                    alt.Tooltip('X_Label', title='当前时刻'),
+                    alt.Tooltip('X_Label', title='时间节点'),
                     alt.Tooltip('Component_Label', title='增量来源'),
                     alt.Tooltip('Increment_Value', title='该层增量(B)', format='.4f')
                 ]
             )
 
-            # 图层 B: 折线 (需去重)
-            line_data = df_stack[['X_Label', 'X_Order', 'Total_Height_At_Node']].drop_duplicates()
+            # 图层 B: 折线 (连接柱子顶部)
+            line_data = df_stack[['X_Pos', 'X_Label', 'Total_Height_At_Node']].drop_duplicates()
             
-            line = alt.Chart(line_data).mark_line(color="#333333", strokeWidth=4).encode(
-                x=alt.X('X_Label', sort=x_sort_order), # 这里也要指定 sort
+            line = alt.Chart(line_data).mark_line(color="#333333", strokeWidth=3).encode(
+                x='X_Pos:Q',
                 y='Total_Height_At_Node'
             )
 
-            # 图层 C: 红色总点
+            # 图层 C: 红色数据点
             points = alt.Chart(line_data).mark_point(
-                filled=True, fill="#FF4B4B", color="#FFFFFF", strokeWidth=2, size=200
+                filled=True, fill="#FF4B4B", color="#FFFFFF", strokeWidth=2, size=150
             ).encode(
-                x=alt.X('X_Label', sort=x_sort_order), # 这里也要指定 sort
+                x='X_Pos:Q',
                 y='Total_Height_At_Node',
                 tooltip=[
                     alt.Tooltip('X_Label', title='时间节点'),
@@ -266,8 +273,8 @@ elif page == "📈 单模型累积增长 (历史总量)":
             )
 
             final_chart = (bars + line + points).properties(
-                height=700,
-                title=alt.TitleParams(text=f"{target_model} 全周期堆叠增长图", fontSize=24)
+                height=650,
+                title=alt.TitleParams(text=f"{target_model} 真实时间轴增长图", fontSize=24)
             ).interactive()
 
             st.altair_chart(final_chart, use_container_width=True)
@@ -332,6 +339,7 @@ else:
         }), 
         use_container_width=True
     )
+
 
 
 
