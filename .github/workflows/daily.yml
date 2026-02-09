@@ -1,0 +1,36 @@
+name: Update Database
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天 UTC 0点运行
+  workflow_dispatch:      # 允许手动点按钮运行
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests pandas
+
+      - name: Run Update Script
+        run: python update_data.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add history_database.csv
+          # 如果没有变化（例如今天的数据还没出来），commit 会失败，所以加上 || exit 0 不报错
+          git commit -m "Auto-update database [skip ci]" || exit 0
+          git push
