@@ -7,11 +7,12 @@ import os
 import time
 
 # === 配置 ===
-DATA_FILE = "history_database.csv"  # 我们的“数据库”文件
+DATA_FILE = "history_database.csv"
 MODELS = [
     "moonshotai/kimi-k2-thinking",
     "moonshotai/kimi-k2.5",
     "deepseek/deepseek-v3.2",
+    "deepseek/deepseek-v3.2-speciale",
     "minimax/minimax-m2.1",
     "x-ai/grok-4.1-fast",
     "openai/gpt-5.1",
@@ -19,18 +20,20 @@ MODELS = [
 ]
 
 def fetch_data(model_id):
-    """抓取单个模型数据 (包含代理修复)"""
     url = f"https://openrouter.ai/{model_id}"
     print(f"🚀 正在抓取: {model_id} ...")
     
     try:
         session = requests.Session()
-        session.trust_env = False  # 绕过系统代理，防止报错
-        headers = {"User-Agent": "Mozilla/5.0"}
+        session.trust_env = False
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
         
         response = session.get(url, headers=headers, timeout=20)
         if response.status_code != 200: return None
         
+        # 提取 JSON
         match = re.search(r'\\?"analytics\\?":\s*(\[\{.*?\}\])', response.text)
         if match:
             raw = match.group(1).replace('\\"', '"').replace('\\\\', '\\')
@@ -40,27 +43,31 @@ def fetch_data(model_id):
     return None
 
 def update_database():
-    # 1. 读取现有数据库 (如果存在)
+    # 1. 读取旧数据
     if os.path.exists(DATA_FILE):
-        print("📂 读取现有历史数据...")
-        df_old = pd.read_csv(DATA_FILE)
-        df_old['Date'] = pd.to_datetime(df_old['Date'])
+        try:
+            df_old = pd.read_csv(DATA_FILE)
+            df_old['Date'] = pd.to_datetime(df_old['Date'])
+        except:
+            df_old = pd.DataFrame(columns=['Date', 'Model', 'Prompt', 'Completion', 'Reasoning', 'Total_Tokens'])
     else:
-        print("📂 初始化新数据库...")
         df_old = pd.DataFrame(columns=['Date', 'Model', 'Prompt', 'Completion', 'Reasoning', 'Total_Tokens'])
 
     new_records = []
 
-    # 2. 爬取最新数据
+    # 2. 爬取新数据
     for model in MODELS:
         data = fetch_data(model)
         if not data: continue
         
         for record in data:
-            # 数据清洗与单位转换 (Billion)
-            p = record.get('total_prompt_tokens', 0) / 1e9
-            c = record.get('total_completion_tokens', 0) / 1e9
-            r = record.get('total_native_tokens_reasoning', 0) / 1e9
+            # === 数据清洗与单位转换 (Billion) ===
+            # 使用 or 0 防止 None 值报错
+            p = (record.get('total_prompt_tokens') or 0) / 1e9
+            c = (record.get('total_completion_tokens') or 0) / 1e9
+            r = (record.get('total_native_tokens_reasoning') or 0) / 1e9
+            
+            # Total = Prompt + Completion (OpenAI 标准)
             t = p + c
             
             new_records.append({
@@ -79,19 +86,18 @@ def update_database():
 
     df_new = pd.DataFrame(new_records)
     
-    # 3. 核心逻辑：增量合并 (Upsert)
-    # 我们将旧数据和新数据合并
+    # 3. 增量合并 (Upsert)
+    # 合并新旧数据
     df_combined = pd.concat([df_old, df_new])
     
-    # 关键：如果有重复的 (Date, Model)，保留最新的那一条（df_new 的）
-    # 这样既能保留历史，又能更新“昨天”不完整的数据
+    # 去重逻辑：Date + Model 是唯一键
+    # keep='last' 确保保留最新抓取的数据（如果 OpenRouter 更新了当天的统计）
     df_combined = df_combined.sort_values('Date').drop_duplicates(subset=['Date', 'Model'], keep='last')
     
-    # 4. 保存回 CSV
+    # 4. 保存
     df_combined.to_csv(DATA_FILE, index=False)
     print(f"✅ 数据库更新完成！当前总记录数: {len(df_combined)}")
 
 if __name__ == "__main__":
-    # 清理环境变量防止代理干扰
     if "HTTP_PROXY" in os.environ: del os.environ["HTTP_PROXY"]
     update_database()
