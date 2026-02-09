@@ -96,9 +96,9 @@ if page == "📊 T+N 横向对比":
                     # 核心修改：指定只显示这些刻度，并加大加粗
                     axis=alt.Axis(
                         values=list(final_tick_values), # 强制只显示 T+N 和 Latest 的数字
-                        labelFontSize=14,    # 刻度数字大小
+                        labelFontSize=30,    # 刻度数字大小
                         labelFontWeight='bold', # 刻度加粗
-                        titleFontSize=16,    # 标题大小
+                        titleFontSize=36,    # 标题大小
                         titleFontWeight='bold', # 标题加粗
                         grid=True            # 显示网格辅助看线
                     ),
@@ -109,16 +109,16 @@ if page == "📊 T+N 横向对比":
                     title='Total Tokens (Billion)',
                     # 核心修改：Y轴也加大加粗
                     axis=alt.Axis(
-                        labelFontSize=14,
+                        labelFontSize=30,
                         labelFontWeight='bold',
-                        titleFontSize=16,
+                        titleFontSize=36,
                         titleFontWeight='bold'
                     )
                 ),
                 color=alt.Color('Model', legend=alt.Legend(
                     title="模型名称",
-                    titleFontSize=14,
-                    labelFontSize=13,
+                    titleFontSize=30,
+                    labelFontSize=28,
                     labelFontWeight='bold',
                     orient='bottom' # 图例放到底部，给图表留更宽的空间
                 )),
@@ -177,6 +177,7 @@ else:
         }), 
         use_container_width=True
     )
+
 
 
 
