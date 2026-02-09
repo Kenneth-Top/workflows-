@@ -146,8 +146,8 @@ if page == "📊 T+N 横向对比":
 # ========================================================
 
 elif page == "📈 单模型累积增长 (历史总量)":
-    st.subheader("🏔️ 单模型历史累计增长 (真实时间轴)")
-    st.info("💡 **X轴已改为线性刻度**：现在的横轴距离代表真实的时间间隔（例如 T+30 到 T+60 的距离是 T+0 到 T+1 的 30 倍）。")
+    st.subheader("🏔️ 单模型全生命周期堆叠图 (Daily Full Stack)")
+    st.info("💡 **高能预警**：这里展示了每一天的增量如何一层层堆叠成今天的总量。每一层颜色代表那一天的贡献。")
 
     # 1. 选择模型
     all_models = df['Model'].unique()
@@ -162,139 +162,109 @@ elif page == "📈 单模型累积增长 (历史总量)":
         if len(m_df) > 1:
             m_df = m_df.iloc[:-1]
         
+        # 数据量检查
+        total_days = len(m_df)
+        if total_days > 150:
+            st.warning(f"⚠️ 当前模型历史数据长达 {total_days} 天，生成全堆叠图可能需要几秒钟，请耐心等待渲染...")
+
         if not m_df.empty:
             start_date = m_df.iloc[0]['Date']
-            latest_date = m_df.iloc[-1]['Date']
-            latest_day = (latest_date - start_date).days
-
-            # 筛选关键节点
-            standard_ticks = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
             
-            # --- 第一步：计算增量 ---
-            node_data = [] 
+            # --- 第一步：计算每一天的纯增量 ---
+            # 这次我们不再筛选 T+N，而是保留每一天！
+            daily_increments = []
             previous_cum = 0
             
-            # 收集关键刻度用于 X 轴固定显示
-            tick_values = []
-
             for _, row in m_df.iterrows():
-                day = (row['Date'] - start_date).days
-                if day in standard_ticks or day == latest_day:
-                    current_cum = row['Cum_Tokens']
-                    inc = current_cum - previous_cum
-                    
-                    node_data.append({
-                        'Day': day, # 这是一个数字，用于线性绘图
-                        'Label': f"T+{day}" if day != latest_day else f"Latest (T+{day})",
-                        'Increment': inc,
-                        'Total_Cum': current_cum,
-                        'Date': row['Date'].strftime('%Y-%m-%d')
-                    })
-                    previous_cum = current_cum
-                    tick_values.append(day)
+                day_num = (row['Date'] - start_date).days
+                current_cum = row['Cum_Tokens']
+                inc = current_cum - previous_cum
+                
+                daily_increments.append({
+                    'Day': day_num,
+                    'Date': row['Date'].strftime('%Y-%m-%d'),
+                    'Increment': inc,
+                    'Total_Cum': current_cum,
+                    'Label': f"Day {day_num}"
+                })
+                previous_cum = current_cum
 
-            # --- 第二步：构建“全堆叠”数据 ---
+            # --- 第二步：构建 N*N 的全量堆叠数据 ---
+            # 这是一个计算密集型操作
             stack_plot_data = []
             
-            for i, target_node in enumerate(node_data):
-                target_day_num = target_node['Day']
+            # 限制一下：如果天数太多(比如超过200天)，这种图可能会卡死浏览器
+            # 但既然您要求“试试”，我们就全跑
+            for i, target_day in enumerate(daily_increments):
+                # 针对每一天 (作为X轴的一根柱子)
+                # 我们需要把它拆解成 0...i 所有之前的增量 (作为堆叠块)
                 
                 for j in range(i + 1):
-                    source_node = node_data[j]
+                    source_day = daily_increments[j]
                     
                     stack_plot_data.append({
-                        'X_Pos': target_day_num,       # X轴：数值型 (0, 1, 30...)
-                        'X_Label': target_node['Label'], # 标签：用于 Tooltip
-                        'Component_Label': source_node['Label'], 
-                        'Component_Order': source_node['Day'],   
-                        'Increment_Value': source_node['Increment'], 
-                        'Total_Height_At_Node': target_node['Total_Cum'], 
-                        'Date': target_node['Date']
+                        'X_Day': target_day['Day'],      # X轴位置
+                        'X_Date': target_day['Date'],    # X轴日期
+                        'Total_Height': target_day['Total_Cum'], # 总高度(用于画线)
+                        
+                        'Comp_Day': source_day['Day'],   # 增量来源哪一天(用于上色)
+                        'Comp_Inc': source_day['Increment'], # 增量大小(用于堆叠高度)
+                        'Comp_Date': source_day['Date']  # 增量日期
                     })
 
             df_stack = pd.DataFrame(stack_plot_data)
 
-            # === 3. 绘图 (线性轴 Linear Scale) ===
+            # === 3. 绘图 (动态调整版) ===
             
-            # 基础配置
-            # type='quantitative' 告诉 Altair 这是连续数值，要按比例画
+            # 动态计算柱子宽度：天数越少柱子越粗，天数越多柱子越细
+            # 最小 2px，最大 50px
+            bar_width = max(2, min(50, 800 // total_days))
+            
             base = alt.Chart(df_stack).encode(
-                x=alt.X(
-                    'X_Pos:Q',  # :Q 表示 Quantitative (数值)
-                    title="上线天数 (真实时间间距)",
-                    # 强制只显示我们有数据的那些天作为刻度
-                    axis=alt.Axis(
-                        values=tick_values, 
-                        labelFontSize=16, 
-                        labelFontWeight='bold', 
-                        titleFontSize=20,
-                        grid=True
-                    ),
-                    scale=alt.Scale(domain=[-1, latest_day + 5]) #稍微留点边距
-                )
+                x=alt.X('X_Day:Q', title="上线天数 (Daily)",
+                        axis=alt.Axis(labelFontSize=16, titleFontSize=18, grid=False))
             )
 
-            # 图层 A: 彩色堆叠柱
-            # 注意：由于 T+0 和 T+1 距离很近，size 不能太大，否则会重叠
-            bars = base.mark_bar(size=15).encode(
-                y=alt.Y('Increment_Value', title='累计 Token (Billion)', stack='zero',
-                        axis=alt.Axis(labelFontSize=20, titleFontSize=24)),
-                color=alt.Color('Component_Label', 
-                                # 图例排序
-                                sort=[x['Label'] for x in node_data],
-                                legend=alt.Legend(title="增量来源阶段", orient='bottom', columns=6, symbolLimit=50),
-                                scale=alt.Scale(scheme='tableau20')),
-                order=alt.Order('Component_Order', sort='ascending'),
+            # A层: 全彩堆叠柱
+            bars = base.mark_bar(size=bar_width).encode(
+                y=alt.Y('Comp_Inc', stack='zero', title='累计 Token (Billion)',
+                        axis=alt.Axis(labelFontSize=16, titleFontSize=18)),
+                # 颜色：使用 continuous 渐变色，因为 discrete 颜色不够用
+                color=alt.Color('Comp_Day:Q', 
+                                title="增量来源(天)",
+                                scale=alt.Scale(scheme='turbo'), # 使用 turbo 这种高对比度彩虹色
+                                legend=None), # 隐藏图例，否则会遮住图表
+                order=alt.Order('Comp_Day', sort='ascending'), # 保证早期的在下面
                 tooltip=[
-                    alt.Tooltip('X_Label', title='时间节点'),
-                    alt.Tooltip('Component_Label', title='增量来源'),
-                    alt.Tooltip('Increment_Value', title='该层增量(B)', format='.4f')
+                    alt.Tooltip('X_Date', title='当前日期'),
+                    alt.Tooltip('Total_Height', title='当前总累计(B)', format='.4f'),
+                    alt.Tooltip('Comp_Date', title='增量来源日期'),
+                    alt.Tooltip('Comp_Inc', title='该层贡献量(B)', format='.4f')
                 ]
             )
 
-            # 图层 B: 折线 (连接柱子顶部)
-            line_data = df_stack[['X_Pos', 'X_Label', 'Total_Height_At_Node']].drop_duplicates()
-            
-            line = alt.Chart(line_data).mark_line(color="#333333", strokeWidth=3).encode(
-                x='X_Pos:Q',
-                y='Total_Height_At_Node'
+            # B层: 顶部轮廓线
+            # 去重取总高度
+            line_data = df_stack[['X_Day', 'Total_Height']].drop_duplicates()
+            line = alt.Chart(line_data).mark_line(color="black", strokeWidth=2).encode(
+                x='X_Day:Q',
+                y='Total_Height'
             )
 
-            # 图层 C: 红色数据点
-            points = alt.Chart(line_data).mark_point(
-                filled=True, fill="#FF4B4B", color="#FFFFFF", strokeWidth=2, size=150
-            ).encode(
-                x='X_Pos:Q',
-                y='Total_Height_At_Node',
-                tooltip=[
-                    alt.Tooltip('X_Label', title='时间节点'),
-                    alt.Tooltip('Total_Height_At_Node', title='累计总量(B)', format='.4f')
-                ]
-            )
-
-            final_chart = (bars + line + points).properties(
-                height=650,
-                title=alt.TitleParams(text=f"{target_model} 真实时间轴增长图", fontSize=24)
+            final_chart = (bars + line).properties(
+                height=600,
+                title=alt.TitleParams(text=f"{target_model} 每日全量沉积图", fontSize=24)
             ).interactive()
 
             st.altair_chart(final_chart, use_container_width=True)
 
-            # 4. 下方表格
-            st.markdown("### 📊 阶段增量详情表")
-            table_rows = []
-            for item in node_data:
-                table_rows.append({
-                    '节点': item['Label'],
-                    '日期': item['Date'],
-                    '累计总量 (B)': item['Total_Cum'],
-                    '本阶段新增 (B)': item['Increment']
-                })
-            
+            # 4. 下方显示简单的每日数据表
+            st.markdown("### 📅 每日增长明细")
             st.dataframe(
-                pd.DataFrame(table_rows).style.format({
-                    '累计总量 (B)': '{:.4f}', 
-                    '本阶段新增 (B)': '{:.4f}'
-                }), 
+                pd.DataFrame(daily_increments)[['Date', 'Day', 'Total_Cum', 'Increment']].style.format({
+                    'Total_Cum': '{:.4f} B',
+                    'Increment': '{:.4f} B'
+                }),
                 use_container_width=True
             )
             
@@ -339,6 +309,7 @@ else:
         }), 
         use_container_width=True
     )
+
 
 
 
