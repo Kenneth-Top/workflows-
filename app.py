@@ -144,9 +144,10 @@ if page == "📊 T+N 横向对比":
 # ========================================================
 # 📋 页面 2: 单模型累积增长 (增量堆积版)
 # ========================================================
+
 elif page == "📈 单模型累积增长 (历史总量)":
     st.subheader("🏔️ 单模型历史累计增长 & 阶段增量")
-    st.info("💡 **灰色块**: 之前积累的存量 | **彩色块**: 本阶段新增的消耗量 (例如 T+7到T+10 的总增量)")
+    st.info("💡 **彩色块**: 本阶段新增消耗 | **灰色底座**: 之前积累的历史存量")
 
     # 1. 选择模型
     all_models = df['Model'].unique()
@@ -155,11 +156,9 @@ elif page == "📈 单模型累积增长 (历史总量)":
     if target_model:
         # 2. 数据处理
         m_df = df[df['Model'] == target_model].sort_values('Date')
-        
-        # 计算每一天的累计值
         m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
 
-        # 切掉今天，保留到昨天 (数据更严谨)
+        # 切掉今天
         if len(m_df) > 1:
             m_df = m_df.iloc[:-1]
         
@@ -170,63 +169,51 @@ elif page == "📈 单模型累积增长 (历史总量)":
 
             # 筛选关键节点
             standard_ticks = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
-            final_ticks = set(standard_ticks)
-            final_ticks.add(latest_day)
-
-            # === 核心逻辑：构建增量数据 ===
-            plot_data = []
-            previous_cum = 0 # 记录上一个节点的累计值
             
-            # 为了保证顺序，我们需要按天遍历，只抓取关键点
+            plot_data = []
+            previous_cum = 0 
+            
             for _, row in m_df.iterrows():
                 day = (row['Date'] - start_date).days
                 
-                # 如果是关键节点 OR 最新一天
                 if day in standard_ticks or day == latest_day:
                     current_cum = row['Cum_Tokens']
-                    
-                    # 计算“本阶段增量”：当前累计 - 上个节点的累计
-                    # 比如 T+10 的增量 = (T+10累计) - (T+7累计)
-                    # 这正好等于 T+8, T+9, T+10 三天的消耗之和
                     increment = current_cum - previous_cum
                     
                     plot_data.append({
                         'Label': f"T+{day}" if day != latest_day else f"Latest (T+{day})",
-                        'Day_Num': day, # 用于排序
+                        'Day_Num': day, 
                         'Date': row['Date'].strftime('%Y-%m-%d'),
-                        'Total_Cum': current_cum,    # 总高度 (线的位置)
-                        'Base_Cum': previous_cum,    # 灰色底座高度
-                        'Increment': increment       # 彩色增量高度
+                        'Total_Cum': current_cum,    
+                        'Base_Cum': previous_cum,    
+                        'Increment': increment       
                     })
-                    
-                    # 更新“上一个累计值”
                     previous_cum = current_cum
 
             df_plot = pd.DataFrame(plot_data)
 
-            # === 3. 组合图表 (Layered Chart) ===
+            # === 3. 绘图 (修复颜色 + 修复字体) ===
             
-            # 基础配置：X轴 (使用 Ordinal 离散轴，避免柱子太细)
+            # 基础 X 轴
             base = alt.Chart(df_plot).encode(
                 x=alt.X('Label', sort=alt.EncodingSortField(field="Day_Num", order='ascending'), 
                         title="时间节点 (T+N)",
                         axis=alt.Axis(labelFontSize=20, labelFontWeight='bold', labelAngle=0, titleFontSize=24))
             )
 
-            # 图层 A: 灰色底座 (存量)
+            # A层: 灰色底座 (存量)
             bar_base = base.mark_bar(color="#E0E0E0", size=50).encode(
                 y=alt.Y('Base_Cum', title='累计 Token (Billion)', 
                         axis=alt.Axis(labelFontSize=20, titleFontSize=24)),
                 tooltip=['Label', 'Base_Cum']
             )
 
-            # 图层 B: 彩色增量块 (本阶段新增)
-            # 使用 y2 属性实现堆叠效果：从 Base_Cum 画到 Total_Cum
-            bar_inc = base.mark_bar(color="#636EFA", size=50).encode(
-                y=alt.Y('Base_Cum'), # 起点
-                y2=alt.Y2('Total_Cum'), # 终点
-                # 颜色映射：可以让增量越多颜色越深，或者固定颜色
-                color=alt.value("#636EFA"), 
+            # B层: 彩色增量块 (修复点：让每个柱子颜色不一样！)
+            bar_inc = base.mark_bar(size=50).encode(
+                y=alt.Y('Base_Cum'), 
+                y2=alt.Y2('Total_Cum'), 
+                # 【关键修改】颜色根据 Label 变化，不再是单一蓝色
+                color=alt.Color('Label', legend=None, scale=alt.Scale(scheme='tableau20')), 
                 tooltip=[
                     alt.Tooltip('Label', title='节点'),
                     alt.Tooltip('Increment', title='本阶段新增(B)', format='.4f'),
@@ -234,47 +221,38 @@ elif page == "📈 单模型累积增长 (历史总量)":
                 ]
             )
 
-            # 图层 C: 折线 (连接总高度)
+            # C层: 折线
             line = base.mark_line(color="#333333", strokeWidth=4).encode(
                 y='Total_Cum'
             )
 
-            # 图层 D: 数据点 (红色圆点)
+            # D层: 红色数据点
             points = base.mark_point(
-                filled=True, 
-                fill="#FF4B4B", # 🔴 改成红色
-                color="#FFFFFF", # 白色边框
-                strokeWidth=2,
-                size=200 # 点的大小
+                filled=True, fill="#FF4B4B", color="#FFFFFF", strokeWidth=2, size=200
             ).encode(
                 y='Total_Cum',
-                tooltip=[
-                    alt.Tooltip('Label', title='节点'),
-                    alt.Tooltip('Total_Cum', title='历史总量(B)', format='.4f'),
-                    alt.Tooltip('Increment', title='较上期新增(B)', format='.4f')
-                ]
+                tooltip=['Label', 'Total_Cum', 'Increment']
             )
 
-            # 叠加所有图层
             final_chart = (bar_base + bar_inc + line + points).properties(
                 height=600,
-                title=alt.TitleParams(text=f"{target_model} 增长结构分析", fontSize=24)
+                title=alt.TitleParams(text=f"{target_model} 阶梯增长图", fontSize=24)
             ).interactive()
 
             st.altair_chart(final_chart, use_container_width=True)
 
-            # 4. 下方数据明细 (优化版)
+            # 4. 下方表格 (修复点：移除了报错的 gradient 样式)
             st.markdown("### 📊 阶段增量详情表")
             
-            # 整理表格数据
             table_data = df_plot[['Label', 'Date', 'Total_Cum', 'Increment']].copy()
             table_data.columns = ['节点', '统计日期', '历史累计总量 (B)', '本阶段新增量 (B)']
             
+            # 直接显示，不加 fancy 的背景色，防止报错
             st.dataframe(
                 table_data.style.format({
                     '历史累计总量 (B)': '{:.4f}', 
                     '本阶段新增量 (B)': '{:.4f}'
-                }).background_gradient(subset=['本阶段新增量 (B)'], cmap='Blues'), # 给增量列加个热力色，方便看哪段时间涨最快
+                }), 
                 use_container_width=True
             )
 
@@ -319,6 +297,7 @@ else:
         }), 
         use_container_width=True
     )
+
 
 
 
