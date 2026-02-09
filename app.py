@@ -32,7 +32,12 @@ if error:
     st.stop()
 
 st.sidebar.title("导航")
-page = st.sidebar.radio("选择视图", ["📊 T+N 横向对比", "📈 单模型历史详情", "🔍 原始数据检查"])
+page = st.sidebar.radio("选择视图", [
+    "📊 T+N 横向对比 (每日消耗)", 
+    "📈 单模型累积增长 (历史总量)",   
+    "📉 单模型每日详情 (趋势分析)",   
+    "🔍 原始数据检查"
+])
 
 # === 页面 1: T+N 对比 ===
 if page == "📊 T+N 横向对比":
@@ -136,7 +141,89 @@ if page == "📊 T+N 横向对比":
             df_pivot.columns = [f"T+{c}" for c in df_pivot.columns]
             st.dataframe(df_pivot.style.format("{:.4f} B"), use_container_width=True)
 
-# === 页面 2: 单模型详情 ===
+# ========================================================
+# 📋 页面2：单模型累积增长 (大字体版)
+
+elif page == "📈 单模型累积增长 (历史总量)":
+    st.subheader("🏔️ 单模型历史累计增长曲线")
+    st.info("💡 展示该模型截止到第 N 天的**历史累计** Token 总量。")
+
+    # 1. 选择模型 (单选)
+    all_models = df['Model'].unique()
+    target_model = st.selectbox("选择模型:", all_models)
+
+    if target_model:
+        # 2. 数据处理：计算累积值
+        m_df = df[df['Model'] == target_model].sort_values('Date')
+        m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum() # 累积求和
+
+        # 切掉今天，保留到昨天
+        if len(m_df) > 1:
+            m_df = m_df.iloc[:-1]
+        
+        if not m_df.empty:
+            start_date = m_df.iloc[0]['Date']
+            latest_date = m_df.iloc[-1]['Date']
+            latest_day = (latest_date - start_date).days
+
+            # 筛选关键节点 (T+N)
+            standard_ticks = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
+            plot_data = []
+            final_ticks = set(standard_ticks) 
+            final_ticks.add(latest_day)
+
+            for _, row in m_df.iterrows():
+                day = (row['Date'] - start_date).days
+                if day in standard_ticks or day == latest_day:
+                    plot_data.append({
+                        'Day': day,
+                        'Cumulative': row['Cum_Tokens'],
+                        'Date': row['Date'].strftime('%Y-%m-%d'),
+                        'Label': f"T+{day}" if day != latest_day else f"Latest (T+{day})"
+                    })
+
+            df_plot = pd.DataFrame(plot_data)
+
+            # 3. 绘图 (按照你的要求：28px / 30px 超大字体)
+            chart = alt.Chart(df_plot).mark_line(
+                point=alt.OverlayMarkDef(size=200, filled=True, color="white", strokeWidth=4)
+            ).encode(
+                x=alt.X(
+                    'Day', 
+                    title='上线天数 (Days)',
+                    axis=alt.Axis(
+                        values=list(final_ticks), # 锁定刻度
+                        labelFontSize=28,      # <--- 刻度字体 28
+                        labelFontWeight='bold',
+                        titleFontSize=30,      # <--- 标题字体 30
+                        titleFontWeight='bold',
+                        grid=True
+                    )
+                ),
+                y=alt.Y(
+                    'Cumulative', 
+                    title='累计总量 (Billion)', 
+                    axis=alt.Axis(
+                        labelFontSize=28,      # <--- 刻度字体 28
+                        labelFontWeight='bold',
+                        titleFontSize=30,      # <--- 标题字体 30
+                        titleFontWeight='bold'
+                    )
+                ),
+                tooltip=['Day', 'Cumulative', 'Date', 'Label']
+            ).properties(
+                height=650, # 高度加大，防止字太大了挤在一起
+            ).interactive()
+
+            st.altair_chart(chart, use_container_width=True)
+
+            # 4. 下方数据展示 (转置表格)
+            st.markdown("### 📅 累计数值一览表")
+            # 转置：让 T+0, T+1 横着排，方便看
+            df_table = df_plot.set_index('Label')[['Cumulative']].T
+            st.dataframe(df_table.style.format("{:.4f} B"), use_container_width=True)
+
+# === 页面 3: 单模型详情 ===
 elif page == "📈 单模型历史详情":
     selected_model = st.selectbox("选择模型", df['Model'].unique())
     m_df = df[df['Model'] == selected_model].sort_values('Date')
@@ -161,7 +248,7 @@ elif page == "📈 单模型历史详情":
     
     st.altair_chart(chart, use_container_width=True)
 
-# === 页面 3: 原始数据 ===
+# === 页面 4: 原始数据 ===
 else:
     st.subheader("🔍 数据库原始数据")
     check_model = st.selectbox("选择要检查的模型:", df['Model'].unique())
@@ -177,6 +264,7 @@ else:
         }), 
         use_container_width=True
     )
+
 
 
 
