@@ -17,11 +17,13 @@ MODELS = [
     "z-ai/glm-4.7",
     "z-ai/glm-4.7-flash",
     "z-ai/glm-4.6v",
+    "openrouter/pony-alpha",
     "minimax/minimax-m2.1",
     "minimax/minimax-m2-her",
     "qwen/qwen3-coder-next",
     "qwen/qwen3-embedding-8b",
     "qwen/qwen3-embedding-4b",
+    "qwen/qwen3-max-thinking",
     "anthropic/claude-opus-4.6",
     "anthropic/claude-opus-4.5",
     "google/gemini-3-pro-preview",
@@ -115,4 +117,5 @@ def update_database():
 if __name__ == "__main__":
     if "HTTP_PROXY" in os.environ: del os.environ["HTTP_PROXY"]
     update_database()
+
 
