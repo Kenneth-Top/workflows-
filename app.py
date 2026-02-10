@@ -120,7 +120,7 @@ if page == NAV_TN_DAILY:
         if tn_data:
             df_tn = pd.DataFrame(tn_data)
             
-            # 【关键修改】移除了 .interactive()，并强制 domain 从 0 开始
+            # 【配色优化】使用 tableau10 高对比配色
             chart = alt.Chart(df_tn).mark_line(
                 point=alt.OverlayMarkDef(size=100, filled=True, color="white", strokeWidth=2)
             ).encode(
@@ -128,16 +128,19 @@ if page == NAV_TN_DAILY:
                     'Days_Since_Start', 
                     title='上线天数 (Days)',
                     axis=alt.Axis(values=list(final_tick_values), labelFontSize=20, titleFontSize=24, grid=True),
-                    scale=alt.Scale(domain=[0, max_days_global + 1], clamp=True) # 强制锁定范围
+                    scale=alt.Scale(domain=[0, max_days_global + 1], clamp=True)
                 ),
                 y=alt.Y(
                     'Total_Tokens', 
                     title='Total Tokens (Billion)',
                     axis=alt.Axis(labelFontSize=20, titleFontSize=24)
                 ),
-                color=alt.Color('Model', legend=alt.Legend(title="模型名称", orient='bottom')),
+                # 关键修改：scale=alt.Scale(scheme='tableau10')
+                color=alt.Color('Model', 
+                                scale=alt.Scale(scheme='tableau10'), 
+                                legend=alt.Legend(title="模型名称", orient='bottom')),
                 tooltip=['Model', 'Label', 'Total_Tokens', 'Real_Date']
-            ).properties(height=500) # <--- 注意：这里没有 interactive() 了
+            ).properties(height=500)
             
             st.altair_chart(chart, use_container_width=True)
             
@@ -194,14 +197,18 @@ elif page == NAV_CUMULATIVE_COMPARE:
         if plot_data:
             df_plot = pd.DataFrame(plot_data)
 
-            # 【关键修改】移除了 interactive()
+            # 【配色优化】使用 tableau10 高对比配色
             base = alt.Chart(df_plot).encode(
                 x=alt.X('Day', title="上线天数 (Daily)", 
-                        scale=alt.Scale(domain=[0, max_day_plot + 2], clamp=True), # 锁定范围
+                        scale=alt.Scale(domain=[0, max_day_plot + 2], clamp=True),
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18, grid=True)),
                 y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)', 
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18)),
-                color=alt.Color('Model', title='模型名称', legend=alt.Legend(orient='bottom')),
+                # 关键修改：scale=alt.Scale(scheme='tableau10')
+                color=alt.Color('Model', 
+                                title='模型名称', 
+                                scale=alt.Scale(scheme='tableau10'),
+                                legend=alt.Legend(orient='bottom')),
                 tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
             )
             chart = (base.mark_line(strokeWidth=3) + base.mark_circle(size=60)).properties(height=600)
@@ -256,13 +263,11 @@ elif page == NAV_DETAIL_DAILY:
             else:
                 c3.metric("Prompt Tokens", f"{latest['Prompt']:.4f} B")
 
-            # 【关键修改】移除了 interactive()
-            # 这里的 scale 会自动适应筛选后的 m_df 范围，所以不需要手动 domain
             chart = alt.Chart(m_df).mark_line(point=True).encode(
                 x=alt.X('Date', title='日期', axis=alt.Axis(format='%m-%d')),
                 y=alt.Y('Total_Tokens', title='Token (Billion)'),
                 tooltip=['Date', 'Total_Tokens', 'Prompt', 'Completion']
-            ) # <--- 没有 interactive()
+            )
             
             st.altair_chart(chart, use_container_width=True)
             
