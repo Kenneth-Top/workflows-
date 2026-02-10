@@ -36,13 +36,9 @@ def load_data():
     except Exception as e:
         return None, str(e)
 
-# 【优化3】Excel/CSV 智能导出函数
+# Excel/CSV 智能导出函数
 def get_dataset_download(df, filename_prefix):
-    """
-    尝试导出为 Excel，如果环境不支持则降级为 Excel 兼容的 CSV
-    """
     try:
-        # 尝试使用 openpyxl 导出真正的 Excel
         output = io.BytesIO()
         with pd.ExcelWriter(output, engine='openpyxl') as writer:
             df.to_excel(writer, index=False, sheet_name='Sheet1')
@@ -51,7 +47,6 @@ def get_dataset_download(df, filename_prefix):
         mime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         label = "📥 下载 Excel 文件 (.xlsx)"
     except ImportError:
-        # 如果没有安装 openpyxl，降级为 CSV (utf-8-sig 确保 Excel 打开不乱码)
         data = df.to_csv(index=False).encode('utf-8-sig')
         file_name = f"{filename_prefix}.csv"
         mime = "text/csv"
@@ -93,14 +88,12 @@ if page == NAV_TN_DAILY:
         standard_ticks = [0, 1, 2, 3, 4, 5, 6, 7, 10, 14, 30, 60]
         final_tick_values = set(standard_ticks)
         
-        # 用于计算横轴最大值，固定视图
         max_days_global = 0
 
         for name in selected_names:
             m_df = df[df['Display_Name'] == name].sort_values('Date')
             if m_df.empty: continue
             
-            # 显示起始日期
             start_date = m_df.iloc[0]['Date']
             st.caption(f"📅 **{name}** 收录起始日: {start_date.strftime('%Y-%m-%d')}")
             
@@ -110,7 +103,6 @@ if page == NAV_TN_DAILY:
             latest_day_diff = (latest_date - start_date).days
             final_tick_values.add(latest_day_diff)
             
-            # 更新全局最大天数
             if latest_day_diff > max_days_global:
                 max_days_global = latest_day_diff
 
@@ -128,7 +120,7 @@ if page == NAV_TN_DAILY:
         if tn_data:
             df_tn = pd.DataFrame(tn_data)
             
-            # 【优化1】锁定横轴范围 domain=[0, max]
+            # 【关键修改】移除了 .interactive()，并强制 domain 从 0 开始
             chart = alt.Chart(df_tn).mark_line(
                 point=alt.OverlayMarkDef(size=100, filled=True, color="white", strokeWidth=2)
             ).encode(
@@ -136,8 +128,7 @@ if page == NAV_TN_DAILY:
                     'Days_Since_Start', 
                     title='上线天数 (Days)',
                     axis=alt.Axis(values=list(final_tick_values), labelFontSize=20, titleFontSize=24, grid=True),
-                    # 关键修改：强制锁定范围，禁止拖到负数
-                    scale=alt.Scale(domain=[0, max_days_global + 1], clamp=True)
+                    scale=alt.Scale(domain=[0, max_days_global + 1], clamp=True) # 强制锁定范围
                 ),
                 y=alt.Y(
                     'Total_Tokens', 
@@ -146,17 +137,15 @@ if page == NAV_TN_DAILY:
                 ),
                 color=alt.Color('Model', legend=alt.Legend(title="模型名称", orient='bottom')),
                 tooltip=['Model', 'Label', 'Total_Tokens', 'Real_Date']
-            ).properties(height=500).interactive()
+            ).properties(height=500) # <--- 注意：这里没有 interactive() 了
             
             st.altair_chart(chart, use_container_width=True)
             
-            # 数据表与下载
             st.markdown("#### 📋 数据明细")
             df_pivot = df_tn.pivot_table(index='Model', columns='Days_Since_Start', values='Total_Tokens')
             df_pivot.columns = [f"T+{c}" for c in df_pivot.columns]
             st.dataframe(df_pivot.style.format("{:.4f} B"), use_container_width=True)
             
-            # 【优化2】下载
             data, name, mime, label = get_dataset_download(df_pivot.reset_index(), "tn_daily_comparison")
             st.download_button(label=label, data=data, file_name=name, mime=mime)
 
@@ -176,7 +165,6 @@ elif page == NAV_CUMULATIVE_COMPARE:
         plot_data = []
         max_day_plot = 0
         
-        # 显示模型起始时间
         cols = st.columns(len(selected_names))
         for idx, name in enumerate(selected_names):
             m_df_temp = df[df['Display_Name'] == name].sort_values('Date')
@@ -191,8 +179,6 @@ elif page == NAV_CUMULATIVE_COMPARE:
             if m_df.empty: continue
 
             start_date = m_df.iloc[0]['Date']
-            
-            # 计算最大天数用于锁轴
             current_max_day = (m_df.iloc[-1]['Date'] - start_date).days
             if current_max_day > max_day_plot:
                 max_day_plot = current_max_day
@@ -208,24 +194,24 @@ elif page == NAV_CUMULATIVE_COMPARE:
         if plot_data:
             df_plot = pd.DataFrame(plot_data)
 
-            # 【优化1】锁定横轴
+            # 【关键修改】移除了 interactive()
             base = alt.Chart(df_plot).encode(
                 x=alt.X('Day', title="上线天数 (Daily)", 
-                        scale=alt.Scale(domain=[0, max_day_plot + 2], clamp=True), # 锁定
+                        scale=alt.Scale(domain=[0, max_day_plot + 2], clamp=True), # 锁定范围
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18, grid=True)),
                 y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)', 
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18)),
                 color=alt.Color('Model', title='模型名称', legend=alt.Legend(orient='bottom')),
                 tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
             )
-            chart = (base.mark_line(strokeWidth=3) + base.mark_circle(size=60)).properties(height=600).interactive()
+            chart = (base.mark_line(strokeWidth=3) + base.mark_circle(size=60)).properties(height=600)
+            
             st.altair_chart(chart, use_container_width=True)
 
             st.markdown("### 📅 累计数值明细")
             df_pivot = df_plot.pivot_table(index='Day', columns='Model', values='Cumulative_Tokens')
             st.dataframe(df_pivot.style.format("{:.4f} B"), use_container_width=True)
 
-            # 【优化2】下载
             data, name, mime, label = get_dataset_download(df_pivot.reset_index(), "cumulative_growth")
             st.download_button(label=label, data=data, file_name=name, mime=mime)
 
@@ -239,12 +225,10 @@ elif page == NAV_DETAIL_DAILY:
     m_df_full = df[df['Display_Name'] == selected_name].sort_values('Date')
     
     if not m_df_full.empty:
-        # 【功能新增】显示数据起始日期
         min_date = m_df_full['Date'].min().date()
         max_date = m_df_full['Date'].max().date()
         st.success(f"📅 **{selected_name}** 数据收录区间: {min_date} 至 {max_date}")
 
-        # 【功能新增】日期范围筛选器
         col_filter1, col_filter2 = st.columns([1, 3])
         with col_filter1:
             date_range = st.date_input(
@@ -254,16 +238,13 @@ elif page == NAV_DETAIL_DAILY:
                 max_value=max_date
             )
         
-        # 根据筛选器过滤数据
         if len(date_range) == 2:
             start_filter, end_filter = date_range
-            # 转换为 datetime 进行比较
             mask = (m_df_full['Date'].dt.date >= start_filter) & (m_df_full['Date'].dt.date <= end_filter)
             m_df = m_df_full.loc[mask]
         else:
             m_df = m_df_full
 
-        # 指标展示
         if not m_df.empty:
             latest = m_df.iloc[-1]
             c1, c2, c3 = st.columns(3)
@@ -275,20 +256,20 @@ elif page == NAV_DETAIL_DAILY:
             else:
                 c3.metric("Prompt Tokens", f"{latest['Prompt']:.4f} B")
 
-            # 【优化1】图表 (横轴随筛选范围自动锁定)
+            # 【关键修改】移除了 interactive()
+            # 这里的 scale 会自动适应筛选后的 m_df 范围，所以不需要手动 domain
             chart = alt.Chart(m_df).mark_line(point=True).encode(
                 x=alt.X('Date', title='日期', axis=alt.Axis(format='%m-%d')),
                 y=alt.Y('Total_Tokens', title='Token (Billion)'),
                 tooltip=['Date', 'Total_Tokens', 'Prompt', 'Completion']
-            ).interactive()
+            ) # <--- 没有 interactive()
+            
             st.altair_chart(chart, use_container_width=True)
             
-            # 数据表
             display_cols = ['Date', 'Total_Tokens', 'Prompt', 'Completion', 'Reasoning']
             valid_cols = [c for c in display_cols if c in m_df.columns]
             st.dataframe(m_df[valid_cols].sort_values('Date', ascending=False).style.format({'Total_Tokens':'{:.4f}'}), use_container_width=True)
 
-            # 【优化2】下载
             data, name, mime, label = get_dataset_download(m_df[valid_cols], f"{selected_name}_daily")
             st.download_button(label=label, data=data, file_name=name, mime=mime)
         else:
