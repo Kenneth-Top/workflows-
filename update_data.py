@@ -28,7 +28,9 @@ MODELS = [
     "anthropic/claude-opus-4.5",
     "google/gemini-3-pro-preview",
     "google/gemini-3-flash-preview",
-    "google/gemini-3-pro-image-preview"
+    "google/gemini-3-pro-image-preview",
+    "openai/gpt-5.1",
+    "openai/gpt-5.1-codex",
     "openai/gpt-5.2-codex",
     "openai/gpt-5.2",
     "x-ai/grok-4.1-fast"
@@ -117,5 +119,6 @@ def update_database():
 if __name__ == "__main__":
     if "HTTP_PROXY" in os.environ: del os.environ["HTTP_PROXY"]
     update_database()
+
 
 
