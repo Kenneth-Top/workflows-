@@ -82,6 +82,8 @@ def update_database():
 
     # 3. 批量爬取 analytics 数据
     new_records = []
+    today_str = datetime.utcnow().strftime("%Y-%m-%d")  # OpenRouter 使用 UTC 日期
+
     for i, model in enumerate(all_models):
         print(f"🚀 [{i+1}/{len(all_models)}] 正在抓取: {model}")
         data = fetch_analytics(model)
@@ -89,6 +91,11 @@ def update_database():
             continue
 
         for record in data:
+            # 过滤当天未结算数据（当天统计不完整，会导致数值偏低）
+            record_date_str = record['date'][:10]  # "2026-02-13 00:00:00" -> "2026-02-13"
+            if record_date_str == today_str:
+                continue
+
             p = (record.get('total_prompt_tokens') or 0) / 1e9
             c = (record.get('total_completion_tokens') or 0) / 1e9
             r = (record.get('total_native_tokens_reasoning') or 0) / 1e9
