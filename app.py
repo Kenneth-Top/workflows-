@@ -70,6 +70,14 @@ page = st.sidebar.radio("选择视图", [
 
 all_model_names = df['Display_Name'].unique()
 
+# 数据概览面板
+st.sidebar.divider()
+st.sidebar.markdown("#### 📊 数据概览")
+st.sidebar.metric("追踪模型数", len(all_model_names))
+st.sidebar.caption(
+    f"📅 数据区间: {df['Date'].min().strftime('%Y-%m-%d')} ~ {df['Date'].max().strftime('%Y-%m-%d')}"
+)
+
 # ========================================================
 # 页面 1: T+N 横向对比 (每日消耗)
 # ========================================================
