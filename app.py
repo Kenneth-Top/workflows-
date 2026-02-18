@@ -596,6 +596,8 @@ elif page == NAV_DAILY_BRIEF:
 
         # ── AI 专业媒体 RSS 源 ──
         RSS_FEEDS = [
+            ("Reddit LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/new/.rss"),
+            ("Simon Willison",    "https://simonwillison.net/atom/entries/"),
             ("TechCrunch AI",     "https://techcrunch.com/category/artificial-intelligence/feed/"),
             ("The Verge AI",      "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
             ("Ars Technica",      "https://feeds.arstechnica.com/arstechnica/technology-lab"),
@@ -622,18 +624,39 @@ elif page == NAV_DAILY_BRIEF:
                     return label
             return None
 
-        # ── 构建品牌名标签映射（RSS 来源本身是 AI 媒体，不需要过滤短词）──
+        # ── 构建品牌名标签映射 ──
         model_names_raw = new_models_df['Model'].tolist()
         brand_label_map = {}
+        
+        # 强制置顶 OpenRouter（确保优先匹配）
+        brand_label_map["openrouter"] = "openrouter"
+        brand_label_map["open router"] = "openrouter" 
+        
         for full_name in model_names_raw:
             brand = extract_brand(full_name)
             if brand and len(brand) >= 3:
                 brand_label_map[brand] = brand
-        # 补充常见厂商别名，提高召回率
-        ALIAS_MAP = {"gpt": "openai", "o1": "openai", "o3": "openai", "step": "stepfun"}
+        
+        # 补充厂商别名和关联（国外+国内主流模型）
+        ALIAS_MAP = {
+            # 国外
+            "gpt": "openai", "o1": "openai", "o3": "openai", 
+            "claude": "anthropic", "gemini": "google", 
+            "llama": "meta", "mistral": "mistralai",
+            # 国内
+            "kimi": "moonshot", "yi": "01.ai", 
+            "doubao": "bytedance", "hunyuan": "tencent",
+            "ernie": "baidu", "qwen": "alibaba",
+            "chatglm": "zhipu", "glm": "zhipu",
+            "minimax": "minimax", "step": "stepfun",
+            "deepseek": "deepseek", "baichuan": "baichuan",
+            "sensechat": "sensetime", "spark": "iflytek"
+        }
         for short, full in ALIAS_MAP.items():
+            # 只要新模型里出现了 short (如 claude)，就同时也关注 full (anthropic)
             if short in brand_label_map:
                 brand_label_map[full] = full
+
 
         cutoff = latest_date - pd.Timedelta(days=14)
         cutoff_str = cutoff.strftime('%Y-%m-%d')
@@ -649,50 +672,70 @@ elif page == NAV_DAILY_BRIEF:
             except Exception:
                 return text
 
-        # ── 抓取并解析 RSS（缓存 3 小时，使用 feedparser）──
+        # ── 抓取并解析 RSS（缓存 3 小时，带 User-Agent 防反爬）──
         @st.cache_data(ttl=10800)
         def fetch_rss_articles(cutoff_str):
             import feedparser
             cutoff_dt = pd.Timestamp(cutoff_str, tz='UTC')
             results = []
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+            
             for feed_name, feed_url in RSS_FEEDS:
                 try:
-                    feed = feedparser.parse(feed_url)
+                    # 先用 requests 获取内容（绕过 Reddit 等站点的 UA 检查）
+                    resp = _requests.get(feed_url, headers=headers, timeout=10)
+                    if resp.status_code != 200:
+                        continue
+                        
+                    feed = feedparser.parse(resp.content)
+                    
                     for entry in feed.entries:
                         title = entry.get('title', '').strip()
                         link  = entry.get('link', '#')
+                        
                         # 摘要：优先 summary，其次 content
                         desc_raw = entry.get('summary', '') or ''
                         if not desc_raw and entry.get('content'):
                             desc_raw = entry['content'][0].get('value', '')
                         import re as _re2
                         desc = _re2.sub(r'<[^>]+>', '', desc_raw).strip()[:300]
-                        # 发布时间：feedparser 统一解析为 time.struct_time
+                        
+                        # 发布时间
                         pub_parsed = entry.get('published_parsed') or entry.get('updated_parsed')
                         if pub_parsed:
                             pub_dt = pd.Timestamp(*pub_parsed[:6], tz='UTC')
                         else:
                             pub_dt = pd.Timestamp.now(tz='UTC')
+                            
                         if pub_dt < cutoff_dt:
                             continue
+                            
                         results.append({
                             'title': title, 'desc': desc, 'link': link,
                             'source': feed_name, 'date': pub_dt.strftime('%Y-%m-%d'),
                         })
                 except Exception:
                     continue
+            
             results.sort(key=lambda x: x['date'], reverse=True)
             return results
 
 
-        brand_display = ', '.join(list(brand_label_map.keys())[:8])
-        st.caption(f"数据来源: TechCrunch / VentureBeat / The Verge / Ars Technica · 每3小时更新 · 匹配品牌: {brand_display}")
+        # 显示匹配的品牌（OpenRouter 置顶显示）
+        display_brands = list(brand_label_map.keys())
+        if "openrouter" in display_brands:
+            display_brands.remove("openrouter")
+            display_brands.insert(0, "openrouter")
+        brand_display = ', '.join(display_brands[:10])
+        
+        st.caption(f"数据来源: Reddit / Simon Willison / TechCrunch / The Verge 等 · 每3小时更新 · 重点关注: {brand_display}")
 
         all_articles = fetch_rss_articles(cutoff_str)
 
         # ── 过滤出与新模型相关的文章 ──
         matched = []
         for art in all_articles:
+            # 搜索匹配
             tag = detect_tag(f"{art['title']} {art['desc']}", brand_label_map)
             if tag is not None:
                 art['tag'] = tag
@@ -705,8 +748,14 @@ elif page == NAV_DAILY_BRIEF:
             for art in matched:
                 title_zh = translate_zh(art['title']) if art['title'] else "无标题"
                 desc_zh = translate_zh(art['desc']) if art['desc'] else ""
+                
+                # 标题加上标签，如果是 OpenRouter 则高亮
+                tag_str = f"[{art['tag']}]"
+                if art['tag'] == "openrouter":
+                    tag_str = "🔥 [OpenRouter]"
+                
                 with st.expander(
-                    f"[{art['tag']}]  {title_zh}  ·  {art['source']}  ·  {art['date']}",
+                    f"{tag_str}  {title_zh}  ·  {art['source']}  ·  {art['date']}",
                     expanded=False
                 ):
                     if desc_zh:
