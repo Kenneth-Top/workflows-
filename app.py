@@ -597,8 +597,102 @@ elif page == NAV_DAILY_BRIEF:
         import requests as _requests
         import re as _re
 
-        # ── 从模型全名提取核心搜索词 ──
-        def extract_core_terms(full_name):
+        # ── 从模型全名提取品牌名（用于宽泛搜索）──
+        def extract_brand(full_name):
+            """
+            'anthropic/claude-opus-4.6' → 'claude'
+            'minimax/minimax-text-01'   → 'minimax'
+            'openai/gpt-4o'             → 'gpt-4o'
+            取斜杠后第一段连字符前的词作为品牌名
+            """
+            base = full_name.split('/')[-1]
+            brand = base.split('-')[0]
+            return brand.lower()
+
+        # ── 自动打标签：检测文章中出现的品牌名 ──
+        def detect_tag(text, brand_label_map):
+            text_lower = text.lower()
+            for brand, label in brand_label_map.items():
+                if brand in text_lower:
+                    return label
+            return "行业动态"
+
+        # ── 构建搜索词（品牌名去重）和标签映射 ──
+        model_names_raw = new_models_df['Model'].head(15).tolist()
+        brands_seen, brand_label_map = [], {}
+        for full_name in model_names_raw:
+            brand = extract_brand(full_name)
+            if brand not in brands_seen:
+                brands_seen.append(brand)
+            brand_label_map[brand] = brand  # 标签就用品牌名
+
+        # 固定加上 openrouter，最多取 8 个品牌词
+        fixed_terms = ["openrouter"]
+        all_terms = brands_seen[:8] + [t for t in fixed_terms if t not in brands_seen]
+        query = " OR ".join(f'"{t}"' for t in all_terms)
+
+        # ── 翻译函数（deep-translator，缓存 24 小时）──
+        @st.cache_data(ttl=86400)
+        def translate_zh(text):
+            if not text or not text.strip():
+                return text
+            try:
+                from deep_translator import GoogleTranslator
+                return GoogleTranslator(source='en', target='zh-CN').translate(text)
+            except Exception:
+                return text  # 翻译失败返回原文
+
+        # ── 抓取新闻（缓存 6 小时）──
+        @st.cache_data(ttl=21600)
+        def fetch_news(api_key, q, from_date_str):
+            try:
+                resp = _requests.get(
+                    "https://newsapi.org/v2/everything",
+                    params={"q": q, "from": from_date_str, "sortBy": "publishedAt",
+                            "language": "en", "pageSize": 30, "apiKey": api_key},
+                    timeout=15
+                )
+                resp.raise_for_status()
+                return resp.json().get("articles", [])
+            except Exception as e:
+                return f"ERROR:{e}"
+
+        from_date = (latest_date - pd.Timedelta(days=14)).strftime("%Y-%m-%d")
+        st.caption(f"数据来源: NewsAPI · 每6小时更新 · 搜索品牌: {', '.join(all_terms)}")
+
+        articles = fetch_news(news_api_key, query, from_date)
+
+        if isinstance(articles, str) and articles.startswith("ERROR:"):
+            st.error(f"新闻获取失败：{articles[6:]}")
+        else:
+            articles = [a for a in articles if a.get("title") and a["title"] != "[Removed]"]
+
+            if not articles:
+                st.info("近两周内未找到相关新闻。")
+            else:
+                st.markdown(f"共找到 **{len(articles)}** 条相关新闻（标题和摘要已翻译为中文）")
+
+                for art in articles:
+                    title_en = art.get("title", "")
+                    desc_en = art.get("description") or ""
+                    source = art.get("source", {}).get("name", "未知来源")
+                    published = art.get("publishedAt", "")[:10]
+                    url_link = art.get("url", "#")
+
+                    # 自动打标签
+                    tag = detect_tag(f"{title_en} {desc_en}", brand_label_map)
+
+                    # 翻译标题和摘要
+                    title_zh = translate_zh(title_en) if title_en else "无标题"
+                    desc_zh = translate_zh(desc_en) if desc_en else ""
+
+                    with st.expander(f"[{tag}]  {title_zh}  ·  {source}  ·  {published}", expanded=False):
+                        if desc_zh:
+                            st.markdown(desc_zh)
+                        st.caption(f"原文: {title_en}")
+                        st.markdown(f"[阅读原文 →]({url_link})")
+
+
             """
             'anthropic/claude-opus-4.6' → ['claude-opus-4.6', 'claude opus']
             去掉厂商前缀和日期后缀，生成连字符版和空格版两种形式
