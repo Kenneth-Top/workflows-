@@ -582,115 +582,147 @@ elif page == NAV_DAILY_BRIEF:
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
     # ============================
-    # 模块 E: 近两周新模型动态 (NewsAPI)
+    # 模块 E: 近两周新模型动态 (RSS)
     # ============================
     st.markdown("---")
     st.markdown("### 近两周新模型动态")
 
-    news_api_key = st.secrets.get("NEWS_API_KEY", None)
-
-    if not news_api_key:
-        st.info("未检测到 NEWS_API_KEY 配置。请在 Streamlit Cloud → Settings → Secrets 中添加 `NEWS_API_KEY = \"你的Key\"`。")
-    elif new_models_df.empty:
+    if new_models_df.empty:
         st.info("近两周内无新上线模型，暂无相关新闻可检索。")
     else:
-        import requests as _requests
         import re as _re
+        import xml.etree.ElementTree as _ET
+        import requests as _requests
+        from email.utils import parsedate_to_datetime
 
-        # ── 从模型全名提取品牌名（用于宽泛搜索）──
+        # ── AI 专业媒体 RSS 源 ──
+        RSS_FEEDS = [
+            ("TechCrunch AI",   "https://techcrunch.com/category/artificial-intelligence/feed/"),
+            ("VentureBeat AI",  "https://venturebeat.com/category/ai/feed/"),
+            ("The Verge AI",    "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
+            ("Ars Technica",    "https://feeds.arstechnica.com/arstechnica/technology-lab"),
+        ]
+
+        # ── 从模型全名提取品牌名 ──
         def extract_brand(full_name):
-            """
-            'anthropic/claude-opus-4.6' → 'claude'
-            'minimax/minimax-text-01'   → 'minimax'
-            'openai/gpt-4o'             → 'gpt-4o'
-            取斜杠后第一段连字符前的词作为品牌名
-            """
             base = full_name.split('/')[-1]
-            brand = base.split('-')[0]
-            return brand.lower()
+            return base.split('-')[0].lower()
 
-        # ── 自动打标签：检测文章中出现的品牌名 ──
+        # ── 自动打标签：返回匹配的品牌名，无匹配返回 None ──
         def detect_tag(text, brand_label_map):
             text_lower = text.lower()
             for brand, label in brand_label_map.items():
                 if brand in text_lower:
                     return label
-            return "行业动态"
+            return None
 
-        # ── 构建搜索词（品牌名去重）和标签映射 ──
-        model_names_raw = new_models_df['Model'].head(15).tolist()
-        brands_seen, brand_label_map = [], {}
+        # ── 构建品牌名标签映射（RSS 来源本身是 AI 媒体，不需要过滤短词）──
+        model_names_raw = new_models_df['Model'].tolist()
+        brand_label_map = {}
         for full_name in model_names_raw:
             brand = extract_brand(full_name)
-            if brand not in brands_seen:
-                brands_seen.append(brand)
-            brand_label_map[brand] = brand  # 标签就用品牌名
+            if brand and len(brand) >= 3:
+                brand_label_map[brand] = brand
+        # 补充常见厂商别名，提高召回率
+        ALIAS_MAP = {"gpt": "openai", "o1": "openai", "o3": "openai", "step": "stepfun"}
+        for short, full in ALIAS_MAP.items():
+            if short in brand_label_map:
+                brand_label_map[full] = full
 
-        # 固定加上 openrouter，最多取 8 个品牌词
-        fixed_terms = ["openrouter"]
-        all_terms = brands_seen[:8] + [t for t in fixed_terms if t not in brands_seen]
-        query = " OR ".join(f'"{t}"' for t in all_terms)
+        cutoff = latest_date - pd.Timedelta(days=14)
+        cutoff_str = cutoff.strftime('%Y-%m-%d')
 
-        # ── 翻译函数（deep-translator，缓存 24 小时）──
+        # ── 翻译函数（缓存 24 小时）──
         @st.cache_data(ttl=86400)
         def translate_zh(text):
             if not text or not text.strip():
                 return text
             try:
                 from deep_translator import GoogleTranslator
-                return GoogleTranslator(source='en', target='zh-CN').translate(text)
+                return GoogleTranslator(source='en', target='zh-CN').translate(text[:500])
             except Exception:
-                return text  # 翻译失败返回原文
+                return text
 
-        # ── 抓取新闻（缓存 6 小时）──
-        @st.cache_data(ttl=21600)
-        def fetch_news(api_key, q, from_date_str):
-            try:
-                resp = _requests.get(
-                    "https://newsapi.org/v2/everything",
-                    params={"q": q, "from": from_date_str, "sortBy": "publishedAt",
-                            "language": "en", "pageSize": 30, "apiKey": api_key},
-                    timeout=15
-                )
-                resp.raise_for_status()
-                return resp.json().get("articles", [])
-            except Exception as e:
-                return f"ERROR:{e}"
+        # ── 抓取并解析 RSS（缓存 3 小时）──
+        @st.cache_data(ttl=10800)
+        def fetch_rss_articles(cutoff_str):
+            cutoff_dt = pd.Timestamp(cutoff_str, tz='UTC')
+            results = []
+            ns = {'atom': 'http://www.w3.org/2005/Atom'}
+            for feed_name, feed_url in RSS_FEEDS:
+                try:
+                    resp = _requests.get(feed_url, timeout=10,
+                                         headers={"User-Agent": "Mozilla/5.0"})
+                    resp.raise_for_status()
+                    root = _ET.fromstring(resp.content)
+                    items = root.findall('.//item') or root.findall('.//atom:entry', ns)
+                    for item in items:
+                        # 标题
+                        title_el = item.find('title') or item.find('atom:title', ns)
+                        title = (title_el.text or '').strip() if title_el is not None else ''
+                        # 链接
+                        link_el = item.find('link') or item.find('atom:link', ns)
+                        if link_el is not None:
+                            link = link_el.get('href') or (link_el.text or '').strip()
+                        else:
+                            link = '#'
+                        # 摘要（去掉 HTML 标签）
+                        desc_el = (item.find('description') or item.find('summary') or
+                                   item.find('atom:summary', ns))
+                        desc_raw = (desc_el.text or '') if desc_el is not None else ''
+                        desc = _re.sub(r'<[^>]+>', '', desc_raw).strip()[:300]
+                        # 发布时间
+                        pub_el = (item.find('pubDate') or item.find('published') or
+                                  item.find('atom:published', ns))
+                        pub_str = (pub_el.text or '').strip() if pub_el is not None else ''
+                        try:
+                            pub_dt = pd.Timestamp(parsedate_to_datetime(pub_str))
+                            if pub_dt.tzinfo is None:
+                                pub_dt = pub_dt.tz_localize('UTC')
+                        except Exception:
+                            try:
+                                pub_dt = pd.Timestamp(pub_str, tz='UTC')
+                            except Exception:
+                                pub_dt = pd.Timestamp.now(tz='UTC')
+                        if pub_dt < cutoff_dt:
+                            continue
+                        results.append({
+                            'title': title, 'desc': desc, 'link': link,
+                            'source': feed_name, 'date': pub_dt.strftime('%Y-%m-%d'),
+                        })
+                except Exception:
+                    continue
+            results.sort(key=lambda x: x['date'], reverse=True)
+            return results
 
-        from_date = (latest_date - pd.Timedelta(days=14)).strftime("%Y-%m-%d")
-        st.caption(f"数据来源: NewsAPI · 每6小时更新 · 搜索品牌: {', '.join(all_terms)}")
+        brand_display = ', '.join(list(brand_label_map.keys())[:8])
+        st.caption(f"数据来源: TechCrunch / VentureBeat / The Verge / Ars Technica · 每3小时更新 · 匹配品牌: {brand_display}")
 
-        articles = fetch_news(news_api_key, query, from_date)
+        all_articles = fetch_rss_articles(cutoff_str)
 
-        if isinstance(articles, str) and articles.startswith("ERROR:"):
-            st.error(f"新闻获取失败：{articles[6:]}")
+        # ── 过滤出与新模型相关的文章 ──
+        matched = []
+        for art in all_articles:
+            tag = detect_tag(f"{art['title']} {art['desc']}", brand_label_map)
+            if tag is not None:
+                art['tag'] = tag
+                matched.append(art)
+
+        if not matched:
+            st.info("近两周内 AI 媒体中未找到这些模型的相关报道。")
         else:
-            articles = [a for a in articles if a.get("title") and a["title"] != "[Removed]"]
-
-            if not articles:
-                st.info("近两周内未找到相关新闻。")
-            else:
-                st.markdown(f"共找到 **{len(articles)}** 条相关新闻（标题和摘要已翻译为中文）")
-
-                for art in articles:
-                    title_en = art.get("title", "")
-                    desc_en = art.get("description") or ""
-                    source = art.get("source", {}).get("name", "未知来源")
-                    published = art.get("publishedAt", "")[:10]
-                    url_link = art.get("url", "#")
-
-                    # 自动打标签
-                    tag = detect_tag(f"{title_en} {desc_en}", brand_label_map)
-
-                    # 翻译标题和摘要
-                    title_zh = translate_zh(title_en) if title_en else "无标题"
-                    desc_zh = translate_zh(desc_en) if desc_en else ""
-
-                    with st.expander(f"[{tag}]  {title_zh}  ·  {source}  ·  {published}", expanded=False):
-                        if desc_zh:
-                            st.markdown(desc_zh)
-                        st.caption(f"原文: {title_en}")
-                        st.markdown(f"[阅读原文 →]({url_link})")
+            st.markdown(f"共找到 **{len(matched)}** 条相关报道（标题和摘要已翻译为中文）")
+            for art in matched:
+                title_zh = translate_zh(art['title']) if art['title'] else "无标题"
+                desc_zh = translate_zh(art['desc']) if art['desc'] else ""
+                with st.expander(
+                    f"[{art['tag']}]  {title_zh}  ·  {art['source']}  ·  {art['date']}",
+                    expanded=False
+                ):
+                    if desc_zh:
+                        st.markdown(desc_zh)
+                    st.caption(f"原文: {art['title']}")
+                    st.markdown(f"[阅读原文 →]({art['link']})")
 
 
 
