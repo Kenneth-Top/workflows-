@@ -596,11 +596,18 @@ elif page == NAV_DAILY_BRIEF:
 
         # ── AI 专业媒体 RSS 源 ──
         RSS_FEEDS = [
-            ("TechCrunch AI",   "https://techcrunch.com/category/artificial-intelligence/feed/"),
-            ("VentureBeat AI",  "https://venturebeat.com/category/ai/feed/"),
-            ("The Verge AI",    "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
-            ("Ars Technica",    "https://feeds.arstechnica.com/arstechnica/technology-lab"),
+            ("TechCrunch AI",     "https://techcrunch.com/category/artificial-intelligence/feed/"),
+            ("The Verge AI",      "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
+            ("Ars Technica",      "https://feeds.arstechnica.com/arstechnica/technology-lab"),
+            ("Wired AI",          "https://www.wired.com/feed/tag/ai/latest/rss"),
+            ("MIT Tech Review",   "https://www.technologyreview.com/feed/"),
+            ("InfoQ AI",          "https://feed.infoq.com/"),
+            ("OpenAI Blog",       "https://openai.com/blog/rss.xml"),
+            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml"),
+            ("Google DeepMind",   "https://deepmind.google/blog/rss.xml"),
+            ("Last Week in AI",   "https://lastweekin.ai/feed"),
         ]
+
 
         # ── 从模型全名提取品牌名 ──
         def extract_brand(full_name):
