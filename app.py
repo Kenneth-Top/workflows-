@@ -17,6 +17,7 @@ NAV_TN_DAILY = "📊 T+N 横向对比 (每日消耗)"
 NAV_CUMULATIVE_COMPARE = "📈 多模型累计增长 (趋势对比)"
 NAV_DETAIL_DAILY = "📉 单模型每日详情 (趋势分析)"
 NAV_RAW_DATA = "🔍 原始数据检查"
+NAV_DAILY_BRIEF = "🧠 每日速览与分析"
 
 # === 2. 工具函数 ===
 
@@ -62,6 +63,7 @@ if error:
 # === 3. 侧边栏导航 ===
 st.sidebar.title("导航")
 page = st.sidebar.radio("选择视图", [
+    NAV_DAILY_BRIEF,
     NAV_TN_DAILY,
     NAV_CUMULATIVE_COMPARE,
     NAV_DETAIL_DAILY,
@@ -309,3 +311,238 @@ elif page == NAV_RAW_DATA:
             'Reasoning': '{:.6f} B', 'Total_Tokens': '{:.6f} B'
         }), use_container_width=True
     )
+
+# ========================================================
+# 页面 5: 每日速览与分析
+# ========================================================
+elif page == NAV_DAILY_BRIEF:
+    st.subheader("🧠 每日速览与模型分析")
+    st.info("💡 自动生成模型表现分析，基于多维度数据指标计算，无需 AI 接口。")
+
+    # --- 预计算所有模型的指标 ---
+    latest_date = df['Date'].max()
+    two_weeks_ago = latest_date - pd.Timedelta(days=14)
+    seven_days_ago = latest_date - pd.Timedelta(days=7)
+
+    metrics_list = []
+    for name in all_model_names:
+        m_df = df[df['Display_Name'] == name].sort_values('Date')
+        if m_df.empty:
+            continue
+        # 去掉最后一天（当天未结算数据，和其他页面逻辑保持一致）
+        if len(m_df) > 1:
+            m_df = m_df.iloc[:-1]
+        if m_df.empty:
+            continue
+
+        first_date = m_df.iloc[0]['Date']
+        last_date = m_df.iloc[-1]['Date']
+        days_online = max((last_date - first_date).days, 1)
+        cumulative = m_df['Total_Tokens'].sum()
+        daily_avg = cumulative / days_online
+        peak = m_df['Total_Tokens'].max()
+
+        # 近 7 日增速
+        recent_df = m_df[m_df['Date'] >= seven_days_ago]
+        recent_days = max(len(recent_df), 1)
+        recent_avg = recent_df['Total_Tokens'].sum() / recent_days if not recent_df.empty else 0
+
+        # 增长动量
+        momentum = (recent_avg / daily_avg) if daily_avg > 0 else 0
+
+        metrics_list.append({
+            'Model': name,
+            'First_Date': first_date,
+            'Last_Date': last_date,
+            'Days_Online': days_online,
+            'Cumulative': round(cumulative, 4),
+            'Daily_Avg': round(daily_avg, 4),
+            'Recent_7d_Avg': round(recent_avg, 4),
+            'Momentum': round(momentum, 2),
+            'Peak': round(peak, 4),
+        })
+
+    df_metrics = pd.DataFrame(metrics_list)
+
+    if df_metrics.empty:
+        st.warning("⚠️ 暂无可分析的模型数据。")
+        st.stop()
+
+    # ============================
+    # 模块 A: 近两周新上线模型
+    # ============================
+    st.markdown("---")
+    st.markdown("### 🆕 近两周新上线模型一览")
+    st.caption(f"📅 统计区间: {two_weeks_ago.strftime('%Y-%m-%d')} ~ {latest_date.strftime('%Y-%m-%d')}")
+
+    new_models_df = df_metrics[df_metrics['First_Date'] >= two_weeks_ago].sort_values('First_Date', ascending=False)
+
+    if new_models_df.empty:
+        st.info("过去两周内没有新上线的模型。")
+    else:
+        st.success(f"🎉 过去两周共上线 **{len(new_models_df)}** 个新模型")
+        display_new = new_models_df[['Model', 'First_Date', 'Days_Online', 'Cumulative', 'Daily_Avg']].copy()
+        display_new.columns = ['模型名称', '上线日期', '上线天数', '累计消耗 (B)', '日均消耗 (B)']
+        display_new['上线日期'] = display_new['上线日期'].dt.strftime('%Y-%m-%d')
+        st.dataframe(
+            display_new.style.format({'累计消耗 (B)': '{:.4f}', '日均消耗 (B)': '{:.4f}'}),
+            use_container_width=True, hide_index=True
+        )
+
+    # ============================
+    # 模块 B: 全模型表现排名
+    # ============================
+    st.markdown("---")
+    st.markdown("### 🏅 全模型表现排名 (Top 15)")
+
+    RANK_OPTIONS = {
+        '累计总量': 'Cumulative',
+        '日均消耗': 'Daily_Avg',
+        '近 7 日增速': 'Recent_7d_Avg',
+        '增长动量': 'Momentum',
+        '峰值消耗': 'Peak',
+        '上线天数': 'Days_Online'
+    }
+    col_rank1, col_rank2 = st.columns([1, 3])
+    with col_rank1:
+        rank_label = st.selectbox("📊 选择排名维度", list(RANK_OPTIONS.keys()))
+    rank_col = RANK_OPTIONS[rank_label]
+
+    df_ranked = df_metrics.sort_values(rank_col, ascending=False).head(15).reset_index(drop=True)
+    df_ranked.index = df_ranked.index + 1  # 排名从 1 开始
+
+    # 柱状图
+    chart_rank = alt.Chart(df_ranked).mark_bar(
+        cornerRadiusTopLeft=4, cornerRadiusTopRight=4
+    ).encode(
+        x=alt.X('Model', sort='-y', title='模型',
+                axis=alt.Axis(labelAngle=-45, labelFontSize=11)),
+        y=alt.Y(rank_col, title=rank_label,
+                axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
+        color=alt.Color('Model', legend=None, scale=alt.Scale(scheme='tableau10')),
+        tooltip=['Model', alt.Tooltip(rank_col, title=rank_label, format='.4f')]
+    ).properties(height=400)
+    st.altair_chart(chart_rank, use_container_width=True)
+
+    # 排名表格
+    display_ranked = df_ranked[['Model', 'Days_Online', 'Cumulative', 'Daily_Avg', 'Recent_7d_Avg', 'Momentum', 'Peak']].copy()
+    display_ranked.columns = ['模型', '上线天数', '累计 (B)', '日均 (B)', '近7日均 (B)', '动量', '峰值 (B)']
+
+    def highlight_momentum(val):
+        if isinstance(val, (int, float)):
+            if val >= 1.2:
+                return 'background-color: #d4edda; color: #155724'  # 绿：加速
+            elif val <= 0.8:
+                return 'background-color: #f8d7da; color: #721c24'  # 红：减速
+        return ''
+
+    st.dataframe(
+        display_ranked.style
+            .format({'累计 (B)': '{:.4f}', '日均 (B)': '{:.4f}', '近7日均 (B)': '{:.4f}', '动量': '{:.2f}', '峰值 (B)': '{:.4f}'})
+            .map(highlight_momentum, subset=['动量']),
+        use_container_width=True, hide_index=False
+    )
+    st.caption("💡 动量 > 1.2 (绿色) = 加速增长 | 动量 < 0.8 (红色) = 增速放缓")
+
+    # ============================
+    # 模块 C: 文字分析摘要
+    # ============================
+    st.markdown("---")
+    st.markdown("### 📝 智能分析摘要")
+    st.caption(f"📅 分析基准日: {latest_date.strftime('%Y-%m-%d')}")
+
+    analysis_parts = []
+
+    # Top 3 累计消耗
+    top3_cum = df_metrics.nlargest(3, 'Cumulative')
+    lines = []
+    for i, row in enumerate(top3_cum.itertuples(), 1):
+        medal = ['🥇', '🥈', '🥉'][i - 1]
+        lines.append(f"{medal} **{row.Model}**：累计 {row.Cumulative:.4f} B，上线 {row.Days_Online} 天，日均 {row.Daily_Avg:.4f} B")
+    analysis_parts.append(("🏆 累计消耗 Top 3", '\n'.join(lines)))
+
+    # 近 7 日增速最快
+    top3_recent = df_metrics.nlargest(3, 'Recent_7d_Avg')
+    lines = []
+    for i, row in enumerate(top3_recent.itertuples(), 1):
+        lines.append(f"{i}. **{row.Model}**：近 7 日日均 {row.Recent_7d_Avg:.4f} B")
+    analysis_parts.append(("🚀 近 7 日增速最快", '\n'.join(lines)))
+
+    # 加速增长中的模型
+    accel = df_metrics[df_metrics['Momentum'] >= 1.2].sort_values('Momentum', ascending=False)
+    if not accel.empty:
+        lines = []
+        for row in accel.head(5).itertuples():
+            pct = (row.Momentum - 1) * 100
+            lines.append(f"- **{row.Model}**：动量 {row.Momentum:.2f}（近期增速高于均值 {pct:.0f}%）")
+        analysis_parts.append(("📈 加速增长中", '\n'.join(lines)))
+
+    # 增速放缓的模型
+    decel = df_metrics[(df_metrics['Momentum'] <= 0.8) & (df_metrics['Days_Online'] >= 7)].sort_values('Momentum')
+    if not decel.empty:
+        lines = []
+        for row in decel.head(5).itertuples():
+            pct = (1 - row.Momentum) * 100
+            lines.append(f"- **{row.Model}**：动量 {row.Momentum:.2f}（近期增速低于均值 {pct:.0f}%）")
+        analysis_parts.append(("📉 增速放缓", '\n'.join(lines)))
+
+    # 新模型速评
+    if not new_models_df.empty:
+        lines = []
+        for row in new_models_df.itertuples():
+            status = "🔥 增长迅猛" if row.Daily_Avg > df_metrics['Daily_Avg'].median() else "🌱 稳步起步"
+            lines.append(f"- **{row.Model}**（{row.First_Date.strftime('%m-%d')} 上线，日均 {row.Daily_Avg:.4f} B）—— {status}")
+        analysis_parts.append(("🆕 新模型速评", '\n'.join(lines)))
+
+    # 渲染分析
+    for title, content in analysis_parts:
+        with st.expander(title, expanded=True):
+            st.markdown(content)
+
+    # ============================
+    # 模块 D: 新模型累计增长对比图
+    # ============================
+    if not new_models_df.empty:
+        st.markdown("---")
+        st.markdown("### 📊 新模型累计增长对比")
+
+        new_model_names = new_models_df['Model'].tolist()
+        plot_new = []
+        max_day_new = 0
+
+        for name in new_model_names:
+            m_df = df[df['Display_Name'] == name].sort_values('Date')
+            m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
+            if len(m_df) > 1:
+                m_df = m_df.iloc[:-1]
+            if m_df.empty:
+                continue
+            start_date = m_df.iloc[0]['Date']
+            current_max = (m_df.iloc[-1]['Date'] - start_date).days
+            if current_max > max_day_new:
+                max_day_new = current_max
+            for _, row in m_df.iterrows():
+                day_n = (row['Date'] - start_date).days
+                plot_new.append({
+                    'Model': name, 'Day': day_n,
+                    'Date': row['Date'].strftime('%Y-%m-%d'),
+                    'Cumulative_Tokens': row['Cum_Tokens']
+                })
+
+        if plot_new:
+            df_plot_new = pd.DataFrame(plot_new)
+            base_new = alt.Chart(df_plot_new).encode(
+                x=alt.X('Day', title='上线天数',
+                        scale=alt.Scale(domain=[0, max_day_new + 2], clamp=True),
+                        axis=alt.Axis(labelFontSize=14, titleFontSize=16, grid=True)),
+                y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)',
+                        axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
+                color=alt.Color('Model', title='模型',
+                                scale=alt.Scale(scheme='tableau10'),
+                                legend=alt.Legend(orient='bottom')),
+                tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
+            )
+            chart_new = (base_new.mark_line(strokeWidth=3) + base_new.mark_circle(size=60)).properties(height=500)
+            st.altair_chart(chart_new, use_container_width=True)
+        else:
+            st.info("新模型暂无足够数据绘制趋势图。")
