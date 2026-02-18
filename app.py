@@ -591,9 +591,8 @@ elif page == NAV_DAILY_BRIEF:
         st.info("近两周内无新上线模型，暂无相关新闻可检索。")
     else:
         import re as _re
-        import xml.etree.ElementTree as _ET
         import requests as _requests
-        from email.utils import parsedate_to_datetime
+
 
         # ── AI 专业媒体 RSS 源 ──
         RSS_FEEDS = [
@@ -643,47 +642,30 @@ elif page == NAV_DAILY_BRIEF:
             except Exception:
                 return text
 
-        # ── 抓取并解析 RSS（缓存 3 小时）──
+        # ── 抓取并解析 RSS（缓存 3 小时，使用 feedparser）──
         @st.cache_data(ttl=10800)
         def fetch_rss_articles(cutoff_str):
+            import feedparser
             cutoff_dt = pd.Timestamp(cutoff_str, tz='UTC')
             results = []
-            ns = {'atom': 'http://www.w3.org/2005/Atom'}
             for feed_name, feed_url in RSS_FEEDS:
                 try:
-                    resp = _requests.get(feed_url, timeout=10,
-                                         headers={"User-Agent": "Mozilla/5.0"})
-                    resp.raise_for_status()
-                    root = _ET.fromstring(resp.content)
-                    items = root.findall('.//item') or root.findall('.//atom:entry', ns)
-                    for item in items:
-                        # 标题
-                        title_el = item.find('title') or item.find('atom:title', ns)
-                        title = (title_el.text or '').strip() if title_el is not None else ''
-                        # 链接
-                        link_el = item.find('link') or item.find('atom:link', ns)
-                        if link_el is not None:
-                            link = link_el.get('href') or (link_el.text or '').strip()
+                    feed = feedparser.parse(feed_url)
+                    for entry in feed.entries:
+                        title = entry.get('title', '').strip()
+                        link  = entry.get('link', '#')
+                        # 摘要：优先 summary，其次 content
+                        desc_raw = entry.get('summary', '') or ''
+                        if not desc_raw and entry.get('content'):
+                            desc_raw = entry['content'][0].get('value', '')
+                        import re as _re2
+                        desc = _re2.sub(r'<[^>]+>', '', desc_raw).strip()[:300]
+                        # 发布时间：feedparser 统一解析为 time.struct_time
+                        pub_parsed = entry.get('published_parsed') or entry.get('updated_parsed')
+                        if pub_parsed:
+                            pub_dt = pd.Timestamp(*pub_parsed[:6], tz='UTC')
                         else:
-                            link = '#'
-                        # 摘要（去掉 HTML 标签）
-                        desc_el = (item.find('description') or item.find('summary') or
-                                   item.find('atom:summary', ns))
-                        desc_raw = (desc_el.text or '') if desc_el is not None else ''
-                        desc = _re.sub(r'<[^>]+>', '', desc_raw).strip()[:300]
-                        # 发布时间
-                        pub_el = (item.find('pubDate') or item.find('published') or
-                                  item.find('atom:published', ns))
-                        pub_str = (pub_el.text or '').strip() if pub_el is not None else ''
-                        try:
-                            pub_dt = pd.Timestamp(parsedate_to_datetime(pub_str))
-                            if pub_dt.tzinfo is None:
-                                pub_dt = pub_dt.tz_localize('UTC')
-                        except Exception:
-                            try:
-                                pub_dt = pd.Timestamp(pub_str, tz='UTC')
-                            except Exception:
-                                pub_dt = pd.Timestamp.now(tz='UTC')
+                            pub_dt = pd.Timestamp.now(tz='UTC')
                         if pub_dt < cutoff_dt:
                             continue
                         results.append({
@@ -694,6 +676,7 @@ elif page == NAV_DAILY_BRIEF:
                     continue
             results.sort(key=lambda x: x['date'], reverse=True)
             return results
+
 
         brand_display = ', '.join(list(brand_label_map.keys())[:8])
         st.caption(f"数据来源: TechCrunch / VentureBeat / The Verge / Ars Technica · 每3小时更新 · 匹配品牌: {brand_display}")
