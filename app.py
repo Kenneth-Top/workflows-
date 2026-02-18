@@ -582,12 +582,11 @@ elif page == NAV_DAILY_BRIEF:
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
     # ============================
-    # 模块 E: 近两周行业动态 (NewsAPI)
+    # 模块 E: 近两周新模型动态 (NewsAPI)
     # ============================
     st.markdown("---")
     st.markdown("### 近两周新模型动态")
 
-    # 读取 API Key（从 Streamlit Secrets）
     news_api_key = st.secrets.get("NEWS_API_KEY", None)
 
     if not news_api_key:
@@ -596,65 +595,104 @@ elif page == NAV_DAILY_BRIEF:
         st.info("近两周内无新上线模型，暂无相关新闻可检索。")
     else:
         import requests as _requests
+        import re as _re
 
-        # 动态构建关键词：用近两周新模型的 Display_Name 拼接
-        # NewsAPI q 参数建议不超过 500 字符，取前 10 个模型
-        model_names = new_models_df['Model'].head(10).tolist()
-        # 每个模型名加引号做精确匹配
-        model_terms = " OR ".join(f'"{name}"' for name in model_names)
-        # 结合发布/政策类词，聚焦在模型发布和定价政策新闻
-        query = f"({model_terms}) AND (release OR launch OR pricing OR policy OR API)"
+        # ── 从模型全名提取核心搜索词 ──
+        def extract_core_terms(full_name):
+            """
+            'anthropic/claude-opus-4.6' → ['claude-opus-4.6', 'claude opus']
+            去掉厂商前缀和日期后缀，生成连字符版和空格版两种形式
+            """
+            base = full_name.split('/')[-1]
+            base = _re.sub(r'-\d{2}-\d{2}$', '', base)  # 去掉 -02-15 类日期后缀
+            return [base, base.replace('-', ' ')]
 
-        @st.cache_data(ttl=21600)  # 缓存 6 小时
-        def fetch_news(api_key, q, from_date_str):
-            url = "https://newsapi.org/v2/everything"
-            params = {
-                "q": q,
-                "from": from_date_str,
-                "sortBy": "publishedAt",
-                "language": "en",
-                "pageSize": 30,
-                "apiKey": api_key,
-            }
+        # ── 自动打标签 ──
+        def detect_tag(text, tag_map):
+            """在文章文本中检测模型关键词，返回对应标签"""
+            text_lower = text.lower()
+            for kw, label in tag_map.items():
+                if kw in text_lower:
+                    return label
+            return "行业动态"
+
+        # ── 构建搜索词和标签映射 ──
+        model_names_raw = new_models_df['Model'].head(10).tolist()
+        search_terms, tag_map = [], {}
+        for full_name in model_names_raw:
+            terms = extract_core_terms(full_name)
+            label = terms[0]  # 连字符版作为标签名
+            for t in terms:
+                if t not in search_terms:
+                    search_terms.append(t)
+                tag_map[t.lower()] = label
+
+        # 取前 8 个词，避免 q 参数过长
+        search_terms = search_terms[:8]
+        query = " OR ".join(f'"{t}"' for t in search_terms)
+
+        # ── 翻译函数（缓存 24 小时）──
+        @st.cache_data(ttl=86400)
+        def translate_zh(text):
+            if not text or not text.strip():
+                return text
             try:
-                resp = _requests.get(url, params=params, timeout=15)
+                from googletrans import Translator
+                result = Translator().translate(text, src='en', dest='zh-cn')
+                return result.text
+            except Exception:
+                return text  # 翻译失败返回原文
+
+        # ── 抓取新闻（缓存 6 小时）──
+        @st.cache_data(ttl=21600)
+        def fetch_news(api_key, q, from_date_str):
+            try:
+                resp = _requests.get(
+                    "https://newsapi.org/v2/everything",
+                    params={"q": q, "from": from_date_str, "sortBy": "publishedAt",
+                            "language": "en", "pageSize": 30, "apiKey": api_key},
+                    timeout=15
+                )
                 resp.raise_for_status()
                 return resp.json().get("articles", [])
             except Exception as e:
                 return f"ERROR:{e}"
 
         from_date = (latest_date - pd.Timedelta(days=14)).strftime("%Y-%m-%d")
-
-        st.caption(f"数据来源: NewsAPI · 每6小时更新 · 搜索模型: {', '.join(model_names[:5])}{'...' if len(model_names) > 5 else ''}")
+        display_labels = [extract_core_terms(m)[0] for m in model_names_raw[:5]]
+        st.caption(f"数据来源: NewsAPI · 每6小时更新 · 搜索词: {', '.join(display_labels)}{'...' if len(model_names_raw) > 5 else ''}")
 
         articles = fetch_news(news_api_key, query, from_date)
 
         if isinstance(articles, str) and articles.startswith("ERROR:"):
             st.error(f"新闻获取失败：{articles[6:]}")
-        elif not articles:
-            st.info("近两周内未找到这些模型的相关新闻。可能是模型名称在英文媒体中曝光度较低。")
         else:
-            # 过滤掉 [Removed] 内容
             articles = [a for a in articles if a.get("title") and a["title"] != "[Removed]"]
 
             if not articles:
-                st.info("近两周内未找到相关新闻。")
+                st.info("近两周内未找到这些模型的相关新闻。可能是模型名称在英文媒体中曝光度较低。")
             else:
-                st.markdown(f"共找到 **{len(articles)}** 条相关新闻")
+                st.markdown(f"共找到 **{len(articles)}** 条相关新闻（标题和摘要已翻译为中文）")
 
                 for art in articles:
-                    title = art.get("title", "无标题")
+                    title_en = art.get("title", "")
+                    desc_en = art.get("description") or ""
                     source = art.get("source", {}).get("name", "未知来源")
                     published = art.get("publishedAt", "")[:10]
-                    description = art.get("description") or ""
                     url_link = art.get("url", "#")
 
-                    with st.expander(f"{title}  ·  {source}  ·  {published}", expanded=False):
-                        if description:
-                            st.markdown(description)
+                    # 自动打标签
+                    tag = detect_tag(f"{title_en} {desc_en}", tag_map)
+
+                    # 翻译
+                    title_zh = translate_zh(title_en) if title_en else "无标题"
+                    desc_zh = translate_zh(desc_en) if desc_en else ""
+
+                    with st.expander(f"[{tag}]  {title_zh}  ·  {source}  ·  {published}", expanded=False):
+                        if desc_zh:
+                            st.markdown(desc_zh)
+                        st.caption(f"原文: {title_en}")
                         st.markdown(f"[阅读原文 →]({url_link})")
-
-
 
 
     # ============================
