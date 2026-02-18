@@ -582,7 +582,67 @@ elif page == NAV_DAILY_BRIEF:
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
     # ============================
-    # 模块 E: 指标定义与公式说明
+    # 模块 E: 近两周行业动态 (NewsAPI)
+    # ============================
+    st.markdown("---")
+    st.markdown("### 近两周行业动态")
+    st.caption("数据来源: NewsAPI · 每6小时自动更新 · 关键词: LLM / AI token / token pricing / OpenRouter")
+
+    # 读取 API Key（从 Streamlit Secrets）
+    news_api_key = st.secrets.get("NEWS_API_KEY", None)
+
+    if not news_api_key:
+        st.info("未检测到 NEWS_API_KEY 配置。请在 Streamlit Cloud → Settings → Secrets 中添加 `NEWS_API_KEY = \"你的Key\"`。")
+    else:
+        import requests as _requests
+        from datetime import timezone
+
+        @st.cache_data(ttl=21600)  # 缓存 6 小时
+        def fetch_news(api_key, from_date_str):
+            url = "https://newsapi.org/v2/everything"
+            params = {
+                "q": "(LLM OR \"large language model\" OR \"AI token\" OR \"token pricing\" OR openrouter OR \"foundation model\")",
+                "from": from_date_str,
+                "sortBy": "publishedAt",
+                "language": "en",
+                "pageSize": 30,
+                "apiKey": api_key,
+            }
+            try:
+                resp = _requests.get(url, params=params, timeout=15)
+                resp.raise_for_status()
+                return resp.json().get("articles", [])
+            except Exception as e:
+                return f"ERROR:{e}"
+
+        from_date = (latest_date - pd.Timedelta(days=14)).strftime("%Y-%m-%d")
+        articles = fetch_news(news_api_key, from_date)
+
+        if isinstance(articles, str) and articles.startswith("ERROR:"):
+            st.error(f"新闻获取失败：{articles[6:]}")
+        elif not articles:
+            st.info("近两周内未找到相关新闻。")
+        else:
+            # 过滤掉 [Removed] 内容
+            articles = [a for a in articles if a.get("title") and a["title"] != "[Removed]"]
+
+            st.markdown(f"共找到 **{len(articles)}** 条相关新闻")
+
+            for art in articles:
+                title = art.get("title", "无标题")
+                source = art.get("source", {}).get("name", "未知来源")
+                published = art.get("publishedAt", "")[:10]  # 只取日期部分
+                description = art.get("description") or ""
+                url_link = art.get("url", "#")
+
+                with st.expander(f"**{title}**  ·  {source}  ·  {published}", expanded=False):
+                    if description:
+                        st.markdown(description)
+                    st.markdown(f"[阅读原文 →]({url_link})")
+
+
+    # ============================
+    # 模块 F: 指标定义与公式说明
     # ============================
     st.markdown("---")
     st.markdown("### 附录: 指标定义与计算公式")
