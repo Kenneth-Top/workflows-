@@ -14,9 +14,9 @@ st.caption("单位: Billion Tokens (十亿)")
 
 # 定义页面名称常量
 NAV_TN_DAILY = "T+N 横向对比 (每日消耗)"
-NAV_CUMULATIVE_COMPARE = "Tokens累计增长横向对比"
-NAV_DETAIL_DAILY = "单模型每日Tokens"
-NAV_RAW_DATA = "原始数据"
+NAV_CUMULATIVE_COMPARE = "多模型累计增长 (趋势对比)"
+NAV_DETAIL_DAILY = "单模型每日详情 (趋势分析)"
+NAV_RAW_DATA = "原始数据检查"
 NAV_DAILY_BRIEF = "每日速览"
 
 # === 2. 工具函数 ===
@@ -85,7 +85,7 @@ st.sidebar.caption(
 # ========================================================
 if page == NAV_TN_DAILY:
     st.subheader("模型增长曲线对比 (T+N 每日消耗)")
-    st.info("💡 横轴：上线天数 | 纵轴：当日 Token 消耗量")
+    st.info("横轴：上线天数 | 纵轴：当日 Token 消耗量")
 
     selected_names = st.multiselect(
         "选择要对比的模型:", 
@@ -372,7 +372,7 @@ elif page == NAV_DAILY_BRIEF:
     df_metrics['Pct_Rank_DailyAvg'] = df_metrics['Daily_Avg'].rank(pct=True)
 
     # ============================
-    # 模块 A: 近两周新上线模型
+    # 模块 A: 近两周新增模型一览
     # ============================
     st.markdown("---")
     st.markdown("### 近两周新增模型一览")
@@ -393,7 +393,7 @@ elif page == NAV_DAILY_BRIEF:
         )
 
     # ============================
-    # 模块 B: 新模型累计增长对比图
+    # 模块 B (原 D): 新模型累计增长对比
     # ============================
     if not new_models_df.empty:
         st.markdown("---")
@@ -441,7 +441,95 @@ elif page == NAV_DAILY_BRIEF:
             st.info("新模型暂无足够数据绘制趋势图。")
 
     # ============================
-    # 模块 C: 全模型表现排名
+    # 模块 C: 分析摘要 (表格化)
+    # ============================
+    st.markdown("---")
+    st.markdown("### 综合分析摘要")
+    st.caption(f"分析基准日: {latest_date.strftime('%Y-%m-%d')}")
+
+    # Top 3 累计消耗
+    with st.expander("累计消耗 Top 3", expanded=True):
+        top3_cum = df_metrics.nlargest(3, 'Cumulative').copy()
+        top3_cum['Rank'] = range(1, len(top3_cum) + 1)
+        display_top3 = top3_cum[['Rank', 'Model', 'Cumulative', 'Days_Online', 'Daily_Avg']].copy()
+        display_top3.columns = ['排名', '模型', '累计消耗 (B)', '上线天数', '日均消耗 (B)']
+        st.dataframe(
+            display_top3.style.format({'累计消耗 (B)': '{:.4f}', '日均消耗 (B)': '{:.4f}'}),
+            use_container_width=True, hide_index=True
+        )
+
+    # 近 7 日增速最快
+    with st.expander("近7日增速领先 (Top 3)", expanded=True):
+        top3_recent = df_metrics.nlargest(3, 'Recent_7d_Avg').copy()
+        top3_recent['Rank'] = range(1, len(top3_recent) + 1)
+        display_recent = top3_recent[['Rank', 'Model', 'Recent_7d_Avg']].copy()
+        display_recent.columns = ['排名', '模型', '近7日日均消耗 (B)']
+        st.dataframe(
+            display_recent.style.format({'近7日日均消耗 (B)': '{:.4f}'}),
+            use_container_width=True, hide_index=True
+        )
+
+    # 加速增长中的模型
+    with st.expander("正在加速增长 (动量 > 1.2)", expanded=True):
+        accel = df_metrics[df_metrics['Momentum'] >= 1.2].sort_values('Momentum', ascending=False)
+        if not accel.empty:
+            accel['Growth_Pct'] = (accel['Momentum'] - 1) * 100
+            display_accel = accel[['Model', 'Momentum', 'Growth_Pct']].head(5).copy()
+            display_accel.columns = ['模型', '动量值', '近期增速超出均值 (%)']
+            st.dataframe(
+                display_accel.style.format({'动量值': '{:.2f}', '近期增速超出均值 (%)': '+{:.0f}%'}),
+                use_container_width=True, hide_index=True
+            )
+        else:
+            st.info("暂无明显加速增长的模型。")
+
+    # 增速放缓的模型
+    with st.expander("增速放缓关注 (动量 < 0.8)", expanded=True):
+        decel = df_metrics[(df_metrics['Momentum'] <= 0.8) & (df_metrics['Days_Online'] >= 7)].sort_values('Momentum')
+        if not decel.empty:
+            decel['Slowdown_Pct'] = (1 - decel['Momentum']) * 100
+            display_decel = decel[['Model', 'Momentum', 'Slowdown_Pct']].head(5).copy()
+            display_decel.columns = ['模型', '动量值', '近期增速低于均值 (%)']
+            st.dataframe(
+                display_decel.style.format({'动量值': '{:.2f}', '近期增速低于均值 (%)': '-{:.0f}%'}),
+                use_container_width=True, hide_index=True
+            )
+        else:
+            st.info("暂无明显增速放缓的模型。")
+
+    # 新模型速评（使用百分位排名五级制）
+    if not new_models_df.empty:
+        with st.expander("新模型初期表现评级", expanded=True):
+            rating_data = []
+            for row in new_models_df.itertuples():
+                pct_rank = row.Pct_Rank_DailyAvg
+                if pct_rank >= 0.90:
+                    tier, desc = "S · 头部水平", f"超过 {pct_rank*100:.0f}% 模型"
+                elif pct_rank >= 0.75:
+                    tier, desc = "A · 表现优异", f"超过 {pct_rank*100:.0f}% 模型"
+                elif pct_rank >= 0.50:
+                    tier, desc = "B · 中等水平", "日均 > 中位数"
+                elif pct_rank >= 0.25:
+                    tier, desc = "C · 低于预期", f"仅超 {pct_rank*100:.0f}% 模型"
+                else:
+                    tier, desc = "D · 起步缓慢", f"后 {(1-pct_rank)*100:.0f}% 分位"
+                
+                rating_data.append({
+                    '模型': row.Model,
+                    '上线日期': row.First_Date.strftime('%m-%d'),
+                    '日均消耗 (B)': row.Daily_Avg,
+                    '评级': tier,
+                    '说明': desc
+                })
+            
+            df_rating = pd.DataFrame(rating_data)
+            st.dataframe(
+                df_rating.style.format({'日均消耗 (B)': '{:.4f}'}),
+                use_container_width=True, hide_index=True
+            )
+
+    # ============================
+    # 模块 D (原 B): 全模型表现排名 (移至最后)
     # ============================
     st.markdown("---")
     st.markdown("### 全模型表现排名 (Top 15)")
@@ -494,74 +582,6 @@ elif page == NAV_DAILY_BRIEF:
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
     # ============================
-    # 模块 D: 分析摘要
-    # ============================
-    st.markdown("---")
-    st.markdown("### 综合分析摘要")
-    st.caption(f"分析基准日: {latest_date.strftime('%Y-%m-%d')}")
-
-    analysis_parts = []
-
-    # Top 3 累计消耗
-    top3_cum = df_metrics.nlargest(3, 'Cumulative')
-    lines = []
-    for i, row in enumerate(top3_cum.itertuples(), 1):
-        lines.append(f"{i}. **{row.Model}** — 累计 {row.Cumulative:.4f} B，上线 {row.Days_Online} 天，日均 {row.Daily_Avg:.4f} B")
-    analysis_parts.append(("累计消耗 Top 3", '\n'.join(lines)))
-
-    # 近 7 日增速最快
-    top3_recent = df_metrics.nlargest(3, 'Recent_7d_Avg')
-    lines = []
-    for i, row in enumerate(top3_recent.itertuples(), 1):
-        lines.append(f"{i}. **{row.Model}** — 近7日日均 {row.Recent_7d_Avg:.4f} B")
-    analysis_parts.append(("近7日增速领先", '\n'.join(lines)))
-
-    # 加速增长中的模型
-    accel = df_metrics[df_metrics['Momentum'] >= 1.2].sort_values('Momentum', ascending=False)
-    if not accel.empty:
-        lines = []
-        for row in accel.head(5).itertuples():
-            pct = (row.Momentum - 1) * 100
-            lines.append(f"- **{row.Model}** — 动量 {row.Momentum:.2f}（近期增速超出均值 {pct:.0f}%）")
-        analysis_parts.append(("正在加速增长", '\n'.join(lines)))
-
-    # 增速放缓的模型
-    decel = df_metrics[(df_metrics['Momentum'] <= 0.8) & (df_metrics['Days_Online'] >= 7)].sort_values('Momentum')
-    if not decel.empty:
-        lines = []
-        for row in decel.head(5).itertuples():
-            pct = (1 - row.Momentum) * 100
-            lines.append(f"- **{row.Model}** — 动量 {row.Momentum:.2f}（近期增速低于均值 {pct:.0f}%）")
-        analysis_parts.append(("增速放缓关注", '\n'.join(lines)))
-
-    # 新模型速评（使用百分位排名五级制）
-    if not new_models_df.empty:
-        lines = []
-        for row in new_models_df.itertuples():
-            pct_rank = row.Pct_Rank_DailyAvg
-            if pct_rank >= 0.90:
-                tier = "S · 头部水平"
-                desc = f"日均消耗超过 {pct_rank*100:.0f}% 的模型"
-            elif pct_rank >= 0.75:
-                tier = "A · 表现优异"
-                desc = f"日均消耗超过 {pct_rank*100:.0f}% 的模型"
-            elif pct_rank >= 0.50:
-                tier = "B · 中等水平"
-                desc = f"日均消耗处于中位数以上"
-            elif pct_rank >= 0.25:
-                tier = "C · 低于预期"
-                desc = f"日均消耗仅超过 {pct_rank*100:.0f}% 的模型"
-            else:
-                tier = "D · 起步缓慢"
-                desc = f"日均消耗处于后 {(1-pct_rank)*100:.0f}% 分位"
-            lines.append(f"- **{row.Model}**（{row.First_Date.strftime('%m-%d')} 上线）— 日均 {row.Daily_Avg:.4f} B · **{tier}**（{desc}）")
-        analysis_parts.append(("新模型初期表现评级", '\n'.join(lines)))
-
-    for title, content in analysis_parts:
-        with st.expander(title, expanded=True):
-            st.markdown(content)
-
-    # ============================
     # 模块 E: 指标定义与公式说明
     # ============================
     st.markdown("---")
@@ -595,6 +615,3 @@ elif page == NAV_DAILY_BRIEF:
 | **C · 低于预期** | P25 ~ P50 | 日均消耗处于中位数以下，关注后续走势 |
 | **D · 起步缓慢** | < P25 | 日均消耗处于后 25%，可能尚未被广泛采用 |
 """)
-
-
-
