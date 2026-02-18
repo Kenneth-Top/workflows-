@@ -427,7 +427,8 @@ elif page == NAV_DAILY_BRIEF:
             base_new = alt.Chart(df_plot_new).encode(
                 x=alt.X('Day', title='上线天数',
                         scale=alt.Scale(domain=[0, max_day_new + 2], clamp=True),
-                        axis=alt.Axis(labelFontSize=14, titleFontSize=16, grid=True)),
+                        # 强制 tickMinStep=1 避免显示小数刻度
+                        axis=alt.Axis(tickMinStep=1, format='d', labelFontSize=14, titleFontSize=16, grid=True)),
                 y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)',
                         axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
                 color=alt.Color('Model', title='模型',
@@ -799,4 +800,5 @@ elif page == NAV_DAILY_BRIEF:
 | **C · 低于预期** | P25 ~ P50 | 日均消耗处于中位数以下，关注后续走势 |
 | **D · 起步缓慢** | < P25 | 日均消耗处于后 25%，可能尚未被广泛采用 |
 """)
+
 
