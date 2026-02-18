@@ -13,10 +13,10 @@ st.title("OpenRouter 模型追踪看板")
 st.caption("单位: Billion Tokens (十亿)")
 
 # 定义页面名称常量
-NAV_TN_DAILY = "T+N 横向对比 (每日消耗)"
-NAV_CUMULATIVE_COMPARE = "多模型累计增长 (趋势对比)"
-NAV_DETAIL_DAILY = "单模型每日详情 (趋势分析)"
-NAV_RAW_DATA = "原始数据检查"
+NAV_TN_DAILY = "T+N 横向对比"
+NAV_CUMULATIVE_COMPARE = "累计Tokens 横向对比"
+NAV_DETAIL_DAILY = "单模型每日详情"
+NAV_RAW_DATA = "原始数据"
 NAV_DAILY_BRIEF = "每日速览"
 
 # === 2. 工具函数 ===
@@ -799,3 +799,4 @@ elif page == NAV_DAILY_BRIEF:
 | **C · 低于预期** | P25 ~ P50 | 日均消耗处于中位数以下，关注后续走势 |
 | **D · 起步缓慢** | < P25 | 日均消耗处于后 25%，可能尚未被广泛采用 |
 """)
+
