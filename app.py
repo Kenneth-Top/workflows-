@@ -9,15 +9,15 @@ st.set_page_config(page_title="OpenRouter 模型追踪", layout="wide")
 DATA_FILE = "history_database.csv"
 
 # 页面标题
-st.title("🚀 OpenRouter 模型追踪看板")
+st.title("OpenRouter 模型追踪看板")
 st.caption("单位: Billion Tokens (十亿)")
 
 # 定义页面名称常量
-NAV_TN_DAILY = "📊 T+N 横向对比 (每日消耗)"
-NAV_CUMULATIVE_COMPARE = "📈 多模型累计增长 (趋势对比)"
-NAV_DETAIL_DAILY = "📉 单模型每日详情 (趋势分析)"
-NAV_RAW_DATA = "🔍 原始数据检查"
-NAV_DAILY_BRIEF = "▎速览与分析"
+NAV_TN_DAILY = "T+N 横向对比 (每日消耗)"
+NAV_CUMULATIVE_COMPARE = "多模型累计增长 (趋势对比)"
+NAV_DETAIL_DAILY = "单模型每日详情 (趋势分析)"
+NAV_RAW_DATA = "原始数据检查"
+NAV_DAILY_BRIEF = "速览与分析"
 
 # === 2. 工具函数 ===
 
@@ -84,7 +84,7 @@ st.sidebar.caption(
 # 页面 1: T+N 横向对比 (每日消耗)
 # ========================================================
 if page == NAV_TN_DAILY:
-    st.subheader("🏆 模型增长曲线对比 (T+N 每日消耗)")
+    st.subheader("模型增长曲线对比 (T+N 每日消耗)")
     st.info("💡 横轴：上线天数 | 纵轴：当日 Token 消耗量")
 
     selected_names = st.multiselect(
@@ -166,7 +166,7 @@ if page == NAV_TN_DAILY:
 # 页面 2: 多模型累计增长 (趋势对比)
 # ========================================================
 elif page == NAV_CUMULATIVE_COMPARE:
-    st.subheader("📈 多模型累计增长对比")
+    st.subheader("多模型累计增长对比")
     
     selected_names = st.multiselect(
         "选择要对比的模型:", 
@@ -236,7 +236,7 @@ elif page == NAV_CUMULATIVE_COMPARE:
 # 页面 3: 单模型每日详情 (趋势分析 + 日期筛选)
 # ========================================================
 elif page == NAV_DETAIL_DAILY:
-    st.subheader("📉 单模型每日详情趋势")
+    st.subheader("单模型每日详情趋势")
     
     selected_name = st.selectbox("选择模型", all_model_names)
     m_df_full = df[df['Display_Name'] == selected_name].sort_values('Date')
@@ -294,7 +294,7 @@ elif page == NAV_DETAIL_DAILY:
 # 页面 4: 原始数据检查
 # ========================================================
 elif page == NAV_RAW_DATA:
-    st.subheader("🔍 数据库原始数据")
+    st.subheader("数据库原始数据")
     
     st.markdown("#### 💾 全量数据下载")
     data, name, mime, label = get_dataset_download(df, "full_history_database")
@@ -595,3 +595,4 @@ elif page == NAV_DAILY_BRIEF:
 | **C · 低于预期** | P25 ~ P50 | 日均消耗处于中位数以下，关注后续走势 |
 | **D · 起步缓慢** | < P25 | 日均消耗处于后 25%，可能尚未被广泛采用 |
 """)
+
