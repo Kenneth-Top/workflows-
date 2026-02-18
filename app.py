@@ -585,23 +585,31 @@ elif page == NAV_DAILY_BRIEF:
     # 模块 E: 近两周行业动态 (NewsAPI)
     # ============================
     st.markdown("---")
-    st.markdown("### 近两周行业动态")
-    st.caption("数据来源: NewsAPI · 每6小时自动更新 · 关键词: LLM / AI token / token pricing / OpenRouter")
+    st.markdown("### 近两周新模型动态")
 
     # 读取 API Key（从 Streamlit Secrets）
     news_api_key = st.secrets.get("NEWS_API_KEY", None)
 
     if not news_api_key:
         st.info("未检测到 NEWS_API_KEY 配置。请在 Streamlit Cloud → Settings → Secrets 中添加 `NEWS_API_KEY = \"你的Key\"`。")
+    elif new_models_df.empty:
+        st.info("近两周内无新上线模型，暂无相关新闻可检索。")
     else:
         import requests as _requests
-        from datetime import timezone
+
+        # 动态构建关键词：用近两周新模型的 Display_Name 拼接
+        # NewsAPI q 参数建议不超过 500 字符，取前 10 个模型
+        model_names = new_models_df['Model'].head(10).tolist()
+        # 每个模型名加引号做精确匹配
+        model_terms = " OR ".join(f'"{name}"' for name in model_names)
+        # 结合发布/政策类词，聚焦在模型发布和定价政策新闻
+        query = f"({model_terms}) AND (release OR launch OR pricing OR policy OR API)"
 
         @st.cache_data(ttl=21600)  # 缓存 6 小时
-        def fetch_news(api_key, from_date_str):
+        def fetch_news(api_key, q, from_date_str):
             url = "https://newsapi.org/v2/everything"
             params = {
-                "q": "(LLM OR \"large language model\" OR \"AI token\" OR \"token pricing\" OR openrouter OR \"foundation model\")",
+                "q": q,
                 "from": from_date_str,
                 "sortBy": "publishedAt",
                 "language": "en",
@@ -616,29 +624,37 @@ elif page == NAV_DAILY_BRIEF:
                 return f"ERROR:{e}"
 
         from_date = (latest_date - pd.Timedelta(days=14)).strftime("%Y-%m-%d")
-        articles = fetch_news(news_api_key, from_date)
+
+        st.caption(f"数据来源: NewsAPI · 每6小时更新 · 搜索模型: {', '.join(model_names[:5])}{'...' if len(model_names) > 5 else ''}")
+
+        articles = fetch_news(news_api_key, query, from_date)
 
         if isinstance(articles, str) and articles.startswith("ERROR:"):
             st.error(f"新闻获取失败：{articles[6:]}")
         elif not articles:
-            st.info("近两周内未找到相关新闻。")
+            st.info("近两周内未找到这些模型的相关新闻。可能是模型名称在英文媒体中曝光度较低。")
         else:
             # 过滤掉 [Removed] 内容
             articles = [a for a in articles if a.get("title") and a["title"] != "[Removed]"]
 
-            st.markdown(f"共找到 **{len(articles)}** 条相关新闻")
+            if not articles:
+                st.info("近两周内未找到相关新闻。")
+            else:
+                st.markdown(f"共找到 **{len(articles)}** 条相关新闻")
 
-            for art in articles:
-                title = art.get("title", "无标题")
-                source = art.get("source", {}).get("name", "未知来源")
-                published = art.get("publishedAt", "")[:10]  # 只取日期部分
-                description = art.get("description") or ""
-                url_link = art.get("url", "#")
+                for art in articles:
+                    title = art.get("title", "无标题")
+                    source = art.get("source", {}).get("name", "未知来源")
+                    published = art.get("publishedAt", "")[:10]
+                    description = art.get("description") or ""
+                    url_link = art.get("url", "#")
 
-                with st.expander(f"**{title}**  ·  {source}  ·  {published}", expanded=False):
-                    if description:
-                        st.markdown(description)
-                    st.markdown(f"[阅读原文 →]({url_link})")
+                    with st.expander(f"{title}  ·  {source}  ·  {published}", expanded=False):
+                        if description:
+                            st.markdown(description)
+                        st.markdown(f"[阅读原文 →]({url_link})")
+
+
 
 
     # ============================
