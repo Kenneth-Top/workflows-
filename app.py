@@ -393,7 +393,55 @@ elif page == NAV_DAILY_BRIEF:
         )
 
     # ============================
-    # 模块 B: 全模型表现排名
+    # 模块 B: 新模型累计增长对比图
+    # ============================
+    if not new_models_df.empty:
+        st.markdown("---")
+        st.markdown("### 新模型累计增长对比")
+
+        new_model_names = new_models_df['Model'].tolist()
+        plot_new = []
+        max_day_new = 0
+
+        for name in new_model_names:
+            m_df = df[df['Display_Name'] == name].sort_values('Date')
+            m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
+            if len(m_df) > 1:
+                m_df = m_df.iloc[:-1]
+            if m_df.empty:
+                continue
+            start_date = m_df.iloc[0]['Date']
+            current_max = (m_df.iloc[-1]['Date'] - start_date).days
+            if current_max > max_day_new:
+                max_day_new = current_max
+            for _, row in m_df.iterrows():
+                day_n = (row['Date'] - start_date).days
+                plot_new.append({
+                    'Model': name, 'Day': day_n,
+                    'Date': row['Date'].strftime('%Y-%m-%d'),
+                    'Cumulative_Tokens': row['Cum_Tokens']
+                })
+
+        if plot_new:
+            df_plot_new = pd.DataFrame(plot_new)
+            base_new = alt.Chart(df_plot_new).encode(
+                x=alt.X('Day', title='上线天数',
+                        scale=alt.Scale(domain=[0, max_day_new + 2], clamp=True),
+                        axis=alt.Axis(labelFontSize=14, titleFontSize=16, grid=True)),
+                y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)',
+                        axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
+                color=alt.Color('Model', title='模型',
+                                scale=alt.Scale(scheme='tableau10'),
+                                legend=alt.Legend(orient='bottom')),
+                tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
+            )
+            chart_new = (base_new.mark_line(strokeWidth=3) + base_new.mark_circle(size=60)).properties(height=500)
+            st.altair_chart(chart_new, use_container_width=True)
+        else:
+            st.info("新模型暂无足够数据绘制趋势图。")
+
+    # ============================
+    # 模块 C: 全模型表现排名
     # ============================
     st.markdown("---")
     st.markdown("### 全模型表现排名 (Top 15)")
@@ -446,7 +494,7 @@ elif page == NAV_DAILY_BRIEF:
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
     # ============================
-    # 模块 C: 分析摘要
+    # 模块 D: 分析摘要
     # ============================
     st.markdown("---")
     st.markdown("### 综合分析摘要")
@@ -514,54 +562,6 @@ elif page == NAV_DAILY_BRIEF:
             st.markdown(content)
 
     # ============================
-    # 模块 D: 新模型累计增长对比图
-    # ============================
-    if not new_models_df.empty:
-        st.markdown("---")
-        st.markdown("### 新模型累计增长对比")
-
-        new_model_names = new_models_df['Model'].tolist()
-        plot_new = []
-        max_day_new = 0
-
-        for name in new_model_names:
-            m_df = df[df['Display_Name'] == name].sort_values('Date')
-            m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
-            if len(m_df) > 1:
-                m_df = m_df.iloc[:-1]
-            if m_df.empty:
-                continue
-            start_date = m_df.iloc[0]['Date']
-            current_max = (m_df.iloc[-1]['Date'] - start_date).days
-            if current_max > max_day_new:
-                max_day_new = current_max
-            for _, row in m_df.iterrows():
-                day_n = (row['Date'] - start_date).days
-                plot_new.append({
-                    'Model': name, 'Day': day_n,
-                    'Date': row['Date'].strftime('%Y-%m-%d'),
-                    'Cumulative_Tokens': row['Cum_Tokens']
-                })
-
-        if plot_new:
-            df_plot_new = pd.DataFrame(plot_new)
-            base_new = alt.Chart(df_plot_new).encode(
-                x=alt.X('Day', title='上线天数',
-                        scale=alt.Scale(domain=[0, max_day_new + 2], clamp=True),
-                        axis=alt.Axis(labelFontSize=14, titleFontSize=16, grid=True)),
-                y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)',
-                        axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
-                color=alt.Color('Model', title='模型',
-                                scale=alt.Scale(scheme='tableau10'),
-                                legend=alt.Legend(orient='bottom')),
-                tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
-            )
-            chart_new = (base_new.mark_line(strokeWidth=3) + base_new.mark_circle(size=60)).properties(height=500)
-            st.altair_chart(chart_new, use_container_width=True)
-        else:
-            st.info("新模型暂无足够数据绘制趋势图。")
-
-    # ============================
     # 模块 E: 指标定义与公式说明
     # ============================
     st.markdown("---")
@@ -595,5 +595,6 @@ elif page == NAV_DAILY_BRIEF:
 | **C · 低于预期** | P25 ~ P50 | 日均消耗处于中位数以下，关注后续走势 |
 | **D · 起步缓慢** | < P25 | 日均消耗处于后 25%，可能尚未被广泛采用 |
 """)
+
 
 
