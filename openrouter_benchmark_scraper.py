@@ -28,24 +28,25 @@ def fetch_benchmark_for_model(slug, session):
         data = response.json()
         benchmarks = data.get('data', [])
         
-        metrics = {}
-        if benchmarks and len(benchmarks) > 0:
-            b_data = benchmarks[0].get('benchmark_data', {})
-            evals = b_data.get('evaluations', {})
-            percentiles = benchmarks[0].get('percentiles', {})
+        extracted_evals = []
+        if benchmarks:
+            for b in benchmarks:
+                b_name = b.get('aa_name', slug)
+                # Fallback to slug if aa_name is weirdly null
+                if not b_name: b_name = slug
+                
+                b_data = b.get('benchmark_data', {})
+                evals = b_data.get('evaluations', {})
+                
+                if evals:
+                    extracted_evals.append((b_name, evals))
+                
+            return extracted_evals
             
-            # Combine evaluations and percentiles if needed
-            metrics.update(evals)
-            # metrics.update(percentiles) # Optional, usually percentiles are kept separate or merged. We'll merge.
-            # According to `temp_bench.json`, we just use evaluations and percentiles as metrics.
-            # But the user's `benchmark_database.csv` has generic metric names.
-            # We'll just take `evaluations` like the previous DB.
-            return slug, evals
-            
-        return slug, {}
+        return []
     except Exception as e:
         # Many models may not have benchmarks, don't spam print
-        return slug, {}
+        return []
 
 def build_benchmark_dataframe(scraper_results):
     current_date = datetime.now().strftime("%Y-%m-%d")
@@ -53,12 +54,13 @@ def build_benchmark_dataframe(scraper_results):
     # Restructure data: metrics_dict[metric][slug] = score
     metrics_dict = {}
     
-    for slug, evals in scraper_results:
-        if not evals: continue
-        for metric, score in evals.items():
-            if metric not in metrics_dict:
-                metrics_dict[metric] = {}
-            metrics_dict[metric][slug] = score
+    for evaluations_list in scraper_results:
+        for b_name, evals in evaluations_list:
+            if not evals: continue
+            for metric, score in evals.items():
+                if metric not in metrics_dict:
+                    metrics_dict[metric] = {}
+                metrics_dict[metric][b_name] = score
             
     # Now convert metrics_dict to a list of rows
     rows = []
@@ -122,8 +124,9 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         futures = {executor.submit(fetch_benchmark_for_model, slug, session): slug for slug in slugs}
         for i, future in enumerate(concurrent.futures.as_completed(futures)):
-            slug, evals = future.result()
-            results.append((slug, evals))
+            evals_list = future.result()
+            if evals_list:
+                results.append(evals_list)
             if (i+1) % 50 == 0:
                 print(f"Progress: {i+1} / {len(slugs)}...")
 

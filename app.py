@@ -14,7 +14,7 @@ BENCHMARK_FILE = "openrouter_benchmark_records.csv"
 st.title("OpenRouter 数据追踪看板")
 
 # 定义页面名称常量
-NAV_DAILY_BRIEF = "📊 每日模型用量速览"
+NAV_DAILY_BRIEF = "📊 每日信息速递"
 NAV_TN_DAILY = "📈 T+N 日用量横向对比"
 NAV_CUMULATIVE_COMPARE = "🚀 累计 Token 横向对比"
 NAV_DETAIL_DAILY = "🔍 单模型用量详情"
@@ -1034,9 +1034,10 @@ elif page == NAV_SINGLE_MODEL:
         # 1. 累计上量图
         st.markdown("### 📈 累计 API 调用量趋势 (Cumulative Token Volume)")
         if df is not None and not df.empty:
+            # Token库的名字可能是带前缀的如 'anthropic/claude-opus-4'，也可能是去前缀的 'claude-opus-4'
             m_df = df[df['Model'] == selected_model].sort_values('Date').copy()
-            if m_df.empty and '/' in selected_model:
-                display_n = selected_model.split('/')[-1]
+            if m_df.empty:
+                display_n = selected_model.split('/')[-1] if '/' in selected_model else selected_model
                 m_df = df[df['Display_Name'] == display_n].sort_values('Date').copy()
                 
             if not m_df.empty:
