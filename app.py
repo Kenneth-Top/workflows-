@@ -886,9 +886,21 @@ elif page == NAV_PRICING:
                 hide_index=True
             )
             
-            # 绘制价格对比条形图 (使用原生组件更稳定)
-            st.bar_chart(
-                provider_prices.set_index('Provider')[['Input_Price_1M', 'Output_Price_1M']],
+            # 绘制价格散点/气泡分布图 (非累加型数据更适合折线/散点)
+            # 宽表转长表，以便正确着色
+            price_long = provider_prices.melt(
+                id_vars=['Provider'],
+                value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                var_name='Price_Type',
+                value_name='Price'
+            )
+            # 为了能在图上区分 Input/Output，Price_Type 做 color
+            st.scatter_chart(
+                price_long,
+                x='Provider',
+                y='Price',
+                color='Price_Type',
+                size=200,
                 height=400,
                 use_container_width=True
             )
@@ -942,16 +954,14 @@ elif page == NAV_BENCHMARK:
             if selected_b_models:
                 plot_df = bench_sorted[bench_sorted['Model'].isin(selected_b_models)]
                 
-                # 绘制横向条形图
-                st.markdown(f"### {primary_metric} 跑分排行榜")
-                chart_bench = alt.Chart(plot_df).mark_bar(cornerRadiusEnd=4, height=alt.Step(20)).encode(
-                    x=alt.X(f'{primary_metric}:Q', title='得分'),
-                    y=alt.Y('Model:N', sort='-x', title='模型名称'),
-                    color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
-                    tooltip=['Model', primary_metric]
-                ).properties(height=max(300, len(selected_b_models) * 25))
-                
-                st.altair_chart(chart_bench, use_container_width=True)
+                # 绘制原生横向条形图，完全不依赖 Altair 避免版本冲突
+                st.markdown(f"### {primary_metric} 跑分排行榜 (前列选拔)")
+                st.bar_chart(
+                    plot_df.set_index('Model')[[primary_metric]],
+                    horizontal=True,
+                    height=max(350, len(selected_b_models) * 25),
+                    use_container_width=True
+                )
                 
                 # 详细数据底表
                 st.markdown("---")
