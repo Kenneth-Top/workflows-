@@ -1,0 +1,11 @@
+# Streamlit secrets (含API密钥，不可推送)
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/

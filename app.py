@@ -3,17 +3,20 @@ import pandas as pd
 import altair as alt
 import os
 import io
+import json
 
 # === 1. 基础配置 ===
 st.set_page_config(page_title="OpenRouter 模型追踪", layout="wide")
 DATA_FILE = "history_database.csv"
 PRICING_FILE = "openrouter_pricing_provider_records.csv"
 BENCHMARK_FILE = "openrouter_benchmark_records.csv"
+LMARENA_FILE = "lmarena_leaderboard_records.csv"
 
 # 页面标题
 st.title("OpenRouter 数据追踪看板")
 
 # 定义页面名称常量
+NAV_AI_QUERY = "🤖 AI 智能查询"
 NAV_DAILY_BRIEF = "📊 每日信息速递"
 NAV_TN_DAILY = "📈 T+N 日用量横向对比"
 NAV_CUMULATIVE_COMPARE = "🚀 累计 Token 横向对比"
@@ -35,6 +38,29 @@ def is_reasoning_model(model_name: str) -> bool:
             return True
     return False
 
+import re as _re_global
+
+def _tokenize_model_name(name: str) -> set:
+    """将模型名拆为 token 集合，用于模糊匹配"""
+    n = name.lower()
+    # 去掉厂商前缀
+    if '/' in n:
+        n = n.split('/')[-1]
+    # 去掉括号内修饰词，如 (Reasoning), (Oct '24), (Non-reasoning)
+    n = _re_global.sub(r'\s*\(.*?\)', '', n)
+    # 按 空格、横线、下划线 分割
+    tokens = set(_re_global.split(r'[\s\-_]+', n.strip()))
+    tokens.discard('')
+    return tokens
+
+def _jaccard_similarity(set_a: set, set_b: set) -> float:
+    """计算两个集合的 Jaccard 相似度"""
+    if not set_a or not set_b:
+        return 0.0
+    intersection = set_a & set_b
+    union = set_a | set_b
+    return len(intersection) / len(union)
+
 def normalize_model_name(name: str) -> str:
     """统一消除厂商前缀和无用的大小写，使不同数据源中的同款模型能合并"""
     if not isinstance(name, str): return str(name)
@@ -43,20 +69,10 @@ def normalize_model_name(name: str) -> str:
     if '/' in n:
         n = n.split('/')[-1]
     
-    # 针对特别恶心的 benchmark friendly names 进行硬核映射修正
+    # 仅保留极端特例的硬映射（完全不同命名的情况）
     mapping = {
-        'claude 3.5 sonnet': 'claude-3.5-sonnet',
-        'claude 3.5 sonnet (new)': 'claude-3.5-sonnet',
-        'claude 3 opus': 'claude-3-opus',
-        'claude 4 opus': 'claude-opus-4',  # Align with user token DB
-        'gpt-4o': 'gpt-4o',
-        'gpt-4o-mini': 'gpt-4o-mini',
-        'deepseek coder v2': 'deepseek-coder-v2',
         'deepseek v3': 'deepseek-chat',
-        'deepseek r1': 'deepseek-r1',
-        'gemini 1.5 pro': 'gemini-1.5-pro',
-        'gemini 1.5 flash': 'gemini-1.5-flash',
-        'gemini 2.0 flash': 'gemini-2.0-flash-exp'
+        'deepseek-v3': 'deepseek-chat',
     }
     
     for key, val in mapping.items():
@@ -64,9 +80,20 @@ def normalize_model_name(name: str) -> str:
             return val
             
     # 去除多余括号如 (Reasoning) 等干扰词，保留核心 slug
-    n = n.split(' (')[0].strip()
+    n = _re_global.sub(r'\s*\(.*?\)', '', n).strip()
     n = n.replace(' ', '-')
     return n
+
+def fuzzy_match_model(target_norm: str, candidate_names: list, threshold: float = 0.55) -> list:
+    """在候选模型名列表中，用 Token 化 Jaccard 匹配找出与 target_norm 相似的名字"""
+    target_tokens = _tokenize_model_name(target_norm)
+    matched = []
+    for cand in candidate_names:
+        cand_tokens = _tokenize_model_name(cand)
+        sim = _jaccard_similarity(target_tokens, cand_tokens)
+        if sim >= threshold:
+            matched.append(cand)
+    return matched
 
 @st.cache_data(ttl=600)
 def load_data():
@@ -107,6 +134,16 @@ def load_benchmark_data():
     except Exception:
         return None
 
+@st.cache_data(ttl=600)
+def load_lmarena_data():
+    if not os.path.exists(LMARENA_FILE): return None
+    try:
+        df = pd.read_csv(LMARENA_FILE)
+        df['Date'] = pd.to_datetime(df['Date'])
+        return df
+    except Exception:
+        return None
+
 # Excel/CSV 智能导出函数
 def get_dataset_download(df, filename_prefix):
     try:
@@ -128,6 +165,7 @@ def get_dataset_download(df, filename_prefix):
 df, error = load_data()
 df_price = load_pricing_data()
 df_bench = load_benchmark_data()
+df_lmarena = load_lmarena_data()
 
 if error and not (df_price is not None or df_bench is not None):
     st.error(error)
@@ -136,6 +174,7 @@ if error and not (df_price is not None or df_bench is not None):
 # === 3. 侧边栏导航 ===
 st.sidebar.title("导航引擎")
 page = st.sidebar.radio("选择分析视图", [
+    NAV_AI_QUERY,
     NAV_DAILY_BRIEF,
     NAV_SINGLE_MODEL,
     NAV_TN_DAILY,
@@ -164,11 +203,163 @@ if df_bench is not None:
     st.sidebar.markdown("#### 🏆 基准测试库概览")
     st.sidebar.metric("收录跑分模型数", len(all_benchmark_models))
     st.sidebar.caption(f"📅 跑分更新至: {df_bench['Date'].max().strftime('%Y-%m-%d')}")
+if df_lmarena is not None:
+    st.sidebar.markdown("#### 🏟️ LMARENA 竞技场")
+    st.sidebar.metric("收录竞技模型数", df_lmarena['Model'].nunique())
+    st.sidebar.caption(f"📅 ELO 更新至: {df_lmarena['Date'].max().strftime('%Y-%m-%d')}")
+
+# ========================================================
+# 页面 0: AI 智能查询
+# ========================================================
+if page == NAV_AI_QUERY:
+    st.subheader("🤖 AI 智能数据分析助手")
+    st.caption("通过自然语言提问，AI 将调用数据库信息生成分析结论与可视化图表。")
+    
+    # API Key 配置
+    api_key = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
+    if not api_key:
+        api_key = st.text_input("🔑 请输入 OpenRouter API Key:", type="password", 
+                                help="在 https://openrouter.ai/keys 获取。也可通过 Streamlit Secrets 或环境变量 OPENROUTER_API_KEY 配置。")
+    
+    if not api_key:
+        st.warning("请先配置 OpenRouter API Key 以使用 AI 查询功能。")
+    else:
+        # 构建数据库上下文摘要
+        @st.cache_data(ttl=600)
+        def build_db_context(_df, _df_price, _df_bench, _df_lmarena):
+            context_parts = []
+            
+            if _df is not None and not _df.empty:
+                context_parts.append(f"""### Token 消耗数据库 (history_database.csv)
+- 列: Date, Model, Prompt, Completion, Reasoning, Total_Tokens, Display_Name
+- 记录数: {len(_df)}, 模型数: {_df['Model'].nunique()}, 日期范围: {_df['Date'].min().strftime('%Y-%m-%d')} ~ {_df['Date'].max().strftime('%Y-%m-%d')}
+- Token 单位: Billion (10亿)
+- 示例模型(前10): {', '.join(_df['Display_Name'].value_counts().head(10).index.tolist())}
+- 最新日 Top 5 消耗模型: {', '.join(_df[_df['Date']==_df['Date'].max()].nlargest(5,'Total_Tokens')['Display_Name'].tolist()) if not _df[_df['Date']==_df['Date'].max()].empty else 'N/A'}""")
+
+            if _df_price is not None and not _df_price.empty:
+                context_parts.append(f"""### 定价数据库 (openrouter_pricing_provider_records.csv)
+- 列: Date, Model, Provider, Input_Price_1M, Output_Price_1M, Cache_Hit_Rate
+- 记录数: {len(_df_price)}, 模型数: {_df_price['Model'].nunique()}, 日期数: {_df_price['Date'].dt.strftime('%Y-%m-%d').nunique()}
+- 价格单位: $/1M Tokens""")
+
+            if _df_bench is not None and not _df_bench.empty:
+                context_parts.append(f"""### Benchmark 跑分数据库 (openrouter_benchmark_records.csv)
+- 结构: 宽表，每行是一个 Metric，每列是一个模型名
+- Metric 示例: {', '.join(_df_bench['Metric'].unique()[:5])}
+- 模型数: {len([c for c in _df_bench.columns if c not in ['Date','Metric']])}""")
+
+            if _df_lmarena is not None and not _df_lmarena.empty:
+                context_parts.append(f"""### LMARENA 竞技场排行榜 (lmarena_leaderboard_records.csv)
+- 列: Date, Model, Category, ELO_Score
+- 类别: {', '.join(_df_lmarena['Category'].unique())}
+- 模型数: {_df_lmarena['Model'].nunique()}, Top 5 Overall: {', '.join(_df_lmarena[_df_lmarena['Category']=='overall'].nlargest(5,'ELO_Score')['Model'].tolist()) if 'overall' in _df_lmarena['Category'].values else 'N/A'}""")
+            
+            return '\n\n'.join(context_parts)
+        
+        db_context = build_db_context(df, df_price, df_bench, df_lmarena)
+        
+        SYSTEM_PROMPT = f"""你是一个专业的 AI 模型数据分析师，负责分析 OpenRouter 平台上的模型数据。用户会用自然语言提问，你需要基于以下数据库信息回答。
+
+## 可用数据库
+
+{db_context}
+
+## 回答规则
+1. 用中文回答，结论要有数据支撑，引用具体数值
+2. 如果需要可视化分析，请生成 Python 代码块(用```python```包裹)，代码应使用 altair 库生成图表
+3. 可视化代码规则:
+   - 数据已加载为: df(Token消耗), df_price(定价), df_bench(Benchmark), df_lmarena(LMARENA)
+   - 使用 st.altair_chart(chart, use_container_width=True) 展示图表
+   - 使用 st.dataframe() 展示表格
+   - 代码必须是可以直接执行的完整代码段
+   - 日期列已经是 datetime 类型
+4. 如果数据不足以回答问题，请如实说明"""
+
+        # 初始化聊天历史
+        if "ai_messages" not in st.session_state:
+            st.session_state.ai_messages = []
+        
+        # 显示历史对话
+        for msg in st.session_state.ai_messages:
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+                if msg.get("chart_code"):
+                    try:
+                        exec(msg["chart_code"])
+                    except Exception:
+                        pass
+        
+        # 用户输入
+        user_query = st.chat_input("💬 输入你的问题，例如: 'deepseek-r1 最近一周的增长趋势如何？'")
+        
+        if user_query:
+            # 显示用户消息
+            st.session_state.ai_messages.append({"role": "user", "content": user_query})
+            with st.chat_message("user"):
+                st.markdown(user_query)
+            
+            # 构建 API 请求
+            messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+            # 只传最近 6 轮对话作为上下文
+            recent_msgs = st.session_state.ai_messages[-12:]
+            for msg in recent_msgs:
+                messages.append({"role": msg["role"], "content": msg["content"]})
+            
+            with st.chat_message("assistant"):
+                with st.spinner("🤔 AI 正在分析数据..."):
+                    try:
+                        import requests as _req
+                        resp = _req.post(
+                            "https://openrouter.ai/api/v1/chat/completions",
+                            headers={
+                                "Authorization": f"Bearer {api_key}",
+                                "Content-Type": "application/json"
+                            },
+                            json={
+                                "model": "deepseek/deepseek-chat",
+                                "messages": messages,
+                                "max_tokens": 4000,
+                                "temperature": 0.3
+                            },
+                            timeout=60
+                        )
+                        resp.raise_for_status()
+                        result = resp.json()
+                        ai_reply = result['choices'][0]['message']['content']
+                    except Exception as e:
+                        ai_reply = f"❌ AI 查询失败: {str(e)}"
+                
+                st.markdown(ai_reply)
+                
+                # 解析并执行 AI 生成的可视化代码
+                chart_code = None
+                if "```python" in ai_reply:
+                    import re as _re_ai
+                    code_blocks = _re_ai.findall(r'```python\s*\n(.*?)```', ai_reply, _re_ai.DOTALL)
+                    if code_blocks:
+                        chart_code = code_blocks[0]
+                        try:
+                            exec(chart_code)
+                        except Exception as e:
+                            st.warning(f"⚠️ 可视化代码执行出错: {e}")
+                
+                st.session_state.ai_messages.append({
+                    "role": "assistant", 
+                    "content": ai_reply,
+                    "chart_code": chart_code
+                })
+        
+        # 清空对话按钮
+        if st.session_state.ai_messages:
+            if st.button("🗑️ 清空对话历史"):
+                st.session_state.ai_messages = []
+                st.rerun()
 
 # ========================================================
 # 页面 1: T+N 横向对比 (每日消耗)
 # ========================================================
-if page == NAV_TN_DAILY:
+elif page == NAV_TN_DAILY:
     st.subheader("模型增长曲线对比 (T+N 每日消耗)")
     st.info("横轴：上线天数 | 纵轴：当日 Token 消耗量")
 
@@ -918,33 +1109,72 @@ elif page == NAV_PRICING:
             col2.metric("Effective Output Price ($/1M)", f"${wa_row['Output_Price_1M']:.4f}")
         
         st.markdown("---")
-        st.markdown("### 📈 供应商定价历史趋势 (Pricing History)")
+        st.markdown("### 📈 供应商定价历史趋势 (7-Day Pricing History)")
+        st.caption("Input 价格用实线，Output 价格用虚线，颜色按供应商区分。")
         
         if not m_price_df.empty:
-            # 去除 Weighted Average 干扰线，以免拉大比例尺
+            # 去除 Weighted Average，以免拉大比例尺
             history_df = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
-            # 填补日期为字符串
-            history_df['Date'] = pd.to_datetime(history_df['Date']).dt.strftime('%Y-%m-%d')
+            history_df['Date'] = pd.to_datetime(history_df['Date'])
             
-            # 使用 Altair 画折线图，颜色表示供应商
-            base_line = alt.Chart(history_df).encode(
-                x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m-%d', labelAngle=-45)),
-                color=alt.Color('Provider:N', scale=alt.Scale(scheme='category20'), legend=alt.Legend(orient='bottom', columns=4)),
-                tooltip=['Date', 'Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']
-            )
-
-            # 左图：Input Price 趋势
-            chart_in = base_line.mark_line(point=True).encode(
-                y=alt.Y('Input_Price_1M:Q', title='输入价格 ($/1M)')
-            ).properties(title="Input Price 趋势", height=300)
-
-            # 右图：Output Price 趋势
-            chart_out = base_line.mark_line(point=True).encode(
-                y=alt.Y('Output_Price_1M:Q', title='输出价格 ($/1M)')
-            ).properties(title="Output Price 趋势", height=300)
-
-            # 水平并出图
-            st.altair_chart(chart_in | chart_out, use_container_width=True)
+            # 转换宽表为长表：合并 Input 和 Output 到同一个价格轴
+            hist_long = history_df.melt(
+                id_vars=['Date', 'Provider'],
+                value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                var_name='Price_Type',
+                value_name='Price'
+            ).dropna(subset=['Price'])
+            
+            hist_long['Price_Type'] = hist_long['Price_Type'].map({
+                'Input_Price_1M': 'Input',
+                'Output_Price_1M': 'Output'
+            })
+            
+            # 组合 Provider + Price_Type 作为图例标签
+            hist_long['Legend'] = hist_long['Provider'] + ' (' + hist_long['Price_Type'] + ')'
+            
+            if not hist_long.empty:
+                # 合并折线图：颜色=供应商，线型=Input/Output
+                chart_pricing = alt.Chart(hist_long).mark_line(
+                    point=alt.OverlayMarkDef(size=30)
+                ).encode(
+                    x=alt.X('Date:T', title='时间', 
+                            axis=alt.Axis(format='%m/%d', labelAngle=-45, labelFontSize=12, titleFontSize=14)),
+                    y=alt.Y('Price:Q', title='价格 ($/1M Tokens)',
+                            axis=alt.Axis(labelFontSize=12, titleFontSize=14)),
+                    color=alt.Color('Provider:N', title='供应商',
+                                    scale=alt.Scale(scheme='category10'),
+                                    legend=alt.Legend(orient='bottom', columns=4)),
+                    strokeDash=alt.StrokeDash('Price_Type:N', title='计费类型',
+                                              legend=alt.Legend(orient='bottom')),
+                    tooltip=[
+                        alt.Tooltip('Date:T', title='日期', format='%Y-%m-%d'),
+                        'Provider', 'Price_Type',
+                        alt.Tooltip('Price:Q', title='价格 ($/1M)', format='$.4f')
+                    ]
+                ).properties(height=400)
+                
+                # 加权平均参考线 (如果有)
+                if not weighted_avg.empty:
+                    wa_input = weighted_avg.iloc[0]['Input_Price_1M']
+                    wa_output = weighted_avg.iloc[0]['Output_Price_1M']
+                    ref_data = pd.DataFrame([
+                        {'Label': f'加权均价 Input: ${wa_input:.4f}', 'Price': wa_input},
+                        {'Label': f'加权均价 Output: ${wa_output:.4f}', 'Price': wa_output},
+                    ])
+                    ref_lines = alt.Chart(ref_data).mark_rule(
+                        strokeDash=[6, 4], opacity=0.6
+                    ).encode(
+                        y='Price:Q',
+                        color=alt.Color('Label:N', title='参考线',
+                                        scale=alt.Scale(range=['#2196F3', '#FF9800']),
+                                        legend=alt.Legend(orient='bottom'))
+                    )
+                    chart_pricing = chart_pricing + ref_lines
+                
+                st.altair_chart(chart_pricing, use_container_width=True)
+            else:
+                st.info("暂无足够的历史数据绘制趋势图，请等待爬虫持续积累数据。")
             
             # 附带最新的详表
             st.markdown("### 🏢 最新各底层供应商名录详表")
@@ -968,13 +1198,23 @@ elif page == NAV_PRICING:
 # ========================================================
 elif page == NAV_BENCHMARK:
     st.subheader("🏆 全模型 Benchmark 性能基准测试矩阵")
-    st.caption("数据源：Artificial Analysis 涵盖 MMLU, GPQA, 等多维度基准测试原始结果。")
+    st.caption("数据源：Artificial Analysis 基准跑分 + LMARENA (Chatbot Arena) ELO 竞技排名。")
     
+    # 统一建立 3 个 Tab
+    tab1, tab2, tab3 = st.tabs([
+        "📊 单指标纵向排行 (AA Benchmark)",
+        "📋 多指标全览矩阵 (AA Benchmark)",
+        "🏟️ LMARENA 竞技场 ELO 排名"
+    ])
+    
+    # --- Tab 1 & 2: 原有 Artificial Analysis Benchmark ---
     if df_bench is None or df_bench.empty:
-        st.warning("暂未发现可用的 Benchmark 数据，请确认是否成功运行 `openrouter_benchmark_scraper.py`。")
+        with tab1:
+            st.warning("暂未发现可用的 Benchmark 数据，请确认是否成功运行 `openrouter_benchmark_scraper.py`。")
+        with tab2:
+            st.warning("暂未发现可用的 Benchmark 数据。")
     else:
         latest_bench_date = df_bench['Date'].max()
-        st.info(f"💡 当前展示数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
         df_latest_bench = df_bench[df_bench['Date'] == latest_bench_date].drop(columns=['Date'])
         
         # 矩阵转置：让 Model 变成 index，Metrics 变成 columns
@@ -983,17 +1223,15 @@ elif page == NAV_BENCHMARK:
         
         metrics_available = bench_pivot.columns.tolist()
         
-        tab1, tab2 = st.tabs(["📊 单指标纵向排行 (Top Ranking)", "📋 多模型多指标全览表 (Matrix Table)"])
-        
         with tab1:
             st.markdown("### 📊 核心基准测试排行榜")
+            st.info(f"💡 数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
             primary_metric = st.selectbox("🎯 选择用于排序排名的核心测试指标:", metrics_available, index=0, key="tab1_metric")
             
             if primary_metric:
                 bench_sorted = bench_pivot.sort_values(by=primary_metric, ascending=False).reset_index()
                 bench_sorted = bench_sorted.dropna(subset=[primary_metric])
                 
-                # 默认提取前 10 名
                 top_10_models = bench_sorted['Model'].head(10).tolist()
                 
                 selected_b_models = st.multiselect(
@@ -1021,6 +1259,7 @@ elif page == NAV_BENCHMARK:
                     
         with tab2:
             st.markdown("### 📋 多维度性能指标交叉对比矩阵")
+            st.info(f"💡 数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
             col_t1, col_t2 = st.columns([1, 2])
             with col_t1:
                 t2_metric = st.selectbox("排序指标优先权:", metrics_available, index=0, key="tab2_main_metric")
@@ -1042,10 +1281,86 @@ elif page == NAV_BENCHMARK:
                 display_df = bench_pivot.loc[:, display_cols].sort_values(by=t2_metric, ascending=False)
                 
             st.dataframe(display_df.style.format("{:.3f}", na_rep='-'), use_container_width=True)
+    
+    # --- Tab 3: LMARENA 竞技场 ELO 排名 ---
+    with tab3:
+        st.markdown("### 🏟️ LMARENA (Chatbot Arena) 竞技场排行榜")
+        st.caption("数据源: LMARENA.ai · ELO 评分由真人盲测对战计算 · 被业界视为最公正的 LLM 能力排名")
         
-        st.markdown("---")
-        data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
-        st.download_button(label=label, data=data, file_name=name, mime=mime)
+        if df_lmarena is None or df_lmarena.empty:
+            st.warning("暂未发现 LMARENA 排行榜数据，请确认是否成功运行 `lmarena_scraper.py`。")
+        else:
+            latest_lm_date = df_lmarena['Date'].max()
+            st.info(f"💡 排行榜更新于: **{latest_lm_date.strftime('%Y-%m-%d')}**")
+            
+            df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date]
+            
+            # 类别选择
+            CATEGORY_LABELS = {
+                'overall': '🌐 综合排名 (Overall)',
+                'coding': '💻 编程能力 (Coding)',
+                'math': '🔢 数学推理 (Math)',
+                'creative_writing': '✍️ 创意写作 (Creative Writing)',
+                'hard_6': '🧠 高难度综合 (Hard Prompts)',
+                'chinese': '🇨🇳 中文能力 (Chinese)',
+                'english': '🇺🇸 英文能力 (English)',
+                'vision_overall': '👁️ 多模态视觉 (Vision)',
+            }
+            available_cats = df_latest_lm['Category'].unique()
+            cat_options = {v: k for k, v in CATEGORY_LABELS.items() if k in available_cats}
+            
+            selected_cat_label = st.selectbox(
+                "🎯 选择排行维度:", 
+                list(cat_options.keys()), 
+                index=0, 
+                key="lmarena_category"
+            )
+            selected_cat = cat_options[selected_cat_label]
+            
+            cat_df = df_latest_lm[df_latest_lm['Category'] == selected_cat].sort_values('ELO_Score', ascending=False).reset_index(drop=True)
+            
+            if cat_df.empty:
+                st.info("该维度暂无数据。")
+            else:
+                # Top N 柱状图
+                top_n = min(20, len(cat_df))
+                top_df = cat_df.head(top_n).copy()
+                top_df['Rank'] = range(1, top_n + 1)
+                
+                chart_elo = alt.Chart(top_df).mark_bar(
+                    cornerRadiusTopLeft=4, cornerRadiusTopRight=4
+                ).encode(
+                    x=alt.X('Model:N', sort='-y', title='模型',
+                            axis=alt.Axis(labelAngle=-45, labelOverlap=False, labelFontSize=11)),
+                    y=alt.Y('ELO_Score:Q', title='ELO 评分',
+                            scale=alt.Scale(zero=False),
+                            axis=alt.Axis(labelFontSize=13, titleFontSize=15)),
+                    color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='viridis')),
+                    tooltip=['Rank', 'Model', alt.Tooltip('ELO_Score:Q', format='.1f')]
+                ).properties(height=500)
+                
+                st.altair_chart(chart_elo, use_container_width=True)
+                
+                # 完整排名表格
+                st.markdown(f"#### 📋 {selected_cat_label} 完整排名 (共 {len(cat_df)} 个模型)")
+                display_lm = cat_df[['Model', 'ELO_Score']].copy()
+                display_lm.insert(0, '排名', range(1, len(display_lm) + 1))
+                display_lm.columns = ['排名', '模型名称', 'ELO 评分']
+                st.dataframe(
+                    display_lm.style.format({'ELO 评分': '{:.1f}'}),
+                    use_container_width=True, hide_index=True, height=400
+                )
+    
+    st.markdown("---")
+    col_dl1, col_dl2 = st.columns(2)
+    if df_bench is not None:
+        with col_dl1:
+            data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
+            st.download_button(label="📥 下载 AA Benchmark 数据", data=data, file_name=name, mime=mime)
+    if df_lmarena is not None:
+        with col_dl2:
+            data, name, mime, label = get_dataset_download(df_lmarena, "lmarena_leaderboard_full")
+            st.download_button(label="📥 下载 LMARENA 排行榜数据", data=data, file_name=name, mime=mime)
 
 # ========================================================
 # 页面 8: 单模型深度探索
@@ -1117,8 +1432,9 @@ elif page == NAV_SINGLE_MODEL:
             latest_bench_date = df_bench['Date'].max()
             df_latest_bench = df_bench[(df_bench['Date'] == latest_bench_date) & (df_bench['Metric'].notna())].copy()
             
-            # 在 Benchmark 表的列名头里，寻找映射出的真实姓名，由于可能返回 "(Reasoning)" 变种，故采用部分匹配（或刚才全拿下来的名字）
-            matched_b_cols = [col for col in df_latest_bench.columns if any(normalize_model_name(col) == selected_model_norm for r in real_names)]
+            # 用模糊匹配在 Benchmark 表的列名中对找该模型的各种命名变体
+            bench_model_cols = [col for col in df_latest_bench.columns if col not in ['Date', 'Metric']]
+            matched_b_cols = fuzzy_match_model(selected_model_norm, bench_model_cols, threshold=0.55)
             
             if matched_b_cols:
                 # 为该模型的不同形态变种分配独立标签页
@@ -1228,3 +1544,52 @@ elif page == NAV_SINGLE_MODEL:
                 st.info("暂无该模型在 OpenRouter 联盟内的详细计费数据。")
         else:
             st.info("未连接到计费数据源。")
+
+        st.markdown("---")
+
+        # 4. LMARENA 竞技场 ELO 排名
+        st.markdown(f"### 🏟️ {selected_model_norm} 的 LMARENA 竞技场 ELO 排名")
+        if df_lmarena is not None and not df_lmarena.empty:
+            latest_lm_date = df_lmarena['Date'].max()
+            df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date]
+            
+            # 模糊匹配 LMARENA 中的模型名
+            lm_all_models = df_latest_lm['Model'].unique().tolist()
+            matched_lm = fuzzy_match_model(selected_model_norm, lm_all_models, threshold=0.5)
+            
+            if matched_lm:
+                # 拿匹配到的模型名的 ELO 数据
+                lm_rows = df_latest_lm[df_latest_lm['Model'].isin(matched_lm)].copy()
+                
+                CATEGORY_LABELS = {
+                    'overall': '🌐 综合', 'coding': '💻 编程', 'math': '🔢 数学',
+                    'creative_writing': '✍️ 创意写作', 'hard_6': '🧠 高难度',
+                    'chinese': '🇨🇳 中文', 'english': '🇺🇸 英文', 'vision_overall': '👁️ 视觉'
+                }
+                
+                elo_display = []
+                for _, row in lm_rows.iterrows():
+                    cat = row['Category']
+                    cat_label = CATEGORY_LABELS.get(cat, cat)
+                    
+                    # 计算该类别下的排名
+                    cat_all = df_latest_lm[df_latest_lm['Category'] == cat].sort_values('ELO_Score', ascending=False).reset_index(drop=True)
+                    rank_idx = cat_all[cat_all['Model'] == row['Model']].index
+                    rank = rank_idx[0] + 1 if len(rank_idx) > 0 else '-'
+                    total = len(cat_all)
+                    
+                    elo_display.append({
+                        '维度': cat_label,
+                        'ELO 评分': f"{row['ELO_Score']:.1f}",
+                        '排名': f"第 {rank} 名 / 共 {total} 款",
+                        '匹配名称': row['Model']
+                    })
+                
+                if elo_display:
+                    st.dataframe(pd.DataFrame(elo_display), use_container_width=True, hide_index=True)
+                else:
+                    st.info("未找到该模型的 ELO 数据。")
+            else:
+                st.info("该模型暂未被 LMARENA 竞技场收录。")
+        else:
+            st.info("未连接到 LMARENA 数据源。")

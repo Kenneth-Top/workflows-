@@ -31,7 +31,7 @@ def fetch_effective_pricing(model, session):
         records = []
         current_date = datetime.now().strftime("%Y-%m-%d")
         
-        # 1. Overall Weighted Average Price
+        # 1. Overall Weighted Average Price (当日快照)
         weighted_input = data.get('weightedInputPrice')
         weighted_output = data.get('weightedOutputPrice')
         
@@ -45,7 +45,7 @@ def fetch_effective_pricing(model, session):
                 'Cache_Hit_Rate': None
             })
             
-        # 2. Provider Specific Effective Prices
+        # 2. Provider Specific Effective Prices (当日快照，含 CacheHitRate)
         provider_summaries = data.get('providerSummaries', [])
         for p in provider_summaries:
             records.append({
@@ -56,7 +56,36 @@ def fetch_effective_pricing(model, session):
                 'Output_Price_1M': float(p.get('effectiveOutputPrice', -1)),
                 'Cache_Hit_Rate': float(p.get('cacheHitRate', -1)) if p.get('cacheHitRate') is not None else None
             })
-            
+
+        # 3. 7-Day Chart Data：逐日逐供应商的历史定价 (不含 Weighted Average / Cache Hit)
+        input_chart = data.get('inputChartData', [])
+        output_chart = data.get('outputChartData', [])
+
+        # 先把 output chart 按日期索引化，方便合并
+        output_by_date = {}
+        for point in output_chart:
+            date_str = point.get('x', '')[:10]
+            output_by_date[date_str] = point.get('y', {})
+
+        for point in input_chart:
+            date_str = point.get('x', '')[:10]
+            if not date_str or date_str == current_date:
+                # 当天数据已由 providerSummaries 覆盖（含 cacheHitRate），跳过
+                continue
+            input_prices = point.get('y', {})
+            output_prices = output_by_date.get(date_str, {})
+
+            for provider_name, inp_price in input_prices.items():
+                out_price = output_prices.get(provider_name)
+                records.append({
+                    'Date': date_str,
+                    'Model': model_id,
+                    'Provider': provider_name,
+                    'Input_Price_1M': float(inp_price),
+                    'Output_Price_1M': float(out_price) if out_price is not None else None,
+                    'Cache_Hit_Rate': None  # 历史数据无 cache hit 信息
+                })
+
         return records
     except Exception as e:
         # Some models might not have this stats routing available yet
@@ -69,18 +98,19 @@ def update_pricing_database(new_df, file_name="openrouter_pricing_provider_recor
         
     if os.path.exists(file_name):
         existing_df = pd.read_csv(file_name)
-        current_date = datetime.now().strftime("%Y-%m-%d")
         
-        # Incremental logic: replace today's data
-        existing_df = existing_df[existing_df['Date'] != current_date]
-        final_df = pd.concat([existing_df, new_df], ignore_index=True)
+        # 增量合并：以 Date + Model + Provider 为唯一键进行 upsert
+        combined = pd.concat([existing_df, new_df], ignore_index=True)
+        combined = combined.drop_duplicates(subset=['Date', 'Model', 'Provider'], keep='last')
     else:
-        final_df = new_df
+        combined = new_df
         
-    final_df.sort_values(by=['Date', 'Model', 'Provider'], inplace=True)
-    final_df.to_csv(file_name, index=False)
+    combined.sort_values(by=['Date', 'Model', 'Provider'], inplace=True)
+    combined.to_csv(file_name, index=False)
+    
+    unique_dates = combined['Date'].nunique()
     print(f"✅ Provider pricing database updated successfully. Saved to {file_name}")
-    print(final_df.head(10).to_string())
+    print(f"   Total records: {len(combined)}, Date range: {unique_dates} days")
 
 def main():
     models = fetch_models()
@@ -88,7 +118,7 @@ def main():
         print("No models extracted.")
         return
         
-    print(f"Found {len(models)} models. Fetching effective pricing concurrently...")
+    print(f"Found {len(models)} models. Fetching effective pricing (including 7-day chart data) concurrently...")
     
     session = requests.Session()
     session.headers.update({
