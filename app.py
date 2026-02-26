@@ -1188,15 +1188,40 @@ elif page == NAV_SINGLE_MODEL:
                         hide_index=True
                     )
                     
-                    price_long = provider_prices.melt(
-                        id_vars=['Provider'],
-                        value_vars=['Input_Price_1M', 'Output_Price_1M'],
-                        var_name='Price_Type',
-                        value_name='Price'
-                    )
-                    st.bar_chart(
-                        price_long, x='Provider', y='Price', color='Price_Type', height=350, use_container_width=True
-                    )
+                    st.markdown("### 📈 历史定价长期走势趋势")
+                    
+                    # 取非综合均值的全量历史数据
+                    history_df = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
+                    if not history_df.empty:
+                        history_df['Date'] = pd.to_datetime(history_df['Date']).dt.strftime('%Y-%m-%d')
+                        
+                        # 转换宽表为长表以供 Altair 进行双维度颜色和线型区分画图
+                        hist_long = history_df.melt(
+                            id_vars=['Date', 'Provider'],
+                            value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                            var_name='Price_Type',
+                            value_name='Price'
+                        )
+                        
+                        # 把 Input 和 Output 映射为更直观的名称
+                        hist_long['Price_Type'] = hist_long['Price_Type'].map({
+                            'Input_Price_1M': 'Input Price',
+                            'Output_Price_1M': 'Output Price'
+                        })
+                        
+                        # 组合 Provider 和 Price_Type 作为分类
+                        hist_long['Legend'] = hist_long['Provider'] + " (" + hist_long['Price_Type'] + ")"
+                        
+                        chart_pricing_hist = alt.Chart(hist_long).mark_line(point=True).encode(
+                            x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m-%d', labelAngle=-45)),
+                            y=alt.Y('Price:Q', title='定价 ($/1M Token)'),
+                            color=alt.Color('Legend:N', title='供应商计费条目', scale=alt.Scale(scheme='category20')),
+                            strokeDash=alt.StrokeDash('Price_Type:N', title='计费类型'),
+                            tooltip=['Date', 'Provider', 'Price_Type', 'Price']
+                        ).properties(height=350)
+                        
+                        st.altair_chart(chart_pricing_hist, use_container_width=True)
+                        st.caption("实线通常代表 Input，虚线通常代表 Output；如果目前只有一个点是连不成折线的，请等待爬虫之后持续积累数据。")
                 else:
                     st.info("暂未获取到底层供应商拆分列表。")
             else:
