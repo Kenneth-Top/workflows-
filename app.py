@@ -1314,7 +1314,9 @@ elif page == NAV_BENCHMARK:
             
             df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date].copy()
             
-            # 维度选择（基于 Rank_ 开头的列）
+            # 维度选择：Overall_Rank 优先，过滤掉完全为空的列
+            col_options = {'综合排名 (Overall)': 'Overall_Rank'}
+            
             rank_cols = [c for c in df_latest_lm.columns if c.startswith('Rank_')]
             MODALITY_LABELS = {
                 'Rank_chat': 'Chat (对话)',
@@ -1323,11 +1325,9 @@ elif page == NAV_BENCHMARK:
                 'Rank_video': 'Video (视频生成)',
                 'Rank_search': 'Search (搜索)',
             }
-            col_options = {MODALITY_LABELS.get(c, c): c for c in rank_cols}
-            
-            if not col_options:
-                # 如果没有 Rank_ 列，用 Overall_Rank
-                col_options = {'综合排名': 'Overall_Rank'}
+            for rc in rank_cols:
+                if df_latest_lm[rc].notna().sum() > 0:  # 只添加有数据的维度
+                    col_options[MODALITY_LABELS.get(rc, rc)] = rc
             
             selected_label = st.selectbox("选择排行维度:", list(col_options.keys()), index=0, key="lmarena_category")
             selected_col = col_options[selected_label]
