@@ -851,6 +851,10 @@ elif page == NAV_PRICING:
     if df_price is None or df_price.empty:
         st.warning("暂未发现可用的定价数据，请确认是否成功运行 `openrouter_pricing_scraper.py`。")
     else:
+        # 让用户选择模型
+        all_models = sorted(df_price['Model'].unique())
+        selected_price_model = st.selectbox("选择要查看价格的模型:", all_models, index=0)
+
         # 获取该模型所有历史时间点的数据
         m_price_df = df_price[df_price['Model'] == selected_price_model].copy()
         
