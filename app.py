@@ -29,11 +29,44 @@ def is_reasoning_model(model_name: str) -> bool:
     """基于模型命名规则进行粗略判断是否为深度推理模型"""
     if not isinstance(model_name, str): return False
     name_lower = model_name.lower()
-    reasoning_keywords = ['reasoning', 'thinking', 'o1', 'o3', 'o4', 'r1', 'qwq', 'qvq']
+    reasoning_keywords = ['reasoning', 'o1', 'o3', 'r1', 'qwq']
     for kw in reasoning_keywords:
         if kw in name_lower:
             return True
     return False
+
+def normalize_model_name(name: str) -> str:
+    """统一消除厂商前缀和无用的大小写，使不同数据源中的同款模型能合并"""
+    if not isinstance(name, str): return str(name)
+    n = name.lower()
+    # 移除诸如 'anthropic/', 'google/' 等前缀
+    if '/' in n:
+        n = n.split('/')[-1]
+    
+    # 针对特别恶心的 benchmark friendly names 进行硬核映射修正
+    mapping = {
+        'claude 3.5 sonnet': 'claude-3.5-sonnet',
+        'claude 3.5 sonnet (new)': 'claude-3.5-sonnet',
+        'claude 3 opus': 'claude-3-opus',
+        'claude 4 opus': 'claude-opus-4',  # Align with user token DB
+        'gpt-4o': 'gpt-4o',
+        'gpt-4o-mini': 'gpt-4o-mini',
+        'deepseek coder v2': 'deepseek-coder-v2',
+        'deepseek v3': 'deepseek-chat',
+        'deepseek r1': 'deepseek-r1',
+        'gemini 1.5 pro': 'gemini-1.5-pro',
+        'gemini 1.5 flash': 'gemini-1.5-flash',
+        'gemini 2.0 flash': 'gemini-2.0-flash-exp'
+    }
+    
+    for key, val in mapping.items():
+        if key in n:
+            return val
+            
+    # 去除多余括号如 (Reasoning) 等干扰词，保留核心 slug
+    n = n.split(' (')[0].strip()
+    n = n.replace(' ', '-')
+    return n
 
 @st.cache_data(ttl=600)
 def load_data():
@@ -935,7 +968,7 @@ elif page == NAV_PRICING:
 # ========================================================
 elif page == NAV_BENCHMARK:
     st.subheader("🏆 全模型 Benchmark 性能基准测试矩阵")
-    st.caption("由 Artificial Analysis 提供的数据源，囊括 Chatbot Arena, MMLU, GSM8K 等多维度跑分。")
+    st.caption("数据源：Artificial Analysis 涵盖 MMLU, GPQA, 等多维度基准测试原始结果。")
     
     if df_bench is None or df_bench.empty:
         st.warning("暂未发现可用的 Benchmark 数据，请确认是否成功运行 `openrouter_benchmark_scraper.py`。")
@@ -950,69 +983,67 @@ elif page == NAV_BENCHMARK:
         
         metrics_available = bench_pivot.columns.tolist()
         
-        col_m1, col_m2 = st.columns([1, 2])
-        with col_m1:
-            primary_metric = st.selectbox("🎯 选择核心排序指标:", metrics_available, index=0)
-        with col_m2:
-            selected_metrics = st.multiselect("📊 附加展示指标:", metrics_available, default=metrics_available[:3] if len(metrics_available) >= 3 else metrics_available)
+        tab1, tab2 = st.tabs(["📊 单指标纵向排行 (Top Ranking)", "📋 多模型多指标全览表 (Matrix Table)"])
         
-            st.sidebar.markdown("---")
-            model_category = st.radio(
-                "🧩 选择模型分类筛选:", 
-                ["全部模型 (All)", "思维链深度推理 (Reasoning)", "常规非推理 (Non-Reasoning)"], 
-                horizontal=True
-            )
+        with tab1:
+            st.markdown("### 📊 核心基准测试排行榜")
+            primary_metric = st.selectbox("🎯 选择用于排序排名的核心测试指标:", metrics_available, index=0, key="tab1_metric")
             
-            # 根据核心指标排序
-            bench_sorted = bench_pivot.sort_values(by=primary_metric, ascending=False).reset_index()
-            bench_sorted = bench_sorted.dropna(subset=[primary_metric])
-            
-            # 分类过滤
-            if model_category == "思维链深度推理 (Reasoning)":
-                bench_sorted = bench_sorted[bench_sorted['Model'].apply(is_reasoning_model)]
-            elif model_category == "常规非推理 (Non-Reasoning)":
-                bench_sorted = bench_sorted[~bench_sorted['Model'].apply(is_reasoning_model)]
-            
-            # 默认提取前 15 名
-            top_15_models = bench_sorted['Model'].head(15).tolist()
-            
-            # 允许用户按需增删模型
-            selected_b_models = st.multiselect(
-                "🤖 选择要对比的模型 (默认前15名):", 
-                bench_sorted['Model'].tolist(), 
-                default=top_15_models
-            )
-            
-            if selected_b_models:
-                plot_df = bench_sorted[bench_sorted['Model'].isin(selected_b_models)]
+            if primary_metric:
+                bench_sorted = bench_pivot.sort_values(by=primary_metric, ascending=False).reset_index()
+                bench_sorted = bench_sorted.dropna(subset=[primary_metric])
                 
-                # 使用 Altair 画出带严格高低排序的纵向柱状图
-                st.markdown(f"### {primary_metric} 跑分排行榜 (前列选拔)")
+                # 默认提取前 10 名
+                top_10_models = bench_sorted['Model'].head(10).tolist()
                 
-                # 必须指定 sort='-y'，否则原生 st.bar_chart 或 alt 会按首字母X轴排序
-                chart_vertical = alt.Chart(plot_df).mark_bar(
-                    cornerRadiusTopLeft=3, cornerRadiusTopRight=3
-                ).encode(
-                    x=alt.X('Model:N', sort='-y', title='模型名称', axis=alt.Axis(labelAngle=-45)),
-                    y=alt.Y(f'{primary_metric}:Q', title='得分'),
-                    color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
-                    tooltip=['Model', alt.Tooltip(f'{primary_metric}:Q', format='.3f')]
-                ).properties(height=450)
-                
-                st.altair_chart(chart_vertical, use_container_width=True)
-                
-                # 详细数据底表
-                st.markdown("---")
-                st.markdown("### 📋 详细数据矩阵")
-                display_cols = [primary_metric] + [m for m in selected_metrics if m != primary_metric]
-                display_df = bench_pivot.loc[selected_b_models, display_cols].sort_values(by=primary_metric, ascending=False)
-                
-                # 取消 background_gradient 以彻底避免 matplotlib 依赖问题
-                st.dataframe(
-                    display_df.style.format("{:.2f}", na_rep='-'),
-                    use_container_width=True
+                selected_b_models = st.multiselect(
+                    "🤖 选择要在图表中进行横向对比的模型 (默认前10名):", 
+                    bench_sorted['Model'].tolist(), 
+                    default=top_10_models,
+                    key="tab1_models"
                 )
+                
+                if selected_b_models:
+                    plot_df = bench_sorted[bench_sorted['Model'].isin(selected_b_models)]
+                    
+                    chart_vertical = alt.Chart(plot_df).mark_bar(
+                        cornerRadiusTopLeft=3, cornerRadiusTopRight=3
+                    ).encode(
+                        x=alt.X('Model:N', sort='-y', title='模型名称', axis=alt.Axis(labelAngle=-45, labelOverlap=False)),
+                        y=alt.Y(f'{primary_metric}:Q', title='得分数值'),
+                        color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
+                        tooltip=['Model', alt.Tooltip(f'{primary_metric}:Q', format='.3f')]
+                    ).properties(height=500)
+                    
+                    st.altair_chart(chart_vertical, use_container_width=True)
+                else:
+                    st.info("请至少选择一个模型进行对比绘制。")
+                    
+        with tab2:
+            st.markdown("### 📋 多维度性能指标交叉对比矩阵")
+            col_t1, col_t2 = st.columns([1, 2])
+            with col_t1:
+                t2_metric = st.selectbox("排序指标优先权:", metrics_available, index=0, key="tab2_main_metric")
+            with col_t2:
+                t2_metrics = st.multiselect("需要一并列出的其他指标:", metrics_available, default=metrics_available[:4] if len(metrics_available) >= 4 else metrics_available, key="tab2_metrics")
+            
+            t2_sorted = bench_pivot.sort_values(by=t2_metric, ascending=False).reset_index()
+            t2_models_selected = st.multiselect(
+                "需要放入表格对比的模型 (留空代表显示所有):",
+                t2_sorted['Model'].tolist(),
+                default=[]
+            )
+            
+            display_cols = [t2_metric] + [m for m in t2_metrics if m != t2_metric]
+            
+            if t2_models_selected:
+                display_df = bench_pivot.loc[t2_models_selected, display_cols].sort_values(by=t2_metric, ascending=False)
+            else:
+                display_df = bench_pivot.loc[:, display_cols].sort_values(by=t2_metric, ascending=False)
+                
+            st.dataframe(display_df.style.format("{:.3f}", na_rep='-'), use_container_width=True)
         
+        st.markdown("---")
         data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
         st.download_button(label=label, data=data, file_name=name, mime=mime)
 
@@ -1023,24 +1054,35 @@ elif page == NAV_SINGLE_MODEL:
     st.subheader("🔬 单模型深度探索面板 (Deep Dive)")
     st.caption("综合全量消耗、基准测试跑分及各类计费数据，全维度追踪与剖析单一模型。")
 
-    # 获取包含过去现在所有记录下来的名字集合
-    all_possible_models = sorted(list(set(all_model_names) | set(all_pricing_models) | set(all_benchmark_models)))
+    # 获取包含过去现在所有记录下来的名字集合，统一消除重名干扰项
+    raw_models = set(all_model_names) | set(all_pricing_models) | set(all_benchmark_models)
+    normalized_map = {}
+    for rm in raw_models:
+        norm = normalize_model_name(rm)
+        if norm not in normalized_map:
+            normalized_map[norm] = []
+        normalized_map[norm].append(rm)
+        
+    all_possible_models = sorted(list(normalized_map.keys()))
+    
     if not all_possible_models:
         st.warning("暂未发现任何模型数据。")
     else:
-        selected_model = st.selectbox("请选择要深度分析的大模型:", all_possible_models)
+        selected_model_norm = st.selectbox("请搜索/选择要深度分析的基础大模型 (如 `deepseek-r1`):", all_possible_models)
         st.markdown("---")
+        
+        # 将统一名映射回三张表里的各种牛鬼蛇神名
+        real_names = normalized_map[selected_model_norm]
         
         # 1. 累计上量图
         st.markdown("### 📈 累计 API 调用量趋势 (Cumulative Token Volume)")
         if df is not None and not df.empty:
-            # Token库的名字可能是带前缀的如 'anthropic/claude-opus-4'，也可能是去前缀的 'claude-opus-4'
-            m_df = df[df['Model'] == selected_model].sort_values('Date').copy()
-            if m_df.empty:
-                display_n = selected_model.split('/')[-1] if '/' in selected_model else selected_model
-                m_df = df[df['Display_Name'] == display_n].sort_values('Date').copy()
+            # Token库的名字
+            m_df = df[df['Model'].isin(real_names) | df['Display_Name'].isin(real_names)].sort_values('Date').copy()
                 
             if not m_df.empty:
+                # Group by Date to sum up tokens if multiple naming variants got matched in the same day
+                m_df = m_df.groupby('Date', as_index=False)['Total_Tokens'].sum()
                 m_df['Cumulative_Tokens'] = m_df['Total_Tokens'].cumsum()
                 
                 col_m1, col_m2 = st.columns(2)
@@ -1062,52 +1104,58 @@ elif page == NAV_SINGLE_MODEL:
                 ).properties(height=350)
                 st.altair_chart(chart_cum, use_container_width=True)
             else:
-                st.info("此模型暂未在当前工作流中积累实际 API 消耗记录。")
+                st.info("此模型暂未在当前工作流中积累实际 API Token 消耗记录。")
         else:
             st.info("未连接到 Token 数据源。")
 
         st.markdown("---")
         
-        # 2. 性能指标排位
-        st.markdown("### 🏆 基准性能测试全网排位 (Benchmark Rankings)")
+        # 2. 性能指标排位 (包含双形态支持)
+        st.markdown(f"### 🏆 {selected_model_norm} 的基准性能排位与形态全息解剖")
+        st.caption("注：OpenRouter的同一个底层模型可能在测试集分化为 'Reasoning深度推理' 与 'Non-Reasoning常规直出' 多种跑分变体。")
         if df_bench is not None and not df_bench.empty:
             latest_bench_date = df_bench['Date'].max()
             df_latest_bench = df_bench[(df_bench['Date'] == latest_bench_date) & (df_bench['Metric'].notna())].copy()
             
-            if selected_model in df_latest_bench.columns:
-                model_scores = df_latest_bench[['Metric', selected_model]].dropna()
-                if not model_scores.empty:
-                    rank_data = []
-                    for _, row in model_scores.iterrows():
-                        metric = row['Metric']
-                        score = row[selected_model]
-                        
-                        # 拿到所有模型在这单个指标下的得分，准备做排名计算
-                        all_scores_flat = df_latest_bench[df_latest_bench['Metric'] == metric].drop(columns=['Date', 'Metric']).iloc[0].dropna()
-                        all_scores_num = pd.to_numeric(all_scores_flat, errors='coerce').dropna()
-                        
-                        if score in all_scores_num.values:
-                            # 分别按照从高到低降序排序计算Rank名次
-                            rank = all_scores_num.rank(method='min', ascending=False)[selected_model]
-                            total = len(all_scores_num)
-                            percentile = (total - rank) / total * 100
+            # 在 Benchmark 表的列名头里，寻找映射出的真实姓名，由于可能返回 "(Reasoning)" 变种，故采用部分匹配（或刚才全拿下来的名字）
+            matched_b_cols = [col for col in df_latest_bench.columns if any(normalize_model_name(col) == selected_model_norm for r in real_names)]
+            
+            if matched_b_cols:
+                # 为该模型的不同形态变种分配独立标签页
+                tabs_b = st.tabs([f"🧬 形态体: {m_col}" for m_col in matched_b_cols])
+                
+                for i, m_col in enumerate(matched_b_cols):
+                    with tabs_b[i]:
+                        model_scores = df_latest_bench[['Metric', m_col]].dropna()
+                        if not model_scores.empty:
+                            rank_data = []
+                            for _, row in model_scores.iterrows():
+                                metric = row['Metric']
+                                score = row[m_col]
+                                
+                                all_scores_flat = df_latest_bench[df_latest_bench['Metric'] == metric].drop(columns=['Date', 'Metric']).iloc[0].dropna()
+                                all_scores_num = pd.to_numeric(all_scores_flat, errors='coerce').dropna()
+                                
+                                if score in all_scores_num.values:
+                                    rank = all_scores_num.rank(method='min', ascending=False)[m_col]
+                                    total = len(all_scores_num)
+                                    percentile = (total - rank) / total * 100
+                                    
+                                    rank_data.append({
+                                        '核心测试指标 (Metric)': metric,
+                                        '该模型得分 (Score)': f"{score:.3f}",
+                                        '全网综合排名 (Rank)': f"第 {int(rank)} 名 / 共 {total} 款跑分",
+                                        '性能分位数 (Percentile)': f"超越了 {percentile:.1f}% 的竞争对手"
+                                    })
                             
-                            rank_data.append({
-                                '核心测试指标 (Metric)': metric,
-                                '该模型得分 (Score)': f"{score:.3f}",
-                                '全网综合排名 (Rank)': f"第 {int(rank)} 名 / 共 {total} 款跑分",
-                                '性能分位数 (Percentile)': f"超越了 {percentile:.1f}% 的竞争对手"
-                            })
-                    
-                    if rank_data:
-                        st.dataframe(pd.DataFrame(rank_data), use_container_width=True, hide_index=True)
-                        st.caption("注：此排行榜基于此模型相对于同样支持该指标的所有被侧模型的纯数值排名得出。")
-                    else:
-                        st.info("该大模型受测数据解析暂无。")
-                else:
-                    st.info("数据库中暂无该模型的具体跑分数值，可能处于等候测评排期中。")
+                            if rank_data:
+                                st.dataframe(pd.DataFrame(rank_data), use_container_width=True, hide_index=True)
+                            else:
+                                st.info("暂无可用测试数据。")
+                        else:
+                            st.info("此形态暂未出分。")
             else:
-                st.info("该模型尚未被收录于 Benchmark 评测库。")
+                st.info("该大模型并未被收录于 Benchmark 评测库或近期未参与 OpenRouter 官方发榜。")
         else:
             st.info("未连接到跑分数据源。")
 
@@ -1116,7 +1164,8 @@ elif page == NAV_SINGLE_MODEL:
         # 3. 价格计费状况
         st.markdown("### 💰 Token 服务器调用实时计费分析")
         if df_price is not None and not df_price.empty:
-            m_price_df = df_price[df_price['Model'] == selected_model].copy()
+            # 价格表中去找 real_names
+            m_price_df = df_price[df_price['Model'].isin(real_names)].copy()
             if not m_price_df.empty:
                 latest_pricing_date = m_price_df['Date'].max()
                 df_latest_prices = m_price_df[m_price_df['Date'] == latest_pricing_date]
