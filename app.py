@@ -21,8 +21,19 @@ NAV_DETAIL_DAILY = "🔍 单模型用量详情"
 NAV_RAW_DATA = "💾 原始数据导出"
 NAV_PRICING = "💰 供应商实际定价分析"
 NAV_BENCHMARK = "🏆 基准测试跑分矩阵"
+NAV_SINGLE_MODEL = "🔬 单模型深度探索"
 
 # === 2. 工具函数 ===
+
+def is_reasoning_model(model_name: str) -> bool:
+    """基于模型命名规则进行粗略判断是否为深度推理模型"""
+    if not isinstance(model_name, str): return False
+    name_lower = model_name.lower()
+    reasoning_keywords = ['reasoning', 'thinking', 'o1', 'o3', 'o4', 'r1', 'qwq', 'qvq']
+    for kw in reasoning_keywords:
+        if kw in name_lower:
+            return True
+    return False
 
 @st.cache_data(ttl=600)
 def load_data():
@@ -93,6 +104,7 @@ if error and not (df_price is not None or df_bench is not None):
 st.sidebar.title("导航引擎")
 page = st.sidebar.radio("选择分析视图", [
     NAV_DAILY_BRIEF,
+    NAV_SINGLE_MODEL,
     NAV_TN_DAILY,
     NAV_CUMULATIVE_COMPARE,
     NAV_DETAIL_DAILY,
@@ -944,10 +956,22 @@ elif page == NAV_BENCHMARK:
         with col_m2:
             selected_metrics = st.multiselect("📊 附加展示指标:", metrics_available, default=metrics_available[:3] if len(metrics_available) >= 3 else metrics_available)
         
-        if primary_metric:
+            st.sidebar.markdown("---")
+            model_category = st.radio(
+                "🧩 选择模型分类筛选:", 
+                ["全部模型 (All)", "思维链深度推理 (Reasoning)", "常规非推理 (Non-Reasoning)"], 
+                horizontal=True
+            )
+            
             # 根据核心指标排序
             bench_sorted = bench_pivot.sort_values(by=primary_metric, ascending=False).reset_index()
             bench_sorted = bench_sorted.dropna(subset=[primary_metric])
+            
+            # 分类过滤
+            if model_category == "思维链深度推理 (Reasoning)":
+                bench_sorted = bench_sorted[bench_sorted['Model'].apply(is_reasoning_model)]
+            elif model_category == "常规非推理 (Non-Reasoning)":
+                bench_sorted = bench_sorted[~bench_sorted['Model'].apply(is_reasoning_model)]
             
             # 默认提取前 15 名
             top_15_models = bench_sorted['Model'].head(15).tolist()
@@ -991,3 +1015,141 @@ elif page == NAV_BENCHMARK:
         
         data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
         st.download_button(label=label, data=data, file_name=name, mime=mime)
+
+# ========================================================
+# 页面 8: 单模型深度探索
+# ========================================================
+elif page == NAV_SINGLE_MODEL:
+    st.subheader("🔬 单模型深度探索面板 (Deep Dive)")
+    st.caption("综合全量消耗、基准测试跑分及各类计费数据，全维度追踪与剖析单一模型。")
+
+    # 获取包含过去现在所有记录下来的名字集合
+    all_possible_models = sorted(list(set(all_model_names) | set(all_pricing_models) | set(all_benchmark_models)))
+    if not all_possible_models:
+        st.warning("暂未发现任何模型数据。")
+    else:
+        selected_model = st.selectbox("请选择要深度分析的大模型:", all_possible_models)
+        st.markdown("---")
+        
+        # 1. 累计上量图
+        st.markdown("### 📈 累计 API 调用量趋势 (Cumulative Token Volume)")
+        if df is not None and not df.empty:
+            m_df = df[df['Model'] == selected_model].sort_values('Date').copy()
+            if m_df.empty and '/' in selected_model:
+                display_n = selected_model.split('/')[-1]
+                m_df = df[df['Display_Name'] == display_n].sort_values('Date').copy()
+                
+            if not m_df.empty:
+                m_df['Cumulative_Tokens'] = m_df['Total_Tokens'].cumsum()
+                
+                col_m1, col_m2 = st.columns(2)
+                recent_7d = m_df.tail(7)['Total_Tokens'].sum()
+                col_m1.metric("历史累计总消耗量", f"{m_df['Cumulative_Tokens'].iloc[-1]:.4f} Billion")
+                col_m2.metric("近 7 天活跃消耗量", f"{recent_7d:.4f} Billion")
+                    
+                chart_cum = alt.Chart(m_df).mark_area(
+                    opacity=0.6, 
+                    color=alt.Gradient(
+                        gradient='linear',
+                        stops=[alt.GradientStop(color='orange', offset=0), alt.GradientStop(color='white', offset=1)],
+                        x1=1, x2=1, y1=1, y2=0
+                    )
+                ).encode(
+                    x=alt.X('Date:T', title='日期'),
+                    y=alt.Y('Cumulative_Tokens:Q', title='累计 Tokens (Billion)'),
+                    tooltip=['Date', 'Cumulative_Tokens', 'Total_Tokens']
+                ).properties(height=350)
+                st.altair_chart(chart_cum, use_container_width=True)
+            else:
+                st.info("此模型暂未在当前工作流中积累实际 API 消耗记录。")
+        else:
+            st.info("未连接到 Token 数据源。")
+
+        st.markdown("---")
+        
+        # 2. 性能指标排位
+        st.markdown("### 🏆 基准性能测试全网排位 (Benchmark Rankings)")
+        if df_bench is not None and not df_bench.empty:
+            latest_bench_date = df_bench['Date'].max()
+            df_latest_bench = df_bench[(df_bench['Date'] == latest_bench_date) & (df_bench['Metric'].notna())].copy()
+            
+            if selected_model in df_latest_bench.columns:
+                model_scores = df_latest_bench[['Metric', selected_model]].dropna()
+                if not model_scores.empty:
+                    rank_data = []
+                    for _, row in model_scores.iterrows():
+                        metric = row['Metric']
+                        score = row[selected_model]
+                        
+                        # 拿到所有模型在这单个指标下的得分，准备做排名计算
+                        all_scores_flat = df_latest_bench[df_latest_bench['Metric'] == metric].drop(columns=['Date', 'Metric']).iloc[0].dropna()
+                        all_scores_num = pd.to_numeric(all_scores_flat, errors='coerce').dropna()
+                        
+                        if score in all_scores_num.values:
+                            # 分别按照从高到低降序排序计算Rank名次
+                            rank = all_scores_num.rank(method='min', ascending=False)[selected_model]
+                            total = len(all_scores_num)
+                            percentile = (total - rank) / total * 100
+                            
+                            rank_data.append({
+                                '核心测试指标 (Metric)': metric,
+                                '该模型得分 (Score)': f"{score:.3f}",
+                                '全网综合排名 (Rank)': f"第 {int(rank)} 名 / 共 {total} 款跑分",
+                                '性能分位数 (Percentile)': f"超越了 {percentile:.1f}% 的竞争对手"
+                            })
+                    
+                    if rank_data:
+                        st.dataframe(pd.DataFrame(rank_data), use_container_width=True, hide_index=True)
+                        st.caption("注：此排行榜基于此模型相对于同样支持该指标的所有被侧模型的纯数值排名得出。")
+                    else:
+                        st.info("该大模型受测数据解析暂无。")
+                else:
+                    st.info("数据库中暂无该模型的具体跑分数值，可能处于等候测评排期中。")
+            else:
+                st.info("该模型尚未被收录于 Benchmark 评测库。")
+        else:
+            st.info("未连接到跑分数据源。")
+
+        st.markdown("---")
+        
+        # 3. 价格计费状况
+        st.markdown("### 💰 Token 服务器调用实时计费分析")
+        if df_price is not None and not df_price.empty:
+            m_price_df = df_price[df_price['Model'] == selected_model].copy()
+            if not m_price_df.empty:
+                latest_pricing_date = m_price_df['Date'].max()
+                df_latest_prices = m_price_df[m_price_df['Date'] == latest_pricing_date]
+                
+                wa_row = df_latest_prices[df_latest_prices['Provider'] == 'Weighted Average']
+                if not wa_row.empty:
+                    wa = wa_row.iloc[0]
+                    st.success(f"**🏅 当前官方指导缓冲均价 (Effective Weighted Average):**  [ Input: **${wa['Input_Price_1M']:.4f}** / 1M ] & [ Output: **${wa['Output_Price_1M']:.4f}** / 1M ]")
+                
+                provider_prices = df_latest_prices[df_latest_prices['Provider'] != 'Weighted Average'].sort_values('Input_Price_1M')
+                if not provider_prices.empty:
+                    st.markdown("各大底层算力供应商（Provider）的实际渠道成本明细：")
+                    st.dataframe(
+                        provider_prices[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
+                            'Input_Price_1M': '${:.4f}',
+                            'Output_Price_1M': '${:.4f}',
+                            'Cache_Hit_Rate': '{:.1%}'
+                        }),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+                    
+                    price_long = provider_prices.melt(
+                        id_vars=['Provider'],
+                        value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                        var_name='Price_Type',
+                        value_name='Price'
+                    )
+                    st.bar_chart(
+                        price_long, x='Provider', y='Price', color='Price_Type', height=350, use_container_width=True
+                    )
+                else:
+                    st.info("暂未获取到底层供应商拆分列表。")
+            else:
+                st.info("暂无该模型在 OpenRouter 联盟内的详细计费数据。")
+        else:
+            st.info("未连接到计费数据源。")
