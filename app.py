@@ -891,7 +891,7 @@ elif page == NAV_PRICING:
                 ['Input_Price_1M', 'Output_Price_1M'],
                 as_=['Price_Type', 'Price']
             ).mark_bar().encode(
-                x=alt.X('Provider:N', sort='y', title='供应商'),
+                x=alt.X('Provider:N', title='供应商', sort='-y'),
                 y=alt.Y('Price:Q', title='价格 ($ / 1M Tokens)'),
                 color=alt.Color('Price_Type:N', scale=alt.Scale(scheme='set2'), title='价格类型'),
                 column='Price_Type:N',
