@@ -16,15 +16,15 @@ LMARENA_FILE = "lmarena_leaderboard_records.csv"
 st.title("OpenRouter 数据追踪看板")
 
 # 定义页面名称常量
-NAV_AI_QUERY = "🤖 AI 智能查询"
-NAV_DAILY_BRIEF = "📊 每日信息速递"
-NAV_TN_DAILY = "📈 T+N 日用量横向对比"
-NAV_CUMULATIVE_COMPARE = "🚀 累计 Token 横向对比"
-NAV_DETAIL_DAILY = "🔍 单模型用量详情"
-NAV_RAW_DATA = "💾 原始数据导出"
-NAV_PRICING = "💰 供应商实际定价分析"
-NAV_BENCHMARK = "🏆 基准测试跑分矩阵"
-NAV_SINGLE_MODEL = "🔬 单模型深度探索"
+NAV_AI_QUERY = "AI 查询"
+NAV_DAILY_BRIEF = "每日简报"
+NAV_TN_DAILY = "T+N 日用量对比"
+NAV_CUMULATIVE_COMPARE = "累计用量对比"
+NAV_DETAIL_DAILY = "单模型用量"
+NAV_RAW_DATA = "数据导出"
+NAV_PRICING = "供应商定价"
+NAV_BENCHMARK = "基准测试"
+NAV_SINGLE_MODEL = "单模型深度分析"
 
 # === 2. 工具函数 ===
 
@@ -172,7 +172,7 @@ if error and not (df_price is not None or df_bench is not None):
     st.stop()
 
 # === 3. 侧边栏导航 ===
-st.sidebar.title("导航引擎")
+st.sidebar.title("导航")
 page = st.sidebar.radio("选择分析视图", [
     NAV_AI_QUERY,
     NAV_DAILY_BRIEF,
@@ -191,22 +191,19 @@ all_benchmark_models = [c for c in df_bench.columns if c not in ['Date', 'Metric
 
 # 数据概览面板
 st.sidebar.divider()
-st.sidebar.markdown("#### 📊 Token 消耗库概览")
+st.sidebar.markdown("#### 数据概览")
 if df is not None:
-    st.sidebar.metric("追踪消耗模型数", len(all_model_names))
-    st.sidebar.caption(f"📅 消耗数据区间: {df['Date'].min().strftime('%Y-%m-%d')} ~ {df['Date'].max().strftime('%Y-%m-%d')}")
+    st.sidebar.metric("追踪模型数", len(all_model_names))
+    st.sidebar.caption(f"数据区间: {df['Date'].min().strftime('%Y-%m-%d')} ~ {df['Date'].max().strftime('%Y-%m-%d')}")
 if df_price is not None:
-    st.sidebar.markdown("#### 💰 价格监控库概览")
-    st.sidebar.metric("收录定价模型数", len(all_pricing_models))
-    st.sidebar.caption(f"📅 定价更新至: {df_price['Date'].max().strftime('%Y-%m-%d')}")
+    st.sidebar.metric("定价模型数", len(all_pricing_models))
+    st.sidebar.caption(f"定价更新至: {df_price['Date'].max().strftime('%Y-%m-%d')}")
 if df_bench is not None:
-    st.sidebar.markdown("#### 🏆 基准测试库概览")
-    st.sidebar.metric("收录跑分模型数", len(all_benchmark_models))
-    st.sidebar.caption(f"📅 跑分更新至: {df_bench['Date'].max().strftime('%Y-%m-%d')}")
+    st.sidebar.metric("跑分模型数", len(all_benchmark_models))
+    st.sidebar.caption(f"跑分更新至: {df_bench['Date'].max().strftime('%Y-%m-%d')}")
 if df_lmarena is not None:
-    st.sidebar.markdown("#### 🏟️ LMARENA 竞技场")
-    st.sidebar.metric("收录竞技模型数", df_lmarena['Model'].nunique())
-    st.sidebar.caption(f"📅 ELO 更新至: {df_lmarena['Date'].max().strftime('%Y-%m-%d')}")
+    st.sidebar.metric("LMARENA 模型数", df_lmarena['Model'].nunique())
+    st.sidebar.caption(f"LMARENA 更新至: {df_lmarena['Date'].max().strftime('%Y-%m-%d')}")
 
 # ========================================================
 # 页面 0: AI 智能查询
@@ -250,10 +247,11 @@ if page == NAV_AI_QUERY:
 - 模型数: {len([c for c in _df_bench.columns if c not in ['Date','Metric']])}""")
 
             if _df_lmarena is not None and not _df_lmarena.empty:
+                rank_cols = [c for c in _df_lmarena.columns if c.startswith('Rank_')]
                 context_parts.append(f"""### LMARENA 竞技场排行榜 (lmarena_leaderboard_records.csv)
-- 列: Date, Model, Category, ELO_Score
-- 类别: {', '.join(_df_lmarena['Category'].unique())}
-- 模型数: {_df_lmarena['Model'].nunique()}, Top 5 Overall: {', '.join(_df_lmarena[_df_lmarena['Category']=='overall'].nlargest(5,'ELO_Score')['Model'].tolist()) if 'overall' in _df_lmarena['Category'].values else 'N/A'}""")
+- 列: Date, Model, Organization, Overall_Rank, {', '.join(rank_cols)}
+- 维度: {', '.join(c.replace('Rank_','') for c in rank_cols)}
+- 模型数: {_df_lmarena['Model'].nunique()}""")
             
             return '\n\n'.join(context_parts)
         
@@ -1197,14 +1195,13 @@ elif page == NAV_PRICING:
 # 页面 7: Benchmark 跑分数据矩阵
 # ========================================================
 elif page == NAV_BENCHMARK:
-    st.subheader("🏆 全模型 Benchmark 性能基准测试矩阵")
-    st.caption("数据源：Artificial Analysis 基准跑分 + LMARENA (Chatbot Arena) ELO 竞技排名。")
+    st.subheader("基准测试与排行榜")
+    st.caption("数据源：Artificial Analysis 基准跑分 + LMARENA (Chatbot Arena) 竞技排名。")
     
-    # 统一建立 3 个 Tab
     tab1, tab2, tab3 = st.tabs([
-        "📊 单指标纵向排行 (AA Benchmark)",
-        "📋 多指标全览矩阵 (AA Benchmark)",
-        "🏟️ LMARENA 竞技场 ELO 排名"
+        "单指标排行 (AA Benchmark)",
+        "多指标矩阵 (AA Benchmark)",
+        "LMARENA 竞技排名"
     ])
     
     # --- Tab 1 & 2: 原有 Artificial Analysis Benchmark ---
@@ -1224,9 +1221,9 @@ elif page == NAV_BENCHMARK:
         metrics_available = bench_pivot.columns.tolist()
         
         with tab1:
-            st.markdown("### 📊 核心基准测试排行榜")
-            st.info(f"💡 数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
-            primary_metric = st.selectbox("🎯 选择用于排序排名的核心测试指标:", metrics_available, index=0, key="tab1_metric")
+            st.markdown("### 核心基准测试排行榜")
+            st.info(f"数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
+            primary_metric = st.selectbox("选择排序指标:", metrics_available, index=0, key="tab1_metric")
             
             if primary_metric:
                 bench_sorted = bench_pivot.sort_values(by=primary_metric, ascending=False).reset_index()
@@ -1235,7 +1232,7 @@ elif page == NAV_BENCHMARK:
                 top_10_models = bench_sorted['Model'].head(10).tolist()
                 
                 selected_b_models = st.multiselect(
-                    "🤖 选择要在图表中进行横向对比的模型 (默认前10名):", 
+                    "选择对比模型 (默认前10):", 
                     bench_sorted['Model'].tolist(), 
                     default=top_10_models,
                     key="tab1_models"
@@ -1258,8 +1255,8 @@ elif page == NAV_BENCHMARK:
                     st.info("请至少选择一个模型进行对比绘制。")
                     
         with tab2:
-            st.markdown("### 📋 多维度性能指标交叉对比矩阵")
-            st.info(f"💡 数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
+            st.markdown("### 多维度指标交叉对比")
+            st.info(f"数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
             col_t1, col_t2 = st.columns([1, 2])
             with col_t1:
                 t2_metric = st.selectbox("排序指标优先权:", metrics_available, index=0, key="tab2_main_metric")
@@ -1282,85 +1279,78 @@ elif page == NAV_BENCHMARK:
                 
             st.dataframe(display_df.style.format("{:.3f}", na_rep='-'), use_container_width=True)
     
-    # --- Tab 3: LMARENA 竞技场 ELO 排名 ---
+    # --- Tab 3: LMARENA 竞技排名 ---
     with tab3:
-        st.markdown("### 🏟️ LMARENA (Chatbot Arena) 竞技场排行榜")
-        st.caption("数据源: LMARENA.ai · ELO 评分由真人盲测对战计算 · 被业界视为最公正的 LLM 能力排名")
+        st.markdown("### LMARENA (Chatbot Arena) 竞技排行榜")
+        st.caption("数据源: lmarena.ai · 由真人盲测对战计算排名")
         
         if df_lmarena is None or df_lmarena.empty:
-            st.warning("暂未发现 LMARENA 排行榜数据，请确认是否成功运行 `lmarena_scraper.py`。")
+            st.warning("暂未发现 LMARENA 排行榜数据。")
         else:
             latest_lm_date = df_lmarena['Date'].max()
-            st.info(f"💡 排行榜更新于: **{latest_lm_date.strftime('%Y-%m-%d')}**")
+            st.info(f"数据更新于: **{latest_lm_date.strftime('%Y-%m-%d')}**")
             
-            df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date]
+            df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date].copy()
             
-            # 类别选择
-            CATEGORY_LABELS = {
-                'overall': '🌐 综合排名 (Overall)',
-                'coding': '💻 编程能力 (Coding)',
-                'math': '🔢 数学推理 (Math)',
-                'creative_writing': '✍️ 创意写作 (Creative Writing)',
-                'hard_6': '🧠 高难度综合 (Hard Prompts)',
-                'chinese': '🇨🇳 中文能力 (Chinese)',
-                'english': '🇺🇸 英文能力 (English)',
-                'vision_overall': '👁️ 多模态视觉 (Vision)',
+            # 维度选择（基于 Rank_ 开头的列）
+            rank_cols = [c for c in df_latest_lm.columns if c.startswith('Rank_')]
+            MODALITY_LABELS = {
+                'Rank_chat': 'Chat (对话)',
+                'Rank_webdev': 'WebDev (前端开发)',
+                'Rank_image': 'Image (图像生成)',
+                'Rank_video': 'Video (视频生成)',
+                'Rank_search': 'Search (搜索)',
             }
-            available_cats = df_latest_lm['Category'].unique()
-            cat_options = {v: k for k, v in CATEGORY_LABELS.items() if k in available_cats}
+            col_options = {MODALITY_LABELS.get(c, c): c for c in rank_cols}
             
-            selected_cat_label = st.selectbox(
-                "🎯 选择排行维度:", 
-                list(cat_options.keys()), 
-                index=0, 
-                key="lmarena_category"
-            )
-            selected_cat = cat_options[selected_cat_label]
+            if not col_options:
+                # 如果没有 Rank_ 列，用 Overall_Rank
+                col_options = {'综合排名': 'Overall_Rank'}
             
-            cat_df = df_latest_lm[df_latest_lm['Category'] == selected_cat].sort_values('ELO_Score', ascending=False).reset_index(drop=True)
+            selected_label = st.selectbox("选择排行维度:", list(col_options.keys()), index=0, key="lmarena_category")
+            selected_col = col_options[selected_label]
             
-            if cat_df.empty:
-                st.info("该维度暂无数据。")
+            # 筛选有排名的模型
+            ranked_df = df_latest_lm.dropna(subset=[selected_col]).sort_values(selected_col).reset_index(drop=True)
+            
+            if ranked_df.empty:
+                st.info("该维度暂无排名数据。")
             else:
-                # Top N 柱状图
-                top_n = min(20, len(cat_df))
-                top_df = cat_df.head(top_n).copy()
-                top_df['Rank'] = range(1, top_n + 1)
+                # Top N 排名柱状图（排名越小越好，用反转展示）
+                top_n = min(25, len(ranked_df))
+                top_df = ranked_df.head(top_n).copy()
+                top_df['Display_Rank'] = top_df[selected_col].astype(int)
                 
-                chart_elo = alt.Chart(top_df).mark_bar(
-                    cornerRadiusTopLeft=4, cornerRadiusTopRight=4
+                chart_rank = alt.Chart(top_df).mark_bar(
+                    cornerRadiusTopLeft=3, cornerRadiusTopRight=3
                 ).encode(
-                    x=alt.X('Model:N', sort='-y', title='模型',
-                            axis=alt.Axis(labelAngle=-45, labelOverlap=False, labelFontSize=11)),
-                    y=alt.Y('ELO_Score:Q', title='ELO 评分',
-                            scale=alt.Scale(zero=False),
-                            axis=alt.Axis(labelFontSize=13, titleFontSize=15)),
-                    color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='viridis')),
-                    tooltip=['Rank', 'Model', alt.Tooltip('ELO_Score:Q', format='.1f')]
-                ).properties(height=500)
+                    x=alt.X('Model:N', sort=alt.EncodingSortField(field=selected_col, order='ascending'),
+                            title='模型', axis=alt.Axis(labelAngle=-45, labelOverlap=False)),
+                    y=alt.Y('Display_Rank:Q', title='排名 (越低越好)',
+                            scale=alt.Scale(reverse=True, zero=False)),
+                    color=alt.Color('Organization:N', title='厂商', legend=alt.Legend(orient='bottom')),
+                    tooltip=['Model', 'Organization', alt.Tooltip('Display_Rank:Q', title='排名')]
+                ).properties(height=450)
                 
-                st.altair_chart(chart_elo, use_container_width=True)
+                st.altair_chart(chart_rank, use_container_width=True)
                 
                 # 完整排名表格
-                st.markdown(f"#### 📋 {selected_cat_label} 完整排名 (共 {len(cat_df)} 个模型)")
-                display_lm = cat_df[['Model', 'ELO_Score']].copy()
-                display_lm.insert(0, '排名', range(1, len(display_lm) + 1))
-                display_lm.columns = ['排名', '模型名称', 'ELO 评分']
-                st.dataframe(
-                    display_lm.style.format({'ELO 评分': '{:.1f}'}),
-                    use_container_width=True, hide_index=True, height=400
-                )
+                st.markdown(f"#### {selected_label} 完整排名 (共 {len(ranked_df)} 个模型)")
+                display_lm = ranked_df[['Model', 'Organization', selected_col]].copy()
+                display_lm[selected_col] = display_lm[selected_col].astype(int)
+                display_lm.columns = ['模型', '厂商', '排名']
+                st.dataframe(display_lm, use_container_width=True, hide_index=True, height=400)
     
     st.markdown("---")
     col_dl1, col_dl2 = st.columns(2)
     if df_bench is not None:
         with col_dl1:
             data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
-            st.download_button(label="📥 下载 AA Benchmark 数据", data=data, file_name=name, mime=mime)
+            st.download_button(label="下载 AA Benchmark 数据", data=data, file_name=name, mime=mime)
     if df_lmarena is not None:
         with col_dl2:
             data, name, mime, label = get_dataset_download(df_lmarena, "lmarena_leaderboard_full")
-            st.download_button(label="📥 下载 LMARENA 排行榜数据", data=data, file_name=name, mime=mime)
+            st.download_button(label="下载 LMARENA 数据", data=data, file_name=name, mime=mime)
 
 # ========================================================
 # 页面 8: 单模型深度探索
@@ -1547,8 +1537,8 @@ elif page == NAV_SINGLE_MODEL:
 
         st.markdown("---")
 
-        # 4. LMARENA 竞技场 ELO 排名
-        st.markdown(f"### 🏟️ {selected_model_norm} 的 LMARENA 竞技场 ELO 排名")
+        # 4. LMARENA 竞技排名
+        st.markdown(f"### {selected_model_norm} 的 LMARENA 竞技排名")
         if df_lmarena is not None and not df_lmarena.empty:
             latest_lm_date = df_lmarena['Date'].max()
             df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date]
@@ -1558,38 +1548,30 @@ elif page == NAV_SINGLE_MODEL:
             matched_lm = fuzzy_match_model(selected_model_norm, lm_all_models, threshold=0.5)
             
             if matched_lm:
-                # 拿匹配到的模型名的 ELO 数据
                 lm_rows = df_latest_lm[df_latest_lm['Model'].isin(matched_lm)].copy()
                 
-                CATEGORY_LABELS = {
-                    'overall': '🌐 综合', 'coding': '💻 编程', 'math': '🔢 数学',
-                    'creative_writing': '✍️ 创意写作', 'hard_6': '🧠 高难度',
-                    'chinese': '🇨🇳 中文', 'english': '🇺🇸 英文', 'vision_overall': '👁️ 视觉'
+                rank_cols = [c for c in lm_rows.columns if c.startswith('Rank_')]
+                MODALITY_LABELS = {
+                    'Rank_chat': 'Chat', 'Rank_webdev': 'WebDev',
+                    'Rank_image': 'Image', 'Rank_video': 'Video', 'Rank_search': 'Search'
                 }
                 
-                elo_display = []
+                rank_display = []
                 for _, row in lm_rows.iterrows():
-                    cat = row['Category']
-                    cat_label = CATEGORY_LABELS.get(cat, cat)
-                    
-                    # 计算该类别下的排名
-                    cat_all = df_latest_lm[df_latest_lm['Category'] == cat].sort_values('ELO_Score', ascending=False).reset_index(drop=True)
-                    rank_idx = cat_all[cat_all['Model'] == row['Model']].index
-                    rank = rank_idx[0] + 1 if len(rank_idx) > 0 else '-'
-                    total = len(cat_all)
-                    
-                    elo_display.append({
-                        '维度': cat_label,
-                        'ELO 评分': f"{row['ELO_Score']:.1f}",
-                        '排名': f"第 {rank} 名 / 共 {total} 款",
-                        '匹配名称': row['Model']
-                    })
+                    entry = {'模型': row['Model'], '厂商': row.get('Organization', '')}
+                    if pd.notna(row.get('Overall_Rank')):
+                        entry['综合排名'] = int(row['Overall_Rank'])
+                    for rc in rank_cols:
+                        label = MODALITY_LABELS.get(rc, rc)
+                        if pd.notna(row.get(rc)):
+                            entry[label] = int(row[rc])
+                    rank_display.append(entry)
                 
-                if elo_display:
-                    st.dataframe(pd.DataFrame(elo_display), use_container_width=True, hide_index=True)
+                if rank_display:
+                    st.dataframe(pd.DataFrame(rank_display), use_container_width=True, hide_index=True)
                 else:
-                    st.info("未找到该模型的 ELO 数据。")
+                    st.info("未找到该模型的排名数据。")
             else:
-                st.info("该模型暂未被 LMARENA 竞技场收录。")
+                st.info("该模型暂未被 LMARENA 收录。")
         else:
             st.info("未连接到 LMARENA 数据源。")
