@@ -103,7 +103,7 @@ page = st.sidebar.radio("选择分析视图", [
 
 all_model_names = df['Display_Name'].unique() if df is not None else []
 all_pricing_models = df_price['Model'].unique() if df_price is not None else []
-all_benchmark_models = df_bench['Model'].unique() if df_bench is not None else []
+all_benchmark_models = [c for c in df_bench.columns if c not in ['Date', 'Metric']] if df_bench is not None else []
 
 # 数据概览面板
 st.sidebar.divider()
