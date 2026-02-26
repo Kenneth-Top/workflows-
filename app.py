@@ -851,57 +851,62 @@ elif page == NAV_PRICING:
     if df_price is None or df_price.empty:
         st.warning("暂未发现可用的定价数据，请确认是否成功运行 `openrouter_pricing_scraper.py`。")
     else:
-        # 获取最新日期的定价
-        latest_pricing_date = df_price['Date'].max()
-        st.info(f"💡 当前展示数据更新于: **{latest_pricing_date.strftime('%Y-%m-%d')}**")
-        df_latest_prices = df_price[df_price['Date'] == latest_pricing_date]
+        # 获取该模型所有历史时间点的数据
+        m_price_df = df_price[df_price['Model'] == selected_price_model].copy()
         
-        selected_price_model = st.selectbox("选择要查看价格的模型:", sorted(df_latest_prices['Model'].unique()), index=0)
+        # 将最新的综合报价拆出来展示 KPI
+        latest_pricing_date = m_price_df['Date'].max()
+        df_latest_prices = m_price_df[m_price_df['Date'] == latest_pricing_date]
         
-        m_price_df = df_latest_prices[df_latest_prices['Model'] == selected_price_model].copy()
-        
-        # 将 Weighted Average 拆分出来高亮显示
-        weighted_avg = m_price_df[m_price_df['Provider'] == 'Weighted Average']
-        provider_prices = m_price_df[m_price_df['Provider'] != 'Weighted Average'].sort_values('Input_Price_1M')
+        weighted_avg = df_latest_prices[df_latest_prices['Provider'] == 'Weighted Average']
+        provider_latest = df_latest_prices[df_latest_prices['Provider'] != 'Weighted Average'].sort_values('Input_Price_1M')
         
         if not weighted_avg.empty:
             wa_row = weighted_avg.iloc[0]
-            st.markdown("### 🏆 综合有效价格 (Weighted Average)")
-            st.markdown("此价格融合了当前各个提供商的使用频次、缓存命中率折扣和路由算法得出的有效指导价。")
+            st.markdown("### 🏆 最新综合有效指导指导价 (Weighted Average)")
             col1, col2 = st.columns(2)
             col1.metric("Effective Input Price ($/1M)", f"${wa_row['Input_Price_1M']:.4f}")
             col2.metric("Effective Output Price ($/1M)", f"${wa_row['Output_Price_1M']:.4f}")
         
         st.markdown("---")
-        st.markdown("### 🏢 各底层供应商价格明细 (Provider Split)")
+        st.markdown("### 📈 供应商定价历史趋势 (Pricing History)")
         
-        if not provider_prices.empty:
+        if not m_price_df.empty:
+            # 去除 Weighted Average 干扰线，以免拉大比例尺
+            history_df = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
+            # 填补日期为字符串
+            history_df['Date'] = pd.to_datetime(history_df['Date']).dt.strftime('%Y-%m-%d')
+            
+            # 使用 Altair 画折线图，颜色表示供应商
+            base_line = alt.Chart(history_df).encode(
+                x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m-%d', labelAngle=-45)),
+                color=alt.Color('Provider:N', scale=alt.Scale(scheme='category20'), legend=alt.Legend(orient='bottom', columns=4)),
+                tooltip=['Date', 'Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']
+            )
+
+            # 左图：Input Price 趋势
+            chart_in = base_line.mark_line(point=True).encode(
+                y=alt.Y('Input_Price_1M:Q', title='输入价格 ($/1M)')
+            ).properties(title="Input Price 趋势", height=300)
+
+            # 右图：Output Price 趋势
+            chart_out = base_line.mark_line(point=True).encode(
+                y=alt.Y('Output_Price_1M:Q', title='输出价格 ($/1M)')
+            ).properties(title="Output Price 趋势", height=300)
+
+            # 水平并出图
+            st.altair_chart(chart_in | chart_out, use_container_width=True)
+            
+            # 附带最新的详表
+            st.markdown("### 🏢 最新各底层供应商名录详表")
             st.dataframe(
-                provider_prices[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
+                provider_latest[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
                     'Input_Price_1M': '${:.4f}',
                     'Output_Price_1M': '${:.4f}',
                     'Cache_Hit_Rate': '{:.1%}'
                 }),
                 use_container_width=True,
                 hide_index=True
-            )
-            
-            # 绘制价格折线图 (非累加型数据)
-            # 宽表转长表，以便正确着色
-            price_long = provider_prices.melt(
-                id_vars=['Provider'],
-                value_vars=['Input_Price_1M', 'Output_Price_1M'],
-                var_name='Price_Type',
-                value_name='Price'
-            )
-            # 为了能在图上区分 Input/Output，Price_Type 做 color
-            st.line_chart(
-                price_long,
-                x='Provider',
-                y='Price',
-                color='Price_Type',
-                height=400,
-                use_container_width=True
             )
         else:
             st.info("此模型暂未解析到多个底层供应商报价。")
@@ -953,17 +958,20 @@ elif page == NAV_BENCHMARK:
             if selected_b_models:
                 plot_df = bench_sorted[bench_sorted['Model'].isin(selected_b_models)]
                 
-                # 绘制原生纵向柱状图，完全不依赖 Altair 避免版本冲突
+                # 使用 Altair 画出带严格高低排序的纵向柱状图
                 st.markdown(f"### {primary_metric} 跑分排行榜 (前列选拔)")
                 
-                # 确保严格根据所选指标降序排列
-                chart_data = plot_df.sort_values(by=primary_metric, ascending=False).set_index('Model')[[primary_metric]]
+                # 必须指定 sort='-y'，否则原生 st.bar_chart 或 alt 会按首字母X轴排序
+                chart_vertical = alt.Chart(plot_df).mark_bar(
+                    cornerRadiusTopLeft=3, cornerRadiusTopRight=3
+                ).encode(
+                    x=alt.X('Model:N', sort='-y', title='模型名称', axis=alt.Axis(labelAngle=-45)),
+                    y=alt.Y(f'{primary_metric}:Q', title='得分'),
+                    color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
+                    tooltip=['Model', alt.Tooltip(f'{primary_metric}:Q', format='.3f')]
+                ).properties(height=450)
                 
-                st.bar_chart(
-                    chart_data,
-                    height=450,
-                    use_container_width=True
-                )
+                st.altair_chart(chart_vertical, use_container_width=True)
                 
                 # 详细数据底表
                 st.markdown("---")
