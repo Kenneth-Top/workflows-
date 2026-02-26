@@ -886,19 +886,12 @@ elif page == NAV_PRICING:
                 hide_index=True
             )
             
-            # 绘制价格对比条形图
-            chart_price = alt.Chart(provider_prices).transform_fold(
-                ['Input_Price_1M', 'Output_Price_1M'],
-                as_=['Price_Type', 'Price']
-            ).mark_bar().encode(
-                x=alt.X('Provider:N', title='供应商', sort='-y'),
-                y=alt.Y('Price:Q', title='价格 ($ / 1M Tokens)'),
-                color=alt.Color('Price_Type:N', scale=alt.Scale(scheme='set2'), title='价格类型'),
-                column='Price_Type:N',
-                tooltip=['Provider', 'Price_Type', 'Price']
-            ).properties(width=250, height=400)
-            
-            st.altair_chart(chart_price)
+            # 绘制价格对比条形图 (使用原生组件更稳定)
+            st.bar_chart(
+                provider_prices.set_index('Provider')[['Input_Price_1M', 'Output_Price_1M']],
+                height=400,
+                use_container_width=True
+            )
         else:
             st.info("此模型暂未解析到多个底层供应商报价。")
             
@@ -919,27 +912,58 @@ elif page == NAV_BENCHMARK:
         st.info(f"💡 当前展示数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
         df_latest_bench = df_bench[df_bench['Date'] == latest_bench_date].drop(columns=['Date'])
         
-        # 矩阵转置：通常行看做模型、列看做指标更容易筛选对比
-        # 但原始数据里，Metric 是列值。我们要让它变成：Model(index) × Metrics(columns)
-        st.markdown("### 性能一览表")
-        
-        # 将原始宽表变异为长表再透视
+        # 矩阵转置：让 Model 变成 index，Metrics 变成 columns
         bench_melted = df_latest_bench.melt(id_vars=['Metric'], var_name='Model', value_name='Score')
         bench_pivot = bench_melted.pivot_table(index='Model', columns='Metric', values='Score')
         
-        # 让指标作为多选筛选条件
         metrics_available = bench_pivot.columns.tolist()
-        selected_metrics = st.multiselect("📊 筛选核心指标:", metrics_available, default=metrics_available[:5] if len(metrics_available) >= 5 else metrics_available)
         
-        if selected_metrics:
-            display_bench = bench_pivot[selected_metrics].dropna(how='all')
-            # 默认按第一个指标降序排序
-            display_bench = display_bench.sort_values(by=selected_metrics[0], ascending=False)
+        col_m1, col_m2 = st.columns([1, 2])
+        with col_m1:
+            primary_metric = st.selectbox("🎯 选择核心排序指标:", metrics_available, index=0)
+        with col_m2:
+            selected_metrics = st.multiselect("📊 附加展示指标:", metrics_available, default=metrics_available[:3] if len(metrics_available) >= 3 else metrics_available)
+        
+        if primary_metric:
+            # 根据核心指标排序
+            bench_sorted = bench_pivot.sort_values(by=primary_metric, ascending=False).reset_index()
+            bench_sorted = bench_sorted.dropna(subset=[primary_metric])
             
-            st.dataframe(
-                display_bench.style.format("{:.2f}", na_rep='-').background_gradient(cmap='viridis', axis=0),
-                use_container_width=True
+            # 默认提取前 15 名
+            top_15_models = bench_sorted['Model'].head(15).tolist()
+            
+            # 允许用户按需增删模型
+            selected_b_models = st.multiselect(
+                "🤖 选择要对比的模型 (默认前15名):", 
+                bench_sorted['Model'].tolist(), 
+                default=top_15_models
             )
+            
+            if selected_b_models:
+                plot_df = bench_sorted[bench_sorted['Model'].isin(selected_b_models)]
+                
+                # 绘制横向条形图
+                st.markdown(f"### {primary_metric} 跑分排行榜")
+                chart_bench = alt.Chart(plot_df).mark_bar(cornerRadiusEnd=4, height=alt.Step(20)).encode(
+                    x=alt.X(f'{primary_metric}:Q', title='得分'),
+                    y=alt.Y('Model:N', sort='-x', title='模型名称'),
+                    color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
+                    tooltip=['Model', primary_metric]
+                ).properties(height=max(300, len(selected_b_models) * 25))
+                
+                st.altair_chart(chart_bench, use_container_width=True)
+                
+                # 详细数据底表
+                st.markdown("---")
+                st.markdown("### 📋 详细数据矩阵")
+                display_cols = [primary_metric] + [m for m in selected_metrics if m != primary_metric]
+                display_df = bench_pivot.loc[selected_b_models, display_cols].sort_values(by=primary_metric, ascending=False)
+                
+                # 取消 background_gradient 以彻底避免 matplotlib 依赖问题
+                st.dataframe(
+                    display_df.style.format("{:.2f}", na_rep='-'),
+                    use_container_width=True
+                )
         
         data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
         st.download_button(label=label, data=data, file_name=name, mime=mime)
