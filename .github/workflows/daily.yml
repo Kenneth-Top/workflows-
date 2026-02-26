@@ -23,14 +23,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests pandas
 
-      - name: Run Update Script
-        run: python update_data.py
+      - name: Run Update Scripts
+        run: |
+          python update_data.py
+          python openrouter_pricing_scraper.py
+          python openrouter_benchmark_scraper.py
 
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add history_database.csv
+          git add openrouter_pricing_provider_records.csv
+          git add openrouter_benchmark_records.csv
           # 如果没有变化（例如今天的数据还没出来），commit 会失败，所以加上 || exit 0 不报错
-          git commit -m "Auto-update database [skip ci]" || exit 0
+          git commit -m "Auto-update databases [skip ci]" || exit 0
           git push

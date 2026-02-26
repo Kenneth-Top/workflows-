@@ -7,17 +7,20 @@ import io
 # === 1. 基础配置 ===
 st.set_page_config(page_title="OpenRouter 模型追踪", layout="wide")
 DATA_FILE = "history_database.csv"
+PRICING_FILE = "openrouter_pricing_provider_records.csv"
+BENCHMARK_FILE = "openrouter_benchmark_records.csv"
 
 # 页面标题
-st.title("OpenRouter 模型追踪看板")
-st.caption("单位: Billion Tokens (十亿)")
+st.title("OpenRouter 数据追踪看板")
 
 # 定义页面名称常量
-NAV_TN_DAILY = "T+N 横向对比"
-NAV_CUMULATIVE_COMPARE = "累计Tokens 横向对比"
-NAV_DETAIL_DAILY = "单模型每日详情"
-NAV_RAW_DATA = "原始数据"
-NAV_DAILY_BRIEF = "每日速览"
+NAV_DAILY_BRIEF = "📊 每日模型用量速览"
+NAV_TN_DAILY = "📈 T+N 日用量横向对比"
+NAV_CUMULATIVE_COMPARE = "🚀 累计 Token 横向对比"
+NAV_DETAIL_DAILY = "🔍 单模型用量详情"
+NAV_RAW_DATA = "💾 原始数据导出"
+NAV_PRICING = "💰 供应商实际定价分析"
+NAV_BENCHMARK = "🏆 基准测试跑分矩阵"
 
 # === 2. 工具函数 ===
 
@@ -26,6 +29,7 @@ def load_data():
     if not os.path.exists(DATA_FILE):
         return None, f"❌ 找不到文件 `{DATA_FILE}`，请等待爬虫运行。"
     try:
+        # Load Token Data
         df = pd.read_csv(DATA_FILE)
         if df.empty: return None, "CSV 文件为空"
         df['Date'] = pd.to_datetime(df['Date'])
@@ -36,6 +40,28 @@ def load_data():
         return df, None
     except Exception as e:
         return None, str(e)
+
+@st.cache_data(ttl=600)
+def load_pricing_data():
+    if not os.path.exists(PRICING_FILE):
+        return None
+    try:
+        df_price = pd.read_csv(PRICING_FILE)
+        df_price['Date'] = pd.to_datetime(df_price['Date'])
+        return df_price
+    except Exception:
+        return None
+
+@st.cache_data(ttl=600)
+def load_benchmark_data():
+    if not os.path.exists(BENCHMARK_FILE):
+        return None
+    try:
+        df_bench = pd.read_csv(BENCHMARK_FILE)
+        df_bench['Date'] = pd.to_datetime(df_bench['Date'])
+        return df_bench
+    except Exception:
+        return None
 
 # Excel/CSV 智能导出函数
 def get_dataset_download(df, filename_prefix):
@@ -56,29 +82,43 @@ def get_dataset_download(df, filename_prefix):
     return data, file_name, mime, label
 
 df, error = load_data()
-if error:
+df_price = load_pricing_data()
+df_bench = load_benchmark_data()
+
+if error and not (df_price is not None or df_bench is not None):
     st.error(error)
     st.stop()
 
 # === 3. 侧边栏导航 ===
-st.sidebar.title("导航")
-page = st.sidebar.radio("选择视图", [
+st.sidebar.title("导航引擎")
+page = st.sidebar.radio("选择分析视图", [
     NAV_DAILY_BRIEF,
     NAV_TN_DAILY,
     NAV_CUMULATIVE_COMPARE,
     NAV_DETAIL_DAILY,
+    NAV_PRICING,
+    NAV_BENCHMARK,
     NAV_RAW_DATA
 ])
 
-all_model_names = df['Display_Name'].unique()
+all_model_names = df['Display_Name'].unique() if df is not None else []
+all_pricing_models = df_price['Model'].unique() if df_price is not None else []
+all_benchmark_models = df_bench['Model'].unique() if df_bench is not None else []
 
 # 数据概览面板
 st.sidebar.divider()
-st.sidebar.markdown("#### 📊 数据概览")
-st.sidebar.metric("追踪模型数", len(all_model_names))
-st.sidebar.caption(
-    f"📅 数据区间: {df['Date'].min().strftime('%Y-%m-%d')} ~ {df['Date'].max().strftime('%Y-%m-%d')}"
-)
+st.sidebar.markdown("#### 📊 Token 消耗库概览")
+if df is not None:
+    st.sidebar.metric("追踪消耗模型数", len(all_model_names))
+    st.sidebar.caption(f"📅 消耗数据区间: {df['Date'].min().strftime('%Y-%m-%d')} ~ {df['Date'].max().strftime('%Y-%m-%d')}")
+if df_price is not None:
+    st.sidebar.markdown("#### 💰 价格监控库概览")
+    st.sidebar.metric("收录定价模型数", len(all_pricing_models))
+    st.sidebar.caption(f"📅 定价更新至: {df_price['Date'].max().strftime('%Y-%m-%d')}")
+if df_bench is not None:
+    st.sidebar.markdown("#### 🏆 基准测试库概览")
+    st.sidebar.metric("收录跑分模型数", len(all_benchmark_models))
+    st.sidebar.caption(f"📅 跑分更新至: {df_bench['Date'].max().strftime('%Y-%m-%d')}")
 
 # ========================================================
 # 页面 1: T+N 横向对比 (每日消耗)
@@ -798,7 +838,108 @@ elif page == NAV_DAILY_BRIEF:
 | **A · 表现优异** | P75 ~ P90 | 日均消耗处于前 25%，增长势头强劲 |
 | **B · 中等水平** | P50 ~ P75 | 日均消耗高于中位数，表现中规中矩 |
 | **C · 低于预期** | P25 ~ P50 | 日均消耗处于中位数以下，关注后续走势 |
-| **D · 起步缓慢** | < P25 | 日均消耗处于后 25%，可能尚未被广泛采用 |
+| **D · 起步缓慢** | < P25     | 日均消耗处于倒数 25%，市场接受度较低 |
 """)
 
+# ========================================================
+# 页面 6: 供应商价格与有效定价分析
+# ========================================================
+elif page == NAV_PRICING:
+    st.subheader("💰 OpenRouter 各大模型实际/有效定价监控")
+    st.caption("基于 OpenRouter 前端 API 抓取的包含 Cache Hit/Router 折扣的**最新实际有效价格**（与官网页面完全一致）。")
+    
+    if df_price is None or df_price.empty:
+        st.warning("暂未发现可用的定价数据，请确认是否成功运行 `openrouter_pricing_scraper.py`。")
+    else:
+        # 获取最新日期的定价
+        latest_pricing_date = df_price['Date'].max()
+        st.info(f"💡 当前展示数据更新于: **{latest_pricing_date.strftime('%Y-%m-%d')}**")
+        df_latest_prices = df_price[df_price['Date'] == latest_pricing_date]
+        
+        selected_price_model = st.selectbox("选择要查看价格的模型:", sorted(df_latest_prices['Model'].unique()), index=0)
+        
+        m_price_df = df_latest_prices[df_latest_prices['Model'] == selected_price_model].copy()
+        
+        # 将 Weighted Average 拆分出来高亮显示
+        weighted_avg = m_price_df[m_price_df['Provider'] == 'Weighted Average']
+        provider_prices = m_price_df[m_price_df['Provider'] != 'Weighted Average'].sort_values('Input_Price_1M')
+        
+        if not weighted_avg.empty:
+            wa_row = weighted_avg.iloc[0]
+            st.markdown("### 🏆 综合有效价格 (Weighted Average)")
+            st.markdown("此价格融合了当前各个提供商的使用频次、缓存命中率折扣和路由算法得出的有效指导价。")
+            col1, col2 = st.columns(2)
+            col1.metric("Effective Input Price ($/1M)", f"${wa_row['Input_Price_1M']:.4f}")
+            col2.metric("Effective Output Price ($/1M)", f"${wa_row['Output_Price_1M']:.4f}")
+        
+        st.markdown("---")
+        st.markdown("### 🏢 各底层供应商价格明细 (Provider Split)")
+        
+        if not provider_prices.empty:
+            st.dataframe(
+                provider_prices[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
+                    'Input_Price_1M': '${:.4f}',
+                    'Output_Price_1M': '${:.4f}',
+                    'Cache_Hit_Rate': '{:.1%}'
+                }),
+                use_container_width=True,
+                hide_index=True
+            )
+            
+            # 绘制价格对比条形图
+            chart_price = alt.Chart(provider_prices).transform_fold(
+                ['Input_Price_1M', 'Output_Price_1M'],
+                as_=['Price_Type', 'Price']
+            ).mark_bar().encode(
+                x=alt.X('Provider:N', sort='y', title='供应商'),
+                y=alt.Y('Price:Q', title='价格 ($ / 1M Tokens)'),
+                color=alt.Color('Price_Type:N', scale=alt.Scale(scheme='set2'), title='价格类型'),
+                column='Price_Type:N',
+                tooltip=['Provider', 'Price_Type', 'Price']
+            ).properties(width=250, height=400)
+            
+            st.altair_chart(chart_price)
+        else:
+            st.info("此模型暂未解析到多个底层供应商报价。")
+            
+        data, name, mime, label = get_dataset_download(df_price, "openrouter_pricing_full")
+        st.download_button(label=label, data=data, file_name=name, mime=mime)
 
+# ========================================================
+# 页面 7: Benchmark 跑分数据矩阵
+# ========================================================
+elif page == NAV_BENCHMARK:
+    st.subheader("🏆 全模型 Benchmark 性能基准测试矩阵")
+    st.caption("由 Artificial Analysis 提供的数据源，囊括 Chatbot Arena, MMLU, GSM8K 等多维度跑分。")
+    
+    if df_bench is None or df_bench.empty:
+        st.warning("暂未发现可用的 Benchmark 数据，请确认是否成功运行 `openrouter_benchmark_scraper.py`。")
+    else:
+        latest_bench_date = df_bench['Date'].max()
+        st.info(f"💡 当前展示数据更新于: **{latest_bench_date.strftime('%Y-%m-%d')}**")
+        df_latest_bench = df_bench[df_bench['Date'] == latest_bench_date].drop(columns=['Date'])
+        
+        # 矩阵转置：通常行看做模型、列看做指标更容易筛选对比
+        # 但原始数据里，Metric 是列值。我们要让它变成：Model(index) × Metrics(columns)
+        st.markdown("### 性能一览表")
+        
+        # 将原始宽表变异为长表再透视
+        bench_melted = df_latest_bench.melt(id_vars=['Metric'], var_name='Model', value_name='Score')
+        bench_pivot = bench_melted.pivot_table(index='Model', columns='Metric', values='Score')
+        
+        # 让指标作为多选筛选条件
+        metrics_available = bench_pivot.columns.tolist()
+        selected_metrics = st.multiselect("📊 筛选核心指标:", metrics_available, default=metrics_available[:5] if len(metrics_available) >= 5 else metrics_available)
+        
+        if selected_metrics:
+            display_bench = bench_pivot[selected_metrics].dropna(how='all')
+            # 默认按第一个指标降序排序
+            display_bench = display_bench.sort_values(by=selected_metrics[0], ascending=False)
+            
+            st.dataframe(
+                display_bench.style.format("{:.2f}", na_rep='-').background_gradient(cmap='viridis', axis=0),
+                use_container_width=True
+            )
+        
+        data, name, mime, label = get_dataset_download(df_bench, "openrouter_benchmark_full")
+        st.download_button(label=label, data=data, file_name=name, mime=mime)
