@@ -209,17 +209,19 @@ if df_lmarena is not None:
 # 页面 0: AI 智能查询
 # ========================================================
 if page == NAV_AI_QUERY:
-    st.subheader("🤖 AI 智能数据分析助手")
-    st.caption("通过自然语言提问，AI 将调用数据库信息生成分析结论与可视化图表。")
+    st.subheader("AI 数据分析助手")
+    
+    AI_MODEL = "deepseek/deepseek-chat"
+    st.caption(f"通过自然语言提问，AI 将分析数据并生成可视化图表。当前模型: `{AI_MODEL}`")
     
     # API Key 配置
     api_key = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
     if not api_key:
-        api_key = st.text_input("🔑 请输入 OpenRouter API Key:", type="password", 
-                                help="在 https://openrouter.ai/keys 获取。也可通过 Streamlit Secrets 或环境变量 OPENROUTER_API_KEY 配置。")
+        api_key = st.text_input("请输入 OpenRouter API Key:", type="password", 
+                                help="在 https://openrouter.ai/keys 获取。也可通过 Streamlit Secrets 或环境变量配置。")
     
     if not api_key:
-        st.warning("请先配置 OpenRouter API Key 以使用 AI 查询功能。")
+        st.warning("请先配置 OpenRouter API Key。")
     else:
         # 构建数据库上下文摘要
         @st.cache_data(ttl=600)
@@ -227,28 +229,33 @@ if page == NAV_AI_QUERY:
             context_parts = []
             
             if _df is not None and not _df.empty:
-                context_parts.append(f"""### Token 消耗数据库 (history_database.csv)
+                # 提供所有模型名列表帮助 AI 做模糊匹配
+                all_models = _df['Model'].unique().tolist()
+                display_names = _df['Display_Name'].unique().tolist() if 'Display_Name' in _df.columns else []
+                context_parts.append(f"""### Token 消耗数据 (变量名: df)
 - 列: Date, Model, Prompt, Completion, Reasoning, Total_Tokens, Display_Name
-- 记录数: {len(_df)}, 模型数: {_df['Model'].nunique()}, 日期范围: {_df['Date'].min().strftime('%Y-%m-%d')} ~ {_df['Date'].max().strftime('%Y-%m-%d')}
+- 记录数: {len(_df)}, 日期范围: {_df['Date'].min().strftime('%Y-%m-%d')} ~ {_df['Date'].max().strftime('%Y-%m-%d')}
 - Token 单位: Billion (10亿)
-- 示例模型(前10): {', '.join(_df['Display_Name'].value_counts().head(10).index.tolist())}
-- 最新日 Top 5 消耗模型: {', '.join(_df[_df['Date']==_df['Date'].max()].nlargest(5,'Total_Tokens')['Display_Name'].tolist()) if not _df[_df['Date']==_df['Date'].max()].empty else 'N/A'}""")
+- 全部模型列表(Model列): {', '.join(all_models[:30])}
+- 显示名列表(Display_Name列): {', '.join(display_names[:30])}""")
 
             if _df_price is not None and not _df_price.empty:
-                context_parts.append(f"""### 定价数据库 (openrouter_pricing_provider_records.csv)
+                price_models = _df_price['Model'].unique().tolist()
+                context_parts.append(f"""### 定价数据 (变量名: df_price)
 - 列: Date, Model, Provider, Input_Price_1M, Output_Price_1M, Cache_Hit_Rate
-- 记录数: {len(_df_price)}, 模型数: {_df_price['Model'].nunique()}, 日期数: {_df_price['Date'].dt.strftime('%Y-%m-%d').nunique()}
-- 价格单位: $/1M Tokens""")
+- 记录数: {len(_df_price)}, 日期数: {_df_price['Date'].dt.strftime('%Y-%m-%d').nunique()}
+- 价格单位: $/1M Tokens
+- 模型列表(前30): {', '.join(price_models[:30])}""")
 
             if _df_bench is not None and not _df_bench.empty:
-                context_parts.append(f"""### Benchmark 跑分数据库 (openrouter_benchmark_records.csv)
+                context_parts.append(f"""### Benchmark 跑分 (变量名: df_bench)
 - 结构: 宽表，每行是一个 Metric，每列是一个模型名
-- Metric 示例: {', '.join(_df_bench['Metric'].unique()[:5])}
+- Metric: {', '.join(_df_bench['Metric'].unique()[:8])}
 - 模型数: {len([c for c in _df_bench.columns if c not in ['Date','Metric']])}""")
 
             if _df_lmarena is not None and not _df_lmarena.empty:
                 rank_cols = [c for c in _df_lmarena.columns if c.startswith('Rank_')]
-                context_parts.append(f"""### LMARENA 竞技场排行榜 (lmarena_leaderboard_records.csv)
+                context_parts.append(f"""### LMARENA 竞技排行 (变量名: df_lmarena)
 - 列: Date, Model, Organization, Overall_Rank, {', '.join(rank_cols)}
 - 维度: {', '.join(c.replace('Rank_','') for c in rank_cols)}
 - 模型数: {_df_lmarena['Model'].nunique()}""")
@@ -257,42 +264,61 @@ if page == NAV_AI_QUERY:
         
         db_context = build_db_context(df, df_price, df_bench, df_lmarena)
         
-        SYSTEM_PROMPT = f"""你是一个专业的 AI 模型数据分析师，负责分析 OpenRouter 平台上的模型数据。用户会用自然语言提问，你需要基于以下数据库信息回答。
+        SYSTEM_PROMPT = f"""你是 OpenRouter 数据分析师。用户用自然语言提问，你基于数据库回答。
 
-## 可用数据库
+## 数据库
 
 {db_context}
 
-## 回答规则
-1. 用中文回答，结论要有数据支撑，引用具体数值
-2. 如果需要可视化分析，请生成 Python 代码块(用```python```包裹)，代码应使用 altair 库生成图表
-3. 可视化代码规则:
-   - 数据已加载为: df(Token消耗), df_price(定价), df_bench(Benchmark), df_lmarena(LMARENA)
-   - 使用 st.altair_chart(chart, use_container_width=True) 展示图表
-   - 使用 st.dataframe() 展示表格
-   - 代码必须是可以直接执行的完整代码段
-   - 日期列已经是 datetime 类型
-4. 如果数据不足以回答问题，请如实说明"""
+## 重要规则
+
+1. 用中文回答，结论要有数据支撑
+2. 用户提到的模型名可能不精确（如 "deepseek" 可能指 "deepseek/deepseek-chat"），你需要自动模糊匹配。匹配策略：用 str.contains() 做子串匹配，不要要求精确相等
+3. 如果需要可视化，生成一个 Python 代码块(```python```)，代码规则:
+   - 变量已预加载: df, df_price, df_bench, df_lmarena, st, alt, pd
+   - 用 st.altair_chart(chart, use_container_width=True) 展示图表
+   - 用 st.dataframe() 展示表格
+   - 日期列已是 datetime 类型
+   - 模型名匹配用: df[df['Model'].str.contains('关键词', case=False, na=False)]
+4. 代码块只写一个，包含完整可执行代码
+5. 先给出文字分析结论，再给代码块"""
 
         # 初始化聊天历史
         if "ai_messages" not in st.session_state:
             st.session_state.ai_messages = []
         
+        # 用于 exec 的命名空间
+        exec_namespace = {
+            "df": df, "df_price": df_price, "df_bench": df_bench, "df_lmarena": df_lmarena,
+            "st": st, "alt": alt, "pd": pd, "os": os,
+        }
+        
+        # 辅助函数：从 AI 回复中分离文字和代码
+        def split_reply(reply):
+            import re as _re
+            code_blocks = _re.findall(r'```python\s*\n(.*?)```', reply, _re.DOTALL)
+            # 去掉代码块，只留文字
+            text_only = _re.sub(r'```python\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
+            return text_only, code_blocks[0] if code_blocks else None
+        
         # 显示历史对话
         for msg in st.session_state.ai_messages:
             with st.chat_message(msg["role"]):
-                st.markdown(msg["content"])
-                if msg.get("chart_code"):
-                    try:
-                        exec(msg["chart_code"])
-                    except Exception:
-                        pass
+                if msg["role"] == "assistant":
+                    text_part, code = split_reply(msg["content"])
+                    st.markdown(text_part)
+                    if code:
+                        try:
+                            exec(code, exec_namespace)
+                        except Exception:
+                            pass
+                else:
+                    st.markdown(msg["content"])
         
         # 用户输入
-        user_query = st.chat_input("💬 输入你的问题，例如: 'deepseek-r1 最近一周的增长趋势如何？'")
+        user_query = st.chat_input("输入你的问题，例如: 'deepseek 最近一周的用量趋势'")
         
         if user_query:
-            # 显示用户消息
             st.session_state.ai_messages.append({"role": "user", "content": user_query})
             with st.chat_message("user"):
                 st.markdown(user_query)
@@ -300,12 +326,11 @@ if page == NAV_AI_QUERY:
             # 构建 API 请求
             messages = [{"role": "system", "content": SYSTEM_PROMPT}]
             # 只传最近 6 轮对话作为上下文
-            recent_msgs = st.session_state.ai_messages[-12:]
-            for msg in recent_msgs:
+            for msg in st.session_state.ai_messages[-12:]:
                 messages.append({"role": msg["role"], "content": msg["content"]})
             
             with st.chat_message("assistant"):
-                with st.spinner("🤔 AI 正在分析数据..."):
+                with st.spinner("AI 正在分析数据..."):
                     try:
                         import requests as _req
                         resp = _req.post(
@@ -315,7 +340,7 @@ if page == NAV_AI_QUERY:
                                 "Content-Type": "application/json"
                             },
                             json={
-                                "model": "deepseek/deepseek-chat",
+                                "model": AI_MODEL,
                                 "messages": messages,
                                 "max_tokens": 4000,
                                 "temperature": 0.3
@@ -326,31 +351,28 @@ if page == NAV_AI_QUERY:
                         result = resp.json()
                         ai_reply = result['choices'][0]['message']['content']
                     except Exception as e:
-                        ai_reply = f"❌ AI 查询失败: {str(e)}"
+                        ai_reply = f"查询失败: {str(e)}"
                 
-                st.markdown(ai_reply)
+                # 分离文字和代码，只显示文字，代码直接执行
+                text_part, chart_code = split_reply(ai_reply)
+                st.markdown(text_part)
                 
-                # 解析并执行 AI 生成的可视化代码
-                chart_code = None
-                if "```python" in ai_reply:
-                    import re as _re_ai
-                    code_blocks = _re_ai.findall(r'```python\s*\n(.*?)```', ai_reply, _re_ai.DOTALL)
-                    if code_blocks:
-                        chart_code = code_blocks[0]
-                        try:
-                            exec(chart_code)
-                        except Exception as e:
-                            st.warning(f"⚠️ 可视化代码执行出错: {e}")
+                if chart_code:
+                    try:
+                        exec(chart_code, exec_namespace)
+                    except Exception as e:
+                        st.warning(f"可视化执行出错: {e}")
+                        with st.expander("查看生成的代码"):
+                            st.code(chart_code, language="python")
                 
                 st.session_state.ai_messages.append({
                     "role": "assistant", 
                     "content": ai_reply,
-                    "chart_code": chart_code
                 })
         
         # 清空对话按钮
         if st.session_state.ai_messages:
-            if st.button("🗑️ 清空对话历史"):
+            if st.button("清空对话历史"):
                 st.session_state.ai_messages = []
                 st.rerun()
 
