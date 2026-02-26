@@ -886,7 +886,7 @@ elif page == NAV_PRICING:
                 hide_index=True
             )
             
-            # 绘制价格散点/气泡分布图 (非累加型数据更适合折线/散点)
+            # 绘制价格折线图 (非累加型数据)
             # 宽表转长表，以便正确着色
             price_long = provider_prices.melt(
                 id_vars=['Provider'],
@@ -895,12 +895,11 @@ elif page == NAV_PRICING:
                 value_name='Price'
             )
             # 为了能在图上区分 Input/Output，Price_Type 做 color
-            st.scatter_chart(
+            st.line_chart(
                 price_long,
                 x='Provider',
                 y='Price',
                 color='Price_Type',
-                size=200,
                 height=400,
                 use_container_width=True
             )
@@ -954,12 +953,15 @@ elif page == NAV_BENCHMARK:
             if selected_b_models:
                 plot_df = bench_sorted[bench_sorted['Model'].isin(selected_b_models)]
                 
-                # 绘制原生横向条形图，完全不依赖 Altair 避免版本冲突
+                # 绘制原生纵向柱状图，完全不依赖 Altair 避免版本冲突
                 st.markdown(f"### {primary_metric} 跑分排行榜 (前列选拔)")
+                
+                # 确保严格根据所选指标降序排列
+                chart_data = plot_df.sort_values(by=primary_metric, ascending=False).set_index('Model')[[primary_metric]]
+                
                 st.bar_chart(
-                    plot_df.set_index('Model')[[primary_metric]],
-                    horizontal=True,
-                    height=max(350, len(selected_b_models) * 25),
+                    chart_data,
+                    height=450,
                     use_container_width=True
                 )
                 
