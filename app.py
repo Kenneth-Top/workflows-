@@ -362,11 +362,20 @@ if page == NAV_AI_QUERY:
             "st": st, "alt": alt, "pd": pd, "np": np, "os": os,
         }
         
-        # 辅助函数：从 AI 回复中分离文字和代码
+        # 辅助函数：从 AI 回复中分离文字和代码，并深度清洗底层标签
         def split_reply(reply):
             import re as _re
+            # 1. 提取并移除深度思考过程 <think>...</think>
+            reply = _re.sub(r'<think>.*?</think>', '', reply, flags=_re.DOTALL)
+            
+            # 2. 强力屏蔽可能泄露的各类工具调用标签 (如 <minimax:tool_call>, <invoke> 等)
+            reply = _re.sub(r'<[^>]+tool_call[^>]*>.*?(</[^>]+tool_call>|>|$)', '', reply, flags=_re.DOTALL)
+            reply = _re.sub(r'<invoke[^>]*>.*?(</invoke>|>|$)', '', reply, flags=_re.DOTALL)
+            
+            # 3. 提取 Python 代码块
             code_blocks = _re.findall(r'```python\s*\n(.*?)```', reply, _re.DOTALL)
             text_only = _re.sub(r'```python\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
+            
             return text_only, code_blocks[0] if code_blocks else None
         
         def safe_exec(code, ns):
@@ -416,28 +425,66 @@ if page == NAV_AI_QUERY:
                 if provider_name == "OpenRouter":
                     api_payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
-                    # 使用纯本地免费方案给非 OpenRouter 模型添加联网能力
-                    clean_query = user_query.replace('"', '').replace("'", "").strip()[:60]
+                    import requests as _req
+                    headers = {
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json"
+                    }
                     
-                    with st.spinner(f"正在全网搜索线索: '{clean_query}'..."):
+                    # ==========================================
+                    # 🌟 第 1 步：让 AI 作为“搜索专家”提炼关键词
+                    # ==========================================
+                    with st.spinner("🧠 正在让 AI 提炼精准搜索关键词..."):
+                        keyword_prompt = f"""
+                        我需要你在搜索引擎上查阅最新资讯来辅助回答。
+                        用户当前的原始问题是："{user_query}"
+                        当前讨论的大模型是："{selected_model_label}"
+                        
+                        请你提取出 3-5 个最有利于在 DuckDuckGo 或 Google 上搜到近期新闻的关键词（以空格分隔）。
+                        比如如果用户问“分析M2.5斜率放缓原因”，你应该输出：Minimax M2.5 降价 免费 动态。
+                        
+                        【最高指令】：你只需输出一行纯关键词，绝对不要输出任何其他解释、标点符号或前缀！
+                        """
+                        kw_payload = {
+                            "model": AI_MODEL, 
+                            "messages": [{"role": "user", "content": keyword_prompt}], 
+                            "max_tokens": 50, 
+                            "temperature": 0.1 # 温度降到极低，防止它说废话
+                        }
                         try:
-                            # 修复 DuckDuckGo 语法
+                            kw_resp = _req.post(f"{provider_cfg['base_url']}/chat/completions", headers=headers, json=kw_payload, timeout=20)
+                            kw_resp.raise_for_status()
+                            # 提取结果并深度清洗（防止模型不听话加了引号或换行）
+                            search_query = kw_resp.json()['choices'][0]['message']['content'].strip()
+                            search_query = search_query.replace('"', '').replace("'", "").replace("关键词：", "").split('\n')[0][:80] 
+                            st.toast(f"🔑 AI 提取出搜索词: {search_query}")
+                        except Exception as e:
+                            # 如果提炼失败，使用备用降级方案
+                            search_query = f"{selected_model_label.split(' ')[0]} 大模型 近期动态" 
+                            st.toast(f"⚠️ 关键词提取失败，使用备用词。")
+
+                    # ==========================================
+                    # 🌟 第 2 步：鸭鸭拿着 AI 给的词去搜索
+                    # ==========================================
+                    with st.spinner(f"🌐 鸭鸭正在搜索: '{search_query}'..."):
+                        try:
                             from duckduckgo_search import DDGS
                             ddgs = DDGS()
-                            search_results = list(ddgs.text(clean_query, max_results=5))
+                            # timelimit='m' 代表只搜索最近一个月的资讯，保证时效性
+                            search_results = list(ddgs.text(search_query, max_results=5, timelimit='m'))
                             
                             if search_results:
-                                context_str = "【实时网络搜索参考资料】\n"
+                                context_str = f"【实时网络搜索参考资料 (搜索词: {search_query})】\n"
                                 for r in search_results:
                                     context_str += f"- 标题: {r.get('title', '')}\n  摘要: {r.get('body', '')}\n"
                                 
-                                # 注入上下文和强制输出格式要求
-                                api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题：\n{context_str}\n\n【最高优先级指令】：无论你参考了什么外部资料，你的主要任务仍然是执行数据分析。如果你需要生成图表，请务必返回完全独立、无依赖报错的 Python st/alt 渲染代码，并使用 ```python ... ``` 包裹代码块！"
-                                st.toast(f"✅ 已抓取与 '{clean_query}' 相关的实时数据！")
+                                # 将搜索到的纯净情报注入到用户提问的上下文中
+                                api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题（如有帮助）：\n{context_str}\n\n【最高优先级指令】：无论你参考了什么外部资料，你的主要任务仍然是执行数据分析。如果你需要生成图表，请务必返回完全独立、无依赖报错的 Python st/alt 渲染代码，并使用 ```python ... ``` 包裹代码块！"
+                                
                             else:
-                                st.toast(f"⚠️ 搜索 '{clean_query}' 未发现直接结果，将凭模型知识库回答。")
+                                st.toast(f"⚠️ 搜索 '{search_query}' 未发现近期直接结果。")
                         except Exception as e:
-                            st.toast(f"⚠️ 本地联网搜索受阻: {e}，将正常发送文本。")
+                            st.toast(f"⚠️ 本地联网搜索受阻: {e}")
             
             with st.chat_message("assistant"):
                 with st.spinner(f"AI ({provider_name}) 正在分析数据..." + (" (正在全网搜索线索 🌐)" if enable_web_search else "")):
@@ -876,39 +923,46 @@ elif page == NAV_DAILY_BRIEF:
         @st.cache_data(ttl=86400, show_spinner=False)
         def fetch_daily_ai_brief(prompt, provider="Google AI Studio", model_id=None):
             import requests as _req
+            import re as _re
             cfg = AI_PROVIDERS.get(provider, AI_PROVIDERS["Google AI Studio"])
             key = cfg["key"]
             if not key: raise Exception(f"缺失 {provider} API Key")
             
             try:
                 headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
+                if provider == "OpenRouter":
+                    headers.update({"HTTP-Referer": "http://localhost", "X-Title": "LLM-Dashboard"})
                 
                 if not model_id:
                     if cfg.get("models"):
                         model_id = list(cfg["models"].values())[0]
                     else:
-                        model_id = "z-ai/glm-4.5-air:free" # Fallback
+                        model_id = "z-ai/glm-4.5-air:free"
                 
+                # 【关键修复】拆分 System 和 User，压制模型的幻觉
                 payload = {
                     "model": model_id,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 2500,
+                    "messages": [
+                        {"role": "system", "content": "你是一位极其严谨的TMT行业投研分析师。你的唯一任务是基于提供的数据生成「大模型趋势追踪简报」。绝对禁止输出与此无关的任何内容（如JSON、代码或文件处理状态）。请保持客观、专业。"},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "max_tokens": 3000,
+                    "temperature": 0.3 # 降低温度，减少幻觉
                 }
                 
                 if provider == "OpenRouter":
                     payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
                     try:
-                        # 修复 DuckDuckGo 语法
                         from duckduckgo_search import DDGS
                         ddgs = DDGS()
-                        news_res = list(ddgs.text("AI 大模型 近期动态", max_results=5, timelimit='w'))
+                        news_res = list(ddgs.text("AI 大模型 近期动态 降价", max_results=4, timelimit='w'))
                         if news_res:
                             context_str = "\n\n【补充资料：近期大模型相关新闻】：\n"
                             for r in news_res:
                                 context_str += f"- {r.get('title', '')}: {r.get('body', '')}\n"
-                            payload["messages"][0]["content"] += context_str
-                    except Exception as e:
+                            payload["messages"][1]["content"] += context_str
+                    except Exception:
                         pass
                 
                 resp = _req.post(
@@ -919,7 +973,13 @@ elif page == NAV_DAILY_BRIEF:
                 )
                 resp.raise_for_status()
                 result = resp.json()
-                return result['choices'][0]['message']['content']
+                raw_reply = result['choices'][0]['message']['content']
+                
+                clean_reply = _re.sub(r'<think>.*?</think>', '', raw_reply, flags=_re.DOTALL).strip()
+                
+                # 如果清理后完全为空（有的模型格式乱了），退回原始回复
+                return clean_reply if clean_reply else raw_reply
+                
             except Exception as e:
                 raise Exception(f"简报生成失败: {str(e)}")
                 
