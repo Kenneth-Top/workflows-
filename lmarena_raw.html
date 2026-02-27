@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LMArenaæ¯å¨çææå¨çAIæ¨¡åè¯æµå¹³å°ï¼æä¾ææ¬ãå¾åãè§é¢ç­9å¤§æè¡æ¦ãéè¿çå®ç¨æ·ç²æµæç¥¨ï¼å¬æ­£è¯ä¼°GPTãClaudeãGeminiç­é¡¶çº§å¤§è¯­è¨æ¨¡åæ§è½ã">
+    <meta name="keywords" content="LMArena, AIæè¡æ¦, å¤§è¯­è¨æ¨¡å, GPT-5, Claude, Gemini, AIè¯æµ, Chatbot Arena, AIç«æåº">
+    <meta name="author" content="LMArena">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="LMArena - å¨çAIæ¨¡åæå¨æè¡æ¦ä¸è¯æµå¹³å°">
+    <meta property="og:description" content="LMArenaæä¾æå¬æ­£çAIæ¨¡åç²æµè¯æ¯ï¼æ¶µçææ¬ãè§è§ãå¾åçæãè§é¢çæç­9å¤§é¢åæè¡æ¦ã">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.jpg">
+    
+    <title>LMArena - å¨çAIå¤§æ¨¡åæå¨æè¡æ¦å®ç½</title>
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Clarityç»è®¡ä»£ç  -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "ue0xd96cka");
+    </script>
+    
+    <style>
+        :root {
+            --bg-base: #f7f9ff;
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --bg-card-strong: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(99, 102, 241, 0.2);
+            --text-primary: #101828;
+            --text-secondary: #475467;
+            --muted: #98a2b3;
+            --primary-color: #5a54ff;
+            --accent-color: #00d4ff;
+            --gradient: linear-gradient(135deg, #5a54ff 0%, #00d4ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgba(90, 84, 255, 0.07), transparent 35%),
+                        radial-gradient(circle at 90% 0%, rgba(0, 212, 255, 0.08), transparent 45%),
+                        var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(18px);
+            background: rgba(247, 249, 255, 0.85);
+            border-bottom: 1px solid rgba(16, 24, 40, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(90, 84, 255, 0.25);
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.25s ease, opacity 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(90, 84, 255, 0.08), rgba(0, 212, 255, 0.05));
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 4vw, 3.6rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-text h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .hero-pill {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(90, 84, 255, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-primary {
+            background: var(--gradient);
+            color: #fff;
+            box-shadow: 0 20px 40px rgba(90, 84, 255, 0.3);
+        }
+
+        .cta-secondary {
+            color: var(--text-primary);
+            background: #fff;
+            border: 1px solid rgba(16, 24, 40, 0.08);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(90, 84, 255, 0.1));
+            border-radius: 32px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-ring {
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(90, 84, 255, 0.2);
+            border-radius: 28px;
+            pointer-events: none;
+        }
+
+        .hero-visual h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .hero-visual .stat-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            padding: 18px;
+            border: 1px solid rgba(16, 24, 40, 0.05);
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-card strong {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        .hero-visual .badge-stack {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 10px 16px;
+            border-radius: 14px;
+            background: rgba(90, 84, 255, 0.12);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .stats-bar {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(16, 24, 40, 0.06);
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.1);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        main {
+            padding: 40px 0 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            margin: 22px 0 12px;
+        }
+
+        h4 {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            margin: 18px 0 10px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .section {
+            margin-bottom: 70px;
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid rgba(16, 24, 40, 0.06);
+            box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08);
+        }
+
+        .section:nth-of-type(even) {
+            background: var(--bg-card-strong);
+        }
+
+        .leaderboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .leaderboard-card {
+            padding: 28px;
+            border-radius: 24px;
+            background: rgba(247, 249, 255, 0.9);
+            border: 1px solid rgba(16, 24, 40, 0.05);
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .leaderboard-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 35px 80px rgba(15, 23, 42, 0.14);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .ranking-list {
+            list-style: none;
+            max-height: 420px;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        .ranking-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .ranking-list::-webkit-scrollbar-thumb {
+            background: rgba(16, 24, 40, 0.1);
+            border-radius: 6px;
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px dashed rgba(16, 24, 40, 0.08);
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-right: 12px;
+            background: rgba(16, 24, 40, 0.05);
+            color: var(--text-primary);
+        }
+
+        .rank-1 { background: radial-gradient(circle at 30% 30%, #fff6b7, #fbc531); }
+        .rank-2 { background: radial-gradient(circle at 30% 30%, #f5f7fa, #cfd4df); }
+        .rank-3 { background: radial-gradient(circle at 30% 30%, #ffd8b5, #f08a5d); color: #fff; }
+        .rank-other { color: var(--muted); }
+
+        .model-name {
+            flex: 1;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+
+        .model-score {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid rgba(16, 24, 40, 0.06);
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(16, 24, 40, 0.04);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .section {
+                padding: 28px;
+                border-radius: 24px;
+            }
+
+            .hero {
+                padding: 70px 0 40px;
+            }
+
+            .hero-visual {
+                padding: 24px;
+            }
+
+            .cta-group {
+                width: 100%;
+            }
+
+            .cta-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <img src="logo.jpg" alt="LMArena Logo">
+                <span class="logo-text">LMArena</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#leaderboards">æè¡æ¦</a></li>
+                    <li><a href="#features">åè½ç¹ç¹</a></li>
+                    <li><a href="#about">å³äºLMArena</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="hero-badges">
+                    <span class="hero-pill">å®æ¶ç²æµ</span>
+                    <span class="hero-pill">å¨ç9å¤§æè¡æ¦</span>
+                </div>
+                <h1><span>LMArena</span> - å¨çAIå¤§æ¨¡åæå¨æè¡æ¦</h1>
+                <p class="hero-desc">LMArenaæ¯å¨çæå·å¬ä¿¡åçAIæ¨¡åè¯æµå¹³å°ãéè¿çå®ç¨æ·ç²æµæç¥¨æºå¶ï¼LMArenaä¸ºæ¨åç°GPTãClaudeãGeminiç­é¡¶çº§å¤§è¯­è¨æ¨¡åççå®æ§è½æåï¼æ¶µçææ¬å¯¹è¯ãè§è§çè§£ãå¾åçæç­9å¤§é¢åã</p>
+                <div class="cta-group">
+                    <a href="https://lmarena.ai" class="cta-btn cta-primary" target="_blank" rel="noopener">è®¿é®LMArenaå®ç½</a>
+                    <a href="#access-guide" class="cta-btn cta-secondary">éåæå¡</a>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">4,600,000+</div>
+                        <div class="stat-label">ç´¯è®¡ç²æµæç¥¨</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">276+</div>
+                        <div class="stat-label">åä¸è¯æµæ¨¡å</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">æ ¸å¿è¯æµé¢å</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="glow-ring"></div>
+                <h4>LMArena Data Pulse</h4>
+                <div class="stat-card">
+                    <div>
+                        <strong>Top 1</strong>
+                        <span class="stat-label">Gemini-3-Pro</span>
+                    </div>
+                    <span class="badge">ææ¬æ¦</span>
+                </div>
+                <div class="stat-card">
+                    <div>
+                        <strong>1324</strong>
+                        <span class="stat-label">è§è§ELO</span>
+                    </div>
+                    <span class="badge">ææ°</span>
+                </div>
+                <div class="stat-card">
+                    <div>
+                        <strong>1493</strong>
+                        <span class="stat-label">WebDevé«å</span>
+                    </div>
+                    <span class="badge">Opus-4.5</span>
+                </div>
+                <div class="badge-stack">
+                    <span class="badge">ç²æµå¬å¹³</span>
+                    <span class="badge">å¬å¼æ°æ®</span>
+                    <span class="badge">è·¨æ¨¡æ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section" id="about">
+            <h2>ä»ä¹æ¯LMArenaï¼</h2>
+            <p>LMArenaï¼ååChatbot Arenaï¼æ¯ç±LMSYSç»ç»åå»ºçå¼æ¾å¼AIæ¨¡åè¯æµå¹³å°ãLMArenaçæ ¸å¿ç¹è²å¨äºéç¨"ç²æµå¯¹å³"æºå¶ââç¨æ·åä¸¤ä¸ªå¿åæ¨¡åæé®ï¼æ ¹æ®åç­è´¨éæç¥¨éæ©èèãè¿ç§è¯æµæ¹å¼æ¶é¤äºåè§ï¼ç¡®ä¿LMArenaæè¡æ¦çå®åæ åAIæ¨¡åçå®éè¡¨ç°ã</p>
+            
+            <h3>LMArenaçè¯æµåç</h3>
+            <p>LMArenaä½¿ç¨ELOè¯åç³»ç»å¯¹AIæ¨¡åè¿è¡æåãå½ç¨æ·å¨LMArenaå¹³å°ä¸å®æä¸æ¬¡ç²æµæç¥¨åï¼ç³»ç»ä¼æ ¹æ®å¯¹å³ç»æè°æ´åæ¹æ¨¡åçåæ°ãç»è¿æ°ç¾ä¸æ¬¡æç¥¨ï¼LMArenaè½å¤ç²¾ç¡®è¡¡éæ¯ä¸ªæ¨¡åçç»¼åè½åã</p>
+            
+            <h4>LMArenaè¯æµçå¬æ­£æ§ä¿é</h4>
+            <p>LMArenaéç¨å¿åå¯¹å³ï¼ç¨æ·æç¥¨åä¸ç¥éæ¨¡åèº«ä»½ï¼é¿ååçåè§ãåæ¶LMArenaå¹³å°å¼æ¾éæï¼ææè¯æµæ°æ®å¬å¼å¯æ¥ï¼ç ç©¶èå¯èªç±åæéªè¯ç»æã</p>
+        </section>
+
+        <section class="section" id="leaderboards">
+            <h2>LMArenaä¹å¤§AIæè¡æ¦</h2>
+            <p>LMArenaæä¾å¨æ¹ä½çAIæ¨¡åè¯æµï¼æ¶µçææ¬ãè§è§ãå¾åãè§é¢ç­å¤ä¸ªç»´åº¦ãä»¥ä¸æ¯LMArenaåæè¡æ¦çææ°æåï¼2025å¹´11ææ´æ°ï¼ï¼</p>
+            
+            <div class="leaderboard-grid">
+                <!-- ææ¬æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð¬</div>
+                        <h3 class="card-title">LMArenaææ¬æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Gemini-3-Pro</span><span class="model-score">1491</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Grok-4.1-Thinking</span><span class="model-score">1481</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Claude-Opus-4.5-Thinking</span><span class="model-score">1471</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Grok-4.1</span><span class="model-score">1463</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">Claude-Opus-4.5</span><span class="model-score">1462</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">GPT-5.1-High</span><span class="model-score">1457</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Gemini-2.5-Pro</span><span class="model-score">1451</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Claude-Sonnet-4.5-Thinking</span><span class="model-score">1448</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">Claude-Opus-4.1-Thinking</span><span class="model-score">1448</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Claude-Sonnet-4.5</span><span class="model-score">1445</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">GPT-4.5-Preview</span><span class="model-score">1443</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Claude-Opus-4.1</span><span class="model-score">1441</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">ChatGPT-4o-Latest</span><span class="model-score">1440</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">GPT-5-High</span><span class="model-score">1437</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">GPT-5.1</span><span class="model-score">1436</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">O3-2025</span><span class="model-score">1434</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">Qwen3-Max-Preview</span><span class="model-score">1433</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">Kimi-K2-Thinking-Turbo</span><span class="model-score">1428</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Grok-4.1-Fast-Reasoning</span><span class="model-score">1427</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">GLM-4.6</span><span class="model-score">1426</span></li>
+                    </ul>
+                </div>
+
+                <!-- è§è§æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ðï¸</div>
+                        <h3 class="card-title">LMArenaè§è§æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Gemini-3-Pro</span><span class="model-score">1314</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Gemini-2.5-Pro</span><span class="model-score">1249</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">GPT-5.1-High</span><span class="model-score">1248</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">GPT-5.1</span><span class="model-score">1246</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">ChatGPT-4o-Latest</span><span class="model-score">1237</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">GPT-4.5-Preview</span><span class="model-score">1226</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Gemini-2.5-Flash-Preview</span><span class="model-score">1226</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">GPT-5-Chat</span><span class="model-score">1222</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">O3-2025</span><span class="model-score">1218</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">GPT-4.1</span><span class="model-score">1216</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Gemini-2.5-Flash</span><span class="model-score">1215</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Claude-Opus-4-Thinking</span><span class="model-score">1210</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">GPT-5-High</span><span class="model-score">1209</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">Qwen3-VL-235B-A22B</span><span class="model-score">1206</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">Claude-Sonnet-4-Thinking</span><span class="model-score">1205</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">GPT-4.1-Mini</span><span class="model-score">1202</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">O4-Mini</span><span class="model-score">1202</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">ERNIE-5.0-Preview</span><span class="model-score">1199</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Claude-3.7-Sonnet-Thinking</span><span class="model-score">1196</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">Hunyuan-Vision-1.5-Thinking</span><span class="model-score">1194</span></li>
+                    </ul>
+                </div>
+
+                <!-- WebDevæè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð»</div>
+                        <h3 class="card-title">LMArenaç½é¡µå¼åæè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Claude-Opus-4.5-Thinking</span><span class="model-score">1511</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Gemini-3-Pro</span><span class="model-score">1476</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Claude-Opus-4.5</span><span class="model-score">1472</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">GPT-5-Medium</span><span class="model-score">1399</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">Claude-Sonnet-4.5-Thinking</span><span class="model-score">1398</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">GPT-5.1-Medium</span><span class="model-score">1395</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Claude-Opus-4.1</span><span class="model-score">1392</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Claude-Sonnet-4.5</span><span class="model-score">1387</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">GLM-4.6</span><span class="model-score">1366</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">GPT-5.1</span><span class="model-score">1354</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Kimi-K2-Thinking-Turbo</span><span class="model-score">1350</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">GPT-5.1-Codex</span><span class="model-score">1341</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">MiniMax-M2</span><span class="model-score">1316</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">DeepSeek-V3.2-Exp</span><span class="model-score">1293</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">Qwen3-Coder-480B-A35B</span><span class="model-score">1289</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">Claude-Haiku-4.5</span><span class="model-score">1285</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">KAT-Coder-Pro-V1</span><span class="model-score">1264</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">GPT-5.1-Codex-Mini</span><span class="model-score">1252</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Grok-4.1-Fast-Reasoning</span><span class="model-score">1229</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">Gemini-2.5-Pro</span><span class="model-score">1213</span></li>
+                    </ul>
+                </div>
+
+                <!-- æçå¾æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð¨</div>
+                        <h3 class="card-title">LMArenaæçå¾æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Gemini-3-Pro-Image-2K</span><span class="model-score">1234</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Gemini-3-Pro-Image</span><span class="model-score">1231</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Flux-2-Flex</span><span class="model-score">1157</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Gemini-2.5-Flash-Image</span><span class="model-score">1156</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">Hunyuan-Image-3.0</span><span class="model-score">1154</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">Flux-2-Pro</span><span class="model-score">1146</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Seedream-4.5</span><span class="model-score">1146</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Imagen-4.0-Ultra</span><span class="model-score">1145</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">Seedream-4-2K</span><span class="model-score">1144</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Imagen-4.0</span><span class="model-score">1131</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Seedream-4-High-Res</span><span class="model-score">1124</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Wan2.5-T2I-Preview</span><span class="model-score">1123</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">GPT-Image-1</span><span class="model-score">1119</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">Seedream-4-Fal</span><span class="model-score">1118</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">GPT-Image-1-Mini</span><span class="model-score">1100</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">MAI-Image-1</span><span class="model-score">1091</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">Seedream-3</span><span class="model-score">1084</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">Flux-1-Kontext-Max</span><span class="model-score">1078</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Qwen-Image-Extend</span><span class="model-score">1067</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">Flux-1-Kontext-Pro</span><span class="model-score">1064</span></li>
+                    </ul>
+                </div>
+
+                <!-- å¾åç¼è¾æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">âï¸</div>
+                        <h3 class="card-title">LMArenaå¾åç¼è¾æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Gemini-3-Pro-Image-2K</span><span class="model-score">1405</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Gemini-3-Pro-Image</span><span class="model-score">1394</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Seedream-4.5</span><span class="model-score">1338</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Gemini-2.5-Flash-Image</span><span class="model-score">1323</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">Seedream-4-2K</span><span class="model-score">1311</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">Seedream-4-High-Res</span><span class="model-score">1249</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Reve-V1</span><span class="model-score">1242</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Flux-2-Pro</span><span class="model-score">1240</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">Flux-2-Flex</span><span class="model-score">1229</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Seedream-4-Fal</span><span class="model-score">1212</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Qwen-Image-Edit</span><span class="model-score">1208</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Reve-Edit-Fast</span><span class="model-score">1206</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">Flux-1-Kontext-Max</span><span class="model-score">1193</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">Flux-1-Kontext-Pro</span><span class="model-score">1185</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">Flux-1-Kontext-Dev</span><span class="model-score">1160</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">GPT-Image-1</span><span class="model-score">1153</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">SeedEdit-3.0</span><span class="model-score">1149</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">GPT-Image-1-Mini</span><span class="model-score">1132</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Gemini-2.0-Flash-Image</span><span class="model-score">1092</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">Bagel</span><span class="model-score">1036</span></li>
+                    </ul>
+                </div>
+
+                <!-- æç´¢æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð</div>
+                        <h3 class="card-title">LMArenaæç´¢æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Gemini-3-Pro-Grounding</span><span class="model-score">1210</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">GPT-5.1-Search</span><span class="model-score">1201</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Grok-4-Fast-Search</span><span class="model-score">1164</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Gemini-2.5-Pro-Grounding</span><span class="model-score">1142</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">O3-Search</span><span class="model-score">1139</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">Grok-4-Search</span><span class="model-score">1138</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Perplexity-Sonar-Reasoning-Pro</span><span class="model-score">1138</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Claude-Opus-4.1-Search</span><span class="model-score">1130</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">GPT-5-Search</span><span class="model-score">1130</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Claude-Opus-4-Search</span><span class="model-score">1129</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Perplexity-Sonar-Pro-High</span><span class="model-score">1125</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Diffbot-Small-XL</span><span class="model-score">1020</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">API-GPT-4o-Search</span><span class="model-score">1008</span></li>
+                    </ul>
+                </div>
+
+                <!-- æçè§é¢æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð¬</div>
+                        <h3 class="card-title">LMArenaæçè§é¢æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Veo-3.1-Fast-Audio</span><span class="model-score">1386</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Veo-3.1-Audio</span><span class="model-score">1375</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Veo-3-Fast-Audio</span><span class="model-score">1364</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Sora-2-Pro</span><span class="model-score">1362</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">Veo-3-Audio</span><span class="model-score">1346</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">Sora-2</span><span class="model-score">1325</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Wan2.5-T2V-Preview</span><span class="model-score">1305</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Veo-3</span><span class="model-score">1257</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">Veo-3-Fast</span><span class="model-score">1252</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Kling-2.5-Turbo-1080P</span><span class="model-score">1222</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Ray-3</span><span class="model-score">1207</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Hailuo-2.3</span><span class="model-score">1205</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">Hailuo-02-Pro</span><span class="model-score">1195</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">Seedance-V1-Pro</span><span class="model-score">1187</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">Hailuo-02-Standard</span><span class="model-score">1181</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">Kling-V2.1-Master</span><span class="model-score">1171</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">Veo-2</span><span class="model-score">1163</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">Wan-V2.2-A14B</span><span class="model-score">1126</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Seedance-V1-Lite</span><span class="model-score">1118</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">Sora</span><span class="model-score">1066</span></li>
+                    </ul>
+                </div>
+
+                <!-- å¾çè§é¢æè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð½ï¸</div>
+                        <h3 class="card-title">LMArenaå¾çè§é¢æè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Veo-3.1-Audio</span><span class="model-score">1396</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Veo-3.1-Fast-Audio</span><span class="model-score">1395</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Wan2.5-I2V-Preview</span><span class="model-score">1341</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Veo-3-Audio</span><span class="model-score">1333</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">Veo-3-Fast-Audio</span><span class="model-score">1329</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">Kling-2.5-Turbo-1080P</span><span class="model-score">1277</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Seedance-V1-Pro</span><span class="model-score">1275</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Vidu-Q2-Turbo</span><span class="model-score">1253</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">Veo-3</span><span class="model-score">1247</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Veo-3-Fast</span><span class="model-score">1241</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Hailuo-2.3</span><span class="model-score">1239</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">Kling-V2.1-Master</span><span class="model-score">1237</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">Hailuo-02-Pro</span><span class="model-score">1237</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">Ray-3</span><span class="model-score">1229</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">Hailuo-02-Standard</span><span class="model-score">1228</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">Vidu-Q2-Pro</span><span class="model-score">1227</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">Kling-V2.1-Standard</span><span class="model-score">1226</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">Hailuo-02-Fast</span><span class="model-score">1197</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Seedance-V1-Lite</span><span class="model-score">1186</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">Wan-V2.2-A14B</span><span class="model-score">1169</span></li>
+                    </ul>
+                </div>
+
+                <!-- ç»¼åæè¡æ¦ -->
+                <div class="leaderboard-card">
+                    <div class="card-header">
+                        <div class="card-icon">ð</div>
+                        <h3 class="card-title">LMArenaç»¼åæè¡æ¦</h3>
+                    </div>
+                    <ul class="ranking-list">
+                        <li><span class="rank rank-1">1</span><span class="model-name">Gemini-3-Pro</span><span class="model-score">ç»¼åç¬¬ä¸</span></li>
+                        <li><span class="rank rank-2">2</span><span class="model-name">Grok-4.1-Thinking</span><span class="model-score">ç»¼åç¬¬äº</span></li>
+                        <li><span class="rank rank-3">3</span><span class="model-name">Claude-Opus-4.5</span><span class="model-score">ç»¼åç¬¬ä¸</span></li>
+                        <li><span class="rank rank-other">4</span><span class="model-name">Claude-Opus-4.5-Thinking</span><span class="model-score">TOP 5</span></li>
+                        <li><span class="rank rank-other">5</span><span class="model-name">GPT-5.1-High</span><span class="model-score">TOP 5</span></li>
+                        <li><span class="rank rank-other">6</span><span class="model-name">Grok-4.1</span><span class="model-score">TOP 10</span></li>
+                        <li><span class="rank rank-other">7</span><span class="model-name">Claude-Sonnet-4.5-Thinking</span><span class="model-score">TOP 10</span></li>
+                        <li><span class="rank rank-other">8</span><span class="model-name">Gemini-2.5-Pro</span><span class="model-score">TOP 10</span></li>
+                        <li><span class="rank rank-other">9</span><span class="model-name">Claude-Opus-4.1-Thinking</span><span class="model-score">TOP 10</span></li>
+                        <li><span class="rank rank-other">10</span><span class="model-name">Claude-Sonnet-4.5</span><span class="model-score">TOP 10</span></li>
+                        <li><span class="rank rank-other">11</span><span class="model-name">Claude-Opus-4.1</span><span class="model-score">TOP 15</span></li>
+                        <li><span class="rank rank-other">12</span><span class="model-name">GPT-4.5-Preview</span><span class="model-score">TOP 15</span></li>
+                        <li><span class="rank rank-other">13</span><span class="model-name">GPT-5.1</span><span class="model-score">TOP 15</span></li>
+                        <li><span class="rank rank-other">14</span><span class="model-name">ChatGPT-4o-Latest</span><span class="model-score">TOP 15</span></li>
+                        <li><span class="rank rank-other">15</span><span class="model-name">GPT-5-High</span><span class="model-score">TOP 15</span></li>
+                        <li><span class="rank rank-other">16</span><span class="model-name">Kimi-K2-Thinking-Turbo</span><span class="model-score">TOP 20</span></li>
+                        <li><span class="rank rank-other">17</span><span class="model-name">O3-2025</span><span class="model-score">TOP 20</span></li>
+                        <li><span class="rank rank-other">18</span><span class="model-name">Qwen3-Max-Preview</span><span class="model-score">TOP 20</span></li>
+                        <li><span class="rank rank-other">19</span><span class="model-name">Grok-4.1-Fast-Reasoning</span><span class="model-score">TOP 20</span></li>
+                        <li><span class="rank rank-other">20</span><span class="model-name">DeepSeek-V3.2-Exp</span><span class="model-score">TOP 20</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="features">
+            <h2>ä¸ºä»ä¹éæ©LMArenaï¼</h2>
+            <p>LMArenaå·²æä¸ºAIç ç©¶èãå¼åèåä¼ä¸éæ©AIæ¨¡åçé¦éåèå¹³å°ãä»¥ä¸æ¯LMArenaçæ ¸å¿ä¼å¿ï¼</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">ð¯</div>
+                    <h4 class="feature-title">ç²æµæºå¶ç¡®ä¿å¬æ­£</h4>
+                    <p class="feature-desc">LMArenaçç²æµè®¾è®¡è®©ç¨æ·å¨ä¸ç¥éæ¨¡åèº«ä»½çæåµä¸è¿è¡è¯ä»·ï¼æç»åçæåºå¸¦æ¥çåè§ï¼çæ­£è¯ä¼°AIè½åã</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">ð</div>
+                    <h4 class="feature-title">æµ·éçå®æ°æ®</h4>
+                    <p class="feature-desc">LMArenaå·²ç´¯ç§¯è¶è¿460ä¸æ¬¡ææ¬è¯æµæç¥¨ï¼è¦ç276ä¸ªæ¨¡åãåºå¤§çæ°æ®éä¿è¯äºLMArenaæåçç»è®¡å¯é æ§ã</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">ð¬</div>
+                    <h4 class="feature-title">å¤ç»´åº¦è¯æµ</h4>
+                    <p class="feature-desc">LMArenaæä¾ä¹å¤§æè¡æ¦ï¼åæ¬ææ¬å¯¹è¯ãè§è§çè§£ãç½é¡µå¼åãå¾åçæãå¾åç¼è¾ãæç´¢ãæçè§é¢åå¾çè§é¢ï¼å¨é¢è¯ä¼°AIè½åã</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">ð</div>
+                    <h4 class="feature-title">å¼æ¾éæ</h4>
+                    <p class="feature-desc">LMArenaææè¯æµæ°æ®å¬å¼å¯æ¥ï¼ç ç©¶èå¯èªç±ä¸è½½åæãLMArenaçå¼æ¾æ§èµ¢å¾äºå­¦æ¯çåäº§ä¸ççå¹¿æ³ä¿¡ä»»ã</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="access-guide">
+            <h2>éåæå¡</h2>
+            <p>é¶æ²³å½åå±æ¯ä¸å®¶ä¸æ³¨äºAIå·¥å·æå¡çé¢åå¹³å°ï¼æä¾GeminiãChatGPTãClaudeãGrokç­ä¸»æµAIå·¥å·çéåè®¿é®æå¡ï¼æ éå½éç½ç»ç¯å¢ï¼å½åç´è¿ï¼ç¨³å®å¿«éãæä»¬çéåæå¡éç¨é«éCDNå éï¼ç¡®ä¿æ¨è·å¾ä¸å®æ¹ç½ç«ä¸è´çæµçä½éªã</p>
+            
+            <div class="feature-card" style="margin-top: 24px; background: linear-gradient(135deg, rgba(90, 84, 255, 0.08), rgba(0, 212, 255, 0.05)); border: 2px solid rgba(90, 84, 255, 0.2);">
+                <div class="feature-icon">ð</div>
+                <h4 class="feature-title">é¶æ²³å½åå± - AIå·¥å·éåæå¡</h4>
+                <p class="feature-desc">æä¾GeminiãChatGPTãClaudeãGrokç­ä¸»æµAIå·¥å·çå½åç´è¿éåæå¡ï¼é«éCDNå éï¼ç¨³å®æµçï¼æ éå½éç½ç»ç¯å¢ã</p>
+                <a href="https://nf.video/fza3cq/?gid=101&skuId=781" class="cta-btn cta-primary" target="_blank" rel="noopener" style="margin-top: 16px; display: inline-flex;">ç«å³ä½éªéåæå¡</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>LMArenaä½¿ç¨æå</h2>
+            <h3>å¦ä½å¨LMArenaåä¸è¯æµ</h3>
+            <p>è®¿é®LMArenaå®ç½åï¼æ¨å¯ä»¥éæ©æå´è¶£çè¯æµé¢åãå¨LMArenaçå¯¹è¯çé¢ä¸­è¾å¥é®é¢ï¼ç³»ç»ä¼åæ¶åä¸¤ä¸ªå¿åæ¨¡ååéè¯·æ±ãéè¯»ä¸¤ä¸ªåç­åï¼éæ©æ¨è®¤ä¸ºæ´å¥½çä¸æ¹è¿è¡æç¥¨ãæç¥¨å®æåLMArenaä¼æ­ç¤ºæ¨¡åèº«ä»½ã</p>
+            
+            <h4>LMArenaè¯åç³»ç»è§£è¯»</h4>
+            <p>LMArenaä½¿ç¨ELOè¯åç³»ç»ï¼åå§åæ°ä¸º1000åãå½æ¨¡åæèå¯¹ææ¶è·å¾ç§¯åï¼å¤±è´¥åæ£åãåæ°è¶é«ä»£è¡¨å¨LMArenaå¹³å°ä¸çè¡¨ç°è¶ä¼ç§ãç®åé¡¶çº§æ¨¡åçLMArenaè¯åæ®éå¨1400-1500ååºé´ã</p>
+            
+            <h3>LMArenaå¯¹è¡ä¸çå½±å</h3>
+            <p>LMArenaçæåå·²æä¸ºAIè¡ä¸çé£åæ ãåå¤§AIå¬å¸å°LMArenaæåä½ä¸ºäº§ååå¸çéè¦å®£ä¼ ç¹ï¼ç ç©¶è®ºæä¹å¸¸å¼ç¨LMArenaæ°æ®ä½ä¸ºæ§è½åºåãå¯ä»¥è¯´ï¼LMArenaæ­£å¨éæ°å®ä¹AIæ¨¡åçè¯ä»·æ åã</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://lmarena.ai" target="_blank" rel="noopener">LMArenaå®ç½</a>
+                <a href="https://lmarena.ai/leaderboard" target="_blank" rel="noopener">æè¡æ¦</a>
+                <a href="https://x.com/arena" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://discord.gg/LMArena" target="_blank" rel="noopener">Discord</a>
+            </div>
+            <p class="copyright">Â© 2025 LMArenaä¸­æç« - å¨çAIæ¨¡åæå¨è¯æµå¹³å°</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -212,14 +212,24 @@ if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
     MODEL_OPTIONS = {
+        "GPT-OSS (免费)": "openai/gpt-oss-120b",
+        "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
         "Gemini 3.1 Flash": "google/gemini-3-flash-preview",
         "Claude Haiku": "anthropic/claude-haiku-4.5",
-        "GPT-OSS (免费)": "openai/gpt-oss-120b:free",
-        "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
     }
-    selected_model_label = st.selectbox("选择 AI 模型:", list(MODEL_OPTIONS.keys()), index=0)
-    AI_MODEL = MODEL_OPTIONS[selected_model_label]
-    st.caption(f"当前模型: `{AI_MODEL}`")
+    
+    # 顶部控制区
+    col_ai1, col_ai2 = st.columns([2, 1])
+    with col_ai1:
+        selected_model_label = st.selectbox("选择 AI 模型:", list(MODEL_OPTIONS.keys()), index=0)
+        AI_MODEL = MODEL_OPTIONS[selected_model_label]
+    with col_ai2:
+        st.write("") # 占位向下对齐
+        st.write("")
+        # 弹性联网开关
+        enable_web_search = st.toggle("🌐 启用联网搜索 (分析数据异动原因)", value=False)
+        
+    st.caption(f"当前模型: `{AI_MODEL}` | 联网状态: {'🟢 开启' if enable_web_search else '🔴 关闭'}")
     
     # API Key 配置
     api_key = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
@@ -236,23 +246,19 @@ if page == NAV_AI_QUERY:
             context_parts = []
             
             if _df is not None and not _df.empty:
-                # 提供所有模型名列表帮助 AI 做模糊匹配
-                all_models = _df['Model'].unique().tolist()
-                display_names = _df['Display_Name'].unique().tolist() if 'Display_Name' in _df.columns else []
+                display_names = sorted(_df['Display_Name'].dropna().unique().tolist())
                 context_parts.append(f"""### Token 消耗数据 (变量名: df)
 - 列: Date, Model, Prompt, Completion, Reasoning, Total_Tokens, Display_Name
 - 记录数: {len(_df)}, 日期范围: {_df['Date'].min().strftime('%Y-%m-%d')} ~ {_df['Date'].max().strftime('%Y-%m-%d')}
 - Token 单位: Billion (10亿)
-- 全部模型列表(Model列): {', '.join(all_models[:30])}
-- 显示名列表(Display_Name列): {', '.join(display_names[:30])}""")
+- **全部可用模型列表 (Display_Name列)**: {', '.join(display_names)}""")
 
             if _df_price is not None and not _df_price.empty:
-                price_models = _df_price['Model'].unique().tolist()
+                price_models = sorted(_df_price['Model'].dropna().unique().tolist())
                 context_parts.append(f"""### 定价数据 (变量名: df_price)
 - 列: Date, Model, Provider, Input_Price_1M, Output_Price_1M, Cache_Hit_Rate
-- 记录数: {len(_df_price)}, 日期数: {_df_price['Date'].dt.strftime('%Y-%m-%d').nunique()}
 - 价格单位: $/1M Tokens
-- 模型列表(前30): {', '.join(price_models[:30])}""")
+- **全部定价模型列表**: {', '.join(price_models)}""")
 
             if _df_bench is not None and not _df_bench.empty:
                 context_parts.append(f"""### Benchmark 跑分 (变量名: df_bench)
@@ -262,65 +268,47 @@ if page == NAV_AI_QUERY:
 
             if _df_lmarena is not None and not _df_lmarena.empty:
                 score_cols = [c for c in _df_lmarena.columns if c.startswith('Score_')]
-                rank_cols = [c for c in _df_lmarena.columns if c.startswith('Rank_')]
                 context_parts.append(f"""### Arena 竞技排行 (变量名: df_lmarena)
 - 数据源: arena.ai (原 LMARENA)
 - 8 个 ELO 排行榜: {', '.join(c.replace('Score_','') for c in score_cols)}
-- Arena Overview 排名维度: {', '.join(c.replace('Rank_','') for c in rank_cols)}
-- 每个 Score 列对应 Votes 列 (如 Score_text → Votes_text)
-- 模型数: {_df_lmarena['Model'].nunique()}
-- 模型示例: {', '.join(_df_lmarena['Model'].unique().tolist()[:15])}""")
+- 模型示例: {', '.join(_df_lmarena['Model'].unique().tolist()[:30])}""")
             
             return '\n\n'.join(context_parts)
         
         db_context = build_db_context(df, df_price, df_bench, df_lmarena)
         
+        # 动态注入联网强力规则
+        web_search_rules = ""
+        if enable_web_search:
+            web_search_rules = """
+## 🌐 联网搜索规范（最高警戒）
+你当前已启用联网功能。你**仅能使用网络信息来解释数据趋势背后的“外部原因”**（如：查阅某天模型用量暴增是否因为降价、发新版或突发新闻）。
+**严禁**用网络上的公开数据来修改、替代或伪造本地数据库（df, df_price等）中的数值。代码绘制的图表和输出的具体 Token 数据，必须 **100% 严格来源于本地数据库**！
+"""
+        
         SYSTEM_PROMPT = f"""你是一位专业的 LLM 行业投研分析师，服务于机构投资者。你的核心任务是用**数据驱动的可视化图表**回答问题。
 
 ## 数据库
-
 {db_context}
 
+{web_search_rules}
+
+## 数据过滤指南（最高优先级）
+1. **杜绝盲目模糊匹配**：当用户询问特定模型（如 "M2.5", "minimax", "gemini"）时，**必须**仔细查阅我提供的“全部可用模型列表”，找出确切的目标名称。
+2. **使用精准过滤**：严禁使用宽泛的 `str.contains('2.5')`！你必须使用 `isin` 或 `==` 进行精准匹配，例如：`df[df['Display_Name'].isin(['minimax-m2.5'])]`。
+3. **区分同厂商新老模型**：如果用户查特定新模型，绝不要把该厂商几个月前的老模型数据一并算入，以免污染时间轴。
+
 ## 输出格式（严格遵守）
-
 1. **文字部分**：用 3-5 句话给出核心结论，像投研报告摘要一样简洁。提供关键数据+洞察。
-2. **代码部分**：必须生成一个 ```python``` 代码块，包含**至少 1 个图表**。你的主要价值在于可视化，不是文字。
+2. **代码部分**：必须生成一个 ```python``` 代码块，包含**至少 1 个图表**。
 
-## 可视化指南（投研风格）
-
-你生成的代码会被 exec() 直接执行，变量已预加载: `df, df_price, df_bench, df_lmarena, st, alt, pd`
-
-### 图表规范
-- 使用 `st.altair_chart(chart, use_container_width=True)` 展示 Altair 图表
-- 用 `st.dataframe()` 展示辅助数据表格（可选，放在图表之后）
-- 配色方案：使用 `alt.Scale(scheme='tableau20')` 或手动指定专业配色
-- 标题用中文，字号设为 16（`.properties(title=alt.Title('标题', fontSize=16))`）
-- 图表高度建议 350-450px
-
-### 典型图表类型
-- **用量趋势** → 折线图 (line chart)，X=日期, Y=Token量, Color=模型
-- **价格对比** → 分组柱状图，X=模型/供应商, Y=价格, Color=Input/Output
-- **Arena排名** → 水平柱状图，Y=模型, X=排名（升序，1=最好）
-- **多维雷达** → 如果需要对比多维度，用分组柱状图替代
-
-### 代码安全规则
-- **类型安全**：对所有列使用操作前**先确保类型正确**
-  - 数值列: `pd.to_numeric(col, errors='coerce')`
-  - 字符串操作前: `col = col.astype(str)`
-  - 日期列已是 datetime，无需转换
-- **模糊匹配**: 
-  - `df[df['Model'].astype(str).str.contains('关键词', case=False, na=False)]`
-  - 不同数据源命名不同（Token: 'deepseek/deepseek-r1'，Arena: 'deepseek-r1'），要**分别**在各 DataFrame 中匹配
-- **防空数据**: 匹配后先检查 `if len(matched) > 0:` 再绘图，否则 `st.info('该数据源中未找到匹配模型')`
-- **只写一个代码块**，包含所有图表和表格
-
-## 分析视角
-
-从投研角度分析，关注：
-- **市场格局**：模型间竞争态势、份额变化
-- **性价比**：性能/价格比，同档位模型对比
-- **趋势**：用量增长/下降趋势，价格变动方向
-- **定价**: Input_Price_1M 和 Output_Price_1M 单位为 $/1M Tokens"""
+## 可视化指南
+- 使用 `st.altair_chart(chart, use_container_width=True)` 展示图表。
+- 用 `st.dataframe()` 展示辅助数据表格（可选）。
+- 标题用中文，字号设为 16。
+- 对所有数值列操作前**先确保类型正确** (如 `pd.to_numeric()`)。
+- 只写一个代码块，包含所有图表和表格代码。
+"""
 
         # 初始化聊天历史
         if "ai_messages" not in st.session_state:
@@ -337,13 +325,10 @@ if page == NAV_AI_QUERY:
         def split_reply(reply):
             import re as _re
             code_blocks = _re.findall(r'```python\s*\n(.*?)```', reply, _re.DOTALL)
-            # 去掉代码块，只留文字
             text_only = _re.sub(r'```python\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
             return text_only, code_blocks[0] if code_blocks else None
         
         def safe_exec(code, ns):
-            """安全执行代码，预处理常见类型问题"""
-            # 预处理: 确保所有 DataFrame 的 Model 列为 str 类型
             for key in ['df', 'df_price', 'df_lmarena']:
                 frame = ns.get(key)
                 if frame is not None and 'Model' in frame.columns:
@@ -367,21 +352,29 @@ if page == NAV_AI_QUERY:
                     st.markdown(msg["content"])
         
         # 用户输入
-        user_query = st.chat_input("输入你的问题，例如: 'glm 本月的用量趋势和竞技场表现'")
+        user_query = st.chat_input("输入你的问题，例如: '分析 M2.5 本月的用量趋势，并查找它近期暴涨的原因'")
         
         if user_query:
             st.session_state.ai_messages.append({"role": "user", "content": user_query})
             with st.chat_message("user"):
                 st.markdown(user_query)
             
-            # 构建 API 请求
             messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-            # 只传最近 6 轮对话作为上下文
             for msg in st.session_state.ai_messages[-12:]:
                 messages.append({"role": msg["role"], "content": msg["content"]})
             
+            # 构建 API 请求 Payload (动态注入联网插件)
+            api_payload = {
+                "model": AI_MODEL,
+                "messages": messages,
+                "max_tokens": 4000,
+                "temperature": 0.3
+            }
+            if enable_web_search:
+                api_payload["plugins"] = [{"id": "web", "max_results": 4}]
+            
             with st.chat_message("assistant"):
-                with st.spinner("AI 正在分析数据..."):
+                with st.spinner("AI 正在分析数据..." + (" (正在全网搜索线索 🌐)" if enable_web_search else "")):
                     try:
                         import requests as _req
                         resp = _req.post(
@@ -390,13 +383,8 @@ if page == NAV_AI_QUERY:
                                 "Authorization": f"Bearer {api_key}",
                                 "Content-Type": "application/json"
                             },
-                            json={
-                                "model": AI_MODEL,
-                                "messages": messages,
-                                "max_tokens": 4000,
-                                "temperature": 0.3
-                            },
-                            timeout=60
+                            json=api_payload,
+                            timeout=75 # 联网搜索可能比较慢，适当增加一点 timeout
                         )
                         resp.raise_for_status()
                         result = resp.json()
@@ -404,7 +392,6 @@ if page == NAV_AI_QUERY:
                     except Exception as e:
                         ai_reply = f"查询失败: {str(e)}"
                 
-                # 分离文字和代码，只显示文字，代码直接执行
                 text_part, chart_code = split_reply(ai_reply)
                 st.markdown(text_part)
                 
@@ -412,7 +399,7 @@ if page == NAV_AI_QUERY:
                     try:
                         safe_exec(chart_code, exec_namespace)
                     except Exception as e:
-                        st.warning(f"图表渲染出错，正在尝试修复...")
+                        st.warning(f"图表渲染出错...")
                         with st.expander("查看错误详情", expanded=False):
                             st.code(f"错误: {e}\n\n原始代码:\n{chart_code}", language="python")
                 
@@ -426,7 +413,7 @@ if page == NAV_AI_QUERY:
             if st.button("清空对话历史"):
                 st.session_state.ai_messages = []
                 st.rerun()
-
+                
 # ========================================================
 # 页面 1: T+N 横向对比 (每日消耗)
 # ========================================================
