@@ -376,7 +376,11 @@ st.dataframe(plot_df.tail(10))
             "st": st, "alt": alt, "pd": pd, "np": np, "os": os,
         }
         
-        # 【修复 BUG】强力正则拦截工具调用乱码
+        def split_reply(reply):
+            import re as _re
+            # 1. 正常剔除 DeepSeek 等模型的内部思考过程
+            reply = _re.sub(r'<think>.*?</think>', '', reply, flags=_re.DOTALL)
+            
             # 2. 【核心增强】清空干扰，提取并合并所有 Python 代码块
             reply = _re.sub(r'</?[a-zA-Z0-9_:-]*tool_call[^>]*>', '', reply)
             reply = _re.sub(r'</?invoke[^>]*>', '', reply)
