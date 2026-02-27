@@ -6,14 +6,14 @@ import io
 import json
 
 # === 1. 基础配置 ===
-st.set_page_config(page_title="OpenRouter 模型追踪", layout="wide")
+st.set_page_config(page_title="LLM 数据看板", layout="wide")
 DATA_FILE = "history_database.csv"
 PRICING_FILE = "openrouter_pricing_provider_records.csv"
 BENCHMARK_FILE = "openrouter_benchmark_records.csv"
 LMARENA_FILE = "lmarena_leaderboard_records.csv"
 
 # 页面标题
-st.title("OpenRouter 数据追踪看板")
+st.title("LLM 数据看板")
 
 # 定义页面名称常量
 NAV_AI_QUERY = "AI 查询"
@@ -211,8 +211,15 @@ if df_lmarena is not None:
 if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
-    AI_MODEL = "deepseek/deepseek-chat"
-    st.caption(f"通过自然语言提问，AI 将分析数据并生成可视化图表。当前模型: `{AI_MODEL}`")
+    MODEL_OPTIONS = {
+        "DeepSeek V3 (高性价比)": "deepseek/deepseek-chat",
+        "Claude Sonnet 4 (强推理)": "anthropic/claude-sonnet-4",
+        "GPT-4.1 (均衡)": "openai/gpt-4.1",
+        "Gemini 2.5 Flash (快速)": "google/gemini-2.5-flash-preview",
+    }
+    selected_model_label = st.selectbox("选择 AI 模型:", list(MODEL_OPTIONS.keys()), index=0)
+    AI_MODEL = MODEL_OPTIONS[selected_model_label]
+    st.caption(f"当前模型: `{AI_MODEL}`")
     
     # API Key 配置
     api_key = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
@@ -254,10 +261,10 @@ if page == NAV_AI_QUERY:
 - 模型数: {len([c for c in _df_bench.columns if c not in ['Date','Metric']])}""")
 
             if _df_lmarena is not None and not _df_lmarena.empty:
-                rank_cols = [c for c in _df_lmarena.columns if c.startswith('Rank_')]
+                score_cols = [c for c in _df_lmarena.columns if c.startswith('Score_')]
                 context_parts.append(f"""### LMARENA 竞技排行 (变量名: df_lmarena)
-- 列: Date, Model, Organization, Overall_Rank, {', '.join(rank_cols)}
-- 维度: {', '.join(c.replace('Rank_','') for c in rank_cols)}
+- 列: Date, Model, Overall_Rank, {', '.join(score_cols)}
+- 维度含 ELO 分数: {', '.join(c.replace('Score_','') for c in score_cols)}
 - 模型数: {_df_lmarena['Model'].nunique()}""")
             
             return '\n\n'.join(context_parts)
@@ -1101,15 +1108,14 @@ elif page == NAV_DAILY_BRIEF:
 # 页面 6: 供应商价格与有效定价分析
 # ========================================================
 elif page == NAV_PRICING:
-    st.subheader("💰 OpenRouter 各大模型实际/有效定价监控")
-    st.caption("基于 OpenRouter 前端 API 抓取的包含 Cache Hit/Router 折扣的**最新实际有效价格**（与官网页面完全一致）。")
+    st.subheader("模型定价")
+    st.caption("基于 OpenRouter 前端 API 抓取的最新实际有效价格。")
     
     if df_price is None or df_price.empty:
-        st.warning("暂未发现可用的定价数据，请确认是否成功运行 `openrouter_pricing_scraper.py`。")
+        st.warning("暂未发现可用的定价数据。")
     else:
-        # 让用户选择模型
         all_models = sorted(df_price['Model'].unique())
-        selected_price_model = st.selectbox("选择要查看价格的模型:", all_models, index=0)
+        selected_price_model = st.selectbox("选择模型:", all_models, index=0)
 
         # 获取该模型所有历史时间点的数据
         m_price_df = df_price[df_price['Model'] == selected_price_model].copy()
@@ -1123,81 +1129,58 @@ elif page == NAV_PRICING:
         
         if not weighted_avg.empty:
             wa_row = weighted_avg.iloc[0]
-            st.markdown("### 🏆 最新综合有效指导指导价 (Weighted Average)")
+            st.markdown("### 最新有效价格 (Weighted Average)")
             col1, col2 = st.columns(2)
-            col1.metric("Effective Input Price ($/1M)", f"${wa_row['Input_Price_1M']:.4f}")
-            col2.metric("Effective Output Price ($/1M)", f"${wa_row['Output_Price_1M']:.4f}")
+            col1.metric("Input Price ($/1M)", f"${wa_row['Input_Price_1M']:.4f}")
+            col2.metric("Output Price ($/1M)", f"${wa_row['Output_Price_1M']:.4f}")
         
         st.markdown("---")
-        st.markdown("### 📈 供应商定价历史趋势 (7-Day Pricing History)")
-        st.caption("Input 价格用实线，Output 价格用虚线，颜色按供应商区分。")
         
-        if not m_price_df.empty:
-            # 去除 Weighted Average，以免拉大比例尺
-            history_df = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
-            history_df['Date'] = pd.to_datetime(history_df['Date'])
-            
-            # 转换宽表为长表：合并 Input 和 Output 到同一个价格轴
-            hist_long = history_df.melt(
-                id_vars=['Date', 'Provider'],
+        # === 图1: 有效价格趋势 (Weighted Average 的 Input+Output 历史) ===
+        st.markdown("### 有效价格趋势")
+        wa_history = m_price_df[m_price_df['Provider'] == 'Weighted Average'].copy()
+        if not wa_history.empty:
+            wa_history['Date'] = pd.to_datetime(wa_history['Date'])
+            wa_long = wa_history.melt(
+                id_vars=['Date'],
                 value_vars=['Input_Price_1M', 'Output_Price_1M'],
-                var_name='Price_Type',
-                value_name='Price'
+                var_name='Type', value_name='Price'
             ).dropna(subset=['Price'])
+            wa_long['Type'] = wa_long['Type'].map({'Input_Price_1M': 'Input', 'Output_Price_1M': 'Output'})
             
-            hist_long['Price_Type'] = hist_long['Price_Type'].map({
-                'Input_Price_1M': 'Input',
-                'Output_Price_1M': 'Output'
-            })
+            chart_wa = alt.Chart(wa_long).mark_line(point=True).encode(
+                x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
+                y=alt.Y('Price:Q', title='价格 ($/1M Tokens)'),
+                color=alt.Color('Type:N', title='类型'),
+                tooltip=['Date:T', 'Type', alt.Tooltip('Price:Q', format='$.4f')]
+            ).properties(height=300)
+            st.altair_chart(chart_wa, use_container_width=True)
+        else:
+            st.info("暂无有效价格历史数据。")
+        
+        st.markdown("---")
+        
+        # === 图2: 各供应商价格柱状图 (最新一天 Input+Output) ===
+        st.markdown("### 各供应商价格对比")
+        if not provider_latest.empty:
+            prov_long = provider_latest.melt(
+                id_vars=['Provider'],
+                value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                var_name='Type', value_name='Price'
+            ).dropna(subset=['Price'])
+            prov_long['Type'] = prov_long['Type'].map({'Input_Price_1M': 'Input', 'Output_Price_1M': 'Output'})
             
-            # 组合 Provider + Price_Type 作为图例标签
-            hist_long['Legend'] = hist_long['Provider'] + ' (' + hist_long['Price_Type'] + ')'
+            chart_prov = alt.Chart(prov_long).mark_bar().encode(
+                x=alt.X('Provider:N', title='供应商', axis=alt.Axis(labelAngle=-45)),
+                y=alt.Y('Price:Q', title='价格 ($/1M Tokens)'),
+                color=alt.Color('Type:N', title='类型'),
+                xOffset='Type:N',
+                tooltip=['Provider', 'Type', alt.Tooltip('Price:Q', format='$.4f')]
+            ).properties(height=350)
+            st.altair_chart(chart_prov, use_container_width=True)
             
-            if not hist_long.empty:
-                # 合并折线图：颜色=供应商，线型=Input/Output
-                chart_pricing = alt.Chart(hist_long).mark_line(
-                    point=alt.OverlayMarkDef(size=30)
-                ).encode(
-                    x=alt.X('Date:T', title='时间', 
-                            axis=alt.Axis(format='%m/%d', labelAngle=-45, labelFontSize=12, titleFontSize=14)),
-                    y=alt.Y('Price:Q', title='价格 ($/1M Tokens)',
-                            axis=alt.Axis(labelFontSize=12, titleFontSize=14)),
-                    color=alt.Color('Provider:N', title='供应商',
-                                    scale=alt.Scale(scheme='category10'),
-                                    legend=alt.Legend(orient='bottom', columns=4)),
-                    strokeDash=alt.StrokeDash('Price_Type:N', title='计费类型',
-                                              legend=alt.Legend(orient='bottom')),
-                    tooltip=[
-                        alt.Tooltip('Date:T', title='日期', format='%Y-%m-%d'),
-                        'Provider', 'Price_Type',
-                        alt.Tooltip('Price:Q', title='价格 ($/1M)', format='$.4f')
-                    ]
-                ).properties(height=400)
-                
-                # 加权平均参考线 (如果有)
-                if not weighted_avg.empty:
-                    wa_input = weighted_avg.iloc[0]['Input_Price_1M']
-                    wa_output = weighted_avg.iloc[0]['Output_Price_1M']
-                    ref_data = pd.DataFrame([
-                        {'Label': f'加权均价 Input: ${wa_input:.4f}', 'Price': wa_input},
-                        {'Label': f'加权均价 Output: ${wa_output:.4f}', 'Price': wa_output},
-                    ])
-                    ref_lines = alt.Chart(ref_data).mark_rule(
-                        strokeDash=[6, 4], opacity=0.6
-                    ).encode(
-                        y='Price:Q',
-                        color=alt.Color('Label:N', title='参考线',
-                                        scale=alt.Scale(range=['#2196F3', '#FF9800']),
-                                        legend=alt.Legend(orient='bottom'))
-                    )
-                    chart_pricing = chart_pricing + ref_lines
-                
-                st.altair_chart(chart_pricing, use_container_width=True)
-            else:
-                st.info("暂无足够的历史数据绘制趋势图，请等待爬虫持续积累数据。")
-            
-            # 附带最新的详表
-            st.markdown("### 🏢 最新各底层供应商名录详表")
+            # 详细表格
+            st.markdown("### 供应商详情")
             st.dataframe(
                 provider_latest[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
                     'Input_Price_1M': '${:.4f}',
@@ -1208,7 +1191,7 @@ elif page == NAV_PRICING:
                 hide_index=True
             )
         else:
-            st.info("此模型暂未解析到多个底层供应商报价。")
+            st.info("暂无供应商价格数据。")
             
         data, name, mime, label = get_dataset_download(df_price, "openrouter_pricing_full")
         st.download_button(label=label, data=data, file_name=name, mime=mime)
@@ -1303,8 +1286,8 @@ elif page == NAV_BENCHMARK:
     
     # --- Tab 3: LMARENA 竞技排名 ---
     with tab3:
-        st.markdown("### LMARENA (Chatbot Arena) 竞技排行榜")
-        st.caption("数据源: lmarena.ai · 由真人盲测对战计算排名")
+        st.markdown("### LMARENA 排行榜")
+        st.caption("数据源: lmarena-ai.com · 由真人盲测对战的 ELO 分数")
         
         if df_lmarena is None or df_lmarena.empty:
             st.warning("暂未发现 LMARENA 排行榜数据。")
@@ -1314,54 +1297,85 @@ elif page == NAV_BENCHMARK:
             
             df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date].copy()
             
-            # 维度选择：Overall_Rank 优先，过滤掉完全为空的列
-            col_options = {'综合排名 (Overall)': 'Overall_Rank'}
-            
-            rank_cols = [c for c in df_latest_lm.columns if c.startswith('Rank_')]
-            MODALITY_LABELS = {
-                'Rank_chat': 'Chat (对话)',
-                'Rank_webdev': 'WebDev (前端开发)',
-                'Rank_image': 'Image (图像生成)',
-                'Rank_video': 'Video (视频生成)',
-                'Rank_search': 'Search (搜索)',
+            # 9 个维度的列名 → 中文标签映射
+            SCORE_LABELS = {
+                'Score_text': '文本',
+                'Score_vision': '视觉',
+                'Score_webdev': '网页开发',
+                'Score_image_gen': '文生图',
+                'Score_image_edit': '图像编辑',
+                'Score_search': '搜索',
+                'Score_text_video': '文生视频',
+                'Score_img_video': '图生视频',
+                'Overall_Rank': '综合排名',
             }
-            for rc in rank_cols:
-                if df_latest_lm[rc].notna().sum() > 0:  # 只添加有数据的维度
-                    col_options[MODALITY_LABELS.get(rc, rc)] = rc
             
-            selected_label = st.selectbox("选择排行维度:", list(col_options.keys()), index=0, key="lmarena_category")
-            selected_col = col_options[selected_label]
+            # 构建维度选择（只显示有数据的）
+            col_options = {}
+            for col_key, label in SCORE_LABELS.items():
+                if col_key in df_latest_lm.columns and df_latest_lm[col_key].notna().sum() > 0:
+                    col_options[label] = col_key
             
-            # 筛选有排名的模型
-            ranked_df = df_latest_lm.dropna(subset=[selected_col]).sort_values(selected_col).reset_index(drop=True)
-            
-            if ranked_df.empty:
-                st.info("该维度暂无排名数据。")
+            if not col_options:
+                st.info("暂无排行数据。")
             else:
-                # Top N 排名柱状图（排名越小越好，用反转展示）
-                top_n = min(25, len(ranked_df))
-                top_df = ranked_df.head(top_n).copy()
-                top_df['Display_Rank'] = top_df[selected_col].astype(int)
+                selected_label = st.selectbox("选择排行维度:", list(col_options.keys()), index=0, key="lmarena_category")
+                selected_col = col_options[selected_label]
                 
-                chart_rank = alt.Chart(top_df).mark_bar(
-                    cornerRadiusTopLeft=3, cornerRadiusTopRight=3
-                ).encode(
-                    x=alt.X('Model:N', sort=alt.EncodingSortField(field=selected_col, order='ascending'),
-                            title='模型', axis=alt.Axis(labelAngle=-45, labelOverlap=False)),
-                    y=alt.Y('Display_Rank:Q', title='排名 (越低越好)',
-                            scale=alt.Scale(reverse=True, zero=False)),
-                    color=alt.Color('Organization:N', title='厂商', legend=alt.Legend(orient='bottom')),
-                    tooltip=['Model', 'Organization', alt.Tooltip('Display_Rank:Q', title='排名')]
-                ).properties(height=450)
+                # 筛选有分数的模型
+                ranked_df = df_latest_lm.dropna(subset=[selected_col]).copy()
                 
-                st.altair_chart(chart_rank, use_container_width=True)
+                is_score = selected_col.startswith('Score_')  # Score 列用分数（越高越好），Overall_Rank 用排名
                 
-                # 完整排名表格
-                st.markdown(f"#### {selected_label} 完整排名 (共 {len(ranked_df)} 个模型)")
-                display_lm = ranked_df[['Model', 'Organization', selected_col]].copy()
-                display_lm[selected_col] = display_lm[selected_col].astype(int)
-                display_lm.columns = ['模型', '厂商', '排名']
-                st.dataframe(display_lm, use_container_width=True, hide_index=True, height=400)
+                if is_score:
+                    ranked_df = ranked_df.sort_values(selected_col, ascending=False).reset_index(drop=True)
+                else:
+                    ranked_df = ranked_df.sort_values(selected_col, ascending=True).reset_index(drop=True)
+                
+                if ranked_df.empty:
+                    st.info("该维度暂无数据。")
+                else:
+                    top_n = min(25, len(ranked_df))
+                    top_df = ranked_df.head(top_n).copy()
+                    top_df['Display_Value'] = top_df[selected_col].astype(int)
+                    
+                    if is_score:
+                        # ELO 分数：水平柱状图，分数从大到小（Y 轴排序），X 轴在底部
+                        chart_rank = alt.Chart(top_df).mark_bar(
+                            cornerRadiusTopRight=3, cornerRadiusBottomRight=3
+                        ).encode(
+                            y=alt.Y('Model:N', 
+                                    sort=alt.EncodingSortField(field=selected_col, order='descending'),
+                                    title=None, 
+                                    axis=alt.Axis(labelOverlap=False)),
+                            x=alt.X('Display_Value:Q', title='ELO 分数',
+                                    scale=alt.Scale(zero=False)),
+                            color=alt.value('#4C78A8'),
+                            tooltip=['Model', alt.Tooltip('Display_Value:Q', title='ELO 分数')]
+                        ).properties(height=max(300, top_n * 25))
+                    else:
+                        # 综合排名：水平柱状图，排名从小到大
+                        chart_rank = alt.Chart(top_df).mark_bar(
+                            cornerRadiusTopRight=3, cornerRadiusBottomRight=3
+                        ).encode(
+                            y=alt.Y('Model:N',
+                                    sort=alt.EncodingSortField(field=selected_col, order='ascending'),
+                                    title=None,
+                                    axis=alt.Axis(labelOverlap=False)),
+                            x=alt.X('Display_Value:Q', title='排名'),
+                            color=alt.value('#4C78A8'),
+                            tooltip=['Model', alt.Tooltip('Display_Value:Q', title='排名')]
+                        ).properties(height=max(300, top_n * 25))
+                    
+                    st.altair_chart(chart_rank, use_container_width=True)
+                    
+                    # 完整排名表格
+                    value_label = 'ELO 分数' if is_score else '排名'
+                    st.markdown(f"#### {selected_label} 完整数据 (共 {len(ranked_df)} 个模型)")
+                    display_lm = ranked_df[['Model', selected_col]].copy()
+                    display_lm[selected_col] = display_lm[selected_col].astype(int)
+                    display_lm.columns = ['模型', value_label]
+                    st.dataframe(display_lm, use_container_width=True, hide_index=True, height=400)
     
     st.markdown("---")
     col_dl1, col_dl2 = st.columns(2)
@@ -1378,8 +1392,8 @@ elif page == NAV_BENCHMARK:
 # 页面 8: 单模型深度探索
 # ========================================================
 elif page == NAV_SINGLE_MODEL:
-    st.subheader("🔬 单模型深度探索面板 (Deep Dive)")
-    st.caption("综合全量消耗、基准测试跑分及各类计费数据，全维度追踪与剖析单一模型。")
+    st.subheader("单模型分析")
+    st.caption("综合用量、基准测试和定价数据，追踪单一模型。")
 
     # 获取包含过去现在所有记录下来的名字集合，统一消除重名干扰项
     raw_models = set(all_model_names) | set(all_pricing_models) | set(all_benchmark_models)
@@ -1395,27 +1409,24 @@ elif page == NAV_SINGLE_MODEL:
     if not all_possible_models:
         st.warning("暂未发现任何模型数据。")
     else:
-        selected_model_norm = st.selectbox("请搜索/选择要深度分析的基础大模型 (如 `deepseek-r1`):", all_possible_models)
+        selected_model_norm = st.selectbox("选择模型:", all_possible_models)
         st.markdown("---")
         
-        # 将统一名映射回三张表里的各种牛鬼蛇神名
         real_names = normalized_map[selected_model_norm]
         
-        # 1. 累计上量图
-        st.markdown("### 📈 累计 API 调用量趋势 (Cumulative Token Volume)")
+        # 1. 累计用量趋势
+        st.markdown("### 累计用量趋势")
         if df is not None and not df.empty:
-            # Token库的名字
             m_df = df[df['Model'].isin(real_names) | df['Display_Name'].isin(real_names)].sort_values('Date').copy()
                 
             if not m_df.empty:
-                # Group by Date to sum up tokens if multiple naming variants got matched in the same day
                 m_df = m_df.groupby('Date', as_index=False)['Total_Tokens'].sum()
                 m_df['Cumulative_Tokens'] = m_df['Total_Tokens'].cumsum()
                 
                 col_m1, col_m2 = st.columns(2)
                 recent_7d = m_df.tail(7)['Total_Tokens'].sum()
-                col_m1.metric("历史累计总消耗量", f"{m_df['Cumulative_Tokens'].iloc[-1]:.4f} Billion")
-                col_m2.metric("近 7 天活跃消耗量", f"{recent_7d:.4f} Billion")
+                col_m1.metric("累计消耗", f"{m_df['Cumulative_Tokens'].iloc[-1]:.4f} Billion")
+                col_m2.metric("近 7 天消耗", f"{recent_7d:.4f} Billion")
                     
                 chart_cum = alt.Chart(m_df).mark_area(
                     opacity=0.6, 
@@ -1431,26 +1442,24 @@ elif page == NAV_SINGLE_MODEL:
                 ).properties(height=350)
                 st.altair_chart(chart_cum, use_container_width=True)
             else:
-                st.info("此模型暂未在当前工作流中积累实际 API Token 消耗记录。")
+                st.info("该模型暂无 Token 消耗记录。")
         else:
             st.info("未连接到 Token 数据源。")
 
         st.markdown("---")
         
-        # 2. 性能指标排位 (包含双形态支持)
-        st.markdown(f"### 🏆 {selected_model_norm} 的基准性能排位与形态全息解剖")
-        st.caption("注：OpenRouter的同一个底层模型可能在测试集分化为 'Reasoning深度推理' 与 'Non-Reasoning常规直出' 多种跑分变体。")
+        # 2. 基准测试跑分
+        st.markdown(f"### {selected_model_norm} 基准测试跑分")
+        st.caption("同一模型可能有 Reasoning / Non-Reasoning 等变体。")
         if df_bench is not None and not df_bench.empty:
             latest_bench_date = df_bench['Date'].max()
             df_latest_bench = df_bench[(df_bench['Date'] == latest_bench_date) & (df_bench['Metric'].notna())].copy()
             
-            # 用模糊匹配在 Benchmark 表的列名中对找该模型的各种命名变体
             bench_model_cols = [col for col in df_latest_bench.columns if col not in ['Date', 'Metric']]
             matched_b_cols = fuzzy_match_model(selected_model_norm, bench_model_cols, threshold=0.55)
             
             if matched_b_cols:
-                # 为该模型的不同形态变种分配独立标签页
-                tabs_b = st.tabs([f"🧬 形态体: {m_col}" for m_col in matched_b_cols])
+                tabs_b = st.tabs(matched_b_cols)
                 
                 for i, m_col in enumerate(matched_b_cols):
                     with tabs_b[i]:
@@ -1470,10 +1479,10 @@ elif page == NAV_SINGLE_MODEL:
                                     percentile = (total - rank) / total * 100
                                     
                                     rank_data.append({
-                                        '核心测试指标 (Metric)': metric,
-                                        '该模型得分 (Score)': f"{score:.3f}",
-                                        '全网综合排名 (Rank)': f"第 {int(rank)} 名 / 共 {total} 款跑分",
-                                        '性能分位数 (Percentile)': f"超越了 {percentile:.1f}% 的竞争对手"
+                                        '指标': metric,
+                                        '得分': f"{score:.3f}",
+                                        '排名': f"第 {int(rank)} / 共 {total}",
+                                        '分位数': f"超越 {percentile:.1f}%"
                                     })
                             
                             if rank_data:
@@ -1481,18 +1490,17 @@ elif page == NAV_SINGLE_MODEL:
                             else:
                                 st.info("暂无可用测试数据。")
                         else:
-                            st.info("此形态暂未出分。")
+                            st.info("暂无数据。")
             else:
-                st.info("该大模型并未被收录于 Benchmark 评测库或近期未参与 OpenRouter 官方发榜。")
+                st.info("该模型未被收录于 Benchmark 数据中。")
         else:
             st.info("未连接到跑分数据源。")
 
         st.markdown("---")
         
-        # 3. 价格计费状况
-        st.markdown("### 💰 Token 服务器调用实时计费分析")
+        # 3. 定价分析（双图：有效价格趋势 + 各供应商价格柱状图）
+        st.markdown("### 定价分析")
         if df_price is not None and not df_price.empty:
-            # 价格表中去找 real_names
             m_price_df = df_price[df_price['Model'].isin(real_names)].copy()
             if not m_price_df.empty:
                 latest_pricing_date = m_price_df['Date'].max()
@@ -1501,11 +1509,48 @@ elif page == NAV_SINGLE_MODEL:
                 wa_row = df_latest_prices[df_latest_prices['Provider'] == 'Weighted Average']
                 if not wa_row.empty:
                     wa = wa_row.iloc[0]
-                    st.success(f"**🏅 当前官方指导缓冲均价 (Effective Weighted Average):**  [ Input: **${wa['Input_Price_1M']:.4f}** / 1M ] & [ Output: **${wa['Output_Price_1M']:.4f}** / 1M ]")
+                    st.success(f"有效均价: Input **${wa['Input_Price_1M']:.4f}**/1M · Output **${wa['Output_Price_1M']:.4f}**/1M")
                 
+                # 图1: 有效价格趋势
+                st.markdown("#### 有效价格趋势")
+                wa_hist = m_price_df[m_price_df['Provider'] == 'Weighted Average'].copy()
+                if not wa_hist.empty:
+                    wa_hist['Date'] = pd.to_datetime(wa_hist['Date'])
+                    wa_long = wa_hist.melt(
+                        id_vars=['Date'],
+                        value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                        var_name='Type', value_name='Price'
+                    ).dropna(subset=['Price'])
+                    wa_long['Type'] = wa_long['Type'].map({'Input_Price_1M': 'Input', 'Output_Price_1M': 'Output'})
+                    
+                    chart_wa = alt.Chart(wa_long).mark_line(point=True).encode(
+                        x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
+                        y=alt.Y('Price:Q', title='价格 ($/1M Tokens)'),
+                        color=alt.Color('Type:N', title='类型'),
+                        tooltip=['Date:T', 'Type', alt.Tooltip('Price:Q', format='$.4f')]
+                    ).properties(height=250)
+                    st.altair_chart(chart_wa, use_container_width=True)
+                
+                # 图2: 各供应商价格柱状图
                 provider_prices = df_latest_prices[df_latest_prices['Provider'] != 'Weighted Average'].sort_values('Input_Price_1M')
                 if not provider_prices.empty:
-                    st.markdown("各大底层算力供应商（Provider）的实际渠道成本明细：")
+                    st.markdown("#### 各供应商价格对比")
+                    prov_long = provider_prices.melt(
+                        id_vars=['Provider'],
+                        value_vars=['Input_Price_1M', 'Output_Price_1M'],
+                        var_name='Type', value_name='Price'
+                    ).dropna(subset=['Price'])
+                    prov_long['Type'] = prov_long['Type'].map({'Input_Price_1M': 'Input', 'Output_Price_1M': 'Output'})
+                    
+                    chart_prov = alt.Chart(prov_long).mark_bar().encode(
+                        x=alt.X('Provider:N', title='供应商', axis=alt.Axis(labelAngle=-45)),
+                        y=alt.Y('Price:Q', title='价格 ($/1M Tokens)'),
+                        color=alt.Color('Type:N', title='类型'),
+                        xOffset='Type:N',
+                        tooltip=['Provider', 'Type', alt.Tooltip('Price:Q', format='$.4f')]
+                    ).properties(height=300)
+                    st.altair_chart(chart_prov, use_container_width=True)
+                    
                     st.dataframe(
                         provider_prices[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
                             'Input_Price_1M': '${:.4f}',
@@ -1515,78 +1560,41 @@ elif page == NAV_SINGLE_MODEL:
                         use_container_width=True,
                         hide_index=True
                     )
-                    
-                    st.markdown("### 📈 历史定价长期走势趋势")
-                    
-                    # 取非综合均值的全量历史数据
-                    history_df = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
-                    if not history_df.empty:
-                        history_df['Date'] = pd.to_datetime(history_df['Date']).dt.strftime('%Y-%m-%d')
-                        
-                        # 转换宽表为长表以供 Altair 进行双维度颜色和线型区分画图
-                        hist_long = history_df.melt(
-                            id_vars=['Date', 'Provider'],
-                            value_vars=['Input_Price_1M', 'Output_Price_1M'],
-                            var_name='Price_Type',
-                            value_name='Price'
-                        )
-                        
-                        # 把 Input 和 Output 映射为更直观的名称
-                        hist_long['Price_Type'] = hist_long['Price_Type'].map({
-                            'Input_Price_1M': 'Input Price',
-                            'Output_Price_1M': 'Output Price'
-                        })
-                        
-                        # 组合 Provider 和 Price_Type 作为分类
-                        hist_long['Legend'] = hist_long['Provider'] + " (" + hist_long['Price_Type'] + ")"
-                        
-                        chart_pricing_hist = alt.Chart(hist_long).mark_line(point=True).encode(
-                            x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m-%d', labelAngle=-45)),
-                            y=alt.Y('Price:Q', title='定价 ($/1M Token)'),
-                            color=alt.Color('Legend:N', title='供应商计费条目', scale=alt.Scale(scheme='category20')),
-                            strokeDash=alt.StrokeDash('Price_Type:N', title='计费类型'),
-                            tooltip=['Date', 'Provider', 'Price_Type', 'Price']
-                        ).properties(height=350)
-                        
-                        st.altair_chart(chart_pricing_hist, use_container_width=True)
-                        st.caption("实线通常代表 Input，虚线通常代表 Output；如果目前只有一个点是连不成折线的，请等待爬虫之后持续积累数据。")
-                else:
-                    st.info("暂未获取到底层供应商拆分列表。")
             else:
-                st.info("暂无该模型在 OpenRouter 联盟内的详细计费数据。")
+                st.info("暂无该模型的定价数据。")
         else:
-            st.info("未连接到计费数据源。")
+            st.info("未连接到定价数据源。")
 
         st.markdown("---")
 
-        # 4. LMARENA 竞技排名
-        st.markdown(f"### {selected_model_norm} 的 LMARENA 竞技排名")
+        # 4. LMARENA 排名
+        st.markdown(f"### {selected_model_norm} 的 LMARENA 排名")
         if df_lmarena is not None and not df_lmarena.empty:
             latest_lm_date = df_lmarena['Date'].max()
             df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date]
             
-            # 模糊匹配 LMARENA 中的模型名
             lm_all_models = df_latest_lm['Model'].unique().tolist()
             matched_lm = fuzzy_match_model(selected_model_norm, lm_all_models, threshold=0.5)
             
             if matched_lm:
                 lm_rows = df_latest_lm[df_latest_lm['Model'].isin(matched_lm)].copy()
                 
-                rank_cols = [c for c in lm_rows.columns if c.startswith('Rank_')]
-                MODALITY_LABELS = {
-                    'Rank_chat': 'Chat', 'Rank_webdev': 'WebDev',
-                    'Rank_image': 'Image', 'Rank_video': 'Video', 'Rank_search': 'Search'
+                score_cols = [c for c in lm_rows.columns if c.startswith('Score_')]
+                SCORE_LABELS = {
+                    'Score_text': '文本', 'Score_vision': '视觉', 'Score_webdev': '网页开发',
+                    'Score_image_gen': '文生图', 'Score_image_edit': '图像编辑', 'Score_search': '搜索',
+                    'Score_text_video': '文生视频', 'Score_img_video': '图生视频',
                 }
                 
                 rank_display = []
                 for _, row in lm_rows.iterrows():
-                    entry = {'模型': row['Model'], '厂商': row.get('Organization', '')}
+                    entry = {'模型': row['Model']}
                     if pd.notna(row.get('Overall_Rank')):
                         entry['综合排名'] = int(row['Overall_Rank'])
-                    for rc in rank_cols:
-                        label = MODALITY_LABELS.get(rc, rc)
-                        if pd.notna(row.get(rc)):
-                            entry[label] = int(row[rc])
+                    for sc in score_cols:
+                        label = SCORE_LABELS.get(sc, sc)
+                        if pd.notna(row.get(sc)):
+                            entry[f'{label} ELO'] = int(row[sc])
                     rank_display.append(entry)
                 
                 if rank_display:
