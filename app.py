@@ -44,7 +44,6 @@ AI_PROVIDERS = {
             "Gemini 2.5 Flash Lite":"gemini-2.5-flash-lite",
             "Gemini 2.5 Pro": "gemini-2.5-pro",
             "Gemini 3.0 flash preview": "gemini-3-flash-preview",
-            
         }
     },
     "魔塔社区 (ModelScope)": {
@@ -371,7 +370,8 @@ if page == NAV_AI_QUERY:
             return text_only, code_blocks[0] if code_blocks else None
         
         def safe_exec(code, ns):
-            for key in ['df', 'df_price', 'df_lmarena']:
+            # 将 df_bench 加入保护名单防止污染缓存
+            for key in ['df', 'df_price', 'df_bench', 'df_lmarena']:
                 frame = ns.get(key)
                 if frame is not None and 'Model' in frame.columns:
                     frame = frame.copy()
@@ -417,14 +417,14 @@ if page == NAV_AI_QUERY:
                     api_payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
                     # 使用纯本地免费方案给非 OpenRouter 模型添加联网能力
-                    # 提示词预处理：去除引号、多余空格，并只取前 60 个字符，防止搜索词过长导致 DDGS 返回空
                     clean_query = user_query.replace('"', '').replace("'", "").strip()[:60]
                     
                     with st.spinner(f"正在全网搜索线索: '{clean_query}'..."):
                         try:
+                            # 修复 DuckDuckGo 语法
                             from duckduckgo_search import DDGS
-                            with DDGS() as ddgs:
-                                search_results = list(ddgs.text(clean_query, max_results=5))
+                            ddgs = DDGS()
+                            search_results = list(ddgs.text(clean_query, max_results=5))
                             
                             if search_results:
                                 context_str = "【实时网络搜索参考资料】\n"
@@ -506,7 +506,8 @@ elif page == NAV_TN_DAILY:
         max_days_global = 0
 
         for name in selected_names:
-            m_df = df[df['Display_Name'] == name].sort_values('Date')
+            # 加上 .copy()
+            m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
             if m_df.empty: continue
             
             start_date = m_df.iloc[0]['Date']
@@ -535,7 +536,6 @@ elif page == NAV_TN_DAILY:
         if tn_data:
             df_tn = pd.DataFrame(tn_data)
             
-            # 【配色优化】使用 tableau10 高对比配色
             chart = alt.Chart(df_tn).mark_line(
                 point=alt.OverlayMarkDef(size=100, filled=True, color="white", strokeWidth=2)
             ).encode(
@@ -550,9 +550,8 @@ elif page == NAV_TN_DAILY:
                     title='Total Tokens (Billion)',
                     axis=alt.Axis(labelFontSize=20, titleFontSize=24)
                 ),
-                # 关键修改：scale=alt.Scale(scheme='tableau10')
                 color=alt.Color('Model', 
-                                scale=alt.Scale(scheme='tableau10'), 
+                                scale=alt.Scale(scheme='category20'), 
                                 legend=alt.Legend(title="模型名称", orient='bottom')),
                 tooltip=['Model', 'Label', 'Total_Tokens', 'Real_Date']
             ).properties(height=500)
@@ -591,7 +590,8 @@ elif page == NAV_CUMULATIVE_COMPARE:
                 cols[idx].caption(f"📅 **{name}**: {s_date}")
 
         for name in selected_names:
-            m_df = df[df['Display_Name'] == name].sort_values('Date')
+            # 加入 .copy() 防止 MutatedCacheError
+            m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
             m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
             if len(m_df) > 1: m_df = m_df.iloc[:-1]
             if m_df.empty: continue
@@ -612,17 +612,16 @@ elif page == NAV_CUMULATIVE_COMPARE:
         if plot_data:
             df_plot = pd.DataFrame(plot_data)
 
-            # 【配色优化】使用 tableau10 高对比配色
+            # 使用 category20 应对更多的模型对比
             base = alt.Chart(df_plot).encode(
                 x=alt.X('Day', title="上线天数 (Daily)", 
                         scale=alt.Scale(domain=[0, max_day_plot + 2], clamp=True),
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18, grid=True)),
                 y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)', 
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18)),
-                # 关键修改：scale=alt.Scale(scheme='tableau10')
                 color=alt.Color('Model', 
                                 title='模型名称', 
-                                scale=alt.Scale(scheme='tableau10'),
+                                scale=alt.Scale(scheme='category20'),
                                 legend=alt.Legend(orient='bottom')),
                 tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
             )
@@ -644,7 +643,7 @@ elif page == NAV_DETAIL_DAILY:
     st.subheader("单模型每日详情趋势")
     
     selected_name = st.selectbox("选择模型", all_model_names)
-    m_df_full = df[df['Display_Name'] == selected_name].sort_values('Date')
+    m_df_full = df[df['Display_Name'] == selected_name].sort_values('Date').copy()
     
     if not m_df_full.empty:
         min_date = m_df_full['Date'].min().date()
@@ -731,7 +730,8 @@ elif page == NAV_DAILY_BRIEF:
 
     metrics_list = []
     for name in all_model_names:
-        m_df = df[df['Display_Name'] == name].sort_values('Date')
+        # 加入 .copy() 防治缓存越界修改
+        m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
         if m_df.empty:
             continue
         # 去掉最后一天（当天未结算数据，和其他页面逻辑保持一致）
@@ -821,7 +821,7 @@ elif page == NAV_DAILY_BRIEF:
             })
         display_new = pd.DataFrame(enhanced_new_models)
 
-# ============================
+    # ============================
     # 模块 A (置顶): AI 智能简报分析
     # ============================
     st.markdown("---")
@@ -883,7 +883,6 @@ elif page == NAV_DAILY_BRIEF:
             try:
                 headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
                 
-                # 如果没有显式指定模型，则取该提供商配置的第一个模型
                 if not model_id:
                     if cfg.get("models"):
                         model_id = list(cfg["models"].values())[0]
@@ -896,15 +895,14 @@ elif page == NAV_DAILY_BRIEF:
                     "max_tokens": 2500,
                 }
                 
-                # 只有 OpenRouter 支持这里的 web 插件语法
                 if provider == "OpenRouter":
                     payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
-                    # 对于生简报的非 OpenRouter 模型，也执行一轮预搜索帮助它寻找最新的资讯
                     try:
+                        # 修复 DuckDuckGo 语法
                         from duckduckgo_search import DDGS
-                        with DDGS() as ddgs:
-                            news_res = list(ddgs.text("AI 大模型 近期动态", max_results=5, timelimit='w'))
+                        ddgs = DDGS()
+                        news_res = list(ddgs.text("AI 大模型 近期动态", max_results=5, timelimit='w'))
                         if news_res:
                             context_str = "\n\n【补充资料：近期大模型相关新闻】：\n"
                             for r in news_res:
@@ -985,7 +983,7 @@ elif page == NAV_DAILY_BRIEF:
         max_day_new = 0
 
         for name in new_model_names:
-            m_df = df[df['Display_Name'] == name].sort_values('Date')
+            m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
             m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
             if len(m_df) > 1:
                 m_df = m_df.iloc[:-1]
@@ -1008,12 +1006,11 @@ elif page == NAV_DAILY_BRIEF:
             base_new = alt.Chart(df_plot_new).encode(
                 x=alt.X('Day', title='上线天数',
                         scale=alt.Scale(domain=[0, max_day_new + 2], clamp=True),
-                        # 强制 tickMinStep=1 避免显示小数刻度
                         axis=alt.Axis(tickMinStep=1, format='d', labelFontSize=14, titleFontSize=16, grid=True)),
                 y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)',
                         axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
                 color=alt.Color('Model', title='模型',
-                                scale=alt.Scale(scheme='tableau10'),
+                                scale=alt.Scale(scheme='category20'),
                                 legend=alt.Legend(orient='bottom')),
                 tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
             )
@@ -1079,7 +1076,7 @@ elif page == NAV_DAILY_BRIEF:
         else:
             st.info("暂无明显增速放缓的模型。")
 
-    # 新模型速评（使用百分位排名五级制）
+    # 新模型速评
     if not new_models_df.empty:
         with st.expander("新模型初期表现评级", expanded=True):
             rating_data = []
@@ -1139,7 +1136,7 @@ elif page == NAV_DAILY_BRIEF:
                 axis=alt.Axis(labelAngle=-45, labelFontSize=11)),
         y=alt.Y(rank_col, title=rank_label,
                 axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
-        color=alt.Color('Model', legend=None, scale=alt.Scale(scheme='tableau10')),
+        color=alt.Color('Model', legend=None, scale=alt.Scale(scheme='category20')),
         tooltip=['Model', alt.Tooltip(rank_col, title=rank_label, format='.4f')]
     ).properties(height=400)
     st.altair_chart(chart_rank, use_container_width=True)
@@ -1162,10 +1159,6 @@ elif page == NAV_DAILY_BRIEF:
         use_container_width=True, hide_index=False
     )
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
-
-
-
-
 
     # ============================
     # 模块 E: 指标定义与公式说明
@@ -1267,7 +1260,7 @@ elif page == NAV_PRICING:
             chart_input = alt.Chart(provider_history).mark_line(point=True).encode(
                 x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                 y=alt.Y('Input_Price_1M:Q', title='Input 价格 ($/1M Tokens)'),
-                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
                 tooltip=['Date:T', 'Provider', alt.Tooltip('Input_Price_1M:Q', format='$.4f')]
             ).properties(height=350)
             st.altair_chart(chart_input, use_container_width=True)
@@ -1282,7 +1275,7 @@ elif page == NAV_PRICING:
             chart_output = alt.Chart(provider_history).mark_line(point=True).encode(
                 x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                 y=alt.Y('Output_Price_1M:Q', title='Output 价格 ($/1M Tokens)'),
-                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
                 tooltip=['Date:T', 'Provider', alt.Tooltip('Output_Price_1M:Q', format='$.4f')]
             ).properties(height=350)
             st.altair_chart(chart_output, use_container_width=True)
@@ -1362,7 +1355,7 @@ elif page == NAV_BENCHMARK:
                     ).encode(
                         x=alt.X('Model:N', sort='-y', title='模型名称', axis=alt.Axis(labelAngle=-45, labelOverlap=False)),
                         y=alt.Y(f'{primary_metric}:Q', title='得分数值'),
-                        color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
+                        color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='category20')),
                         tooltip=['Model', alt.Tooltip(f'{primary_metric}:Q', format='.3f')]
                     ).properties(height=500)
                     
@@ -1625,20 +1618,23 @@ elif page == NAV_SINGLE_MODEL:
                                 metric = row['Metric']
                                 score = row[m_col]
                                 
-                                all_scores_flat = df_latest_bench[df_latest_bench['Metric'] == metric].drop(columns=['Date', 'Metric']).iloc[0].dropna()
-                                all_scores_num = pd.to_numeric(all_scores_flat, errors='coerce').dropna()
-                                
-                                if score in all_scores_num.values:
-                                    rank = all_scores_num.rank(method='min', ascending=False)[m_col]
-                                    total = len(all_scores_num)
-                                    percentile = (total - rank) / total * 100
+                                # 增加 .empty 防护，防止触发 IndexError
+                                metric_rows = df_latest_bench[df_latest_bench['Metric'] == metric]
+                                if not metric_rows.empty:
+                                    all_scores_flat = metric_rows.drop(columns=['Date', 'Metric']).iloc[0].dropna()
+                                    all_scores_num = pd.to_numeric(all_scores_flat, errors='coerce').dropna()
                                     
-                                    rank_data.append({
-                                        '指标': metric,
-                                        '得分': f"{score:.3f}",
-                                        '排名': f"第 {int(rank)} / 共 {total}",
-                                        '分位数': f"超越 {percentile:.1f}%"
-                                    })
+                                    if score in all_scores_num.values:
+                                        rank = all_scores_num.rank(method='min', ascending=False)[m_col]
+                                        total = len(all_scores_num)
+                                        percentile = (total - rank) / total * 100
+                                        
+                                        rank_data.append({
+                                            '指标': metric,
+                                            '得分': f"{score:.3f}",
+                                            '排名': f"第 {int(rank)} / 共 {total}",
+                                            '分位数': f"超越 {percentile:.1f}%"
+                                        })
                             
                             if rank_data:
                                 st.dataframe(pd.DataFrame(rank_data), use_container_width=True, hide_index=True)
@@ -1695,7 +1691,7 @@ elif page == NAV_SINGLE_MODEL:
                     chart_input = alt.Chart(provider_history).mark_line(point=True).encode(
                         x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                         y=alt.Y('Input_Price_1M:Q', title='Input 价格 ($/1M Tokens)'),
-                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
                         tooltip=['Date:T', 'Provider', alt.Tooltip('Input_Price_1M:Q', format='$.4f')]
                     ).properties(height=250)
                     st.altair_chart(chart_input, use_container_width=True)
@@ -1708,7 +1704,7 @@ elif page == NAV_SINGLE_MODEL:
                     chart_output = alt.Chart(provider_history).mark_line(point=True).encode(
                         x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                         y=alt.Y('Output_Price_1M:Q', title='Output 价格 ($/1M Tokens)'),
-                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
                         tooltip=['Date:T', 'Provider', alt.Tooltip('Output_Price_1M:Q', format='$.4f')]
                     ).properties(height=250)
                     st.altair_chart(chart_output, use_container_width=True)
