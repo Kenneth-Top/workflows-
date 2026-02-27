@@ -212,10 +212,10 @@ if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
     MODEL_OPTIONS = {
-        "GPT-OSS (免费)": "openai/gpt-oss-120b:free",
+        "STEP-3.5-flash(免费)": "stepfun/step-3.5-flash:free",
         "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
         "Gemini 3 Flash": "google/gemini-3-flash-preview",
-        "Claude Haiku": "anthropic/claude-haiku-4.5",
+        "Claude Haiku 4.5": "anthropic/claude-haiku-4.5",
     }
     
     # 顶部控制区
@@ -286,7 +286,7 @@ if page == NAV_AI_QUERY:
 **严禁**用网络上的公开数据来修改、替代或伪造本地数据库（df, df_price等）中的数值。代码绘制的图表和输出的具体 Token 数据，必须 **100% 严格来源于本地数据库**！
 """
         
-        SYSTEM_PROMPT = f"""你是一位专业的 LLM 行业投研分析师，服务于机构投资者。你的核心任务是用**数据驱动的可视化图表**回答问题。
+        SYSTEM_PROMPT = f"""你是一位专业的 LLM 行业投研分析师，服务于机构投资者。你的核心任务是用**数据驱动的可视化图表**回答问题。绝对禁止在回复中输出任何 <tool_call>, <function> 等 XML 或内部工具调用标签。如果缺少信息，请直接回答“我不知道”或基于现有数据进行推测。
 
 ## 数据库
 {db_context}
