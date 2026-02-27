@@ -12,10 +12,18 @@ PRICING_FILE = "openrouter_pricing_provider_records.csv"
 BENCHMARK_FILE = "openrouter_benchmark_records.csv"
 LMARENA_FILE = "lmarena_leaderboard_records.csv"
 
-# AI 秘钥配置
-OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
-GOOGLE_KEY = os.environ.get("GOOGLE_API_KEY", "") or st.secrets.get("GOOGLE_API_KEY", "AIzaSyAwhHzdhn8dJKgBsppSlih3hhp8MmERv7M")
-MODELSCOPE_KEY = os.environ.get("MODELSCOPE_API_KEY", "") or st.secrets.get("MODELSCOPE_API_KEY", "ms-7ad8a999-5270-4222-9a6f-c91a4d694516")
+# AI 秘钥配置 (优先从 Streamlit Secrets 安全读取，无配置文件则退回环境变量)
+def get_api_key(key_name):
+    try:
+        if key_name in st.secrets:
+            return st.secrets[key_name]
+    except Exception:
+        pass
+    return os.environ.get(key_name, "")
+
+OPENROUTER_KEY = get_api_key("OPENROUTER_API_KEY")
+GOOGLE_KEY = get_api_key("GOOGLE_API_KEY")
+MODELSCOPE_KEY = get_api_key("MODELSCOPE_API_KEY")
 
 # 定义 AI 提供商配置
 AI_PROVIDERS = {
@@ -404,7 +412,25 @@ if page == NAV_AI_QUERY:
                 if provider_name == "OpenRouter":
                     api_payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
-                    st.warning(f"⚠️ {provider_name} 不支持自带的 web 联网插件，将回退到普通对话模式。")
+                    # 使用纯本地免费方案给非 OpenRouter 模型添加联网能力
+                    with st.spinner(f"正在使用 DuckDuckGo 搜集 {provider_name} 需要的实时数据..."):
+                        try:
+                            from duckduckgo_search import DDGS
+                            with DDGS() as ddgs:
+                                search_results = list(ddgs.text(user_query, max_results=4))
+                            
+                            if search_results:
+                                context_str = "【实时网络搜索参考资料】\n"
+                                for r in search_results:
+                                    context_str += f"- 标题: {r.get('title', '')}\n  摘要: {r.get('body', '')}\n"
+                                
+                                # 注入上下文
+                                api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题：\n{context_str}"
+                                st.toast("✅ 成功抓取最新网络数据附加到 Prompt！")
+                            else:
+                                st.toast("⚠️ 未找到相关搜索结果，将使用纯大模型知识库回复。")
+                        except Exception as e:
+                            st.toast(f"⚠️ 本地联网搜索受阻: {e}，将正常发送文本。")
             
             with st.chat_message("assistant"):
                 with st.spinner(f"AI ({provider_name}) 正在分析数据..." + (" (正在全网搜索线索 🌐)" if enable_web_search else "")):
@@ -865,6 +891,19 @@ elif page == NAV_DAILY_BRIEF:
                 # 只有 OpenRouter 支持这里的 web 插件语法
                 if provider == "OpenRouter":
                     payload["plugins"] = [{"id": "web", "max_results": 4}]
+                else:
+                    # 对于生简报的非 OpenRouter 模型，也执行一轮预搜索帮助它寻找最新的资讯
+                    try:
+                        from duckduckgo_search import DDGS
+                        with DDGS() as ddgs:
+                            news_res = list(ddgs.text("AI 大模型 近期动态", max_results=5, timelimit='w'))
+                        if news_res:
+                            context_str = "\n\n【补充资料：近期大模型相关新闻】：\n"
+                            for r in news_res:
+                                context_str += f"- {r.get('title', '')}: {r.get('body', '')}\n"
+                            payload["messages"][0]["content"] += context_str
+                    except Exception as e:
+                        pass
                 
                 resp = _req.post(
                     f"{cfg['base_url']}/chat/completions",
