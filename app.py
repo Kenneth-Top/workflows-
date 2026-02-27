@@ -401,7 +401,10 @@ if page == NAV_AI_QUERY:
                 "temperature": 0.3
             }
             if enable_web_search:
-                api_payload["plugins"] = [{"id": "web", "max_results": 4}]
+                if provider_name == "OpenRouter":
+                    api_payload["plugins"] = [{"id": "web", "max_results": 4}]
+                else:
+                    st.warning(f"⚠️ {provider_name} 不支持自带的 web 联网插件，将回退到普通对话模式。")
             
             with st.chat_message("assistant"):
                 with st.spinner(f"AI ({provider_name}) 正在分析数据..." + (" (正在全网搜索线索 🌐)" if enable_web_search else "")):
