@@ -262,16 +262,20 @@ if page == NAV_AI_QUERY:
 
             if _df_lmarena is not None and not _df_lmarena.empty:
                 score_cols = [c for c in _df_lmarena.columns if c.startswith('Score_')]
-                context_parts.append(f"""### LMARENA 竞技排行 (变量名: df_lmarena)
-- 列: Date, Model, Overall_Rank, {', '.join(score_cols)}
-- 维度含 ELO 分数: {', '.join(c.replace('Score_','') for c in score_cols)}
-- 模型数: {_df_lmarena['Model'].nunique()}""")
+                rank_cols = [c for c in _df_lmarena.columns if c.startswith('Rank_')]
+                context_parts.append(f"""### Arena 竞技排行 (变量名: df_lmarena)
+- 数据源: arena.ai (原 LMARENA)
+- 8 个 ELO 排行榜: {', '.join(c.replace('Score_','') for c in score_cols)}
+- Arena Overview 排名维度: {', '.join(c.replace('Rank_','') for c in rank_cols)}
+- 每个 Score 列对应 Votes 列 (如 Score_text → Votes_text)
+- 模型数: {_df_lmarena['Model'].nunique()}
+- 模型示例: {', '.join(_df_lmarena['Model'].unique().tolist()[:15])}""")
             
             return '\n\n'.join(context_parts)
         
         db_context = build_db_context(df, df_price, df_bench, df_lmarena)
         
-        SYSTEM_PROMPT = f"""你是 OpenRouter 数据分析师。用户用自然语言提问，你基于数据库回答。
+        SYSTEM_PROMPT = f"""你是 LLM 数据分析师。用户用自然语言提问，你基于数据库回答。
 
 ## 数据库
 
@@ -280,15 +284,21 @@ if page == NAV_AI_QUERY:
 ## 重要规则
 
 1. 用中文回答，结论要有数据支撑
-2. 用户提到的模型名可能不精确（如 "deepseek" 可能指 "deepseek/deepseek-chat"），你需要自动模糊匹配。匹配策略：用 str.contains() 做子串匹配，不要要求精确相等
-3. 如果需要可视化，生成一个 Python 代码块(```python```)，代码规则:
+2. **模糊匹配（最关键）**: 用户提到的模型名往往不完整。你必须用 str.contains() 做**宽泛子串匹配**。
+   - 例: "deepseek" → 匹配所有含 'deepseek' 的模型: deepseek/deepseek-chat, deepseek/deepseek-r1, deepseek/deepseek-v3 ...
+   - 例: "claude" → 匹配所有含 'claude' 的模型
+   - 不同数据源中同一模型的命名可能不同（如 Token 数据用 'deepseek/deepseek-r1'，Arena 用 'deepseek-r1'），要分别匹配
+3. **定价信息**: 如果用户问定价，注意 Input_Price_1M 和 Output_Price_1M 的单位是 $/1M Tokens。有效总价 = Input + Output。
+4. 如果需要可视化，生成一个 Python 代码块(```python```)，代码规则:
    - 变量已预加载: df, df_price, df_bench, df_lmarena, st, alt, pd
    - 用 st.altair_chart(chart, use_container_width=True) 展示图表
    - 用 st.dataframe() 展示表格
    - 日期列已是 datetime 类型
    - 模型名匹配用: df[df['Model'].str.contains('关键词', case=False, na=False)]
-4. 代码块只写一个，包含完整可执行代码
-5. 先给出文字分析结论，再给代码块"""
+   - 多数据源交叉查询时，分别在每个 DataFrame 中做 str.contains() 匹配
+5. 代码块只写一个，包含完整可执行代码
+6. 先给出文字分析结论，再给代码块
+7. 尽量涵盖用户提到的模型的**所有可用数据维度**（用量、定价、基准测试、Arena 排名），让分析尽可能全面"""
 
         # 初始化聊天历史
         if "ai_messages" not in st.session_state:
@@ -1284,98 +1294,142 @@ elif page == NAV_BENCHMARK:
                 
             st.dataframe(display_df.style.format("{:.3f}", na_rep='-'), use_container_width=True)
     
-    # --- Tab 3: LMARENA 竞技排名 ---
+    # --- Tab 3: Arena 竞技排名 ---
     with tab3:
-        st.markdown("### LMARENA 排行榜")
-        st.caption("数据源: lmarena-ai.com · 由真人盲测对战的 ELO 分数")
+        st.markdown("### Arena 排行榜")
+        st.caption("数据源: arena.ai · 由真人盲测对战的 ELO 分数")
         
         if df_lmarena is None or df_lmarena.empty:
-            st.warning("暂未发现 LMARENA 排行榜数据。")
+            st.warning("暂未发现 Arena 排行榜数据。")
         else:
             latest_lm_date = df_lmarena['Date'].max()
             st.info(f"数据更新于: **{latest_lm_date.strftime('%Y-%m-%d')}**")
             
             df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date].copy()
             
-            # 9 个维度的列名 → 中文标签映射
-            SCORE_LABELS = {
-                'Score_text': '文本',
-                'Score_vision': '视觉',
-                'Score_webdev': '网页开发',
-                'Score_image_gen': '文生图',
-                'Score_image_edit': '图像编辑',
-                'Score_search': '搜索',
-                'Score_text_video': '文生视频',
-                'Score_img_video': '图生视频',
-                'Overall_Rank': '综合排名',
-            }
+            # 两大类数据：ELO 排行榜 + Arena Overview
+            arena_sub1, arena_sub2 = st.tabs(["🏆 ELO 排行榜", "📊 Arena Overview"])
             
-            # 构建维度选择（只显示有数据的）
-            col_options = {}
-            for col_key, label in SCORE_LABELS.items():
-                if col_key in df_latest_lm.columns and df_latest_lm[col_key].notna().sum() > 0:
-                    col_options[label] = col_key
-            
-            if not col_options:
-                st.info("暂无排行数据。")
-            else:
-                selected_label = st.selectbox("选择排行维度:", list(col_options.keys()), index=0, key="lmarena_category")
-                selected_col = col_options[selected_label]
+            # ---- ELO 排行榜子标签 ----
+            with arena_sub1:
+                ELO_LABELS = {
+                    'Score_text': '文本 (Text)',
+                    'Score_code': '代码 (Code)',
+                    'Score_vision': '视觉 (Vision)',
+                    'Score_text_to_image': '文生图 (Text-to-Image)',
+                    'Score_image_edit': '图像编辑 (Image Edit)',
+                    'Score_search': '搜索 (Search)',
+                    'Score_text_to_video': '文生视频 (Text-to-Video)',
+                    'Score_image_to_video': '图生视频 (Image-to-Video)',
+                }
                 
-                # 筛选有分数的模型
-                ranked_df = df_latest_lm.dropna(subset=[selected_col]).copy()
+                elo_options = {}
+                for col_key, label in ELO_LABELS.items():
+                    if col_key in df_latest_lm.columns and df_latest_lm[col_key].notna().sum() > 0:
+                        elo_options[label] = col_key
                 
-                is_score = selected_col.startswith('Score_')  # Score 列用分数（越高越好），Overall_Rank 用排名
-                
-                if is_score:
-                    ranked_df = ranked_df.sort_values(selected_col, ascending=False).reset_index(drop=True)
+                if not elo_options:
+                    st.info("暂无 ELO 排行数据。")
                 else:
-                    ranked_df = ranked_df.sort_values(selected_col, ascending=True).reset_index(drop=True)
-                
-                if ranked_df.empty:
-                    st.info("该维度暂无数据。")
-                else:
-                    top_n = min(25, len(ranked_df))
-                    top_df = ranked_df.head(top_n).copy()
-                    top_df['Display_Value'] = top_df[selected_col].astype(int)
+                    selected_elo_label = st.selectbox("选择排行榜:", list(elo_options.keys()), index=0, key="arena_elo_cat")
+                    selected_elo_col = elo_options[selected_elo_label]
                     
-                    if is_score:
-                        # ELO 分数：水平柱状图，分数从大到小（Y 轴排序），X 轴在底部
-                        chart_rank = alt.Chart(top_df).mark_bar(
+                    ranked_df = df_latest_lm.dropna(subset=[selected_elo_col]).copy()
+                    ranked_df = ranked_df.sort_values(selected_elo_col, ascending=False).reset_index(drop=True)
+                    
+                    # Votes 列
+                    votes_col = selected_elo_col.replace('Score_', 'Votes_')
+                    
+                    if not ranked_df.empty:
+                        top_n = min(25, len(ranked_df))
+                        top_df = ranked_df.head(top_n).copy()
+                        top_df['ELO'] = top_df[selected_elo_col].astype(int)
+                        
+                        tooltip_fields = ['Model', alt.Tooltip('ELO:Q', title='ELO 分数')]
+                        if votes_col in top_df.columns:
+                            top_df['Votes'] = top_df[votes_col].fillna(0).astype(int)
+                            tooltip_fields.append(alt.Tooltip('Votes:Q', title='投票数', format=','))
+                        
+                        chart_elo = alt.Chart(top_df).mark_bar(
                             cornerRadiusTopRight=3, cornerRadiusBottomRight=3
                         ).encode(
                             y=alt.Y('Model:N', 
-                                    sort=alt.EncodingSortField(field=selected_col, order='descending'),
+                                    sort=alt.EncodingSortField(field='ELO', order='descending'),
                                     title=None, 
                                     axis=alt.Axis(labelOverlap=False)),
-                            x=alt.X('Display_Value:Q', title='ELO 分数',
-                                    scale=alt.Scale(zero=False)),
+                            x=alt.X('ELO:Q', title='ELO 分数', scale=alt.Scale(zero=False)),
                             color=alt.value('#4C78A8'),
-                            tooltip=['Model', alt.Tooltip('Display_Value:Q', title='ELO 分数')]
-                        ).properties(height=max(300, top_n * 25))
+                            tooltip=tooltip_fields
+                        ).properties(height=max(300, top_n * 28))
+                        st.altair_chart(chart_elo, use_container_width=True)
+                        
+                        # 表格
+                        disp_cols = ['Model', selected_elo_col]
+                        disp_names = {'Model': '模型', selected_elo_col: 'ELO 分数'}
+                        if votes_col in ranked_df.columns:
+                            disp_cols.append(votes_col)
+                            disp_names[votes_col] = '投票数'
+                        display_lm = ranked_df[disp_cols].copy()
+                        display_lm.rename(columns=disp_names, inplace=True)
+                        st.dataframe(display_lm, use_container_width=True, hide_index=True, height=400)
                     else:
-                        # 综合排名：水平柱状图，排名从小到大
-                        chart_rank = alt.Chart(top_df).mark_bar(
+                        st.info("该排行榜暂无数据。")
+            
+            # ---- Arena Overview 子标签 ----
+            with arena_sub2:
+                RANK_LABELS = {
+                    'Rank_Overall': '综合 (Overall)',
+                    'Rank_Expert': '专家 (Expert)',
+                    'Rank_Hard_Prompts': '困难提示词',
+                    'Rank_Coding': '代码',
+                    'Rank_Math': '数学',
+                    'Rank_Creative_Writing': '创意写作',
+                    'Rank_Instruction_Following': '指令遵循',
+                    'Rank_Longer_Query': '长查询',
+                }
+                
+                rank_options = {}
+                for col_key, label in RANK_LABELS.items():
+                    if col_key in df_latest_lm.columns and df_latest_lm[col_key].notna().sum() > 0:
+                        rank_options[label] = col_key
+                
+                if not rank_options:
+                    st.info("暂无 Arena Overview 数据。")
+                else:
+                    selected_rank_label = st.selectbox("排序维度:", list(rank_options.keys()), index=0, key="arena_ov_cat")
+                    selected_rank_col = rank_options[selected_rank_label]
+                    
+                    ov_df = df_latest_lm.dropna(subset=[selected_rank_col]).copy()
+                    ov_df = ov_df.sort_values(selected_rank_col, ascending=True).reset_index(drop=True)
+                    
+                    if not ov_df.empty:
+                        top_n = min(30, len(ov_df))
+                        top_df = ov_df.head(top_n).copy()
+                        top_df['排名'] = top_df[selected_rank_col].astype(int)
+                        
+                        chart_ov = alt.Chart(top_df).mark_bar(
                             cornerRadiusTopRight=3, cornerRadiusBottomRight=3
                         ).encode(
                             y=alt.Y('Model:N',
-                                    sort=alt.EncodingSortField(field=selected_col, order='ascending'),
+                                    sort=alt.EncodingSortField(field='排名', order='ascending'),
                                     title=None,
                                     axis=alt.Axis(labelOverlap=False)),
-                            x=alt.X('Display_Value:Q', title='排名'),
-                            color=alt.value('#4C78A8'),
-                            tooltip=['Model', alt.Tooltip('Display_Value:Q', title='排名')]
+                            x=alt.X('排名:Q', title='排名 (越小越好)', scale=alt.Scale(reverse=True)),
+                            color=alt.value('#E45756'),
+                            tooltip=['Model', alt.Tooltip('排名:Q', title='排名')]
                         ).properties(height=max(300, top_n * 25))
-                    
-                    st.altair_chart(chart_rank, use_container_width=True)
-                    
-                    # 完整排名表格
-                    value_label = 'ELO 分数' if is_score else '排名'
-                    st.markdown(f"#### {selected_label} 完整数据 (共 {len(ranked_df)} 个模型)")
-                    display_lm = ranked_df[['Model', selected_col]].copy()
-                    display_lm[selected_col] = display_lm[selected_col].astype(int)
-                    display_lm.columns = ['模型', value_label]
-                    st.dataframe(display_lm, use_container_width=True, hide_index=True, height=400)
+                        st.altair_chart(chart_ov, use_container_width=True)
+                        
+                        # 多维度排名表
+                        st.markdown(f"#### Arena Overview 完整排名 (共 {len(ov_df)} 个模型)")
+                        rank_cols_available = [c for c in RANK_LABELS.keys() if c in ov_df.columns]
+                        display_ov = ov_df[['Model'] + rank_cols_available].copy()
+                        rename_map = {'Model': '模型'}
+                        rename_map.update({k: RANK_LABELS[k] for k in rank_cols_available})
+                        display_ov.rename(columns=rename_map, inplace=True)
+                        st.dataframe(display_ov, use_container_width=True, hide_index=True, height=500)
+                    else:
+                        st.info("该维度暂无数据。")
     
     st.markdown("---")
     col_dl1, col_dl2 = st.columns(2)
@@ -1567,8 +1621,8 @@ elif page == NAV_SINGLE_MODEL:
 
         st.markdown("---")
 
-        # 4. LMARENA 排名
-        st.markdown(f"### {selected_model_norm} 的 LMARENA 排名")
+        # 4. Arena (LMARENA) 排名
+        st.markdown(f"### {selected_model_norm} 的 Arena 排名")
         if df_lmarena is not None and not df_lmarena.empty:
             latest_lm_date = df_lmarena['Date'].max()
             df_latest_lm = df_lmarena[df_lmarena['Date'] == latest_lm_date]
@@ -1580,17 +1634,26 @@ elif page == NAV_SINGLE_MODEL:
                 lm_rows = df_latest_lm[df_latest_lm['Model'].isin(matched_lm)].copy()
                 
                 score_cols = [c for c in lm_rows.columns if c.startswith('Score_')]
+                rank_cols = [c for c in lm_rows.columns if c.startswith('Rank_')]
                 SCORE_LABELS = {
-                    'Score_text': '文本', 'Score_vision': '视觉', 'Score_webdev': '网页开发',
-                    'Score_image_gen': '文生图', 'Score_image_edit': '图像编辑', 'Score_search': '搜索',
-                    'Score_text_video': '文生视频', 'Score_img_video': '图生视频',
+                    'Score_text': '文本', 'Score_code': '代码', 'Score_vision': '视觉',
+                    'Score_text_to_image': '文生图', 'Score_image_edit': '图像编辑', 
+                    'Score_search': '搜索', 'Score_text_to_video': '文生视频', 
+                    'Score_image_to_video': '图生视频',
+                }
+                RANK_LABELS = {
+                    'Rank_Overall': '综合', 'Rank_Expert': '专家', 'Rank_Hard_Prompts': '困难提示词',
+                    'Rank_Coding': '代码', 'Rank_Math': '数学', 'Rank_Creative_Writing': '创意写作',
+                    'Rank_Instruction_Following': '指令遵循', 'Rank_Longer_Query': '长查询',
                 }
                 
                 rank_display = []
                 for _, row in lm_rows.iterrows():
                     entry = {'模型': row['Model']}
-                    if pd.notna(row.get('Overall_Rank')):
-                        entry['综合排名'] = int(row['Overall_Rank'])
+                    for rc in rank_cols:
+                        label = RANK_LABELS.get(rc, rc)
+                        if pd.notna(row.get(rc)):
+                            entry[f'{label}排名'] = int(row[rc])
                     for sc in score_cols:
                         label = SCORE_LABELS.get(sc, sc)
                         if pd.notna(row.get(sc)):
@@ -1602,6 +1665,6 @@ elif page == NAV_SINGLE_MODEL:
                 else:
                     st.info("未找到该模型的排名数据。")
             else:
-                st.info("该模型暂未被 LMARENA 收录。")
+                st.info("该模型暂未被 Arena 收录。")
         else:
-            st.info("未连接到 LMARENA 数据源。")
+            st.info("未连接到 Arena 数据源。")

@@ -1,183 +1,166 @@
 """
-LMARENA 排行榜数据爬虫 (9 个排行榜 + ELO 分数)
-数据源: https://lmarena-ai.com/ (包含完整 ELO 分数的聚合页面)
-输出: lmarena_leaderboard_records.csv
-
-HTML 结构:
-  <div class="leaderboard-card">
-    <div class="card-header"><h3>LMArena文本排行榜</h3></div>
-    <ol>
-      <li><span class="rank">1</span><span class="model-name">Gemini-3-Pro</span><span class="model-score">1491</span></li>
-      ...
-    </ol>
-  </div>
+LMARENA (Arena) 排行榜数据爬虫
+数据源: https://arena.ai/leaderboard (Overview 页面)
+包含：8 个 ELO 排行榜 + Arena Overview (综合排名表)
 """
 import requests
-import pandas as pd
-from datetime import datetime
 from bs4 import BeautifulSoup
+import pandas as pd
 import os
 import re
+from datetime import datetime
 
 OUTPUT_FILE = "lmarena_leaderboard_records.csv"
 
-# H3 索引 (1-9) 对应的 CSV 列名（索引 0 是"评测原理"不是排行榜）
-H3_INDEX_TO_COL = {
-    1: 'Score_text',       # 文本排行榜
-    2: 'Score_vision',     # 视觉排行榜
-    3: 'Score_webdev',     # 网页开发排行榜
-    4: 'Score_image_gen',  # 文生图排行榜
-    5: 'Score_image_edit', # 图像编辑排行榜
-    6: 'Score_search',     # 搜索排行榜
-    7: 'Score_text_video', # 文生视频排行榜
-    8: 'Score_img_video',  # 图生视频排行榜
-    9: 'Overall_Rank',     # 综合排行榜（排名，非分数）
+# 8 个排行榜的表格索引 → 列名映射
+LEADERBOARD_MAP = {
+    0: 'Score_text',
+    1: 'Score_code',
+    2: 'Score_vision',
+    3: 'Score_text_to_image',
+    4: 'Score_image_edit',
+    5: 'Score_search',
+    6: 'Score_text_to_video',
+    7: 'Score_image_to_video',
 }
 
-SCORE_COLS = [
-    'Score_text', 'Score_vision', 'Score_webdev',
-    'Score_image_gen', 'Score_image_edit', 'Score_search',
-    'Score_text_video', 'Score_img_video', 'Overall_Rank',
-]
+# Arena Overview 表的维度列名
+OVERVIEW_COLS = ['Overall', 'Expert', 'Hard_Prompts', 'Coding', 
+                 'Math', 'Creative_Writing', 'Instruction_Following', 'Longer_Query']
 
+def clean_model_name(raw_name):
+    """清理模型名称 — 去除厂商前缀粘连 (如 'Anthropicclaude-opus-4-6' -> 'claude-opus-4-6')"""
+    # arena.ai 的 HTML 中厂商 icon 的文本会粘连在模型名前面
+    prefixes = ['Anthropic', 'Google', 'OpenAI', 'xAI', 'Meta', 'Mistral', 
+                'Alibaba', 'DeepSeek', 'Zhipu', 'Baidu', 'ByteDance', 'Cohere',
+                'Reka', 'AI21', 'Together', 'Nvidia', 'Amazon', 'Apple', 'Microsoft',
+                'Tencent', 'Stability', 'Ideogram', 'Midjourney', 'Black Forest Labs',
+                'Luma', 'Runway', 'Perplexity', 'You.com', 'Kling', 'Minimax',
+                'Step', 'Moonshot', '01.AI', 'InternLM', 'Yi', 'Nous']
+    name = raw_name.strip()
+    for prefix in prefixes:
+        if name.startswith(prefix) and len(name) > len(prefix):
+            rest = name[len(prefix):]
+            # 确保去掉前缀后的第一个字符是小写或特殊字符（说明是粘连的）
+            if rest[0].islower() or rest[0] in '-_./0123456789':
+                name = rest
+                break
+    return name
 
-def fetch_lmarena_data():
-    """从 lmarena-ai.com 解析 9 个排行榜数据"""
-    print("正在从 lmarena-ai.com 获取最新排行榜...")
-
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    })
-
-    try:
-        resp = session.get("https://lmarena-ai.com/", timeout=30)
-        resp.raise_for_status()
-        html = resp.text
-        print(f"  页面大小: {len(html)} bytes")
-    except Exception as e:
-        print(f"获取页面失败: {e}")
-        return None
-
+def fetch_arena_leaderboard():
+    """从 arena.ai 获取排行榜数据"""
+    url = 'https://arena.ai/leaderboard'
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+    }
+    
+    print("正在从 arena.ai 获取最新排行榜...")
+    resp = requests.get(url, headers=headers, timeout=30)
+    resp.raise_for_status()
+    html = resp.text
+    print(f"  页面大小: {len(html)} bytes")
+    
     soup = BeautifulSoup(html, 'html.parser')
-    h3_tags = soup.find_all('h3')
-    print(f"  找到 {len(h3_tags)} 个 h3 标签")
-
-    all_models = {}  # model_name -> {col: value, ...}
-
-    for h3_idx, col_name in H3_INDEX_TO_COL.items():
-        if h3_idx >= len(h3_tags):
-            print(f"  [跳过] h3 索引 {h3_idx} 超出范围")
-            continue
-
-        h3 = h3_tags[h3_idx]
-
-        # 找到包含该 h3 的 leaderboard-card div
-        card = h3.find_parent('div', class_='leaderboard-card')
-        if not card:
-            # 备用：向上找任何包含 li 的父 div
-            card = h3.find_parent('div', class_=True)
-            while card:
-                if len(card.find_all('li')) > 3:
-                    break
-                card = card.find_parent('div', class_=True)
-
-        if not card:
-            print(f"  [警告] 未找到 {col_name} 的数据容器")
-            continue
-
-        lis = card.find_all('li')
+    tables = soup.find_all('table')
+    print(f"  找到 {len(tables)} 个表格")
+    
+    if len(tables) < 9:
+        print(f"  [警告] 预期 9 个表格,实际 {len(tables)} 个!")
+        return None
+    
+    today = datetime.now().strftime('%Y-%m-%d')
+    all_data = {}  # model_name -> row dict
+    
+    # --- 解析 8 个 ELO 排行榜 (表格 0-7) ---
+    for table_idx, col_name in LEADERBOARD_MAP.items():
+        table = tables[table_idx]
+        rows = table.find_all('tr')[1:]  # 跳过表头
         count = 0
-
-        for li in lis:
-            name_span = li.find('span', class_='model-name')
-            score_span = li.find('span', class_='model-score')
-            rank_span = li.find('span', class_=re.compile(r'^rank'))
-
-            if not name_span:
-                continue
-
-            model_name = name_span.text.strip()
-            if not model_name:
-                continue
-
-            if model_name not in all_models:
-                all_models[model_name] = {}
-
-            if col_name == 'Overall_Rank' and rank_span:
-                # 综合排行榜用排名
+        for row in rows:
+            cells = row.find_all(['td', 'th'])
+            if len(cells) >= 4:
+                model = clean_model_name(cells[1].get_text(strip=True))
                 try:
-                    all_models[model_name][col_name] = int(rank_span.text.strip())
+                    score = int(cells[2].get_text(strip=True).replace(',', ''))
                 except ValueError:
-                    pass
-            elif score_span:
-                # 其他排行榜用 ELO 分数
+                    continue
                 try:
-                    all_models[model_name][col_name] = int(score_span.text.strip())
+                    votes = int(cells[3].get_text(strip=True).replace(',', ''))
                 except ValueError:
-                    pass
-
-            count += 1
-
+                    votes = 0
+                
+                if model not in all_data:
+                    all_data[model] = {'Date': today, 'Model': model}
+                all_data[model][col_name] = score
+                all_data[model][f'Votes_{col_name.replace("Score_", "")}'] = votes
+                count += 1
         print(f"  {col_name}: {count} 个模型")
-
-    print(f"  总计: {len(all_models)} 个唯一模型")
-    return all_models
-
-
-def build_dataframe(all_models):
-    """从解析结果构建 DataFrame"""
-    if not all_models:
-        return pd.DataFrame()
-
-    today = datetime.now().strftime("%Y-%m-%d")
-    rows = []
-
-    for model_name, scores in all_models.items():
-        row = {'Date': today, 'Model': model_name}
-        for col in SCORE_COLS:
-            row[col] = scores.get(col)
-        rows.append(row)
-
-    df = pd.DataFrame(rows)
-
-    # 按文本 ELO 分数降序排序
-    if 'Score_text' in df.columns:
-        df = df.sort_values('Score_text', ascending=False, na_position='last')
-
-    return df
-
-
-def update_database(new_df, file_name=OUTPUT_FILE):
-    """增量更新 CSV"""
-    if new_df.empty:
-        print("无数据可更新。")
-        return
-
-    if os.path.exists(file_name):
-        existing_df = pd.read_csv(file_name)
-        current_date = new_df['Date'].iloc[0]
-        existing_df = existing_df[existing_df['Date'] != current_date]
-        final_df = pd.concat([existing_df, new_df], ignore_index=True)
-    else:
-        final_df = new_df
-
-    final_df.to_csv(file_name, index=False)
-    print(f"LMARENA 数据更新完成: {file_name} ({len(final_df)} 条记录)")
-
+    
+    # --- 解析 Arena Overview 表 (表格 8) ---
+    overview_table = tables[8]
+    overview_rows = overview_table.find_all('tr')[1:]  # 跳过表头
+    overview_count = 0
+    for row in overview_rows:
+        cells = row.find_all(['td', 'th'])
+        if len(cells) >= 2:
+            model = clean_model_name(cells[0].get_text(strip=True))
+            # 去掉 "610/610" 等后缀
+            model = re.sub(r'\d+/\d+$', '', model).strip()
+            
+            if model not in all_data:
+                all_data[model] = {'Date': today, 'Model': model}
+            
+            # Overall 到 Longer_Query 的排名
+            for i, col in enumerate(OVERVIEW_COLS):
+                col_idx = i + 1  # 第 0 列是模型名
+                if col_idx < len(cells):
+                    try:
+                        rank_val = int(cells[col_idx].get_text(strip=True))
+                        all_data[model][f'Rank_{col}'] = rank_val
+                    except ValueError:
+                        pass
+            overview_count += 1
+    print(f"  Arena Overview: {overview_count} 个模型")
+    
+    # 构建 DataFrame
+    df_new = pd.DataFrame(list(all_data.values()))
+    print(f"  总计: {len(df_new)} 个唯一模型")
+    
+    return df_new
 
 def main():
-    all_models = fetch_lmarena_data()
-    if not all_models:
+    df_new = fetch_arena_leaderboard()
+    if df_new is None or df_new.empty:
+        print("未获取到数据。")
         return
-    df = build_dataframe(all_models)
-    if not df.empty:
-        print(f"\n数据预览 (前5行):")
-        print(df.head().to_string())
-        print(f"\n各列非空计数:")
-        print(df.notna().sum())
-    update_database(df)
-
+    
+    # 合并历史数据
+    if os.path.exists(OUTPUT_FILE):
+        df_old = pd.read_csv(OUTPUT_FILE)
+        # 只保留今天之前的数据
+        today = datetime.now().strftime('%Y-%m-%d')
+        df_old = df_old[df_old['Date'] != today]
+        df = pd.concat([df_old, df_new], ignore_index=True)
+    else:
+        df = df_new
+    
+    df.to_csv(OUTPUT_FILE, index=False, encoding='utf-8-sig')
+    
+    # 数据预览
+    print(f"\n数据预览 (前5行):")
+    print(df_new.head().to_string())
+    
+    # ELO 分数列统计
+    score_cols = [c for c in df_new.columns if c.startswith('Score_')]
+    rank_cols = [c for c in df_new.columns if c.startswith('Rank_')]
+    print(f"\nELO 分数列: {score_cols}")
+    print(f"排名列: {rank_cols}")
+    for c in score_cols + rank_cols:
+        print(f"  {c}: {df_new[c].notna().sum()} 非空")
+    
+    print(f"\nLMARENA 数据更新完成: {OUTPUT_FILE} ({len(df)} 条记录)")
 
 if __name__ == "__main__":
     main()
