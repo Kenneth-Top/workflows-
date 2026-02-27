@@ -413,11 +413,14 @@ if page == NAV_AI_QUERY:
                     api_payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
                     # 使用纯本地免费方案给非 OpenRouter 模型添加联网能力
-                    with st.spinner(f"正在使用 DuckDuckGo 搜集 {provider_name} 需要的实时数据..."):
+                    # 提示词预处理：去除引号、多余空格，并只取前 60 个字符，防止搜索词过长导致 DDGS 返回空
+                    clean_query = user_query.replace('"', '').replace("'", "").strip()[:60]
+                    
+                    with st.spinner(f"正在全网搜索线索: '{clean_query}'..."):
                         try:
                             from duckduckgo_search import DDGS
                             with DDGS() as ddgs:
-                                search_results = list(ddgs.text(user_query, max_results=4))
+                                search_results = list(ddgs.text(clean_query, max_results=5))
                             
                             if search_results:
                                 context_str = "【实时网络搜索参考资料】\n"
@@ -426,9 +429,9 @@ if page == NAV_AI_QUERY:
                                 
                                 # 注入上下文和强制输出格式要求
                                 api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题：\n{context_str}\n\n【最高优先级指令】：无论你参考了什么外部资料，你的主要任务仍然是执行数据分析。如果你需要生成图表，请务必返回完全独立、无依赖报错的 Python st/alt 渲染代码，并使用 ```python ... ``` 包裹代码块！"
-                                st.toast("✅ 成功抓取最新网络数据附加到 Prompt！")
+                                st.toast(f"✅ 已抓取与 '{clean_query}' 相关的实时数据！")
                             else:
-                                st.toast("⚠️ 未找到相关搜索结果，将使用纯大模型知识库回复。")
+                                st.toast(f"⚠️ 搜索 '{clean_query}' 未发现直接结果，将凭模型知识库回答。")
                         except Exception as e:
                             st.toast(f"⚠️ 本地联网搜索受阻: {e}，将正常发送文本。")
             
@@ -917,11 +920,15 @@ elif page == NAV_DAILY_BRIEF:
             except Exception as e:
                 raise Exception(f"简报生成失败: {str(e)}")
                 
-        # 允许切换简报提供商
+        # 允许切换简报提供商并展示当前具体模型
         st.sidebar.divider()
-        brief_provider = st.sidebar.selectbox("简报生成商:", list(AI_PROVIDERS.keys()), index=2, help="默认使用魔塔社区 (DeepSeek R1)")
+        brief_provider = st.sidebar.selectbox("简报生成商:", list(AI_PROVIDERS.keys()), index=1, help="默认使用 Google (Gemini 2.5 Flash)")
+        
+        # 实时显示该商调用的具体模型（取配置中第一个）
+        current_brief_model = list(AI_PROVIDERS[brief_provider]["models"].values())[0] if AI_PROVIDERS[brief_provider].get("models") else "Unknown"
+        st.sidebar.caption(f"当前简报通道模型：`{current_brief_model}`")
 
-        with st.spinner(f"🤖 正在调用 {brief_provider} 生成当日简报..."):
+        with st.spinner(f"🤖 正在调用 {brief_provider} ({current_brief_model}) 生成当日简报..."):
             try:
                 brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider)
                 st.markdown(brief_report)
