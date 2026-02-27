@@ -94,8 +94,8 @@ def _tokenize_model_name(name: str) -> set:
         n = n.split('/')[-1]
     # 去掉括号内修饰词，如 (Reasoning), (Oct '24), (Non-reasoning)
     n = _re_global.sub(r'\s*\(.*?\)', '', n)
-    # 按 空格、横线、下划线 分割
-    tokens = set(_re_global.split(r'[\s\-_]+', n.strip()))
+    # 按 空格、横线、下划线、点号 分割
+    tokens = set(_re_global.split(r'[\s\-_.]+', n.strip()))
     tokens.discard('')
     return tokens
 
@@ -127,7 +127,8 @@ def normalize_model_name(name: str) -> str:
             
     # 去除多余括号如 (Reasoning) 等干扰词，保留核心 slug
     n = _re_global.sub(r'\s*\(.*?\)', '', n).strip()
-    n = n.replace(' ', '-')
+    # 统一点号与空格为横线，确保版本号对齐（如 4.6 -> 4-6）
+    n = n.replace(' ', '-').replace('.', '-')
     return n
 
 def fuzzy_match_model(target_norm: str, candidate_names: list, threshold: float = 0.55) -> list:
@@ -454,7 +455,7 @@ if page == NAV_AI_QUERY:
                             "temperature": 0.1 
                         }
                         try:
-                            kw_resp = _req.post(f"{provider_cfg['base_url']}/chat/completions", headers=headers, json=kw_payload, timeout=60)
+                            kw_resp = _req.post(f"{provider_cfg['base_url']}/chat/completions", headers=headers, json=kw_payload, timeout=90)
                             kw_resp.raise_for_status()
                             raw_kw = kw_resp.json()['choices'][0]['message']['content']
                             import re as _re
@@ -499,7 +500,7 @@ if page == NAV_AI_QUERY:
                             f"{provider_cfg['base_url']}/chat/completions",
                             headers=headers,
                             json=api_payload,
-                            timeout=200 # 【修复 BUG】增加超时时间，等待深度思考模型
+                            timeout=300 
                         )
                         if resp.status_code != 200:
                             raise Exception(f"API Error {resp.status_code}: {resp.text}")
@@ -948,13 +949,13 @@ elif page == NAV_DAILY_BRIEF:
                     f"{cfg['base_url']}/chat/completions",
                     headers=headers,
                     json=payload,
-                    timeout=200 # 【修复 BUG】增加超时时间
+                    timeout=300 
                 )
                 resp.raise_for_status()
                 result = resp.json()
                 raw_reply = result['choices'][0]['message']['content']
                 
-                # 【修复 BUG】只在输出层面对乱码进行强力过滤
+                
                 clean_reply = _re.sub(r'<think>.*?</think>', '', raw_reply, flags=_re.DOTALL)
                 clean_reply = _re.sub(r'</?[a-zA-Z0-9_:-]*tool_call[^>]*>', '', clean_reply)
                 clean_reply = _re.sub(r'</?invoke[^>]*>', '', clean_reply)
