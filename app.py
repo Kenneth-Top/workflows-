@@ -909,7 +909,7 @@ elif page == NAV_DAILY_BRIEF:
                     f"{cfg['base_url']}/chat/completions",
                     headers=headers,
                     json=payload,
-                    timeout=120
+                    timeout=300
                 )
                 resp.raise_for_status()
                 result = resp.json()
