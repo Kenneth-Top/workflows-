@@ -212,10 +212,10 @@ if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
     MODEL_OPTIONS = {
-        "DeepSeek V3 (高性价比)": "deepseek/deepseek-chat",
-        "Claude Sonnet 4 (强推理)": "anthropic/claude-sonnet-4",
-        "GPT-4.1 (均衡)": "openai/gpt-4.1",
-        "Gemini 2.5 Flash (快速)": "google/gemini-2.5-flash-preview",
+        "Gemini 3.1 Flash": "google/gemini-3-flash-preview",
+        "Claude Haiku": "anthropic/claude-haiku-4.5",
+        "GPT-OSS (免费)": "openai/gpt-oss-120b:free",
+        "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
     }
     selected_model_label = st.selectbox("选择 AI 模型:", list(MODEL_OPTIONS.keys()), index=0)
     AI_MODEL = MODEL_OPTIONS[selected_model_label]
