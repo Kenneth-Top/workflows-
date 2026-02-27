@@ -287,12 +287,14 @@ if page == NAV_AI_QUERY:
             context_parts = []
             
             if _df is not None and not _df.empty:
-                display_names = sorted(_df['Display_Name'].dropna().unique().tolist())
+                # 仅展示用量最高的前 50 个模型，避免上下文爆炸
+                top_models = _df.groupby('Display_Name')['Total_Tokens'].sum().nlargest(50).index.tolist()
+                display_names = sorted(top_models)
                 context_parts.append(f"""### Token 消耗数据 (变量名: df)
 - 列: Date, Model, Prompt, Completion, Reasoning, Total_Tokens, Display_Name
 - 记录数: {len(_df)}, 日期范围: {_df['Date'].min().strftime('%Y-%m-%d')} ~ {_df['Date'].max().strftime('%Y-%m-%d')}
 - Token 单位: Billion (10亿)
-- **全部可用模型列表 (Display_Name列)**: {', '.join(display_names)}""")
+- **Top 50 常用模型列表**: {', '.join(display_names)} (如果你需要的模型不在列表中，可以直接尝试匹配其 Display_Name)""")
 
             if _df_price is not None and not _df_price.empty:
                 price_models = sorted(_df_price['Model'].dropna().unique().tolist())
@@ -304,15 +306,14 @@ if page == NAV_AI_QUERY:
             if _df_bench is not None and not _df_bench.empty:
                 context_parts.append(f"""### Benchmark 跑分 (变量名: df_bench)
 - 结构: 宽表，每行是一个 Metric，每列是一个模型名
-- Metric: {', '.join(_df_bench['Metric'].unique()[:8])}
-- 模型数: {len([c for c in _df_bench.columns if c not in ['Date','Metric']])}""")
+- Metric: {', '.join(_df_bench['Metric'].unique()[:8])}""")
 
             if _df_lmarena is not None and not _df_lmarena.empty:
                 score_cols = [c for c in _df_lmarena.columns if c.startswith('Score_')]
                 context_parts.append(f"""### Arena 竞技排行 (变量名: df_lmarena)
 - 数据源: arena.ai (原 LMARENA)
 - 8 个 ELO 排行榜: {', '.join(c.replace('Score_','') for c in score_cols)}
-- 模型示例: {', '.join(_df_lmarena['Model'].unique().tolist()[:30])}""")
+- 模型示例 (前20): {', '.join(_df_lmarena['Model'].dropna().unique().tolist()[:20])}""")
             
             return '\n\n'.join(context_parts)
         
@@ -327,33 +328,38 @@ if page == NAV_AI_QUERY:
 **严禁**用网络上的公开数据来修改、替代或伪造本地数据库（df, df_price等）中的数值。代码绘制的图表和输出的具体 Token 数据，必须 **100% 严格来源于本地数据库**！
 """
         
-        # 【核心强化】专业 TMT 投资分析与可视化指令 (极致增强版)
-        SYSTEM_PROMPT = f"""你是一位专注于 TMT（科技、媒体与通信）赛道的顶尖专业投资分析师和数据可视化专家。你的使命是：**严格基于提供的本地数据库**，用专业的数据图表和财务指标分析来解答用户疑问。
+        # 【极致强化】专业 TMT 投资分析与可视化指令
+        SYSTEM_PROMPT = f"""你是负责数据可视化的 TMT 投资分析师。你的所有回答必须严格基于提供的本地变量。
 
-## 🛠️ 环境预警 (必读)
-1. **数据已在内存中**：变量 `df`, `df_price`, `df_bench`, `df_lmarena` 已经完全加载，你**严禁**使用 `pd.read_csv()` 或 `open()` 重新加载数据！直接操作这些变量即可。
-2. **禁止函数调用格式**：绝对禁止输出 `<parameter>`, `[tool_call]`, `<invoke>` 等任何 XML 或 JSON 格式的工具调用标签。
-3. **输出纯代码块**：所有 Python 代码必须包裹在标准的 ```python ``` 块中。
+### [ALERT] 绝对禁令（违者报错）
+1. **禁止重新加载数据**：`df`, `df_price`, `df_bench`, `df_lmarena` 已经在内存中。**严禁**写任何 `pd.read_csv` 或 `open` 代码！
+2. **禁止任何 XML 标签**：严禁输出 `<parameter>`, `<tool_call>`, `[tool_call]`, `<invoke>` 等标签。
+3. **禁止解释代码**：不要在回复中用文字解释 Python 代码是如何写的，直接输出结论和代码块。
 
-## 📊 数据库 (可用变量)
+### [#] 数据库上下文
 {db_context}
 
 {web_search_rules}
 
-## 🚀 核心绘图准则 (最高指令)
-1. **强制绘图与制表**：你的回复中**必须**包含至少一个 ```python ``` 代码块。
-2. **可视化库**：优先使用 `st.line_chart`, `st.bar_chart` 或 `plotly.express` (已作为 `px` 注入)。
-3. **数据预处理**：绘图前务必检查并转换数据类型：`df['Date'] = pd.to_datetime(...)`。不要使用 `print()`，直接用 `st.write()` 或 `st.dataframe()` 输出结果。
+### [#] 绘图与分析规范
+1. **强制可视化**：你的回复**必须**包含至少一个 ```python ``` 块。
+2. **绘图工具**：优先使用 `st.line_chart(df_subset)`, `st.bar_chart(df_subset)` 或 `px` (Plotly Express)。
+3. **数据预处理**：在对 `df` 操作前，务必先执行 `df['Date'] = pd.to_datetime(df['Date'])`。
+4. **输出格式**：
+   - 第一部分：专业投资洞察（2-3 句话）。
+   - 第二部分：```python ``` 绘图代码块。
+   - 第三部分：趋势原因归因（若有联网资料）。
 
-## 🎯 场景化分析框架（可以动态调整）
-- **场景 A (系列横评)**：对比不同模型的性能/价格比等。
-- **场景 B (单模型深挖)**：分析量价趋势与 Arena 排名等。
-- **场景 C (异动分析)**：结合联网搜索解释数据波动的商业逻辑。
-
-## 📦 输出模版 (严格遵循)
-- **第一部分 (投资分析洞察)**：用专业投资者视角给出核心结论。
-- **第二部分 (执行代码)**：包裹在 ```python ``` 块中的纯代码。
-- **第三部分 (归因解释)**：结合网络资料（若有）解释深层原因。
+### 绘图模版（必须包含日期处理）
+```python
+# 示例：分析 M2.5 趋势
+target_model = 'minimax-m2.5'
+df['Date'] = pd.to_datetime(df['Date'])
+plot_df = df[df['Display_Name'] == target_model].sort_values('Date')
+st.markdown(f"### {{target_model}} 用量走势")
+st.line_chart(plot_df.set_index('Date')['Total_Tokens'])
+st.dataframe(plot_df.tail(5))
+```
 """
 
         # 初始化聊天历史
@@ -372,37 +378,44 @@ if page == NAV_AI_QUERY:
             "st": st, "alt": alt, "pd": pd, "np": np, "os": os, "px": px,
         }
         
-        # 强化版的正则提取逻辑 (修改点 4 - 极致增强版)
+        # 极致增强版正则提取逻辑 (逻辑切换：先提取代码，避免被 XML 清洗误杀)
         def split_reply(reply):
             import re as _re
-            # 1. 彻底剔除思考过程和所有 XML 类干扰标签
-            reply = _re.sub(r'<think>.*?(</think>|$)', '', reply, flags=_re.DOTALL | _re.IGNORECASE)
-            reply = _re.sub(r'</?[a-zA-Z0-9_:-]*parameter[^>]*>', '', reply) # 特别拦截 <parameter>
-            reply = _re.sub(r'</?[a-zA-Z0-9_:-]*tool_call[^>]*>', '', reply)
-            reply = _re.sub(r'</?invoke[^>]*>', '', reply)
-            reply = _re.sub(r'</?function[^>]*>', '', reply)
             
-            # 2. 增强型代码提取正则
-            # 匹配 ```python ... ``` 或 ```py ... ```，允许前后的空格，不强制要求紧跟换行
-            blocks = _re.findall(r'```(?:python|py|Python)?\s*(.*?)\s*```', reply, _re.DOTALL)
+            # 1. 首先尝试提取所有代码块 (这是最宝贵的，必须先保护)
+            # 支持 ```python, ```py, ```Python, ``` (没有语言标识), 以及不规范的空格
+            blocks = _re.findall(r'```(?:python|py|Python)?\s*(.*?)\s*```', reply, _re.DOTALL | _re.IGNORECASE)
             combined_code = "\n".join(blocks).strip() if blocks else None
             
-            # 3. 提取纯文字部分
-            text_only = _re.sub(r'```(?:python|py|Python)?\s*.*?\s*```', '', reply, flags=_re.DOTALL).strip()
-            # 再次清理可能残留的 XML
+            # 2. 清洗回复文本（在此阶段可以清理 XML/Thinking）
+            # 剔除代码块占位
+            text_only = _re.sub(r'```(?:python|py|Python)?\s*.*?\s*```', '', reply, flags=_re.DOTALL | _re.IGNORECASE).strip()
+            # 彻底剔除思考过程 (支持未严格闭合的情况)
+            text_only = _re.sub(r'<think>.*?(</think>|$)', '', text_only, flags=_re.DOTALL | _re.IGNORECASE)
+            # 贪婪匹配剔除所有形如 <tag>...</tag> 或 [tool_call] 的干扰
+            text_only = _re.sub(r'<(?:parameter|tool_call|invoke|function|arg|name|call)[^>]*>.*?</(?:parameter|tool_call|invoke|function|arg|name|call)>', '', text_only, flags=_re.DOTALL)
+            text_only = _re.sub(r'</?(?:parameter|tool_call|invoke|function|arg|name|call)[^>]*>', '', text_only) 
+            text_only = _re.sub(r'\[tool_call\].*?$', '', text_only, flags=_re.MULTILINE) 
+            # 深度二次清理：剔除任何残留的尖括号内容
             text_only = _re.sub(r'<[^>]+>', '', text_only).strip()
             
             return text_only, combined_code
         
         def safe_exec(code, ns):
-            # 包含 df_bench 保护
+            # 预处理数据类型
             for key in ['df', 'df_price', 'df_bench', 'df_lmarena']:
                 frame = ns.get(key)
-                if frame is not None and 'Model' in frame.columns:
-                    frame = frame.copy()
-                    frame['Model'] = frame['Model'].astype(str)
-                    ns[key] = frame
-            exec(code, ns)
+                if frame is not None and isinstance(frame, pd.DataFrame):
+                    ns[key] = frame.copy()
+            
+            try:
+                exec(code, ns)
+            except Exception as e:
+                st.error(f"代码执行失败: {str(e)}")
+                with st.expander("查看错误详情"):
+                    st.code(code)
+                    import traceback
+                    st.text(traceback.format_exc())
         
         # 显示历史对话
         for msg in st.session_state.ai_messages:
