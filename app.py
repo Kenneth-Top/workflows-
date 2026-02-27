@@ -12,6 +12,43 @@ PRICING_FILE = "openrouter_pricing_provider_records.csv"
 BENCHMARK_FILE = "openrouter_benchmark_records.csv"
 LMARENA_FILE = "lmarena_leaderboard_records.csv"
 
+# AI 秘钥配置
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
+GOOGLE_KEY = os.environ.get("GOOGLE_API_KEY", "") or st.secrets.get("GOOGLE_API_KEY", "AIzaSyAwhHzdhn8dJKgBsppSlih3hhp8MmERv7M")
+MODELSCOPE_KEY = os.environ.get("MODELSCOPE_API_KEY", "") or st.secrets.get("MODELSCOPE_API_KEY", "ms-7ad8a999-5270-4222-9a6f-c91a4d694516")
+
+# 定义 AI 提供商配置
+AI_PROVIDERS = {
+    "OpenRouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "key": OPENROUTER_KEY,
+        "models": {
+            "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
+            "Gemini 3 Flash (OpenRouter版)": "google/gemini-3-flash-preview",
+            "Claude Haiku 4.5": "anthropic/claude-haiku-4.5",
+        }
+    },
+    "Google AI Studio": {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "key": GOOGLE_KEY,
+        "models": {
+            "Gemini 2.0 Flash": "gemini-2.0-flash",
+            "Gemini 2.0 Flash Lite": "gemini-2.0-flash-lite",
+            "Gemini 1.5 Pro": "gemini-1.5-pro",
+        }
+    },
+    "魔塔社区 (ModelScope)": {
+        "base_url": "https://api-inference.modelscope.cn/v1",
+        "key": MODELSCOPE_KEY,
+        "models": {
+            "DeepSeek R1": "deepseek-ai/DeepSeek-R1",
+            "DeepSeek V3": "deepseek-ai/DeepSeek-V3",
+            "Qwen 2.5 72B Instruct": "Qwen/Qwen2.5-72B-Instruct",
+            "Qwen Max": "Qwen/Qwen-Max",
+        }
+    }
+}
+
 # 页面标题
 st.title("LLM 数据看板")
 
@@ -87,13 +124,16 @@ def normalize_model_name(name: str) -> str:
 def fuzzy_match_model(target_norm: str, candidate_names: list, threshold: float = 0.55) -> list:
     """在候选模型名列表中，用 Token 化 Jaccard 匹配找出与 target_norm 相似的名字"""
     target_tokens = _tokenize_model_name(target_norm)
-    matched = []
+    matched_with_scores = []
     for cand in candidate_names:
         cand_tokens = _tokenize_model_name(cand)
         sim = _jaccard_similarity(target_tokens, cand_tokens)
         if sim >= threshold:
-            matched.append(cand)
-    return matched
+            matched_with_scores.append((cand, sim))
+    
+    # 按得分从高到低排序，确保 matched[0] 是最像的
+    matched_with_scores.sort(key=lambda x: x[1], reverse=True)
+    return [m[0] for m in matched_with_scores]
 
 @st.cache_data(ttl=600)
 def load_data():
@@ -211,34 +251,22 @@ if df_lmarena is not None:
 if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
-    MODEL_OPTIONS = {
-        ## "STEP-3.5-flash(免费)": "stepfun/step-3.5-flash:free",
-        "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
-        "Gemini 3 Flash": "google/gemini-3-flash-preview",
-        "Claude Haiku 4.5": "anthropic/claude-haiku-4.5",
-    }
-    
-    # 顶部控制区
-    col_ai1, col_ai2 = st.columns([2, 1])
-    with col_ai1:
-        selected_model_label = st.selectbox("选择 AI 模型:", list(MODEL_OPTIONS.keys()), index=0)
-        AI_MODEL = MODEL_OPTIONS[selected_model_label]
-    with col_ai2:
-        st.write("") # 占位向下对齐
+    # 顶部控制区：提供商与模型选择
+    col_p1, col_p2, col_p3 = st.columns([1, 1, 1])
+    with col_p1:
+        provider_name = st.selectbox("选择 AI 服务商:", list(AI_PROVIDERS.keys()), index=2) # 默认选 魔塔社区
+        provider_cfg = AI_PROVIDERS[provider_name]
+    with col_p2:
+        selected_model_label = st.selectbox("选择模型:", list(provider_cfg["models"].keys()), index=0)
+        AI_MODEL = provider_cfg["models"][selected_model_label]
+    with col_p3:
+        st.write("") # 占位
         st.write("")
-        # 弹性联网开关
-        enable_web_search = st.toggle("🌐 启用联网搜索 (分析数据异动原因)", value=False)
-        
-    st.caption(f"当前模型: `{AI_MODEL}` | 联网状态: {'🟢 开启' if enable_web_search else '🔴 关闭'}")
-    
-    # API Key 配置
-    api_key = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
+        enable_web_search = st.toggle("🌐 启用联网搜索 (分析趋势)", value=False)
+
+    api_key = provider_cfg["key"]
     if not api_key:
-        api_key = st.text_input("请输入 OpenRouter API Key:", type="password", 
-                                help="在 https://openrouter.ai/keys 获取。也可通过 Streamlit Secrets 或环境变量配置。")
-    
-    if not api_key:
-        st.warning("请先配置 OpenRouter API Key。")
+        api_key = st.text_input(f"请输入 {provider_name} API Key:", type="password")
     else:
         # 构建数据库上下文摘要
         @st.cache_data(ttl=600)
@@ -374,17 +402,21 @@ if page == NAV_AI_QUERY:
                 api_payload["plugins"] = [{"id": "web", "max_results": 4}]
             
             with st.chat_message("assistant"):
-                with st.spinner("AI 正在分析数据..." + (" (正在全网搜索线索 🌐)" if enable_web_search else "")):
+                with st.spinner(f"AI ({provider_name}) 正在分析数据..." + (" (正在全网搜索线索 🌐)" if enable_web_search else "")):
                     try:
                         import requests as _req
+                        headers = {
+                            "Authorization": f"Bearer {api_key}",
+                            "Content-Type": "application/json"
+                        }
+                        if provider_name == "OpenRouter":
+                            headers.update({"HTTP-Referer": "http://localhost", "X-Title": "LLM-Dashboard"})
+                        
                         resp = _req.post(
-                            "https://openrouter.ai/api/v1/chat/completions",
-                            headers={
-                                "Authorization": f"Bearer {api_key}",
-                                "Content-Type": "application/json"
-                            },
+                            f"{provider_cfg['base_url']}/chat/completions",
+                            headers=headers,
                             json=api_payload,
-                            timeout=75 # 联网搜索可能比较慢，适当增加一点 timeout
+                            timeout=75
                         )
                         resp.raise_for_status()
                         result = resp.json()
@@ -722,7 +754,7 @@ elif page == NAV_DAILY_BRIEF:
                                       (df_price['Provider'] == 'Weighted Average')]
                 
                 # 精确匹配（防止部分名称被误杀）
-                matched_price_model = fuzzy_match_model(norm_name, price_rows['Model'].unique().tolist(), threshold=0.6)
+                matched_price_model = fuzzy_match_model(norm_name, price_rows['Model'].unique().tolist(), threshold=0.55)
                 if matched_price_model:
                     match_row = price_rows[price_rows['Model'] == matched_price_model[0]].iloc[0]
                     input_price = match_row.get('Input_Price_1M')
@@ -802,53 +834,58 @@ elif page == NAV_DAILY_BRIEF:
 3. 事实为准：必须使用准确的上方数据，并在陈述原因时必须通过网络搜索出确切的政策或版本事件（如某大厂在几号宣布了什么API免费计划，或者发布新版本）。坚决拒绝“引爆全球调用”等假大空的抒情主观词汇。
         """
 
-        @st.cache_data(ttl=86400, show_spinner=False) # 缓存 24 小时，外部控制 spinner
-        def fetch_daily_ai_brief(prompt, api_key_val):
+        @st.cache_data(ttl=86400, show_spinner=False)
+        def fetch_daily_ai_brief(prompt, provider="Google AI Studio"):
             import requests as _req
+            cfg = AI_PROVIDERS.get(provider, AI_PROVIDERS["Google AI Studio"])
+            key = cfg["key"]
+            if not key: raise Exception(f"缺失 {provider} API Key")
+            
             try:
+                headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
+                
+                if provider == "Google AI Studio":
+                    model = "gemini-2.0-flash"
+                elif provider == "魔塔社区 (ModelScope)":
+                    model = "deepseek-ai/DeepSeek-R1" # 默认高推理质量
+                else:
+                    model = "z-ai/glm-4.5-air:free"
+                
+                payload = {
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": 2500,
+                }
+                
+                # 只有 OpenRouter 支持这里的 web 插件语法
+                if provider == "OpenRouter":
+                    payload["plugins"] = [{"id": "web", "max_results": 4}]
+                
                 resp = _req.post(
-                    "https://openrouter.ai/api/v1/chat/completions",
-                    headers={
-                        "Authorization": f"Bearer {api_key_val}",
-                        "Content-Type": "application/json",
-                        "HTTP-Referer": "https://localhost", 
-                        "X-Title": "LLM-Dashboard",
-                    },
-                    json={
-                        "model": "z-ai/glm-4.5-air:free",
-                        "messages": [{"role": "user", "content": prompt}],
-                        "plugins": [{"id": "web", "max_results": 4}],
-                        "max_tokens": 2500,
-                        "provider": {
-                            "allow_fallbacks": False # 强制防扣费开关
-                        }
-                    },
+                    f"{cfg['base_url']}/chat/completions",
+                    headers=headers,
+                    json=payload,
                     timeout=120
                 )
                 resp.raise_for_status()
-                
                 result = resp.json()
-                if 'error' in result:
-                    raise Exception(result['error'].get('message', '未知 API 错误'))
-                    
                 return result['choices'][0]['message']['content']
             except Exception as e:
-                # 异常抛出，防止死缓存
-                raise Exception(f"请求失败: {str(e)}")
+                raise Exception(f"简报生成失败: {str(e)}")
                 
-        api_key_env = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
-        if not api_key_env:
-            st.warning("⚠️ 缺失 OpenRouter API Key，无法生成智能简报。请在侧边栏『AI 查询』页进行配置。")
-        else:
-            with st.spinner("🤖 正在为您初次生成/读取当日简报... (含全网深度搜索，可能需要 30~60 秒)"):
-                try:
-                    brief_report = fetch_daily_ai_brief(ai_brief_prompt, api_key_env)
-                    st.markdown(brief_report)
-                except Exception as call_err:
-                    st.error(f"🤖 分析报告生成失败。这通常是由于免费节点限流或网络超时引起。详细信息: {call_err}")
-                    if st.button("🔄 清除缓存并重试"):
-                        fetch_daily_ai_brief.clear()
-                        st.rerun()
+        # 允许切换简报提供商
+        st.sidebar.divider()
+        brief_provider = st.sidebar.selectbox("简报生成商:", list(AI_PROVIDERS.keys()), index=2, help="默认使用魔塔社区 (DeepSeek R1)")
+
+        with st.spinner(f"🤖 正在调用 {brief_provider} 生成当日简报..."):
+            try:
+                brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider)
+                st.markdown(brief_report)
+            except Exception as call_err:
+                st.error(f"🤖 分析报告生成失败: {call_err}")
+                if st.button("🔄 重试"):
+                    fetch_daily_ai_brief.clear()
+                    st.rerun()
     else:
         st.info("数据不足，无法生成总结报告。")
 
