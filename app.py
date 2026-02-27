@@ -275,39 +275,62 @@ if page == NAV_AI_QUERY:
         
         db_context = build_db_context(df, df_price, df_bench, df_lmarena)
         
-        SYSTEM_PROMPT = f"""你是 LLM 数据分析师。用户用自然语言提问，你基于数据库回答。
+        SYSTEM_PROMPT = f"""你是一位专业的 LLM 行业投研分析师，服务于机构投资者。你的核心任务是用**数据驱动的可视化图表**回答问题。
 
 ## 数据库
 
 {db_context}
 
-## 重要规则
+## 输出格式（严格遵守）
 
-1. 用中文回答，结论要有数据支撑
-2. **模糊匹配（最关键）**: 用户提到的模型名往往不完整。你必须用 str.contains() 做**宽泛子串匹配**。
-   - 例: "deepseek" → 匹配所有含 'deepseek' 的模型: deepseek/deepseek-chat, deepseek/deepseek-r1, deepseek/deepseek-v3 ...
-   - 例: "claude" → 匹配所有含 'claude' 的模型
-   - 不同数据源中同一模型的命名可能不同（如 Token 数据用 'deepseek/deepseek-r1'，Arena 用 'deepseek-r1'），要分别匹配
-3. **定价信息**: 如果用户问定价，注意 Input_Price_1M 和 Output_Price_1M 的单位是 $/1M Tokens。有效总价 = Input + Output。
-4. 如果需要可视化，生成一个 Python 代码块(```python```)，代码规则:
-   - 变量已预加载: df, df_price, df_bench, df_lmarena, st, alt, pd
-   - 用 st.altair_chart(chart, use_container_width=True) 展示图表
-   - 用 st.dataframe() 展示表格
-   - 日期列已是 datetime 类型
-   - 模型名匹配用: df[df['Model'].str.contains('关键词', case=False, na=False)]
-   - 多数据源交叉查询时，分别在每个 DataFrame 中做 str.contains() 匹配
-5. 代码块只写一个，包含完整可执行代码
-6. 先给出文字分析结论，再给代码块
-7. 尽量涵盖用户提到的模型的**所有可用数据维度**（用量、定价、基准测试、Arena 排名），让分析尽可能全面"""
+1. **文字部分**：用 3-5 句话给出核心结论，像投研报告摘要一样简洁。不要罗列原始数据，而是提炼洞察。
+2. **代码部分**：必须生成一个 ```python``` 代码块，包含**至少 1 个图表**。你的主要价值在于可视化，不是文字。
+
+## 可视化指南（投研风格）
+
+你生成的代码会被 exec() 直接执行，变量已预加载: `df, df_price, df_bench, df_lmarena, st, alt, pd`
+
+### 图表规范
+- 使用 `st.altair_chart(chart, use_container_width=True)` 展示 Altair 图表
+- 用 `st.dataframe()` 展示辅助数据表格（可选，放在图表之后）
+- 配色方案：使用 `alt.Scale(scheme='tableau20')` 或手动指定专业配色
+- 标题用中文，字号设为 16（`.properties(title=alt.Title('标题', fontSize=16))`）
+- 图表高度建议 350-450px
+
+### 典型图表类型
+- **用量趋势** → 折线图 (line chart)，X=日期, Y=Token量, Color=模型
+- **价格对比** → 分组柱状图，X=模型/供应商, Y=价格, Color=Input/Output
+- **Arena排名** → 水平柱状图，Y=模型, X=排名（升序，1=最好）
+- **多维雷达** → 如果需要对比多维度，用分组柱状图替代
+
+### 代码安全规则
+- **类型安全**：对所有列使用操作前**先确保类型正确**
+  - 数值列: `pd.to_numeric(col, errors='coerce')`
+  - 字符串操作前: `col = col.astype(str)`
+  - 日期列已是 datetime，无需转换
+- **模糊匹配**: 
+  - `df[df['Model'].astype(str).str.contains('关键词', case=False, na=False)]`
+  - 不同数据源命名不同（Token: 'deepseek/deepseek-r1'，Arena: 'deepseek-r1'），要**分别**在各 DataFrame 中匹配
+- **防空数据**: 匹配后先检查 `if len(matched) > 0:` 再绘图，否则 `st.info('该数据源中未找到匹配模型')`
+- **只写一个代码块**，包含所有图表和表格
+
+## 分析视角
+
+从投研角度分析，关注：
+- **市场格局**：模型间竞争态势、份额变化
+- **性价比**：性能/价格比，同档位模型对比
+- **趋势**：用量增长/下降趋势，价格变动方向
+- **定价**: Input_Price_1M 和 Output_Price_1M 单位为 $/1M Tokens"""
 
         # 初始化聊天历史
         if "ai_messages" not in st.session_state:
             st.session_state.ai_messages = []
         
         # 用于 exec 的命名空间
+        import numpy as np
         exec_namespace = {
             "df": df, "df_price": df_price, "df_bench": df_bench, "df_lmarena": df_lmarena,
-            "st": st, "alt": alt, "pd": pd, "os": os,
+            "st": st, "alt": alt, "pd": pd, "np": np, "os": os,
         }
         
         # 辅助函数：从 AI 回复中分离文字和代码
@@ -318,6 +341,17 @@ if page == NAV_AI_QUERY:
             text_only = _re.sub(r'```python\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
             return text_only, code_blocks[0] if code_blocks else None
         
+        def safe_exec(code, ns):
+            """安全执行代码，预处理常见类型问题"""
+            # 预处理: 确保所有 DataFrame 的 Model 列为 str 类型
+            for key in ['df', 'df_price', 'df_lmarena']:
+                frame = ns.get(key)
+                if frame is not None and 'Model' in frame.columns:
+                    frame = frame.copy()
+                    frame['Model'] = frame['Model'].astype(str)
+                    ns[key] = frame
+            exec(code, ns)
+        
         # 显示历史对话
         for msg in st.session_state.ai_messages:
             with st.chat_message(msg["role"]):
@@ -326,14 +360,14 @@ if page == NAV_AI_QUERY:
                     st.markdown(text_part)
                     if code:
                         try:
-                            exec(code, exec_namespace)
+                            safe_exec(code, exec_namespace)
                         except Exception:
                             pass
                 else:
                     st.markdown(msg["content"])
         
         # 用户输入
-        user_query = st.chat_input("输入你的问题，例如: 'deepseek 最近一周的用量趋势'")
+        user_query = st.chat_input("输入你的问题，例如: 'glm 本月的用量趋势和竞技场表现'")
         
         if user_query:
             st.session_state.ai_messages.append({"role": "user", "content": user_query})
@@ -376,11 +410,11 @@ if page == NAV_AI_QUERY:
                 
                 if chart_code:
                     try:
-                        exec(chart_code, exec_namespace)
+                        safe_exec(chart_code, exec_namespace)
                     except Exception as e:
-                        st.warning(f"可视化执行出错: {e}")
-                        with st.expander("查看生成的代码"):
-                            st.code(chart_code, language="python")
+                        st.warning(f"图表渲染出错，正在尝试修复...")
+                        with st.expander("查看错误详情", expanded=False):
+                            st.code(f"错误: {e}\n\n原始代码:\n{chart_code}", language="python")
                 
                 st.session_state.ai_messages.append({
                     "role": "assistant", 
