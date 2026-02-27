@@ -750,7 +750,7 @@ elif page == NAV_DAILY_BRIEF:
             })
         display_new = pd.DataFrame(enhanced_new_models)
 
-    # ============================
+# ============================
     # 模块 A (置顶): AI 智能简报分析
     # ============================
     st.markdown("---")
@@ -802,7 +802,7 @@ elif page == NAV_DAILY_BRIEF:
 3. 事实为准：必须使用准确的上方数据，并在陈述原因时必须通过网络搜索出确切的政策或版本事件（如某大厂在几号宣布了什么API免费计划，或者发布新版本）。坚决拒绝“引爆全球调用”等假大空的抒情主观词汇。
         """
 
-        @st.cache_data(ttl=86400) # 缓存 24 小时，每天只触发一次
+        @st.cache_data(ttl=86400, show_spinner=False) # 缓存 24 小时，外部控制 spinner
         def fetch_daily_ai_brief(prompt, api_key_val):
             import requests as _req
             try:
@@ -810,28 +810,45 @@ elif page == NAV_DAILY_BRIEF:
                     "https://openrouter.ai/api/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {api_key_val}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://localhost", 
+                        "X-Title": "LLM-Dashboard",
                     },
                     json={
                         "model": "stepfun/step-3.5-flash:free",
                         "messages": [{"role": "user", "content": prompt}],
                         "plugins": [{"id": "web", "max_results": 4}],
-                        "max_tokens": 4000
+                        "max_tokens": 2500,
+                        "provider": {
+                            "allow_fallbacks": False # 强制防扣费开关
+                        }
                     },
-                    timeout=60
+                    timeout=120
                 )
                 resp.raise_for_status()
-                return resp.json()['choices'][0]['message']['content']
+                
+                result = resp.json()
+                if 'error' in result:
+                    raise Exception(result['error'].get('message', '未知 API 错误'))
+                    
+                return result['choices'][0]['message']['content']
             except Exception as e:
-                return f"🤖 分析报告生成失败。请检查 API Key 或重试。(错误信息: {str(e)})"
+                # 异常抛出，防止死缓存
+                raise Exception(f"请求失败: {str(e)}")
                 
         api_key_env = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
         if not api_key_env:
             st.warning("⚠️ 缺失 OpenRouter API Key，无法生成智能简报。请在侧边栏『AI 查询』页进行配置。")
         else:
-            with st.spinner("🤖 正在为您初次生成/读取当日简报... (约需 10~20 秒)"):
-                brief_report = fetch_daily_ai_brief(ai_brief_prompt, api_key_env)
-            st.markdown(brief_report)
+            with st.spinner("🤖 正在为您初次生成/读取当日简报... (含全网深度搜索，可能需要 30~60 秒)"):
+                try:
+                    brief_report = fetch_daily_ai_brief(ai_brief_prompt, api_key_env)
+                    st.markdown(brief_report)
+                except Exception as call_err:
+                    st.error(f"🤖 分析报告生成失败。这通常是由于免费节点限流或网络超时引起。详细信息: {call_err}")
+                    if st.button("🔄 清除缓存并重试"):
+                        fetch_daily_ai_brief.clear()
+                        st.rerun()
     else:
         st.info("数据不足，无法生成总结报告。")
 
@@ -1046,10 +1063,10 @@ elif page == NAV_DAILY_BRIEF:
 
 
     # ============================
-    # 模块 F: 指标定义与公式说明
+    # 模块 E: 指标定义与公式说明
     # ============================
     st.markdown("---")
-    st.markdown("### 附录: 指标定义与计算公式")
+    st.markdown("### 附录: 指标定义与公式说明")
     with st.expander("查看完整指标说明", expanded=False):
         st.markdown("""
 | 指标 | 定义 | 计算公式 |
