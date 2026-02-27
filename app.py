@@ -32,19 +32,21 @@ AI_PROVIDERS = {
         "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
         "key": GOOGLE_KEY,
         "models": {
-            "Gemini 2.0 Flash": "gemini-2.0-flash",
-            "Gemini 2.0 Flash Lite": "gemini-2.0-flash-lite",
-            "Gemini 1.5 Pro": "gemini-1.5-pro",
+            "Gemini 2.5 Flash": "gemini-2.5-flash",
+            "Gemini 2.5 Flash Lite":"gemini-2.5-flash-lite",
+            "Gemini 2.5 Pro": "gemini-2.5-pro",
+            "Gemini 3.0 flash preview": "gemini-3-flash-preview",
+            
         }
     },
     "魔塔社区 (ModelScope)": {
         "base_url": "https://api-inference.modelscope.cn/v1",
         "key": MODELSCOPE_KEY,
         "models": {
-            "DeepSeek R1": "deepseek-ai/DeepSeek-R1",
-            "DeepSeek V3": "deepseek-ai/DeepSeek-V3",
-            "Qwen 2.5 72B Instruct": "Qwen/Qwen2.5-72B-Instruct",
-            "Qwen Max": "Qwen/Qwen-Max",
+            "GLM-5": "ZhipuAI/GLM-5",
+            "Minimax-M2.5": "MiniMax/MiniMax-M2.5",
+            "Kimi-K2.5": "moonshotai/Kimi-K2.5",
+            "Qwen-3.5": "Qwen/Qwen3.5-397B-A17B",
         }
     }
 }
