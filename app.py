@@ -705,21 +705,10 @@ elif page == NAV_DAILY_BRIEF:
     # 计算百分位排名（供后续模块使用）
     df_metrics['Pct_Rank_DailyAvg'] = df_metrics['Daily_Avg'].rank(pct=True)
 
-    # ============================
-    # 模块 A: 近两周新增模型一览
-    # ============================
-    st.markdown("---")
-    st.markdown("### 近两周新增模型一览")
-    st.caption(f"统计区间: {two_weeks_ago.strftime('%Y-%m-%d')} ~ {latest_date.strftime('%Y-%m-%d')}")
-
+    # 提前计算新模型数据供 AI 简报使用
     new_models_df = df_metrics[df_metrics['First_Date'] >= two_weeks_ago].sort_values('First_Date', ascending=False)
-
-    if new_models_df.empty:
-        st.info("过去两周内没有新上线的模型。")
-    else:
-        st.markdown(f"过去两周共上线 **{len(new_models_df)}** 个新模型。")
-        
-        # 准备增强版的新模型数据（带有价格和跑分）
+    display_new = pd.DataFrame()
+    if not new_models_df.empty:
         enhanced_new_models = []
         for row in new_models_df.itertuples():
             model_name = row.Model
@@ -759,15 +748,111 @@ elif page == NAV_DAILY_BRIEF:
                 '输出价格 ($/1M)': f"${output_price:.4f}" if pd.notna(output_price) else "-",
                 'Arena 排名': f"{int(arena_rank)}" if pd.notna(arena_rank) else "-"
             })
-            
         display_new = pd.DataFrame(enhanced_new_models)
+
+    # ============================
+    # 模块 A (置顶): AI 智能简报分析
+    # ============================
+    st.markdown("---")
+    st.markdown("### 🤖 智能趋势简报")
+    st.caption("基于今日数据的自动深度分析 (数据每日自动缓存，避免重复请求)")
+    
+    # 构造给 AI 的当日关键数据
+    if not df_metrics.empty:
+        # 获取表现最优和最差的模型
+        top_momentum = df_metrics.nlargest(5, 'Momentum')
+        low_momentum = df_metrics.nsmallest(5, 'Momentum')
+        
+        # 提取新模型简报数据
+        new_models_context = ""
+        if not new_models_df.empty:
+            new_models_context = display_new.to_string(index=False)
+            
+        ai_brief_prompt = f"""
+你是一位资深 TMT 行业投研分析师。请基于以下最新数据，直接撰写一份【大模型趋势追踪简报】。
+当前日期: {latest_date.strftime('%Y-%m-%d')}
+
+## 1. 近两周新上线模型（附带价格和外部能力排名）
+{new_models_context if new_models_context else "近两周无新模型。"}
+
+## 2. 增长动量 (Momentum) 极速上升的模型 TOP 5 (可能存在破圈或免费活动)
+{top_momentum[['Model', 'Momentum', 'Daily_Avg', 'Recent_7d_Avg']].to_string(index=False)}
+
+## 3. 增速放缓或萎缩的模型 TOP 5
+{low_momentum[['Model', 'Momentum', 'Daily_Avg', 'Recent_7d_Avg']].to_string(index=False)}
+
+## 分析要求（务必使用网络插件检索政策/活动原因）：
+请直接输出一段简练的、言之有物、有数据有逻辑的投研分析，不要任何寒暄、总结性套话或过度拔高的定性分析。
+请务必参考以下风格和结构撰写（将其作为你的格式模板）：
+
+“本周受 [某外部事件/节点] 影响，大模型推新 [加快/放缓]，共推出 [X] 款模型。
+
+一、重点新模型追踪
+近期新上线的一批模型中，只要是来自头部大厂（如 OpenAI、Anthropic、Google、Moonshot (Kimi)、DeepSeek、阿里、腾讯、百度等）的模型必须全部点名播报。其中最值得关注的是 [模型A] 和 [模型B]，其核心性能指标 [排名/基准] 达到 [X]，而价格为 [输入X/输出X]，对现有市场格局带来一定影响。
+
+二、模型动量变动分析
+在调用量增速方面，剔除长尾非旗舰模型后，[旗舰/新模型C] 上量猛增，近7日均值达到 [X] B，动量高达 [X]。经查证，这是因为其推出了 [具体的优惠政策/能力更新]；另外，[旗舰模型D] 增速停滞或萎缩，推测与 [具体退市/商业化策略] 有关。
+
+三、多模态赛道观察
+在图像、音频、视频等多模态领域，本周 [模型E/F] 表现亮眼 / [或暂无明显动向]。[基于数据的多模态能力与定价分析]”
+
+任务规范：
+1. 大厂追踪：新模型列表中，凡是属于头部主流厂商的（无论是国内外），必须全部提及，不遗漏。
+2. 动量过滤：对于“极速上升的 TOP 5”，如果遇到不知名、非旗舰、非新上线的长尾模型，请直接忽略它，只挑其中具有行业代表性的旗舰或新模型进行分析。
+3. 事实为准：必须使用准确的上方数据，并在陈述原因时必须通过网络搜索出确切的政策或版本事件（如某大厂在几号宣布了什么API免费计划，或者发布新版本）。坚决拒绝“引爆全球调用”等假大空的抒情主观词汇。
+        """
+
+        @st.cache_data(ttl=86400) # 缓存 24 小时，每天只触发一次
+        def fetch_daily_ai_brief(prompt, api_key_val):
+            import requests as _req
+            try:
+                resp = _req.post(
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {api_key_val}",
+                        "Content-Type": "application/json"
+                    },
+                    json={
+                        "model": "stepfun/step-3.5-flash:free",
+                        "messages": [{"role": "user", "content": prompt}],
+                        "plugins": [{"id": "web", "max_results": 4}],
+                        "max_tokens": 4000
+                    },
+                    timeout=60
+                )
+                resp.raise_for_status()
+                return resp.json()['choices'][0]['message']['content']
+            except Exception as e:
+                return f"🤖 分析报告生成失败。请检查 API Key 或重试。(错误信息: {str(e)})"
+                
+        api_key_env = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
+        if not api_key_env:
+            st.warning("⚠️ 缺失 OpenRouter API Key，无法生成智能简报。请在侧边栏『AI 查询』页进行配置。")
+        else:
+            with st.spinner("🤖 正在为您初次生成/读取当日简报... (约需 10~20 秒)"):
+                brief_report = fetch_daily_ai_brief(ai_brief_prompt, api_key_env)
+            st.markdown(brief_report)
+    else:
+        st.info("数据不足，无法生成总结报告。")
+
+    # ============================
+    # 模块 B: 近两周新增模型一览
+    # ============================
+    st.markdown("---")
+    st.markdown("### 近两周新增模型一览")
+    st.caption(f"统计区间: {two_weeks_ago.strftime('%Y-%m-%d')} ~ {latest_date.strftime('%Y-%m-%d')}")
+
+    if new_models_df.empty:
+        st.info("过去两周内没有新上线的模型。")
+    else:
+        st.markdown(f"过去两周共上线 **{len(new_models_df)}** 个新模型。")
         st.dataframe(
             display_new.style.format({'累计消耗 (B)': '{:.4f}', '日均消耗 (B)': '{:.4f}'}),
             use_container_width=True, hide_index=True
         )
 
     # ============================
-    # 模块 B (原 D): 新模型累计增长对比
+    # 模块 C: 新模型累计增长对比
     # ============================
     if not new_models_df.empty:
         st.markdown("---")
@@ -904,7 +989,7 @@ elif page == NAV_DAILY_BRIEF:
             )
 
     # ============================
-    # 模块 D (原 B): 全模型表现排名 (移至最后)
+    # 模块 D : 全模型表现排名 
     # ============================
     st.markdown("---")
     st.markdown("### 全模型表现排名 (Top 15)")
@@ -956,90 +1041,7 @@ elif page == NAV_DAILY_BRIEF:
     )
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
-    # ============================
-    # 模块 E: AI 智能简报分析 (替换原更新内容)
-    # ============================
-    st.markdown("---")
-    st.markdown("### 🤖 智能趋势简报")
-    st.caption("基于今日数据的自动深度分析 (数据每日自动缓存，避免重复请求)")
-    
-    # 构造给 AI 的当日关键数据
-    if not df_metrics.empty:
-        # 获取表现最优和最差的模型
-        top_momentum = df_metrics.nlargest(5, 'Momentum')
-        low_momentum = df_metrics.nsmallest(5, 'Momentum')
-        
-        # 提取新模型简报数据
-        new_models_context = ""
-        if not new_models_df.empty:
-            new_models_context = display_new.to_string(index=False)
-            
-        ai_brief_prompt = f"""
-你是一位资深 TMT 行业投研分析师。请基于以下最新数据，直接撰写一份【大模型趋势追踪简报】。
-当前日期: {latest_date.strftime('%Y-%m-%d')}
 
-## 1. 近两周新上线模型（附带价格和外部能力排名）
-{new_models_context if new_models_context else "近两周无新模型。"}
-
-## 2. 增长动量 (Momentum) 极速上升的模型 TOP 5 (可能存在破圈或免费活动)
-{top_momentum[['Model', 'Momentum', 'Daily_Avg', 'Recent_7d_Avg']].to_string(index=False)}
-
-## 3. 增速放缓或萎缩的模型 TOP 5
-{low_momentum[['Model', 'Momentum', 'Daily_Avg', 'Recent_7d_Avg']].to_string(index=False)}
-
-## 分析要求（务必使用网络插件检索政策/活动原因）：
-请直接输出一段简练的、言之有物、有数据有逻辑的投研分析，不要任何寒暄、总结性套话或过度拔高的定性分析。
-请务必参考以下风格和结构撰写（将其作为你的格式模板）：
-
-“本周受 [某外部事件/节点] 影响，大模型推新 [加快/放缓]，共推出 [X] 款模型。
-
-一、重点新模型追踪
-近期新上线的一批模型中，只要是来自头部大厂（如 OpenAI、Anthropic、Google、Moonshot (Kimi)、DeepSeek、阿里、腾讯、百度等）的模型必须全部点名播报。其中最值得关注的是 [模型A] 和 [模型B]，其核心性能指标 [排名/基准] 达到 [X]，而价格为 [输入X/输出X]，对现有市场格局带来一定影响。
-
-二、模型动量变动分析
-在调用量增速方面，剔除长尾非旗舰模型后，[旗舰/新模型C] 上量猛增，近7日均值达到 [X] B，动量高达 [X]。经查证，这是因为其推出了 [具体的优惠政策/能力更新]；另外，[旗舰模型D] 增速停滞或萎缩，推测与 [具体退市/商业化策略] 有关。
-
-三、多模态赛道观察
-在图像、音频、视频等多模态领域，本周 [模型E/F] 表现亮眼 / [或暂无明显动向]。[基于数据的多模态能力与定价分析]”
-
-任务规范：
-1. 大厂追踪：新模型列表中，凡是属于头部主流厂商的（无论是国内外），必须全部提及，不遗漏。
-2. 动量过滤：对于“极速上升的 TOP 5”，如果遇到不知名、非旗舰、非新上线的长尾模型，请直接忽略它，只挑其中具有行业代表性的旗舰或新模型进行分析。
-3. 事实为准：必须使用准确的上方数据，并在陈述原因时必须通过网络搜索出确切的政策或版本事件（如某大厂在几号宣布了什么API免费计划，或者发布新版本）。坚决拒绝“引爆全球调用”等假大空的抒情主观词汇。
-        """
-
-        @st.cache_data(ttl=86400) # 缓存 24 小时，每天只触发一次
-        def fetch_daily_ai_brief(prompt, api_key_val):
-            import requests as _req
-            try:
-                resp = _req.post(
-                    "https://openrouter.ai/api/v1/chat/completions",
-                    headers={
-                        "Authorization": f"Bearer {api_key_val}",
-                        "Content-Type": "application/json"
-                    },
-                    json={
-                        "model": "stepfun/step-3.5-flash:free",
-                        "messages": [{"role": "user", "content": prompt}],
-                        "plugins": [{"id": "web", "max_results": 4}],
-                        "max_tokens": 4000
-                    },
-                    timeout=60
-                )
-                resp.raise_for_status()
-                return resp.json()['choices'][0]['message']['content']
-            except Exception as e:
-                return f"🤖 分析报告生成失败。请检查 API Key 或重试。(错误信息: {str(e)})"
-                
-        api_key_env = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
-        if not api_key_env:
-            st.warning("⚠️ 缺失 OpenRouter API Key，无法生成智能简报。请在侧边栏『AI 查询』页进行配置。")
-        else:
-            with st.spinner("🤖 正在为您初次生成/读取当日简报... (约需 10~20 秒)"):
-                brief_report = fetch_daily_ai_brief(ai_brief_prompt, api_key_env)
-            st.markdown(brief_report)
-    else:
-        st.info("数据不足，无法生成总结报告。")
 
 
 
