@@ -283,7 +283,7 @@ if page == NAV_AI_QUERY:
 
 ## 输出格式（严格遵守）
 
-1. **文字部分**：用 3-5 句话给出核心结论，像投研报告摘要一样简洁。不要罗列原始数据，而是提炼洞察。
+1. **文字部分**：用 3-5 句话给出核心结论，像投研报告摘要一样简洁。提供关键数据+洞察。
 2. **代码部分**：必须生成一个 ```python``` 代码块，包含**至少 1 个图表**。你的主要价值在于可视化，不是文字。
 
 ## 可视化指南（投研风格）
@@ -1204,27 +1204,42 @@ elif page == NAV_PRICING:
         
         st.markdown("---")
         
-        # === 图2: 各供应商价格柱状图 (最新一天 Input+Output) ===
-        st.markdown("### 各供应商价格对比")
-        if not provider_latest.empty:
-            prov_long = provider_latest.melt(
-                id_vars=['Provider'],
-                value_vars=['Input_Price_1M', 'Output_Price_1M'],
-                var_name='Type', value_name='Price'
-            ).dropna(subset=['Price'])
-            prov_long['Type'] = prov_long['Type'].map({'Input_Price_1M': 'Input', 'Output_Price_1M': 'Output'})
+        # === 图2: 各供应商 Input 价格趋势折线图 ===
+        st.markdown("### 各供应商 Input 价格趋势")
+        provider_history = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
+        if not provider_history.empty:
+            provider_history['Date'] = pd.to_datetime(provider_history['Date'])
             
-            chart_prov = alt.Chart(prov_long).mark_bar().encode(
-                x=alt.X('Provider:N', title='供应商', axis=alt.Axis(labelAngle=-45)),
-                y=alt.Y('Price:Q', title='价格 ($/1M Tokens)'),
-                color=alt.Color('Type:N', title='类型'),
-                xOffset='Type:N',
-                tooltip=['Provider', 'Type', alt.Tooltip('Price:Q', format='$.4f')]
+            chart_input = alt.Chart(provider_history).mark_line(point=True).encode(
+                x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
+                y=alt.Y('Input_Price_1M:Q', title='Input 价格 ($/1M Tokens)'),
+                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                tooltip=['Date:T', 'Provider', alt.Tooltip('Input_Price_1M:Q', format='$.4f')]
             ).properties(height=350)
-            st.altair_chart(chart_prov, use_container_width=True)
-            
-            # 详细表格
-            st.markdown("### 供应商详情")
+            st.altair_chart(chart_input, use_container_width=True)
+        else:
+            st.info("暂无供应商 Input 价格数据。")
+        
+        st.markdown("---")
+        
+        # === 图3: 各供应商 Output 价格趋势折线图 ===
+        st.markdown("### 各供应商 Output 价格趋势")
+        if not provider_history.empty:
+            chart_output = alt.Chart(provider_history).mark_line(point=True).encode(
+                x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
+                y=alt.Y('Output_Price_1M:Q', title='Output 价格 ($/1M Tokens)'),
+                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                tooltip=['Date:T', 'Provider', alt.Tooltip('Output_Price_1M:Q', format='$.4f')]
+            ).properties(height=350)
+            st.altair_chart(chart_output, use_container_width=True)
+        else:
+            st.info("暂无供应商 Output 价格数据。")
+        
+        st.markdown("---")
+        
+        # 供应商详情表格（最新一天）
+        st.markdown("### 供应商详情 (最新)")
+        if not provider_latest.empty:
             st.dataframe(
                 provider_latest[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
                     'Input_Price_1M': '${:.4f}',
@@ -1234,8 +1249,6 @@ elif page == NAV_PRICING:
                 use_container_width=True,
                 hide_index=True
             )
-        else:
-            st.info("暂无供应商价格数据。")
             
         data, name, mime, label = get_dataset_download(df_price, "openrouter_pricing_full")
         st.download_button(label=label, data=data, file_name=name, mime=mime)
@@ -1619,26 +1632,39 @@ elif page == NAV_SINGLE_MODEL:
                     ).properties(height=250)
                     st.altair_chart(chart_wa, use_container_width=True)
                 
-                # 图2: 各供应商价格柱状图
+                # 图2: 各供应商 Input 价格趋势
+                st.markdown("#### 各供应商 Input 价格趋势")
+                provider_history = m_price_df[m_price_df['Provider'] != 'Weighted Average'].copy()
+                if not provider_history.empty:
+                    provider_history['Date'] = pd.to_datetime(provider_history['Date'])
+                    
+                    chart_input = alt.Chart(provider_history).mark_line(point=True).encode(
+                        x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
+                        y=alt.Y('Input_Price_1M:Q', title='Input 价格 ($/1M Tokens)'),
+                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                        tooltip=['Date:T', 'Provider', alt.Tooltip('Input_Price_1M:Q', format='$.4f')]
+                    ).properties(height=250)
+                    st.altair_chart(chart_input, use_container_width=True)
+                else:
+                    st.info("暂无供应商 Input 价格趋势数据。")
+                
+                # 图3: 各供应商 Output 价格趋势
+                st.markdown("#### 各供应商 Output 价格趋势")
+                if not provider_history.empty:
+                    chart_output = alt.Chart(provider_history).mark_line(point=True).encode(
+                        x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
+                        y=alt.Y('Output_Price_1M:Q', title='Output 价格 ($/1M Tokens)'),
+                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
+                        tooltip=['Date:T', 'Provider', alt.Tooltip('Output_Price_1M:Q', format='$.4f')]
+                    ).properties(height=250)
+                    st.altair_chart(chart_output, use_container_width=True)
+                else:
+                    st.info("暂无供应商 Output 价格趋势数据。")
+                
+                # 供应商详情表格
+                st.markdown("#### 供应商详情 (最新)")
                 provider_prices = df_latest_prices[df_latest_prices['Provider'] != 'Weighted Average'].sort_values('Input_Price_1M')
                 if not provider_prices.empty:
-                    st.markdown("#### 各供应商价格对比")
-                    prov_long = provider_prices.melt(
-                        id_vars=['Provider'],
-                        value_vars=['Input_Price_1M', 'Output_Price_1M'],
-                        var_name='Type', value_name='Price'
-                    ).dropna(subset=['Price'])
-                    prov_long['Type'] = prov_long['Type'].map({'Input_Price_1M': 'Input', 'Output_Price_1M': 'Output'})
-                    
-                    chart_prov = alt.Chart(prov_long).mark_bar().encode(
-                        x=alt.X('Provider:N', title='供应商', axis=alt.Axis(labelAngle=-45)),
-                        y=alt.Y('Price:Q', title='价格 ($/1M Tokens)'),
-                        color=alt.Color('Type:N', title='类型'),
-                        xOffset='Type:N',
-                        tooltip=['Provider', 'Type', alt.Tooltip('Price:Q', format='$.4f')]
-                    ).properties(height=300)
-                    st.altair_chart(chart_prov, use_container_width=True)
-                    
                     st.dataframe(
                         provider_prices[['Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']].style.format({
                             'Input_Price_1M': '${:.4f}',
