@@ -212,7 +212,7 @@ if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
     MODEL_OPTIONS = {
-        "STEP-3.5-flash(免费)": "stepfun/step-3.5-flash:free",
+        ## "STEP-3.5-flash(免费)": "stepfun/step-3.5-flash:free",
         "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
         "Gemini 3 Flash": "google/gemini-3-flash-preview",
         "Claude Haiku 4.5": "anthropic/claude-haiku-4.5",
@@ -815,7 +815,7 @@ elif page == NAV_DAILY_BRIEF:
                         "X-Title": "LLM-Dashboard",
                     },
                     json={
-                        "model": "stepfun/step-3.5-flash:free",
+                        "model": "z-ai/glm-4.5-air:free",
                         "messages": [{"role": "user", "content": prompt}],
                         "plugins": [{"id": "web", "max_results": 4}],
                         "max_tokens": 2500,
