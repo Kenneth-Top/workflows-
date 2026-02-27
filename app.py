@@ -212,10 +212,10 @@ if page == NAV_AI_QUERY:
     st.subheader("AI 数据分析助手")
     
     MODEL_OPTIONS = {
-        "GPT-OSS (免费)": "openai/gpt-oss-120b:free",
+        "STEP-3.5-flash(免费)": "stepfun/step-3.5-flash:free",
         "GLM-4.5-Air (免费)": "z-ai/glm-4.5-air:free",
         "Gemini 3 Flash": "google/gemini-3-flash-preview",
-        "Claude Haiku": "anthropic/claude-haiku-4.5",
+        "Claude Haiku 4.5": "anthropic/claude-haiku-4.5",
     }
     
     # 顶部控制区
