@@ -366,13 +366,19 @@ if page == NAV_AI_QUERY:
         # 【修复 BUG】强力正则拦截工具调用乱码
         def split_reply(reply):
             import re as _re
+            # 1. 正常剔除 DeepSeek 等模型的内部思考过程 (保留此项)
             reply = _re.sub(r'<think>.*?</think>', '', reply, flags=_re.DOTALL)
-            reply = _re.sub(r'<[^>]*tool_call[^>]*>.*?(</[^>]*tool_call>|$)', '', reply, flags=_re.DOTALL)
-            reply = _re.sub(r'<invoke[^>]*>.*?(</invoke>|$)', '', reply, flags=_re.DOTALL)
-            reply = _re.sub(r'</?[a-zA-Z0-9_:-]+tool_call>', '', reply)
             
-            code_blocks = _re.findall(r'```python\s*\n(.*?)```', reply, _re.DOTALL)
-            text_only = _re.sub(r'```python\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
+            # 2. 【核心修复】温和过滤：只删 XML 标签本身，绝对不能删里面的内容！
+            reply = _re.sub(r'</?[a-zA-Z0-9_:-]*tool_call[^>]*>', '', reply)
+            reply = _re.sub(r'</?invoke[^>]*>', '', reply)
+            reply = _re.sub(r'</?function[^>]*>', '', reply)
+            
+            # 3. 提取代码块（兼容首字母大写 Python 和多余空格的情况）
+            code_blocks = _re.findall(r'```(?:python|Python)?\s*\n(.*?)```', reply, _re.DOTALL)
+            
+            # 4. 从文字部分中剔除代码块
+            text_only = _re.sub(r'```(?:python|Python)?\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
             
             return text_only, code_blocks[0] if code_blocks else None
         
@@ -950,8 +956,9 @@ elif page == NAV_DAILY_BRIEF:
                 
                 # 【修复 BUG】只在输出层面对乱码进行强力过滤
                 clean_reply = _re.sub(r'<think>.*?</think>', '', raw_reply, flags=_re.DOTALL)
-                clean_reply = _re.sub(r'<[^>]*tool_call[^>]*>.*?(</[^>]*tool_call>|$)', '', clean_reply, flags=_re.DOTALL)
-                clean_reply = _re.sub(r'<invoke[^>]*>.*?(</invoke>|$)', '', clean_reply, flags=_re.DOTALL)
+                clean_reply = _re.sub(r'</?[a-zA-Z0-9_:-]*tool_call[^>]*>', '', clean_reply)
+                clean_reply = _re.sub(r'</?invoke[^>]*>', '', clean_reply)
+                clean_reply = _re.sub(r'</?function[^>]*>', '', clean_reply)
                 clean_reply = clean_reply.strip()
                 
                 return clean_reply if clean_reply else raw_reply
