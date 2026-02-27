@@ -327,28 +327,33 @@ if page == NAV_AI_QUERY:
 **严禁**用网络上的公开数据来修改、替代或伪造本地数据库（df, df_price等）中的数值。代码绘制的图表和输出的具体 Token 数据，必须 **100% 严格来源于本地数据库**！
 """
         
-        # 【核心强化】专业 TMT 投资分析与可视化指令 (修改点 2)
-        SYSTEM_PROMPT = f"""你是一位专注于 TMT（科技、媒体与通信）赛道的顶尖专业投资分析师和数据可视化专家。你的使命是：**严格基于提供的本地数据库**，用专业的数据图表和详实的财务/指标分析来解答用户疑问，让数据说话。
+        # 【核心强化】专业 TMT 投资分析与可视化指令 (极致增强版)
+        SYSTEM_PROMPT = f"""你是一位专注于 TMT（科技、媒体与通信）赛道的顶尖专业投资分析师和数据可视化专家。你的使命是：**严格基于提供的本地数据库**，用专业的数据图表和财务指标分析来解答用户疑问。
 
-## 数据库 (可用变量)
+## 🛠️ 环境预警 (必读)
+1. **数据已在内存中**：变量 `df`, `df_price`, `df_bench`, `df_lmarena` 已经完全加载，你**严禁**使用 `pd.read_csv()` 或 `open()` 重新加载数据！直接操作这些变量即可。
+2. **禁止函数调用格式**：绝对禁止输出 `<parameter>`, `[tool_call]`, `<invoke>` 等任何 XML 或 JSON 格式的工具调用标签。
+3. **输出纯代码块**：所有 Python 代码必须包裹在标准的 ```python ``` 块中。
+
+## 📊 数据库 (可用变量)
 {db_context}
 
 {web_search_rules}
 
-## 🚀 核心战术与绘图准则 (最高指令)
-1. **强制基于数据库**：你必须严格从本地数据库（df, df_price等）中提取事实，严禁凭空捏造数值！
-2. **强制绘图与制表**：你的回复中**必须**包含至少一个 ```python ``` 代码块。为了代码稳定性，**优先使用 Streamlit 原生的 `st.line_chart`, `st.bar_chart` 或 `plotly.express` (px) 进行可视化**。图表必须直观，并在代码中配合 `st.dataframe()` 输出底层核心数据表。
-3. **数据预处理**：绘图前务必处理数据类型：如 `df['Date'] = pd.to_datetime(...)`。
+## 🚀 核心绘图准则 (最高指令)
+1. **强制绘图与制表**：你的回复中**必须**包含至少一个 ```python ``` 代码块。
+2. **可视化库**：优先使用 `st.line_chart`, `st.bar_chart` 或 `plotly.express` (已作为 `px` 注入)。
+3. **数据预处理**：绘图前务必检查并转换数据类型：`df['Date'] = pd.to_datetime(...)`。不要使用 `print()`，直接用 `st.write()` 或 `st.dataframe()` 输出结果。
 
-## 🎯 场景化分析框架 (根据用户问题自动匹配)
-- **场景 A (系列/家族模型，如 DeepSeek 家族)**：将它们放在一起横向对比。分析各项 Benchmark 表现、Token 消耗量趋势和定价性价比，指出目前家族中最强或最具投资/使用价值的版本。
-- **场景 B (单个模型分析)**：提取该模型的 Token 量价趋势、竞技场表现 (Arena)，并自动寻找数据库中同期的竞争对手进行对照分析。
-- **场景 C (特定指标异动，如用量暴涨/暴跌)**：结合图表展示趋势。如果启用了联网搜索，结合网络资讯分析背后的商业逻辑（如：是否由于降价策略、API 免费政策、突发技术突破或行业事件导致）。
+## 🎯 场景化分析框架（可以动态调整）
+- **场景 A (系列横评)**：对比不同模型的性能/价格比等。
+- **场景 B (单模型深挖)**：分析量价趋势与 Arena 排名等。
+- **场景 C (异动分析)**：结合联网搜索解释数据波动的商业逻辑。
 
 ## 📦 输出模版 (严格遵循)
-- **第一部分 (投资分析洞察)**：直接输出结论。用专业投资者的视角分析趋势和性价比，直击痛点。
-- **第二部分 (执行代码)**：包裹在 ```python ``` 块中。不要写带中括号的 `[tool_call]`！
-- **第三部分 (归因解释)**：结合网络资料（若有）解释数据波动的深层原因。
+- **第一部分 (投资分析洞察)**：用专业投资者视角给出核心结论。
+- **第二部分 (执行代码)**：包裹在 ```python ``` 块中的纯代码。
+- **第三部分 (归因解释)**：结合网络资料（若有）解释深层原因。
 """
 
         # 初始化聊天历史
@@ -357,28 +362,35 @@ if page == NAV_AI_QUERY:
         
         # 用于 exec 的命名空间
         import numpy as np
+        try:
+            import plotly.express as px
+        except ImportError:
+            px = None
+            
         exec_namespace = {
             "df": df, "df_price": df_price, "df_bench": df_bench, "df_lmarena": df_lmarena,
-            "st": st, "alt": alt, "pd": pd, "np": np, "os": os,
+            "st": st, "alt": alt, "pd": pd, "np": np, "os": os, "px": px,
         }
         
-        # 强化版的正则提取逻辑 (修改点 4)
+        # 强化版的正则提取逻辑 (修改点 4 - 极致增强版)
         def split_reply(reply):
             import re as _re
-            # 1. 剔除思考过程 (支持未严格闭合的情况)
+            # 1. 彻底剔除思考过程和所有 XML 类干扰标签
             reply = _re.sub(r'<think>.*?(</think>|$)', '', reply, flags=_re.DOTALL | _re.IGNORECASE)
-            
-            # 2. 清空各种工具调用干扰标签
+            reply = _re.sub(r'</?[a-zA-Z0-9_:-]*parameter[^>]*>', '', reply) # 特别拦截 <parameter>
             reply = _re.sub(r'</?[a-zA-Z0-9_:-]*tool_call[^>]*>', '', reply)
             reply = _re.sub(r'</?invoke[^>]*>', '', reply)
             reply = _re.sub(r'</?function[^>]*>', '', reply)
             
-            # 3. 提取所有 Python 代码块并合并
-            blocks = _re.findall(r'```(?:python|Python|py)\s*\n(.*?)\n\s*```', reply, _re.DOTALL)
+            # 2. 增强型代码提取正则
+            # 匹配 ```python ... ``` 或 ```py ... ```，允许前后的空格，不强制要求紧跟换行
+            blocks = _re.findall(r'```(?:python|py|Python)?\s*(.*?)\s*```', reply, _re.DOTALL)
             combined_code = "\n".join(blocks).strip() if blocks else None
             
-            # 4. 从文字部分中剔除所有的代码块显示，留下纯净的分析报告
-            text_only = _re.sub(r'```(?:python|Python|py)\s*\n.*?\n\s*```', '', reply, flags=_re.DOTALL).strip()
+            # 3. 提取纯文字部分
+            text_only = _re.sub(r'```(?:python|py|Python)?\s*.*?\s*```', '', reply, flags=_re.DOTALL).strip()
+            # 再次清理可能残留的 XML
+            text_only = _re.sub(r'<[^>]+>', '', text_only).strip()
             
             return text_only, combined_code
         
