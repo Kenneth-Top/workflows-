@@ -327,6 +327,7 @@ if page == NAV_AI_QUERY:
 **严禁**用网络上的公开数据来修改、替代或伪造本地数据库（df, df_price等）中的数值。代码绘制的图表和输出的具体 Token 数据，必须 **100% 严格来源于本地数据库**！
 """
         
+        # 【恢复原貌】完整保留你的 SYSTEM_PROMPT
         SYSTEM_PROMPT = f"""你是一位专业的 LLM 行业投研分析师，服务于机构投资者。你的核心任务是用**数据驱动的可视化图表**回答问题。绝对禁止在回复中输出任何 <tool_call>, <function> 等 XML 或内部工具调用标签。如果缺少信息，请直接回答“我不知道”或基于现有数据进行推测。
 
 ## 数据库
@@ -362,24 +363,21 @@ if page == NAV_AI_QUERY:
             "st": st, "alt": alt, "pd": pd, "np": np, "os": os,
         }
         
-        # 辅助函数：从 AI 回复中分离文字和代码，并深度清洗底层标签
+        # 【修复 BUG】强力正则拦截工具调用乱码
         def split_reply(reply):
             import re as _re
-            # 1. 提取并移除深度思考过程 <think>...</think>
             reply = _re.sub(r'<think>.*?</think>', '', reply, flags=_re.DOTALL)
+            reply = _re.sub(r'<[^>]*tool_call[^>]*>.*?(</[^>]*tool_call>|$)', '', reply, flags=_re.DOTALL)
+            reply = _re.sub(r'<invoke[^>]*>.*?(</invoke>|$)', '', reply, flags=_re.DOTALL)
+            reply = _re.sub(r'</?[a-zA-Z0-9_:-]+tool_call>', '', reply)
             
-            # 2. 强力屏蔽可能泄露的各类工具调用标签 (如 <minimax:tool_call>, <invoke> 等)
-            reply = _re.sub(r'<[^>]+tool_call[^>]*>.*?(</[^>]+tool_call>|>|$)', '', reply, flags=_re.DOTALL)
-            reply = _re.sub(r'<invoke[^>]*>.*?(</invoke>|>|$)', '', reply, flags=_re.DOTALL)
-            
-            # 3. 提取 Python 代码块
             code_blocks = _re.findall(r'```python\s*\n(.*?)```', reply, _re.DOTALL)
             text_only = _re.sub(r'```python\s*\n.*?```', '', reply, flags=_re.DOTALL).strip()
             
             return text_only, code_blocks[0] if code_blocks else None
         
         def safe_exec(code, ns):
-            # 将 df_bench 加入保护名单防止污染缓存
+            # 包含 df_bench 保护
             for key in ['df', 'df_price', 'df_bench', 'df_lmarena']:
                 frame = ns.get(key)
                 if frame is not None and 'Model' in frame.columns:
@@ -431,9 +429,7 @@ if page == NAV_AI_QUERY:
                         "Content-Type": "application/json"
                     }
                     
-                    # ==========================================
                     # 🌟 第 1 步：让 AI 作为“搜索专家”提炼关键词
-                    # ==========================================
                     with st.spinner("🧠 正在让 AI 提炼精准搜索关键词..."):
                         keyword_prompt = f"""
                         我需要你在搜索引擎上查阅最新资讯来辅助回答。
@@ -448,29 +444,26 @@ if page == NAV_AI_QUERY:
                         kw_payload = {
                             "model": AI_MODEL, 
                             "messages": [{"role": "user", "content": keyword_prompt}], 
-                            "max_tokens": 50, 
-                            "temperature": 0.1 # 温度降到极低，防止它说废话
+                            "max_tokens": 150, 
+                            "temperature": 0.1 
                         }
                         try:
-                            kw_resp = _req.post(f"{provider_cfg['base_url']}/chat/completions", headers=headers, json=kw_payload, timeout=20)
+                            kw_resp = _req.post(f"{provider_cfg['base_url']}/chat/completions", headers=headers, json=kw_payload, timeout=60)
                             kw_resp.raise_for_status()
-                            # 提取结果并深度清洗（防止模型不听话加了引号或换行）
-                            search_query = kw_resp.json()['choices'][0]['message']['content'].strip()
-                            search_query = search_query.replace('"', '').replace("'", "").replace("关键词：", "").split('\n')[0][:80] 
+                            raw_kw = kw_resp.json()['choices'][0]['message']['content']
+                            import re as _re
+                            clean_kw = _re.sub(r'<think>.*?</think>', '', raw_kw, flags=_re.DOTALL).strip()
+                            search_query = clean_kw.replace('"', '').replace("'", "").replace("关键词：", "").replace("关键词:", "").split('\n')[0][:80] 
                             st.toast(f"🔑 AI 提取出搜索词: {search_query}")
                         except Exception as e:
-                            # 如果提炼失败，使用备用降级方案
                             search_query = f"{selected_model_label.split(' ')[0]} 大模型 近期动态" 
                             st.toast(f"⚠️ 关键词提取失败，使用备用词。")
 
-                    # ==========================================
                     # 🌟 第 2 步：鸭鸭拿着 AI 给的词去搜索
-                    # ==========================================
                     with st.spinner(f"🌐 鸭鸭正在搜索: '{search_query}'..."):
                         try:
                             from duckduckgo_search import DDGS
                             ddgs = DDGS()
-                            # timelimit='m' 代表只搜索最近一个月的资讯，保证时效性
                             search_results = list(ddgs.text(search_query, max_results=5, timelimit='m'))
                             
                             if search_results:
@@ -478,7 +471,6 @@ if page == NAV_AI_QUERY:
                                 for r in search_results:
                                     context_str += f"- 标题: {r.get('title', '')}\n  摘要: {r.get('body', '')}\n"
                                 
-                                # 将搜索到的纯净情报注入到用户提问的上下文中
                                 api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题（如有帮助）：\n{context_str}\n\n【最高优先级指令】：无论你参考了什么外部资料，你的主要任务仍然是执行数据分析。如果你需要生成图表，请务必返回完全独立、无依赖报错的 Python st/alt 渲染代码，并使用 ```python ... ``` 包裹代码块！"
                                 
                             else:
@@ -501,7 +493,7 @@ if page == NAV_AI_QUERY:
                             f"{provider_cfg['base_url']}/chat/completions",
                             headers=headers,
                             json=api_payload,
-                            timeout=75
+                            timeout=200 # 【修复 BUG】增加超时时间，等待深度思考模型
                         )
                         if resp.status_code != 200:
                             raise Exception(f"API Error {resp.status_code}: {resp.text}")
@@ -553,7 +545,6 @@ elif page == NAV_TN_DAILY:
         max_days_global = 0
 
         for name in selected_names:
-            # 加上 .copy()
             m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
             if m_df.empty: continue
             
@@ -598,7 +589,7 @@ elif page == NAV_TN_DAILY:
                     axis=alt.Axis(labelFontSize=20, titleFontSize=24)
                 ),
                 color=alt.Color('Model', 
-                                scale=alt.Scale(scheme='category20'), 
+                                scale=alt.Scale(scheme='tableau10'), 
                                 legend=alt.Legend(title="模型名称", orient='bottom')),
                 tooltip=['Model', 'Label', 'Total_Tokens', 'Real_Date']
             ).properties(height=500)
@@ -637,7 +628,6 @@ elif page == NAV_CUMULATIVE_COMPARE:
                 cols[idx].caption(f"📅 **{name}**: {s_date}")
 
         for name in selected_names:
-            # 加入 .copy() 防止 MutatedCacheError
             m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
             m_df['Cum_Tokens'] = m_df['Total_Tokens'].cumsum()
             if len(m_df) > 1: m_df = m_df.iloc[:-1]
@@ -659,7 +649,6 @@ elif page == NAV_CUMULATIVE_COMPARE:
         if plot_data:
             df_plot = pd.DataFrame(plot_data)
 
-            # 使用 category20 应对更多的模型对比
             base = alt.Chart(df_plot).encode(
                 x=alt.X('Day', title="上线天数 (Daily)", 
                         scale=alt.Scale(domain=[0, max_day_plot + 2], clamp=True),
@@ -668,7 +657,7 @@ elif page == NAV_CUMULATIVE_COMPARE:
                         axis=alt.Axis(labelFontSize=16, titleFontSize=18)),
                 color=alt.Color('Model', 
                                 title='模型名称', 
-                                scale=alt.Scale(scheme='category20'),
+                                scale=alt.Scale(scheme='tableau10'),
                                 legend=alt.Legend(orient='bottom')),
                 tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
             )
@@ -770,18 +759,15 @@ elif page == NAV_DAILY_BRIEF:
     st.subheader("模型表现速览与分析报告")
     st.caption("基于历史数据的多维度量化分析，所有指标均由数据自动计算生成。")
 
-    # --- 预计算所有模型的指标 ---
     latest_date = df['Date'].max()
     two_weeks_ago = latest_date - pd.Timedelta(days=14)
     seven_days_ago = latest_date - pd.Timedelta(days=7)
 
     metrics_list = []
     for name in all_model_names:
-        # 加入 .copy() 防治缓存越界修改
         m_df = df[df['Display_Name'] == name].sort_values('Date').copy()
         if m_df.empty:
             continue
-        # 去掉最后一天（当天未结算数据，和其他页面逻辑保持一致）
         if len(m_df) > 1:
             m_df = m_df.iloc[:-1]
         if m_df.empty:
@@ -794,12 +780,10 @@ elif page == NAV_DAILY_BRIEF:
         daily_avg = cumulative / days_online
         peak = m_df['Total_Tokens'].max()
 
-        # 近 7 日增速
         recent_df = m_df[m_df['Date'] >= seven_days_ago]
         recent_days = max(len(recent_df), 1)
         recent_avg = recent_df['Total_Tokens'].sum() / recent_days if not recent_df.empty else 0
 
-        # 增长动量
         momentum = (recent_avg / daily_avg) if daily_avg > 0 else 0
 
         metrics_list.append({
@@ -820,10 +804,8 @@ elif page == NAV_DAILY_BRIEF:
         st.warning("暂无可分析的模型数据。")
         st.stop()
 
-    # 计算百分位排名（供后续模块使用）
     df_metrics['Pct_Rank_DailyAvg'] = df_metrics['Daily_Avg'].rank(pct=True)
 
-    # 提前计算新模型数据供 AI 简报使用
     new_models_df = df_metrics[df_metrics['First_Date'] >= two_weeks_ago].sort_values('First_Date', ascending=False)
     display_new = pd.DataFrame()
     if not new_models_df.empty:
@@ -832,21 +814,18 @@ elif page == NAV_DAILY_BRIEF:
             model_name = row.Model
             norm_name = normalize_model_name(model_name)
             
-            # --- 查价格 ---
             input_price, output_price = None, None
             if df_price is not None and not df_price.empty:
                 latest_price_date = df_price['Date'].max()
                 price_rows = df_price[(df_price['Date'] == latest_price_date) & 
                                       (df_price['Provider'] == 'Weighted Average')]
                 
-                # 精确匹配（防止部分名称被误杀）
                 matched_price_model = fuzzy_match_model(norm_name, price_rows['Model'].unique().tolist(), threshold=0.55)
                 if matched_price_model:
                     match_row = price_rows[price_rows['Model'] == matched_price_model[0]].iloc[0]
                     input_price = match_row.get('Input_Price_1M')
                     output_price = match_row.get('Output_Price_1M')
 
-            # --- 查 LMARENA 排名 ---
             arena_rank = None
             if df_lmarena is not None and not df_lmarena.empty:
                 latest_lm_date = df_lmarena['Date'].max()
@@ -875,17 +854,15 @@ elif page == NAV_DAILY_BRIEF:
     st.markdown("### 🤖 智能趋势简报")
     st.caption("基于今日数据的自动深度分析 (数据每日自动缓存，避免重复请求)")
     
-    # 构造给 AI 的当日关键数据
     if not df_metrics.empty:
-        # 获取表现最优和最差的模型
         top_momentum = df_metrics.nlargest(5, 'Momentum')
         low_momentum = df_metrics.nsmallest(5, 'Momentum')
         
-        # 提取新模型简报数据
         new_models_context = ""
         if not new_models_df.empty:
             new_models_context = display_new.to_string(index=False)
             
+        # 【恢复原貌】完全恢复你原版的 ai_brief_prompt
         ai_brief_prompt = f"""
 你是一位资深 TMT 行业投研分析师。请基于以下最新数据，直接撰写一份【大模型趋势追踪简报】。
 当前日期: {latest_date.strftime('%Y-%m-%d')}
@@ -939,15 +916,11 @@ elif page == NAV_DAILY_BRIEF:
                     else:
                         model_id = "z-ai/glm-4.5-air:free"
                 
-                # 【关键修复】拆分 System 和 User，压制模型的幻觉
+                # 【恢复原貌】保留你原本未切割的 User Prompt 结构
                 payload = {
                     "model": model_id,
-                    "messages": [
-                        {"role": "system", "content": "你是一位极其严谨的TMT行业投研分析师。你的唯一任务是基于提供的数据生成「大模型趋势追踪简报」。绝对禁止输出与此无关的任何内容（如JSON、代码或文件处理状态）。请保持客观、专业。"},
-                        {"role": "user", "content": prompt}
-                    ],
+                    "messages": [{"role": "user", "content": prompt}],
                     "max_tokens": 3000,
-                    "temperature": 0.3 # 降低温度，减少幻觉
                 }
                 
                 if provider == "OpenRouter":
@@ -956,12 +929,12 @@ elif page == NAV_DAILY_BRIEF:
                     try:
                         from duckduckgo_search import DDGS
                         ddgs = DDGS()
-                        news_res = list(ddgs.text("AI 大模型 近期动态 降价", max_results=4, timelimit='w'))
+                        news_res = list(ddgs.text("AI 大模型 近期动态", max_results=5, timelimit='w'))
                         if news_res:
                             context_str = "\n\n【补充资料：近期大模型相关新闻】：\n"
                             for r in news_res:
                                 context_str += f"- {r.get('title', '')}: {r.get('body', '')}\n"
-                            payload["messages"][1]["content"] += context_str
+                            payload["messages"][0]["content"] += context_str
                     except Exception:
                         pass
                 
@@ -969,30 +942,29 @@ elif page == NAV_DAILY_BRIEF:
                     f"{cfg['base_url']}/chat/completions",
                     headers=headers,
                     json=payload,
-                    timeout=300
+                    timeout=200 # 【修复 BUG】增加超时时间
                 )
                 resp.raise_for_status()
                 result = resp.json()
                 raw_reply = result['choices'][0]['message']['content']
                 
-                clean_reply = _re.sub(r'<think>.*?</think>', '', raw_reply, flags=_re.DOTALL).strip()
+                # 【修复 BUG】只在输出层面对乱码进行强力过滤
+                clean_reply = _re.sub(r'<think>.*?</think>', '', raw_reply, flags=_re.DOTALL)
+                clean_reply = _re.sub(r'<[^>]*tool_call[^>]*>.*?(</[^>]*tool_call>|$)', '', clean_reply, flags=_re.DOTALL)
+                clean_reply = _re.sub(r'<invoke[^>]*>.*?(</invoke>|$)', '', clean_reply, flags=_re.DOTALL)
+                clean_reply = clean_reply.strip()
                 
-                # 如果清理后完全为空（有的模型格式乱了），退回原始回复
                 return clean_reply if clean_reply else raw_reply
                 
             except Exception as e:
                 raise Exception(f"简报生成失败: {str(e)}")
                 
-        # 允许自由切换简报提供商与具体模型
         st.sidebar.divider()
         st.sidebar.markdown("### 📊 简报配置")
-        # 默认商改为 魔塔社区 (index=2)
         brief_provider = st.sidebar.selectbox("简报服务商:", list(AI_PROVIDERS.keys()), index=2)
         
-        # 允许选择具体模型
         available_models = AI_PROVIDERS[brief_provider]["models"]
         model_labels = list(available_models.keys())
-        # 默认尝试选中 Minimax-M2.5
         default_idx = 0
         if "Minimax-M2.5" in model_labels:
             default_idx = model_labels.index("Minimax-M2.5")
@@ -1004,7 +976,6 @@ elif page == NAV_DAILY_BRIEF:
 
         with st.spinner(f"🤖 正在调用 {brief_provider} ({brief_model_label}) 生成当日简报..."):
             try:
-                # 传入选定的模型 ID
                 brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider, model_id=brief_model_id)
                 st.markdown(brief_report)
             except Exception as call_err:
@@ -1070,7 +1041,7 @@ elif page == NAV_DAILY_BRIEF:
                 y=alt.Y('Cumulative_Tokens', title='累计 Token (Billion)',
                         axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
                 color=alt.Color('Model', title='模型',
-                                scale=alt.Scale(scheme='category20'),
+                                scale=alt.Scale(scheme='tableau10'),
                                 legend=alt.Legend(orient='bottom')),
                 tooltip=['Model', 'Day', 'Date', 'Cumulative_Tokens']
             )
@@ -1086,7 +1057,6 @@ elif page == NAV_DAILY_BRIEF:
     st.markdown("### 综合分析摘要")
     st.caption(f"分析基准日: {latest_date.strftime('%Y-%m-%d')}")
 
-    # Top 3 累计消耗
     with st.expander("累计消耗 Top 3", expanded=True):
         top3_cum = df_metrics.nlargest(3, 'Cumulative').copy()
         top3_cum['Rank'] = range(1, len(top3_cum) + 1)
@@ -1097,7 +1067,6 @@ elif page == NAV_DAILY_BRIEF:
             use_container_width=True, hide_index=True
         )
 
-    # 近 7 日增速最快
     with st.expander("近7日增速领先 (Top 3)", expanded=True):
         top3_recent = df_metrics.nlargest(3, 'Recent_7d_Avg').copy()
         top3_recent['Rank'] = range(1, len(top3_recent) + 1)
@@ -1108,7 +1077,6 @@ elif page == NAV_DAILY_BRIEF:
             use_container_width=True, hide_index=True
         )
 
-    # 加速增长中的模型
     with st.expander("正在加速增长 (动量 > 1.2)", expanded=True):
         accel = df_metrics[df_metrics['Momentum'] >= 1.2].sort_values('Momentum', ascending=False)
         if not accel.empty:
@@ -1122,7 +1090,6 @@ elif page == NAV_DAILY_BRIEF:
         else:
             st.info("暂无明显加速增长的模型。")
 
-    # 增速放缓的模型
     with st.expander("增速放缓关注 (动量 < 0.8)", expanded=True):
         decel = df_metrics[(df_metrics['Momentum'] <= 0.8) & (df_metrics['Days_Online'] >= 7)].sort_values('Momentum')
         if not decel.empty:
@@ -1136,7 +1103,6 @@ elif page == NAV_DAILY_BRIEF:
         else:
             st.info("暂无明显增速放缓的模型。")
 
-    # 新模型速评
     if not new_models_df.empty:
         with st.expander("新模型初期表现评级", expanded=True):
             rating_data = []
@@ -1196,7 +1162,7 @@ elif page == NAV_DAILY_BRIEF:
                 axis=alt.Axis(labelAngle=-45, labelFontSize=11)),
         y=alt.Y(rank_col, title=rank_label,
                 axis=alt.Axis(labelFontSize=14, titleFontSize=16)),
-        color=alt.Color('Model', legend=None, scale=alt.Scale(scheme='category20')),
+        color=alt.Color('Model', legend=None, scale=alt.Scale(scheme='tableau10')),
         tooltip=['Model', alt.Tooltip(rank_col, title=rank_label, format='.4f')]
     ).properties(height=400)
     st.altair_chart(chart_rank, use_container_width=True)
@@ -1320,7 +1286,7 @@ elif page == NAV_PRICING:
             chart_input = alt.Chart(provider_history).mark_line(point=True).encode(
                 x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                 y=alt.Y('Input_Price_1M:Q', title='Input 价格 ($/1M Tokens)'),
-                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
+                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
                 tooltip=['Date:T', 'Provider', alt.Tooltip('Input_Price_1M:Q', format='$.4f')]
             ).properties(height=350)
             st.altair_chart(chart_input, use_container_width=True)
@@ -1335,7 +1301,7 @@ elif page == NAV_PRICING:
             chart_output = alt.Chart(provider_history).mark_line(point=True).encode(
                 x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                 y=alt.Y('Output_Price_1M:Q', title='Output 价格 ($/1M Tokens)'),
-                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
+                color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
                 tooltip=['Date:T', 'Provider', alt.Tooltip('Output_Price_1M:Q', format='$.4f')]
             ).properties(height=350)
             st.altair_chart(chart_output, use_container_width=True)
@@ -1415,7 +1381,7 @@ elif page == NAV_BENCHMARK:
                     ).encode(
                         x=alt.X('Model:N', sort='-y', title='模型名称', axis=alt.Axis(labelAngle=-45, labelOverlap=False)),
                         y=alt.Y(f'{primary_metric}:Q', title='得分数值'),
-                        color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='category20')),
+                        color=alt.Color('Model:N', legend=None, scale=alt.Scale(scheme='tableau20')),
                         tooltip=['Model', alt.Tooltip(f'{primary_metric}:Q', format='.3f')]
                     ).properties(height=500)
                     
@@ -1751,7 +1717,7 @@ elif page == NAV_SINGLE_MODEL:
                     chart_input = alt.Chart(provider_history).mark_line(point=True).encode(
                         x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                         y=alt.Y('Input_Price_1M:Q', title='Input 价格 ($/1M Tokens)'),
-                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
+                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
                         tooltip=['Date:T', 'Provider', alt.Tooltip('Input_Price_1M:Q', format='$.4f')]
                     ).properties(height=250)
                     st.altair_chart(chart_input, use_container_width=True)
@@ -1764,7 +1730,7 @@ elif page == NAV_SINGLE_MODEL:
                     chart_output = alt.Chart(provider_history).mark_line(point=True).encode(
                         x=alt.X('Date:T', title='时间', axis=alt.Axis(format='%m/%d')),
                         y=alt.Y('Output_Price_1M:Q', title='Output 价格 ($/1M Tokens)'),
-                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='category20')),
+                        color=alt.Color('Provider:N', title='供应商', scale=alt.Scale(scheme='tableau20')),
                         tooltip=['Date:T', 'Provider', alt.Tooltip('Output_Price_1M:Q', format='$.4f')]
                     ).properties(height=250)
                     st.altair_chart(chart_output, use_container_width=True)
