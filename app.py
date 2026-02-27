@@ -267,7 +267,11 @@ if page == NAV_AI_QUERY:
         provider_name = st.selectbox("选择 AI 服务商:", list(AI_PROVIDERS.keys()), index=2) # 默认选 魔塔社区
         provider_cfg = AI_PROVIDERS[provider_name]
     with col_p2:
-        selected_model_label = st.selectbox("选择模型:", list(provider_cfg["models"].keys()), index=0)
+        mq_model_list = list(provider_cfg["models"].keys())
+        mq_default_idx = 0
+        if "Minimax-M2.5" in mq_model_list:
+            mq_default_idx = mq_model_list.index("Minimax-M2.5")
+        selected_model_label = st.selectbox("选择模型:", mq_model_list, index=mq_default_idx)
         AI_MODEL = provider_cfg["models"][selected_model_label]
     with col_p3:
         st.write("") # 占位
@@ -870,7 +874,7 @@ elif page == NAV_DAILY_BRIEF:
         """
 
         @st.cache_data(ttl=86400, show_spinner=False)
-        def fetch_daily_ai_brief(prompt, provider="Google AI Studio"):
+        def fetch_daily_ai_brief(prompt, provider="Google AI Studio", model_id=None):
             import requests as _req
             cfg = AI_PROVIDERS.get(provider, AI_PROVIDERS["Google AI Studio"])
             key = cfg["key"]
@@ -879,14 +883,15 @@ elif page == NAV_DAILY_BRIEF:
             try:
                 headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
                 
-                # 动态获取该提供商配置的第一个模型，防止硬编码导致模型不存在 (400) 问题
-                if cfg.get("models"):
-                    model = list(cfg["models"].values())[0]
-                else:
-                    model = "z-ai/glm-4.5-air:free" # Fallback
+                # 如果没有显式指定模型，则取该提供商配置的第一个模型
+                if not model_id:
+                    if cfg.get("models"):
+                        model_id = list(cfg["models"].values())[0]
+                    else:
+                        model_id = "z-ai/glm-4.5-air:free" # Fallback
                 
                 payload = {
-                    "model": model,
+                    "model": model_id,
                     "messages": [{"role": "user", "content": prompt}],
                     "max_tokens": 2500,
                 }
@@ -920,17 +925,29 @@ elif page == NAV_DAILY_BRIEF:
             except Exception as e:
                 raise Exception(f"简报生成失败: {str(e)}")
                 
-        # 允许切换简报提供商并展示当前具体模型
+        # 允许自由切换简报提供商与具体模型
         st.sidebar.divider()
-        brief_provider = st.sidebar.selectbox("简报生成商:", list(AI_PROVIDERS.keys()), index=1, help="默认使用 Google (Gemini 2.5 Flash)")
+        st.sidebar.markdown("### 📊 简报配置")
+        # 默认商改为 魔塔社区 (index=2)
+        brief_provider = st.sidebar.selectbox("简报服务商:", list(AI_PROVIDERS.keys()), index=2)
         
-        # 实时显示该商调用的具体模型（取配置中第一个）
-        current_brief_model = list(AI_PROVIDERS[brief_provider]["models"].values())[0] if AI_PROVIDERS[brief_provider].get("models") else "Unknown"
-        st.sidebar.caption(f"当前简报通道模型：`{current_brief_model}`")
+        # 允许选择具体模型
+        available_models = AI_PROVIDERS[brief_provider]["models"]
+        model_labels = list(available_models.keys())
+        # 默认尝试选中 Minimax-M2.5
+        default_idx = 0
+        if "Minimax-M2.5" in model_labels:
+            default_idx = model_labels.index("Minimax-M2.5")
+            
+        brief_model_label = st.sidebar.selectbox("简报调用模型:", model_labels, index=default_idx)
+        brief_model_id = available_models[brief_model_label]
+        
+        st.sidebar.caption(f"API 调用路径：`{brief_model_id}`")
 
-        with st.spinner(f"🤖 正在调用 {brief_provider} ({current_brief_model}) 生成当日简报..."):
+        with st.spinner(f"🤖 正在调用 {brief_provider} ({brief_model_label}) 生成当日简报..."):
             try:
-                brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider)
+                # 传入选定的模型 ID
+                brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider, model_id=brief_model_id)
                 st.markdown(brief_report)
             except Exception as call_err:
                 st.error(f"🤖 分析报告生成失败: {call_err}")
