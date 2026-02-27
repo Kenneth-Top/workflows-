@@ -282,7 +282,7 @@ if page == NAV_AI_QUERY:
         if enable_web_search:
             web_search_rules = """
 ## 🌐 联网搜索规范（最高警戒）
-你当前已启用联网功能。你**仅能使用网络信息来解释数据趋势背后的“外部原因”**（如：查阅某天模型用量暴增是否因为降价、发新版或突发新闻）。
+你当前已启用联网功能。你**仅能使用网络信息来解释数据趋势背后的“外部原因”**（如：查阅某天模型用量暴增是否因为降价/某平台免费、发新版或突发新闻）。
 **严禁**用网络上的公开数据来修改、替代或伪造本地数据库（df, df_price等）中的数值。代码绘制的图表和输出的具体 Token 数据，必须 **100% 严格来源于本地数据库**！
 """
         
@@ -718,9 +718,49 @@ elif page == NAV_DAILY_BRIEF:
         st.info("过去两周内没有新上线的模型。")
     else:
         st.markdown(f"过去两周共上线 **{len(new_models_df)}** 个新模型。")
-        display_new = new_models_df[['Model', 'First_Date', 'Days_Online', 'Cumulative', 'Daily_Avg']].copy()
-        display_new.columns = ['模型名称', '上线日期', '上线天数', '累计消耗 (B)', '日均消耗 (B)']
-        display_new['上线日期'] = display_new['上线日期'].dt.strftime('%Y-%m-%d')
+        
+        # 准备增强版的新模型数据（带有价格和跑分）
+        enhanced_new_models = []
+        for row in new_models_df.itertuples():
+            model_name = row.Model
+            norm_name = normalize_model_name(model_name)
+            
+            # --- 查价格 ---
+            input_price, output_price = None, None
+            if df_price is not None and not df_price.empty:
+                latest_price_date = df_price['Date'].max()
+                price_rows = df_price[(df_price['Date'] == latest_price_date) & 
+                                      (df_price['Provider'] == 'Weighted Average')]
+                
+                # 精确匹配（防止部分名称被误杀）
+                matched_price_model = fuzzy_match_model(norm_name, price_rows['Model'].unique().tolist(), threshold=0.6)
+                if matched_price_model:
+                    match_row = price_rows[price_rows['Model'] == matched_price_model[0]].iloc[0]
+                    input_price = match_row.get('Input_Price_1M')
+                    output_price = match_row.get('Output_Price_1M')
+
+            # --- 查 LMARENA 排名 ---
+            arena_rank = None
+            if df_lmarena is not None and not df_lmarena.empty:
+                latest_lm_date = df_lmarena['Date'].max()
+                lm_rows = df_lmarena[df_lmarena['Date'] == latest_lm_date]
+                matched_lm_model = fuzzy_match_model(norm_name, lm_rows['Model'].unique().tolist(), threshold=0.55)
+                if matched_lm_model:
+                    match_row = lm_rows[lm_rows['Model'] == matched_lm_model[0]].iloc[0]
+                    arena_rank = match_row.get('Rank_Overall')
+            
+            enhanced_new_models.append({
+                '模型名称': model_name,
+                '上线日期': row.First_Date.strftime('%Y-%m-%d'),
+                '上线天数': row.Days_Online,
+                '累计消耗 (B)': row.Cumulative,
+                '日均消耗 (B)': row.Daily_Avg,
+                '输入价格 ($/1M)': f"${input_price:.4f}" if pd.notna(input_price) else "-",
+                '输出价格 ($/1M)': f"${output_price:.4f}" if pd.notna(output_price) else "-",
+                'Arena 排名': f"{int(arena_rank)}" if pd.notna(arena_rank) else "-"
+            })
+            
+        display_new = pd.DataFrame(enhanced_new_models)
         st.dataframe(
             display_new.style.format({'累计消耗 (B)': '{:.4f}', '日均消耗 (B)': '{:.4f}'}),
             use_container_width=True, hide_index=True
@@ -917,186 +957,76 @@ elif page == NAV_DAILY_BRIEF:
     st.caption("动量 > 1.2 (绿色背景) = 加速增长 · 动量 < 0.8 (红色背景) = 增速放缓")
 
     # ============================
-    # 模块 E: 近两周新模型动态 (RSS)
+    # 模块 E: AI 智能简报分析 (替换原更新内容)
     # ============================
     st.markdown("---")
-    st.markdown("### 近两周新模型动态")
-
-    if new_models_df.empty:
-        st.info("近两周内无新上线模型，暂无相关新闻可检索。")
-    else:
-        import re as _re
-        import requests as _requests
-
-
-        # ── AI 专业媒体 RSS 源 ──
-        RSS_FEEDS = [
-            ("Reddit LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/new/.rss"),
-            ("Simon Willison",    "https://simonwillison.net/atom/entries/"),
-            ("TechCrunch AI",     "https://techcrunch.com/category/artificial-intelligence/feed/"),
-            ("The Verge AI",      "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
-            ("Ars Technica",      "https://feeds.arstechnica.com/arstechnica/technology-lab"),
-            ("Wired AI",          "https://www.wired.com/feed/tag/ai/latest/rss"),
-            ("MIT Tech Review",   "https://www.technologyreview.com/feed/"),
-            ("InfoQ AI",          "https://feed.infoq.com/"),
-            ("OpenAI Blog",       "https://openai.com/blog/rss.xml"),
-            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml"),
-            ("Google DeepMind",   "https://deepmind.google/blog/rss.xml"),
-            ("Last Week in AI",   "https://lastweekin.ai/feed"),
-        ]
-
-
-        # ── 从模型全名提取品牌名 ──
-        def extract_brand(full_name):
-            base = full_name.split('/')[-1]
-            return base.split('-')[0].lower()
-
-        # ── 自动打标签：返回匹配的品牌名，无匹配返回 None ──
-        def detect_tag(text, brand_label_map):
-            text_lower = text.lower()
-            for brand, label in brand_label_map.items():
-                if brand in text_lower:
-                    return label
-            return None
-
-        # ── 构建品牌名标签映射 ──
-        model_names_raw = new_models_df['Model'].tolist()
-        brand_label_map = {}
+    st.markdown("### 🤖 智能趋势简报")
+    st.caption("基于今日数据的自动深度分析 (数据每日自动缓存，避免重复请求)")
+    
+    # 构造给 AI 的当日关键数据
+    if not df_metrics.empty:
+        # 获取表现最优和最差的模型
+        top_momentum = df_metrics.nlargest(5, 'Momentum')
+        low_momentum = df_metrics.nsmallest(5, 'Momentum')
         
-        # 强制置顶 OpenRouter（确保优先匹配）
-        brand_label_map["openrouter"] = "openrouter"
-        brand_label_map["open router"] = "openrouter" 
-        
-        for full_name in model_names_raw:
-            brand = extract_brand(full_name)
-            if brand and len(brand) >= 3:
-                brand_label_map[brand] = brand
-        
-        # 补充厂商别名和关联（国外+国内主流模型）
-        ALIAS_MAP = {
-            # 国外
-            "gpt": "openai", "o1": "openai", "o3": "openai", 
-            "claude": "anthropic", "gemini": "google", 
-            "llama": "meta", "mistral": "mistralai",
-            # 国内
-            "kimi": "moonshot", "yi": "01.ai", 
-            "doubao": "bytedance", "hunyuan": "tencent",
-            "ernie": "baidu", "qwen": "alibaba",
-            "chatglm": "zhipu", "glm": "zhipu",
-            "minimax": "minimax", "step": "stepfun",
-            "deepseek": "deepseek", "baichuan": "baichuan",
-            "sensechat": "sensetime", "spark": "iflytek"
-        }
-        for short, full in ALIAS_MAP.items():
-            # 只要新模型里出现了 short (如 claude)，就同时也关注 full (anthropic)
-            if short in brand_label_map:
-                brand_label_map[full] = full
+        # 提取新模型简报数据
+        new_models_context = ""
+        if not new_models_df.empty:
+            new_models_context = display_new.to_string(index=False)
+            
+        ai_brief_prompt = f"""
+你是一位资深 AI 产业投研分析师。请基于以下 `每日简报页面` 提取的最新数据，撰写一份今日的【智能趋势简报】。
+当前日期: {latest_date.strftime('%Y-%m-%d')}
 
+## 1. 新模型一览摘要（附带价格和排名）
+{new_models_context if new_models_context else "近两周无新模型。"}
 
-        cutoff = latest_date - pd.Timedelta(days=14)
-        cutoff_str = cutoff.strftime('%Y-%m-%d')
+## 2. 增长动量 (Momentum) 极速上升的模型 TOP 5 (可能存在破圈或免费活动)
+{top_momentum[['Model', 'Momentum', 'Daily_Avg', 'Recent_7d_Avg']].to_string(index=False)}
 
-        # ── 翻译函数（缓存 24 小时）──
-        @st.cache_data(ttl=86400)
-        def translate_zh(text):
-            if not text or not text.strip():
-                return text
+## 3. 增速放缓或萎缩的模型 TOP 5
+{low_momentum[['Model', 'Momentum', 'Daily_Avg', 'Recent_7d_Avg']].to_string(index=False)}
+
+## 你的任务（务必使用网络插件进行验证）：
+1. 找出当前最重要的 1~2 个大模型市场趋势或现象。
+2. 结合上方数据（特别是刚上线的新模型，以及动量激增的模型），联网分析其背后可能的原因（如平台限时免费优惠、推出重大升级 API、在某个榜单上获得了极高的分数等）。
+3. 播报一下新模型中重要模型的情况（测评数据、排名、价格策略点评）。
+提示：如果某模型上量极快，可能是因为在 xx 平台免费了一周，这种必须通过网络搜索找到线索。但你的播报数据必须严格以上方提供的数据为准，仅用网络来补全“原因”。
+排版必须美观专业，不要出现冗长的原始表格，用 markdown 要点形式提炼。
+        """
+
+        @st.cache_data(ttl=86400) # 缓存 24 小时，每天只触发一次
+        def fetch_daily_ai_brief(prompt, api_key_val):
+            import requests as _req
             try:
-                from deep_translator import GoogleTranslator
-                return GoogleTranslator(source='en', target='zh-CN').translate(text[:500])
-            except Exception:
-                return text
-
-        # ── 抓取并解析 RSS（缓存 3 小时，带 User-Agent 防反爬）──
-        @st.cache_data(ttl=10800)
-        def fetch_rss_articles(cutoff_str):
-            import feedparser
-            cutoff_dt = pd.Timestamp(cutoff_str, tz='UTC')
-            results = []
-            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
-            
-            for feed_name, feed_url in RSS_FEEDS:
-                try:
-                    # 先用 requests 获取内容（绕过 Reddit 等站点的 UA 检查）
-                    resp = _requests.get(feed_url, headers=headers, timeout=10)
-                    if resp.status_code != 200:
-                        continue
-                        
-                    feed = feedparser.parse(resp.content)
-                    
-                    for entry in feed.entries:
-                        title = entry.get('title', '').strip()
-                        link  = entry.get('link', '#')
-                        
-                        # 摘要：优先 summary，其次 content
-                        desc_raw = entry.get('summary', '') or ''
-                        if not desc_raw and entry.get('content'):
-                            desc_raw = entry['content'][0].get('value', '')
-                        import re as _re2
-                        desc = _re2.sub(r'<[^>]+>', '', desc_raw).strip()[:300]
-                        
-                        # 发布时间
-                        pub_parsed = entry.get('published_parsed') or entry.get('updated_parsed')
-                        if pub_parsed:
-                            pub_dt = pd.Timestamp(*pub_parsed[:6], tz='UTC')
-                        else:
-                            pub_dt = pd.Timestamp.now(tz='UTC')
-                            
-                        if pub_dt < cutoff_dt:
-                            continue
-                            
-                        results.append({
-                            'title': title, 'desc': desc, 'link': link,
-                            'source': feed_name, 'date': pub_dt.strftime('%Y-%m-%d'),
-                        })
-                except Exception:
-                    continue
-            
-            results.sort(key=lambda x: x['date'], reverse=True)
-            return results
-
-
-        # 显示匹配的品牌（OpenRouter 置顶显示）
-        display_brands = list(brand_label_map.keys())
-        if "openrouter" in display_brands:
-            display_brands.remove("openrouter")
-            display_brands.insert(0, "openrouter")
-        brand_display = ', '.join(display_brands[:10])
-        
-        st.caption(f"数据来源: Reddit / Simon Willison / TechCrunch / The Verge 等 · 每3小时更新 · 重点关注: {brand_display}")
-
-        all_articles = fetch_rss_articles(cutoff_str)
-
-        # ── 过滤出与新模型相关的文章 ──
-        matched = []
-        for art in all_articles:
-            # 搜索匹配
-            tag = detect_tag(f"{art['title']} {art['desc']}", brand_label_map)
-            if tag is not None:
-                art['tag'] = tag
-                matched.append(art)
-
-        if not matched:
-            st.info("近两周内 AI 媒体中未找到这些模型的相关报道。")
+                resp = _req.post(
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {api_key_val}",
+                        "Content-Type": "application/json"
+                    },
+                    json={
+                        "model": "stepfun/step-3.5-flash:free",
+                        "messages": [{"role": "user", "content": prompt}],
+                        "plugins": [{"id": "web", "max_results": 4}],
+                        "max_tokens": 4000
+                    },
+                    timeout=60
+                )
+                resp.raise_for_status()
+                return resp.json()['choices'][0]['message']['content']
+            except Exception as e:
+                return f"🤖 分析报告生成失败。请检查 API Key 或重试。(错误信息: {str(e)})"
+                
+        api_key_env = os.environ.get("OPENROUTER_API_KEY", "") or st.secrets.get("OPENROUTER_API_KEY", "")
+        if not api_key_env:
+            st.warning("⚠️ 缺失 OpenRouter API Key，无法生成智能简报。请在侧边栏『AI 查询』页进行配置。")
         else:
-            st.markdown(f"共找到 **{len(matched)}** 条相关报道（标题和摘要已翻译为中文）")
-            for art in matched:
-                title_zh = translate_zh(art['title']) if art['title'] else "无标题"
-                desc_zh = translate_zh(art['desc']) if art['desc'] else ""
-                
-                # 标题加上标签，如果是 OpenRouter 则高亮
-                tag_str = f"[{art['tag']}]"
-                if art['tag'] == "openrouter":
-                    tag_str = "🔥 [OpenRouter]"
-                
-                with st.expander(
-                    f"{tag_str}  {title_zh}  ·  {art['source']}  ·  {art['date']}",
-                    expanded=False
-                ):
-                    if desc_zh:
-                        st.markdown(desc_zh)
-                    st.caption(f"原文: {art['title']}")
-                    st.markdown(f"[阅读原文 →]({art['link']})")
+            with st.spinner("🤖 正在为您初次生成/读取当日简报... (约需 10~20 秒)"):
+                brief_report = fetch_daily_ai_brief(ai_brief_prompt, api_key_env)
+            st.markdown(brief_report)
+    else:
+        st.info("数据不足，无法生成总结报告。")
 
 
 
