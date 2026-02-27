@@ -272,7 +272,7 @@ if page == NAV_AI_QUERY:
     with col_p3:
         st.write("") # 占位
         st.write("")
-        enable_web_search = st.toggle("🌐 启用联网搜索 (分析趋势)", value=False)
+        enable_web_search = st.toggle("🌐 启用联网搜索", value=False)
 
     api_key = provider_cfg["key"]
     if not api_key:
@@ -424,8 +424,8 @@ if page == NAV_AI_QUERY:
                                 for r in search_results:
                                     context_str += f"- 标题: {r.get('title', '')}\n  摘要: {r.get('body', '')}\n"
                                 
-                                # 注入上下文
-                                api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题：\n{context_str}"
+                                # 注入上下文和强制输出格式要求
+                                api_payload["messages"][-1]["content"] += f"\n\n请参考以下最新的网络搜索结果来辅助回答上述问题：\n{context_str}\n\n【最高优先级指令】：无论你参考了什么外部资料，你的主要任务仍然是执行数据分析。如果你需要生成图表，请务必返回完全独立、无依赖报错的 Python st/alt 渲染代码，并使用 ```python ... ``` 包裹代码块！"
                                 st.toast("✅ 成功抓取最新网络数据附加到 Prompt！")
                             else:
                                 st.toast("⚠️ 未找到相关搜索结果，将使用纯大模型知识库回复。")
@@ -449,22 +449,23 @@ if page == NAV_AI_QUERY:
                             json=api_payload,
                             timeout=75
                         )
-                        resp.raise_for_status()
+                        if resp.status_code != 200:
+                            raise Exception(f"API Error {resp.status_code}: {resp.text}")
                         result = resp.json()
                         ai_reply = result['choices'][0]['message']['content']
                     except Exception as e:
                         ai_reply = f"查询失败: {str(e)}"
-                
-                text_part, chart_code = split_reply(ai_reply)
-                st.markdown(text_part)
-                
-                if chart_code:
-                    try:
-                        safe_exec(chart_code, exec_namespace)
-                    except Exception as e:
-                        st.warning(f"图表渲染出错...")
-                        with st.expander("查看错误详情", expanded=False):
-                            st.code(f"错误: {e}\n\n原始代码:\n{chart_code}", language="python")
+                    
+                    # 渲染文字和代码
+                    text_part, code = split_reply(ai_reply)
+                    st.markdown(text_part)
+                    if code:
+                        try:
+                            safe_exec(code, exec_namespace)
+                        except Exception as code_e:
+                            st.warning("⚠️ 图表渲染出错，大模型生成的代码可能存在语法错误或引用了不存在的列名。")
+                            with st.expander("查看错误详情"):
+                                st.code(str(code_e) + "\n\n" + code)
                 
                 st.session_state.ai_messages.append({
                     "role": "assistant", 
@@ -875,12 +876,11 @@ elif page == NAV_DAILY_BRIEF:
             try:
                 headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
                 
-                if provider == "Google AI Studio":
-                    model = "gemini-2.0-flash"
-                elif provider == "魔塔社区 (ModelScope)":
-                    model = "deepseek-ai/DeepSeek-R1" # 默认高推理质量
+                # 动态获取该提供商配置的第一个模型，防止硬编码导致模型不存在 (400) 问题
+                if cfg.get("models"):
+                    model = list(cfg["models"].values())[0]
                 else:
-                    model = "z-ai/glm-4.5-air:free"
+                    model = "z-ai/glm-4.5-air:free" # Fallback
                 
                 payload = {
                     "model": model,
