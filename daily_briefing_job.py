@@ -85,7 +85,7 @@ def main():
         model = "anthropic/claude-3.5-sonnet"
     else:
         base_url = "https://api-inference.modelscope.cn/v1"
-        model = "MiniMax/MiniMax-M2.5"  # 用户要求默认 Minimax-M2.5
+        model = "ZhipuAI/GLM-5"  # 用户要求默认 GLM-5
         
     print(f"Using Model {model} on {base_url}...")
     headers = {
@@ -96,7 +96,7 @@ def main():
     prompt = f"""你是一个顶尖的 AI 行业投资顾问兼分析师。
 请你根据以下数据库上下文摘要与今日最新搜索资讯，撰写一份【每日大模型行业情报简报】。
 要求：
-1. **优先覆盖核心厂商**：重点分析 OpenAI、Anthropic、Google、Moonshot (Kimi)、DeepSeek、阿里、腾讯、百度的最新模型和动态。
+1. **优先覆盖核心厂商**：重点分析 OpenAI、Anthropic、Google、Moonshot (Kimi)、DeepSeek、Minimax、智谱、阿里的最新模型和动态。
 2. **聚焦变化与动量**：筛选出近期用量激增、跑分爬升或价格骤降的核心模型。过滤掉长尾或无变化的模型。
 3. **多模态专区**：单独开辟一个章节，如果有包含 Vision 等多模态评测变动，请给出分析。
 4. **客观事实与数据**：保持投资研究研报的严谨风格，必须引用上下文中的具体数据支撑您的观点，并结合近期资讯做事实归因。
