@@ -341,24 +341,45 @@ if page == NAV_AI_QUERY:
 
 {web_search_rules}
 
-### [#] 绘图与分析规范
-1. **强制可视化**：你的回复**必须**包含至少一个 ```python ``` 块。
-2. **绘图工具**：优先使用 `st.line_chart(df_subset)`, `st.bar_chart(df_subset)` 或 `px` (Plotly Express)。
+### [#] 绘图与分析规范（全景多维矩阵）
+1. **强制三维图表连发**：无论用户询问单模型还是多模型，你的 ```python 块必须**同时渲染 3 个维度的图表**：
+   - 图表 1：Tokens 消耗规律与趋势图（基于 `df`）。
+   - 图表 2：模型定价横向对比图（基于 `df_price` 的 `Input_Price` 和 `Output_Price`）。
+   - 图表 3：核心测评跑分对比图（基于 `df_bench` 的 `Arena_Elo` 或相关大模型评测指标）。
+   若某项数据表里完全找不到，才允许单独省略该图。
+2. **多模型画图**：包含多个模型时，必须使用 Plotly 的 `color` 属性将它们重叠/并排渲染到同一张图中直观对比！
 3. **数据预处理**：在对 `df` 操作前，务必先执行 `df['Date'] = pd.to_datetime(df['Date'])`。
 4. **输出格式**：
-   - 第一部分：专业投资洞察（2-3 句话）。
-   - 第二部分：```python ``` 绘图代码块。
-   - 第三部分：趋势原因归因（若有联网资料）。
+   - 第一部分：专业核心洞察结论。
+   - 第二部分：包含绘制 3 张图表的完整 ```python 块。
+   - 第三部分：趋势骤变与模型能力分析（必须结合联网搜索抓取的“价格战、大版本更新、新模型发布”等外部事实做归因）。
 
-### 绘图模版（必须包含日期处理）
+### 多维绘图模版示例
 ```python
-# 示例：分析 M2.5 趋势
-target_model = 'minimax-m2.5'
+import plotly.express as px
+import pandas as pd
+
+# 根据用户提问提取的目标模型列表
+targets = ['minimax-m2.5', 'qwen-max'] 
+
+# 1. 用量趋势图
+st.markdown("### 📊 全景扫描：用量热度趋势")
 df['Date'] = pd.to_datetime(df['Date'])
-plot_df = df[df['Display_Name'] == target_model].sort_values('Date')
-st.markdown(f"### {{target_model}} 用量走势")
-st.line_chart(plot_df.set_index('Date')['Total_Tokens'])
-st.dataframe(plot_df.tail(5))
+plot_df = df[df['Display_Name'].isin(targets)].sort_values('Date')
+if not plot_df.empty:
+    st.plotly_chart(px.line(plot_df, x='Date', y='Total_Tokens', color='Display_Name', markers=True))
+
+# 2. 定价对比图
+st.markdown("### 💰 商业分析：API 定价矩阵")
+price_df = df_price[df_price['Model'].str.contains('|'.join(targets), case=False, na=False)]
+if not price_df.empty:
+    st.plotly_chart(px.bar(price_df, x='Model', y=['Input_Price', 'Output_Price'], barmode='group'))
+
+# 3. 跑分水位图
+st.markdown("### 🏆 技术底座：测评水准对比")
+bench_df = df_bench[df_bench['Model'].str.contains('|'.join(targets), case=False, na=False)]
+if not bench_df.empty:
+    st.plotly_chart(px.bar(bench_df, x='Model', y='Arena_Elo', color='Model'))
 ```
 """
 
