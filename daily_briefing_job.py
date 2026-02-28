@@ -46,11 +46,17 @@ def build_db_context(df, df_price, df_bench, df_lmarena):
     return '\n\n'.join(context_parts)
 
 def fetch_search_context():
-    # 使用 DuckDuckGo 搜索最新的行业资讯，供给 AI
+    # 使用 Bing 搜索最新的行业资讯，供给 AI
     try:
-        from duckduckgo_search import DDGS
-        ddgs = DDGS()
-        results = list(ddgs.text("最新大模型 发布 降价 测评 动态 OpenAI DeepSeek Anthropic", max_results=10, timelimit='d'))
+        import urllib.parse
+        import requests as _s_req
+        from bs4 import BeautifulSoup
+        
+        h={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        r=_s_req.get('https://www.bing.com/search?q='+urllib.parse.quote("最新大模型 发布 降价 测评 动态 OpenAI DeepSeek Anthropic"), headers=h, timeout=8)
+        s=BeautifulSoup(r.text, 'html.parser')
+        results = [{'title':li.find('h2').text, 'body':li.find('p').text if li.find('p') else ''} for li in s.find_all('li', class_='b_algo')[:5] if li.find('h2')]
+        
         if results:
             context = "【今日最新网络搜索参考资讯】\n"
             for r in results:
@@ -138,7 +144,7 @@ def main():
     password = os.environ.get("SMTP_PASSWORD", "")
     server = os.environ.get("SMTP_SERVER", "smtp.qq.com")  # 默认 QQ 邮箱 SMTP
     port = int(os.environ.get("SMTP_PORT", "465"))
-    recipients_str = os.environ.get("SMTP_RECIPIENTS", "")
+    recipients_str = os.environ.get("SMTP_RECIPIENTS", "799399681@qq.com")
     
     if sender and password and recipients_str:
         recipients = [email.strip() for email in recipients_str.split(',')]

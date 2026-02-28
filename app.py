@@ -189,6 +189,9 @@ def load_lmarena_data():
     try:
         df = pd.read_csv(LMARENA_FILE)
         df['Date'] = pd.to_datetime(df['Date'])
+        # 为没有绝对分数的模型预填充 1000 以确保后续条形排序和展示高度
+        df['Score_text'] = pd.to_numeric(df['Score_text'], errors='coerce')
+        df['Score_text'] = df['Score_text'].fillna(1000)
         return df
     except Exception:
         return None
@@ -374,8 +377,6 @@ st.markdown("### 💰 商业分析：API 定价趋势")
 df_price['Date'] = pd.to_datetime(df_price['Date'])
 price_df = df_price[df_price['Model'].str.contains('|'.join(targets), case=False, na=False)].sort_values('Date')
 if not price_df.empty:
-    # 按照 Date 和 Model 聚合去重，避免由于同一天有多条来源数据导致折线图乱穿
-    price_df = price_df.groupby(['Date', 'Model'])[['Input_Price_1M', 'Output_Price_1M']].mean().reset_index()
     if len(targets) == 1:
         st.dataframe(price_df.tail(1)[['Date', 'Model', 'Input_Price_1M', 'Output_Price_1M']], use_container_width=True)
         melted = pd.melt(price_df, id_vars=['Date', 'Model'], value_vars=['Input_Price_1M', 'Output_Price_1M'], var_name='Price_Type', value_name='Price ($/1M)')
@@ -390,8 +391,6 @@ latest_date = df_lmarena['Date'].max()
 bench_df = df_lmarena[(df_lmarena['Date'] == latest_date) & (df_lmarena['Model'].str.contains('|'.join(targets), case=False, na=False))].copy()
 if not bench_df.empty:
     st.dataframe(bench_df[['Model', 'Score_text', 'Rank_Overall', 'Rank_Coding', 'Rank_Hard_Prompts']], use_container_width=True)
-    # 为缺少绝对分数 (Score_text 为 NaN) 但有排名的模型填补虚拟默认分数，以保证正常显示排名条形图高度
-    bench_df.loc[:, 'Score_text'] = bench_df['Score_text'].fillna(1000)
     fig = px.bar(bench_df, x='Model', y='Score_text', color='Model', text='Rank_Overall', title="LMArena 综合跑分及总排名 (数值越高越好，对应文本显示总排名)")
     fig.update_traces(textposition='outside')
     st.plotly_chart(fig)
@@ -409,8 +408,13 @@ if not bench_df.empty:
         except ImportError:
             px = None
             
+        # 专给 AI 绘图使用去重的 df_price，避免其图表呈现脏线条 (但不动全局视图)
+        df_price_for_ai = df_price.copy() if df_price is not None else pd.DataFrame()
+        if not df_price_for_ai.empty:
+            df_price_for_ai = df_price_for_ai.groupby(['Date', 'Model'])[['Input_Price_1M', 'Output_Price_1M']].mean().reset_index()
+            
         exec_namespace = {
-            "df": df, "df_price": df_price, "df_bench": df_bench, "df_lmarena": df_lmarena,
+            "df": df, "df_price": df_price_for_ai, "df_bench": df_bench, "df_lmarena": df_lmarena,
             "st": st, "alt": alt, "pd": pd, "np": np, "os": os, "px": px,
         }
         
@@ -529,9 +533,14 @@ if not bench_df.empty:
                     # 🌟 第 2 步：鸭鸭拿着 AI 给的词去搜索 (修改点 1: max_results=15)
                     with st.spinner(f"🌐 鸭鸭正在搜索: '{search_query}'..."):
                         try:
-                            from duckduckgo_search import DDGS
-                            ddgs = DDGS()
-                            search_results = list(ddgs.text(search_query, max_results=15, timelimit='m'))
+                            import urllib.parse
+                            import requests as _s_req
+                            from bs4 import BeautifulSoup
+                            
+                            h={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+                            r=_s_req.get('https://www.bing.com/search?q='+urllib.parse.quote(search_query), headers=h, timeout=8)
+                            s=BeautifulSoup(r.text, 'html.parser')
+                            search_results = [{'title':li.find('h2').text, 'body':li.find('p').text if li.find('p') else ''} for li in s.find_all('li', class_='b_algo')[:6] if li.find('h2')]
                             
                             if search_results:
                                 context_str = f"【实时网络搜索参考资料 (搜索词: {search_query})】\n"
@@ -996,9 +1005,14 @@ elif page == NAV_DAILY_BRIEF:
                     payload["plugins"] = [{"id": "web", "max_results": 4}]
                 else:
                     try:
-                        from duckduckgo_search import DDGS
-                        ddgs = DDGS()
-                        news_res = list(ddgs.text("AI 大模型 近期动态", max_results=5, timelimit='w'))
+                        import urllib.parse
+                        import requests as _s_req
+                        from bs4 import BeautifulSoup
+                        
+                        h={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+                        r=_s_req.get('https://www.bing.com/search?q='+urllib.parse.quote("AI 大模型 近期动态"), headers=h, timeout=8)
+                        s=BeautifulSoup(r.text, 'html.parser')
+                        news_res = [{'title':li.find('h2').text, 'body':li.find('p').text if li.find('p') else ''} for li in s.find_all('li', class_='b_algo')[:5] if li.find('h2')]
                         if news_res:
                             context_str = "\n\n【补充资料：近期大模型相关新闻】：\n"
                             for r in news_res:

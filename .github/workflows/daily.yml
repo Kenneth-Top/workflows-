@@ -21,7 +21,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install requests pandas beautifulsoup4 duckduckgo-search
+        run: pip install requests pandas beautifulsoup4
 
       - name: Run Update Scripts
         env:
