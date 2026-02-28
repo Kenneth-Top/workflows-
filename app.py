@@ -374,9 +374,11 @@ st.markdown("### 💰 商业分析：API 定价趋势")
 df_price['Date'] = pd.to_datetime(df_price['Date'])
 price_df = df_price[df_price['Model'].str.contains('|'.join(targets), case=False, na=False)].sort_values('Date')
 if not price_df.empty:
+    # 按照 Date 和 Model 聚合去重，避免由于同一天有多条来源数据导致折线图乱穿
+    price_df = price_df.groupby(['Date', 'Model'])[['Input_Price_1M', 'Output_Price_1M']].mean().reset_index()
     if len(targets) == 1:
-        st.dataframe(price_df.tail(1)[['Date', 'Provider', 'Model', 'Input_Price_1M', 'Output_Price_1M']], use_container_width=True)
-        melted = pd.melt(price_df, id_vars=['Date'], value_vars=['Input_Price_1M', 'Output_Price_1M'], var_name='Price_Type', value_name='Price ($/1M)')
+        st.dataframe(price_df.tail(1)[['Date', 'Model', 'Input_Price_1M', 'Output_Price_1M']], use_container_width=True)
+        melted = pd.melt(price_df, id_vars=['Date', 'Model'], value_vars=['Input_Price_1M', 'Output_Price_1M'], var_name='Price_Type', value_name='Price ($/1M)')
         st.plotly_chart(px.line(melted, x='Date', y='Price ($/1M)', color='Price_Type', markers=True, title="单模型定价走势"))
     else:
         st.plotly_chart(px.line(price_df, x='Date', y='Input_Price_1M', color='Model', markers=True, title="多模型 Input 价格走势对比"))
@@ -388,6 +390,8 @@ latest_date = df_lmarena['Date'].max()
 bench_df = df_lmarena[(df_lmarena['Date'] == latest_date) & (df_lmarena['Model'].str.contains('|'.join(targets), case=False, na=False))].copy()
 if not bench_df.empty:
     st.dataframe(bench_df[['Model', 'Score_text', 'Rank_Overall', 'Rank_Coding', 'Rank_Hard_Prompts']], use_container_width=True)
+    # 为缺少绝对分数 (Score_text 为 NaN) 但有排名的模型填补虚拟默认分数，以保证正常显示排名条形图高度
+    bench_df.loc[:, 'Score_text'] = bench_df['Score_text'].fillna(1000)
     fig = px.bar(bench_df, x='Model', y='Score_text', color='Model', text='Rank_Overall', title="LMArena 综合跑分及总排名 (数值越高越好，对应文本显示总排名)")
     fig.update_traces(textposition='outside')
     st.plotly_chart(fig)
