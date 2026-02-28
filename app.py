@@ -271,8 +271,8 @@ if page == NAV_AI_QUERY:
     with col_p2:
         mq_model_list = list(provider_cfg["models"].keys())
         mq_default_idx = 0
-        if "Minimax-M2.5" in mq_model_list:
-            mq_default_idx = mq_model_list.index("Minimax-M2.5")
+        if "GLM-5" in mq_model_list:
+            mq_default_idx = mq_model_list.index("GLM-5")
         selected_model_label = st.selectbox("选择模型:", mq_model_list, index=mq_default_idx)
         AI_MODEL = provider_cfg["models"][selected_model_label]
     with col_p3:
@@ -1079,8 +1079,8 @@ elif page == NAV_DAILY_BRIEF:
         available_models = AI_PROVIDERS[brief_provider]["models"]
         model_labels = list(available_models.keys())
         default_idx = 0
-        if "Minimax-M2.5" in model_labels:
-            default_idx = model_labels.index("Minimax-M2.5")
+        if "GLM-5" in model_labels:
+            default_idx = model_labels.index("GLM-5")
             
         brief_model_label = st.sidebar.selectbox("简报调用模型:", model_labels, index=default_idx)
         brief_model_id = available_models[brief_model_label]
