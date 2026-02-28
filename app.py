@@ -343,12 +343,12 @@ if page == NAV_AI_QUERY:
 
 ### [#] 绘图与分析规范（全景多维矩阵）
 1. **强制三维图表连发**：无论用户询问单模型还是多模型，你的 ```python 块必须**同时渲染 3 个维度的图表**：
-   - 图表 1：Tokens 消耗规律与趋势图（基于 `df`）。
-   - 图表 2：模型定价横向对比图（基于 `df_price` 的 `Input_Price` 和 `Output_Price`）。
-   - 图表 3：核心测评跑分对比图（基于 `df_bench` 的 `Arena_Elo` 或相关大模型评测指标）。
-   若某项数据表里完全找不到，才允许单独省略该图。
+   - 图表 1：Tokens 消耗热度趋势图（基于 `df`）。
+   - 图表 2：API 定价历史走势折线图（基于 `df_price`）。如果是单模型，同时画 Input/Output 随着时间的曲线；如果是多模型，画 Input 价格随着时间的分别曲线。**不要仅仅画出最新的柱状图**。
+   - 图表 3：LMArena 综合跑分与排名对比（基于 `df_lmarena` 获取 `Score_text` 和 `Rank_Overall`）。**不要只提供分数，必须包含排名！**
+   若某项数据表里完全找不到目标模型，才允许单独省略该图。
 2. **多模型画图**：包含多个模型时，必须使用 Plotly 的 `color` 属性将它们重叠/并排渲染到同一张图中直观对比！
-3. **数据预处理**：在对 `df` 操作前，务必先执行 `df['Date'] = pd.to_datetime(df['Date'])`。
+3. **数据预处理**：在对 `df`、`df_price` 等包含 `Date` 的表操作前，务必确保 `Date` 为 datetime 类型并进行排序。
 4. **输出格式**：
    - 第一部分：专业核心洞察结论。
    - 第二部分：包含绘制 3 张图表的完整 ```python 块。
@@ -369,17 +369,28 @@ plot_df = df[df['Display_Name'].isin(targets)].sort_values('Date')
 if not plot_df.empty:
     st.plotly_chart(px.line(plot_df, x='Date', y='Total_Tokens', color='Display_Name', markers=True))
 
-# 2. 定价对比图
-st.markdown("### 💰 商业分析：API 定价矩阵")
-price_df = df_price[df_price['Model'].str.contains('|'.join(targets), case=False, na=False)]
+# 2. 定价走势图 (Price Trend)
+st.markdown("### 💰 商业分析：API 定价趋势")
+df_price['Date'] = pd.to_datetime(df_price['Date'])
+price_df = df_price[df_price['Model'].str.contains('|'.join(targets), case=False, na=False)].sort_values('Date')
 if not price_df.empty:
-    st.plotly_chart(px.bar(price_df, x='Model', y=['Input_Price', 'Output_Price'], barmode='group'))
+    if len(targets) == 1:
+        st.dataframe(price_df.tail(1)[['Date', 'Provider', 'Model', 'Input_Price_1M', 'Output_Price_1M']], use_container_width=True)
+        melted = pd.melt(price_df, id_vars=['Date'], value_vars=['Input_Price_1M', 'Output_Price_1M'], var_name='Price_Type', value_name='Price ($/1M)')
+        st.plotly_chart(px.line(melted, x='Date', y='Price ($/1M)', color='Price_Type', markers=True, title="单模型定价走势"))
+    else:
+        st.plotly_chart(px.line(price_df, x='Date', y='Input_Price_1M', color='Model', markers=True, title="多模型 Input 价格走势对比"))
 
-# 3. 跑分水位图
-st.markdown("### 🏆 技术底座：测评水准对比")
-bench_df = df_bench[df_bench['Model'].str.contains('|'.join(targets), case=False, na=False)]
+# 3. 跑分水位与排名图 (LMArena Benchmark)
+st.markdown("### 🏆 技术底座：LMArena 综合跑分与排名")
+df_lmarena['Date'] = pd.to_datetime(df_lmarena['Date'])
+latest_date = df_lmarena['Date'].max()
+bench_df = df_lmarena[(df_lmarena['Date'] == latest_date) & (df_lmarena['Model'].str.contains('|'.join(targets), case=False, na=False))].copy()
 if not bench_df.empty:
-    st.plotly_chart(px.bar(bench_df, x='Model', y='Arena_Elo', color='Model'))
+    st.dataframe(bench_df[['Model', 'Score_text', 'Rank_Overall', 'Rank_Coding', 'Rank_Hard_Prompts']], use_container_width=True)
+    fig = px.bar(bench_df, x='Model', y='Score_text', color='Model', text='Rank_Overall', title="LMArena 综合跑分及总排名 (数值越高越好，对应文本显示总排名)")
+    fig.update_traces(textposition='outside')
+    st.plotly_chart(fig)
 ```
 """
 
@@ -1029,15 +1040,23 @@ elif page == NAV_DAILY_BRIEF:
         
         st.sidebar.caption(f"API 调用路径：`{brief_model_id}`")
 
-        with st.spinner(f"🤖 正在调用 {brief_provider} ({brief_model_label}) 生成当日简报..."):
-            try:
-                brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider, model_id=brief_model_id)
-                st.markdown(brief_report)
-            except Exception as call_err:
-                st.error(f"🤖 分析报告生成失败: {call_err}")
-                if st.button("🔄 重试"):
-                    fetch_daily_ai_brief.clear()
-                    st.rerun()
+        use_cache = st.sidebar.checkbox("优先读取每日凌晨自动生成的缓存简报 (推荐)", value=True)
+        cache_path = "briefing_cache/daily_briefing_latest.md"
+        
+        if use_cache and os.path.exists(cache_path):
+            st.info("💡 当前显示的是由 GitHub Actions 每日凌晨自动生成并缓存的行业简报。如需获取最新实时简报，请在左侧取消勾选“优先读取缓存”。")
+            with open(cache_path, "r", encoding="utf-8") as f:
+                st.markdown(f.read())
+        else:
+            with st.spinner(f"🤖 正在调用 {brief_provider} ({brief_model_label}) 生成实时简报 (耗时可能较长)..."):
+                try:
+                    brief_report = fetch_daily_ai_brief(ai_brief_prompt, provider=brief_provider, model_id=brief_model_id)
+                    st.markdown(brief_report)
+                except Exception as call_err:
+                    st.error(f"🤖 分析报告生成失败: {call_err}")
+                    if st.button("🔄 重试"):
+                        fetch_daily_ai_brief.clear()
+                        st.rerun()
     else:
         st.info("数据不足，无法生成总结报告。")
 
