@@ -302,7 +302,7 @@ if page == NAV_AI_QUERY:
             if _df_price is not None and not _df_price.empty:
                 price_models = sorted(_df_price['Model'].dropna().unique().tolist())
                 context_parts.append(f"""### 定价数据 (变量名: df_price)
-- 列: Date, Model, Provider, Input_Price_1M, Output_Price_1M, Cache_Hit_Rate
+- 列: Date, Model, Input_Price_1M, Output_Price_1M
 - 价格单位: $/1M Tokens
 - **全部定价模型列表**: {', '.join(price_models)}""")
 
@@ -354,15 +354,21 @@ if page == NAV_AI_QUERY:
 3. **数据预处理**：在对 `df`、`df_price` 等包含 `Date` 的表操作前，务必确保 `Date` 为 datetime 类型并进行排序。对宽表 `df_bench` 需要用 `pd.melt()` 处理成长表再画。
 4. **输出格式**：
    - 第一部分：专业核心洞察结论。
-   - 第二部分：包含绘制 3 张图表的完整 ```python 块。
+   - 第二部分：**【核心硬性规定】这部分必须是一整块由 ```python 包裹的、可直接执行的代码区块！你绝对不能偷懒省略，必须完整输出包含 `import plotly` 的代码部分！**
    - 第三部分：趋势骤变与模型能力分析（必须结合联网搜索抓取的“价格战、大版本更新、新模型发布”等外部事实做归因）。
 
-### 多维绘图模版示例
+        - 🚨 **[代码格式要求]**：注意遵守 Python 基本语法缩进与换行，**切勿将多行代码（特别是 import 语句）合并在同一行，必须保持独立成行**。严禁遗漏最外层的 ```python 标记。
+
+        **你的强制 Python 代码模板（请严格遵循并替换数据字段，图表顺序和形式不可更改）**：
+
 ```python
 import plotly.express as px
+# 引入基础库
 import pandas as pd
+# 引入前端组件
+import streamlit as st
 
-# 根据用户提问提取的目标模型列表
+# 目标模型列表
 targets = ['minimax-m2.5', 'qwen-max'] 
 
 # 1. 用量趋势图
@@ -408,6 +414,10 @@ if df_bench is not None:
         if not melted_b.empty:
             fig_bench = px.bar(melted_b, x='Metric', y='Score', color='Model', barmode='group', title="多维度基准独立能力横评得分对比")
             st.plotly_chart(fig_bench)
+        else:
+            st.info("⚠️ 该模型可能为闭源或小众，暂无官方公开核心基准分 (MMLU/MATH/HumanEval等)。")
+    else:
+        st.info("无底层维度数据")
 ```
 """
 
