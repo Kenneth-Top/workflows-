@@ -338,6 +338,7 @@ if page == NAV_AI_QUERY:
 1. **禁止重新加载数据**：`df`, `df_price`, `df_bench`, `df_lmarena` 已经在内存中。**严禁**写任何 `pd.read_csv` 或 `open` 代码！
 2. **禁止任何 XML 标签**：严禁输出 `<parameter>`, `<tool_call>`, `[tool_call]`, `<invoke>` 等标签。
 3. **禁止解释代码**：不要在回复中用文字解释 Python 代码是如何写的，直接输出结论和代码块。
+4. **禁止使用 display() 或 fig.show()**：当前是 Streamlit 运行环境，绝对禁止使用 `display(fig)` 或 `fig.show()`。你必须使用 `st.plotly_chart(fig, use_container_width=True)` 或 `st.dataframe()` 来渲染和展示图表与数据！
 
 ### [#] 数据库上下文
 {db_context}
@@ -347,11 +348,10 @@ if page == NAV_AI_QUERY:
 ### [#] 绘图与分析规范（全景多维矩阵）
 1. **强制三维图表连发**：无论用户询问单模型还是多模型，你的 ```python 块必须**同时渲染 3 个维度的图表**：
    - 图表 1：Tokens 消耗热度趋势图（基于 `df`）。
-   - 图表 2：API 定价历史走势折线图（基于 `df_price`）。如果是单模型，同时画 Input/Output 随着时间的曲线；如果是多模型，画 Input 价格随着时间的分别曲线。**不要仅仅画出最新的柱状图**。
-   - 图表 3：LMArena 综合跑分与排名对比（基于 `df_lmarena` 获取 `Score_text` 和 `Rank_Overall`）。**不要只提供分数，必须包含排名！**
-   若某项数据表里完全找不到目标模型，才允许单独省略该图。
+   - 图表 2：API 定价历史走势折线图（基于 `df_price`）。如果是单模型，同时画 Input/Output 随着时间的曲线；如果是多模型，画 Input 价格随着时间的分别曲线。
+   - 图表 3：权威底层基准跑分对比图（必须结合 `df_bench` 基准分数 和 `df_lmarena` 排名）。如果有具体测试分数（如 MMLU, MATH，从 df_bench 获取并融为长表绘制并列柱状图），就用分数；如果有 Arena Ranking（从 df_lmarena 获取），就用排名辅助标注。**拒绝空数据硬画图！提取真实的基准数据绘制交错对比！**
 2. **多模型画图**：包含多个模型时，必须使用 Plotly 的 `color` 属性将它们重叠/并排渲染到同一张图中直观对比！
-3. **数据预处理**：在对 `df`、`df_price` 等包含 `Date` 的表操作前，务必确保 `Date` 为 datetime 类型并进行排序。
+3. **数据预处理**：在对 `df`、`df_price` 等包含 `Date` 的表操作前，务必确保 `Date` 为 datetime 类型并进行排序。对宽表 `df_bench` 需要用 `pd.melt()` 处理成长表再画。
 4. **输出格式**：
    - 第一部分：专业核心洞察结论。
    - 第二部分：包含绘制 3 张图表的完整 ```python 块。
@@ -384,16 +384,30 @@ if not price_df.empty:
     else:
         st.plotly_chart(px.line(price_df, x='Date', y='Input_Price_1M', color='Model', markers=True, title="多模型 Input 价格走势对比"))
 
-# 3. 跑分水位与排名图 (LMArena Benchmark)
-st.markdown("### 🏆 技术底座：LMArena 综合跑分与排名")
+# 3. 跑分水位与综合基准对比 (LMArena + Benchmarks)
+st.markdown("### 🏆 技术底座：综合基准测试核心指标水位对比")
+# (A) LMArena 全局表现评估
 df_lmarena['Date'] = pd.to_datetime(df_lmarena['Date'])
 latest_date = df_lmarena['Date'].max()
-bench_df = df_lmarena[(df_lmarena['Date'] == latest_date) & (df_lmarena['Model'].str.contains('|'.join(targets), case=False, na=False))].copy()
-if not bench_df.empty:
-    st.dataframe(bench_df[['Model', 'Score_text', 'Rank_Overall', 'Rank_Coding', 'Rank_Hard_Prompts']], use_container_width=True)
-    fig = px.bar(bench_df, x='Model', y='Score_text', color='Model', text='Rank_Overall', title="LMArena 综合跑分及总排名 (数值越高越好，对应文本显示总排名)")
-    fig.update_traces(textposition='outside')
-    st.plotly_chart(fig)
+arena_df = df_lmarena[(df_lmarena['Date'] == latest_date) & (df_lmarena['Model'].str.contains('|'.join(targets), case=False, na=False))].copy()
+if not arena_df.empty:
+    st.dataframe(arena_df[['Model', 'Score_text', 'Rank_Overall', 'Rank_Coding', 'Rank_Hard_Prompts']], use_container_width=True)
+
+# (B) 从权威机器测试集抽取精确指标 (df_bench 处理)
+if df_bench is not None:
+    df_bench['Date'] = pd.to_datetime(df_bench['Date'])
+    b_latest = df_bench['Date'].max()
+    # 提取三大核心权威指标：MMLU (常识/通用), MATH (数学推理), HumanEval (编程) 代码能力
+    b_df = df_bench[(df_bench['Date'] == b_latest) & (df_bench['Metric'].isin(['MMLU', 'MATH', 'HumanEval']))].copy()
+    if not b_df.empty:
+        # 将宽图转换长表
+        melted_b = b_df.melt(id_vars=['Date', 'Metric'], var_name='Model', value_name='Score')
+        melted_b['Score'] = pd.to_numeric(melted_b['Score'], errors='coerce')
+        # 筛选目标模型，并且清除没有分数的脏行
+        melted_b = melted_b[melted_b['Model'].str.contains('|'.join(targets), case=False, na=False)].dropna(subset=['Score'])
+        if not melted_b.empty:
+            fig_bench = px.bar(melted_b, x='Metric', y='Score', color='Model', barmode='group', title="多维度基准独立能力横评得分对比")
+            st.plotly_chart(fig_bench)
 ```
 """
 
@@ -408,10 +422,15 @@ if not bench_df.empty:
         except ImportError:
             px = None
             
-        # 专给 AI 绘图使用去重的 df_price，避免其图表呈现脏线条 (但不动全局视图)
+        # 专给 AI 绘图使用去重的 df_price，优先提取 Weighted Average 供分析，避免不同 Cache Hit Rate 下的各类聚合混乱
         df_price_for_ai = df_price.copy() if df_price is not None else pd.DataFrame()
         if not df_price_for_ai.empty:
-            df_price_for_ai = df_price_for_ai.groupby(['Date', 'Model'])[['Input_Price_1M', 'Output_Price_1M']].mean().reset_index()
+            def _get_daily_price(g):
+                wa = g[g['Provider'] == 'Weighted Average']
+                if not wa.empty:
+                    return wa.iloc[0][['Input_Price_1M', 'Output_Price_1M']]
+                return g[['Input_Price_1M', 'Output_Price_1M']].mean()
+            df_price_for_ai = df_price_for_ai.groupby(['Date', 'Model']).apply(_get_daily_price).reset_index()
             
         exec_namespace = {
             "df": df, "df_price": df_price_for_ai, "df_bench": df_bench, "df_lmarena": df_lmarena,
