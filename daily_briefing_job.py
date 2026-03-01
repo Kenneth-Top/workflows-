@@ -143,7 +143,8 @@ def main():
     sender = os.environ.get("SMTP_SENDER", "")
     password = os.environ.get("SMTP_PASSWORD", "")
     server = os.environ.get("SMTP_SERVER", "smtp.qq.com")  # 默认 QQ 邮箱 SMTP
-    port = int(os.environ.get("SMTP_PORT", "465"))
+    port_str = os.environ.get("SMTP_PORT", "465")
+    port = int(port_str) if port_str.strip() else 465
     recipients_str = os.environ.get("SMTP_RECIPIENTS", "799399681@qq.com")
     
     if sender and password and recipients_str:
