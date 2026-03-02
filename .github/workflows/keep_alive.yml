@@ -1,0 +1,16 @@
+name: Keep Streamlit Awake
+
+on:
+  schedule:
+    # 每天 UTC 0点, 6点, 12点, 18点运行 (北京时间 8点, 14点, 20点, 2点)
+    # Streamlit 几天不活动才会睡眠，不需要太频繁，每6小时足够了
+    - cron: '0 0,6,12,18 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Streamlit App
+        run: |
+          curl -I https://8jjuvf8e3jguhkggqrhxfb.streamlit.app/
