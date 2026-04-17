@@ -1,13 +1,27 @@
 const state = {
   tokens: [],
   filteredTokens: [],
+  cumulativeRows: [],
+  sampleRows: [],
   models: [],
-  chart: null,
+  charts: {
+    cumulative: null,
+    token: null,
+  },
   reports: [],
   currentSamples: [],
 };
 
 const palette = ["#0f8b8d", "#d1495b", "#edae49", "#2e6f95", "#6c5ce7", "#247ba0", "#9a6324", "#008080"];
+
+const sampleFilters = [
+  { id: "filter-user", label: "用户类型", columns: ["user_group_4"] },
+  { id: "filter-region", label: "地区", columns: ["region_bucket", "region"] },
+  { id: "filter-sentiment", label: "情绪", columns: ["sentiment"] },
+  { id: "filter-scene", label: "场景", columns: ["scene_tags", "scenario_tags"] },
+  { id: "filter-praise", label: "夸赞指标", columns: ["praise_tags"] },
+  { id: "filter-competitor", label: "竞品", columns: ["competitor_tags"] },
+];
 
 function $(selector) {
   return document.querySelector(selector);
@@ -20,6 +34,15 @@ function showToast(message, persistent = false) {
   if (!persistent) {
     window.setTimeout(() => toast.classList.add("hidden"), 2600);
   }
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function parseCsv(text) {
@@ -71,6 +94,33 @@ function groupBy(items, keyFn) {
   }, new Map());
 }
 
+function selectedValues(selector) {
+  return Array.from($(selector).selectedOptions).map((item) => item.value);
+}
+
+function daysBetween(startDate, endDate) {
+  const start = new Date(`${startDate}T00:00:00Z`).getTime();
+  const end = new Date(`${endDate}T00:00:00Z`).getTime();
+  return Math.round((end - start) / 86400000);
+}
+
+function downloadCsv(filename, headers, rows) {
+  const csv = [
+    headers.join(","),
+    ...rows.map((row) => headers.map((header) => {
+      const value = row[header] ?? "";
+      return `"${String(value).replaceAll('"', '""')}"`;
+    }).join(",")),
+  ].join("\n");
+  const blob = new Blob([`\ufeff${csv}`], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
 function setupTabs() {
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => {
@@ -82,17 +132,49 @@ function setupTabs() {
   });
 }
 
-function setupTokenControls() {
-  $("#model-search").addEventListener("input", renderModelOptions);
-  $("#model-select").addEventListener("change", renderTokens);
-  $("#range-select").addEventListener("change", renderTokens);
-  $("#download-filtered").addEventListener("click", downloadFilteredTokens);
+function setupCumulativeControls() {
+  $("#cumulative-model-search").addEventListener("input", renderCumulativeModelOptions);
+  $("#cumulative-model-select").addEventListener("change", renderCumulative);
+  $("#cumulative-day-window").addEventListener("change", renderCumulative);
+  $("#download-cumulative").addEventListener("click", () => {
+    if (!state.cumulativeRows.length) return;
+    const headers = Object.keys(state.cumulativeRows[0]);
+    downloadCsv("cumulative_compare.csv", headers, state.cumulativeRows);
+  });
 }
 
-function renderModelOptions() {
-  const search = $("#model-search").value.trim().toLowerCase();
-  const select = $("#model-select");
-  const previous = new Set(Array.from(select.selectedOptions).map((item) => item.value));
+function setupTokenControls() {
+  $("#model-search").addEventListener("input", renderSingleModelOptions);
+  $("#model-select").addEventListener("change", renderSingleModel);
+  $("#range-select").addEventListener("change", renderSingleModel);
+  $("#download-filtered").addEventListener("click", () => {
+    if (!state.filteredTokens.length) return;
+    downloadCsv(
+      "single_model_tokens.csv",
+      ["Date", "Model", "Prompt", "Completion", "Reasoning", "Total_Tokens"],
+      state.filteredTokens,
+    );
+  });
+}
+
+function setupProductControls() {
+  $("#vendor-select").addEventListener("change", renderProductOptions);
+  $("#product-select").addEventListener("change", renderProductReport);
+  $("#sample-search").addEventListener("input", renderSamples);
+  $("#reset-sample-filters").addEventListener("click", resetSampleFilters);
+  $("#download-samples").addEventListener("click", () => {
+    if (!state.sampleRows.length) return;
+    downloadCsv("ai_product_samples.csv", ["t", "handle", "sentiment", "region_bucket", "narrative_bucket", "translated", "u"], state.sampleRows);
+  });
+  sampleFilters.forEach((filter) => {
+    $(`#${filter.id}`).addEventListener("change", renderSamples);
+  });
+}
+
+function renderCumulativeModelOptions() {
+  const search = $("#cumulative-model-search").value.trim().toLowerCase();
+  const select = $("#cumulative-model-select");
+  const previous = new Set(selectedValues("#cumulative-model-select"));
   const visibleModels = state.models.filter((model) => model.toLowerCase().includes(search));
 
   select.innerHTML = "";
@@ -103,12 +185,131 @@ function renderModelOptions() {
     option.selected = previous.has(model) || (!previous.size && index < 3);
     select.append(option);
   });
-  renderTokens();
+  renderCumulative();
 }
 
-function selectedModels() {
-  const selected = Array.from($("#model-select").selectedOptions).map((item) => item.value);
+function selectedCumulativeModels() {
+  const selected = selectedValues("#cumulative-model-select");
   return selected.length ? selected : state.models.slice(0, 3);
+}
+
+function buildCumulativeSeries(models) {
+  const grouped = groupBy(state.tokens.filter((row) => models.includes(row.Display_Name)), (row) => row.Display_Name);
+  const windowValue = $("#cumulative-day-window").value;
+  const dayLimit = windowValue === "all" ? Infinity : Number(windowValue);
+  let maxDay = 0;
+
+  const series = models.map((model) => {
+    const rows = (grouped.get(model) || []).slice().sort((a, b) => a.Date.localeCompare(b.Date));
+    if (!rows.length) return { model, points: [], startDate: "" };
+    const startDate = rows[0].Date;
+    let running = 0;
+    const points = [];
+
+    rows.forEach((row) => {
+      const day = daysBetween(startDate, row.Date);
+      if (day > dayLimit) return;
+      running += row.Total_Tokens;
+      maxDay = Math.max(maxDay, day);
+      points.push({
+        day,
+        date: row.Date,
+        value: Number(running.toFixed(6)),
+      });
+    });
+    return { model, points, startDate };
+  });
+
+  return { series, maxDay };
+}
+
+function renderCumulative() {
+  if (!state.tokens.length) return;
+  const models = selectedCumulativeModels();
+  const { series, maxDay } = buildCumulativeSeries(models);
+  const days = Array.from({ length: maxDay + 1 }, (_, index) => index);
+  const datasets = series.map((item, index) => {
+    const byDay = new Map(item.points.map((point) => [point.day, point.value]));
+    return {
+      label: `${item.model}${item.startDate ? ` (${item.startDate})` : ""}`,
+      data: days.map((day) => byDay.get(day) ?? null),
+      borderColor: palette[index % palette.length],
+      backgroundColor: palette[index % palette.length],
+      tension: 0.25,
+      pointRadius: 0,
+      borderWidth: 2,
+      spanGaps: true,
+    };
+  });
+
+  const leaders = series
+    .map((item) => ({ model: item.model, value: item.points.at(-1)?.value || 0 }))
+    .sort((a, b) => b.value - a.value);
+
+  $("#cum-model-count").textContent = models.length.toLocaleString();
+  $("#cum-max-day").textContent = `${maxDay} 天`;
+  $("#cum-leader").textContent = leaders[0]?.model || "-";
+  $("#cum-leader-total").textContent = shortNumber(leaders[0]?.value || 0);
+
+  if (state.charts.cumulative) state.charts.cumulative.destroy();
+  state.charts.cumulative = new Chart($("#cumulative-chart"), {
+    type: "line",
+    data: { labels: days.map((day) => `Day ${day}`), datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${shortNumber(ctx.parsed.y || 0)}` } },
+      },
+      scales: {
+        x: { title: { display: true, text: "模型收录后的天数" }, ticks: { maxTicksLimit: 12 } },
+        y: { title: { display: true, text: "累计 Tokens (Billion)" } },
+      },
+    },
+  });
+  renderCumulativeTable(series, days);
+}
+
+function renderCumulativeTable(series, days) {
+  const table = $("#cumulative-table");
+  const models = series.map((item) => item.model);
+  table.querySelector("thead").innerHTML = `<tr><th>Day</th>${models.map((model) => `<th>${escapeHtml(model)}</th>`).join("")}</tr>`;
+
+  const byModel = new Map(series.map((item) => [item.model, new Map(item.points.map((point) => [point.day, point.value]))]));
+  const rows = days.map((day) => {
+    const row = { Day: day };
+    models.forEach((model) => {
+      row[model] = byModel.get(model).get(day) ?? "";
+    });
+    return row;
+  });
+  state.cumulativeRows = rows;
+
+  table.querySelector("tbody").innerHTML = rows.map((row) => `
+    <tr>
+      <td>${row.Day}</td>
+      ${models.map((model) => `<td>${row[model] === "" ? "" : Number(row[model]).toFixed(6)}</td>`).join("")}
+    </tr>
+  `).join("");
+}
+
+function renderSingleModelOptions() {
+  const search = $("#model-search").value.trim().toLowerCase();
+  const select = $("#model-select");
+  const current = select.value;
+  const visibleModels = state.models.filter((model) => model.toLowerCase().includes(search));
+
+  select.innerHTML = "";
+  visibleModels.forEach((model, index) => {
+    const option = document.createElement("option");
+    option.value = model;
+    option.textContent = model;
+    option.selected = model === current || (!current && index === 0);
+    select.append(option);
+  });
+  renderSingleModel();
 }
 
 function filterByRange(rows) {
@@ -119,64 +320,63 @@ function filterByRange(rows) {
   return rows.filter((row) => new Date(row.Date).getTime() >= minTime);
 }
 
-function renderTokens() {
+function renderSingleModel() {
   if (!state.tokens.length) return;
-  const models = selectedModels();
-  const baseRows = state.tokens.filter((row) => models.includes(row.Display_Name));
-  const rows = filterByRange(baseRows).sort((a, b) => a.Date.localeCompare(b.Date));
+  const model = $("#model-select").value || state.models[0];
+  const fullRows = state.tokens
+    .filter((row) => row.Display_Name === model)
+    .sort((a, b) => a.Date.localeCompare(b.Date));
+  const rows = filterByRange(fullRows);
   state.filteredTokens = rows;
 
-  const allDates = state.tokens.map((row) => row.Date).sort();
-  const latestDate = allDates.at(-1);
-  const latestTotal = state.tokens
-    .filter((row) => row.Date === latestDate)
-    .reduce((sum, row) => sum + row.Total_Tokens, 0);
-  const selectedTotal = rows.reduce((sum, row) => sum + row.Total_Tokens, 0);
+  const latest = rows.at(-1);
+  const total = rows.reduce((sum, row) => sum + row.Total_Tokens, 0);
+  const reasoning = rows.reduce((sum, row) => sum + row.Reasoning, 0);
+  const completion = rows.reduce((sum, row) => sum + row.Completion, 0);
+  const ratio = completion ? `${((reasoning / completion) * 100).toFixed(1)}%` : "-";
 
-  $("#metric-models").textContent = state.models.length.toLocaleString();
-  $("#metric-range").textContent = `${allDates[0]} ~ ${latestDate}`;
-  $("#metric-latest").textContent = shortNumber(latestTotal);
-  $("#metric-total").textContent = shortNumber(selectedTotal);
+  $("#metric-models").textContent = fullRows.length ? `${fullRows[0].Date} ~ ${fullRows.at(-1).Date}` : "-";
+  $("#metric-range").textContent = rows.length ? `${rows[0].Date} ~ ${rows.at(-1).Date}` : "-";
+  $("#metric-latest").textContent = latest ? shortNumber(latest.Total_Tokens) : "-";
+  $("#metric-total").textContent = `${shortNumber(total)} / R ${ratio}`;
 
-  renderTokenChart(rows, models);
+  renderSingleModelChart(rows);
   renderTokenTable(rows);
 }
 
-function renderTokenChart(rows, models) {
-  const grouped = groupBy(rows, (row) => row.Display_Name);
-  const dates = Array.from(new Set(rows.map((row) => row.Date))).sort();
-  const datasets = models.map((model, index) => {
-    let running = 0;
-    const byDate = new Map((grouped.get(model) || []).map((row) => [row.Date, row.Total_Tokens]));
-    return {
-      label: model,
-      data: dates.map((date) => {
-        running += byDate.get(date) || 0;
-        return Number(running.toFixed(6));
-      }),
-      borderColor: palette[index % palette.length],
-      backgroundColor: palette[index % palette.length],
-      tension: 0.25,
-      pointRadius: 0,
-      borderWidth: 2,
-    };
-  });
+function renderSingleModelChart(rows) {
+  const labels = rows.map((row) => row.Date);
+  const config = [
+    ["Total_Tokens", "Total", "#0f8b8d"],
+    ["Prompt", "Prompt", "#2e6f95"],
+    ["Completion", "Completion", "#d1495b"],
+    ["Reasoning", "Reasoning", "#edae49"],
+  ];
+  const datasets = config.map(([key, label, color]) => ({
+    label,
+    data: rows.map((row) => row[key]),
+    borderColor: color,
+    backgroundColor: color,
+    tension: 0.2,
+    pointRadius: 0,
+    borderWidth: key === "Total_Tokens" ? 3 : 1.8,
+  }));
 
-  if (state.chart) state.chart.destroy();
-  state.chart = new Chart($("#token-chart"), {
+  if (state.charts.token) state.charts.token.destroy();
+  state.charts.token = new Chart($("#token-chart"), {
     type: "line",
-    data: { labels: dates, datasets },
+    data: { labels, datasets },
     options: {
       responsive: true,
       maintainAspectRatio: false,
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },
-        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${shortNumber(ctx.parsed.y)}` } },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${shortNumber(ctx.parsed.y || 0)}` } },
       },
       scales: {
-        x: { ticks: { maxTicksLimit: 9 } },
-        y: { title: { display: true, text: "累计 Tokens (Billion)" } },
+        x: { ticks: { maxTicksLimit: 10 } },
+        y: { title: { display: true, text: "Tokens (Billion)" } },
       },
     },
   });
@@ -184,41 +384,16 @@ function renderTokenChart(rows, models) {
 
 function renderTokenTable(rows) {
   const tbody = $("#token-table tbody");
-  tbody.innerHTML = "";
-  rows.slice().reverse().slice(0, 500).forEach((row) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${row.Date}</td>
-      <td>${row.Display_Name}</td>
+  tbody.innerHTML = rows.slice().reverse().slice(0, 500).map((row) => `
+    <tr>
+      <td>${escapeHtml(row.Date)}</td>
+      <td>${escapeHtml(row.Display_Name)}</td>
       <td>${row.Prompt.toFixed(6)}</td>
       <td>${row.Completion.toFixed(6)}</td>
       <td>${row.Reasoning.toFixed(6)}</td>
       <td>${row.Total_Tokens.toFixed(6)}</td>
-    `;
-    tbody.append(tr);
-  });
-}
-
-function downloadFilteredTokens() {
-  if (!state.filteredTokens.length) return;
-  const headers = ["Date", "Model", "Prompt", "Completion", "Reasoning", "Total_Tokens"];
-  const csv = [
-    headers.join(","),
-    ...state.filteredTokens.map((row) => headers.map((header) => row[header]).join(",")),
-  ].join("\n");
-  const blob = new Blob([`\ufeff${csv}`], { type: "text/csv;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "filtered_tokens.csv";
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
-function setupProductControls() {
-  $("#vendor-select").addEventListener("change", renderProductOptions);
-  $("#product-select").addEventListener("change", renderProductReport);
-  $("#sample-search").addEventListener("input", renderSamples);
+    </tr>
+  `).join("");
 }
 
 function renderProductOptions() {
@@ -244,6 +419,7 @@ async function renderProductReport() {
   $("#report-frame").src = selected.report;
   $("#report-link").href = selected.report;
   state.currentSamples = await loadJson(selected.dataset);
+  populateSampleFilters();
   renderSamples();
 }
 
@@ -252,18 +428,57 @@ function normalizeText(value) {
   return value ? String(value) : "";
 }
 
-function topCounts(rows, column, limit = 6) {
+function valuesFromColumns(row, columns) {
+  return columns.flatMap((column) => {
+    const value = row[column];
+    if (Array.isArray(value)) return value.filter(Boolean).map(String);
+    return value ? [String(value)] : [];
+  });
+}
+
+function topCounts(rows, columns, limit = 6) {
+  const targetColumns = Array.isArray(columns) ? columns : [columns];
   const counts = new Map();
   rows.forEach((row) => {
-    const values = Array.isArray(row[column]) ? row[column] : [row[column]];
-    values.filter(Boolean).forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
+    valuesFromColumns(row, targetColumns).forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
   });
   return Array.from(counts.entries()).sort((a, b) => b[1] - a[1]).slice(0, limit);
+}
+
+function populateSampleFilters() {
+  sampleFilters.forEach((filter) => {
+    const select = $(`#${filter.id}`);
+    const options = Array.from(new Set(state.currentSamples.flatMap((row) => valuesFromColumns(row, filter.columns))))
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
+    select.innerHTML = options.map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join("");
+  });
+  $("#sample-search").value = "";
+}
+
+function rowMatchesSampleFilters(row) {
+  return sampleFilters.every((filter) => {
+    const selected = selectedValues(`#${filter.id}`);
+    if (!selected.length) return true;
+    const values = valuesFromColumns(row, filter.columns);
+    return selected.some((item) => values.includes(item));
+  });
+}
+
+function resetSampleFilters() {
+  $("#sample-search").value = "";
+  sampleFilters.forEach((filter) => {
+    Array.from($(`#${filter.id}`).options).forEach((option) => {
+      option.selected = false;
+    });
+  });
+  renderSamples();
 }
 
 function renderSamples() {
   const query = $("#sample-search").value.trim().toLowerCase();
   const rows = state.currentSamples.filter((row) => {
+    if (!rowMatchesSampleFilters(row)) return false;
     if (!query) return true;
     return [
       row.handle,
@@ -272,18 +487,22 @@ function renderSamples() {
       row.sentiment,
       row.narrative_bucket,
       row.region_bucket,
+      row.region,
       normalizeText(row.scene_tags),
       normalizeText(row.scenario_tags),
+      normalizeText(row.praise_tags),
+      normalizeText(row.complaint_tags),
       normalizeText(row.competitor_tags),
     ].join(" ").toLowerCase().includes(query);
   });
+  state.sampleRows = rows;
 
   const sortedByDate = rows
     .filter((row) => row.t)
     .slice()
     .sort((a, b) => new Date(b.t) - new Date(a.t));
   const topSentiment = topCounts(rows, "sentiment", 1)[0]?.[0] || "未知";
-  const competitorCount = rows.reduce((sum, row) => sum + (Array.isArray(row.competitor_tags) ? row.competitor_tags.length : 0), 0);
+  const competitorCount = rows.reduce((sum, row) => sum + valuesFromColumns(row, ["competitor_tags"]).length, 0);
 
   $("#sample-count").textContent = rows.length.toLocaleString();
   $("#sample-latest").textContent = sortedByDate[0]?.t?.slice(0, 10) || "未知";
@@ -296,16 +515,18 @@ function renderSamples() {
 
 function renderSampleBars(rows) {
   const config = [
-    ["sentiment", "情绪分布"],
-    ["narrative_bucket", "叙事主题"],
-    ["region_bucket", "区域分布"],
-    ["competitor_tags", "竞品提及"],
+    [["sentiment"], "情绪分布"],
+    [["narrative_bucket"], "叙事主题"],
+    [["region_bucket", "region"], "区域分布"],
+    [["scene_tags", "scenario_tags"], "场景"],
+    [["praise_tags"], "夸赞指标"],
+    [["competitor_tags"], "竞品提及"],
   ];
   const wrap = $("#sample-bars");
   wrap.innerHTML = "";
 
-  config.forEach(([column, title]) => {
-    const counts = topCounts(rows, column);
+  config.forEach(([columns, title]) => {
+    const counts = topCounts(rows, columns);
     if (!counts.length) return;
     const max = counts[0][1];
     const group = document.createElement("div");
@@ -315,7 +536,7 @@ function renderSampleBars(rows) {
       const row = document.createElement("div");
       row.className = "bar-row";
       row.innerHTML = `
-        <span title="${label}">${label}</span>
+        <span title="${escapeHtml(label)}">${escapeHtml(label)}</span>
         <div class="bar-track"><div class="bar-fill" style="width:${Math.max(4, (count / max) * 100)}%"></div></div>
         <strong>${count}</strong>
       `;
@@ -327,23 +548,23 @@ function renderSampleBars(rows) {
 
 function renderSampleTable(rows) {
   const tbody = $("#sample-table tbody");
-  tbody.innerHTML = "";
-  rows.slice(0, 120).forEach((row) => {
-    const tr = document.createElement("tr");
-    const content = normalizeText(row.translated || row.x).slice(0, 180);
-    tr.innerHTML = `
-      <td>${normalizeText(row.t).slice(0, 10)}</td>
-      <td>${normalizeText(row.handle)}</td>
-      <td>${normalizeText(row.sentiment)}</td>
-      <td>${normalizeText(row.narrative_bucket)}</td>
-      <td>${content}</td>
+  tbody.innerHTML = rows.slice(0, 160).map((row) => {
+    const content = normalizeText(row.translated || row.x).slice(0, 220);
+    return `
+      <tr>
+        <td>${escapeHtml(normalizeText(row.t).slice(0, 10))}</td>
+        <td>${escapeHtml(normalizeText(row.handle))}</td>
+        <td>${escapeHtml(normalizeText(row.sentiment))}</td>
+        <td>${escapeHtml(normalizeText(row.narrative_bucket))}</td>
+        <td>${escapeHtml(content)}</td>
+      </tr>
     `;
-    tbody.append(tr);
-  });
+  }).join("");
 }
 
 async function init() {
   setupTabs();
+  setupCumulativeControls();
   setupTokenControls();
   setupProductControls();
 
@@ -362,12 +583,13 @@ async function init() {
       .map(([model, items]) => [model, items.reduce((sum, row) => sum + row.Total_Tokens, 0)])
       .sort((a, b) => b[1] - a[1]);
     state.models = totals.map(([model]) => model);
-    renderModelOptions();
+    renderCumulativeModelOptions();
+    renderSingleModelOptions();
 
     const manifest = await loadJson("product_reports/manifest.json");
     state.reports = manifest.reports;
     const vendors = Array.from(new Set(state.reports.map((item) => item.vendor))).sort();
-    $("#vendor-select").innerHTML = vendors.map((vendor) => `<option value="${vendor}">${vendor}</option>`).join("");
+    $("#vendor-select").innerHTML = vendors.map((vendor) => `<option value="${escapeHtml(vendor)}">${escapeHtml(vendor)}</option>`).join("");
     renderProductOptions();
 
     showToast("数据已更新");

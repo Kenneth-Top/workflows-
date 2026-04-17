@@ -14,18 +14,64 @@
       <h1>LLM 数据看板</h1>
     </div>
     <nav class="tabs" aria-label="页面导航">
-      <button class="tab active" data-view="tokens">Tokens 消耗</button>
+      <button class="tab active" data-view="cumulative">累计用量对比</button>
+      <button class="tab" data-view="tokens">单模型 Tokens</button>
       <button class="tab" data-view="products">AI 产品测评</button>
       <button class="tab" data-view="datasets">数据文件</button>
     </nav>
   </header>
 
   <main>
-    <section id="tokens-view" class="view active">
+    <section id="cumulative-view" class="view active">
       <div class="toolbar">
         <label>
           选择模型
-          <select id="model-select" multiple size="7"></select>
+          <select id="cumulative-model-select" multiple size="7"></select>
+        </label>
+        <label>
+          搜索模型
+          <input id="cumulative-model-search" type="search" placeholder="输入模型名">
+        </label>
+        <label>
+          观察窗口
+          <select id="cumulative-day-window">
+            <option value="all">全部天数</option>
+            <option value="90">前 90 天</option>
+            <option value="60">前 60 天</option>
+            <option value="30">前 30 天</option>
+            <option value="14">前 14 天</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="metrics">
+        <div><span>对比模型数</span><strong id="cum-model-count">-</strong></div>
+        <div><span>最长观察</span><strong id="cum-max-day">-</strong></div>
+        <div><span>领先模型</span><strong id="cum-leader">-</strong></div>
+        <div><span>领先累计</span><strong id="cum-leader-total">-</strong></div>
+      </div>
+
+      <div class="chart-wrap tall">
+        <canvas id="cumulative-chart" aria-label="模型累计用量对比"></canvas>
+      </div>
+
+      <div class="table-head">
+        <h2>累计数值明细</h2>
+        <button id="download-cumulative" class="plain-button">下载当前对比</button>
+      </div>
+      <div class="table-wrap">
+        <table id="cumulative-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tokens-view" class="view">
+      <div class="toolbar">
+        <label>
+          选择模型
+          <select id="model-select"></select>
         </label>
         <label>
           搜索模型
@@ -43,10 +89,10 @@
       </div>
 
       <div class="metrics">
-        <div><span>追踪模型数</span><strong id="metric-models">-</strong></div>
-        <div><span>数据区间</span><strong id="metric-range">-</strong></div>
+        <div><span>模型数据区间</span><strong id="metric-models">-</strong></div>
+        <div><span>当前筛选区间</span><strong id="metric-range">-</strong></div>
         <div><span>最新日消耗</span><strong id="metric-latest">-</strong></div>
-        <div><span>累计消耗</span><strong id="metric-total">-</strong></div>
+        <div><span>选段累计 / R 占比</span><strong id="metric-total">-</strong></div>
       </div>
 
       <div class="chart-wrap">
@@ -88,6 +134,37 @@
           样本筛选
           <input id="sample-search" type="search" placeholder="搜索正文、账号、标签">
         </label>
+      </div>
+
+      <div class="filter-panel">
+        <label>
+          用户类型
+          <select id="filter-user" multiple size="4"></select>
+        </label>
+        <label>
+          地区
+          <select id="filter-region" multiple size="4"></select>
+        </label>
+        <label>
+          情绪
+          <select id="filter-sentiment" multiple size="4"></select>
+        </label>
+        <label>
+          场景
+          <select id="filter-scene" multiple size="4"></select>
+        </label>
+        <label>
+          夸赞指标
+          <select id="filter-praise" multiple size="4"></select>
+        </label>
+        <label>
+          竞品
+          <select id="filter-competitor" multiple size="4"></select>
+        </label>
+      </div>
+      <div class="filter-actions">
+        <button id="reset-sample-filters" class="plain-button">清空筛选</button>
+        <button id="download-samples" class="plain-button">下载筛选样本</button>
       </div>
 
       <div class="metrics">

@@ -168,6 +168,10 @@ select[multiple] {
   padding: 14px;
 }
 
+.chart-wrap.tall {
+  height: 500px;
+}
+
 .table-head {
   display: flex;
   align-items: center;
@@ -211,9 +215,30 @@ th {
 
 .product-grid {
   display: grid;
-  grid-template-columns: minmax(340px, 0.9fr) minmax(520px, 1.4fr);
+  grid-template-columns: minmax(380px, 0.9fr) minmax(560px, 1.45fr);
   gap: 20px;
   align-items: start;
+}
+
+.filter-panel {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.filter-panel select {
+  min-height: 112px;
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 10px 0 14px;
 }
 
 .bars {
@@ -229,7 +254,7 @@ th {
 
 .bar-row {
   display: grid;
-  grid-template-columns: minmax(92px, 0.8fr) minmax(120px, 1.4fr) 42px;
+  grid-template-columns: minmax(112px, 0.8fr) minmax(120px, 1.4fr) 42px;
   gap: 10px;
   align-items: center;
   margin-bottom: 8px;
@@ -251,7 +276,7 @@ th {
 
 iframe {
   width: 100%;
-  height: 760px;
+  height: 840px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #ffffff;
@@ -292,6 +317,7 @@ iframe {
 
   .toolbar,
   .metrics,
+  .filter-panel,
   .product-grid {
     grid-template-columns: 1fr;
   }
