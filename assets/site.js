@@ -23,6 +23,14 @@ const sampleFilters = [
   { id: "filter-competitor", label: "竞品", columns: ["competitor_tags"] },
 ];
 
+const alertConfig = {
+  newModelLookbackDays: 30,
+  rampObservationWindow: 7,
+  rampPercentileThreshold: 95,
+  slopeDropThreshold: 0.3,
+  slopeMinDays: 2,
+};
+
 function $(selector) {
   return document.querySelector(selector);
 }
@@ -104,6 +112,17 @@ function daysBetween(startDate, endDate) {
   return Math.round((end - start) / 86400000);
 }
 
+function percentile(values, pct) {
+  const sorted = values.slice().sort((a, b) => a - b);
+  if (!sorted.length) return Infinity;
+  if (sorted.length === 1) return sorted[0];
+  const position = (pct / 100) * (sorted.length - 1);
+  const lower = Math.floor(position);
+  const upper = Math.ceil(position);
+  if (lower === upper) return sorted[lower];
+  return sorted[lower] + (sorted[upper] - sorted[lower]) * (position - lower);
+}
+
 function downloadCsv(filename, headers, rows) {
   const csv = [
     headers.join(","),
@@ -151,7 +170,7 @@ function setupTokenControls() {
     if (!state.filteredTokens.length) return;
     downloadCsv(
       "single_model_tokens.csv",
-      ["Date", "Model", "Prompt", "Completion", "Reasoning", "Total_Tokens"],
+      ["Date", "Model", "Total_Tokens"],
       state.filteredTokens,
     );
   });
@@ -295,6 +314,140 @@ function renderCumulativeTable(series, days) {
   `).join("");
 }
 
+function firstDatesByModel() {
+  const firstDates = new Map();
+  state.tokens.forEach((row) => {
+    const current = firstDates.get(row.Display_Name);
+    if (!current || row.Date < current) {
+      firstDates.set(row.Display_Name, row.Date);
+    }
+  });
+  return firstDates;
+}
+
+function rowsForModel(model, dropLatest = false) {
+  const rows = state.tokens
+    .filter((row) => row.Display_Name === model)
+    .sort((a, b) => a.Date.localeCompare(b.Date));
+  return dropLatest && rows.length > 1 ? rows.slice(0, -1) : rows;
+}
+
+function calcEarlySlope(model, windowDays) {
+  const rows = rowsForModel(model, true);
+  if (!rows.length) return null;
+  const startDate = rows[0].Date;
+  const windowRows = rows.filter((row) => daysBetween(startDate, row.Date) <= windowDays);
+  if (!windowRows.length) return null;
+  const cumTokens = windowRows.reduce((sum, row) => sum + row.Total_Tokens, 0);
+  const actualDays = Math.max(...windowRows.map((row) => daysBetween(startDate, row.Date)));
+  return actualDays <= 0 ? cumTokens : cumTokens / actualDays;
+}
+
+function newModels() {
+  const firstDates = firstDatesByModel();
+  const latestDate = state.tokens.map((row) => row.Date).sort().at(-1);
+  const cutoffTime = new Date(`${latestDate}T00:00:00Z`).getTime() - alertConfig.newModelLookbackDays * 86400000;
+  return Array.from(firstDates.entries())
+    .filter(([, firstDate]) => new Date(`${firstDate}T00:00:00Z`).getTime() >= cutoffTime)
+    .map(([model, firstDate]) => ({ model, firstDate }));
+}
+
+function detectFastRamp() {
+  const slopes = state.models
+    .map((model) => calcEarlySlope(model, alertConfig.rampObservationWindow))
+    .filter((value) => value !== null && value > 0);
+  const threshold = percentile(slopes, alertConfig.rampPercentileThreshold);
+
+  const triggered = newModels().flatMap(({ model, firstDate }) => {
+    const slope = calcEarlySlope(model, alertConfig.rampObservationWindow);
+    if (slope === null || slope <= threshold) return [];
+    const rows = rowsForModel(model, true);
+    if (!rows.length) return [];
+    const obsDays = Math.max(1, daysBetween(firstDate, rows.at(-1).Date));
+    const exceedPct = threshold > 0 && Number.isFinite(threshold) ? ((slope - threshold) / threshold) * 100 : Infinity;
+    return [{
+      model,
+      onlineDate: firstDate,
+      observationDays: Math.min(obsDays, alertConfig.rampObservationWindow),
+      currentSlope: slope,
+      threshold,
+      exceedPct,
+    }];
+  }).sort((a, b) => b.exceedPct - a.exceedPct);
+
+  return { triggered, threshold };
+}
+
+function detectSlopeDrop() {
+  const triggered = newModels().flatMap(({ model, firstDate }) => {
+    const rows = rowsForModel(model, true);
+    if (rows.length < alertConfig.slopeMinDays) return [];
+
+    let cumTokens = 0;
+    const enriched = rows.map((row) => {
+      cumTokens += row.Total_Tokens;
+      return {
+        ...row,
+        dayNum: daysBetween(firstDate, row.Date),
+        cumTokens,
+      };
+    });
+
+    const latest = enriched.at(-1);
+    const prev = enriched.at(-2);
+    if (!latest || !prev || latest.dayNum <= 0 || prev.dayNum <= 0) return [];
+
+    const slopeLatest = latest.cumTokens / latest.dayNum;
+    const slopePrev = prev.cumTokens / prev.dayNum;
+    if (slopePrev <= 0) return [];
+
+    const drop = (slopeLatest - slopePrev) / slopePrev;
+    if (drop > -alertConfig.slopeDropThreshold) return [];
+
+    return [{
+      model,
+      onlineDate: firstDate,
+      slopePrev,
+      slopeLatest,
+      dropPct: drop * 100,
+    }];
+  }).sort((a, b) => a.dropPct - b.dropPct);
+
+  return { triggered };
+}
+
+function renderAlerts() {
+  const fastRamp = detectFastRamp();
+  const slopeDrop = detectSlopeDrop();
+
+  $("#fast-ramp-caption").textContent = `最近 ${alertConfig.newModelLookbackDays} 天新模型，前 ${alertConfig.rampObservationWindow} 天日均累计斜率超过全库 P${alertConfig.rampPercentileThreshold} 即触发。当前阈值：${Number.isFinite(fastRamp.threshold) ? `${fastRamp.threshold.toFixed(6)} B/天` : "暂无"}`;
+  $("#slope-drop-caption").textContent = `最近 ${alertConfig.newModelLookbackDays} 天新模型，最新累计斜率相比前一天下降 ${Math.round(alertConfig.slopeDropThreshold * 100)}% 以上即触发。`;
+
+  $("#fast-ramp-alerts").innerHTML = renderAlertList(
+    fastRamp.triggered,
+    (item) => `
+      <strong>${escapeHtml(item.model)}</strong>
+      <span>上线 ${item.onlineDate}，观察 ${item.observationDays} 天，当前 ${item.currentSlope.toFixed(6)} B/天，超出阈值 ${Number.isFinite(item.exceedPct) ? `+${item.exceedPct.toFixed(1)}%` : "较多"}</span>
+    `,
+    "当前没有增长过快的新模型",
+  );
+
+  $("#slope-drop-alerts").innerHTML = renderAlertList(
+    slopeDrop.triggered,
+    (item) => `
+      <strong>${escapeHtml(item.model)}</strong>
+      <span>上线 ${item.onlineDate}，斜率 ${item.slopePrev.toFixed(6)} → ${item.slopeLatest.toFixed(6)} B/天，变化 ${item.dropPct.toFixed(1)}%</span>
+    `,
+    "当前没有增长放缓预警",
+    true,
+  );
+}
+
+function renderAlertList(items, renderItem, emptyText, warning = false) {
+  if (!items.length) return `<div class="alert-empty">${emptyText}</div>`;
+  return `<div class="alert-list">${items.map((item) => `<div class="alert-item${warning ? " warning" : ""}">${renderItem(item)}</div>`).join("")}</div>`;
+}
+
 function renderSingleModelOptions() {
   const search = $("#model-search").value.trim().toLowerCase();
   const select = $("#model-select");
@@ -331,14 +484,11 @@ function renderSingleModel() {
 
   const latest = rows.at(-1);
   const total = rows.reduce((sum, row) => sum + row.Total_Tokens, 0);
-  const reasoning = rows.reduce((sum, row) => sum + row.Reasoning, 0);
-  const completion = rows.reduce((sum, row) => sum + row.Completion, 0);
-  const ratio = completion ? `${((reasoning / completion) * 100).toFixed(1)}%` : "-";
 
   $("#metric-models").textContent = fullRows.length ? `${fullRows[0].Date} ~ ${fullRows.at(-1).Date}` : "-";
   $("#metric-range").textContent = rows.length ? `${rows[0].Date} ~ ${rows.at(-1).Date}` : "-";
   $("#metric-latest").textContent = latest ? shortNumber(latest.Total_Tokens) : "-";
-  $("#metric-total").textContent = `${shortNumber(total)} / R ${ratio}`;
+  $("#metric-total").textContent = shortNumber(total);
 
   renderSingleModelChart(rows);
   renderTokenTable(rows);
@@ -346,21 +496,15 @@ function renderSingleModel() {
 
 function renderSingleModelChart(rows) {
   const labels = rows.map((row) => row.Date);
-  const config = [
-    ["Total_Tokens", "Total", "#0f8b8d"],
-    ["Prompt", "Prompt", "#2e6f95"],
-    ["Completion", "Completion", "#d1495b"],
-    ["Reasoning", "Reasoning", "#edae49"],
-  ];
-  const datasets = config.map(([key, label, color]) => ({
-    label,
-    data: rows.map((row) => row[key]),
-    borderColor: color,
-    backgroundColor: color,
+  const datasets = [{
+    label: "Total Tokens",
+    data: rows.map((row) => row.Total_Tokens),
+    borderColor: "#0f8b8d",
+    backgroundColor: "#0f8b8d",
     tension: 0.2,
     pointRadius: 0,
-    borderWidth: key === "Total_Tokens" ? 3 : 1.8,
-  }));
+    borderWidth: 3,
+  }];
 
   if (state.charts.token) state.charts.token.destroy();
   state.charts.token = new Chart($("#token-chart"), {
@@ -388,9 +532,6 @@ function renderTokenTable(rows) {
     <tr>
       <td>${escapeHtml(row.Date)}</td>
       <td>${escapeHtml(row.Display_Name)}</td>
-      <td>${row.Prompt.toFixed(6)}</td>
-      <td>${row.Completion.toFixed(6)}</td>
-      <td>${row.Reasoning.toFixed(6)}</td>
       <td>${row.Total_Tokens.toFixed(6)}</td>
     </tr>
   `).join("");
@@ -573,9 +714,6 @@ async function init() {
     const rows = await loadCsv("history_database.csv");
     state.tokens = rows.map((row) => ({
       ...row,
-      Prompt: numberValue(row.Prompt),
-      Completion: numberValue(row.Completion),
-      Reasoning: numberValue(row.Reasoning),
       Total_Tokens: numberValue(row.Total_Tokens),
       Display_Name: row.Model.includes("/") ? row.Model.split("/").at(-1) : row.Model,
     }));
@@ -585,6 +723,7 @@ async function init() {
     state.models = totals.map(([model]) => model);
     renderCumulativeModelOptions();
     renderSingleModelOptions();
+    renderAlerts();
 
     const manifest = await loadJson("product_reports/manifest.json");
     state.reports = manifest.reports;

@@ -180,6 +180,67 @@ select[multiple] {
   margin: 22px 0 10px;
 }
 
+.alert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.alert-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.alert-panel h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.alert-panel p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.alert-list {
+  display: grid;
+  gap: 10px;
+}
+
+.alert-item {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--surface);
+  font-size: 13px;
+}
+
+.alert-item.warning {
+  border-left-color: var(--accent-2);
+}
+
+.alert-item strong {
+  font-size: 14px;
+}
+
+.alert-item span {
+  color: var(--muted);
+}
+
+.alert-empty {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--surface);
+  color: var(--muted);
+}
+
 .table-wrap {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -317,6 +378,7 @@ iframe {
 
   .toolbar,
   .metrics,
+  .alert-grid,
   .filter-panel,
   .product-grid {
     grid-template-columns: 1fr;

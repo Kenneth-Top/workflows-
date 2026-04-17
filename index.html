@@ -56,6 +56,22 @@
       </div>
 
       <div class="table-head">
+        <h2>新模型增长预警</h2>
+      </div>
+      <div id="alert-grid" class="alert-grid">
+        <section class="alert-panel">
+          <h3>增长过快</h3>
+          <p id="fast-ramp-caption">-</p>
+          <div id="fast-ramp-alerts"></div>
+        </section>
+        <section class="alert-panel">
+          <h3>增长放缓</h3>
+          <p id="slope-drop-caption">-</p>
+          <div id="slope-drop-alerts"></div>
+        </section>
+      </div>
+
+      <div class="table-head">
         <h2>累计数值明细</h2>
         <button id="download-cumulative" class="plain-button">下载当前对比</button>
       </div>
@@ -92,7 +108,7 @@
         <div><span>模型数据区间</span><strong id="metric-models">-</strong></div>
         <div><span>当前筛选区间</span><strong id="metric-range">-</strong></div>
         <div><span>最新日消耗</span><strong id="metric-latest">-</strong></div>
-        <div><span>选段累计 / R 占比</span><strong id="metric-total">-</strong></div>
+        <div><span>选段累计</span><strong id="metric-total">-</strong></div>
       </div>
 
       <div class="chart-wrap">
@@ -109,10 +125,7 @@
             <tr>
               <th>日期</th>
               <th>模型</th>
-              <th>Prompt</th>
-              <th>Completion</th>
-              <th>Reasoning</th>
-              <th>Total</th>
+              <th>Total Tokens</th>
             </tr>
           </thead>
           <tbody></tbody>
