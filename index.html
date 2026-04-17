@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM 数据看板</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">AI Model Intelligence</p>
+      <h1>LLM 数据看板</h1>
+    </div>
+    <nav class="tabs" aria-label="页面导航">
+      <button class="tab active" data-view="tokens">Tokens 消耗</button>
+      <button class="tab" data-view="products">AI 产品测评</button>
+      <button class="tab" data-view="datasets">数据文件</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="tokens-view" class="view active">
+      <div class="toolbar">
+        <label>
+          选择模型
+          <select id="model-select" multiple size="7"></select>
+        </label>
+        <label>
+          搜索模型
+          <input id="model-search" type="search" placeholder="输入模型名">
+        </label>
+        <label>
+          时间范围
+          <select id="range-select">
+            <option value="all">全部</option>
+            <option value="30">近 30 天</option>
+            <option value="14">近 14 天</option>
+            <option value="7">近 7 天</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="metrics">
+        <div><span>追踪模型数</span><strong id="metric-models">-</strong></div>
+        <div><span>数据区间</span><strong id="metric-range">-</strong></div>
+        <div><span>最新日消耗</span><strong id="metric-latest">-</strong></div>
+        <div><span>累计消耗</span><strong id="metric-total">-</strong></div>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="token-chart" aria-label="模型 token 累计趋势"></canvas>
+      </div>
+
+      <div class="table-head">
+        <h2>模型明细</h2>
+        <button id="download-filtered" class="plain-button">下载当前数据</button>
+      </div>
+      <div class="table-wrap">
+        <table id="token-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>模型</th>
+              <th>Prompt</th>
+              <th>Completion</th>
+              <th>Reasoning</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="products-view" class="view">
+      <div class="toolbar">
+        <label>
+          厂商
+          <select id="vendor-select"></select>
+        </label>
+        <label>
+          产品
+          <select id="product-select"></select>
+        </label>
+        <label>
+          样本筛选
+          <input id="sample-search" type="search" placeholder="搜索正文、账号、标签">
+        </label>
+      </div>
+
+      <div class="metrics">
+        <div><span>样本数</span><strong id="sample-count">-</strong></div>
+        <div><span>最近样本</span><strong id="sample-latest">-</strong></div>
+        <div><span>主要情绪</span><strong id="sample-sentiment">-</strong></div>
+        <div><span>竞品提及</span><strong id="sample-competitors">-</strong></div>
+      </div>
+
+      <div class="product-grid">
+        <div>
+          <h2>数据概览</h2>
+          <div id="sample-bars" class="bars"></div>
+          <div class="table-wrap compact">
+            <table id="sample-table">
+              <thead>
+                <tr>
+                  <th>时间</th>
+                  <th>账号</th>
+                  <th>情绪</th>
+                  <th>主题</th>
+                  <th>内容</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="table-head">
+            <h2>最新版报告</h2>
+            <a id="report-link" class="plain-link" href="#" target="_blank" rel="noreferrer">新窗口打开</a>
+          </div>
+          <iframe id="report-frame" title="AI 产品测评报告"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="datasets-view" class="view">
+      <div class="download-list">
+        <a href="history_database.csv" download>Token 历史数据 CSV</a>
+        <a href="openrouter_pricing_provider_records.csv" download>OpenRouter 定价 CSV</a>
+        <a href="openrouter_benchmark_records.csv" download>Benchmark 跑分 CSV</a>
+        <a href="lmarena_leaderboard_records.csv" download>LMARENA 排行 CSV</a>
+        <a href="product_reports/hailuo/hailuo_report_final_v38.html" download>海螺最新版报告 HTML</a>
+        <a href="product_reports/minimax-m2/minimax_m2_report_v4.html" download>MiniMax M 系列最新版报告 HTML</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite">正在加载数据...</div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "reports": [
+    {
+      "vendor": "MiniMax",
+      "product": "海螺 Hailuo",
+      "report": "product_reports/hailuo/hailuo_report_final_v38.html",
+      "dataset": "product_reports/hailuo/hailuo_final_dataset_v35.json"
+    },
+    {
+      "vendor": "MiniMax",
+      "product": "MiniMax M 系列",
+      "report": "product_reports/minimax-m2/minimax_m2_report_v4.html",
+      "dataset": "product_reports/minimax-m2/minimax_m2_final_dataset_v4.json"
+    }
+  ]
+}
