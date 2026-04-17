@@ -18,23 +18,20 @@ st.set_page_config(page_title="LLM 数据看板", layout="wide")
 st.title("LLM 数据看板")
 
 # ── 加载数据 ──
-data = load_all()
-df = data["df"]
-error = data["error"]
-df_price = data["df_price"]
-df_bench = data["df_bench"]
-df_lmarena = data["df_lmarena"]
-
-if error and df is None:
-    st.error(error)
-    st.stop()
-
 # ── 侧边栏导航 ──
 st.sidebar.title("导航")
 
 # 仅展示 PAGE_VISIBILITY 中标记为 True 的页面
 visible_pages = [name for name, visible in PAGE_VISIBILITY.items() if visible]
 page = st.sidebar.radio("选择分析视图", visible_pages)
+
+# ── 加载数据 ──
+data = load_all()
+df = data["df"]
+error = data["error"]
+df_price = data["df_price"]
+df_bench = data["df_bench"]
+df_lmarena = data["df_lmarena"]
 
 # 数据概览面板
 st.sidebar.divider()
@@ -58,14 +55,27 @@ if df_lmarena is not None:
 
 # ── 页面路由 ──
 if page == "累计用量对比":
+    if error and df is None:
+        st.error(error)
+        st.stop()
     from views.cumulative_compare import render
     render(df)
 
 elif page == "单模型用量":
+    if error and df is None:
+        st.error(error)
+        st.stop()
     from views.single_model import render
     render(df)
 
+elif page == "AI 产品测评":
+    from views.product_reports import render
+    render()
+
 elif page == "数据导出":
+    if error and df is None:
+        st.error(error)
+        st.stop()
     from views.data_export import render
     render(df)
 

@@ -13,11 +13,19 @@ PRICING_FILE = "openrouter_pricing_provider_records.csv"
 BENCHMARK_FILE = "openrouter_benchmark_records.csv"
 LMARENA_FILE = "lmarena_leaderboard_records.csv"
 
+LOCAL_PRODUCT_REPORT_ROOT = os.path.join(os.path.dirname(__file__), "product_reports")
+EXTERNAL_PRODUCT_REPORT_ROOT = os.path.expanduser(r"~\.openclaw\workspace\investment-report")
+PRODUCT_REPORT_ROOT = os.environ.get(
+    "PRODUCT_REPORT_ROOT",
+    LOCAL_PRODUCT_REPORT_ROOT if os.path.exists(LOCAL_PRODUCT_REPORT_ROOT) else EXTERNAL_PRODUCT_REPORT_ROOT,
+)
+
 # ── Feature Flag：页面可见性 ────────────────────────────
 # True = 在侧边栏导航中展示；False = 隐藏但保留代码逻辑
 PAGE_VISIBILITY = {
     "累计用量对比": True,
     "单模型用量":   True,
+    "AI 产品测评":  True,
     "数据导出":     True,
     # 以下页面隐藏，需要时改为 True 即可恢复
     "AI 查询":       False,
