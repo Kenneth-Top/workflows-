@@ -25,10 +25,6 @@
     <section id="cumulative-view" class="view active">
       <div class="toolbar">
         <label>
-          选择模型
-          <select id="cumulative-model-select" multiple size="7"></select>
-        </label>
-        <label>
           搜索模型
           <input id="cumulative-model-search" type="search" placeholder="输入模型名">
         </label>
@@ -42,6 +38,16 @@
             <option value="14">前 14 天</option>
           </select>
         </label>
+      </div>
+
+      <div class="checkbox-panel">
+        <div class="checkbox-toolbar">
+          <strong>选择模型</strong>
+          <span id="cumulative-selected-count">已选择 0 个</span>
+          <button id="select-visible-models" class="plain-button" type="button">勾选当前结果</button>
+          <button id="clear-cumulative-models" class="plain-button" type="button">清空选择</button>
+        </div>
+        <div id="cumulative-model-list" class="checkbox-list"></div>
       </div>
 
       <div class="metrics">

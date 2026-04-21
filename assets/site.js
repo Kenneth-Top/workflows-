@@ -4,6 +4,7 @@ const state = {
   cumulativeRows: [],
   sampleRows: [],
   models: [],
+  cumulativeSelectedModels: new Set(),
   charts: {
     cumulative: null,
     token: null,
@@ -153,8 +154,15 @@ function setupTabs() {
 
 function setupCumulativeControls() {
   $("#cumulative-model-search").addEventListener("input", renderCumulativeModelOptions);
-  $("#cumulative-model-select").addEventListener("change", renderCumulative);
   $("#cumulative-day-window").addEventListener("change", renderCumulative);
+  $("#select-visible-models").addEventListener("click", () => {
+    visibleCumulativeModels().forEach((model) => state.cumulativeSelectedModels.add(model));
+    renderCumulativeModelOptions();
+  });
+  $("#clear-cumulative-models").addEventListener("click", () => {
+    state.cumulativeSelectedModels.clear();
+    renderCumulativeModelOptions();
+  });
   $("#download-cumulative").addEventListener("click", () => {
     if (!state.cumulativeRows.length) return;
     const headers = Object.keys(state.cumulativeRows[0]);
@@ -190,25 +198,46 @@ function setupProductControls() {
   });
 }
 
-function renderCumulativeModelOptions() {
+function visibleCumulativeModels() {
   const search = $("#cumulative-model-search").value.trim().toLowerCase();
-  const select = $("#cumulative-model-select");
-  const previous = new Set(selectedValues("#cumulative-model-select"));
-  const visibleModels = state.models.filter((model) => model.toLowerCase().includes(search));
+  return state.models.filter((model) => model.toLowerCase().includes(search));
+}
 
-  select.innerHTML = "";
-  visibleModels.forEach((model, index) => {
-    const option = document.createElement("option");
-    option.value = model;
-    option.textContent = model;
-    option.selected = previous.has(model) || (!previous.size && index < 3);
-    select.append(option);
+function renderCumulativeModelOptions() {
+  const list = $("#cumulative-model-list");
+  if (!state.cumulativeSelectedModels.size) {
+    state.models.slice(0, 3).forEach((model) => state.cumulativeSelectedModels.add(model));
+  }
+
+  const visibleModels = visibleCumulativeModels();
+  list.innerHTML = visibleModels.map((model) => {
+    const id = `cum-${model.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+    const checked = state.cumulativeSelectedModels.has(model) ? "checked" : "";
+    return `
+      <label class="checkbox-row" for="${escapeHtml(id)}">
+        <input id="${escapeHtml(id)}" type="checkbox" value="${escapeHtml(model)}" ${checked}>
+        <span>${escapeHtml(model)}</span>
+      </label>
+    `;
+  }).join("");
+
+  list.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        state.cumulativeSelectedModels.add(checkbox.value);
+      } else {
+        state.cumulativeSelectedModels.delete(checkbox.value);
+      }
+      renderCumulative();
+    });
   });
+
+  $("#cumulative-selected-count").textContent = `已选择 ${state.cumulativeSelectedModels.size} 个`;
   renderCumulative();
 }
 
 function selectedCumulativeModels() {
-  const selected = selectedValues("#cumulative-model-select");
+  const selected = Array.from(state.cumulativeSelectedModels);
   return selected.length ? selected : state.models.slice(0, 3);
 }
 
