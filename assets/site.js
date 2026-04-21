@@ -6,11 +6,14 @@ const state = {
   pricing: [],
   filteredPricing: [],
   pricingMetadata: {},
+  pricingSelectedModels: new Set(),
+  pricingSelectedPriceTypes: new Set(["Input_Price_1M", "Output_Price_1M", "Cache_Hit_Price_1M"]),
   models: [],
   cumulativeSelectedModels: new Set(),
   charts: {
     cumulative: null,
     token: null,
+    pricing: null,
   },
   reports: [],
   currentSamples: [],
@@ -25,6 +28,14 @@ const sampleFilters = [
   { id: "filter-scene", label: "场景", columns: ["scene_tags", "scenario_tags"] },
   { id: "filter-praise", label: "夸赞指标", columns: ["praise_tags"] },
   { id: "filter-competitor", label: "竞品", columns: ["competitor_tags"] },
+];
+
+const pricingPriceTypes = [
+  { key: "Input_Price_1M", label: "Input" },
+  { key: "Output_Price_1M", label: "Output" },
+  { key: "Cache_Write_Price_1M", label: "Cache Write" },
+  { key: "Cache_Hit_Price_1M", label: "Cache Hit" },
+  { key: "Cache_Storage_Price_Per_Hour_Per_1M", label: "Cache Storage" },
 ];
 
 const alertConfig = {
@@ -189,14 +200,27 @@ function setupTokenControls() {
 
 
 function setupPricingControls() {
-  ["#pricing-provider-select", "#pricing-model-search", "#pricing-sort", "#pricing-cache-only"].forEach((selector) => {
-    $(selector).addEventListener(selector === "#pricing-model-search" ? "input" : "change", renderPricing);
+  $("#pricing-provider-select").addEventListener("change", () => {
+    state.pricingSelectedModels.clear();
+    renderPricingModelOptions();
+  });
+  $("#pricing-model-search").addEventListener("input", renderPricingModelOptions);
+  $("#pricing-sort").addEventListener("change", renderPricing);
+  $("#pricing-cache-only").addEventListener("change", renderPricingModelOptions);
+  $("#select-visible-pricing-models").addEventListener("click", () => {
+    visiblePricingModelRows().forEach((row) => state.pricingSelectedModels.add(pricingModelKey(row)));
+    renderPricingModelOptions();
+  });
+  $("#clear-pricing-models").addEventListener("click", () => {
+    state.pricingSelectedModels.clear();
+    renderPricingModelOptions();
   });
   $("#download-pricing").addEventListener("click", () => {
     if (!state.filteredPricing.length) return;
     downloadCsv("artificial_analysis_pricing_filtered.csv", [
       "Provider",
       "Model",
+      "Release_Date",
       "Host_API_ID",
       "Input_Price_1M",
       "Output_Price_1M",
@@ -597,6 +621,17 @@ function populatePricingProviders() {
   select.innerHTML = '<option value="all">All Providers</option>' + providers.map((provider) => `<option value="${escapeHtml(provider)}">${escapeHtml(provider)}</option>`).join("");
 }
 
+function pricingModelKey(row) {
+  return [row.Provider, row.Model, row.Host_API_ID || row.Host_Model_Slug || row.Host_Model || ""].join("||");
+}
+
+function pricingModelLabel(row) {
+  const provider = $("#pricing-provider-select").value;
+  const api = row.Host_API_ID ? ` ? ${row.Host_API_ID}` : "";
+  const prefix = provider === "all" ? `${row.Provider} - ` : "";
+  return `${prefix}${row.Model}${api}`;
+}
+
 function hasCachePrice(row) {
   return ["Cache_Write_Price_1M", "Cache_Hit_Price_1M", "Cache_Storage_Price_Per_Hour_Per_1M"]
     .some((key) => row[key] !== null && row[key] !== undefined && row[key] !== "");
@@ -617,38 +652,236 @@ function formatPrice(value) {
 
 function sortPricingRows(rows) {
   const sort = $("#pricing-sort").value;
-  const byName = (a, b) => `${a.Provider} ${a.Model}`.localeCompare(`${b.Provider} ${b.Model}`);
+  const byName = (a, b) => `${a.Provider} ${a.Model} ${a.Host_API_ID || ""}`.localeCompare(`${b.Provider} ${b.Model} ${b.Host_API_ID || ""}`);
   if (sort === "input_asc") return rows.sort((a, b) => priceValue(a.Input_Price_1M) - priceValue(b.Input_Price_1M) || byName(a, b));
   if (sort === "output_asc") return rows.sort((a, b) => priceValue(a.Output_Price_1M) - priceValue(b.Output_Price_1M) || byName(a, b));
   if (sort === "cache_hit_asc") return rows.sort((a, b) => priceValue(a.Cache_Hit_Price_1M) - priceValue(b.Cache_Hit_Price_1M) || byName(a, b));
   return rows.sort(byName);
 }
 
-function renderPricing() {
-  if (!state.pricing.length) return;
+function basePricingRows() {
   const provider = $("#pricing-provider-select").value;
   const query = $("#pricing-model-search").value.trim().toLowerCase();
   const cacheOnly = $("#pricing-cache-only").checked;
-
-  const rows = sortPricingRows(state.pricing.filter((row) => {
+  return state.pricing.filter((row) => {
     if (provider !== "all" && row.Provider !== provider) return false;
     if (cacheOnly && !hasCachePrice(row)) return false;
     if (!query) return true;
     return [row.Provider, row.Model, row.Host_Model, row.Host_API_ID, row.Model_Slug, row.Host_Model_Slug]
       .join(" ").toLowerCase().includes(query);
-  }));
+  });
+}
+
+function visiblePricingModelRows() {
+  const byKey = new Map();
+  sortPricingRows(basePricingRows().slice()).forEach((row) => {
+    const key = pricingModelKey(row);
+    if (!byKey.has(key)) byKey.set(key, row);
+  });
+  return Array.from(byKey.values());
+}
+
+function selectedPricingPriceTypes() {
+  const selected = Array.from(state.pricingSelectedPriceTypes);
+  return selected.length ? selected : ["Input_Price_1M", "Output_Price_1M"];
+}
+
+function renderPricingPriceTypeOptions() {
+  const list = $("#pricing-price-type-list");
+  list.innerHTML = pricingPriceTypes.map((type) => {
+    const checked = state.pricingSelectedPriceTypes.has(type.key) ? "checked" : "";
+    return `
+      <label class="checkbox-row" for="price-${escapeHtml(type.key)}">
+        <input id="price-${escapeHtml(type.key)}" type="checkbox" value="${escapeHtml(type.key)}" ${checked}>
+        <span>${escapeHtml(type.label)}</span>
+      </label>
+    `;
+  }).join("");
+  list.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        state.pricingSelectedPriceTypes.add(checkbox.value);
+      } else {
+        state.pricingSelectedPriceTypes.delete(checkbox.value);
+      }
+      $("#pricing-selected-type-count").textContent = `Selected ${state.pricingSelectedPriceTypes.size}`;
+      renderPricing();
+    });
+  });
+  $("#pricing-selected-type-count").textContent = `Selected ${state.pricingSelectedPriceTypes.size}`;
+}
+
+function renderPricingModelOptions() {
+  const list = $("#pricing-model-list");
+  const rows = visiblePricingModelRows();
+  const hasVisibleSelection = rows.some((row) => state.pricingSelectedModels.has(pricingModelKey(row)));
+  if (!state.pricingSelectedModels.size || !hasVisibleSelection) {
+    state.pricingSelectedModels.clear();
+    rows.slice(0, 6).forEach((row) => state.pricingSelectedModels.add(pricingModelKey(row)));
+  }
+
+  list.innerHTML = rows.map((row, index) => {
+    const key = pricingModelKey(row);
+    const id = `pricing-model-${index}`;
+    const checked = state.pricingSelectedModels.has(key) ? "checked" : "";
+    const date = row.Release_Date ? ` - ${row.Release_Date.slice(0, 7)}` : "";
+    return `
+      <label class="checkbox-row" for="${id}">
+        <input id="${id}" type="checkbox" value="${escapeHtml(key)}" ${checked}>
+        <span>${escapeHtml(pricingModelLabel(row) + date)}</span>
+      </label>
+    `;
+  }).join("");
+
+  list.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        state.pricingSelectedModels.add(checkbox.value);
+      } else {
+        state.pricingSelectedModels.delete(checkbox.value);
+      }
+      renderPricing();
+    });
+  });
+  renderPricing();
+}
+
+function renderPricing() {
+  if (!state.pricing.length) return;
+  const selectedModels = state.pricingSelectedModels;
+  const rows = sortPricingRows(basePricingRows().filter((row) => selectedModels.has(pricingModelKey(row))));
+  const priceTypes = selectedPricingPriceTypes();
   state.filteredPricing = rows;
 
+  $("#pricing-selected-model-count").textContent = `Selected ${selectedModels.size}`;
+  $("#pricing-selected-type-count").textContent = `Selected ${state.pricingSelectedPriceTypes.size}`;
   $("#pricing-record-count").textContent = rows.length.toLocaleString();
   $("#pricing-provider-count").textContent = new Set(rows.map((row) => row.Provider)).size.toLocaleString();
   $("#pricing-model-count").textContent = new Set(rows.map((row) => row.Model)).size.toLocaleString();
   $("#pricing-updated-at").textContent = (state.pricingMetadata.generated_at || "").slice(0, 10) || "-";
 
+  renderPricingChart(rows, priceTypes);
+  renderPricingTable(rows);
+}
+
+function priceTypeLabel(key) {
+  return pricingPriceTypes.find((type) => type.key === key)?.label || key;
+}
+
+function pricingRowLabel(row, includeProvider = true) {
+  const provider = includeProvider ? `${row.Provider} - ` : "";
+  return `${provider}${row.Model}`;
+}
+
+function renderPricingChart(rows, priceTypes) {
+  if (state.charts.pricing) state.charts.pricing.destroy();
+  const selectedProvider = $("#pricing-provider-select").value;
+  const providerCount = new Set(rows.map((row) => row.Provider)).size;
+  const isTimeline = selectedProvider !== "all" && providerCount === 1;
+
+  if (isTimeline) {
+    renderPricingTimeline(rows, priceTypes, selectedProvider);
+  } else {
+    renderPricingBars(rows, priceTypes);
+  }
+}
+
+function renderPricingTimeline(rows, priceTypes, provider) {
+  const datedRows = rows
+    .filter((row) => row.Release_Date)
+    .slice()
+    .sort((a, b) => a.Release_Date.localeCompare(b.Release_Date) || pricingRowLabel(a, false).localeCompare(pricingRowLabel(b, false)));
+  const labels = datedRows.map((row) => `${row.Release_Date.slice(0, 7)} ${row.Model}`);
+  const missing = rows.length - datedRows.length;
+
+  $("#pricing-chart-title").textContent = `${provider} price timeline`;
+  $("#pricing-chart-note").textContent = `Stepped chart by Artificial Analysis release dates. ${missing ? `${missing} selected rows without release dates are omitted.` : "All selected rows have release dates."}`;
+
+  state.charts.pricing = new Chart($("#pricing-chart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: priceTypes.map((key, index) => ({
+        label: priceTypeLabel(key),
+        data: datedRows.map((row) => {
+          const value = Number(row[key]);
+          return Number.isFinite(value) ? value : null;
+        }),
+        borderColor: palette[index % palette.length],
+        backgroundColor: palette[index % palette.length],
+        stepped: true,
+        tension: 0,
+        pointRadius: 4,
+        borderWidth: 2,
+        spanGaps: true,
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: {
+          callbacks: {
+            title: (items) => datedRows[items[0].dataIndex] ? `${datedRows[items[0].dataIndex].Model} - ${datedRows[items[0].dataIndex].Release_Date}` : "",
+            label: (ctx) => `${ctx.dataset.label}: ${formatPrice(ctx.parsed.y)}`,
+          },
+        },
+      },
+      scales: {
+        x: { ticks: { maxRotation: 45, minRotation: 0, maxTicksLimit: 12 } },
+        y: { title: { display: true, text: "USD per 1M tokens" } },
+      },
+    },
+  });
+}
+
+function renderPricingBars(rows, priceTypes) {
+  const chartRows = rows.slice(0, 40);
+  const labels = chartRows.map((row) => pricingRowLabel(row, true));
+  const omitted = rows.length > chartRows.length ? rows.length - chartRows.length : 0;
+
+  $("#pricing-chart-title").textContent = "Model price comparison";
+  $("#pricing-chart-note").textContent = omitted ? `Bar chart shows the first ${chartRows.length} selected rows; ${omitted} more rows are available in the table.` : "Bar chart shows all selected rows.";
+
+  state.charts.pricing = new Chart($("#pricing-chart"), {
+    type: "bar",
+    data: {
+      labels,
+      datasets: priceTypes.map((key, index) => ({
+        label: priceTypeLabel(key),
+        data: chartRows.map((row) => {
+          const value = Number(row[key]);
+          return Number.isFinite(value) ? value : null;
+        }),
+        backgroundColor: palette[index % palette.length],
+        borderColor: palette[index % palette.length],
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${formatPrice(ctx.parsed.y)}` } },
+      },
+      scales: {
+        x: { ticks: { maxRotation: 45, minRotation: 0, maxTicksLimit: 16 } },
+        y: { title: { display: true, text: "USD per 1M tokens" } },
+      },
+    },
+  });
+}
+
+function renderPricingTable(rows) {
   const tbody = $("#pricing-table tbody");
   tbody.innerHTML = rows.slice(0, 800).map((row) => `
     <tr>
       <td>${escapeHtml(row.Provider)}</td>
       <td>${escapeHtml(row.Model)}</td>
+      <td>${escapeHtml(row.Release_Date || "")}</td>
       <td>${escapeHtml(row.Host_API_ID || "")}</td>
       <td>${formatPrice(row.Input_Price_1M)}</td>
       <td>${formatPrice(row.Output_Price_1M)}</td>
@@ -860,7 +1093,8 @@ async function init() {
     state.pricingMetadata = pricingPayload;
     state.pricing = pricingPayload.records || [];
     populatePricingProviders();
-    renderPricing();
+    renderPricingPriceTypeOptions();
+    renderPricingModelOptions();
 
     const manifest = await loadJson("product_reports/manifest.json");
     state.reports = manifest.reports;

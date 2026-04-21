@@ -249,6 +249,26 @@
         </label>
       </div>
 
+      <div class="pricing-controls-grid">
+        <div class="checkbox-panel pricing-picker">
+          <div class="checkbox-toolbar">
+            <strong>&#x9009;&#x62E9;&#x6A21;&#x578B;</strong>
+            <span id="pricing-selected-model-count">&#x5DF2;&#x9009;&#x62E9; 0 &#x4E2A;</span>
+            <button id="select-visible-pricing-models" class="plain-button" type="button">&#x52FE;&#x9009;&#x5F53;&#x524D;&#x7ED3;&#x679C;</button>
+            <button id="clear-pricing-models" class="plain-button" type="button">&#x6E05;&#x7A7A;&#x9009;&#x62E9;</button>
+          </div>
+          <div id="pricing-model-list" class="checkbox-list pricing-model-list"></div>
+        </div>
+
+        <div class="checkbox-panel pricing-picker">
+          <div class="checkbox-toolbar">
+            <strong>&#x9009;&#x62E9;&#x4EF7;&#x683C;&#x7C7B;&#x578B;</strong>
+            <span id="pricing-selected-type-count">&#x5DF2;&#x9009;&#x62E9; 0 &#x4E2A;</span>
+          </div>
+          <div id="pricing-price-type-list" class="checkbox-list pricing-type-list"></div>
+        </div>
+      </div>
+
       <div class="metrics">
         <div><span>&#x4EF7;&#x683C;&#x8BB0;&#x5F55;</span><strong id="pricing-record-count">-</strong></div>
         <div><span>Provider &#x6570;</span><strong id="pricing-provider-count">-</strong></div>
@@ -257,8 +277,18 @@
       </div>
 
       <div class="table-head">
-        <h2>Artificial Analysis &#x6A21;&#x578B;&#x4EF7;&#x683C;</h2>
+        <div>
+          <h2 id="pricing-chart-title">Artificial Analysis &#x6A21;&#x578B;&#x4EF7;&#x683C;</h2>
+          <p id="pricing-chart-note" class="chart-note">-</p>
+        </div>
         <button id="download-pricing" class="plain-button">&#x4E0B;&#x8F7D;&#x5F53;&#x524D;&#x4EF7;&#x683C;</button>
+      </div>
+      <div class="chart-wrap pricing-chart-wrap">
+        <canvas id="pricing-chart" aria-label="Artificial Analysis &#x6A21;&#x578B;&#x4EF7;&#x683C;&#x56FE;&#x8868;"></canvas>
+      </div>
+
+      <div class="table-head">
+        <h2>&#x4EF7;&#x683C;&#x660E;&#x7EC6;</h2>
       </div>
       <div class="table-wrap">
         <table id="pricing-table">
@@ -266,6 +296,7 @@
             <tr>
               <th>Provider</th>
               <th>&#x6A21;&#x578B;</th>
+              <th>&#x53D1;&#x5E03;&#x65F6;&#x95F4;</th>
               <th>API ID</th>
               <th>Input / 1M</th>
               <th>Output / 1M</th>
