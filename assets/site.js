@@ -116,6 +116,19 @@ function shortNumber(value) {
   return `${value.toFixed(4)} B`;
 }
 
+function compactOpenRouterModelName(model) {
+  if (!model) return "";
+  if (model === "Others") return "Others";
+  return String(model)
+    .split("/")
+    .at(-1)
+    .replace(/-\d{4}-\d{2}-\d{2}$/g, "")
+    .replace(/-\d{8}$/g, "")
+    .replace(/-\d{4}-\d{2}$/g, "")
+    .replace(/-\d{6}$/g, "")
+    .replace(/-\d{4}$/g, "");
+}
+
 function percentValue(value) {
   const parsed = Number(value);
   if (!Number.isFinite(parsed)) return "-";
@@ -172,12 +185,43 @@ function downloadCsv(filename, headers, rows) {
 function setupTabs() {
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
-      document.querySelectorAll(".view").forEach((item) => item.classList.remove("active"));
-      button.classList.add("active");
-      $(`#${button.dataset.view}-view`).classList.add("active");
+      if (button.dataset.navGroup === "openrouter") {
+        activateOpenRouterModule(button.dataset.moduleDefault || "cumulative");
+        return;
+      }
+      activateView(button.dataset.view);
     });
   });
+}
+
+function activateView(view, navGroup = view) {
+  document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
+  document.querySelectorAll(".view").forEach((item) => item.classList.remove("active"));
+  const viewEl = $(`#${view}-view`);
+  if (viewEl) viewEl.classList.add("active");
+  const tab = document.querySelector(`.tab[data-nav-group="${navGroup}"], .tab[data-view="${view}"]`);
+  if (tab) tab.classList.add("active");
+}
+
+function setupOpenRouterModules() {
+  document.querySelectorAll(".module-tab").forEach((button) => {
+    button.addEventListener("click", () => activateOpenRouterModule(button.dataset.openrouterModule));
+  });
+}
+
+function activateOpenRouterModule(module) {
+  const view = module === "cumulative" ? "cumulative" : module === "tokens" ? "tokens" : "openrouter";
+  activateView(view, "openrouter");
+  document.querySelectorAll(".module-tab").forEach((button) => {
+    button.classList.toggle("active", button.dataset.openrouterModule === module);
+  });
+  document.querySelectorAll(".openrouter-panel").forEach((panel) => {
+    panel.classList.toggle("active", panel.id === `openrouter-${module}-panel`);
+  });
+  if (module === "cumulative") renderCumulative();
+  if (module === "tokens") renderSingleModel();
+  if (module === "market") renderMarketShare();
+  if (module === "apps") renderAppUsage();
 }
 
 function setupCumulativeControls() {
@@ -762,16 +806,24 @@ function renderAppUsage() {
   const rows = filterAppRange(allRows);
   state.filteredAppUsage = rows;
   const dates = Array.from(new Set(rows.map((row) => row.Date))).sort();
-  const models = Array.from(groupBy(rows, (row) => row.Model).entries())
+  const displayRows = rows.map((row) => ({
+    ...row,
+    Display_Model: compactOpenRouterModelName(row.Model),
+  }));
+  const models = Array.from(groupBy(displayRows, (row) => row.Display_Model).entries())
     .map(([model, items]) => [model, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
     .sort((a, b) => b[1] - a[1])
     .map(([model]) => model);
-  const byModelDate = new Map(rows.map((row) => [`${row.Model}||${row.Date}`, numberValue(row.Tokens)]));
+  const byModelDate = displayRows.reduce((acc, row) => {
+    const key = `${row.Display_Model}||${row.Date}`;
+    acc.set(key, (acc.get(key) || 0) + numberValue(row.Tokens));
+    return acc;
+  }, new Map());
   const topModel = models[0] || "-";
 
   $("#app-latest-date").textContent = dates.at(-1) || "-";
   $("#app-top-model").textContent = topModel;
-  $("#app-usage-note").textContent = "App detail data is aggregated by week and skips the latest incomplete week; the weekly scraper will accumulate more history over time.";
+  $("#app-usage-note").textContent = "App detail data is recorded by day and skips the latest incomplete day; scheduled updates will accumulate more history over time.";
 
   if (state.charts.appUsage) state.charts.appUsage.destroy();
   state.charts.appUsage = new Chart($("#app-usage-chart"), {
@@ -1265,6 +1317,7 @@ function renderSampleTable(rows) {
 
 async function init() {
   setupTabs();
+  setupOpenRouterModules();
   setupCumulativeControls();
   setupTokenControls();
   setupPricingControls();

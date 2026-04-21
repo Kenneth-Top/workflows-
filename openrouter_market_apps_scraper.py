@@ -6,7 +6,7 @@ import csv
 import json
 import re
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -193,13 +193,8 @@ def usage_series_from_app_page(slug: str) -> list[dict[str, Any]]:
     return max(candidates, key=len)
 
 
-def week_start(date_text: str) -> str:
-    date = datetime.strptime(date_text[:10], "%Y-%m-%d").date()
-    return (date - timedelta(days=date.weekday())).isoformat()
-
-
 def fetch_app_model_usage(apps: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    weekly_totals: dict[tuple[str, int, str], dict[str, Any]] = {}
+    daily_rows: list[dict[str, Any]] = []
     slugged_apps = [app for app in apps if app.get("App_Slug")]
     for index, app in enumerate(slugged_apps, start=1):
         slug = str(app["App_Slug"])
@@ -212,31 +207,27 @@ def fetch_app_model_usage(apps: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not series:
             continue
 
-        weeks = sorted({week_start(str(point.get("x", ""))[:10]) for point in series if point.get("x")})
-        latest_week = weeks[-1] if weeks else None
+        dates = sorted({str(point.get("x", ""))[:10] for point in series if point.get("x")})
+        latest_date = dates[-1] if dates else None
         for point in series:
             date = str(point.get("x", ""))[:10]
             if not date:
                 continue
-            current_week = week_start(date)
-            if current_week == latest_week:
+            if date == latest_date:
                 continue
             for model, tokens in (point.get("ys") or {}).items():
-                key = (current_week, int(app["App_ID"]), model)
-                row = weekly_totals.setdefault(
-                    key,
+                daily_rows.append(
                     {
-                        "Date": current_week,
+                        "Date": date,
                         "App_ID": app["App_ID"],
                         "App_Title": app["App_Title"],
                         "App_Slug": slug,
                         "Model": model,
-                        "Tokens": 0,
-                    },
+                        "Tokens": round(float(tokens or 0) / 1e9, 6),
+                    }
                 )
-                row["Tokens"] = round(float(row["Tokens"]) + float(tokens or 0) / 1e9, 6)
         time.sleep(0.25)
-    return list(weekly_totals.values())
+    return daily_rows
 
 
 def read_csv(path: Path, key_fields: list[str]) -> dict[tuple[str, ...], dict[str, Any]]:

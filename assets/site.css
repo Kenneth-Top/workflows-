@@ -64,6 +64,7 @@ h2 {
 }
 
 .tab,
+.module-tab,
 .plain-button,
 .download-list a,
 .plain-link {
@@ -79,6 +80,7 @@ h2 {
 }
 
 .tab.active,
+.module-tab.active,
 .plain-button:hover,
 .download-list a:hover,
 .plain-link:hover {
@@ -96,6 +98,21 @@ main {
 }
 
 .view.active {
+  display: block;
+}
+
+.module-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.openrouter-panel {
+  display: none;
+}
+
+.openrouter-panel.active {
   display: block;
 }
 
