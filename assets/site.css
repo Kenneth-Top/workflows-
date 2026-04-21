@@ -349,6 +349,10 @@ iframe {
   gap: 12px;
 }
 
+.download-list.nested {
+  display: contents;
+}
+
 #toast {
   position: fixed;
   right: 20px;

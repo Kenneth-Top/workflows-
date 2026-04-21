@@ -1,16 +1,25 @@
 {
+  "generated_at": "2026-04-21T10:34:24+08:00",
   "reports": [
     {
+      "key": "hailuo",
       "vendor": "MiniMax",
       "product": "海螺 Hailuo",
-      "report": "product_reports/hailuo/hailuo_report_final_v38.html",
-      "dataset": "product_reports/hailuo/hailuo_final_dataset_v35.json"
+      "kind": "video",
+      "updated_at": "2026-04-18",
+      "release_status": "synced",
+      "dataset": "product_reports/hailuo/hailuo_final_dataset_2026-04-18.json",
+      "report": "product_reports/hailuo/hailuo_report_2026-04-18.html"
     },
     {
+      "key": "minimax-m2",
       "vendor": "MiniMax",
       "product": "MiniMax M 系列",
-      "report": "product_reports/minimax-m2/minimax_m2_report_v4.html",
-      "dataset": "product_reports/minimax-m2/minimax_m2_final_dataset_v4.json"
+      "kind": "model",
+      "updated_at": "2026-04-18",
+      "release_status": "synced",
+      "dataset": "product_reports/minimax-m2/minimax_m2_final_dataset_2026-04-18.json",
+      "report": "product_reports/minimax-m2/minimax_m2_report_2026-04-18.html"
     }
   ]
 }

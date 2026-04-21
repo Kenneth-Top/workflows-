@@ -551,6 +551,15 @@ function renderProductOptions() {
   renderProductReport();
 }
 
+function renderProductDownloads() {
+  const wrap = $("#product-downloads");
+  if (!wrap) return;
+  wrap.innerHTML = state.reports.flatMap((item) => [
+    `<a href="${escapeHtml(item.report)}" download>${escapeHtml(item.product)} 报告 HTML</a>`,
+    `<a href="${escapeHtml(item.dataset)}" download>${escapeHtml(item.product)} 样本 JSON</a>`,
+  ]).join("");
+}
+
 async function renderProductReport() {
   const vendor = $("#vendor-select").value;
   const product = $("#product-select").value;
@@ -729,6 +738,7 @@ async function init() {
     state.reports = manifest.reports;
     const vendors = Array.from(new Set(state.reports.map((item) => item.vendor))).sort();
     $("#vendor-select").innerHTML = vendors.map((vendor) => `<option value="${escapeHtml(vendor)}">${escapeHtml(vendor)}</option>`).join("");
+    renderProductDownloads();
     renderProductOptions();
 
     showToast("数据已更新");

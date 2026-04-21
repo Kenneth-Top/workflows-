@@ -10,9 +10,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "推理能力",
       "Agent执行力/工具调用"
@@ -22,7 +19,10 @@
     "agent_role": "Agent场景未明确",
     "reason": "强调可规划、推理并管理完整工作流，核心在 agent 化能力提升。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/bridgerloftin/status/2043874257260724718",
@@ -35,9 +35,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -47,6 +44,9 @@
     "competitor_tags": [
       "claude",
       "anthropic"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -60,9 +60,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -71,6 +68,9 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -84,11 +84,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -97,6 +92,11 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -110,9 +110,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "服务稳定性/负载问题"
@@ -121,7 +118,10 @@
     "agent_role": "非Agent场景",
     "reason": "明确抱怨服务集群负载高、频繁报错，几乎无法使用。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/gabrielabiramia/status/2043537825396555881",
@@ -134,9 +134,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -148,6 +145,9 @@
     "competitor_tags": [
       "openai",
       "anthropic"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -161,17 +161,17 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
     "agent_role": "非Agent场景",
     "reason": "只是转述开源与 benchmark 分数，未表达明显好恶。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/kerrsee/status/2043235280753447031",
@@ -184,9 +184,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "长上下文/多语言",
       "API/接入体验好",
@@ -197,7 +194,10 @@
     "agent_role": "Agent场景未明确",
     "reason": "称其适合拿来构建应用，夸长上下文、多语言和 GPU endpoint，并点到 OpenClaw/NemoClaw 适配。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/FileCityAI/status/2043176384663597223",
@@ -210,11 +210,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "代码能力",
@@ -227,7 +222,12 @@
     "agent_role": "Agent场景未明确",
     "reason": "明确夸多文件编辑、工具使用、自主任务强，同时高效且划算。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/FileCityAI/status/2043175052703592710",
@@ -240,11 +240,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "代码能力",
@@ -257,7 +252,12 @@
     "agent_role": "Agent场景未明确",
     "reason": "与上一条同义，核心是编码/agent 工作流表现强且高效低成本。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/JuiceySweatyHog/status/2042941886407520416",
@@ -270,9 +270,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -281,7 +278,10 @@
     "agent_role": "非Agent场景",
     "reason": "认为 5 美元就很猛，且想主用 M2.7，重点是值。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/zack_serious/status/2042691692868907429",
@@ -294,9 +294,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -305,6 +302,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -318,10 +318,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -331,6 +327,10 @@
     "competitor_tags": [
       "opus",
       "sonnet"
+    ],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -344,16 +344,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只有一句提问式称呼，缺少明确反馈。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/0xCoinDivision/status/2041629289846804539",
@@ -366,9 +366,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -378,6 +375,9 @@
     "competitor_tags": [
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -391,9 +391,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -403,6 +400,9 @@
     "competitor_tags": [
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -416,9 +416,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -429,7 +426,10 @@
     "agent_role": "非Agent场景",
     "reason": "认可其在便宜 VPS 上跑后台任务很划算，同时承认速度有取舍。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/darekgusto/status/2040286602316980725",
@@ -442,9 +442,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -453,7 +450,10 @@
     "agent_role": "非Agent场景",
     "reason": "明确说聊天体验相当不错。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/grok/status/2039972205967081590",
@@ -466,9 +466,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -485,6 +482,9 @@
       "gemini",
       "deepseek",
       "openai"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -498,9 +498,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -511,6 +508,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -524,10 +524,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "代码能力",
       "Agent执行力/工具调用"
@@ -544,6 +540,10 @@
       "claude",
       "deepseek",
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -557,9 +557,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -573,6 +570,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -586,16 +586,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是拿 MiniMax M2 体量做参数规模类比。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/pattoniumbot/status/2038459131527356663",
@@ -608,10 +608,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "需要更好框架/提示词"
@@ -622,6 +618,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -635,9 +635,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -646,7 +643,10 @@
     "agent_role": "Agent场景未明确",
     "reason": "直接说 MiniMax M2 看起来很惊艳，放在 agent framework 语境中正面提及。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/itsjustmarky/status/2038263954510696792",
@@ -659,16 +659,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是说明自己一直在跑 M2 并等待 M2.7 权重。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/auroter/status/2038162328244695495",
@@ -681,9 +681,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足",
@@ -695,6 +692,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -708,9 +708,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -724,6 +721,9 @@
       "kimi",
       "qwen",
       "claude"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -737,9 +737,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -749,6 +746,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -762,10 +762,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "日常交流聊天",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -774,6 +770,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "日常交流聊天",
+      "软件开发/编码"
     ]
   },
   {
@@ -787,10 +787,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -804,6 +800,10 @@
     "competitor_tags": [
       "claude",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -817,9 +817,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "速度快/延迟低",
       "性价比/成本低"
@@ -832,6 +829,9 @@
     "competitor_tags": [
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -845,9 +845,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "速度快/延迟低"
@@ -859,6 +856,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -872,9 +872,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -883,7 +880,10 @@
     "agent_role": "非Agent场景",
     "reason": "说它是最喜欢的 RP/陪伴聊天模型之一，能保持角色设定。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/verybadguy3313/status/2036115235409723626",
@@ -896,9 +896,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -909,6 +906,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -922,16 +922,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是讨论硬件是否扛得住，并说 M2.x 仍稍大。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/grok/status/2036015771554378134",
@@ -944,16 +944,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "客观说明 M2.7 目前只能走云 API，数据会发送到服务器。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/spacewalker13/status/2035960369865249176",
@@ -966,9 +966,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -977,7 +974,10 @@
     "agent_role": "非Agent场景",
     "reason": "说包括 MiniMax M2 在内“都还没到那个程度”，是否定其能力上限。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/stevekrouse/status/2035805881967734876",
@@ -990,9 +990,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -1001,7 +998,10 @@
     "agent_role": "非Agent场景",
     "reason": "强调只用 7% 成本就达到 90% 质量，典型高性价比表述。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/JohnGregQuantum/status/2035489008193532022",
@@ -1014,9 +1014,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -1025,7 +1022,10 @@
     "agent_role": "主模型（策划+执行）",
     "reason": "称 M2.7 是当前首选，并用多 agent 系统交付出具体项目成果。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/themultivac_/status/2035469710536397223",
@@ -1038,9 +1038,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -1051,6 +1048,9 @@
       "claude",
       "gpt",
       "sonnet"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -1064,9 +1064,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -1075,7 +1072,10 @@
     "agent_role": "非Agent场景",
     "reason": "提议让 M2-her 加入评审团，理由是它很擅长对话。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/iamsupersocks/status/2035091787866390899",
@@ -1088,11 +1088,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "代码能力"
@@ -1104,6 +1099,11 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -1117,9 +1117,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -1128,7 +1125,10 @@
     "agent_role": "非Agent场景",
     "reason": "明确赞叹低成本下效果很好。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/Maxine1557899/status/2034531552156061921",
@@ -1141,9 +1141,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -1152,7 +1149,10 @@
     "agent_role": "非Agent场景",
     "reason": "说自己之前特别喜欢它拿来 RP，明显正向。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/Shaye_Alshaye/status/2034477554820600071",
@@ -1165,10 +1165,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "长上下文/多语言",
@@ -1179,7 +1175,11 @@
     "agent_role": "非Agent场景",
     "reason": "夸其性能可媲美顶级模型、成本更低且有百万上下文。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/grok/status/2034367498468893041",
@@ -1192,16 +1192,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是澄清 M2.7 非开源、仅能 API 访问。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/kerrsee/status/2034337101635031304",
@@ -1214,9 +1214,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -1225,7 +1222,10 @@
     "agent_role": "非Agent场景",
     "reason": "认为它是那类低调但比不少付费 API 模型更强的开放权重模型。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/ic4y00/status/2034288048507158737",
@@ -1238,16 +1238,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是猜测参数体量并询问是否已发布。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/grok/status/2034270639280836658",
@@ -1260,10 +1260,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "代码能力"
@@ -1273,7 +1269,11 @@
     "agent_role": "非Agent场景",
     "reason": "直接夸在 SWE、VIBE 等 benchmark 上大杀四方。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/singularity20xy/status/2034208792192434634",
@@ -1286,9 +1286,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -1297,7 +1294,10 @@
     "agent_role": "非Agent场景",
     "reason": "表达对 MiniMax 即将发布新东西的期待与看好。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/Bunnsuck/status/2034192084392149389",
@@ -1310,9 +1310,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1322,6 +1319,9 @@
     "competitor_tags": [
       "gemini",
       "opus"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -1335,16 +1335,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "提出质疑是否有新东西，但并未下明确结论。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/Adidotdev/status/2033869733695787170",
@@ -1357,16 +1357,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只有一句追问，没有可判定情绪。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/ekinoks_26/status/2033841035059900692",
@@ -1379,9 +1379,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -1390,7 +1387,10 @@
     "agent_role": "非Agent场景",
     "reason": "说 M2.5 又把 AI 边界往前推了一步。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/rayklanderman/status/2033795860287652198",
@@ -1403,9 +1403,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "配合优秀框架更好用"
     ],
@@ -1416,6 +1413,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -1429,10 +1429,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "代码能力"
@@ -1442,7 +1438,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "称其是为编程和 agent 工作流打造的强大开源模型。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/onermrat/status/2031686586283200947",
@@ -1455,9 +1455,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1470,6 +1467,9 @@
       "qwen",
       "gemini",
       "deepseek"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -1483,16 +1483,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是转发技术指南链接。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/miraclemasui/status/2031601369606742239",
@@ -1505,9 +1505,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1518,6 +1515,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -1531,9 +1531,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1544,6 +1541,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -1557,9 +1557,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1570,6 +1567,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -1583,9 +1583,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1596,6 +1593,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -1609,9 +1609,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1622,6 +1619,9 @@
       "glm",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -1635,17 +1635,17 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
     "agent_role": "Agent场景未明确",
     "reason": "只是文章标题，提到 agent 对齐问题与 benchmark 差距。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/linuxea_fake/status/2031334520788865370",
@@ -1658,9 +1658,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "延迟/速度慢"
@@ -1669,7 +1666,10 @@
     "agent_role": "非Agent场景",
     "reason": "明确请求 API fast mode，抱怨当前太慢。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/multosai/status/2031321845278937322",
@@ -1682,9 +1682,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1698,6 +1695,9 @@
       "gemini",
       "grok",
       "opus"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -1711,10 +1711,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -1731,6 +1727,10 @@
       "gemini",
       "deepseek",
       "grok"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -1744,9 +1744,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "推理能力"
     ],
@@ -1762,6 +1759,9 @@
       "deepseek",
       "grok",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -1775,9 +1775,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -1787,6 +1784,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -1800,9 +1800,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "性能强/能力强"
@@ -1815,6 +1812,9 @@
     "competitor_tags": [
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -1828,9 +1828,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1839,6 +1836,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -1852,9 +1852,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1863,6 +1860,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -1876,9 +1876,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1887,6 +1884,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -1900,9 +1900,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -1911,6 +1908,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -1924,10 +1924,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -1943,6 +1939,10 @@
       "kimi",
       "qwen",
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -1956,16 +1956,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
     "agent_role": "主模型（策划+执行）",
     "reason": "在 OpenClaw 中将 M2.7 作为 orchestrator，与本地模型协同。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/marinac_dev/status/2042078388857266533",
@@ -1978,9 +1978,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足"
@@ -1989,7 +1986,10 @@
     "agent_role": "非Agent场景",
     "reason": "实测打一个 app 结果很差，质疑别人如何拿它干活。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/techyoutbe/status/2042077091584471456",
@@ -2002,9 +2002,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "推理能力"
     ],
@@ -2020,6 +2017,9 @@
       "deepseek",
       "grok",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -2033,10 +2033,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "翻译",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -2048,6 +2044,10 @@
       "qwen",
       "claude",
       "grok"
+    ],
+    "scene_tags": [
+      "翻译",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -2061,9 +2061,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -2075,6 +2072,9 @@
     "competitor_tags": [
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -2088,9 +2088,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -2102,6 +2099,9 @@
     "competitor_tags": [
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -2115,9 +2115,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -2128,6 +2125,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -2141,10 +2141,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "翻译",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -2156,6 +2152,10 @@
       "qwen",
       "claude",
       "grok"
+    ],
+    "scene_tags": [
+      "翻译",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -2169,16 +2169,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是说已申请某项目链接。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/grok/status/2042054338093138148",
@@ -2191,10 +2191,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "翻译",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -2208,6 +2204,10 @@
       "gemini",
       "grok",
       "sonnet"
+    ],
+    "scene_tags": [
+      "翻译",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -2221,16 +2221,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
     "agent_role": "非Agent场景",
     "reason": "只报告 PinchBench 分数和耗时。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/theanakin87/status/2044086372437242020",
@@ -2243,10 +2243,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "代码能力",
       "Agent执行力/工具调用"
@@ -2258,6 +2254,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "deepseek"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -2271,9 +2271,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "速度快/延迟低"
     ],
@@ -2282,7 +2279,10 @@
     "agent_role": "非Agent场景",
     "reason": "自己在 DGX Spark 上跑得很快且基本无问题，正向反馈速度与稳定使用体验。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/nikitadrokin/status/2043712911542239564",
@@ -2295,9 +2295,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -2308,6 +2305,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -2321,10 +2321,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -2337,6 +2333,10 @@
       "glm",
       "deepseek",
       "anthropic"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -2350,16 +2350,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
     "agent_role": "非Agent场景",
     "reason": "只是通报 PinchBench 成绩。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/rutu_3/status/2042585272374956517",
@@ -2372,10 +2372,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -2388,6 +2384,10 @@
       "codex",
       "opus",
       "sonnet"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -2401,16 +2401,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
     "agent_role": "非Agent场景",
     "reason": "同样是 PinchBench 结果播报。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/YashDarji_/status/2041946438662238573",
@@ -2423,9 +2423,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足"
@@ -2436,6 +2433,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -2449,9 +2449,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -2460,7 +2457,10 @@
     "agent_role": "非Agent场景",
     "reason": "明确说它只比 M2.5 稍微好一点点，语气偏贬。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/Z4A2y3qtPRh5UHo/status/2044604991391011323",
@@ -2473,9 +2473,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -2487,6 +2484,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -2500,10 +2500,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -2514,6 +2510,10 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -2527,9 +2527,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -2538,7 +2535,10 @@
     "agent_role": "非Agent场景",
     "reason": "说把 M2.5 与 M2.7 合并后效果更强，方向很有意思。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/Ex0byt/status/2044535454964371797",
@@ -2551,10 +2551,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "代码能力",
       "Agent执行力/工具调用"
@@ -2564,7 +2560,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "夸融合模型继承了 M2.5 编码风格和 M2.7 多智能体协作精度。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/victor_vibing/status/2044474583844024468",
@@ -2577,10 +2577,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "代码能力"
     ],
@@ -2594,6 +2590,10 @@
       "kimi",
       "claude",
       "deepseek"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -2607,9 +2607,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -2618,7 +2615,10 @@
     "agent_role": "非Agent场景",
     "reason": "直言 M2.5 很糟糕、是垃圾模型。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/ClockWorkMe/status/2044421143688597943",
@@ -2631,9 +2631,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -2642,6 +2639,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -2655,9 +2655,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "推理能力"
     ],
@@ -2673,6 +2670,9 @@
       "deepseek",
       "grok",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -2686,16 +2686,16 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "说自己用开源的 M2.7 驱动“龙虾”处理简单需求，重在按需分组。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/NextMavenAI/status/2044657072109683117",
@@ -2708,10 +2708,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -2722,6 +2718,10 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -2735,9 +2735,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -2747,6 +2744,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -2760,16 +2760,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "纯粹说明本地运行所需内存与量化后的容量变化。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/antoine_michea/status/2044648910329639420",
@@ -2782,9 +2782,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -2793,7 +2790,10 @@
     "agent_role": "非Agent场景",
     "reason": "在 128GB strix halo 上测过很多模型后，认为 M2.7 是最好能跑起来的。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/Shane0xM/status/2044632690478186731",
@@ -2806,9 +2806,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "代码能力"
@@ -2820,6 +2817,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -2833,10 +2833,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -2845,7 +2841,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "说 10 美元的 M2.7 挺不错，并在 OpenClaw 语境下讨论使用。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化",
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/itspriionly/status/2044628734842745034",
@@ -2858,9 +2858,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "推理能力"
     ],
@@ -2876,6 +2873,9 @@
       "deepseek",
       "grok",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -2889,11 +2889,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "代码能力",
       "Agent执行力/工具调用"
@@ -2903,7 +2898,12 @@
     "agent_role": "Agent场景未明确",
     "reason": "强调要在真实仓库、多文件和终端任务中测试，认为其足以自动化初级工程师工作循环。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/ZenMagnets/status/2044621299092496589",
@@ -2916,16 +2916,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是询问对比表现。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/BRB_Enterprises/status/2044619784239612125",
@@ -2938,9 +2938,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -2951,6 +2948,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -2964,16 +2964,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "说本地运行学习曲线陡但值得，整体偏正面。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/theaidigest_/status/2044595041725714439",
@@ -2986,9 +2986,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "配合优秀框架更好用"
     ],
@@ -2997,7 +2994,10 @@
     "agent_role": "Agent场景未明确",
     "reason": "强调自我进化 RL 工作流会持续优化内部脚手架，适合长时间 agent 工程。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/peculiarnewbie/status/2044594598128017866",
@@ -3010,16 +3010,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
     "agent_role": "非Agent场景",
     "reason": "只是说知道这一点后换别的模型也没负罪感，并非直接评价模型质量。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/digitalnoah/status/2044593199872979035",
@@ -3032,9 +3032,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -3047,6 +3044,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -3060,16 +3060,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
     "agent_role": "非Agent场景",
     "reason": "只是关心许可证是否真免费。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/kjusupov/status/2044584337853825279",
@@ -3082,16 +3082,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "在询问不同实现差别并准备本地评估。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/Ronaldo4333/status/2044584247370080756",
@@ -3104,9 +3104,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "需要更好框架/提示词"
@@ -3119,6 +3116,9 @@
       "glm",
       "gpt",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -3132,10 +3132,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3146,6 +3142,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -3159,9 +3159,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -3172,6 +3169,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -3185,9 +3185,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -3198,6 +3195,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -3211,10 +3211,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "API/接入体验好",
       "性价比/成本低"
@@ -3224,7 +3220,11 @@
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "强调 NVIDIA 免费 endpoint 可轻松接到 opencrabs，自定义 provider 使用方便且免费。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/gubatron/status/2044574377954697335",
@@ -3237,9 +3237,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -3251,6 +3248,9 @@
     "competitor_tags": [
       "claude",
       "sonnet"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -3264,9 +3264,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -3275,7 +3272,10 @@
     "agent_role": "非Agent场景",
     "reason": "夸其只激活 10B 参数却登顶多个 benchmark，效率设计出色。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/te28/status/2044568791951274067",
@@ -3288,10 +3288,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "性价比/成本低"
@@ -3303,6 +3299,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -3316,9 +3316,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3329,6 +3326,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -3342,9 +3342,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -3354,6 +3351,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -3367,10 +3367,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3379,7 +3375,11 @@
     "agent_role": "主模型（策划+执行）",
     "reason": "宣传 MaxHermes 由 M2.7 驱动且可用 Token Plan，定位为会成长的 agent。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/FishRaposo/status/2027728989129736689",
@@ -3392,9 +3392,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -3404,6 +3401,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -3417,9 +3417,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -3428,6 +3425,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -3441,9 +3441,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -3453,6 +3450,9 @@
     "competitor_tags": [
       "glm",
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -3466,9 +3466,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -3480,6 +3477,9 @@
     "competitor_tags": [
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -3493,9 +3493,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3504,7 +3501,10 @@
     "agent_role": "非Agent场景",
     "reason": "预算 20 美元时直接推荐 Minimax coding plan。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/its_brill_/status/2044153282541830477",
@@ -3517,9 +3517,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3531,6 +3528,9 @@
     "competitor_tags": [
       "gpt",
       "grok"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -3544,10 +3544,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "配合优秀框架更好用",
       "速度快/延迟低"
@@ -3557,7 +3553,11 @@
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "说“有点笨的 minimax”配 Hermes 后更好用，且充值 coding plan 后响应更快。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/ElnurIb01717668/status/2044072822570455394",
@@ -3570,9 +3570,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3584,6 +3581,9 @@
     "competitor_tags": [
       "claude",
       "opus"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -3597,10 +3597,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3609,7 +3605,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "把 MiniMax Coding Plan 说成高性价比的平台，并扩展到音乐技能/agent 能力。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/JosephMgn/status/2043702494128193730",
@@ -3622,9 +3622,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3633,7 +3630,10 @@
     "agent_role": "非Agent场景",
     "reason": "现用 coding plan，认为 10 美元/月足够处理复杂工作且不会撞上限。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/llmdevguy/status/2043649386547167320",
@@ -3646,10 +3646,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -3660,6 +3656,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -3673,9 +3673,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "延迟/速度慢"
@@ -3684,7 +3681,10 @@
     "agent_role": "非Agent场景",
     "reason": "拿 startup program 跑了几周，认为速度很慢，远不如普通 coding plan。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/ivanfioravanti/status/2043394727312077178",
@@ -3697,16 +3697,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "仅提到 coding plan，没有明确评价。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/TensorSlay/status/2043384177027153974",
@@ -3719,17 +3719,17 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
     "agent_role": "非Agent场景",
     "reason": "强调 20 美元含高额度和多模态能力，明显在夸套餐划算。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/UsernameAndStuf/status/2043356032437825555",
@@ -3742,10 +3742,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -3754,7 +3750,11 @@
     "agent_role": "非Agent场景",
     "reason": "直说 plan 基本像白送，突出极低成本。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/BeethovenHorst/status/2044526103205736937",
@@ -3767,16 +3767,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "是在询问能否集成 MiniMax API/订阅，属功能需求。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/pythonomics/status/2044506169247474038",
@@ -3789,9 +3789,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -3800,7 +3797,10 @@
     "agent_role": "非Agent场景",
     "reason": "表示在用 MiniMax API 且目前感觉不错。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/HamzaMusta14853/status/2044357579015373287",
@@ -3813,10 +3813,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "长上下文/多语言",
       "性价比/成本低"
@@ -3826,7 +3822,11 @@
     "agent_role": "非Agent场景",
     "reason": "称 10 美元和 256K 上下文足够日常开发，重点是便宜且上下文够用。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/Zenoware/status/2044318382628216950",
@@ -3839,10 +3839,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "API/接入体验好",
       "性价比/成本低"
@@ -3852,7 +3848,11 @@
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "实际在项目里接了 MiniMax API 多项能力，并称 value 很高，且由 Laravel SDK 串联。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/sting_punk/status/2043772547267997906",
@@ -3865,9 +3865,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -3876,6 +3873,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -3889,16 +3889,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是提供 Hugging Face、Blog 和 API 链接，没有态度。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/CodyBaker_xx/status/2043695936887464295",
@@ -3911,16 +3911,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "描述歌词功能需要 MiniMax API，并希望 replicate 也能支持，偏功能诉求。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/MarcoBirkh98431/status/2043458831645122615",
@@ -3933,9 +3933,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足",
@@ -3945,7 +3942,10 @@
     "agent_role": "非Agent场景",
     "reason": "吐槽连模型自己都写不出可用的 MiniMax API 访问代码。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/EpicSolFace/status/2043442058560753881",
@@ -3958,9 +3958,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -3969,6 +3966,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -3982,10 +3982,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "代码能力"
@@ -3995,7 +3991,11 @@
     "agent_role": "非Agent场景",
     "reason": "官方宣称 SWE-Pro 和 Terminal Bench 达到 SOTA，明确强调编码能力。",
     "user_group_4": "官方",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/aenigme/status/2041955678583927263",
@@ -4008,10 +4008,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -4023,6 +4019,10 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -4036,9 +4036,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4049,6 +4046,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "opus"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -4062,10 +4062,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4074,7 +4070,11 @@
     "agent_role": "非Agent场景",
     "reason": "称其在头部榜单模型里成本效率最强之一。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/ATOMInference/status/2034713401004261652",
@@ -4087,10 +4087,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4099,7 +4095,11 @@
     "agent_role": "非Agent场景",
     "reason": "同样强调头部能力下的高成本效率。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/ATOMInference/status/2034713345182351535",
@@ -4112,10 +4112,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4124,7 +4120,11 @@
     "agent_role": "非Agent场景",
     "reason": "同样强调头部能力下的高成本效率。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/ATOMInference/status/2034713260746821654",
@@ -4137,10 +4137,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4149,7 +4145,11 @@
     "agent_role": "非Agent场景",
     "reason": "同样强调头部能力下的高成本效率。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/ATOMInference/status/2034709110373990505",
@@ -4162,16 +4162,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
     "agent_role": "非Agent场景",
     "reason": "主要在分析其定价结构和市场趋势，偏客观描述。",
     "user_group_4": "AI测评者",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/ATOMInference/status/2034704476305858678",
@@ -4184,10 +4184,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4198,6 +4194,10 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -4211,10 +4211,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "价格偏高"
@@ -4223,7 +4219,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "对 agent 单独收费表达强烈不满。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/VibeSeo1128/status/2034320076980342973",
@@ -4236,10 +4236,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用",
       "性价比/成本低"
@@ -4249,7 +4245,11 @@
     "agent_role": "主模型（策划+执行）",
     "reason": "讨论把 M2.5 当 orchestrator 与工具路由，并肯定其定价竞争力。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/AdolfoUsier/status/2034286217836052912",
@@ -4262,9 +4262,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4273,7 +4270,10 @@
     "agent_role": "非Agent场景",
     "reason": "明确说切换后省钱效果很明显。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/sharaff/status/2026556779300311183",
@@ -4286,9 +4286,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4299,7 +4296,10 @@
     "agent_role": "非Agent场景",
     "reason": "同时夸定价无敌、批评深度推理和 CoT 不足，褒贬并存。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/levis136/status/2025136900575813933",
@@ -4312,9 +4312,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4325,6 +4322,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "openai"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -4338,10 +4338,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -4352,6 +4348,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -4365,9 +4365,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4378,7 +4375,10 @@
     "agent_role": "非Agent场景",
     "reason": "称其定价能带来 adoption，但也直说不是最聪明的模型。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/AIRoboticsInt/status/2022877590797643979",
@@ -4391,10 +4391,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -4408,6 +4404,10 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "anthropic"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -4421,16 +4421,16 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
     "agent_role": "非Agent场景",
     "reason": "在谈 MiniMax 低价对行业竞争的影响，并非直接体验评价。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/mqstro/status/2008125321715839171",
@@ -4443,9 +4443,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -4454,6 +4451,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "openai"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -4467,9 +4467,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "价格偏高"
@@ -4480,6 +4477,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -4493,9 +4493,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -4507,6 +4504,9 @@
     "competitor_tags": [
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -4520,9 +4520,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -4531,6 +4528,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -4544,9 +4544,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型",
@@ -4562,6 +4559,9 @@
       "opus",
       "sonnet",
       "anthropic"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -4575,9 +4575,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率",
@@ -4589,6 +4586,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -4602,10 +4602,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "文本撰写",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -4620,6 +4616,10 @@
       "claude",
       "gemini",
       "codex"
+    ],
+    "scene_tags": [
+      "文本撰写",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -4633,9 +4633,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -4644,6 +4641,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -4657,11 +4657,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码",
-      "文本撰写"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -4671,6 +4666,11 @@
     "competitor_tags": [
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码",
+      "文本撰写"
     ]
   },
   {
@@ -4684,9 +4684,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "价格偏高"
@@ -4699,6 +4696,9 @@
       "glm",
       "kimi",
       "claude"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -4712,10 +4712,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -4724,6 +4720,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -4737,10 +4737,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -4751,6 +4747,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "claude"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -4764,9 +4764,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -4777,6 +4774,9 @@
       "kimi",
       "qwen",
       "claude"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -4790,9 +4790,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -4801,6 +4798,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -4814,9 +4814,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -4825,6 +4822,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -4838,9 +4838,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -4854,6 +4851,9 @@
       "gpt",
       "gemini",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -4867,10 +4867,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -4884,6 +4880,10 @@
       "gemini",
       "deepseek",
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -4897,10 +4897,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -4910,6 +4906,10 @@
     "competitor_tags": [
       "claude",
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -4923,9 +4923,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -4940,6 +4937,9 @@
       "grok",
       "opus",
       "sonnet"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -4953,10 +4953,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -4971,6 +4967,10 @@
       "claude",
       "gemini",
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -4984,9 +4984,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -4996,6 +4993,9 @@
     "competitor_tags": [
       "qwen",
       "gemini"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5009,9 +5009,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -5023,6 +5020,9 @@
     "competitor_tags": [
       "glm",
       "gemini"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -5036,9 +5036,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5049,6 +5046,9 @@
       "kimi",
       "gemini",
       "openai"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -5062,9 +5062,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5075,6 +5072,9 @@
       "qwen",
       "gemini",
       "openai"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -5088,9 +5088,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5099,6 +5096,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5112,9 +5112,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -5124,6 +5121,9 @@
     "competitor_tags": [
       "gemini",
       "anthropic"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5137,9 +5137,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5151,6 +5148,9 @@
       "qwen",
       "gemini",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5164,9 +5164,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -5179,6 +5176,9 @@
       "gemini",
       "opus",
       "sonnet"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5192,9 +5192,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -5206,6 +5203,9 @@
     "competitor_tags": [
       "gemini",
       "codex"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5219,10 +5219,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -5236,6 +5232,10 @@
       "gpt",
       "gemini",
       "grok"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5249,9 +5249,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5262,6 +5259,9 @@
       "gemini",
       "openai",
       "anthropic"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -5275,10 +5275,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -5292,6 +5288,10 @@
       "gemini",
       "codex",
       "opus"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5305,9 +5305,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5318,6 +5315,9 @@
       "glm",
       "kimi",
       "gemini"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -5331,11 +5331,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -5346,6 +5341,11 @@
       "glm",
       "qwen",
       "gemini"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5359,9 +5359,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5372,6 +5369,9 @@
       "gpt",
       "gemini",
       "grok"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5385,9 +5385,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -5397,6 +5394,9 @@
     "competitor_tags": [
       "claude",
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5410,9 +5410,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -5424,6 +5421,9 @@
     "competitor_tags": [
       "kimi",
       "gemini"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -5437,9 +5437,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率"
@@ -5450,6 +5447,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -5463,10 +5463,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -5479,6 +5475,10 @@
       "glm",
       "qwen",
       "gemini"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5492,9 +5492,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -5506,6 +5503,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -5519,10 +5519,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -5535,6 +5531,10 @@
       "claude",
       "deepseek",
       "codex"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -5548,9 +5548,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5561,6 +5558,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -5574,9 +5574,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -5585,6 +5582,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5598,9 +5598,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -5612,6 +5609,9 @@
     "competitor_tags": [
       "qwen",
       "claude"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5625,9 +5625,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5637,6 +5634,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5650,9 +5650,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "需要更好框架/提示词"
@@ -5663,6 +5660,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5676,10 +5676,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "性价比/成本低"
@@ -5693,6 +5689,10 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5706,9 +5706,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5717,6 +5714,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5730,10 +5730,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "性价比/成本低"
@@ -5747,6 +5743,10 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5760,10 +5760,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -5776,6 +5772,10 @@
       "glm",
       "qwen",
       "gpt"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "软件开发/编码"
     ]
   },
   {
@@ -5789,9 +5789,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5801,6 +5798,9 @@
     "competitor_tags": [
       "qwen",
       "gpt"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -5814,9 +5814,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5826,6 +5823,9 @@
     "competitor_tags": [
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5839,9 +5839,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -5853,6 +5850,9 @@
     "competitor_tags": [
       "qwen",
       "claude"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -5866,9 +5866,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -5879,6 +5876,9 @@
       "qwen",
       "opus",
       "openai"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -5892,9 +5892,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -5910,6 +5907,9 @@
       "grok",
       "openai",
       "anthropic"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5923,9 +5923,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5934,6 +5931,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5947,9 +5947,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -5960,6 +5957,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -5973,9 +5973,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -5989,6 +5986,9 @@
       "claude",
       "gpt",
       "opus"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -6002,10 +6002,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -6022,6 +6018,10 @@
       "qwen",
       "claude",
       "opus"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -6035,9 +6035,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6048,6 +6045,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -6061,10 +6061,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -6076,6 +6072,10 @@
       "kimi",
       "qwen",
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -6089,9 +6089,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6101,6 +6098,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -6114,9 +6114,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6127,6 +6124,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -6140,9 +6140,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -6154,6 +6151,9 @@
       "kimi",
       "qwen",
       "anthropic"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -6167,9 +6167,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -6180,6 +6177,9 @@
       "kimi",
       "qwen",
       "anthropic"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -6193,9 +6193,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -6207,6 +6204,9 @@
       "kimi",
       "qwen",
       "anthropic"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -6220,9 +6220,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -6234,6 +6231,9 @@
     "competitor_tags": [
       "qwen",
       "opus"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -6247,9 +6247,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6261,6 +6258,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -6274,9 +6274,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6288,6 +6285,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -6301,9 +6301,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6314,6 +6311,9 @@
       "glm",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -6327,9 +6327,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6344,6 +6341,9 @@
       "deepseek",
       "grok",
       "openai"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -6357,9 +6357,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -6375,6 +6372,9 @@
       "grok",
       "openai",
       "anthropic"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -6388,9 +6388,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6405,6 +6402,9 @@
       "gemini",
       "deepseek",
       "grok"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -6418,9 +6418,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -6433,6 +6430,9 @@
       "claude",
       "deepseek",
       "anthropic"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -6446,9 +6446,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6459,6 +6456,9 @@
       "glm",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -6472,10 +6472,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "性价比/成本低"
@@ -6490,6 +6486,10 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -6503,9 +6503,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -6522,6 +6519,9 @@
       "opus",
       "sonnet",
       "anthropic"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -6535,10 +6535,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -6554,6 +6550,10 @@
       "opus",
       "openai",
       "anthropic"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "价格/成本优化"
     ]
   },
   {
@@ -6567,9 +6567,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -6578,7 +6575,10 @@
     "agent_role": "非Agent场景",
     "reason": "直说好模型、有需求、便宜实惠。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/lukfan/status/2043156433320227136",
@@ -6591,9 +6591,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "服务稳定性/负载问题",
@@ -6603,7 +6600,10 @@
     "agent_role": "Agent场景未明确",
     "reason": "装 Hermes 后龙虾异常，输出变成一堆 xml tool call，怀疑是 MiniMax 模型抽风。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/feng_2828/status/2042287955797242184",
@@ -6616,16 +6616,16 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是询问是否在用 MiniMax 模型。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/RockFlowApp/status/2042087676195868929",
@@ -6638,9 +6638,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "推理能力"
     ],
@@ -6649,7 +6646,10 @@
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "说冠军使用 MiniMax 并在信息理解、分析推理上展现优秀辅助能力。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/who328056743057/status/2042024032552546695",
@@ -6662,16 +6662,16 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "在问国内 cc+ccr+MiniMax 模型是否支持。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/RockFlowApp/status/2041459643168559500",
@@ -6684,16 +6684,16 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "祝贺冠军使用 MiniMax 模型夺冠，属正向背书。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/qtwaiter/status/2041356869395243197",
@@ -6706,9 +6706,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率"
@@ -6717,7 +6714,10 @@
     "agent_role": "非Agent场景",
     "reason": "直接说 MiniMax 模型生成效果不太行。",
     "user_group_4": "MiniMax传播/KOL",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/enhui491108/status/2041204822125465730",
@@ -6730,9 +6730,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率"
@@ -6741,7 +6738,10 @@
     "agent_role": "非Agent场景",
     "reason": "抱怨 MiniMax 在转义字符上总出错，还会对连续消息重复回复。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/SunnyNoSlack/status/2039966989649932505",
@@ -6754,9 +6754,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "需要更好框架/提示词"
@@ -6767,6 +6764,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -6780,9 +6780,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -6791,7 +6788,10 @@
     "agent_role": "非Agent场景",
     "reason": "直接说 MiniMax 模型非常难用。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/Benjieming1Q84/status/2038857859015086122",
@@ -6804,9 +6804,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率"
@@ -6815,7 +6812,10 @@
     "agent_role": "非Agent场景",
     "reason": "把 MiniMax 列为可能的信息泄露来源之一，明显不信任。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/KalekMich7668/status/2037776720582082974",
@@ -6828,9 +6828,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -6841,6 +6838,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -6854,9 +6854,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "速度快/延迟低"
     ],
@@ -6865,7 +6862,10 @@
     "agent_role": "非Agent场景",
     "reason": "认为模型更小反而是优势，隐含更轻更快。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "模型测评/基准测试"
+    ]
   },
   {
     "u": "https://x.com/tuturetom/status/2037186152927572359",
@@ -6878,9 +6878,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -6894,6 +6891,9 @@
       "gpt",
       "codex",
       "openai"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -6907,9 +6907,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -6918,7 +6915,10 @@
     "agent_role": "非Agent场景",
     "reason": "判断这是 MiniMax 模型本身不支持的能力。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码"
+    ]
   },
   {
     "u": "https://x.com/norsizu/status/2036816005767496039",
@@ -6931,10 +6931,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -6943,7 +6939,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "实际使用中 MiniMax 模型无法识别 Bash tool，tool calling 报错。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/linyi64965449/status/2035444971072069709",
@@ -6956,10 +6956,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -6969,6 +6965,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -6982,16 +6982,16 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "明确说 Hermes 只是节点，模型退化到 MiniMax，属于多 Agent 网络中的一环。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/legacyvps/status/2042074588633538863",
@@ -7004,9 +7004,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -7015,6 +7012,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -7028,9 +7028,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "日常交流聊天"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率"
@@ -7039,7 +7036,10 @@
     "agent_role": "非Agent场景",
     "reason": "吐槽 MiniMax 连人名“马嘉祺”都不认识。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "日常交流聊天"
+    ]
   },
   {
     "u": "https://x.com/bnbfanX/status/2033406077761683673",
@@ -7052,9 +7052,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足"
@@ -7063,7 +7060,10 @@
     "agent_role": "辅助/执行层（依托框架或更强模型）",
     "reason": "说用 MiniMax 的 OpenClaw 系统完全接不住现有程序，反映编码/承接能力不足。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
+    ]
   },
   {
     "u": "https://x.com/ItsPipiYa/status/2033137006495281331",
@@ -7076,9 +7076,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7089,6 +7086,9 @@
       "kimi",
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7102,9 +7102,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7113,6 +7110,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7126,9 +7126,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "幻觉/错误率"
@@ -7139,6 +7136,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -7152,16 +7152,16 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
     "agent_role": "非Agent场景",
     "reason": "只是说明内容由 MiniMax 模型生成。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "其他/未明确"
+    ]
   },
   {
     "u": "https://x.com/BRC20Insight/status/2032771762254131596",
@@ -7174,10 +7174,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足"
@@ -7188,6 +7184,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -7201,9 +7201,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -7212,7 +7209,10 @@
     "agent_role": "非Agent场景",
     "reason": "直接推荐 MiniMax，理由是便宜大碗。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/dbobo555288/status/2032451940664414407",
@@ -7225,9 +7225,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -7238,6 +7235,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -7251,10 +7251,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -7263,7 +7259,11 @@
     "agent_role": "Agent场景未明确",
     "reason": "刚接入 OpenClaw 多 agent，并觉得 49 元 plus 模型很难用完，偏向觉得划算。",
     "user_group_4": "普通用户（含开发者）",
-    "competitor_tags": []
+    "competitor_tags": [],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
+    ]
   },
   {
     "u": "https://x.com/web3xJQ/status/2031389369257627767",
@@ -7276,10 +7276,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -7290,6 +7286,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -7303,10 +7303,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -7320,6 +7316,10 @@
       "gpt",
       "gemini",
       "opus"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -7333,9 +7333,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -7347,6 +7344,9 @@
       "kimi",
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -7360,10 +7360,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "速度快/延迟低"
     ],
@@ -7375,6 +7371,10 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -7388,9 +7388,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好",
       "性价比/成本低"
@@ -7404,6 +7401,9 @@
       "glm",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -7417,10 +7417,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "API/接入体验好",
       "性价比/成本低"
@@ -7433,6 +7429,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -7446,9 +7446,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -7460,6 +7457,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7473,9 +7473,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7487,6 +7484,9 @@
       "kimi",
       "claude",
       "anthropic"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7500,10 +7500,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -7517,6 +7513,10 @@
       "deepseek",
       "codex",
       "anthropic"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -7530,9 +7530,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -7543,6 +7540,9 @@
       "glm",
       "kimi",
       "claude"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -7556,9 +7556,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7571,6 +7568,9 @@
       "gemini",
       "grok",
       "openai"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7584,9 +7584,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7597,6 +7594,9 @@
       "glm",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7610,9 +7610,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "速度快/延迟低",
@@ -7625,6 +7622,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7638,9 +7638,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7649,6 +7646,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7662,9 +7662,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7676,6 +7673,9 @@
       "qwen",
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7689,9 +7689,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -7702,6 +7699,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -7715,9 +7715,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "配合优秀框架更好用"
     ],
@@ -7729,6 +7726,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -7742,10 +7742,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -7757,6 +7753,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -7770,9 +7770,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7786,6 +7783,9 @@
       "gpt",
       "gemini",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7799,10 +7799,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -7811,6 +7807,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -7824,9 +7824,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -7836,6 +7833,9 @@
     "competitor_tags": [
       "glm",
       "grok"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7849,10 +7849,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -7864,6 +7860,10 @@
       "claude",
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -7877,10 +7877,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -7892,6 +7888,10 @@
     "competitor_tags": [
       "glm",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -7905,9 +7905,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型",
@@ -7920,6 +7917,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -7933,9 +7933,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -7946,6 +7943,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -7959,9 +7959,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -7973,6 +7970,9 @@
       "claude",
       "gpt",
       "openai"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -7986,10 +7986,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -8001,6 +7997,10 @@
     "competitor_tags": [
       "glm",
       "gemini"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -8014,9 +8014,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "API/接入体验好"
@@ -8028,6 +8025,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -8041,9 +8041,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -8057,6 +8054,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8070,10 +8070,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性能强/能力强",
       "性价比/成本低"
@@ -8086,6 +8082,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -8099,9 +8099,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8111,6 +8108,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8124,9 +8124,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "服务稳定性/负载问题",
@@ -8138,6 +8135,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8151,9 +8151,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8164,6 +8161,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8177,10 +8177,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "速度快",
@@ -8190,6 +8186,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -8203,9 +8203,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "服务稳定性/负载问题"
@@ -8217,6 +8214,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8230,9 +8230,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -8243,6 +8240,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -8256,10 +8256,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -8270,6 +8266,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -8283,10 +8283,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "代码能力"
     ],
@@ -8305,6 +8301,10 @@
       "deepseek",
       "opus",
       "anthropic"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "软件开发/编码"
     ]
   },
   {
@@ -8318,10 +8318,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型",
@@ -8336,6 +8332,10 @@
       "claude",
       "codex",
       "opus"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8349,9 +8349,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -8361,6 +8358,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8374,10 +8374,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -8393,6 +8389,10 @@
       "gemini",
       "codex",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -8406,10 +8406,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8421,6 +8417,10 @@
       "kimi",
       "claude",
       "anthropic"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8434,9 +8434,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -8445,6 +8442,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8458,9 +8458,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8470,6 +8467,9 @@
     "competitor_tags": [
       "glm",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8483,9 +8483,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -8497,6 +8494,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8510,9 +8510,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8522,6 +8519,9 @@
     "competitor_tags": [
       "glm",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8535,9 +8535,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8549,6 +8546,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8562,9 +8562,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8575,6 +8572,9 @@
       "glm",
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8588,9 +8588,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8600,6 +8597,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8613,9 +8613,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -8626,6 +8623,9 @@
       "glm",
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8639,10 +8639,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "API/接入体验好"
@@ -8654,6 +8650,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -8667,9 +8667,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8678,6 +8675,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8691,9 +8691,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -8704,6 +8701,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "glm"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8717,9 +8717,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -8730,6 +8727,9 @@
       "glm",
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8743,9 +8743,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -8758,6 +8755,9 @@
       "glm",
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8771,9 +8771,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -8786,6 +8783,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8799,9 +8799,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -8816,6 +8813,9 @@
       "qwen",
       "openai",
       "anthropic"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8829,9 +8829,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -8844,6 +8841,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8857,10 +8857,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -8871,6 +8867,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -8884,10 +8884,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "配合优秀框架更好用"
@@ -8900,6 +8896,10 @@
     "competitor_tags": [
       "qwen",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -8913,9 +8913,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -8927,6 +8924,9 @@
       "kimi",
       "qwen",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -8940,9 +8940,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -8955,6 +8952,9 @@
       "qwen",
       "gpt",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -8968,10 +8968,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "API/接入体验好"
@@ -8983,6 +8979,10 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -8996,9 +8996,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型",
@@ -9012,6 +9009,9 @@
       "glm",
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -9025,10 +9025,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -9040,6 +9036,10 @@
       "gpt",
       "opus",
       "sonnet"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -9053,9 +9053,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9066,6 +9063,9 @@
       "claude",
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9079,9 +9079,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -9091,6 +9088,9 @@
     "competitor_tags": [
       "gpt",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9104,10 +9104,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "模型测评/基准测试"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -9124,6 +9120,10 @@
       "deepseek",
       "grok",
       "openai"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "模型测评/基准测试"
     ]
   },
   {
@@ -9137,9 +9137,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -9150,6 +9147,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9163,9 +9163,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -9176,6 +9173,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9189,9 +9189,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -9202,6 +9199,9 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9215,9 +9215,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -9228,6 +9225,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9241,9 +9241,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -9254,6 +9251,9 @@
     "user_group_4": "AI测评者",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9267,9 +9267,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -9281,6 +9278,9 @@
     "competitor_tags": [
       "glm",
       "gpt"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -9294,9 +9294,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -9307,6 +9304,9 @@
       "kimi",
       "gemini",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9320,9 +9320,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -9334,6 +9331,9 @@
       "gpt",
       "gemini",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9347,9 +9347,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -9360,6 +9357,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9373,9 +9373,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "文本撰写"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型",
@@ -9389,6 +9386,9 @@
       "claude",
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "文本撰写"
     ]
   },
   {
@@ -9402,9 +9402,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -9415,6 +9412,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9428,9 +9428,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题",
@@ -9445,6 +9442,9 @@
       "claude",
       "gpt",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9458,10 +9458,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "API/接入体验好"
@@ -9476,6 +9472,10 @@
       "gpt",
       "gemini",
       "deepseek"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -9489,9 +9489,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9503,6 +9500,9 @@
       "gpt",
       "codex",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9516,9 +9516,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9528,6 +9525,9 @@
     "competitor_tags": [
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9541,10 +9541,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "配合优秀框架更好用"
     ],
@@ -9558,6 +9554,10 @@
       "kimi",
       "qwen",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -9571,9 +9571,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9584,6 +9581,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9597,9 +9597,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9612,6 +9609,9 @@
       "claude",
       "deepseek",
       "codex"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9625,9 +9625,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9637,6 +9634,9 @@
     "competitor_tags": [
       "kimi",
       "openai"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9650,9 +9650,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性价比",
@@ -9662,6 +9659,9 @@
     "competitor_tags": [
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -9675,9 +9675,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "模型测评/基准测试"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -9687,6 +9684,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试"
     ]
   },
   {
@@ -9700,9 +9700,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -9716,6 +9713,9 @@
       "kimi",
       "qwen",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9729,9 +9729,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -9744,6 +9741,9 @@
       "glm",
       "kimi",
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -9757,9 +9757,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -9770,6 +9767,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9783,9 +9783,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -9799,6 +9796,9 @@
       "kimi",
       "claude",
       "codex"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -9812,9 +9812,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -9828,6 +9825,9 @@
       "kimi",
       "gemini",
       "grok"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -9841,9 +9841,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "Agent执行力/工具调用"
@@ -9856,6 +9853,9 @@
     "competitor_tags": [
       "kimi",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9869,9 +9869,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9882,6 +9879,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9895,9 +9895,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -9910,6 +9907,9 @@
       "glm",
       "kimi",
       "sonnet"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9923,9 +9923,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -9936,6 +9933,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -9949,9 +9949,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "配合优秀框架更好用"
     ],
@@ -9962,6 +9959,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -9975,9 +9975,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -9989,6 +9986,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -10002,9 +10002,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "性能强/能力强"
@@ -10018,6 +10015,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -10031,9 +10031,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10044,6 +10041,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10057,9 +10057,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10070,6 +10067,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10083,9 +10083,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -10100,6 +10097,9 @@
       "claude",
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10113,9 +10113,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好",
       "性价比/成本低"
@@ -10129,6 +10126,9 @@
       "glm",
       "kimi",
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -10142,9 +10142,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -10159,6 +10156,9 @@
       "claude",
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10172,9 +10172,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -10187,6 +10184,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -10200,9 +10200,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -10214,6 +10211,9 @@
     "competitor_tags": [
       "kimi",
       "gpt"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -10227,9 +10227,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -10244,6 +10241,9 @@
       "claude",
       "gpt",
       "gemini"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10257,9 +10257,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -10271,6 +10268,9 @@
     "competitor_tags": [
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10284,10 +10284,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "模型测评/基准测试",
-      "软件开发/编码"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "代码能力不足"
@@ -10302,6 +10298,10 @@
       "gemini",
       "grok",
       "opus"
+    ],
+    "scene_tags": [
+      "模型测评/基准测试",
+      "软件开发/编码"
     ]
   },
   {
@@ -10315,10 +10315,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用",
       "长上下文/多语言",
@@ -10335,6 +10331,10 @@
       "claude",
       "deepseek",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -10348,9 +10348,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -10366,6 +10363,9 @@
       "gemini",
       "deepseek",
       "grok"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10379,9 +10379,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -10397,6 +10394,9 @@
       "gemini",
       "deepseek",
       "grok"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10410,9 +10410,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "长上下文/多语言"
     ],
@@ -10423,6 +10420,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10436,10 +10436,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "配合优秀框架更好用",
       "性价比/成本低"
@@ -10452,6 +10448,10 @@
     "competitor_tags": [
       "kimi",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -10465,10 +10465,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -10480,6 +10476,10 @@
     "competitor_tags": [
       "kimi",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -10493,10 +10493,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -10508,6 +10504,10 @@
     "competitor_tags": [
       "kimi",
       "codex"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "软件开发/编码"
     ]
   },
   {
@@ -10521,9 +10521,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -10535,6 +10532,9 @@
       "kimi",
       "claude",
       "gpt"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -10548,9 +10548,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -10563,6 +10560,9 @@
       "kimi",
       "claude",
       "opus"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -10576,9 +10576,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10594,6 +10591,9 @@
       "gemini",
       "grok",
       "codex"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10607,9 +10607,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10620,6 +10617,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10633,11 +10633,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型",
@@ -10652,6 +10647,11 @@
       "kimi",
       "qwen",
       "codex"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -10665,9 +10665,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10679,6 +10676,9 @@
       "claude",
       "deepseek",
       "codex"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10692,9 +10692,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10705,6 +10702,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10718,9 +10718,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -10731,6 +10728,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10744,9 +10744,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "Agent能力",
@@ -10755,6 +10752,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -10768,9 +10768,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -10782,6 +10779,9 @@
     "competitor_tags": [
       "kimi",
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10795,10 +10795,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -10810,6 +10806,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码",
+      "价格/成本优化"
     ]
   },
   {
@@ -10823,9 +10823,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -10836,6 +10833,9 @@
     "user_group_4": "普通用户（含开发者）",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -10849,9 +10849,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -10862,6 +10859,9 @@
       "kimi",
       "qwen",
       "gpt"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10875,9 +10875,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -10891,6 +10888,9 @@
       "kimi",
       "gpt",
       "opus"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -10904,9 +10904,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用",
       "API/接入体验好",
@@ -10920,6 +10917,9 @@
     "competitor_tags": [
       "kimi",
       "openai"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -10933,9 +10933,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性价比/成本低",
       "性能强/能力强"
@@ -10952,6 +10949,9 @@
       "claude",
       "gpt",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -10965,9 +10965,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "文本撰写"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -10982,6 +10979,9 @@
       "claude",
       "gemini",
       "codex"
+    ],
+    "scene_tags": [
+      "文本撰写"
     ]
   },
   {
@@ -10995,10 +10995,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -11011,6 +11007,10 @@
       "kimi",
       "gpt",
       "openai"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -11024,9 +11024,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "价格偏高"
@@ -11037,6 +11034,9 @@
     "user_group_4": "MiniMax传播/KOL",
     "competitor_tags": [
       "kimi"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   },
   {
@@ -11050,9 +11050,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -11065,6 +11062,9 @@
       "glm",
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11078,9 +11078,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -11093,6 +11090,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11106,9 +11106,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [
       "Agent执行力/工具调用"
     ],
@@ -11122,6 +11119,9 @@
       "qwen",
       "opus",
       "sonnet"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -11135,9 +11135,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -11149,6 +11146,9 @@
       "kimi",
       "qwen",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11162,9 +11162,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "性能",
@@ -11177,6 +11174,9 @@
       "qwen",
       "codex",
       "opus"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11190,9 +11190,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [
       "性能强/能力强"
     ],
@@ -11206,6 +11203,9 @@
       "qwen",
       "gpt",
       "deepseek"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11219,9 +11219,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -11231,6 +11228,9 @@
     "competitor_tags": [
       "kimi",
       "codex"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11244,9 +11244,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -11256,6 +11253,9 @@
     "competitor_tags": [
       "kimi",
       "codex"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11269,9 +11269,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "中性",
-    "scenario_tags": [
-      "其他/未明确"
-    ],
     "praise_tags": [],
     "complaint_tags": [],
     "narrative_bucket": "其他重点",
@@ -11281,6 +11278,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "其他/未明确"
     ]
   },
   {
@@ -11294,9 +11294,6 @@
     "lang": "zh",
     "region_bucket": "中文区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "API/接入问题"
@@ -11308,6 +11305,9 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -11321,10 +11321,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent",
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -11336,6 +11332,10 @@
     "competitor_tags": [
       "glm",
       "kimi"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent",
+      "价格/成本优化"
     ]
   },
   {
@@ -11349,9 +11349,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "软件开发/编码"
-    ],
     "praise_tags": [
       "API/接入体验好"
     ],
@@ -11364,6 +11361,9 @@
       "glm",
       "kimi",
       "claude"
+    ],
+    "scene_tags": [
+      "软件开发/编码"
     ]
   },
   {
@@ -11377,9 +11377,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "负面",
-    "scenario_tags": [
-      "Agent/OpenClaw/Hermes Agent"
-    ],
     "praise_tags": [],
     "complaint_tags": [
       "性能不如顶级模型"
@@ -11392,6 +11389,9 @@
       "glm",
       "kimi",
       "qwen"
+    ],
+    "scene_tags": [
+      "Agent/OpenClaw/Hermes Agent"
     ]
   },
   {
@@ -11405,9 +11405,6 @@
     "lang": "en",
     "region_bucket": "英语区",
     "sentiment": "正面",
-    "scenario_tags": [
-      "价格/成本优化"
-    ],
     "praise_tags": [
       "性价比/成本低"
     ],
@@ -11419,6 +11416,9 @@
     "competitor_tags": [
       "kimi",
       "deepseek"
+    ],
+    "scene_tags": [
+      "价格/成本优化"
     ]
   }
 ]
