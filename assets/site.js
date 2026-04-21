@@ -16,8 +16,10 @@ const state = {
   appUsage: [],
   filteredAppUsage: [],
   models: [],
+  modelAuthors: [],
   providers: [],
   cumulativeSelectedModels: new Set(),
+  cumulativeSelectedModelAuthors: new Set(),
   cumulativeSelectedProviders: new Set(),
   charts: {
     cumulative: null,
@@ -132,6 +134,27 @@ function compactOpenRouterModelName(model) {
     .replace(/-\d{4}$/g, "");
 }
 
+const modelAuthorLabels = {
+  "ai21": "AI21",
+  "anthropic": "Anthropic",
+  "deepseek": "DeepSeek",
+  "google": "Google",
+  "meta-llama": "Meta Llama",
+  "microsoft": "Microsoft",
+  "minimax": "MiniMax",
+  "moonshotai": "Moonshot AI",
+  "nvidia": "NVIDIA",
+  "openai": "OpenAI",
+  "qwen": "Qwen",
+  "x-ai": "xAI",
+  "z-ai": "Z.ai",
+};
+
+function modelAuthorName(model) {
+  const raw = String(model || "").includes("/") ? String(model).split("/")[0] : String(model || "unknown");
+  return modelAuthorLabels[raw] || raw;
+}
+
 function percentValue(value) {
   const parsed = Number(value);
   if (!Number.isFinite(parsed)) return "-";
@@ -234,6 +257,8 @@ function setupCumulativeControls() {
   $("#select-visible-models").addEventListener("click", () => {
     if (cumulativeKind() === "provider") {
       visibleCumulativeProviders().forEach((provider) => state.cumulativeSelectedProviders.add(provider));
+    } else if (cumulativeKind() === "modelAuthor") {
+      visibleCumulativeModelAuthors().forEach((author) => state.cumulativeSelectedModelAuthors.add(author));
     } else {
       visibleCumulativeModels().forEach((model) => state.cumulativeSelectedModels.add(model));
     }
@@ -242,6 +267,8 @@ function setupCumulativeControls() {
   $("#clear-cumulative-models").addEventListener("click", () => {
     if (cumulativeKind() === "provider") {
       state.cumulativeSelectedProviders.clear();
+    } else if (cumulativeKind() === "modelAuthor") {
+      state.cumulativeSelectedModelAuthors.clear();
     } else {
       state.cumulativeSelectedModels.clear();
     }
@@ -340,6 +367,11 @@ function visibleCumulativeModels() {
   return state.models.filter((model) => model.toLowerCase().includes(search));
 }
 
+function visibleCumulativeModelAuthors() {
+  const search = $("#cumulative-model-search").value.trim().toLowerCase();
+  return state.modelAuthors.filter((author) => author.toLowerCase().includes(search));
+}
+
 function visibleCumulativeProviders() {
   const search = $("#cumulative-model-search").value.trim().toLowerCase();
   return state.providers.filter((provider) => provider.toLowerCase().includes(search));
@@ -351,13 +383,27 @@ function cumulativeKind() {
 
 function renderCumulativeModelOptions() {
   const list = $("#cumulative-model-list");
-  const isProvider = cumulativeKind() === "provider";
-  const selectedSet = isProvider ? state.cumulativeSelectedProviders : state.cumulativeSelectedModels;
-  const visibleItems = isProvider ? visibleCumulativeProviders() : visibleCumulativeModels();
-  const defaults = isProvider ? state.providers.slice(0, 5) : state.models.slice(0, 3);
-  const title = isProvider ? "选择 Provider" : "选择模型";
+  const kind = cumulativeKind();
+  const isProvider = kind === "provider";
+  const isModelAuthor = kind === "modelAuthor";
+  const selectedSet = isProvider
+    ? state.cumulativeSelectedProviders
+    : isModelAuthor
+      ? state.cumulativeSelectedModelAuthors
+      : state.cumulativeSelectedModels;
+  const visibleItems = isProvider
+    ? visibleCumulativeProviders()
+    : isModelAuthor
+      ? visibleCumulativeModelAuthors()
+      : visibleCumulativeModels();
+  const defaults = isProvider
+    ? state.providers.slice(0, 5)
+    : isModelAuthor
+      ? state.modelAuthors.slice(0, 5)
+      : state.models.slice(0, 3);
+  const title = isProvider ? "选择 Provider" : isModelAuthor ? "选择模型厂商" : "选择模型";
   $("#cumulative-picker-title").textContent = title;
-  $("#cumulative-model-search").placeholder = isProvider ? "输入 provider 名" : "输入模型名";
+  $("#cumulative-model-search").placeholder = isProvider ? "输入 provider 名" : isModelAuthor ? "输入模型厂商" : "输入模型名";
 
   if (!selectedSet.size) {
     defaults.forEach((item) => selectedSet.add(item));
@@ -394,6 +440,10 @@ function selectedCumulativeItems() {
     const selected = Array.from(state.cumulativeSelectedProviders);
     return selected.length ? selected : state.providers.slice(0, 5);
   }
+  if (cumulativeKind() === "modelAuthor") {
+    const selected = Array.from(state.cumulativeSelectedModelAuthors);
+    return selected.length ? selected : state.modelAuthors.slice(0, 5);
+  }
   const selected = Array.from(state.cumulativeSelectedModels);
   return selected.length ? selected : state.models.slice(0, 3);
 }
@@ -401,6 +451,9 @@ function selectedCumulativeItems() {
 function buildCumulativeSeries(models) {
   if (cumulativeKind() === "provider") {
     return buildProviderCumulativeSeries(models);
+  }
+  if (cumulativeKind() === "modelAuthor") {
+    return buildModelAuthorCumulativeSeries(models);
   }
   const grouped = groupBy(state.tokens.filter((row) => models.includes(row.Display_Name)), (row) => row.Display_Name);
   const windowValue = $("#cumulative-day-window").value;
@@ -466,6 +519,50 @@ function buildProviderCumulativeSeries(providers) {
   return { series, maxDay };
 }
 
+function buildModelAuthorCumulativeSeries(authors) {
+  const dailyTotals = new Map();
+  state.tokens.forEach((row) => {
+    const author = row.Model_Author || modelAuthorName(row.Model);
+    if (!authors.includes(author)) return;
+    const key = `${author}||${row.Date}`;
+    dailyTotals.set(key, (dailyTotals.get(key) || 0) + numberValue(row.Total_Tokens));
+  });
+
+  const sourceRows = Array.from(dailyTotals.entries()).map(([key, tokens]) => {
+    const [author, date] = key.split("||");
+    return { Date: date, Author: author, Tokens: tokens };
+  });
+  const grouped = groupBy(sourceRows, (row) => row.Author);
+  const windowValue = $("#cumulative-day-window").value;
+  const dayLimit = windowValue === "all" ? Infinity : Number(windowValue);
+  const latestDate = sourceRows.map((row) => row.Date).sort().at(-1);
+  const cutoffTime = Number.isFinite(dayLimit) && latestDate
+    ? new Date(`${latestDate}T00:00:00Z`).getTime() - (dayLimit - 1) * 86400000
+    : null;
+  let maxDay = 0;
+
+  const series = authors.map((author) => {
+    const rows = (grouped.get(author) || [])
+      .slice()
+      .sort((a, b) => a.Date.localeCompare(b.Date))
+      .filter((row) => cutoffTime === null || new Date(`${row.Date}T00:00:00Z`).getTime() >= cutoffTime);
+    if (!rows.length) return { model: author, points: [], startDate: "" };
+    let running = 0;
+    const points = rows.map((row, index) => {
+      running += numberValue(row.Tokens);
+      maxDay = Math.max(maxDay, index);
+      return {
+        day: index,
+        date: row.Date,
+        value: Number(running.toFixed(6)),
+      };
+    });
+    return { model: author, points, startDate: rows[0].Date };
+  });
+
+  return { series, maxDay };
+}
+
 function renderCumulative() {
   if (!state.tokens.length) return;
   if (cumulativeKind() === "provider" && !state.providerUsage.length && !state.marketShare.length) return;
@@ -473,7 +570,9 @@ function renderCumulative() {
   const { series, maxDay } = buildCumulativeSeries(models);
   const days = Array.from({ length: maxDay + 1 }, (_, index) => index);
   const isProvider = cumulativeKind() === "provider";
-  const providerDatesByDay = new Map(series.flatMap((item) => item.points.map((point) => [point.day, point.date])));
+  const isModelAuthor = cumulativeKind() === "modelAuthor";
+  const usesCalendarDates = isProvider || isModelAuthor;
+  const calendarDatesByDay = new Map(series.flatMap((item) => item.points.map((point) => [point.day, point.date])));
   const datasets = series.map((item, index) => {
     const byDay = new Map(item.points.map((point) => [point.day, point.value]));
     return {
@@ -493,7 +592,7 @@ function renderCumulative() {
     .sort((a, b) => b.value - a.value);
 
   $("#cum-model-count").textContent = models.length.toLocaleString();
-  $("#cum-max-day").textContent = isProvider ? (series[0]?.points.at(-1)?.date || "-") : `${maxDay} 天`;
+  $("#cum-max-day").textContent = usesCalendarDates ? (series[0]?.points.at(-1)?.date || "-") : `${maxDay} 天`;
   $("#cum-leader").textContent = leaders[0]?.model || "-";
   $("#cum-leader-total").textContent = shortNumber(leaders[0]?.value || 0);
 
@@ -501,8 +600,8 @@ function renderCumulative() {
   state.charts.cumulative = new Chart($("#cumulative-chart"), {
     type: "line",
     data: {
-      labels: isProvider
-        ? days.map((day) => providerDatesByDay.get(day) || `Day ${day}`)
+      labels: usesCalendarDates
+        ? days.map((day) => calendarDatesByDay.get(day) || `Day ${day}`)
         : days.map((day) => `Day ${day}`),
       datasets,
     },
@@ -515,12 +614,12 @@ function renderCumulative() {
         tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${shortNumber(ctx.parsed.y || 0)}` } },
       },
       scales: {
-        x: { title: { display: true, text: isProvider ? "日期" : "模型收录后的天数" }, ticks: { maxTicksLimit: 12 } },
+        x: { title: { display: true, text: usesCalendarDates ? "日期" : "模型收录后的天数" }, ticks: { maxTicksLimit: 12 } },
         y: { title: { display: true, text: "累计 Tokens (Billion)" } },
       },
     },
   });
-  renderCumulativeTable(series, days, isProvider);
+  renderCumulativeTable(series, days, usesCalendarDates);
 }
 
 function renderCumulativeTable(series, days, isProvider = false) {
@@ -1410,11 +1509,17 @@ async function init() {
       ...row,
       Total_Tokens: numberValue(row.Total_Tokens),
       Display_Name: row.Model.includes("/") ? row.Model.split("/").at(-1) : row.Model,
+      Model_Author: modelAuthorName(row.Model),
     }));
     const totals = Array.from(groupBy(state.tokens, (row) => row.Display_Name).entries())
       .map(([model, items]) => [model, items.reduce((sum, row) => sum + row.Total_Tokens, 0)])
       .sort((a, b) => b[1] - a[1]);
     state.models = totals.map(([model]) => model);
+    const latestTokenDate = state.tokens.map((row) => row.Date).sort().at(-1);
+    state.modelAuthors = Array.from(groupBy(state.tokens.filter((row) => row.Date === latestTokenDate), (row) => row.Model_Author).entries())
+      .map(([author, items]) => [author, items.reduce((sum, row) => sum + row.Total_Tokens, 0)])
+      .sort((a, b) => b[1] - a[1])
+      .map(([author]) => author);
     renderCumulativeModelOptions();
     renderSingleModelOptions();
     renderAlerts();
