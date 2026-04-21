@@ -207,6 +207,10 @@ select[multiple] {
   height: 460px;
 }
 
+.openrouter-toolbar {
+  grid-template-columns: minmax(220px, 1fr) minmax(160px, 0.45fr);
+}
+
 .chart-note {
   margin: 6px 0 0;
   color: var(--muted);

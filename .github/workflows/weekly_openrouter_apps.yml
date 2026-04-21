@@ -1,0 +1,38 @@
+name: Update OpenRouter Market Apps
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-openrouter-market-apps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run OpenRouter market/app scraper
+        run: python openrouter_market_apps_scraper.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add openrouter_market_share_records.csv
+          git add openrouter_apps_records.csv
+          git add openrouter_app_model_usage_records.csv
+          git add openrouter_market_apps.json
+          git commit -m "Auto-update OpenRouter market and app data [skip ci]" || exit 0
+          git push

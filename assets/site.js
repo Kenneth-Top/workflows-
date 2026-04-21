@@ -8,12 +8,20 @@ const state = {
   pricingMetadata: {},
   pricingSelectedModels: new Set(),
   pricingSelectedPriceTypes: new Set(["Input_Price_1M", "Output_Price_1M", "Cache_Hit_Price_1M"]),
+  marketShare: [],
+  marketAuthors: [],
+  marketSelectedAuthors: new Set(),
+  apps: [],
+  appUsage: [],
+  filteredAppUsage: [],
   models: [],
   cumulativeSelectedModels: new Set(),
   charts: {
     cumulative: null,
     token: null,
     pricing: null,
+    marketShare: null,
+    appUsage: null,
   },
   reports: [],
   currentSamples: [],
@@ -106,6 +114,12 @@ function shortNumber(value) {
   if (value >= 1000) return `${(value / 1000).toFixed(2)} T`;
   if (value >= 1) return `${value.toFixed(2)} B`;
   return `${value.toFixed(4)} B`;
+}
+
+function percentValue(value) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return "-";
+  return `${(parsed * 100).toFixed(2)}%`;
 }
 
 function groupBy(items, keyFn) {
@@ -229,6 +243,25 @@ function setupPricingControls() {
       "Cache_Storage_Price_Per_Hour_Per_1M",
       "Context_Window",
     ], state.filteredPricing);
+  });
+}
+
+function setupOpenRouterControls() {
+  $("#market-author-search").addEventListener("input", renderMarketAuthorOptions);
+  $("#market-range-select").addEventListener("change", renderMarketShare);
+  $("#select-visible-authors").addEventListener("click", () => {
+    visibleMarketAuthors().forEach((author) => state.marketSelectedAuthors.add(author));
+    renderMarketAuthorOptions();
+  });
+  $("#clear-market-authors").addEventListener("click", () => {
+    state.marketSelectedAuthors.clear();
+    renderMarketAuthorOptions();
+  });
+  $("#app-select").addEventListener("change", renderAppUsage);
+  $("#app-range-select").addEventListener("change", renderAppUsage);
+  $("#download-app-usage").addEventListener("click", () => {
+    if (!state.filteredAppUsage.length) return;
+    downloadCsv("openrouter_app_usage_filtered.csv", ["Date", "App_Title", "App_Slug", "Model", "Tokens"], state.filteredAppUsage);
   });
 }
 
@@ -610,6 +643,174 @@ function renderTokenTable(rows) {
       <td>${escapeHtml(row.Date)}</td>
       <td>${escapeHtml(row.Display_Name)}</td>
       <td>${row.Total_Tokens.toFixed(6)}</td>
+    </tr>
+  `).join("");
+}
+
+function visibleMarketAuthors() {
+  const search = $("#market-author-search").value.trim().toLowerCase();
+  return state.marketAuthors.filter((author) => author.toLowerCase().includes(search));
+}
+
+function renderMarketAuthorOptions() {
+  const list = $("#market-author-list");
+  if (!state.marketSelectedAuthors.size) {
+    state.marketAuthors.slice(0, 6).forEach((author) => state.marketSelectedAuthors.add(author));
+  }
+  const authors = visibleMarketAuthors();
+  list.innerHTML = authors.map((author) => {
+    const checked = state.marketSelectedAuthors.has(author) ? "checked" : "";
+    const id = `market-author-${author.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+    return `
+      <label class="checkbox-row" for="${escapeHtml(id)}">
+        <input id="${escapeHtml(id)}" type="checkbox" value="${escapeHtml(author)}" ${checked}>
+        <span>${escapeHtml(author)}</span>
+      </label>
+    `;
+  }).join("");
+  list.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        state.marketSelectedAuthors.add(checkbox.value);
+      } else {
+        state.marketSelectedAuthors.delete(checkbox.value);
+      }
+      renderMarketShare();
+    });
+  });
+  $("#market-selected-count").textContent = `Selected ${state.marketSelectedAuthors.size}`;
+  renderMarketShare();
+}
+
+function filterMarketRange(rows) {
+  const range = $("#market-range-select").value;
+  if (range === "all" || !rows.length) return rows;
+  const latest = rows.map((row) => row.Date).sort().at(-1);
+  const cutoff = new Date(`${latest}T00:00:00Z`).getTime() - Number(range) * 86400000;
+  return rows.filter((row) => new Date(`${row.Date}T00:00:00Z`).getTime() >= cutoff);
+}
+
+function renderMarketShare() {
+  if (!state.marketShare.length) return;
+  const selected = Array.from(state.marketSelectedAuthors);
+  const rows = filterMarketRange(state.marketShare.filter((row) => selected.includes(row.Author)));
+  const dates = Array.from(new Set(rows.map((row) => row.Date))).sort();
+  const byAuthorDate = new Map(rows.map((row) => [`${row.Author}||${row.Date}`, row.Share]));
+  const latestDate = dates.at(-1);
+  const latestRows = state.marketShare.filter((row) => row.Date === latestDate).sort((a, b) => b.Share - a.Share);
+
+  $("#market-author-count").textContent = selected.length.toLocaleString();
+  $("#market-latest-date").textContent = latestDate || "-";
+  $("#market-leader").textContent = latestRows[0]?.Author || "-";
+  $("#market-leader-share").textContent = percentValue(latestRows[0]?.Share);
+  $("#market-selected-count").textContent = `Selected ${state.marketSelectedAuthors.size}`;
+
+  if (state.charts.marketShare) state.charts.marketShare.destroy();
+  state.charts.marketShare = new Chart($("#market-share-chart"), {
+    type: "line",
+    data: {
+      labels: dates,
+      datasets: selected.map((author, index) => ({
+        label: author,
+        data: dates.map((date) => Number(byAuthorDate.get(`${author}||${date}`) || 0) * 100),
+        borderColor: palette[index % palette.length],
+        backgroundColor: palette[index % palette.length],
+        tension: 0.2,
+        pointRadius: 0,
+        borderWidth: 2,
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${(ctx.parsed.y || 0).toFixed(2)}%` } },
+      },
+      scales: {
+        x: { ticks: { maxTicksLimit: 12 } },
+        y: { title: { display: true, text: "Market Share (%)" } },
+      },
+    },
+  });
+}
+
+function populateAppOptions() {
+  const select = $("#app-select");
+  const usageSlugs = new Set(state.appUsage.map((row) => row.App_Slug));
+  const apps = state.apps.filter((app) => usageSlugs.has(app.App_Slug));
+  select.innerHTML = apps.map((app) => `<option value="${escapeHtml(app.App_Slug)}">#${escapeHtml(app.Rank)} ${escapeHtml(app.App_Title)}</option>`).join("");
+  $("#apps-total-count").textContent = state.apps.length.toLocaleString();
+  $("#apps-with-usage-count").textContent = apps.length.toLocaleString();
+  renderAppsTable();
+  renderAppUsage();
+}
+
+function filterAppRange(rows) {
+  const range = $("#app-range-select").value;
+  if (range === "all" || !rows.length) return rows;
+  const dates = Array.from(new Set(rows.map((row) => row.Date))).sort();
+  const keepDates = new Set(dates.slice(-Number(range)));
+  return rows.filter((row) => keepDates.has(row.Date));
+}
+
+function renderAppUsage() {
+  if (!state.appUsage.length) return;
+  const slug = $("#app-select").value;
+  const allRows = state.appUsage.filter((row) => row.App_Slug === slug);
+  const rows = filterAppRange(allRows);
+  state.filteredAppUsage = rows;
+  const dates = Array.from(new Set(rows.map((row) => row.Date))).sort();
+  const models = Array.from(groupBy(rows, (row) => row.Model).entries())
+    .map(([model, items]) => [model, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
+    .sort((a, b) => b[1] - a[1])
+    .map(([model]) => model);
+  const byModelDate = new Map(rows.map((row) => [`${row.Model}||${row.Date}`, numberValue(row.Tokens)]));
+  const topModel = models[0] || "-";
+
+  $("#app-latest-date").textContent = dates.at(-1) || "-";
+  $("#app-top-model").textContent = topModel;
+  $("#app-usage-note").textContent = "App detail data is aggregated by week and skips the latest incomplete week; the weekly scraper will accumulate more history over time.";
+
+  if (state.charts.appUsage) state.charts.appUsage.destroy();
+  state.charts.appUsage = new Chart($("#app-usage-chart"), {
+    type: "bar",
+    data: {
+      labels: dates,
+      datasets: models.map((model, index) => ({
+        label: model,
+        data: dates.map((date) => byModelDate.get(`${model}||${date}`) || 0),
+        backgroundColor: palette[index % palette.length],
+        borderColor: palette[index % palette.length],
+        stack: "app-usage",
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom", labels: { boxWidth: 12 } },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${shortNumber(ctx.parsed.y || 0)}` } },
+      },
+      scales: {
+        x: { stacked: true, ticks: { maxTicksLimit: 12 } },
+        y: { stacked: true, title: { display: true, text: "Tokens (Billion)" } },
+      },
+    },
+  });
+}
+
+function renderAppsTable() {
+  const tbody = $("#apps-table tbody");
+  tbody.innerHTML = state.apps.slice(0, 60).map((app) => `
+    <tr>
+      <td>${escapeHtml(app.Rank)}</td>
+      <td>${escapeHtml(app.App_Title)}</td>
+      <td>${escapeHtml(app.App_Slug || "")}</td>
+      <td>${shortNumber(numberValue(app.Total_Tokens) / 1e9)}</td>
+      <td>${Number(app.Total_Requests || 0).toLocaleString()}</td>
     </tr>
   `).join("");
 }
@@ -1067,6 +1268,7 @@ async function init() {
   setupCumulativeControls();
   setupTokenControls();
   setupPricingControls();
+  setupOpenRouterControls();
   setupProductControls();
 
   try {
@@ -1091,6 +1293,18 @@ async function init() {
     populatePricingProviders();
     renderPricingPriceTypeOptions();
     renderPricingModelOptions();
+
+    const openRouterPayload = await loadJson("openrouter_market_apps.json");
+    state.marketShare = openRouterPayload.market_share || [];
+    state.apps = openRouterPayload.apps || [];
+    state.appUsage = openRouterPayload.app_model_usage || [];
+    const latestMarketDate = state.marketShare.map((row) => row.Date).sort().at(-1);
+    state.marketAuthors = Array.from(groupBy(state.marketShare.filter((row) => row.Date === latestMarketDate), (row) => row.Author).entries())
+      .map(([author, items]) => [author, items.reduce((sum, row) => sum + numberValue(row.Share), 0)])
+      .sort((a, b) => b[1] - a[1])
+      .map(([author]) => author);
+    renderMarketAuthorOptions();
+    populateAppOptions();
 
     const manifest = await loadJson("product_reports/manifest.json");
     state.reports = manifest.reports;
