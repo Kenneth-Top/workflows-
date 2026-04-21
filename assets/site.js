@@ -626,10 +626,7 @@ function pricingModelKey(row) {
 }
 
 function pricingModelLabel(row) {
-  const provider = $("#pricing-provider-select").value;
-  const api = row.Host_API_ID ? ` ? ${row.Host_API_ID}` : "";
-  const prefix = provider === "all" ? `${row.Provider} - ` : "";
-  return `${prefix}${row.Model}${api}`;
+  return row.Release_Date ? `${row.Model}（${row.Release_Date}）` : row.Model;
 }
 
 function hasCachePrice(row) {
@@ -724,11 +721,10 @@ function renderPricingModelOptions() {
     const key = pricingModelKey(row);
     const id = `pricing-model-${index}`;
     const checked = state.pricingSelectedModels.has(key) ? "checked" : "";
-    const date = row.Release_Date ? ` - ${row.Release_Date.slice(0, 7)}` : "";
     return `
       <label class="checkbox-row" for="${id}">
         <input id="${id}" type="checkbox" value="${escapeHtml(key)}" ${checked}>
-        <span>${escapeHtml(pricingModelLabel(row) + date)}</span>
+        <span>${escapeHtml(pricingModelLabel(row))}</span>
       </label>
     `;
   }).join("");
