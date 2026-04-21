@@ -16,7 +16,7 @@ const palette = ["#0f8b8d", "#d1495b", "#edae49", "#2e6f95", "#6c5ce7", "#247ba0
 
 const sampleFilters = [
   { id: "filter-user", label: "用户类型", columns: ["user_group_4"] },
-  { id: "filter-region", label: "地区", columns: ["region_bucket", "region"] },
+  { id: "filter-region", label: "地区", columns: ["region_bucket"] },
   { id: "filter-sentiment", label: "情绪", columns: ["sentiment"] },
   { id: "filter-scene", label: "场景", columns: ["scene_tags", "scenario_tags"] },
   { id: "filter-praise", label: "夸赞指标", columns: ["praise_tags"] },
@@ -637,7 +637,6 @@ function renderSamples() {
       row.sentiment,
       row.narrative_bucket,
       row.region_bucket,
-      row.region,
       normalizeText(row.scene_tags),
       normalizeText(row.scenario_tags),
       normalizeText(row.praise_tags),
@@ -667,7 +666,7 @@ function renderSampleBars(rows) {
   const config = [
     [["sentiment"], "情绪分布"],
     [["narrative_bucket"], "叙事主题"],
-    [["region_bucket", "region"], "区域分布"],
+    [["region_bucket"], "区域分布"],
     [["scene_tags", "scenario_tags"], "场景"],
     [["praise_tags"], "夸赞指标"],
     [["competitor_tags"], "竞品提及"],
