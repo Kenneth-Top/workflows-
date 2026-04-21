@@ -29,26 +29,33 @@
         <button class="module-tab" type="button" data-openrouter-module="market">Market Share</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>
       </div>
-      <div class="toolbar">
+      <div class="toolbar cumulative-toolbar">
         <label>
-          搜索模型
-          <input id="cumulative-model-search" type="search" placeholder="输入模型名">
+          对比维度
+          <select id="cumulative-kind">
+            <option value="model">模型</option>
+            <option value="provider">Provider</option>
+          </select>
+        </label>
+        <label>
+          搜索对象
+          <input id="cumulative-model-search" type="search" placeholder="输入模型名或 provider">
         </label>
         <label>
           观察窗口
           <select id="cumulative-day-window">
             <option value="all">全部天数</option>
-            <option value="90">前 90 天</option>
-            <option value="60">前 60 天</option>
-            <option value="30">前 30 天</option>
-            <option value="14">前 14 天</option>
+            <option value="90">90 天</option>
+            <option value="60">60 天</option>
+            <option value="30">30 天</option>
+            <option value="14">14 天</option>
           </select>
         </label>
       </div>
 
       <div class="checkbox-panel">
         <div class="checkbox-toolbar">
-          <strong>选择模型</strong>
+          <strong id="cumulative-picker-title">选择模型</strong>
           <span id="cumulative-selected-count">已选择 0 个</span>
           <button id="select-visible-models" class="plain-button" type="button">勾选当前结果</button>
           <button id="clear-cumulative-models" class="plain-button" type="button">清空选择</button>
@@ -57,9 +64,9 @@
       </div>
 
       <div class="metrics">
-        <div><span>对比模型数</span><strong id="cum-model-count">-</strong></div>
-        <div><span>最长观察</span><strong id="cum-max-day">-</strong></div>
-        <div><span>领先模型</span><strong id="cum-leader">-</strong></div>
+        <div><span>对比对象数</span><strong id="cum-model-count">-</strong></div>
+        <div><span>观察终点</span><strong id="cum-max-day">-</strong></div>
+        <div><span>领先对象</span><strong id="cum-leader">-</strong></div>
         <div><span>领先累计</span><strong id="cum-leader-total">-</strong></div>
       </div>
 
@@ -436,6 +443,7 @@
         <a href="history_database.csv" download>Token 历史数据 CSV</a>
         <a href="openrouter_pricing_provider_records.csv" download>OpenRouter 定价 CSV</a>
         <a href="openrouter_market_share_records.csv" download>OpenRouter Market Share CSV</a>
+        <a href="openrouter_provider_usage_records.csv" download>OpenRouter Provider 用量 CSV</a>
         <a href="openrouter_apps_records.csv" download>OpenRouter Apps CSV</a>
         <a href="openrouter_app_model_usage_records.csv" download>OpenRouter App 模型用量 CSV</a>
         <a href="openrouter_market_apps.json" download>OpenRouter Market & Apps JSON</a>

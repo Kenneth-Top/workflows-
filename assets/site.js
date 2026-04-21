@@ -11,11 +11,14 @@ const state = {
   marketShare: [],
   marketAuthors: [],
   marketSelectedAuthors: new Set(),
+  providerUsage: [],
   apps: [],
   appUsage: [],
   filteredAppUsage: [],
   models: [],
+  providers: [],
   cumulativeSelectedModels: new Set(),
+  cumulativeSelectedProviders: new Set(),
   charts: {
     cumulative: null,
     token: null,
@@ -225,14 +228,23 @@ function activateOpenRouterModule(module) {
 }
 
 function setupCumulativeControls() {
+  $("#cumulative-kind").addEventListener("change", renderCumulativeModelOptions);
   $("#cumulative-model-search").addEventListener("input", renderCumulativeModelOptions);
   $("#cumulative-day-window").addEventListener("change", renderCumulative);
   $("#select-visible-models").addEventListener("click", () => {
-    visibleCumulativeModels().forEach((model) => state.cumulativeSelectedModels.add(model));
+    if (cumulativeKind() === "provider") {
+      visibleCumulativeProviders().forEach((provider) => state.cumulativeSelectedProviders.add(provider));
+    } else {
+      visibleCumulativeModels().forEach((model) => state.cumulativeSelectedModels.add(model));
+    }
     renderCumulativeModelOptions();
   });
   $("#clear-cumulative-models").addEventListener("click", () => {
-    state.cumulativeSelectedModels.clear();
+    if (cumulativeKind() === "provider") {
+      state.cumulativeSelectedProviders.clear();
+    } else {
+      state.cumulativeSelectedModels.clear();
+    }
     renderCumulativeModelOptions();
   });
   $("#download-cumulative").addEventListener("click", () => {
@@ -328,20 +340,36 @@ function visibleCumulativeModels() {
   return state.models.filter((model) => model.toLowerCase().includes(search));
 }
 
+function visibleCumulativeProviders() {
+  const search = $("#cumulative-model-search").value.trim().toLowerCase();
+  return state.providers.filter((provider) => provider.toLowerCase().includes(search));
+}
+
+function cumulativeKind() {
+  return $("#cumulative-kind").value;
+}
+
 function renderCumulativeModelOptions() {
   const list = $("#cumulative-model-list");
-  if (!state.cumulativeSelectedModels.size) {
-    state.models.slice(0, 3).forEach((model) => state.cumulativeSelectedModels.add(model));
+  const isProvider = cumulativeKind() === "provider";
+  const selectedSet = isProvider ? state.cumulativeSelectedProviders : state.cumulativeSelectedModels;
+  const visibleItems = isProvider ? visibleCumulativeProviders() : visibleCumulativeModels();
+  const defaults = isProvider ? state.providers.slice(0, 5) : state.models.slice(0, 3);
+  const title = isProvider ? "选择 Provider" : "选择模型";
+  $("#cumulative-picker-title").textContent = title;
+  $("#cumulative-model-search").placeholder = isProvider ? "输入 provider 名" : "输入模型名";
+
+  if (!selectedSet.size) {
+    defaults.forEach((item) => selectedSet.add(item));
   }
 
-  const visibleModels = visibleCumulativeModels();
-  list.innerHTML = visibleModels.map((model) => {
-    const id = `cum-${model.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
-    const checked = state.cumulativeSelectedModels.has(model) ? "checked" : "";
+  list.innerHTML = visibleItems.map((item) => {
+    const id = `cum-${item.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+    const checked = selectedSet.has(item) ? "checked" : "";
     return `
       <label class="checkbox-row" for="${escapeHtml(id)}">
-        <input id="${escapeHtml(id)}" type="checkbox" value="${escapeHtml(model)}" ${checked}>
-        <span>${escapeHtml(model)}</span>
+        <input id="${escapeHtml(id)}" type="checkbox" value="${escapeHtml(item)}" ${checked}>
+        <span>${escapeHtml(item)}</span>
       </label>
     `;
   }).join("");
@@ -349,24 +377,31 @@ function renderCumulativeModelOptions() {
   list.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) {
-        state.cumulativeSelectedModels.add(checkbox.value);
+        selectedSet.add(checkbox.value);
       } else {
-        state.cumulativeSelectedModels.delete(checkbox.value);
+        selectedSet.delete(checkbox.value);
       }
       renderCumulative();
     });
   });
 
-  $("#cumulative-selected-count").textContent = `已选择 ${state.cumulativeSelectedModels.size} 个`;
+  $("#cumulative-selected-count").textContent = `已选择 ${selectedSet.size} 个`;
   renderCumulative();
 }
 
-function selectedCumulativeModels() {
+function selectedCumulativeItems() {
+  if (cumulativeKind() === "provider") {
+    const selected = Array.from(state.cumulativeSelectedProviders);
+    return selected.length ? selected : state.providers.slice(0, 5);
+  }
   const selected = Array.from(state.cumulativeSelectedModels);
   return selected.length ? selected : state.models.slice(0, 3);
 }
 
 function buildCumulativeSeries(models) {
+  if (cumulativeKind() === "provider") {
+    return buildProviderCumulativeSeries(models);
+  }
   const grouped = groupBy(state.tokens.filter((row) => models.includes(row.Display_Name)), (row) => row.Display_Name);
   const windowValue = $("#cumulative-day-window").value;
   const dayLimit = windowValue === "all" ? Infinity : Number(windowValue);
@@ -396,11 +431,49 @@ function buildCumulativeSeries(models) {
   return { series, maxDay };
 }
 
+function buildProviderCumulativeSeries(providers) {
+  const sourceRows = state.providerUsage.length
+    ? state.providerUsage.map((row) => ({ Date: row.Date, Author: row.Provider_Display || row.Provider, Tokens: row.Tokens }))
+    : state.marketShare;
+  const grouped = groupBy(sourceRows.filter((row) => providers.includes(row.Author)), (row) => row.Author);
+  const windowValue = $("#cumulative-day-window").value;
+  const dayLimit = windowValue === "all" ? Infinity : Number(windowValue);
+  const latestDate = sourceRows.map((row) => row.Date).sort().at(-1);
+  const cutoffTime = Number.isFinite(dayLimit) && latestDate
+    ? new Date(`${latestDate}T00:00:00Z`).getTime() - (dayLimit - 1) * 86400000
+    : null;
+  let maxDay = 0;
+
+  const series = providers.map((provider) => {
+    const rows = (grouped.get(provider) || [])
+      .slice()
+      .sort((a, b) => a.Date.localeCompare(b.Date))
+      .filter((row) => cutoffTime === null || new Date(`${row.Date}T00:00:00Z`).getTime() >= cutoffTime);
+    if (!rows.length) return { model: provider, points: [], startDate: "" };
+    let running = 0;
+    const points = rows.map((row, index) => {
+      running += numberValue(row.Tokens);
+      maxDay = Math.max(maxDay, index);
+      return {
+        day: index,
+        date: row.Date,
+        value: Number(running.toFixed(6)),
+      };
+    });
+    return { model: provider, points, startDate: rows[0].Date };
+  });
+
+  return { series, maxDay };
+}
+
 function renderCumulative() {
   if (!state.tokens.length) return;
-  const models = selectedCumulativeModels();
+  if (cumulativeKind() === "provider" && !state.providerUsage.length && !state.marketShare.length) return;
+  const models = selectedCumulativeItems();
   const { series, maxDay } = buildCumulativeSeries(models);
   const days = Array.from({ length: maxDay + 1 }, (_, index) => index);
+  const isProvider = cumulativeKind() === "provider";
+  const providerDatesByDay = new Map(series.flatMap((item) => item.points.map((point) => [point.day, point.date])));
   const datasets = series.map((item, index) => {
     const byDay = new Map(item.points.map((point) => [point.day, point.value]));
     return {
@@ -420,14 +493,19 @@ function renderCumulative() {
     .sort((a, b) => b.value - a.value);
 
   $("#cum-model-count").textContent = models.length.toLocaleString();
-  $("#cum-max-day").textContent = `${maxDay} 天`;
+  $("#cum-max-day").textContent = isProvider ? (series[0]?.points.at(-1)?.date || "-") : `${maxDay} 天`;
   $("#cum-leader").textContent = leaders[0]?.model || "-";
   $("#cum-leader-total").textContent = shortNumber(leaders[0]?.value || 0);
 
   if (state.charts.cumulative) state.charts.cumulative.destroy();
   state.charts.cumulative = new Chart($("#cumulative-chart"), {
     type: "line",
-    data: { labels: days.map((day) => `Day ${day}`), datasets },
+    data: {
+      labels: isProvider
+        ? days.map((day) => providerDatesByDay.get(day) || `Day ${day}`)
+        : days.map((day) => `Day ${day}`),
+      datasets,
+    },
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -437,22 +515,23 @@ function renderCumulative() {
         tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${shortNumber(ctx.parsed.y || 0)}` } },
       },
       scales: {
-        x: { title: { display: true, text: "模型收录后的天数" }, ticks: { maxTicksLimit: 12 } },
+        x: { title: { display: true, text: isProvider ? "日期" : "模型收录后的天数" }, ticks: { maxTicksLimit: 12 } },
         y: { title: { display: true, text: "累计 Tokens (Billion)" } },
       },
     },
   });
-  renderCumulativeTable(series, days);
+  renderCumulativeTable(series, days, isProvider);
 }
 
-function renderCumulativeTable(series, days) {
+function renderCumulativeTable(series, days, isProvider = false) {
   const table = $("#cumulative-table");
   const models = series.map((item) => item.model);
-  table.querySelector("thead").innerHTML = `<tr><th>Day</th>${models.map((model) => `<th>${escapeHtml(model)}</th>`).join("")}</tr>`;
+  table.querySelector("thead").innerHTML = `<tr><th>${isProvider ? "Date" : "Day"}</th>${models.map((model) => `<th>${escapeHtml(model)}</th>`).join("")}</tr>`;
 
   const byModel = new Map(series.map((item) => [item.model, new Map(item.points.map((point) => [point.day, point.value]))]));
+  const labelsByDay = new Map(series.flatMap((item) => item.points.map((point) => [point.day, point.date])));
   const rows = days.map((day) => {
-    const row = { Day: day };
+    const row = { [isProvider ? "Date" : "Day"]: isProvider ? (labelsByDay.get(day) || "") : day };
     models.forEach((model) => {
       row[model] = byModel.get(model).get(day) ?? "";
     });
@@ -462,7 +541,7 @@ function renderCumulativeTable(series, days) {
 
   table.querySelector("tbody").innerHTML = rows.map((row) => `
     <tr>
-      <td>${row.Day}</td>
+      <td>${escapeHtml(row[isProvider ? "Date" : "Day"])}</td>
       ${models.map((model) => `<td>${row[model] === "" ? "" : Number(row[model]).toFixed(6)}</td>`).join("")}
     </tr>
   `).join("");
@@ -1349,6 +1428,7 @@ async function init() {
 
     const openRouterPayload = await loadJson("openrouter_market_apps.json");
     state.marketShare = openRouterPayload.market_share || [];
+    state.providerUsage = openRouterPayload.provider_usage || [];
     state.apps = openRouterPayload.apps || [];
     state.appUsage = openRouterPayload.app_model_usage || [];
     const latestMarketDate = state.marketShare.map((row) => row.Date).sort().at(-1);
@@ -1356,7 +1436,16 @@ async function init() {
       .map(([author, items]) => [author, items.reduce((sum, row) => sum + numberValue(row.Share), 0)])
       .sort((a, b) => b[1] - a[1])
       .map(([author]) => author);
+    const latestProviderDate = state.providerUsage.map((row) => row.Date).sort().at(-1);
+    const providerSource = state.providerUsage.length
+      ? state.providerUsage.filter((row) => row.Date === latestProviderDate).map((row) => ({ Author: row.Provider_Display || row.Provider, Tokens: row.Tokens }))
+      : state.marketShare.filter((row) => row.Date === latestMarketDate);
+    state.providers = Array.from(groupBy(providerSource, (row) => row.Author).entries())
+      .map(([author, items]) => [author, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
+      .sort((a, b) => b[1] - a[1])
+      .map(([author]) => author);
     renderMarketAuthorOptions();
+    renderCumulativeModelOptions();
     populateAppOptions();
 
     const manifest = await loadJson("product_reports/manifest.json");

@@ -15,11 +15,14 @@ import requests
 BASE_URL = "https://openrouter.ai"
 RANKINGS_URL = f"{BASE_URL}/rankings"
 APPS_URL = f"{BASE_URL}/apps"
+PROVIDER_URL = f"{BASE_URL}/provider"
+PROVIDERS_URL = f"{BASE_URL}/providers"
 TOP_APP_LIMIT = 60
 
 MARKET_CSV = Path("openrouter_market_share_records.csv")
 APPS_CSV = Path("openrouter_apps_records.csv")
 APP_USAGE_CSV = Path("openrouter_app_model_usage_records.csv")
+PROVIDER_USAGE_CSV = Path("openrouter_provider_usage_records.csv")
 MARKET_APPS_JSON = Path("openrouter_market_apps.json")
 
 SESSION = requests.Session()
@@ -230,6 +233,65 @@ def fetch_app_model_usage(apps: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return daily_rows
 
 
+def fetch_provider_catalog() -> list[dict[str, Any]]:
+    text = decode_next_rsc(fetch_text(PROVIDERS_URL))
+    candidates = arrays_for_key(text, "providers")
+    if not candidates:
+        return []
+    providers = [item for item in candidates[0] if isinstance(item, dict) and item.get("slug")]
+    providers.sort(key=lambda item: int(item.get("dailyTokens") or 0), reverse=True)
+    return providers
+
+
+def usage_series_from_provider_page(provider_slug: str) -> list[dict[str, Any]]:
+    text = decode_next_rsc(fetch_text(f"{PROVIDER_URL}/{provider_slug}"))
+    candidates = []
+    for series in arrays_for_key(text, "data"):
+        if not series or not isinstance(series[0], dict):
+            continue
+        ys = series[0].get("ys")
+        if isinstance(ys, dict) and any("/" in str(key) for key in ys):
+            candidates.append(series)
+    if not candidates:
+        return []
+    return max(candidates, key=len)
+
+
+def fetch_provider_usage(providers: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    daily_rows: list[dict[str, Any]] = []
+    for index, provider in enumerate(providers, start=1):
+        provider_slug = str(provider.get("slug"))
+        provider_display = str(provider.get("displayName") or provider.get("name") or provider_slug)
+        print(f"Fetching provider usage {index}/{len(providers)}: {provider_slug}")
+        try:
+            series = usage_series_from_provider_page(provider_slug)
+        except Exception as exc:
+            print(f"  skipped {provider_slug}: {exc}")
+            continue
+        if not series:
+            continue
+
+        dates = sorted({str(point.get("x", ""))[:10] for point in series if point.get("x")})
+        latest_date = dates[-1] if dates else None
+        for point in series:
+            date = str(point.get("x", ""))[:10]
+            if not date or date == latest_date:
+                continue
+            values = point.get("ys") or {}
+            tokens = sum(float(value or 0) for value in values.values())
+            daily_rows.append(
+                {
+                    "Date": date,
+                    "Provider": provider_slug,
+                    "Provider_Display": provider_display,
+                    "Tokens": round(tokens / 1e9, 6),
+                    "Model_Count": sum(1 for value in values.values() if float(value or 0) > 0),
+                }
+            )
+        time.sleep(0.25)
+    return daily_rows
+
+
 def read_csv(path: Path, key_fields: list[str]) -> dict[tuple[str, ...], dict[str, Any]]:
     if not path.exists():
         return {}
@@ -250,16 +312,24 @@ def write_csv(path: Path, rows: list[dict[str, Any]], headers: list[str], key_fi
     return final_rows
 
 
-def write_json(market_rows: list[dict[str, Any]], app_rows: list[dict[str, Any]], app_usage_rows: list[dict[str, Any]]) -> None:
+def write_json(
+    market_rows: list[dict[str, Any]],
+    app_rows: list[dict[str, Any]],
+    app_usage_rows: list[dict[str, Any]],
+    provider_usage_rows: list[dict[str, Any]],
+) -> None:
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "sources": {
             "rankings": RANKINGS_URL,
             "apps": APPS_URL,
+            "providers": PROVIDER_URL,
+            "provider_catalog": PROVIDERS_URL,
         },
         "market_share": market_rows,
         "apps": sorted(app_rows, key=lambda row: int(row.get("Rank") or 10**9)),
         "app_model_usage": app_usage_rows,
+        "provider_usage": provider_usage_rows,
     }
     MARKET_APPS_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -268,6 +338,8 @@ def main() -> None:
     market_rows = fetch_market_share()
     app_rows = fetch_top_apps()
     app_usage_rows = fetch_app_model_usage(app_rows)
+    provider_rows = fetch_provider_catalog()
+    provider_usage_rows = fetch_provider_usage(provider_rows)
 
     market_all = write_csv(MARKET_CSV, market_rows, ["Date", "Author", "Tokens", "Share"], ["Date", "Author"])
     apps_all = write_csv(
@@ -282,10 +354,17 @@ def main() -> None:
         ["Date", "App_ID", "App_Title", "App_Slug", "Model", "Tokens"],
         ["Date", "App_ID", "Model"],
     )
-    write_json(market_all, apps_all, usage_all)
+    provider_usage_all = write_csv(
+        PROVIDER_USAGE_CSV,
+        provider_usage_rows,
+        ["Date", "Provider", "Provider_Display", "Tokens", "Model_Count"],
+        ["Date", "Provider"],
+    )
+    write_json(market_all, apps_all, usage_all, provider_usage_all)
     print(f"Saved market rows: {len(market_all)}")
     print(f"Saved app rows: {len(apps_all)}")
     print(f"Saved app model usage rows: {len(usage_all)}")
+    print(f"Saved provider usage rows: {len(provider_usage_all)}")
 
 
 if __name__ == "__main__":

@@ -124,6 +124,10 @@ main {
   margin-bottom: 18px;
 }
 
+.cumulative-toolbar {
+  grid-template-columns: minmax(140px, 0.45fr) minmax(240px, 1.1fr) minmax(160px, 0.55fr);
+}
+
 .checkbox-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
