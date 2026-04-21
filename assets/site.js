@@ -3,6 +3,9 @@ const state = {
   filteredTokens: [],
   cumulativeRows: [],
   sampleRows: [],
+  pricing: [],
+  filteredPricing: [],
+  pricingMetadata: {},
   models: [],
   cumulativeSelectedModels: new Set(),
   charts: {
@@ -181,6 +184,27 @@ function setupTokenControls() {
       ["Date", "Model", "Total_Tokens"],
       state.filteredTokens,
     );
+  });
+}
+
+
+function setupPricingControls() {
+  ["#pricing-provider-select", "#pricing-model-search", "#pricing-sort", "#pricing-cache-only"].forEach((selector) => {
+    $(selector).addEventListener(selector === "#pricing-model-search" ? "input" : "change", renderPricing);
+  });
+  $("#download-pricing").addEventListener("click", () => {
+    if (!state.filteredPricing.length) return;
+    downloadCsv("artificial_analysis_pricing_filtered.csv", [
+      "Provider",
+      "Model",
+      "Host_API_ID",
+      "Input_Price_1M",
+      "Output_Price_1M",
+      "Cache_Write_Price_1M",
+      "Cache_Hit_Price_1M",
+      "Cache_Storage_Price_Per_Hour_Per_1M",
+      "Context_Window",
+    ], state.filteredPricing);
   });
 }
 
@@ -566,6 +590,75 @@ function renderTokenTable(rows) {
   `).join("");
 }
 
+
+function populatePricingProviders() {
+  const select = $("#pricing-provider-select");
+  const providers = Array.from(new Set(state.pricing.map((row) => row.Provider).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+  select.innerHTML = '<option value="all">All Providers</option>' + providers.map((provider) => `<option value="${escapeHtml(provider)}">${escapeHtml(provider)}</option>`).join("");
+}
+
+function hasCachePrice(row) {
+  return ["Cache_Write_Price_1M", "Cache_Hit_Price_1M", "Cache_Storage_Price_Per_Hour_Per_1M"]
+    .some((key) => row[key] !== null && row[key] !== undefined && row[key] !== "");
+}
+
+function priceValue(value) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : Infinity;
+}
+
+function formatPrice(value) {
+  if (value === null || value === undefined || value === "") return "-";
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return "-";
+  if (parsed === 0) return "$0";
+  return `$${parsed < 1 ? parsed.toFixed(4) : parsed.toFixed(2)}`;
+}
+
+function sortPricingRows(rows) {
+  const sort = $("#pricing-sort").value;
+  const byName = (a, b) => `${a.Provider} ${a.Model}`.localeCompare(`${b.Provider} ${b.Model}`);
+  if (sort === "input_asc") return rows.sort((a, b) => priceValue(a.Input_Price_1M) - priceValue(b.Input_Price_1M) || byName(a, b));
+  if (sort === "output_asc") return rows.sort((a, b) => priceValue(a.Output_Price_1M) - priceValue(b.Output_Price_1M) || byName(a, b));
+  if (sort === "cache_hit_asc") return rows.sort((a, b) => priceValue(a.Cache_Hit_Price_1M) - priceValue(b.Cache_Hit_Price_1M) || byName(a, b));
+  return rows.sort(byName);
+}
+
+function renderPricing() {
+  if (!state.pricing.length) return;
+  const provider = $("#pricing-provider-select").value;
+  const query = $("#pricing-model-search").value.trim().toLowerCase();
+  const cacheOnly = $("#pricing-cache-only").checked;
+
+  const rows = sortPricingRows(state.pricing.filter((row) => {
+    if (provider !== "all" && row.Provider !== provider) return false;
+    if (cacheOnly && !hasCachePrice(row)) return false;
+    if (!query) return true;
+    return [row.Provider, row.Model, row.Host_Model, row.Host_API_ID, row.Model_Slug, row.Host_Model_Slug]
+      .join(" ").toLowerCase().includes(query);
+  }));
+  state.filteredPricing = rows;
+
+  $("#pricing-record-count").textContent = rows.length.toLocaleString();
+  $("#pricing-provider-count").textContent = new Set(rows.map((row) => row.Provider)).size.toLocaleString();
+  $("#pricing-model-count").textContent = new Set(rows.map((row) => row.Model)).size.toLocaleString();
+  $("#pricing-updated-at").textContent = (state.pricingMetadata.generated_at || "").slice(0, 10) || "-";
+
+  const tbody = $("#pricing-table tbody");
+  tbody.innerHTML = rows.slice(0, 800).map((row) => `
+    <tr>
+      <td>${escapeHtml(row.Provider)}</td>
+      <td>${escapeHtml(row.Model)}</td>
+      <td>${escapeHtml(row.Host_API_ID || "")}</td>
+      <td>${formatPrice(row.Input_Price_1M)}</td>
+      <td>${formatPrice(row.Output_Price_1M)}</td>
+      <td>${formatPrice(row.Cache_Write_Price_1M)}</td>
+      <td>${formatPrice(row.Cache_Hit_Price_1M)}</td>
+      <td>${formatPrice(row.Cache_Storage_Price_Per_Hour_Per_1M)}</td>
+    </tr>
+  `).join("");
+}
+
 function renderProductOptions() {
   const vendor = $("#vendor-select").value;
   const productSelect = $("#product-select");
@@ -744,6 +837,7 @@ async function init() {
   setupTabs();
   setupCumulativeControls();
   setupTokenControls();
+  setupPricingControls();
   setupProductControls();
 
   try {
@@ -761,6 +855,12 @@ async function init() {
     renderCumulativeModelOptions();
     renderSingleModelOptions();
     renderAlerts();
+
+    const pricingPayload = await loadJson("artificial_analysis_pricing.json");
+    state.pricingMetadata = pricingPayload;
+    state.pricing = pricingPayload.records || [];
+    populatePricingProviders();
+    renderPricing();
 
     const manifest = await loadJson("product_reports/manifest.json");
     state.reports = manifest.reports;

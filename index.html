@@ -16,6 +16,7 @@
     <nav class="tabs" aria-label="页面导航">
       <button class="tab active" data-view="cumulative">累计用量对比</button>
       <button class="tab" data-view="tokens">单模型 Tokens</button>
+      <button class="tab" data-view="pricing">&#x6A21;&#x578B;&#x4EF7;&#x683C;</button>
       <button class="tab" data-view="products">AI 产品测评</button>
       <button class="tab" data-view="datasets">数据文件</button>
     </nav>
@@ -222,10 +223,68 @@
       </div>
     </section>
 
+
+    <section id="pricing-view" class="view">
+      <div class="toolbar pricing-toolbar">
+        <label>
+          Provider
+          <select id="pricing-provider-select"></select>
+        </label>
+        <label>
+          &#x641C;&#x7D22;&#x6A21;&#x578B;/API
+          <input id="pricing-model-search" type="search" placeholder="&#x8F93;&#x5165;&#x6A21;&#x578B;&#x540D;&#x3001;provider &#x6216; API ID">
+        </label>
+        <label>
+          &#x6392;&#x5E8F;
+          <select id="pricing-sort">
+            <option value="provider">Provider / &#x6A21;&#x578B;</option>
+            <option value="input_asc">Input &#x4EF7;&#x683C;&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;</option>
+            <option value="output_asc">Output &#x4EF7;&#x683C;&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;</option>
+            <option value="cache_hit_asc">Cache hit &#x4EF7;&#x683C;&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;</option>
+          </select>
+        </label>
+        <label class="inline-check">
+          <input id="pricing-cache-only" type="checkbox">
+          &#x53EA;&#x770B;&#x542B; Cache &#x4EF7;&#x683C;
+        </label>
+      </div>
+
+      <div class="metrics">
+        <div><span>&#x4EF7;&#x683C;&#x8BB0;&#x5F55;</span><strong id="pricing-record-count">-</strong></div>
+        <div><span>Provider &#x6570;</span><strong id="pricing-provider-count">-</strong></div>
+        <div><span>&#x6A21;&#x578B;&#x6570;</span><strong id="pricing-model-count">-</strong></div>
+        <div><span>&#x66F4;&#x65B0;&#x65F6;&#x95F4;</span><strong id="pricing-updated-at">-</strong></div>
+      </div>
+
+      <div class="table-head">
+        <h2>Artificial Analysis &#x6A21;&#x578B;&#x4EF7;&#x683C;</h2>
+        <button id="download-pricing" class="plain-button">&#x4E0B;&#x8F7D;&#x5F53;&#x524D;&#x4EF7;&#x683C;</button>
+      </div>
+      <div class="table-wrap">
+        <table id="pricing-table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>&#x6A21;&#x578B;</th>
+              <th>API ID</th>
+              <th>Input / 1M</th>
+              <th>Output / 1M</th>
+              <th>Cache Write / 1M</th>
+              <th>Cache Hit / 1M</th>
+              <th>Cache Storage / &#x5C0F;&#x65F6; / 1M</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
     <section id="datasets-view" class="view">
       <div class="download-list">
         <a href="history_database.csv" download>Token 历史数据 CSV</a>
         <a href="openrouter_pricing_provider_records.csv" download>OpenRouter 定价 CSV</a>
+        <a href="artificial_analysis_pricing.csv" download>Artificial Analysis &#x4EF7;&#x683C; CSV</a>
+        <a href="artificial_analysis_pricing.json" download>Artificial Analysis &#x4EF7;&#x683C; JSON</a>
         <a href="openrouter_benchmark_records.csv" download>Benchmark 跑分 CSV</a>
         <a href="lmarena_leaderboard_records.csv" download>LMARENA 排行 CSV</a>
         <div id="product-downloads" class="download-list nested"></div>

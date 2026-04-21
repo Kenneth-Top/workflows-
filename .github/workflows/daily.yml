@@ -35,6 +35,7 @@ jobs:
         run: |
           python update_data.py
           python openrouter_pricing_scraper.py
+          python artificial_analysis_pricing_scraper.py
           python openrouter_benchmark_scraper.py
           python lmarena_scraper.py
           python daily_briefing_job.py
@@ -45,6 +46,8 @@ jobs:
           git config --global user.email "action@github.com"
           git add history_database.csv
           git add openrouter_pricing_provider_records.csv
+          git add artificial_analysis_pricing.csv
+          git add artificial_analysis_pricing.json
           git add openrouter_benchmark_records.csv
           git add lmarena_leaderboard_records.csv
           git add briefing_cache/
