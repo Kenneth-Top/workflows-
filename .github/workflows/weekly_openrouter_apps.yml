@@ -2,7 +2,7 @@ name: Update OpenRouter Market Apps
 
 on:
   schedule:
-    - cron: '0 2 * * 1'
+    - cron: '0 2 * * *' # 每天 UTC 2点运行，北京时间 10点
   workflow_dispatch:
 
 permissions:
@@ -33,6 +33,7 @@ jobs:
           git add openrouter_market_share_records.csv
           git add openrouter_apps_records.csv
           git add openrouter_app_model_usage_records.csv
+          git add openrouter_provider_usage_records.csv
           git add openrouter_market_apps.json
           git commit -m "Auto-update OpenRouter market and app data [skip ci]" || exit 0
           git push
