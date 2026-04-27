@@ -1001,31 +1001,21 @@ function renderCategories() {
   const author = $("#category-author-select").value || state.categoryAuthors[0];
   const latestDate = state.categoryUsage.map((row) => row.Date).sort().at(-1);
   const latestRows = state.categoryUsage.filter((row) => row.Date === latestDate);
-  const latestCategoryTotals = Array.from(groupBy(latestRows, (row) => row.Category_Label || row.Category).entries())
-    .map(([category, items]) => [category, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
-    .sort((a, b) => b[1] - a[1]);
-  const latestTotal = latestCategoryTotals.reduce((sum, [, tokens]) => sum + tokens, 0);
-
   const authorRows = filterCategoryRange(state.categoryUsage.filter((row) => row.Author === author));
   const dates = Array.from(new Set(authorRows.map((row) => row.Date))).sort();
-  const categories = latestCategoryTotals.map(([category]) => category);
-  const byDateCategory = authorRows.reduce((acc, row) => {
+  const latestAuthorDate = dates.at(-1);
+  const latestAuthorShares = authorRows
+    .filter((row) => row.Date === latestAuthorDate)
+    .map((row) => [row.Category_Label || row.Category, numberValue(row.Share_In_Category)])
+    .sort((a, b) => b[1] - a[1]);
+  const categories = latestAuthorShares.map(([category]) => category);
+  const shareByDateCategory = authorRows.reduce((acc, row) => {
     const category = row.Category_Label || row.Category;
-    acc.set(`${row.Date}||${category}`, (acc.get(`${row.Date}||${category}`) || 0) + numberValue(row.Tokens));
+    acc.set(`${row.Date}||${category}`, numberValue(row.Share_In_Category));
     return acc;
   }, new Map());
-  const totalByDate = new Map();
-  authorRows.forEach((row) => totalByDate.set(row.Date, (totalByDate.get(row.Date) || 0) + numberValue(row.Tokens)));
-  const latestAuthorDate = dates.at(-1);
-  const latestAuthorShares = categories
-    .map((category) => {
-      const tokens = byDateCategory.get(`${latestAuthorDate}||${category}`) || 0;
-      const total = totalByDate.get(latestAuthorDate) || 0;
-      return [category, total ? tokens / total : 0];
-    })
-    .sort((a, b) => b[1] - a[1]);
 
-  $("#category-count").textContent = latestCategoryTotals.length.toLocaleString();
+  $("#category-count").textContent = categories.length.toLocaleString();
   $("#category-latest-date").textContent = latestDate || "-";
   $("#category-top-name").textContent = latestAuthorShares[0]?.[0] || "-";
   $("#category-top-share").textContent = percentValue(latestAuthorShares[0]?.[1]);
@@ -1034,12 +1024,12 @@ function renderCategories() {
   state.charts.categoryBar = new Chart($("#category-bar-chart"), {
     type: "bar",
     data: {
-      labels: latestCategoryTotals.map(([category]) => category),
+      labels: latestAuthorShares.map(([category]) => category),
       datasets: [{
-        label: "Category Share",
-        data: latestCategoryTotals.map(([, tokens]) => (latestTotal ? (tokens / latestTotal) * 100 : 0)),
-        backgroundColor: latestCategoryTotals.map((_, index) => chartColor(index)),
-        borderColor: latestCategoryTotals.map((_, index) => chartColor(index)),
+        label: `${author} share in category`,
+        data: latestAuthorShares.map(([, share]) => share * 100),
+        backgroundColor: latestAuthorShares.map((_, index) => chartColor(index)),
+        borderColor: latestAuthorShares.map((_, index) => chartColor(index)),
       }],
     },
     options: {
@@ -1051,7 +1041,7 @@ function renderCategories() {
         tooltip: { callbacks: { label: (ctx) => `${(ctx.parsed.x || 0).toFixed(2)}%` } },
       },
       scales: {
-        x: { title: { display: true, text: "Share of category tokens (%)" } },
+        x: { title: { display: true, text: `${author} share within each category (%)` } },
       },
     },
   });
@@ -1064,8 +1054,7 @@ function renderCategories() {
       datasets: categories.map((category, index) => ({
         label: category,
         data: dates.map((date) => {
-          const total = totalByDate.get(date) || 0;
-          return total ? ((byDateCategory.get(`${date}||${category}`) || 0) / total) * 100 : 0;
+          return (shareByDateCategory.get(`${date}||${category}`) || 0) * 100;
         }),
         borderColor: chartColor(index),
         backgroundColor: chartColor(index),
@@ -1084,7 +1073,7 @@ function renderCategories() {
       },
       scales: {
         x: { ticks: { maxTicksLimit: 12 } },
-        y: { title: { display: true, text: `${author} category share (%)` } },
+        y: { title: { display: true, text: `${author} share within category (%)` } },
       },
     },
   });
