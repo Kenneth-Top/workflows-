@@ -27,6 +27,7 @@
         <button class="module-tab active" type="button" data-openrouter-module="cumulative">累计用量</button>
         <button class="module-tab" type="button" data-openrouter-module="tokens">单模型 Tokens</button>
         <button class="module-tab" type="button" data-openrouter-module="market">Market Share</button>
+        <button class="module-tab" type="button" data-openrouter-module="categories">Categories</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>
       </div>
       <div class="toolbar cumulative-toolbar">
@@ -108,6 +109,7 @@
         <button class="module-tab" type="button" data-openrouter-module="cumulative">累计用量</button>
         <button class="module-tab active" type="button" data-openrouter-module="tokens">单模型 Tokens</button>
         <button class="module-tab" type="button" data-openrouter-module="market">Market Share</button>
+        <button class="module-tab" type="button" data-openrouter-module="categories">Categories</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>
       </div>
       <div class="toolbar">
@@ -247,6 +249,7 @@
         <button class="module-tab" type="button" data-openrouter-module="cumulative">累计用量</button>
         <button class="module-tab" type="button" data-openrouter-module="tokens">单模型 Tokens</button>
         <button class="module-tab active" type="button" data-openrouter-module="market">Market Share</button>
+        <button class="module-tab" type="button" data-openrouter-module="categories">Categories</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>
       </div>
       <section id="openrouter-market-panel" class="openrouter-panel active">
@@ -292,6 +295,45 @@
 
       <div class="chart-wrap">
         <canvas id="market-share-chart" aria-label="OpenRouter Market Share"></canvas>
+      </div>
+      </section>
+
+      <section id="openrouter-categories-panel" class="openrouter-panel">
+      <div class="table-head">
+        <div>
+          <h2>OpenRouter Categories</h2>
+          <p class="chart-note">按模型厂商聚合的 category 周度 token 场景分布</p>
+        </div>
+      </div>
+
+      <div class="toolbar openrouter-toolbar">
+        <label>
+          模型厂商
+          <select id="category-author-select"></select>
+        </label>
+        <label>
+          时间范围
+          <select id="category-range-select">
+            <option value="all">全部</option>
+            <option value="26">近 26 周</option>
+            <option value="13">近 13 周</option>
+            <option value="8">近 8 周</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="metrics">
+        <div><span>Category 数</span><strong id="category-count">-</strong></div>
+        <div><span>最新完整周</span><strong id="category-latest-date">-</strong></div>
+        <div><span>当前厂商主场景</span><strong id="category-top-name">-</strong></div>
+        <div><span>主场景占比</span><strong id="category-top-share">-</strong></div>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="category-bar-chart" aria-label="OpenRouter category share"></canvas>
+      </div>
+      <div class="chart-wrap tall">
+        <canvas id="category-trend-chart" aria-label="OpenRouter author category trend"></canvas>
       </div>
       </section>
 
@@ -445,6 +487,7 @@
         <a href="openrouter_pricing_provider_records.csv" download>OpenRouter 定价 CSV</a>
         <a href="openrouter_market_share_records.csv" download>OpenRouter Market Share CSV</a>
         <a href="openrouter_provider_usage_records.csv" download>OpenRouter Provider 用量 CSV</a>
+        <a href="openrouter_category_usage_records.csv" download>OpenRouter Categories CSV</a>
         <a href="openrouter_apps_records.csv" download>OpenRouter Apps CSV</a>
         <a href="openrouter_app_model_usage_records.csv" download>OpenRouter App 模型用量 CSV</a>
         <a href="openrouter_market_apps.json" download>OpenRouter Market & Apps JSON</a>

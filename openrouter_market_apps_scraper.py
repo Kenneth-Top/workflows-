@@ -6,9 +6,10 @@ import csv
 import json
 import re
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 import requests
 
@@ -18,11 +19,26 @@ APPS_URL = f"{BASE_URL}/apps"
 PROVIDER_URL = f"{BASE_URL}/provider"
 PROVIDERS_URL = f"{BASE_URL}/providers"
 TOP_APP_LIMIT = 60
+CATEGORY_DEFINITIONS = [
+    ("programming", "Programming"),
+    ("roleplay", "Roleplay"),
+    ("marketing", "Marketing"),
+    ("marketing/seo", "SEO"),
+    ("technology", "Technology"),
+    ("science", "Science"),
+    ("translation", "Translation"),
+    ("legal", "Legal"),
+    ("finance", "Finance"),
+    ("health", "Health"),
+    ("trivia", "Trivia"),
+    ("academia", "Academia"),
+]
 
 MARKET_CSV = Path("openrouter_market_share_records.csv")
 APPS_CSV = Path("openrouter_apps_records.csv")
 APP_USAGE_CSV = Path("openrouter_app_model_usage_records.csv")
 PROVIDER_USAGE_CSV = Path("openrouter_provider_usage_records.csv")
+CATEGORY_USAGE_CSV = Path("openrouter_category_usage_records.csv")
 MARKET_APPS_JSON = Path("openrouter_market_apps.json")
 
 SESSION = requests.Session()
@@ -120,6 +136,22 @@ def is_market_share_series(series: list[Any]) -> bool:
     return all("/" not in key for key in keys) and any(key in ys for key in ["openai", "anthropic", "google"])
 
 
+def is_weekly_model_series(series: list[Any]) -> bool:
+    if len(series) < 20 or not isinstance(series[0], dict):
+        return False
+    dated = [str(point.get("x", ""))[:10] for point in series if point.get("x")]
+    if len(dated) < 20:
+        return False
+    try:
+        parsed_dates = [datetime.fromisoformat(date).date() for date in dated]
+    except ValueError:
+        return False
+    if not all((right - left).days == 7 for left, right in zip(parsed_dates, parsed_dates[1:])):
+        return False
+    ys = series[-1].get("ys")
+    return isinstance(ys, dict) and any("/" in str(key) for key in ys)
+
+
 def fetch_market_share() -> list[dict[str, Any]]:
     text = decode_next_rsc(fetch_text(RANKINGS_URL))
     candidates = [series for series in arrays_for_key(text, "data") if is_market_share_series(series)]
@@ -144,6 +176,51 @@ def fetch_market_share() -> list[dict[str, Any]]:
                     "Share": round(token_value / total_tokens, 8),
                 }
             )
+    return rows
+
+
+def usage_series_from_category_page(category: str) -> list[dict[str, Any]]:
+    url = f"{RANKINGS_URL}?category={quote(category, safe='')}"
+    text = decode_next_rsc(fetch_text(url))
+    complete_week_cutoff = (datetime.now(timezone.utc).date() - timedelta(days=7)).isoformat()
+    candidates = [
+        series
+        for series in arrays_for_key(text, "data")
+        if is_weekly_model_series(series) and str(series[-1].get("x", ""))[:10] <= complete_week_cutoff
+    ]
+    if not candidates:
+        raise RuntimeError(f"Could not find weekly category series for {category}")
+    return max(candidates, key=len)
+
+
+def fetch_category_usage() -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for index, (category, label) in enumerate(CATEGORY_DEFINITIONS, start=1):
+        print(f"Fetching category usage {index}/{len(CATEGORY_DEFINITIONS)}: {category}")
+        series = usage_series_from_category_page(category)
+        for point in series:
+            date = str(point.get("x", ""))[:10]
+            values = point.get("ys") or {}
+            author_totals: dict[str, float] = {}
+            for model, tokens in values.items():
+                model_key = str(model)
+                author = model_key.split("/", 1)[0] if "/" in model_key else model_key.lower()
+                author_totals[author] = author_totals.get(author, 0) + float(tokens or 0)
+            category_total = sum(author_totals.values())
+            if not date or category_total <= 0:
+                continue
+            for author, tokens in author_totals.items():
+                rows.append(
+                    {
+                        "Date": date,
+                        "Category": category,
+                        "Category_Label": label,
+                        "Author": author,
+                        "Tokens": round(tokens / 1e9, 6),
+                        "Share_In_Category": round(tokens / category_total, 8),
+                    }
+                )
+        time.sleep(0.25)
     return rows
 
 
@@ -321,6 +398,15 @@ def write_current_csv(path: Path, rows: list[dict[str, Any]], headers: list[str]
     return final_rows
 
 
+def write_replace_csv(path: Path, rows: list[dict[str, Any]], headers: list[str], key_fields: list[str]) -> list[dict[str, Any]]:
+    final_rows = sorted(rows, key=lambda row: tuple(str(row.get(field, "")) for field in key_fields))
+    with path.open("w", newline="", encoding="utf-8-sig") as file:
+        writer = csv.DictWriter(file, fieldnames=headers, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(final_rows)
+    return final_rows
+
+
 def latest_app_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     latest: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -343,6 +429,7 @@ def write_json(
     app_rows: list[dict[str, Any]],
     app_usage_rows: list[dict[str, Any]],
     provider_usage_rows: list[dict[str, Any]],
+    category_usage_rows: list[dict[str, Any]],
 ) -> None:
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -356,6 +443,7 @@ def write_json(
         "apps": latest_app_rows(app_rows),
         "app_model_usage": app_usage_rows,
         "provider_usage": provider_usage_rows,
+        "category_usage": category_usage_rows,
     }
     MARKET_APPS_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -366,6 +454,7 @@ def main() -> None:
     app_usage_rows = fetch_app_model_usage(app_rows)
     provider_rows = fetch_provider_catalog()
     provider_usage_rows = fetch_provider_usage(provider_rows)
+    category_usage_rows = fetch_category_usage()
 
     market_all = write_csv(MARKET_CSV, market_rows, ["Date", "Author", "Tokens", "Share"], ["Date", "Author"])
     apps_all = write_current_csv(
@@ -385,11 +474,18 @@ def main() -> None:
         ["Date", "Provider", "Provider_Display", "Tokens", "Model_Count"],
         ["Date", "Provider"],
     )
-    write_json(market_all, apps_all, usage_all, provider_usage_all)
+    category_usage_all = write_replace_csv(
+        CATEGORY_USAGE_CSV,
+        category_usage_rows,
+        ["Date", "Category", "Category_Label", "Author", "Tokens", "Share_In_Category"],
+        ["Date", "Category", "Author"],
+    )
+    write_json(market_all, apps_all, usage_all, provider_usage_all, category_usage_all)
     print(f"Saved market rows: {len(market_all)}")
     print(f"Saved app rows: {len(apps_all)}")
     print(f"Saved app model usage rows: {len(usage_all)}")
     print(f"Saved provider usage rows: {len(provider_usage_all)}")
+    print(f"Saved category usage rows: {len(category_usage_all)}")
 
 
 if __name__ == "__main__":

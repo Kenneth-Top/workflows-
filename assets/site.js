@@ -12,6 +12,8 @@ const state = {
   marketAuthors: [],
   marketSelectedAuthors: new Set(),
   providerUsage: [],
+  categoryUsage: [],
+  categoryAuthors: [],
   apps: [],
   appUsage: [],
   filteredAppUsage: [],
@@ -26,6 +28,8 @@ const state = {
     token: null,
     pricing: null,
     marketShare: null,
+    categoryBar: null,
+    categoryTrend: null,
     appUsage: null,
   },
   reports: [],
@@ -259,6 +263,7 @@ function activateOpenRouterModule(module) {
   if (module === "cumulative") renderCumulative();
   if (module === "tokens") renderSingleModel();
   if (module === "market") renderMarketShare();
+  if (module === "categories") renderCategories();
   if (module === "apps") renderAppUsage();
 }
 
@@ -352,6 +357,8 @@ function setupOpenRouterControls() {
     state.marketSelectedAuthors.clear();
     renderMarketAuthorOptions();
   });
+  $("#category-author-select").addEventListener("change", renderCategories);
+  $("#category-range-select").addEventListener("change", renderCategories);
   $("#app-select").addEventListener("change", renderAppUsage);
   $("#app-range-select").addEventListener("change", renderAppUsage);
   $("#download-app-usage").addEventListener("click", () => {
@@ -970,6 +977,119 @@ function renderMarketShare() {
   });
 }
 
+function populateCategoryAuthors() {
+  const select = $("#category-author-select");
+  if (!state.categoryAuthors.length) return;
+  const currentValue = select.value;
+  select.innerHTML = state.categoryAuthors
+    .map((author) => `<option value="${escapeHtml(author)}">${escapeHtml(author)}</option>`)
+    .join("");
+  if (currentValue && state.categoryAuthors.includes(currentValue)) select.value = currentValue;
+  renderCategories();
+}
+
+function filterCategoryRange(rows) {
+  const range = $("#category-range-select").value;
+  if (range === "all" || !rows.length) return rows;
+  const dates = Array.from(new Set(rows.map((row) => row.Date))).sort();
+  const keepDates = new Set(dates.slice(-Number(range)));
+  return rows.filter((row) => keepDates.has(row.Date));
+}
+
+function renderCategories() {
+  if (!state.categoryUsage.length) return;
+  const author = $("#category-author-select").value || state.categoryAuthors[0];
+  const latestDate = state.categoryUsage.map((row) => row.Date).sort().at(-1);
+  const latestRows = state.categoryUsage.filter((row) => row.Date === latestDate);
+  const latestCategoryTotals = Array.from(groupBy(latestRows, (row) => row.Category_Label || row.Category).entries())
+    .map(([category, items]) => [category, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
+    .sort((a, b) => b[1] - a[1]);
+  const latestTotal = latestCategoryTotals.reduce((sum, [, tokens]) => sum + tokens, 0);
+
+  const authorRows = filterCategoryRange(state.categoryUsage.filter((row) => row.Author === author));
+  const dates = Array.from(new Set(authorRows.map((row) => row.Date))).sort();
+  const categories = latestCategoryTotals.map(([category]) => category);
+  const byDateCategory = authorRows.reduce((acc, row) => {
+    const category = row.Category_Label || row.Category;
+    acc.set(`${row.Date}||${category}`, (acc.get(`${row.Date}||${category}`) || 0) + numberValue(row.Tokens));
+    return acc;
+  }, new Map());
+  const totalByDate = new Map();
+  authorRows.forEach((row) => totalByDate.set(row.Date, (totalByDate.get(row.Date) || 0) + numberValue(row.Tokens)));
+  const latestAuthorDate = dates.at(-1);
+  const latestAuthorShares = categories
+    .map((category) => {
+      const tokens = byDateCategory.get(`${latestAuthorDate}||${category}`) || 0;
+      const total = totalByDate.get(latestAuthorDate) || 0;
+      return [category, total ? tokens / total : 0];
+    })
+    .sort((a, b) => b[1] - a[1]);
+
+  $("#category-count").textContent = latestCategoryTotals.length.toLocaleString();
+  $("#category-latest-date").textContent = latestDate || "-";
+  $("#category-top-name").textContent = latestAuthorShares[0]?.[0] || "-";
+  $("#category-top-share").textContent = percentValue(latestAuthorShares[0]?.[1]);
+
+  if (state.charts.categoryBar) state.charts.categoryBar.destroy();
+  state.charts.categoryBar = new Chart($("#category-bar-chart"), {
+    type: "bar",
+    data: {
+      labels: latestCategoryTotals.map(([category]) => category),
+      datasets: [{
+        label: "Category Share",
+        data: latestCategoryTotals.map(([, tokens]) => (latestTotal ? (tokens / latestTotal) * 100 : 0)),
+        backgroundColor: latestCategoryTotals.map((_, index) => chartColor(index)),
+        borderColor: latestCategoryTotals.map((_, index) => chartColor(index)),
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: "y",
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: (ctx) => `${(ctx.parsed.x || 0).toFixed(2)}%` } },
+      },
+      scales: {
+        x: { title: { display: true, text: "Share of category tokens (%)" } },
+      },
+    },
+  });
+
+  if (state.charts.categoryTrend) state.charts.categoryTrend.destroy();
+  state.charts.categoryTrend = new Chart($("#category-trend-chart"), {
+    type: "line",
+    data: {
+      labels: dates,
+      datasets: categories.map((category, index) => ({
+        label: category,
+        data: dates.map((date) => {
+          const total = totalByDate.get(date) || 0;
+          return total ? ((byDateCategory.get(`${date}||${category}`) || 0) / total) * 100 : 0;
+        }),
+        borderColor: chartColor(index),
+        backgroundColor: chartColor(index),
+        tension: 0.2,
+        pointRadius: 0,
+        borderWidth: 2,
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom", labels: { boxWidth: 12 } },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${(ctx.parsed.y || 0).toFixed(2)}%` } },
+      },
+      scales: {
+        x: { ticks: { maxTicksLimit: 12 } },
+        y: { title: { display: true, text: `${author} category share (%)` } },
+      },
+    },
+  });
+}
+
 function latestAppsForDisplay() {
   const byKey = new Map();
   state.apps.forEach((app) => {
@@ -1563,6 +1683,7 @@ async function init() {
     const openRouterPayload = await loadJson("openrouter_market_apps.json");
     state.marketShare = openRouterPayload.market_share || [];
     state.providerUsage = openRouterPayload.provider_usage || [];
+    state.categoryUsage = openRouterPayload.category_usage || [];
     state.apps = openRouterPayload.apps || [];
     state.appUsage = openRouterPayload.app_model_usage || [];
     const latestMarketDate = state.marketShare.map((row) => row.Date).sort().at(-1);
@@ -1578,7 +1699,13 @@ async function init() {
       .map(([author, items]) => [author, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
       .sort((a, b) => b[1] - a[1])
       .map(([author]) => author);
+    const latestCategoryDate = state.categoryUsage.map((row) => row.Date).sort().at(-1);
+    state.categoryAuthors = Array.from(groupBy(state.categoryUsage.filter((row) => row.Date === latestCategoryDate), (row) => row.Author).entries())
+      .map(([author, items]) => [author, items.reduce((sum, row) => sum + numberValue(row.Tokens), 0)])
+      .sort((a, b) => b[1] - a[1])
+      .map(([author]) => author);
     renderMarketAuthorOptions();
+    populateCategoryAuthors();
     renderCumulativeModelOptions();
     populateAppOptions();
 
