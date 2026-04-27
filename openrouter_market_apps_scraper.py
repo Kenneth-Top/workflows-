@@ -1,4 +1,4 @@
-"""Fetch OpenRouter market-share and app usage data for the static dashboard."""
+﻿"""Fetch OpenRouter market-share and app usage data for the static dashboard."""
 
 from __future__ import annotations
 
@@ -306,10 +306,36 @@ def write_csv(path: Path, rows: list[dict[str, Any]], headers: list[str], key_fi
         combined[tuple(str(row.get(field, "")) for field in key_fields)] = row
     final_rows = sorted(combined.values(), key=lambda row: tuple(str(row.get(field, "")) for field in key_fields))
     with path.open("w", newline="", encoding="utf-8-sig") as file:
-        writer = csv.DictWriter(file, fieldnames=headers)
+        writer = csv.DictWriter(file, fieldnames=headers, lineterminator="\n")
         writer.writeheader()
         writer.writerows(final_rows)
     return final_rows
+
+
+def write_current_csv(path: Path, rows: list[dict[str, Any]], headers: list[str]) -> list[dict[str, Any]]:
+    final_rows = sorted(rows, key=lambda row: int(row.get("Rank") or 10**9))
+    with path.open("w", newline="", encoding="utf-8-sig") as file:
+        writer = csv.DictWriter(file, fieldnames=headers, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(final_rows)
+    return final_rows
+
+
+def latest_app_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    latest: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        key = str(row.get("App_ID") or row.get("App_Slug") or row.get("App_Title") or "")
+        if not key:
+            continue
+        existing = latest.get(key)
+        row_date = str(row.get("Date") or "")
+        existing_date = str(existing.get("Date") or "") if existing else ""
+        if existing is None or (row_date, int(row.get("Total_Tokens") or 0)) >= (
+            existing_date,
+            int(existing.get("Total_Tokens") or 0),
+        ):
+            latest[key] = row
+    return sorted(latest.values(), key=lambda row: int(row.get("Rank") or 10**9))
 
 
 def write_json(
@@ -327,7 +353,7 @@ def write_json(
             "provider_catalog": PROVIDERS_URL,
         },
         "market_share": market_rows,
-        "apps": sorted(app_rows, key=lambda row: int(row.get("Rank") or 10**9)),
+        "apps": latest_app_rows(app_rows),
         "app_model_usage": app_usage_rows,
         "provider_usage": provider_usage_rows,
     }
@@ -342,11 +368,10 @@ def main() -> None:
     provider_usage_rows = fetch_provider_usage(provider_rows)
 
     market_all = write_csv(MARKET_CSV, market_rows, ["Date", "Author", "Tokens", "Share"], ["Date", "Author"])
-    apps_all = write_csv(
+    apps_all = write_current_csv(
         APPS_CSV,
         app_rows,
         ["Date", "Rank", "App_ID", "App_Title", "App_Slug", "Origin_URL", "Categories", "Total_Tokens", "Total_Requests", "Created_At"],
-        ["Date", "App_ID"],
     )
     usage_all = write_csv(
         APP_USAGE_CSV,

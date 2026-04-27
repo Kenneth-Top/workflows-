@@ -32,7 +32,19 @@ const state = {
   currentSamples: [],
 };
 
-const palette = ["#0f8b8d", "#d1495b", "#edae49", "#2e6f95", "#6c5ce7", "#247ba0", "#9a6324", "#008080"];
+const palette = [
+  "#0f8b8d", "#d1495b", "#edae49", "#2e6f95", "#6c5ce7", "#247ba0", "#9a6324", "#008080",
+  "#e76f51", "#2a9d8f", "#264653", "#f4a261", "#457b9d", "#e63946", "#43aa8b", "#f8961e",
+  "#577590", "#bc5090", "#003f5c", "#ffa600", "#7a5195", "#ef5675", "#3d5a80", "#98c1d9",
+  "#8ac926", "#ff595e", "#1982c4", "#6a4c93", "#ffca3a", "#4d908e", "#f94144", "#277da1",
+  "#90be6d", "#f3722c", "#577590", "#b56576", "#355070", "#00a6a6", "#ef476f", "#118ab2",
+];
+
+function chartColor(index) {
+  if (index < palette.length) return palette[index];
+  const hue = Math.round((index * 137.508) % 360);
+  return `hsl(${hue} 70% 45%)`;
+}
 
 const sampleFilters = [
   { id: "filter-user", label: "用户类型", columns: ["user_group_4"] },
@@ -958,12 +970,29 @@ function renderMarketShare() {
   });
 }
 
+function latestAppsForDisplay() {
+  const byKey = new Map();
+  state.apps.forEach((app) => {
+    const key = app.App_ID || app.App_Slug || app.App_Title;
+    if (!key) return;
+    const existing = byKey.get(key);
+    const appDate = String(app.Date || "");
+    const existingDate = existing ? String(existing.Date || "") : "";
+    if (!existing || appDate > existingDate || (appDate === existingDate && numberValue(app.Total_Tokens) > numberValue(existing.Total_Tokens))) {
+      byKey.set(key, app);
+    }
+  });
+  return Array.from(byKey.values()).sort((a, b) => numberValue(a.Rank) - numberValue(b.Rank));
+}
+
 function populateAppOptions() {
   const select = $("#app-select");
   const usageSlugs = new Set(state.appUsage.map((row) => row.App_Slug));
-  const apps = state.apps.filter((app) => usageSlugs.has(app.App_Slug));
+  const currentValue = select.value;
+  const apps = latestAppsForDisplay().filter((app) => usageSlugs.has(app.App_Slug));
   select.innerHTML = apps.map((app) => `<option value="${escapeHtml(app.App_Slug)}">#${escapeHtml(app.Rank)} ${escapeHtml(app.App_Title)}</option>`).join("");
-  $("#apps-total-count").textContent = state.apps.length.toLocaleString();
+  if (currentValue && usageSlugs.has(currentValue)) select.value = currentValue;
+  $("#apps-total-count").textContent = latestAppsForDisplay().length.toLocaleString();
   $("#apps-with-usage-count").textContent = apps.length.toLocaleString();
   renderAppsTable();
   renderAppUsage();
@@ -1011,8 +1040,8 @@ function renderAppUsage() {
       datasets: models.map((model, index) => ({
         label: model,
         data: dates.map((date) => byModelDate.get(`${model}||${date}`) || 0),
-        backgroundColor: palette[index % palette.length],
-        borderColor: palette[index % palette.length],
+        backgroundColor: chartColor(index),
+        borderColor: chartColor(index),
         stack: "app-usage",
       })),
     },
@@ -1034,7 +1063,7 @@ function renderAppUsage() {
 
 function renderAppsTable() {
   const tbody = $("#apps-table tbody");
-  tbody.innerHTML = state.apps.slice(0, 60).map((app) => `
+  tbody.innerHTML = latestAppsForDisplay().slice(0, 60).map((app) => `
     <tr>
       <td>${escapeHtml(app.Rank)}</td>
       <td>${escapeHtml(app.App_Title)}</td>
