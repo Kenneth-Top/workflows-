@@ -310,7 +310,7 @@ function setupTokenControls() {
     if (!state.filteredTokens.length) return;
     downloadCsv(
       "daily_tokens.csv",
-      ["Date", "Subject", "Total_Tokens"],
+      ["Date", "Subject", "Model_Contribution", "Total_Tokens"],
       state.filteredTokens,
     );
   });
@@ -848,6 +848,27 @@ function tokenSubjectRows(subject) {
     .sort((a, b) => a.Date.localeCompare(b.Date));
 }
 
+function tokenContributionRows(subject, chartRows) {
+  if ($("#token-kind").value !== "modelAuthor") {
+    return chartRows.map((row) => ({ ...row, Model_Contribution: row.Subject }));
+  }
+
+  const selectedDates = new Set(chartRows.map((row) => row.Date));
+  return state.tokens
+    .filter((row) => row.Model_Author === subject && selectedDates.has(row.Date))
+    .map((row) => ({
+      Date: row.Date,
+      Subject: subject,
+      Model_Contribution: row.Display_Name,
+      Total_Tokens: row.Total_Tokens,
+    }))
+    .sort((a, b) => {
+      const dateOrder = b.Date.localeCompare(a.Date);
+      if (dateOrder) return dateOrder;
+      return b.Total_Tokens - a.Total_Tokens;
+    });
+}
+
 function filterByRange(rows) {
   const range = $("#range-select").value;
   if (range === "all" || !rows.length) return rows;
@@ -863,7 +884,8 @@ function renderSingleModel() {
   const subject = $("#model-select").value || subjects[0];
   const fullRows = subject ? tokenSubjectRows(subject) : [];
   const rows = filterByRange(fullRows);
-  state.filteredTokens = rows;
+  const tableRows = subject ? tokenContributionRows(subject, rows) : [];
+  state.filteredTokens = tableRows;
 
   const latest = rows.at(-1);
   const total = rows.reduce((sum, row) => sum + row.Total_Tokens, 0);
@@ -874,7 +896,7 @@ function renderSingleModel() {
   $("#metric-total").textContent = shortNumber(total);
 
   renderSingleModelChart(rows);
-  renderTokenTable(rows);
+  renderTokenTable(tableRows);
 }
 
 function renderSingleModelChart(rows) {
@@ -915,6 +937,7 @@ function renderTokenTable(rows) {
     <tr>
       <td>${escapeHtml(row.Date)}</td>
       <td>${escapeHtml(row.Subject)}</td>
+      <td>${escapeHtml(row.Model_Contribution)}</td>
       <td>${row.Total_Tokens.toFixed(6)}</td>
     </tr>
   `).join("");
