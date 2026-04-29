@@ -25,7 +25,7 @@
     <section id="cumulative-view" class="view active">
       <div class="module-tabs" aria-label="OpenRouter 市场看板">
         <button class="module-tab active" type="button" data-openrouter-module="cumulative">累计用量</button>
-        <button class="module-tab" type="button" data-openrouter-module="tokens">单模型 Tokens</button>
+        <button class="module-tab" type="button" data-openrouter-module="tokens">单日 Token</button>
         <button class="module-tab" type="button" data-openrouter-module="market">Market Share</button>
         <button class="module-tab" type="button" data-openrouter-module="categories">Categories</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>
@@ -107,18 +107,25 @@
     <section id="tokens-view" class="view">
       <div class="module-tabs" aria-label="OpenRouter 市场看板">
         <button class="module-tab" type="button" data-openrouter-module="cumulative">累计用量</button>
-        <button class="module-tab active" type="button" data-openrouter-module="tokens">单模型 Tokens</button>
+        <button class="module-tab active" type="button" data-openrouter-module="tokens">单日 Token</button>
         <button class="module-tab" type="button" data-openrouter-module="market">Market Share</button>
         <button class="module-tab" type="button" data-openrouter-module="categories">Categories</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>
       </div>
       <div class="toolbar">
         <label>
-          选择模型
+          查看维度
+          <select id="token-kind">
+            <option value="model">模型</option>
+            <option value="modelAuthor">模型厂商</option>
+          </select>
+        </label>
+        <label>
+          <span id="token-select-label">选择模型</span>
           <select id="model-select"></select>
         </label>
         <label>
-          搜索模型
+          <span id="token-search-label">搜索模型</span>
           <input id="model-search" type="search" placeholder="输入模型名">
         </label>
         <label>
@@ -133,18 +140,18 @@
       </div>
 
       <div class="metrics">
-        <div><span>模型数据区间</span><strong id="metric-models">-</strong></div>
+        <div><span>对象数据区间</span><strong id="metric-models">-</strong></div>
         <div><span>当前筛选区间</span><strong id="metric-range">-</strong></div>
         <div><span>最新日消耗</span><strong id="metric-latest">-</strong></div>
         <div><span>选段累计</span><strong id="metric-total">-</strong></div>
       </div>
 
       <div class="chart-wrap">
-        <canvas id="token-chart" aria-label="模型 token 累计趋势"></canvas>
+        <canvas id="token-chart" aria-label="单日 token 趋势"></canvas>
       </div>
 
       <div class="table-head">
-        <h2>模型明细</h2>
+        <h2>单日明细</h2>
         <button id="download-filtered" class="plain-button">下载当前数据</button>
       </div>
       <div class="table-wrap">
@@ -152,7 +159,7 @@
           <thead>
             <tr>
               <th>日期</th>
-              <th>模型</th>
+              <th>对象</th>
               <th>Total Tokens</th>
             </tr>
           </thead>
@@ -247,7 +254,7 @@
     <section id="openrouter-view" class="view">
       <div class="module-tabs" aria-label="OpenRouter 市场看板">
         <button class="module-tab" type="button" data-openrouter-module="cumulative">累计用量</button>
-        <button class="module-tab" type="button" data-openrouter-module="tokens">单模型 Tokens</button>
+        <button class="module-tab" type="button" data-openrouter-module="tokens">单日 Token</button>
         <button class="module-tab active" type="button" data-openrouter-module="market">Market Share</button>
         <button class="module-tab" type="button" data-openrouter-module="categories">Categories</button>
         <button class="module-tab" type="button" data-openrouter-module="apps">Top Apps</button>

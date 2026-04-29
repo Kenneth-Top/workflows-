@@ -299,14 +299,18 @@ function setupCumulativeControls() {
 }
 
 function setupTokenControls() {
+  $("#token-kind").addEventListener("change", () => {
+    $("#model-search").value = "";
+    renderSingleModelOptions();
+  });
   $("#model-search").addEventListener("input", renderSingleModelOptions);
   $("#model-select").addEventListener("change", renderSingleModel);
   $("#range-select").addEventListener("change", renderSingleModel);
   $("#download-filtered").addEventListener("click", () => {
     if (!state.filteredTokens.length) return;
     downloadCsv(
-      "single_model_tokens.csv",
-      ["Date", "Model", "Total_Tokens"],
+      "daily_tokens.csv",
+      ["Date", "Subject", "Total_Tokens"],
       state.filteredTokens,
     );
   });
@@ -800,20 +804,48 @@ function renderAlertList(items, renderItem, emptyText, warning = false) {
 }
 
 function renderSingleModelOptions() {
+  const kind = $("#token-kind").value;
   const search = $("#model-search").value.trim().toLowerCase();
   const select = $("#model-select");
   const current = select.value;
-  const visibleModels = state.models.filter((model) => model.toLowerCase().includes(search));
+  const subjects = kind === "modelAuthor" ? state.modelAuthors : state.models;
+  const visibleSubjects = subjects.filter((subject) => subject.toLowerCase().includes(search));
+
+  $("#token-select-label").textContent = kind === "modelAuthor" ? "选择模型厂商" : "选择模型";
+  $("#token-search-label").textContent = kind === "modelAuthor" ? "搜索模型厂商" : "搜索模型";
+  $("#model-search").placeholder = kind === "modelAuthor" ? "输入模型厂商" : "输入模型名";
 
   select.innerHTML = "";
-  visibleModels.forEach((model, index) => {
+  visibleSubjects.forEach((subject, index) => {
     const option = document.createElement("option");
-    option.value = model;
-    option.textContent = model;
-    option.selected = model === current || (!current && index === 0);
+    option.value = subject;
+    option.textContent = subject;
+    option.selected = subject === current || (!current && index === 0);
     select.append(option);
   });
   renderSingleModel();
+}
+
+function tokenSubjectRows(subject) {
+  if ($("#token-kind").value === "modelAuthor") {
+    const grouped = groupBy(state.tokens.filter((row) => row.Model_Author === subject), (row) => row.Date);
+    return Array.from(grouped.entries())
+      .map(([date, items]) => ({
+        Date: date,
+        Subject: subject,
+        Total_Tokens: items.reduce((sum, row) => sum + row.Total_Tokens, 0),
+      }))
+      .sort((a, b) => a.Date.localeCompare(b.Date));
+  }
+
+  return state.tokens
+    .filter((row) => row.Display_Name === subject)
+    .map((row) => ({
+      Date: row.Date,
+      Subject: row.Display_Name,
+      Total_Tokens: row.Total_Tokens,
+    }))
+    .sort((a, b) => a.Date.localeCompare(b.Date));
 }
 
 function filterByRange(rows) {
@@ -826,10 +858,10 @@ function filterByRange(rows) {
 
 function renderSingleModel() {
   if (!state.tokens.length) return;
-  const model = $("#model-select").value || state.models[0];
-  const fullRows = state.tokens
-    .filter((row) => row.Display_Name === model)
-    .sort((a, b) => a.Date.localeCompare(b.Date));
+  const kind = $("#token-kind").value;
+  const subjects = kind === "modelAuthor" ? state.modelAuthors : state.models;
+  const subject = $("#model-select").value || subjects[0];
+  const fullRows = subject ? tokenSubjectRows(subject) : [];
   const rows = filterByRange(fullRows);
   state.filteredTokens = rows;
 
@@ -882,7 +914,7 @@ function renderTokenTable(rows) {
   tbody.innerHTML = rows.slice().reverse().slice(0, 500).map((row) => `
     <tr>
       <td>${escapeHtml(row.Date)}</td>
-      <td>${escapeHtml(row.Display_Name)}</td>
+      <td>${escapeHtml(row.Subject)}</td>
       <td>${row.Total_Tokens.toFixed(6)}</td>
     </tr>
   `).join("");
