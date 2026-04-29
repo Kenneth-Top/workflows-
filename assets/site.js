@@ -1,6 +1,7 @@
 const state = {
   tokens: [],
   filteredTokens: [],
+  filteredTokenHeaders: [],
   cumulativeRows: [],
   sampleRows: [],
   pricing: [],
@@ -310,7 +311,7 @@ function setupTokenControls() {
     if (!state.filteredTokens.length) return;
     downloadCsv(
       "daily_tokens.csv",
-      ["Date", "Subject", "Model_Contribution", "Total_Tokens"],
+      state.filteredTokenHeaders,
       state.filteredTokens,
     );
   });
@@ -848,25 +849,39 @@ function tokenSubjectRows(subject) {
     .sort((a, b) => a.Date.localeCompare(b.Date));
 }
 
-function tokenContributionRows(subject, chartRows) {
+function tokenContributionTable(subject, chartRows) {
   if ($("#token-kind").value !== "modelAuthor") {
-    return chartRows.map((row) => ({ ...row, Model_Contribution: row.Subject }));
+    return {
+      headers: ["Date", "Subject", "Total_Tokens"],
+      rows: chartRows,
+    };
   }
 
   const selectedDates = new Set(chartRows.map((row) => row.Date));
-  return state.tokens
-    .filter((row) => row.Model_Author === subject && selectedDates.has(row.Date))
-    .map((row) => ({
-      Date: row.Date,
+  const authorRows = state.tokens.filter((row) => row.Model_Author === subject);
+  const authorModels = Array.from(groupBy(authorRows, (row) => row.Display_Name).entries())
+    .map(([model, items]) => [model, items.reduce((sum, row) => sum + row.Total_Tokens, 0)])
+    .sort((a, b) => b[1] - a[1])
+    .map(([model]) => model);
+  const selectedRowsByDate = groupBy(authorRows.filter((row) => selectedDates.has(row.Date)), (row) => row.Date);
+  const rows = chartRows.map((dailyRow) => {
+    const items = selectedRowsByDate.get(dailyRow.Date) || [];
+    const modelTotals = groupBy(items, (row) => row.Display_Name);
+    const row = {
+      Date: dailyRow.Date,
       Subject: subject,
-      Model_Contribution: row.Display_Name,
-      Total_Tokens: row.Total_Tokens,
-    }))
-    .sort((a, b) => {
-      const dateOrder = b.Date.localeCompare(a.Date);
-      if (dateOrder) return dateOrder;
-      return b.Total_Tokens - a.Total_Tokens;
+      Total_Tokens: dailyRow.Total_Tokens,
+    };
+    authorModels.forEach((model) => {
+      row[model] = (modelTotals.get(model) || []).reduce((sum, item) => sum + item.Total_Tokens, 0);
     });
+    return row;
+  });
+
+  return {
+    headers: ["Date", "Subject", ...authorModels, "Total_Tokens"],
+    rows,
+  };
 }
 
 function filterByRange(rows) {
@@ -884,8 +899,9 @@ function renderSingleModel() {
   const subject = $("#model-select").value || subjects[0];
   const fullRows = subject ? tokenSubjectRows(subject) : [];
   const rows = filterByRange(fullRows);
-  const tableRows = subject ? tokenContributionRows(subject, rows) : [];
-  state.filteredTokens = tableRows;
+  const table = subject ? tokenContributionTable(subject, rows) : { headers: ["Date", "Subject", "Total_Tokens"], rows: [] };
+  state.filteredTokenHeaders = table.headers;
+  state.filteredTokens = table.rows;
 
   const latest = rows.at(-1);
   const total = rows.reduce((sum, row) => sum + row.Total_Tokens, 0);
@@ -896,7 +912,7 @@ function renderSingleModel() {
   $("#metric-total").textContent = shortNumber(total);
 
   renderSingleModelChart(rows);
-  renderTokenTable(tableRows);
+  renderTokenTable(table.rows);
 }
 
 function renderSingleModelChart(rows) {
@@ -932,15 +948,30 @@ function renderSingleModelChart(rows) {
 }
 
 function renderTokenTable(rows) {
-  const tbody = $("#token-table tbody");
+  const table = $("#token-table");
+  const thead = table.querySelector("thead");
+  const tbody = table.querySelector("tbody");
+  const headers = state.filteredTokenHeaders.length ? state.filteredTokenHeaders : ["Date", "Subject", "Total_Tokens"];
+  thead.innerHTML = `<tr>${headers.map((header) => `<th>${escapeHtml(tokenHeaderLabel(header))}</th>`).join("")}</tr>`;
   tbody.innerHTML = rows.slice().reverse().slice(0, 500).map((row) => `
     <tr>
-      <td>${escapeHtml(row.Date)}</td>
-      <td>${escapeHtml(row.Subject)}</td>
-      <td>${escapeHtml(row.Model_Contribution)}</td>
-      <td>${row.Total_Tokens.toFixed(6)}</td>
+      ${headers.map((header) => `<td>${escapeHtml(tokenCellValue(header, row[header]))}</td>`).join("")}
     </tr>
   `).join("");
+}
+
+function tokenHeaderLabel(header) {
+  if (header === "Date") return "日期";
+  if (header === "Subject") return "对象";
+  if (header === "Total_Tokens") return "Total Tokens";
+  return header;
+}
+
+function tokenCellValue(header, value) {
+  if (header === "Date" || header === "Subject") return value || "";
+  const numeric = Number(value || 0);
+  if (!numeric) return "0";
+  return numeric.toFixed(6);
 }
 
 function visibleMarketAuthors() {
