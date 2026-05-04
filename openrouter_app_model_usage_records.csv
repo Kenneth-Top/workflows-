@@ -3828,6 +3828,13 @@
 2026-04-03,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.154135
 2026-04-03,2308106,Descript,descript,openai/gpt-5.2-20251211,0.022657
 2026-04-03,2308106,Descript,descript,openai/gpt-5.4-20260305,0.070291
+2026-04-03,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,2.7e-05
+2026-04-03,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.003755
+2026-04-03,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.163629
+2026-04-03,2344758,Stanley,stan,google/gemini-2.5-flash,0.014888
+2026-04-03,2344758,Stanley,stan,google/gemini-2.5-flash-lite,3.8e-05
+2026-04-03,2344758,Stanley,stan,google/gemini-2.5-pro,1.1e-05
+2026-04-03,2344758,Stanley,stan,openai/gpt-oss-120b,0.000136
 2026-04-03,2354934,Qwen Code,qwen-code,Others,0.035462
 2026-04-03,2354934,Qwen Code,qwen-code,google/gemini-2.5-flash,0.018233
 2026-04-03,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.010319
@@ -7263,13 +7270,13 @@
 2026-04-13,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.010205
 2026-04-13,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,3.7e-05
 2026-04-13,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.697481
-2026-04-13,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.016575
-2026-04-13,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.008424
-2026-04-13,3296290,Mira,mira,minimax/minimax-m2.5-20260211,2.32152
-2026-04-13,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.002065
-2026-04-13,3296290,Mira,mira,openai/gpt-5-2025-08-07,2.1e-05
-2026-04-13,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.00186
-2026-04-13,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.001644
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.016575
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.008424
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,2.32152
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.002065
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,2.1e-05
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.00186
+2026-04-13,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.001644
 2026-04-13,831074,Roo Code,roo-code,Others,3.791321
 2026-04-13,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.823036
 2026-04-13,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,2.363846
@@ -7594,14 +7601,14 @@
 2026-04-14,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000967
 2026-04-14,3178860,Ito,ito,openai/gpt-4o-mini,0.004042
 2026-04-14,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,8.482184
-2026-04-14,3296290,Mira,mira,anthropic/claude-4.6-opus-20260205,5.5e-05
-2026-04-14,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.074052
-2026-04-14,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.027743
-2026-04-14,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.996334
-2026-04-14,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.006476
-2026-04-14,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000187
-2026-04-14,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.006289
-2026-04-14,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.006915
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-opus-20260205,5.5e-05
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.074052
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.027743
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.996334
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.006476
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000187
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.006289
+2026-04-14,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.006915
 2026-04-14,831074,Roo Code,roo-code,Others,4.114611
 2026-04-14,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.940201
 2026-04-14,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,2.252849
@@ -7918,14 +7925,14 @@
 2026-04-15,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000213
 2026-04-15,3178860,Ito,ito,openai/gpt-4o-mini,3.7e-05
 2026-04-15,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,6.357261
-2026-04-15,3296290,Mira,mira,anthropic/claude-4.6-opus-20260205,8.3e-05
-2026-04-15,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.086929
-2026-04-15,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.025244
-2026-04-15,3296290,Mira,mira,minimax/minimax-m2.5-20260211,8.078829
-2026-04-15,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.007361
-2026-04-15,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000417
-2026-04-15,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.008675
-2026-04-15,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.007346
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-opus-20260205,8.3e-05
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.086929
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.025244
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,8.078829
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.007361
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000417
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.008675
+2026-04-15,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.007346
 2026-04-15,831074,Roo Code,roo-code,Others,3.867687
 2026-04-15,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,1.133859
 2026-04-15,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,2.217736
@@ -8251,17 +8258,17 @@
 2026-04-16,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.001077
 2026-04-16,3178860,Ito,ito,openai/gpt-4o-mini,1.2e-05
 2026-04-16,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.405012
-2026-04-16,3296290,Mira,mira,Others,2.3e-05
-2026-04-16,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.085181
-2026-04-16,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.021546
-2026-04-16,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.515536
-2026-04-16,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.000177
-2026-04-16,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.004293
-2026-04-16,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000509
-2026-04-16,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.006325
-2026-04-16,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.000939
-2026-04-16,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.00506
-2026-04-16,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.000647
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,Others,2.3e-05
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.085181
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.021546
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.515536
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.000177
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.004293
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000509
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.006325
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.000939
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.00506
+2026-04-16,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.000647
 2026-04-16,831074,Roo Code,roo-code,Others,4.753984
 2026-04-16,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,1.529256
 2026-04-16,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.813056
@@ -8587,17 +8594,17 @@
 2026-04-17,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.443462
 2026-04-17,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,4.1e-05
 2026-04-17,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.752973
-2026-04-17,3296290,Mira,mira,Others,0.000709
-2026-04-17,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.078922
-2026-04-17,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.02131
-2026-04-17,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.707135
-2026-04-17,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.004448
-2026-04-17,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.004961
-2026-04-17,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000538
-2026-04-17,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.004155
-2026-04-17,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.018272
-2026-04-17,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.008532
-2026-04-17,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.008635
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.000709
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.078922
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.02131
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.707135
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.004448
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.004961
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000538
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.004155
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.018272
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.008532
+2026-04-17,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.008635
 2026-04-17,831074,Roo Code,roo-code,Others,3.792373
 2026-04-17,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.969271
 2026-04-17,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.555517
@@ -8927,16 +8934,16 @@
 2026-04-18,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.130535
 2026-04-18,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,3.5e-05
 2026-04-18,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.921209
-2026-04-18,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.055288
-2026-04-18,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.024677
-2026-04-18,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.629247
-2026-04-18,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.014881
-2026-04-18,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.005169
-2026-04-18,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000212
-2026-04-18,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.005126
-2026-04-18,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.029866
-2026-04-18,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.002904
-2026-04-18,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.007018
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.055288
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.024677
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.629247
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.014881
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.005169
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000212
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.005126
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.029866
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.002904
+2026-04-18,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.007018
 2026-04-18,831074,Roo Code,roo-code,Others,3.557327
 2026-04-18,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.414393
 2026-04-18,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.734793
@@ -9263,17 +9270,17 @@
 2026-04-19,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.097519
 2026-04-19,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,6.7e-05
 2026-04-19,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.86671
-2026-04-19,3296290,Mira,mira,Others,0.000784
-2026-04-19,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.035769
-2026-04-19,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.020099
-2026-04-19,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.058345
-2026-04-19,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.00992
-2026-04-19,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003849
-2026-04-19,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.006357
-2026-04-19,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.021129
-2026-04-19,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.000859
-2026-04-19,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.004903
-2026-04-19,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.009736
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.000784
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.035769
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.020099
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.058345
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.00992
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003849
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.006357
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.021129
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.000859
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.004903
+2026-04-19,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.009736
 2026-04-19,831074,Roo Code,roo-code,Others,3.983638
 2026-04-19,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.102533
 2026-04-19,831074,Roo Code,roo-code,anthropic/claude-4.6-sonnet-20260217,2.284359
@@ -9610,17 +9617,17 @@
 2026-04-20,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.846616
 2026-04-20,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000407
 2026-04-20,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.698395
-2026-04-20,3296290,Mira,mira,Others,0.00022
-2026-04-20,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.065142
-2026-04-20,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.027092
-2026-04-20,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.67776
-2026-04-20,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.022081
-2026-04-20,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003914
-2026-04-20,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000695
-2026-04-20,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.005651
-2026-04-20,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.033671
-2026-04-20,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003906
-2026-04-20,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.018232
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.00022
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.065142
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.027092
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.67776
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.022081
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003914
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000695
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.005651
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.033671
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003906
+2026-04-20,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.018232
 2026-04-20,831074,Roo Code,roo-code,Others,5.501457
 2026-04-20,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.876806
 2026-04-20,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.136077
@@ -9940,16 +9947,16 @@
 2026-04-21,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,1.04477
 2026-04-21,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,6.3e-05
 2026-04-21,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,6.208919
-2026-04-21,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.063142
-2026-04-21,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.030709
-2026-04-21,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.017802
-2026-04-21,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.021106
-2026-04-21,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.002736
-2026-04-21,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.000334
-2026-04-21,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.004147
-2026-04-21,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.027252
-2026-04-21,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.004345
-2026-04-21,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.063562
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.063142
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.030709
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.017802
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.021106
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.002736
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.000334
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.004147
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.027252
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.004345
+2026-04-21,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.063562
 2026-04-21,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.275929
 2026-04-21,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.348735
 2026-04-21,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.105848
@@ -10269,16 +10276,16 @@
 2026-04-22,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,1.124024
 2026-04-22,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000184
 2026-04-22,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,6.246771
-2026-04-22,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.066226
-2026-04-22,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.03083
-2026-04-22,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.933383
-2026-04-22,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.024444
-2026-04-22,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.006613
-2026-04-22,3296290,Mira,mira,openai/gpt-5-2025-08-07,2.4e-05
-2026-04-22,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.002421
-2026-04-22,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.015546
-2026-04-22,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.005939
-2026-04-22,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.12723
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.066226
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.03083
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.933383
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.024444
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.006613
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,2.4e-05
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.002421
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.015546
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.005939
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.12723
 2026-04-22,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.479106
 2026-04-22,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.562207
 2026-04-22,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.124553
@@ -10601,15 +10608,15 @@
 2026-04-23,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.866694
 2026-04-23,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000185
 2026-04-23,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.593668
-2026-04-23,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.055275
-2026-04-23,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.026786
-2026-04-23,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.493049
-2026-04-23,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.026351
-2026-04-23,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.00432
-2026-04-23,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.002391
-2026-04-23,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.019592
-2026-04-23,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003861
-2026-04-23,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.109642
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.055275
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.026786
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.493049
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.026351
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.00432
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.002391
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.019592
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003861
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.109642
 2026-04-23,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.494405
 2026-04-23,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.457846
 2026-04-23,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.100836
@@ -10931,17 +10938,17 @@
 2026-04-24,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.707464
 2026-04-24,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000137
 2026-04-24,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.851941
-2026-04-24,3296290,Mira,mira,Others,0.000398
-2026-04-24,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.042144
-2026-04-24,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.016899
-2026-04-24,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.151822
-2026-04-24,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.029529
-2026-04-24,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003151
-2026-04-24,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.003023
-2026-04-24,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.021802
-2026-04-24,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.006935
-2026-04-24,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003007
-2026-04-24,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.101116
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.000398
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.042144
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.016899
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.151822
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.029529
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003151
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.003023
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.021802
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.006935
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003007
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.101116
 2026-04-24,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.468354
 2026-04-24,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.235077
 2026-04-24,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.075128
@@ -11263,17 +11270,17 @@
 2026-04-25,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.007953
 2026-04-25,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,6.1e-05
 2026-04-25,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,1.995046
-2026-04-25,3296290,Mira,mira,Others,2.1e-05
-2026-04-25,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.042816
-2026-04-25,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.016082
-2026-04-25,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.242592
-2026-04-25,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.04586
-2026-04-25,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003021
-2026-04-25,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.002931
-2026-04-25,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.017515
-2026-04-25,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.007442
-2026-04-25,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.002133
-2026-04-25,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.137197
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,Others,2.1e-05
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.042816
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.016082
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.242592
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.04586
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003021
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.002931
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.017515
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.007442
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.002133
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.137197
 2026-04-25,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.331428
 2026-04-25,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,1.993354
 2026-04-25,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.070801
@@ -11595,17 +11602,17 @@
 2026-04-26,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.006608
 2026-04-26,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,2e-05
 2026-04-26,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,1.688485
-2026-04-26,3296290,Mira,mira,Others,6e-05
-2026-04-26,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.055158
-2026-04-26,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.017937
-2026-04-26,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.650861
-2026-04-26,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.032585
-2026-04-26,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003057
-2026-04-26,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.00291
-2026-04-26,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.027742
-2026-04-26,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.004583
-2026-04-26,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.006829
-2026-04-26,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.142112
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,Others,6e-05
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.055158
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.017937
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.650861
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.032585
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003057
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.00291
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.027742
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.004583
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.006829
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.142112
 2026-04-26,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.28204
 2026-04-26,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.220934
 2026-04-26,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.063928
@@ -11911,17 +11918,17 @@
 2026-04-27,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.016232
 2026-04-27,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,6.5e-05
 2026-04-27,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.065525
-2026-04-27,3296290,Mira,mira,Others,0.004218
-2026-04-27,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.060421
-2026-04-27,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.013642
-2026-04-27,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.913664
-2026-04-27,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.069009
-2026-04-27,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.013568
-2026-04-27,3296290,Mira,mira,openai/gpt-4o-mini,0.180435
-2026-04-27,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.042358
-2026-04-27,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.007039
-2026-04-27,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003065
-2026-04-27,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.190646
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.004218
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.060421
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.013642
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.913664
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.069009
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.013568
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.180435
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.042358
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.007039
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003065
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.190646
 2026-04-27,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.459508
 2026-04-27,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.204808
 2026-04-27,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.065507
@@ -12230,17 +12237,17 @@
 2026-04-28,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.015401
 2026-04-28,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000131
 2026-04-28,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.782875
-2026-04-28,3296290,Mira,mira,Others,0.005716
-2026-04-28,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.060604
-2026-04-28,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.010538
-2026-04-28,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.451138
-2026-04-28,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.072787
-2026-04-28,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.029841
-2026-04-28,3296290,Mira,mira,openai/gpt-4o-mini,0.345548
-2026-04-28,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.007125
-2026-04-28,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.033068
-2026-04-28,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.479871
-2026-04-28,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.248222
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.005716
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.060604
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.010538
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.451138
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.072787
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.029841
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.345548
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.007125
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.033068
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.479871
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.248222
 2026-04-28,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.499842
 2026-04-28,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.41666
 2026-04-28,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.080344
@@ -12544,17 +12551,17 @@
 2026-04-29,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.015212
 2026-04-29,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000101
 2026-04-29,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.276388
-2026-04-29,3296290,Mira,mira,Others,0.003975
-2026-04-29,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.064379
-2026-04-29,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.013595
-2026-04-29,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.563966
-2026-04-29,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.083797
-2026-04-29,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.031497
-2026-04-29,3296290,Mira,mira,openai/gpt-4o-mini,0.334407
-2026-04-29,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.005207
-2026-04-29,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.030152
-2026-04-29,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.698587
-2026-04-29,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.168799
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.003975
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.064379
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.013595
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.563966
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.083797
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.031497
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.334407
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.005207
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.030152
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.698587
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.168799
 2026-04-29,3350625,extra.email,extra-email,anthropic/claude-4.6-sonnet-20260217,0.000431
 2026-04-29,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.488724
 2026-04-29,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.282087
@@ -12859,17 +12866,17 @@
 2026-04-30,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.013425
 2026-04-30,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,5.6e-05
 2026-04-30,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.416232
-2026-04-30,3296290,Mira,mira,Others,0.004981
-2026-04-30,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.073922
-2026-04-30,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.009023
-2026-04-30,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.633974
-2026-04-30,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.058773
-2026-04-30,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.022697
-2026-04-30,3296290,Mira,mira,openai/gpt-4o-mini,0.373288
-2026-04-30,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.028986
-2026-04-30,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.035883
-2026-04-30,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.595295
-2026-04-30,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.110895
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.004981
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.073922
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.009023
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.633974
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.058773
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.022697
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.373288
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.028986
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.035883
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.595295
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.110895
 2026-04-30,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.520387
 2026-04-30,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.397096
 2026-04-30,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.085719
@@ -13170,17 +13177,17 @@
 2026-05-01,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.011433
 2026-05-01,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,7e-05
 2026-05-01,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.136367
-2026-05-01,3296290,Mira,mira,Others,0.012529
-2026-05-01,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.108733
-2026-05-01,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.669659
-2026-05-01,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.073288
-2026-05-01,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.019091
-2026-05-01,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.064357
-2026-05-01,3296290,Mira,mira,openai/gpt-4o-mini,0.336131
-2026-05-01,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.059174
-2026-05-01,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.035282
-2026-05-01,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.564784
-2026-05-01,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.095922
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.012529
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.108733
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.669659
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.073288
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.019091
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.064357
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.336131
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.059174
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.035282
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.564784
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.095922
 2026-05-01,3350625,extra.email,extra-email,deepseek/deepseek-v3.2-20251201,0.000936
 2026-05-01,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.552739
 2026-05-01,3350625,extra.email,extra-email,moonshotai/kimi-k2.5-0127,7.9e-05
@@ -13485,17 +13492,17 @@
 2026-05-02,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.006117
 2026-05-02,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,3.4e-05
 2026-05-02,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,1.245526
-2026-05-02,3296290,Mira,mira,Others,0.00787
-2026-05-02,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.084092
-2026-05-02,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.01275
-2026-05-02,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.728135
-2026-05-02,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.047396
-2026-05-02,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.01923
-2026-05-02,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.07999
-2026-05-02,3296290,Mira,mira,openai/gpt-4o-mini,0.369683
-2026-05-02,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.027989
-2026-05-02,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.528123
-2026-05-02,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.127922
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.00787
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.084092
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.01275
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.728135
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.047396
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.01923
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.07999
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.369683
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.027989
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.528123
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.127922
 2026-05-02,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.38731
 2026-05-02,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.213255
 2026-05-02,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.056348
@@ -13741,7 +13748,7 @@
 2026-05-03,2725608,OpenClaw,openclaw,anthropic/claude-4.7-opus-20260416,9.298181
 2026-05-03,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-flash-20260423,7.15012
 2026-05-03,2725608,OpenClaw,openclaw,google/gemini-2.5-flash-lite,16.884655
-2026-05-03,2725608,OpenClaw,openclaw,minimax/minimax-m2.5-20260211,8.191335
+2026-05-03,2725608,OpenClaw,openclaw,minimax/minimax-m2.5-20260211,8.191357
 2026-05-03,2725608,OpenClaw,openclaw,minimax/minimax-m2.7-20260318,15.717319
 2026-05-03,2725608,OpenClaw,openclaw,nvidia/nemotron-3-super-120b-a12b-20230311,19.810284
 2026-05-03,2725608,OpenClaw,openclaw,tencent/hy3-preview-20260421,10.816628
@@ -13797,17 +13804,20 @@
 2026-05-03,3097485,Studs.gg,studsgg,qwen/qwen3-vl-8b-instruct,0.011852
 2026-05-03,3174647,Nexu Link,nexu-link,xiaomi/mimo-v2-pro-20260318,0.001415
 2026-05-03,3174647,Nexu Link,nexu-link,z-ai/glm-5-turbo-20260315,0.008053
-2026-05-03,3296290,Mira,mira,Others,0.008113
-2026-05-03,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.068008
-2026-05-03,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.012461
-2026-05-03,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.790475
-2026-05-03,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.050593
-2026-05-03,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.021634
-2026-05-03,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.080649
-2026-05-03,3296290,Mira,mira,openai/gpt-4o-mini,0.366817
-2026-05-03,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.02641
-2026-05-03,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.519018
-2026-05-03,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.153975
+2026-05-03,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.002201
+2026-05-03,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,3.3e-05
+2026-05-03,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.501487
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.008113
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.068008
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.012461
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.790475
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.050593
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.021634
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.080649
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.366817
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.02641
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.519018
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.153975
 2026-05-03,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.324288
 2026-05-03,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.264598
 2026-05-03,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.055322
