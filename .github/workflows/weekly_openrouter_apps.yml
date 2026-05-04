@@ -37,4 +37,5 @@ jobs:
           git add openrouter_category_usage_records.csv
           git add openrouter_market_apps.json
           git commit -m "Auto-update OpenRouter market and app data" || exit 0
+          git pull --rebase origin main
           git push

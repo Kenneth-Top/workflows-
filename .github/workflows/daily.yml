@@ -23,22 +23,27 @@ jobs:
       - name: Install dependencies
         run: pip install requests pandas beautifulsoup4
 
-      - name: Run Update Scripts
+      - name: Update token history
+        continue-on-error: true
         env:
-          MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          SMTP_SENDER: ${{ secrets.SMTP_SENDER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_RECIPIENTS: ${{ secrets.SMTP_RECIPIENTS }}
-        run: |
-          python update_data.py
-          python openrouter_pricing_scraper.py
-          python artificial_analysis_pricing_scraper.py
-          python openrouter_benchmark_scraper.py
-          python lmarena_scraper.py
-          python daily_briefing_job.py
+        run: python update_data.py
+
+      - name: Update OpenRouter pricing
+        continue-on-error: true
+        run: python openrouter_pricing_scraper.py
+
+      - name: Update Artificial Analysis pricing
+        continue-on-error: true
+        run: python artificial_analysis_pricing_scraper.py
+
+      - name: Update OpenRouter benchmark
+        continue-on-error: true
+        run: python openrouter_benchmark_scraper.py
+
+      - name: Update LMARENA leaderboard
+        continue-on-error: true
+        run: python lmarena_scraper.py
 
       - name: Commit and Push
         run: |
@@ -50,7 +55,28 @@ jobs:
           git add artificial_analysis_pricing.json
           git add openrouter_benchmark_records.csv
           git add lmarena_leaderboard_records.csv
-          git add briefing_cache/
           # 如果没有变化（例如今天的数据还没出来），commit 会失败，所以加上 || exit 0 不报错
-          git commit -m "Auto-update databases & daily briefing" || exit 0
+          git commit -m "Auto-update databases" || exit 0
+          git pull --rebase origin main
+          git push
+
+      - name: Generate daily briefing
+        continue-on-error: true
+        env:
+          MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SMTP_SENDER: ${{ secrets.SMTP_SENDER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_RECIPIENTS: ${{ secrets.SMTP_RECIPIENTS }}
+        run: python daily_briefing_job.py
+
+      - name: Commit daily briefing
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add briefing_cache/
+          git commit -m "Auto-update daily briefing" || exit 0
+          git pull --rebase origin main
           git push

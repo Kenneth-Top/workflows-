@@ -8,7 +8,7 @@ import re
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 from urllib.parse import quote
 
 import requests
@@ -377,6 +377,26 @@ def read_csv(path: Path, key_fields: list[str]) -> dict[tuple[str, ...], dict[st
         return {tuple(str(row.get(field, "")) for field in key_fields): row for row in reader}
 
 
+def read_csv_rows(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    with path.open("r", newline="", encoding="utf-8-sig") as file:
+        return list(csv.DictReader(file))
+
+
+def safe_fetch(label: str, fetcher, fallback_path: Optional[Path] = None) -> list[dict[str, Any]]:
+    try:
+        return fetcher()
+    except Exception as exc:
+        print(f"{label} failed: {exc}")
+        if fallback_path is not None:
+            fallback_rows = read_csv_rows(fallback_path)
+            if fallback_rows:
+                print(f"Using existing {fallback_path} rows: {len(fallback_rows)}")
+                return fallback_rows
+        return []
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]], headers: list[str], key_fields: list[str]) -> list[dict[str, Any]]:
     combined = read_csv(path, key_fields)
     for row in rows:
@@ -449,12 +469,16 @@ def write_json(
 
 
 def main() -> None:
-    market_rows = fetch_market_share()
-    app_rows = fetch_top_apps()
-    app_usage_rows = fetch_app_model_usage(app_rows)
-    provider_rows = fetch_provider_catalog()
-    provider_usage_rows = fetch_provider_usage(provider_rows)
-    category_usage_rows = fetch_category_usage()
+    market_rows = safe_fetch("Market share", fetch_market_share, MARKET_CSV)
+    app_rows = safe_fetch("Top apps", fetch_top_apps, APPS_CSV)
+    app_usage_rows = safe_fetch("App model usage", lambda: fetch_app_model_usage(app_rows), APP_USAGE_CSV)
+    provider_rows = safe_fetch("Provider catalog", fetch_provider_catalog)
+    provider_usage_rows = safe_fetch(
+        "Provider usage",
+        lambda: fetch_provider_usage(provider_rows),
+        PROVIDER_USAGE_CSV,
+    )
+    category_usage_rows = safe_fetch("Category usage", fetch_category_usage, CATEGORY_USAGE_CSV)
 
     market_all = write_csv(MARKET_CSV, market_rows, ["Date", "Author", "Tokens", "Share"], ["Date", "Author"])
     apps_all = write_current_csv(
