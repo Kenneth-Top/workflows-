@@ -432,17 +432,14 @@ function renderCumulativeModelOptions() {
   if (!selectedSet.size) {
     defaults.forEach((item) => selectedSet.add(item));
   }
-  const latestSlopes = cumulativeLatestSlopes(kind);
 
   list.innerHTML = visibleItems.map((item) => {
     const id = `cum-${item.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
     const checked = selectedSet.has(item) ? "checked" : "";
-    const slope = latestSlopes.get(item) || 0;
     return `
       <label class="checkbox-row" for="${escapeHtml(id)}">
         <input id="${escapeHtml(id)}" type="checkbox" value="${escapeHtml(item)}" ${checked}>
         <span class="checkbox-label-text">${escapeHtml(item)}</span>
-        <span class="slope-badge" title="最新一天单日 token">${escapeHtml(formatSlopeBadge(slope))}</span>
       </label>
     `;
   }).join("");
@@ -460,65 +457,6 @@ function renderCumulativeModelOptions() {
 
   $("#cumulative-selected-count").textContent = `已选择 ${selectedSet.size} 个`;
   renderCumulative();
-}
-
-function formatSlopeBadge(value) {
-  return `最新 +${shortNumber(numberValue(value))}`;
-}
-
-function cumulativeLatestSlopes(kind = cumulativeKind()) {
-  if (kind === "provider") return latestProviderSlopes();
-  if (kind === "modelAuthor") return latestModelAuthorSlopes();
-  return latestModelSlopes();
-}
-
-function latestModelSlopes() {
-  const latestByModel = new Map();
-  state.tokens.forEach((row) => {
-    const current = latestByModel.get(row.Display_Name);
-    if (!current || row.Date > current.Date) {
-      latestByModel.set(row.Display_Name, { Date: row.Date, Tokens: numberValue(row.Total_Tokens) });
-    }
-  });
-  return new Map(Array.from(latestByModel.entries()).map(([model, row]) => [model, row.Tokens]));
-}
-
-function latestModelAuthorSlopes() {
-  const dailyTotals = new Map();
-  state.tokens.forEach((row) => {
-    const author = row.Model_Author || modelAuthorName(row.Model);
-    const key = `${author}||${row.Date}`;
-    dailyTotals.set(key, (dailyTotals.get(key) || 0) + numberValue(row.Total_Tokens));
-  });
-
-  const latestByAuthor = new Map();
-  dailyTotals.forEach((tokens, key) => {
-    const [author, date] = key.split("||");
-    const current = latestByAuthor.get(author);
-    if (!current || date > current.Date) {
-      latestByAuthor.set(author, { Date: date, Tokens: tokens });
-    }
-  });
-  return new Map(Array.from(latestByAuthor.entries()).map(([author, row]) => [author, row.Tokens]));
-}
-
-function latestProviderSlopes() {
-  const sourceRows = state.providerUsage.length
-    ? state.providerUsage.map((row) => ({
-      Date: row.Date,
-      Author: row.Provider_Display || row.Provider,
-      Tokens: row.Tokens,
-    }))
-    : state.marketShare;
-  const latestByProvider = new Map();
-  sourceRows.forEach((row) => {
-    const provider = row.Author;
-    const current = latestByProvider.get(provider);
-    if (!current || row.Date > current.Date) {
-      latestByProvider.set(provider, { Date: row.Date, Tokens: numberValue(row.Tokens) });
-    }
-  });
-  return new Map(Array.from(latestByProvider.entries()).map(([provider, row]) => [provider, row.Tokens]));
 }
 
 function selectedCumulativeItems() {
@@ -561,6 +499,7 @@ function buildCumulativeSeries(models) {
       points.push({
         day,
         date: row.Date,
+        daily: numberValue(row.Total_Tokens),
         value: Number(running.toFixed(6)),
       });
     });
@@ -596,6 +535,7 @@ function buildProviderCumulativeSeries(providers) {
       return {
         day: index,
         date: row.Date,
+        daily: numberValue(row.Tokens),
         value: Number(running.toFixed(6)),
       };
     });
@@ -640,6 +580,7 @@ function buildModelAuthorCumulativeSeries(authors) {
       return {
         day: index,
         date: row.Date,
+        daily: numberValue(row.Tokens),
         value: Number(running.toFixed(6)),
       };
     });
@@ -648,6 +589,63 @@ function buildModelAuthorCumulativeSeries(authors) {
 
   return { series, maxDay };
 }
+
+function latestPointSlope(points) {
+  const latest = points.at(-1);
+  if (!latest) return 0;
+  if (latest.daily !== undefined) return numberValue(latest.daily);
+  const previous = points.at(-2);
+  return previous ? latest.value - previous.value : latest.value;
+}
+
+function formatCurveSlope(value) {
+  return `+${shortNumber(Math.max(0, numberValue(value)))}`;
+}
+
+const cumulativeSlopeLabelPlugin = {
+  id: "cumulativeSlopeLabel",
+  afterDatasetsDraw(chart) {
+    const { ctx, chartArea } = chart;
+    ctx.save();
+    ctx.font = "700 11px Arial, sans-serif";
+    ctx.textBaseline = "middle";
+
+    chart.data.datasets.forEach((dataset, datasetIndex) => {
+      if (!dataset.latestSlopeLabel) return;
+      const meta = chart.getDatasetMeta(datasetIndex);
+      if (meta.hidden) return;
+      let pointIndex = -1;
+      for (let index = dataset.data.length - 1; index >= 0; index -= 1) {
+        if (dataset.data[index] !== null && dataset.data[index] !== undefined) {
+          pointIndex = index;
+          break;
+        }
+      }
+      if (pointIndex < 0 || !meta.data[pointIndex]) return;
+
+      const point = meta.data[pointIndex].getProps(["x", "y"], true);
+      const text = dataset.latestSlopeLabel;
+      const paddingX = 4;
+      const height = 16;
+      const width = Math.ceil(ctx.measureText(text).width) + paddingX * 2;
+      let x = point.x + 8;
+      if (x + width > chartArea.right) x = point.x - width - 8;
+      x = Math.max(chartArea.left, Math.min(x, chartArea.right - width));
+      const offset = ((datasetIndex % 3) - 1) * 8;
+      const y = Math.max(chartArea.top + height / 2, Math.min(point.y + offset, chartArea.bottom - height / 2));
+
+      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.strokeStyle = dataset.borderColor;
+      ctx.lineWidth = 1;
+      ctx.fillRect(x, y - height / 2, width, height);
+      ctx.strokeRect(x, y - height / 2, width, height);
+      ctx.fillStyle = dataset.borderColor;
+      ctx.fillText(text, x + paddingX, y);
+    });
+
+    ctx.restore();
+  },
+};
 
 function renderCumulative() {
   if (!state.tokens.length) return;
@@ -670,6 +668,7 @@ function renderCumulative() {
       pointRadius: 0,
       borderWidth: 2,
       spanGaps: true,
+      latestSlopeLabel: formatCurveSlope(latestPointSlope(item.points)),
     };
   });
 
@@ -691,9 +690,11 @@ function renderCumulative() {
         : days.map((day) => `Day ${day}`),
       datasets,
     },
+    plugins: [cumulativeSlopeLabelPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      layout: { padding: { right: 60 } },
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },
