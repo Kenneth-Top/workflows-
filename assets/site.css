@@ -177,6 +177,26 @@ main {
   margin: 0;
 }
 
+.checkbox-label-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slope-badge {
+  margin-left: auto;
+  flex: 0 0 auto;
+  border: 1px solid #b9ded8;
+  border-radius: 8px;
+  padding: 2px 6px;
+  background: #edf8f6;
+  color: #0f6f68;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 label {
   display: grid;
   gap: 7px;
