@@ -24,7 +24,6 @@ jobs:
         run: pip install requests pandas beautifulsoup4
 
       - name: Update token history
-        continue-on-error: true
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python update_data.py
