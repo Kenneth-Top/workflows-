@@ -189,12 +189,14 @@ def fetch_rankings_daily_tokens(max_existing_date, today_str):
     )
 
     records = []
+    available_days = []
     for point in series:
         if not isinstance(point, dict):
             continue
         day = parse_day(point.get("x"))
         if not day or day == today_str:
             continue
+        available_days.append(day)
         if max_existing_date and day <= max_existing_date:
             continue
 
@@ -215,7 +217,10 @@ def fetch_rankings_daily_tokens(max_existing_date, today_str):
             })
 
     print(f"✅ rankings 新增记录: {len(records)}")
-    return records
+    latest_available_date = max(available_days) if available_days else None
+    if latest_available_date:
+        print(f"📅 rankings 最新可用日期: {latest_available_date}")
+    return records, latest_available_date
 
 
 def fetch_analytics(model_id):
@@ -269,11 +274,21 @@ def update_database():
 
     # 3. 优先从 rankings 页批量提取每日模型 token 数据
     new_records = []
+    rankings_latest_date = None
     today_str = datetime.utcnow().strftime("%Y-%m-%d")  # OpenRouter 使用 UTC 日期
     try:
-        new_records = fetch_rankings_daily_tokens(max_existing_date, today_str)
+        new_records, rankings_latest_date = fetch_rankings_daily_tokens(max_existing_date, today_str)
     except Exception as e:
         print(f"⚠️ rankings 批量提取失败，回退到逐模型页面: {e}")
+
+    if (
+        not new_records
+        and rankings_latest_date
+        and max_existing_date
+        and max_existing_date >= rankings_latest_date
+    ):
+        print("✅ 历史库已覆盖 rankings 最新可用日期，无需更新")
+        return
 
     if not new_records:
         for i, model in enumerate(all_models):
