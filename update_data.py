@@ -10,7 +10,9 @@ import time
 DATA_FILE = "history_database.csv"
 MODELS_API = "https://openrouter.ai/api/v1/models"
 RANKINGS_URL = "https://openrouter.ai/rankings"
+MODEL_ACTIVITY_API = "https://openrouter.ai/api/frontend/stats/model-activity"
 CANONICAL_TO_ID = {}
+MODEL_TO_PERMASLUG = {}
 
 # 公共 Session（复用连接池，避免每次请求都创建新 Session）
 SESSION = requests.Session()
@@ -22,13 +24,14 @@ SESSION.headers.update({
 
 def fetch_all_model_ids():
     """从 OpenRouter API 自动获取所有可用模型的 id 列表"""
-    global CANONICAL_TO_ID
+    global CANONICAL_TO_ID, MODEL_TO_PERMASLUG
     print("🔍 正在从 OpenRouter API 获取模型列表...")
     try:
         resp = SESSION.get(MODELS_API, timeout=30)
         resp.raise_for_status()
         models = resp.json().get("data", [])
         CANONICAL_TO_ID = {}
+        MODEL_TO_PERMASLUG = {}
         for model in models:
             model_id = model.get("id")
             if not model_id:
@@ -37,6 +40,9 @@ def fetch_all_model_ids():
             canonical_slug = model.get("canonical_slug")
             if canonical_slug:
                 CANONICAL_TO_ID[canonical_slug] = model_id
+                MODEL_TO_PERMASLUG[model_id] = canonical_slug
+            else:
+                MODEL_TO_PERMASLUG[model_id] = model_id
         # 按 created 倒序排列（最新的在前）
         models.sort(key=lambda m: m.get("created", 0), reverse=True)
         ids = [m["id"] for m in models]
@@ -45,6 +51,77 @@ def fetch_all_model_ids():
     except Exception as e:
         print(f"❌ 获取模型列表失败: {e}")
         return []
+
+
+def variant_model_id(model_id, variant):
+    if not variant or variant == "standard":
+        return model_id
+    if model_id.endswith(f":{variant}"):
+        return model_id
+    return f"{model_id}:{variant}"
+
+
+def variants_for_model(model_id, observed_variants, all_model_set):
+    if ":" in model_id:
+        return [model_id.rsplit(":", 1)[1]]
+
+    variants = {None, "free"}
+    variants.update(observed_variants.get(model_id, set()))
+    variants = {
+        variant
+        for variant in variants
+        if not variant or f"{model_id}:{variant}" not in all_model_set
+    }
+    return [variant for variant in variants if variant != "standard"]
+
+
+def fetch_model_activity(model_id, variant=None):
+    """从 OpenRouter 官方前端 activity API 获取单模型每日用量。"""
+    permaslug = MODEL_TO_PERMASLUG.get(model_id, model_id)
+    params = {"permaslug": permaslug}
+    if variant:
+        params["variant"] = variant
+    try:
+        resp = SESSION.get(MODEL_ACTIVITY_API, params=params, timeout=30)
+        resp.raise_for_status()
+        return resp.json().get("data", {}).get("analytics", []) or []
+    except Exception as e:
+        suffix = f":{variant}" if variant else ""
+        print(f"  ❌ activity API 错误 {model_id}{suffix}: {e}")
+    return []
+
+
+def build_activity_records(model_id, variant, analytics, max_existing_date, today_str):
+    records = []
+    latest_available_date = None
+    output_model_id = variant_model_id(model_id, variant)
+    for record in analytics:
+        record_date_str = str(record.get("date", ""))[:10]
+        if not record_date_str:
+            continue
+        if record_date_str != today_str:
+            latest_available_date = max(latest_available_date or record_date_str, record_date_str)
+        if record_date_str == today_str:
+            continue
+        if max_existing_date and record_date_str <= max_existing_date:
+            continue
+
+        p = (record.get('total_prompt_tokens') or 0) / 1e9
+        c = (record.get('total_completion_tokens') or 0) / 1e9
+        r = (record.get('total_native_tokens_reasoning') or 0) / 1e9
+        t = p + c
+        if t <= 0:
+            continue
+
+        records.append({
+            'Date': datetime.strptime(record_date_str, "%Y-%m-%d"),
+            'Model': output_model_id,
+            'Prompt': round(p, 6),
+            'Completion': round(c, 6),
+            'Reasoning': round(r, 6),
+            'Total_Tokens': round(t, 6)
+        })
+    return records, latest_available_date
 
 
 def decode_next_rsc(html):
@@ -261,6 +338,7 @@ def update_database():
     if not all_models:
         print("⚠️ 无法获取模型列表，终止")
         return
+    all_model_set = set(all_models)
 
     # 识别新模型（CSV 中尚未出现的模型）
     existing_models = set(df_old['Model'].unique()) if not df_old.empty else set()
@@ -272,53 +350,43 @@ def update_database():
         if len(new_models) > 10:
             print(f"   ... 及另外 {len(new_models) - 10} 个")
 
-    # 3. 优先从 rankings 页批量提取每日模型 token 数据
+    observed_variants = {}
+    for existing_model in existing_models:
+        if ":" not in str(existing_model):
+            continue
+        base_model, variant = str(existing_model).rsplit(":", 1)
+        observed_variants.setdefault(base_model, set()).add(variant)
+
+    # 3. 从 OpenRouter 官方 model-activity API 抓取每日模型 token 数据
     new_records = []
-    rankings_latest_date = None
+    latest_available_dates = []
     today_str = datetime.utcnow().strftime("%Y-%m-%d")  # OpenRouter 使用 UTC 日期
-    try:
-        new_records, rankings_latest_date = fetch_rankings_daily_tokens(max_existing_date, today_str)
-    except Exception as e:
-        print(f"⚠️ rankings 批量提取失败，回退到逐模型页面: {e}")
+    for i, model in enumerate(all_models):
+        print(f"🚀 [{i+1}/{len(all_models)}] 正在抓取 activity: {model}")
+        for variant in variants_for_model(model, observed_variants, all_model_set):
+            data = fetch_model_activity(model, variant)
+            if not data:
+                continue
+            records, latest_available_date = build_activity_records(
+                model, variant, data, max_existing_date, today_str
+            )
+            new_records.extend(records)
+            if latest_available_date:
+                latest_available_dates.append(latest_available_date)
+        time.sleep(0.15)
+
+    latest_available_date = max(latest_available_dates) if latest_available_dates else None
+    if latest_available_date:
+        print(f"📅 activity API 最新可用日期: {latest_available_date}")
 
     if (
         not new_records
-        and rankings_latest_date
+        and latest_available_date
         and max_existing_date
-        and max_existing_date >= rankings_latest_date
+        and max_existing_date >= latest_available_date
     ):
-        print("✅ 历史库已覆盖 rankings 最新可用日期，无需更新")
+        print("✅ 历史库已覆盖 activity API 最新可用日期，无需更新")
         return
-
-    if not new_records:
-        for i, model in enumerate(all_models):
-            print(f"🚀 [{i+1}/{len(all_models)}] 正在抓取: {model}")
-            data = fetch_analytics(model)
-            if not data:
-                continue
-
-            for record in data:
-                # 过滤当天未结算数据（当天统计不完整，会导致数值偏低）
-                record_date_str = record['date'][:10]  # "2026-02-13 00:00:00" -> "2026-02-13"
-                if record_date_str == today_str:
-                    continue
-                if max_existing_date and record_date_str <= max_existing_date:
-                    continue
-
-                p = (record.get('total_prompt_tokens') or 0) / 1e9
-                c = (record.get('total_completion_tokens') or 0) / 1e9
-                r = (record.get('total_native_tokens_reasoning') or 0) / 1e9
-                t = p + c  # Total = Prompt + Completion (OpenAI 标准)
-
-                new_records.append({
-                    'Date': datetime.strptime(record['date'], "%Y-%m-%d %H:%M:%S"),
-                    'Model': model,
-                    'Prompt': round(p, 6),
-                    'Completion': round(c, 6),
-                    'Reasoning': round(r, 6),
-                    'Total_Tokens': round(t, 6)
-                })
-            time.sleep(1)
 
     if not new_records:
         raise RuntimeError("本次未抓取到任何 token 数据，停止工作流，避免静默卡住")
