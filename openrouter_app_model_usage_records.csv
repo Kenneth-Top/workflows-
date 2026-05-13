@@ -16545,3 +16545,309 @@
 2026-05-11,831074,Roo Code,roo-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.512824
 2026-05-11,831074,Roo Code,roo-code,openai/gpt-oss-120b,0.611806
 2026-05-11,831074,Roo Code,roo-code,openrouter/owl-alpha,1.49512
+2026-05-12,142576,SillyTavern,sillytavern,Others,2.326352
+2026-05-12,142576,SillyTavern,sillytavern,anthropic/claude-4.5-sonnet-20250929,0.321443
+2026-05-12,142576,SillyTavern,sillytavern,anthropic/claude-4.6-opus-20260205,0.614804
+2026-05-12,142576,SillyTavern,sillytavern,anthropic/claude-4.7-opus-20260416,0.48195
+2026-05-12,142576,SillyTavern,sillytavern,deepseek/deepseek-v3.2-20251201,0.724922
+2026-05-12,142576,SillyTavern,sillytavern,deepseek/deepseek-v4-flash-20260423,0.703406
+2026-05-12,142576,SillyTavern,sillytavern,deepseek/deepseek-v4-pro-20260423,0.917376
+2026-05-12,142576,SillyTavern,sillytavern,google/gemini-3-flash-preview-20251217,0.177777
+2026-05-12,142576,SillyTavern,sillytavern,google/gemini-3.1-pro-preview-20260219,0.501303
+2026-05-12,142576,SillyTavern,sillytavern,z-ai/glm-5-20260211,0.283237
+2026-05-12,142576,SillyTavern,sillytavern,z-ai/glm-5.1-20260406,0.540041
+2026-05-12,169155,Janitor AI,janitor-ai,Others,7.602582
+2026-05-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.240733
+2026-05-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.870693
+2026-05-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-r1-0528,0.633311
+2026-05-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-v3.2-20251201,8.105964
+2026-05-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-flash-20260423,1.542037
+2026-05-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-pro-20260423,1.078565
+2026-05-12,169155,Janitor AI,janitor-ai,inclusionai/ring-2.6-1t-20260508,1.360935
+2026-05-12,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,1.103291
+2026-05-12,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.20649
+2026-05-12,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.6936
+2026-05-12,169295,Portkey AI,portkey-ai,Others,0.210582
+2026-05-12,169295,Portkey AI,portkey-ai,anthropic/claude-4.5-sonnet-20250929,0.070742
+2026-05-12,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.679359
+2026-05-12,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.089699
+2026-05-12,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.951931
+2026-05-12,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.128648
+2026-05-12,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.02523
+2026-05-12,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.5-0127,0.045662
+2026-05-12,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.048679
+2026-05-12,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.043059
+2026-05-12,169295,Portkey AI,portkey-ai,openai/gpt-oss-120b,0.035942
+2026-05-12,184102,Open WebUI,open-webui,Others,1.344084
+2026-05-12,184102,Open WebUI,open-webui,anthropic/claude-4.6-opus-20260205,0.211265
+2026-05-12,184102,Open WebUI,open-webui,anthropic/claude-4.6-sonnet-20260217,0.921912
+2026-05-12,184102,Open WebUI,open-webui,anthropic/claude-4.7-opus-20260416,1.062916
+2026-05-12,184102,Open WebUI,open-webui,deepseek/deepseek-v4-flash-20260423,0.148568
+2026-05-12,184102,Open WebUI,open-webui,deepseek/deepseek-v4-pro-20260423,0.147312
+2026-05-12,184102,Open WebUI,open-webui,google/gemini-3-flash-preview-20251217,0.227472
+2026-05-12,184102,Open WebUI,open-webui,google/gemini-3.1-pro-preview-20260219,0.333946
+2026-05-12,184102,Open WebUI,open-webui,openai/gpt-5.4-20260305,0.403218
+2026-05-12,184102,Open WebUI,open-webui,openai/gpt-5.5-20260423,0.252376
+2026-05-12,184102,Open WebUI,open-webui,z-ai/glm-5.1-20260406,0.125883
+2026-05-12,188881,Chub AI,chub-ai,Others,1.400588
+2026-05-12,188881,Chub AI,chub-ai,anthropic/claude-4.5-sonnet-20250929,0.343869
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-chat-v3-0324,0.253839
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-chat-v3.1,0.128746
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-v3.1-terminus,0.143899
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-v3.2-20251201,0.585233
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-v3.2-exp,0.181199
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-v4-flash-20260423,0.475123
+2026-05-12,188881,Chub AI,chub-ai,deepseek/deepseek-v4-pro-20260423,0.451518
+2026-05-12,188881,Chub AI,chub-ai,z-ai/glm-4.5-air,0.122456
+2026-05-12,188881,Chub AI,chub-ai,z-ai/glm-5.1-20260406,0.113222
+2026-05-12,189563,OpenHands,openhands,Others,0.314375
+2026-05-12,189563,OpenHands,openhands,anthropic/claude-4.6-sonnet-20260217,0.04079
+2026-05-12,189563,OpenHands,openhands,anthropic/claude-4.7-opus-20260416,0.521449
+2026-05-12,189563,OpenHands,openhands,arcee-ai/trinity-large-thinking,0.953786
+2026-05-12,189563,OpenHands,openhands,deepseek/deepseek-v4-flash-20260423,0.319826
+2026-05-12,189563,OpenHands,openhands,google/gemma-4-26b-a4b-it-20260403,0.127986
+2026-05-12,189563,OpenHands,openhands,minimax/minimax-m2.7-20260318,0.711779
+2026-05-12,189563,OpenHands,openhands,moonshotai/kimi-k2.5-0127,0.550998
+2026-05-12,189563,OpenHands,openhands,moonshotai/kimi-k2.6-20260420,0.079924
+2026-05-12,189563,OpenHands,openhands,openrouter/owl-alpha,0.056302
+2026-05-12,189563,OpenHands,openhands,qwen/qwen3-coder-next-2025-02-03,0.122493
+2026-05-12,190604,Cline,cline,Others,6.251621
+2026-05-12,190604,Cline,cline,anthropic/claude-4.5-sonnet-20250929,0.713261
+2026-05-12,190604,Cline,cline,anthropic/claude-4.6-opus-20260205,0.70946
+2026-05-12,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.390632
+2026-05-12,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,4.658043
+2026-05-12,190604,Cline,cline,arcee-ai/trinity-large-thinking,0.533942
+2026-05-12,190604,Cline,cline,deepseek/deepseek-v4-flash-20260423,3.057635
+2026-05-12,190604,Cline,cline,deepseek/deepseek-v4-pro-20260423,1.585268
+2026-05-12,190604,Cline,cline,moonshotai/kimi-k2.6-20260420,0.449658
+2026-05-12,190604,Cline,cline,nvidia/nemotron-3-super-120b-a12b-20230311,0.460599
+2026-05-12,190604,Cline,cline,openai/gpt-oss-120b,0.600559
+2026-05-12,2235067,HammerAI,hammerai,Others,0.005106
+2026-05-12,2235067,HammerAI,hammerai,aion-labs/aion-2.0-20260223,0.028266
+2026-05-12,2235067,HammerAI,hammerai,anthropic/claude-4.5-sonnet-20250929,0.001697
+2026-05-12,2235067,HammerAI,hammerai,deepseek/deepseek-v3.2-20251201,0.005418
+2026-05-12,2235067,HammerAI,hammerai,microsoft/wizardlm-2-8x22b,0.021128
+2026-05-12,2235067,HammerAI,hammerai,mistralai/mistral-nemo,4.833566
+2026-05-12,2235067,HammerAI,hammerai,mistralai/mistral-small-24b-instruct-2501,0.010765
+2026-05-12,2235067,HammerAI,hammerai,sao10k/l3-lunaris-8b,0.379157
+2026-05-12,2235067,HammerAI,hammerai,sao10k/l3.1-euryale-70b,0.00521
+2026-05-12,2235067,HammerAI,hammerai,thedrummer/unslopnemo-12b,0.007534
+2026-05-12,2235067,HammerAI,hammerai,x-ai/grok-4.20-20260309,0.007208
+2026-05-12,2262242,Kilo Code,kilo-code,Others,15.347003
+2026-05-12,2262242,Kilo Code,kilo-code,anthropic/claude-4.6-sonnet-20260217,5.67925
+2026-05-12,2262242,Kilo Code,kilo-code,anthropic/claude-4.7-opus-20260416,6.045201
+2026-05-12,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-flash-20260423,3.093997
+2026-05-12,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-pro-20260423,3.252336
+2026-05-12,2262242,Kilo Code,kilo-code,inclusionai/ring-2.6-1t-20260508,26.606189
+2026-05-12,2262242,Kilo Code,kilo-code,moonshotai/kimi-k2.6-20260420,3.619507
+2026-05-12,2262242,Kilo Code,kilo-code,nvidia/nemotron-3-super-120b-a12b-20230311,19.327108
+2026-05-12,2262242,Kilo Code,kilo-code,poolside/laguna-m.1-20260312,23.978527
+2026-05-12,2262242,Kilo Code,kilo-code,poolside/laguna-xs.2-20260421,2.18831
+2026-05-12,2262242,Kilo Code,kilo-code,stepfun/step-3.5-flash,53.62797
+2026-05-12,2267189,Zed Editor,zed-editor,Others,1.350284
+2026-05-12,2267189,Zed Editor,zed-editor,anthropic/claude-4.6-sonnet-20260217,0.158962
+2026-05-12,2267189,Zed Editor,zed-editor,anthropic/claude-4.7-opus-20260416,0.144631
+2026-05-12,2267189,Zed Editor,zed-editor,deepseek/deepseek-v4-flash-20260423,0.515765
+2026-05-12,2267189,Zed Editor,zed-editor,deepseek/deepseek-v4-pro-20260423,0.286633
+2026-05-12,2267189,Zed Editor,zed-editor,inclusionai/ring-2.6-1t-20260508,0.332678
+2026-05-12,2267189,Zed Editor,zed-editor,moonshotai/kimi-k2.6-20260420,0.391367
+2026-05-12,2267189,Zed Editor,zed-editor,openai/gpt-5.3-codex-20260224,0.15386
+2026-05-12,2267189,Zed Editor,zed-editor,openai/gpt-5.5-20260423,0.197101
+2026-05-12,2267189,Zed Editor,zed-editor,tencent/hy3-preview-20260421,0.241824
+2026-05-12,2267189,Zed Editor,zed-editor,z-ai/glm-5.1-20260406,0.243054
+2026-05-12,2284381,Gobii,gobii,Others,0.000188
+2026-05-12,2284381,Gobii,gobii,deepseek/deepseek-v4-flash-20260423,0.501549
+2026-05-12,2284381,Gobii,gobii,deepseek/deepseek-v4-pro-20260423,0.046701
+2026-05-12,2284381,Gobii,gobii,google/gemini-2.5-flash-lite-preview-09-2025,0.000111
+2026-05-12,2284381,Gobii,gobii,google/gemini-3-flash-preview-20251217,1.094378
+2026-05-12,2284381,Gobii,gobii,google/gemini-3.1-flash-lite-preview-20260303,0.03329
+2026-05-12,2284381,Gobii,gobii,google/gemini-3.1-pro-preview-20260219,0.027411
+2026-05-12,2284381,Gobii,gobii,google/gemma-4-31b-it-20260402,0.000459
+2026-05-12,2284381,Gobii,gobii,openai/gpt-5-mini-2025-08-07,0.00525
+2026-05-12,2284381,Gobii,gobii,openai/gpt-oss-120b,0.008521
+2026-05-12,2284381,Gobii,gobii,qwen/qwen3.5-flash-20260224,0.495062
+2026-05-12,2293498,Agent Zero,agent-zero,Others,1.091415
+2026-05-12,2293498,Agent Zero,agent-zero,anthropic/claude-4.6-opus-20260205,0.685951
+2026-05-12,2293498,Agent Zero,agent-zero,anthropic/claude-4.6-sonnet-20260217,0.459629
+2026-05-12,2293498,Agent Zero,agent-zero,anthropic/claude-4.7-opus-20260416,0.396742
+2026-05-12,2293498,Agent Zero,agent-zero,deepseek/deepseek-v4-flash-20260423,0.136846
+2026-05-12,2293498,Agent Zero,agent-zero,deepseek/deepseek-v4-pro-20260423,0.228646
+2026-05-12,2293498,Agent Zero,agent-zero,google/gemini-3-flash-preview-20251217,0.12201
+2026-05-12,2293498,Agent Zero,agent-zero,google/gemini-3.1-flash-lite-preview-20260303,0.129896
+2026-05-12,2293498,Agent Zero,agent-zero,moonshotai/kimi-k2.5-0127,0.096177
+2026-05-12,2293498,Agent Zero,agent-zero,moonshotai/kimi-k2.6-20260420,0.131495
+2026-05-12,2293498,Agent Zero,agent-zero,qwen/qwen3.6-plus-04-02,0.122135
+2026-05-12,2299688,GDevelop,gdevelop,deepseek/deepseek-v4-pro-20260423,0.001139
+2026-05-12,2299688,GDevelop,gdevelop,google/gemini-2.5-flash,2.492123
+2026-05-12,2299688,GDevelop,gdevelop,google/gemini-2.5-flash-lite,0.083396
+2026-05-12,2299688,GDevelop,gdevelop,google/gemini-3-flash-preview-20251217,0.02038
+2026-05-12,2299688,GDevelop,gdevelop,openai/gpt-oss-20b,0.076372
+2026-05-12,2308106,Descript,descript,Others,0.000684
+2026-05-12,2308106,Descript,descript,anthropic/claude-4.5-haiku-20251001,0.10734
+2026-05-12,2308106,Descript,descript,anthropic/claude-4.6-opus-20260205,1.304047
+2026-05-12,2308106,Descript,descript,anthropic/claude-4.6-sonnet-20260217,43.277862
+2026-05-12,2308106,Descript,descript,anthropic/claude-4.7-opus-20260416,0.716697
+2026-05-12,2308106,Descript,descript,google/gemini-2.0-flash-lite-001,0.687114
+2026-05-12,2308106,Descript,descript,google/gemini-2.5-flash-lite,8.443471
+2026-05-12,2308106,Descript,descript,google/gemini-3.1-pro-preview-20260219,0.030131
+2026-05-12,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.743877
+2026-05-12,2308106,Descript,descript,openai/gpt-5.4-20260305,0.015647
+2026-05-12,2308106,Descript,descript,openai/gpt-5.5-20260423,0.241405
+2026-05-12,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.005725
+2026-05-12,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.015921
+2026-05-12,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.287164
+2026-05-12,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.944785
+2026-05-12,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.016698
+2026-05-12,2344758,Stanley,stan,google/gemini-2.5-flash,0.022784
+2026-05-12,2344758,Stanley,stan,google/gemini-2.5-pro,3.7e-05
+2026-05-12,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.751965
+2026-05-12,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000155
+2026-05-12,2354934,Qwen Code,qwen-code,Others,0.700844
+2026-05-12,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.467073
+2026-05-12,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.11575
+2026-05-12,2354934,Qwen Code,qwen-code,openrouter/owl-alpha,0.449634
+2026-05-12,2354934,Qwen Code,qwen-code,poolside/laguna-m.1-20260312,0.144872
+2026-05-12,2354934,Qwen Code,qwen-code,qwen/qwen3-coder-480b-a35b-07-25,0.130871
+2026-05-12,2354934,Qwen Code,qwen-code,qwen/qwen3-coder-next-2025-02-03,0.234296
+2026-05-12,2354934,Qwen Code,qwen-code,qwen/qwen3.5-flash-20260224,0.086124
+2026-05-12,2354934,Qwen Code,qwen-code,qwen/qwen3.6-max-preview-20260420,0.109463
+2026-05-12,2354934,Qwen Code,qwen-code,qwen/qwen3.6-plus-04-02,0.277715
+2026-05-12,2354934,Qwen Code,qwen-code,z-ai/glm-4.5-air,0.281475
+2026-05-12,2400899,MinutaIA,minuta-ia,google/gemini-2.5-flash-lite,0.020543
+2026-05-12,2400899,MinutaIA,minuta-ia,google/gemini-2.5-flash-lite-preview-09-2025,0.609879
+2026-05-12,2400899,MinutaIA,minuta-ia,google/gemini-2.5-pro,0.000377
+2026-05-12,2400899,MinutaIA,minuta-ia,google/gemini-3-flash-preview-20251217,2.536349
+2026-05-12,2511276,VidMuse,vidmuse,anthropic/claude-4.6-sonnet-20260217,11.548366
+2026-05-12,2511276,VidMuse,vidmuse,google/gemini-2.5-flash,0.000708
+2026-05-12,2511276,VidMuse,vidmuse,google/gemini-2.5-pro,4.3e-05
+2026-05-12,2511276,VidMuse,vidmuse,google/gemini-3-flash-preview-20251217,0.012606
+2026-05-12,2511276,VidMuse,vidmuse,google/gemini-3.1-pro-preview-20260219,0.070122
+2026-05-12,2511276,VidMuse,vidmuse,openai/gpt-4o,1e-06
+2026-05-12,2524738,LangChain,langchain,Others,2.182001
+2026-05-12,2524738,LangChain,langchain,anthropic/claude-4.7-opus-20260416,0.549099
+2026-05-12,2524738,LangChain,langchain,deepseek/deepseek-v4-flash-20260423,0.562102
+2026-05-12,2524738,LangChain,langchain,google/gemini-2.5-flash,1.569208
+2026-05-12,2524738,LangChain,langchain,google/gemini-3-flash-preview-20251217,0.553744
+2026-05-12,2524738,LangChain,langchain,google/gemini-3.1-flash-lite-preview-20260303,1.006512
+2026-05-12,2524738,LangChain,langchain,qwen/qwen3-30b-a3b-instruct-2507,1.178665
+2026-05-12,2524738,LangChain,langchain,qwen/qwen3-30b-a3b-thinking-2507,0.293827
+2026-05-12,2524738,LangChain,langchain,qwen/qwen3-coder-next-2025-02-03,0.85956
+2026-05-12,2524738,LangChain,langchain,qwen/qwen3.6-plus-04-02,0.376634
+2026-05-12,2524738,LangChain,langchain,z-ai/glm-5-20260211,0.95777
+2026-05-12,2627404,Claude Code,claude-code,Others,9.311708
+2026-05-12,2627404,Claude Code,claude-code,anthropic/claude-4.5-haiku-20251001,2.547265
+2026-05-12,2627404,Claude Code,claude-code,anthropic/claude-4.6-opus-20260205,7.029331
+2026-05-12,2627404,Claude Code,claude-code,anthropic/claude-4.6-sonnet-20260217,12.379064
+2026-05-12,2627404,Claude Code,claude-code,anthropic/claude-4.7-opus-20260416,21.049091
+2026-05-12,2627404,Claude Code,claude-code,deepseek/deepseek-v4-flash-20260423,1.921519
+2026-05-12,2627404,Claude Code,claude-code,deepseek/deepseek-v4-pro-20260423,5.756948
+2026-05-12,2627404,Claude Code,claude-code,inclusionai/ring-2.6-1t-20260508,2.036034
+2026-05-12,2627404,Claude Code,claude-code,nvidia/nemotron-3-super-120b-a12b-20230311,2.012751
+2026-05-12,2627404,Claude Code,claude-code,openrouter/owl-alpha,1.624707
+2026-05-12,2627404,Claude Code,claude-code,z-ai/glm-5.1-20260406,3.566176
+2026-05-12,2637375,Lemonade,lemonade,anthropic/claude-4.5-sonnet-20250929,0.349171
+2026-05-12,2637375,Lemonade,lemonade,anthropic/claude-4.6-opus-20260205,0.459133
+2026-05-12,2637375,Lemonade,lemonade,google/gemini-3-flash-preview-20251217,7.994279
+2026-05-12,2637375,Lemonade,lemonade,openai/gpt-5.5-20260423,0.264608
+2026-05-12,2637375,Lemonade,lemonade,stepfun/step-3.5-flash,11.349904
+2026-05-12,2637375,Lemonade,lemonade,tencent/hy3-preview-20260421,0.005527
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,Others,1.993433
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v3.2-20251201,0.380663
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-flash-20260423,8.778439
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-pro-20260423,10.458726
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,google/gemini-2.5-flash-lite,0.652677
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,google/gemini-3-flash-preview-20251217,0.624141
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,google/gemini-3.1-flash-lite-preview-20260303,0.514847
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,minimax/minimax-m2.7-20260318,0.919341
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,openai/gpt-oss-safeguard-20b,0.336648
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,x-ai/grok-4.1-fast,1.990769
+2026-05-12,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5-20260211,0.645042
+2026-05-12,2725608,OpenClaw,openclaw,Others,86.35775
+2026-05-12,2725608,OpenClaw,openclaw,anthropic/claude-4.6-opus-20260205,7.063663
+2026-05-12,2725608,OpenClaw,openclaw,anthropic/claude-4.6-sonnet-20260217,18.514353
+2026-05-12,2725608,OpenClaw,openclaw,anthropic/claude-4.7-opus-20260416,13.431866
+2026-05-12,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-flash-20260423,13.436416
+2026-05-12,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-pro-20260423,6.165035
+2026-05-12,2725608,OpenClaw,openclaw,google/gemini-2.5-flash-lite,15.655519
+2026-05-12,2725608,OpenClaw,openclaw,google/gemini-3-flash-preview-20251217,7.197349
+2026-05-12,2725608,OpenClaw,openclaw,minimax/minimax-m2.5-20260211,7.645619
+2026-05-12,2725608,OpenClaw,openclaw,minimax/minimax-m2.7-20260318,16.246651
+2026-05-12,2725608,OpenClaw,openclaw,nvidia/nemotron-3-super-120b-a12b-20230311,13.586565
+2026-05-12,2735766,nanobot,nanobot,Others,0.21323
+2026-05-12,2735766,nanobot,nanobot,deepseek/deepseek-v3.2-20251201,0.019597
+2026-05-12,2735766,nanobot,nanobot,deepseek/deepseek-v4-flash-20260423,0.168907
+2026-05-12,2735766,nanobot,nanobot,deepseek/deepseek-v4-pro-20260423,0.174468
+2026-05-12,2735766,nanobot,nanobot,google/gemini-3-flash-preview-20251217,0.034707
+2026-05-12,2735766,nanobot,nanobot,google/gemini-3.1-pro-preview-20260219,0.421171
+2026-05-12,2735766,nanobot,nanobot,nvidia/nemotron-3-super-120b-a12b-20230311,0.332009
+2026-05-12,2735766,nanobot,nanobot,openai/gpt-5.5-20260423,0.355121
+2026-05-12,2735766,nanobot,nanobot,openrouter/owl-alpha,0.022328
+2026-05-12,2735766,nanobot,nanobot,x-ai/grok-4.1-fast,0.027024
+2026-05-12,2735766,nanobot,nanobot,z-ai/glm-5.1-20260406,0.590476
+2026-05-12,2853275,pi,pi,Others,13.648007
+2026-05-12,2853275,pi,pi,anthropic/claude-4.6-sonnet-20260217,1.613138
+2026-05-12,2853275,pi,pi,anthropic/claude-4.7-opus-20260416,5.721716
+2026-05-12,2853275,pi,pi,deepseek/deepseek-v4-flash-20260423,4.470112
+2026-05-12,2853275,pi,pi,deepseek/deepseek-v4-pro-20260423,3.834494
+2026-05-12,2853275,pi,pi,minimax/minimax-m2.5-20260211,1.581315
+2026-05-12,2853275,pi,pi,minimax/minimax-m2.7-20260318,1.403907
+2026-05-12,2853275,pi,pi,moonshotai/kimi-k2.6-20260420,2.41692
+2026-05-12,2853275,pi,pi,nvidia/nemotron-3-super-120b-a12b-20230311,1.12677
+2026-05-12,2853275,pi,pi,openai/gpt-5.5-20260423,3.725459
+2026-05-12,2853275,pi,pi,openrouter/owl-alpha,1.099077
+2026-05-12,2938662,Nous Research API,nous-research-api,Others,0.186296
+2026-05-12,2938662,Nous Research API,nous-research-api,anthropic/claude-4.6-sonnet-20260217,0.078298
+2026-05-12,2938662,Nous Research API,nous-research-api,anthropic/claude-4.7-opus-20260416,0.038356
+2026-05-12,2938662,Nous Research API,nous-research-api,deepseek/deepseek-v4-flash-20260423,0.653889
+2026-05-12,2938662,Nous Research API,nous-research-api,deepseek/deepseek-v4-pro-20260423,0.316526
+2026-05-12,2938662,Nous Research API,nous-research-api,google/gemini-3.1-pro-preview-20260219,0.019009
+2026-05-12,2938662,Nous Research API,nous-research-api,minimax/minimax-m2.7-20260318,0.061428
+2026-05-12,2938662,Nous Research API,nous-research-api,moonshotai/kimi-k2.6-20260420,0.065266
+2026-05-12,2938662,Nous Research API,nous-research-api,openrouter/owl-alpha,0.053898
+2026-05-12,2938662,Nous Research API,nous-research-api,qwen/qwen3.6-plus-04-02,1.336025
+2026-05-12,2938662,Nous Research API,nous-research-api,xiaomi/mimo-v2.5-20260422,0.045394
+2026-05-12,3067167,Hermes Agent,hermes-agent,Others,81.939478
+2026-05-12,3067167,Hermes Agent,hermes-agent,anthropic/claude-4.6-sonnet-20260217,8.680138
+2026-05-12,3067167,Hermes Agent,hermes-agent,anthropic/claude-4.7-opus-20260416,8.661055
+2026-05-12,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-flash-20260423,38.241205
+2026-05-12,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-pro-20260423,24.219288
+2026-05-12,3067167,Hermes Agent,hermes-agent,inclusionai/ring-2.6-1t-20260508,12.128718
+2026-05-12,3067167,Hermes Agent,hermes-agent,minimax/minimax-m2.7-20260318,18.000791
+2026-05-12,3067167,Hermes Agent,hermes-agent,moonshotai/kimi-k2.6-20260420,12.577806
+2026-05-12,3067167,Hermes Agent,hermes-agent,nvidia/nemotron-3-super-120b-a12b-20230311,18.992659
+2026-05-12,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,24.329868
+2026-05-12,3067167,Hermes Agent,hermes-agent,qwen/qwen3.6-plus-04-02,53.031635
+2026-05-12,3097485,Studs.gg,studsgg,google/gemini-2.0-flash-001,3.8e-05
+2026-05-12,3097485,Studs.gg,studsgg,google/gemini-3-flash-preview-20251217,2.159505
+2026-05-12,3097485,Studs.gg,studsgg,google/gemini-3.1-flash-lite-preview-20260303,0.001852
+2026-05-12,3097485,Studs.gg,studsgg,google/gemini-3.1-pro-preview-20260219,0.072623
+2026-05-12,3097485,Studs.gg,studsgg,qwen/qwen3-vl-8b-instruct,0.028842
+2026-05-12,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.023835
+2026-05-12,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.2433
+2026-05-12,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000392
+2026-05-12,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.249045
+2026-05-12,3296290,Mira,mira,Others,0.009343
+2026-05-12,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.085431
+2026-05-12,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.007914
+2026-05-12,3296290,Mira,mira,minimax/minimax-m2.5-20260211,13.195745
+2026-05-12,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.079003
+2026-05-12,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.063424
+2026-05-12,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.824081
+2026-05-12,3296290,Mira,mira,openai/gpt-4o-mini,0.027168
+2026-05-12,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.046346
+2026-05-12,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.46833
+2026-05-12,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.274698
+2026-05-12,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.738559
+2026-05-12,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.195881
+2026-05-12,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.074488
+2026-05-12,831074,Roo Code,roo-code,Others,7.3089
+2026-05-12,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.901054
+2026-05-12,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.656701
+2026-05-12,831074,Roo Code,roo-code,anthropic/claude-4.6-sonnet-20260217,3.256545
+2026-05-12,831074,Roo Code,roo-code,deepseek/deepseek-v4-flash-20260423,2.66212
+2026-05-12,831074,Roo Code,roo-code,deepseek/deepseek-v4-pro-20260423,3.075907
+2026-05-12,831074,Roo Code,roo-code,inclusionai/ring-2.6-1t-20260508,1.277437
+2026-05-12,831074,Roo Code,roo-code,minimax/minimax-m2.7-20260318,0.560884
+2026-05-12,831074,Roo Code,roo-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.651509
+2026-05-12,831074,Roo Code,roo-code,openai/gpt-oss-120b,0.609811
+2026-05-12,831074,Roo Code,roo-code,openrouter/owl-alpha,1.267092
