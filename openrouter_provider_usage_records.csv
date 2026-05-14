@@ -6564,6 +6564,7 @@
 2026-05-05,deepinfra,DeepInfra,130.34094,10
 2026-05-05,deepseek,DeepSeek,140.424893,2
 2026-05-05,dekallm,DekaLLM,3.455411,6
+2026-05-05,featherless,Featherless,1.5e-05,1
 2026-05-05,fireworks,Fireworks,6.049465,7
 2026-05-05,friendli,Friendli,9.025432,7
 2026-05-05,gmicloud,GMICloud,5.93563,3
@@ -6632,6 +6633,7 @@
 2026-05-06,deepinfra,DeepInfra,129.483231,10
 2026-05-06,deepseek,DeepSeek,135.112099,2
 2026-05-06,dekallm,DekaLLM,6.545528,6
+2026-05-06,featherless,Featherless,0.0,0
 2026-05-06,fireworks,Fireworks,4.726707,8
 2026-05-06,friendli,Friendli,12.795493,8
 2026-05-06,gmicloud,GMICloud,5.928624,4
@@ -6700,6 +6702,7 @@
 2026-05-07,deepinfra,DeepInfra,134.566076,10
 2026-05-07,deepseek,DeepSeek,150.37841,2
 2026-05-07,dekallm,DekaLLM,7.226492,6
+2026-05-07,featherless,Featherless,0.0,0
 2026-05-07,fireworks,Fireworks,14.218923,8
 2026-05-07,friendli,Friendli,10.272825,7
 2026-05-07,gmicloud,GMICloud,5.992795,5
@@ -6769,6 +6772,7 @@
 2026-05-08,deepinfra,DeepInfra,145.541007,10
 2026-05-08,deepseek,DeepSeek,144.958412,2
 2026-05-08,dekallm,DekaLLM,10.391643,6
+2026-05-08,featherless,Featherless,0.0,0
 2026-05-08,fireworks,Fireworks,8.567941,8
 2026-05-08,friendli,Friendli,13.036104,7
 2026-05-08,gmicloud,GMICloud,5.829484,5
@@ -6837,6 +6841,7 @@
 2026-05-09,deepinfra,DeepInfra,132.80675,10
 2026-05-09,deepseek,DeepSeek,131.791781,2
 2026-05-09,dekallm,DekaLLM,9.351177,5
+2026-05-09,featherless,Featherless,0.0,0
 2026-05-09,fireworks,Fireworks,11.75278,8
 2026-05-09,friendli,Friendli,14.678738,7
 2026-05-09,gmicloud,GMICloud,6.54355,5
@@ -6905,6 +6910,7 @@
 2026-05-10,deepinfra,DeepInfra,140.414782,10
 2026-05-10,deepseek,DeepSeek,101.805331,2
 2026-05-10,dekallm,DekaLLM,8.897188,5
+2026-05-10,featherless,Featherless,0.0,0
 2026-05-10,fireworks,Fireworks,10.435863,8
 2026-05-10,friendli,Friendli,11.307306,7
 2026-05-10,gmicloud,GMICloud,3.78747,5
@@ -6973,6 +6979,7 @@
 2026-05-11,deepinfra,DeepInfra,169.845309,10
 2026-05-11,deepseek,DeepSeek,128.591527,2
 2026-05-11,dekallm,DekaLLM,8.577342,5
+2026-05-11,featherless,Featherless,0.0,0
 2026-05-11,fireworks,Fireworks,12.705724,8
 2026-05-11,friendli,Friendli,9.363327,7
 2026-05-11,gmicloud,GMICloud,3.761837,5
@@ -7041,6 +7048,7 @@
 2026-05-12,deepinfra,DeepInfra,181.472741,10
 2026-05-12,deepseek,DeepSeek,119.948616,2
 2026-05-12,dekallm,DekaLLM,9.051855,6
+2026-05-12,featherless,Featherless,0.0,0
 2026-05-12,fireworks,Fireworks,10.829612,8
 2026-05-12,friendli,Friendli,9.359741,7
 2026-05-12,gmicloud,GMICloud,4.582518,5
@@ -7088,3 +7096,72 @@
 2026-05-12,xai,xAI,87.998973,9
 2026-05-12,xiaomi,Xiaomi,50.905348,5
 2026-05-12,z-ai,Z.ai,42.198294,10
+2026-05-13,ai21,AI21,0.025341,1
+2026-05-13,aion-labs,AionLabs,0.982254,4
+2026-05-13,akashml,AkashML,4.929394,6
+2026-05-13,alibaba,Alibaba Cloud Int.,182.651718,10
+2026-05-13,amazon-bedrock,Amazon Bedrock,297.360997,10
+2026-05-13,ambient,Ambient,0.383971,2
+2026-05-13,anthropic,Anthropic,244.039077,10
+2026-05-13,arcee-ai,Arcee AI,11.468025,6
+2026-05-13,atlas-cloud,AtlasCloud,131.380649,10
+2026-05-13,azure,Azure,57.051734,10
+2026-05-13,baidu,Baidu Qianfan,13.890649,9
+2026-05-13,baseten,Baseten,2.226803,4
+2026-05-13,black-forest-labs,Black Forest Labs,0.152109,4
+2026-05-13,cerebras,Cerebras,4.650405,5
+2026-05-13,chutes,Chutes,11.084839,8
+2026-05-13,clarifai,Clarifai,0.13304,1
+2026-05-13,cloudflare,Cloudflare,3.909612,10
+2026-05-13,cohere,Cohere,0.047439,4
+2026-05-13,crucible,Crucible,0.04566,1
+2026-05-13,deepinfra,DeepInfra,193.771344,10
+2026-05-13,deepseek,DeepSeek,149.187371,2
+2026-05-13,dekallm,DekaLLM,10.910543,6
+2026-05-13,fireworks,Fireworks,15.441297,9
+2026-05-13,friendli,Friendli,11.897771,7
+2026-05-13,gmicloud,GMICloud,1.205965,3
+2026-05-13,google-ai-studio,Google AI Studio,152.30729,10
+2026-05-13,google-vertex,Google Vertex,599.04341,10
+2026-05-13,groq,Groq,22.969782,8
+2026-05-13,inception,Inception,0.31564,1
+2026-05-13,inceptron,Inceptron,5.478311,4
+2026-05-13,infermatic,Infermatic,0.02608,2
+2026-05-13,inflection,Inflection,0.00398,2
+2026-05-13,io-net,io.net,1.770879,3
+2026-05-13,ionstream,Ionstream,1.425094,1
+2026-05-13,liquid,Liquid,0.178046,4
+2026-05-13,mancer,Mancer,0.049891,4
+2026-05-13,mara,MARA,0.044081,1
+2026-05-13,minimax,MiniMax,110.498459,8
+2026-05-13,mistral,Mistral,12.240298,10
+2026-05-13,modelrun,ModelRun,4.929547,2
+2026-05-13,moonshotai,Moonshot AI,185.178842,2
+2026-05-13,morph,Morph,6.147596,5
+2026-05-13,nebius,Nebius Token Factory,7.162976,10
+2026-05-13,nextbit,NextBit,4.283038,10
+2026-05-13,novita,NovitaAI,323.310767,10
+2026-05-13,nvidia,NVIDIA,102.157694,10
+2026-05-13,open-inference,OpenInference,29.819033,10
+2026-05-13,openai,OpenAI,266.938189,10
+2026-05-13,parasail,Parasail,66.288475,10
+2026-05-13,perceptron,Perceptron,0.03379,1
+2026-05-13,perplexity,Perplexity,2.130659,7
+2026-05-13,phala,Phala,2.569731,10
+2026-05-13,poolside,Poolside,38.935146,4
+2026-05-13,recraft,Recraft,0.012752,3
+2026-05-13,reka,Reka AI,0.016782,2
+2026-05-13,relace,Relace,0.012006,2
+2026-05-13,sambanova,SambaNova,4.022876,8
+2026-05-13,seed,Seed,1.401889,5
+2026-05-13,siliconflow,SiliconFlow,437.834251,10
+2026-05-13,sourceful,Sourceful,0.012043,5
+2026-05-13,stealth,Stealth,105.013338,1
+2026-05-13,stepfun,StepFun,100.45154,1
+2026-05-13,streamlake,StreamLake,3.648381,2
+2026-05-13,together,Together,18.331785,10
+2026-05-13,venice,Venice,4.245373,10
+2026-05-13,wandb,Weights & Biases,13.114384,10
+2026-05-13,xai,xAI,79.778518,9
+2026-05-13,xiaomi,Xiaomi,52.611277,5
+2026-05-13,z-ai,Z.ai,45.155516,10
