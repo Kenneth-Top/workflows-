@@ -1,6 +1,6 @@
 company_id,display_name,vendor,ticker,exchange,currency,listed_status,shares_outstanding,source,aliases
-minimax,MiniMax,MiniMax,0100.HK,HKEX,HKD,listed,313635308,HKEX/Yahoo,MiniMax;MINIMAX-W;MINIMAX-WP;MiniMax Group;minimax
-zhipu,智谱,Zhipu,2513.HK,HKEX,HKD,listed,440200000,HKEX/Yahoo,智谱;Zhipu;Z.ai;GLM;Knowledge Atlas
+minimax,MiniMax,MiniMax,0100.HK,HKEX,HKD,listed,313635308,Wind,MiniMax;MINIMAX-W;MINIMAX-WP;MiniMax Group;minimax
+zhipu,智谱,Zhipu,2513.HK,HKEX,HKD,listed,440200000,Wind,智谱;Zhipu;Z.ai;GLM;Knowledge Atlas
 kimi,Kimi,Kimi,,,CNY,private,,manual,Kimi;Moonshot;Moonshot AI;月之暗面
 stepfun,阶跃星辰,StepFun,,,CNY,private,,manual,阶跃星辰;StepFun;step
 alibaba,阿里,Alibaba,9988.HK,HKEX,HKD,listed,18670000000,Yahoo,阿里;Alibaba;Qwen;通义千问

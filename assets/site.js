@@ -266,6 +266,14 @@ function activateView(view, navGroup = view) {
   if (tab) tab.classList.add("active");
 }
 
+function activateViewFromHash() {
+  const view = window.location.hash.replace("#", "").trim();
+  if (!view || !$(`#${view}-view`)) return;
+  activateView(view);
+  if (view === "marketcap") renderMarketcap();
+  if (view === "pricing") renderPricing();
+}
+
 function setupOpenRouterModules() {
   document.querySelectorAll(".module-tab").forEach((button) => {
     button.addEventListener("click", () => activateOpenRouterModule(button.dataset.openrouterModule));
@@ -1731,7 +1739,8 @@ function saveMarketPreset() {
 }
 
 function renderMarketCompanyOptions() {
-  const listed = state.marketCompanies.filter((company) => company.listed_status === "listed");
+  const companiesWithData = new Set(state.marketCaps.map((row) => row.Company_ID));
+  const listed = state.marketCompanies.filter((company) => company.listed_status === "listed" && companiesWithData.has(company.company_id));
   if (!state.marketSelectedCompanies.size && listed.length) {
     listed.slice(0, 2).forEach((company) => state.marketSelectedCompanies.add(company.company_id));
   }
@@ -1812,40 +1821,29 @@ const marketcapEventPlugin = {
     if (!events.length) return;
     const { ctx, chartArea, scales } = chart;
     const xScale = scales.x;
+    const yScale = scales.y;
+    const xOffsets = [0, 76, -76, 136, -136, 38, -38];
     ctx.save();
     ctx.textBaseline = "middle";
     events.slice(0, 60).forEach((event, index) => {
       const x = xScale.getPixelForValue(event.labelIndex);
       if (!Number.isFinite(x) || x < chartArea.left || x > chartArea.right) return;
-      const row = index % 5;
-      const y = chartArea.top + 14 + row * 28;
-      const anchorBottom = event.displayMode === "index" ? y + 10 : y + 12;
+      const hasAnchorValue = event.anchorValue !== null && event.anchorValue !== undefined && event.anchorValue !== "";
+      const anchorValue = hasAnchorValue ? Number(event.anchorValue) : NaN;
+      const anchorY = Number.isFinite(anchorValue)
+        ? yScale.getPixelForValue(anchorValue)
+        : chartArea.bottom;
+      if (!Number.isFinite(anchorY) || anchorY < chartArea.top - 24 || anchorY > chartArea.bottom + 24) return;
+
       ctx.beginPath();
-      ctx.moveTo(x, anchorBottom);
-      ctx.lineTo(x, chartArea.bottom);
-      ctx.strokeStyle = "rgba(94, 107, 104, 0.18)";
+      ctx.arc(x, anchorY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = event.color;
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1.5;
       ctx.stroke();
 
       if (event.displayMode === "dot") {
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = event.color;
-        ctx.fill();
-        return;
-      }
-
-      if (event.displayMode === "index") {
-        ctx.font = "800 11px Arial, sans-serif";
-        ctx.textAlign = "center";
-        ctx.beginPath();
-        ctx.arc(x, y, 10, 0, Math.PI * 2);
-        ctx.fillStyle = event.color;
-        ctx.fill();
-        ctx.strokeStyle = "#ffffff";
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        ctx.fillStyle = "#ffffff";
-        ctx.fillText(String(event.displayIndex), x, y + 0.5);
         return;
       }
 
@@ -1853,21 +1851,59 @@ const marketcapEventPlugin = {
       ctx.textAlign = "left";
       const text = event.displayLabel || String(event.displayIndex);
       const paddingX = 6;
-      const width = Math.min(Math.ceil(ctx.measureText(text).width) + paddingX * 2, 132);
-      const height = 22;
-      let left = x - width / 2;
+      const width = Math.min(Math.ceil(ctx.measureText(text).width) + paddingX * 2, 160);
+      const height = 24;
+      const lane = index % xOffsets.length;
+      const placeAbove = anchorY - chartArea.top > 120;
+      const verticalStep = Math.floor(index / xOffsets.length) % 4;
+      let boxCenterX = x + xOffsets[lane];
+      let y = placeAbove
+        ? anchorY - 42 - verticalStep * 28
+        : anchorY + 42 + verticalStep * 28;
+      y = Math.max(chartArea.top + height / 2 + 4, Math.min(y, chartArea.bottom - height / 2 - 4));
+      let left = boxCenterX - width / 2;
       left = Math.max(chartArea.left, Math.min(left, chartArea.right - width));
+      const boxCenterY = y;
+      const targetY = placeAbove ? y + height / 2 : y - height / 2;
+
+      ctx.beginPath();
+      ctx.moveTo(x, anchorY);
+      ctx.lineTo(left + width / 2, targetY);
+      ctx.strokeStyle = event.color;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
       ctx.fillStyle = event.fill;
       ctx.strokeStyle = event.color;
       ctx.lineWidth = 1.2;
       ctx.fillRect(left, y - height / 2, width, height);
       ctx.strokeRect(left, y - height / 2, width, height);
       ctx.fillStyle = "#15201e";
-      ctx.fillText(text, left + paddingX, y + 0.5);
+      ctx.fillText(text, left + paddingX, boxCenterY + 0.5);
     });
     ctx.restore();
   },
 };
+
+function marketValueOnOrBeforeFromRows(rows, companyId, date) {
+  const row = (rows || [])
+    .filter((item) => item.Company_ID === companyId && item.Date <= date)
+    .sort((a, b) => a.Date.localeCompare(b.Date))
+    .at(-1);
+  return row ? numberValue(row.Market_Cap_Billion_HKD) : null;
+}
+
+function marketEventAnchor(event, selectedCompanyIds, rows) {
+  if (event.vendor && selectedCompanyIds.includes(event.vendor)) {
+    const selectedValue = marketValueOnOrBeforeFromRows(rows, event.vendor, event.date);
+    if (selectedValue !== null) return { companyId: event.vendor, value: selectedValue };
+  }
+  const candidates = selectedCompanyIds
+    .map((companyId) => ({ companyId, value: marketValueOnOrBeforeFromRows(rows, companyId, event.date) }))
+    .filter((item) => item.value !== null)
+    .sort((a, b) => b.value - a.value);
+  return candidates[0] || { companyId: "", value: null };
+}
 
 function renderMarketcap() {
   renderMarketCompanyOptions();
@@ -1895,7 +1931,7 @@ function renderMarketcap() {
     return { companyId, value: numberValue(values[0]?.Market_Cap_Billion_HKD) };
   }).sort((a, b) => b.value - a.value);
 
-  $("#marketcap-listed-count").textContent = state.marketCompanies.filter((company) => company.listed_status === "listed").length.toLocaleString();
+  $("#marketcap-listed-count").textContent = new Set(state.marketCaps.map((row) => row.Company_ID)).size.toLocaleString();
   $("#marketcap-latest-date").textContent = latestDate;
   $("#marketcap-leader").textContent = latestLeaders[0] ? `${marketCompanyLabel(latestLeaders[0].companyId)} ${latestLeaders[0].value.toFixed(1)}B HKD` : "-";
   $("#marketcap-draft-count").textContent = state.marketDraftEvents.length.toLocaleString();
@@ -1910,34 +1946,35 @@ function renderMarketcap() {
       const color = selectedEvent ? (companyColors.get(event.vendor) || "#0f8b8d") : "#8a8f93";
       const isMacro = event.vendor === "macro";
       const priority = selectedEvent ? 0 : isMacro ? 1 : event.event_type === "model_release" ? 2 : 3;
+      const anchor = marketEventAnchor(event, selected, rows);
       return {
         ...event,
         color,
         fill: selectedEvent ? "rgba(238, 247, 247, 0.96)" : "rgba(246, 248, 247, 0.96)",
         selectedEvent,
         priority,
+        anchorCompanyId: anchor.companyId,
+        anchorValue: anchor.value,
       };
     })
     .sort((a, b) => a.priority - b.priority || a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
-  const labelLimit = annotationMode === "full" ? 42 : annotationMode === "index" ? 60 : 30;
+  const labelLimit = annotationMode === "full" ? 36 : 22;
   const labelableEvents = rankedEvents.filter((event) => annotationMode === "full"
-    || annotationMode === "index"
     || (annotationMode === "selected" && event.selectedEvent)
-    || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro" || event.priority <= 2)));
+    || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro")));
   const labelIds = new Set(labelableEvents.slice(0, labelLimit).map((event) => event.id));
   const chartEvents = rankedEvents
     .slice()
     .sort((a, b) => a.date.localeCompare(b.date) || a.priority - b.priority || a.title.localeCompare(b.title))
     .map((event, index) => {
     const shouldLabel = annotationMode === "full"
-      || annotationMode === "index"
       || (annotationMode === "selected" && event.selectedEvent)
-      || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro" || event.priority <= 2));
+      || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro"));
     return {
       ...event,
       displayIndex: index + 1,
       displayLabel: shortMarketEventLabel(event),
-      displayMode: !shouldLabel || !labelIds.has(event.id) ? "dot" : annotationMode === "index" ? "index" : "label",
+      displayMode: !shouldLabel || !labelIds.has(event.id) ? "dot" : "label",
     };
   });
 
@@ -2345,6 +2382,7 @@ async function init() {
     $("#vendor-select").innerHTML = vendors.map((vendor) => `<option value="${escapeHtml(vendor)}">${escapeHtml(vendor)}</option>`).join("");
     renderProductDownloads();
     renderProductOptions();
+    activateViewFromHash();
 
     showToast("数据已更新");
   } catch (error) {
