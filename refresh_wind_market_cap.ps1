@@ -2,6 +2,8 @@ param(
   [string]$ExcelPath = "",
   [string]$SheetName = "market_cap",
   [string]$OutputCsv = "ai_market_cap_history.csv",
+  [ValidateSet("Auto", "Wide", "Long", "Sheets")]
+  [string]$WorkbookMode = "Auto",
   [ValidateSet("YiHKD", "BillionHKD")]
   [string]$WideUnit = "YiHKD",
   [int]$RefreshWaitSeconds = 90,
@@ -15,6 +17,20 @@ function Resolve-RepoPath([string]$PathValue) {
     return $PathValue
   }
   return Join-Path $PSScriptRoot $PathValue
+}
+
+function Invoke-ExcelComWithRetry([string]$Description, [scriptblock]$Action, [int]$Attempts = 8) {
+  for ($attempt = 1; $attempt -le $Attempts; $attempt++) {
+    try {
+      return & $Action
+    } catch [System.Runtime.InteropServices.COMException] {
+      if ($attempt -eq $Attempts) {
+        throw
+      }
+      Write-Host "$Description was busy; retrying ($attempt/$Attempts)..."
+      Start-Sleep -Seconds 3
+    }
+  }
 }
 
 function Normalize-Header([string]$Value) {
@@ -69,6 +85,84 @@ function CompanyIdFromHeader([string]$Header) {
   return $normalized
 }
 
+function Load-CompanyMaps() {
+  $byId = @{}
+  $byTicker = @{}
+  if (Test-Path (Join-Path $PSScriptRoot "ai_market_companies.csv")) {
+    Import-Csv -LiteralPath (Join-Path $PSScriptRoot "ai_market_companies.csv") | ForEach-Object {
+      $byId[$_.company_id] = $_
+      if ($_.ticker) {
+        $byTicker[(Normalize-Header $_.ticker)] = $_.company_id
+      }
+    }
+  }
+  return @{ ById = $byId; ByTicker = $byTicker }
+}
+
+function Read-ExistingRows([string]$OutputCsv) {
+  $existing = @{}
+  if (Test-Path $OutputCsv) {
+    Import-Csv -LiteralPath $OutputCsv | ForEach-Object {
+      $existing["$($_.Date)|$($_.Company_ID)"] = $_
+    }
+  }
+  return $existing
+}
+
+function Export-HistoryRows([hashtable]$Rows, [string]$OutputCsv) {
+  $headers = @("Date", "Company_ID", "Ticker", "Market_Cap_Billion_HKD", "Market_Cap_Native_Billion", "Currency", "Close", "Source", "Updated_At")
+  $lines = New-Object System.Collections.Generic.List[string]
+  $lines.Add(($headers -join ","))
+  $Rows.Values |
+    Sort-Object Date, Company_ID |
+    ForEach-Object {
+      $values = foreach ($header in $headers) {
+        Format-CsvCell $_.$header
+      }
+      $lines.Add(($values -join ","))
+    }
+  $utf8WithBom = New-Object System.Text.UTF8Encoding($true)
+  [System.IO.File]::WriteAllLines($OutputCsv, $lines, $utf8WithBom)
+}
+
+function Format-CsvCell($Value) {
+  if ($null -eq $Value) { return "" }
+  $text = $Value.ToString()
+  if ($text.Contains('"')) {
+    $text = $text.Replace('"', '""')
+  }
+  if ($text.Contains(",") -or $text.Contains('"') -or $text.Contains("`r") -or $text.Contains("`n")) {
+    return '"' + $text + '"'
+  }
+  return $text
+}
+
+function Upsert-MarketCapRow(
+  [hashtable]$Rows,
+  [hashtable]$CompanyRows,
+  [string]$Date,
+  [string]$CompanyId,
+  [double]$MarketCapBillion,
+  [string]$Source,
+  [string]$UpdatedAt
+) {
+  $company = $CompanyRows[$CompanyId]
+  $ticker = if ($company) { $company.ticker } else { "" }
+  $currency = if ($company) { $company.currency } else { "HKD" }
+  $marketCap = "{0:F6}" -f $MarketCapBillion
+  $Rows["$Date|$CompanyId"] = [pscustomobject]@{
+    Date = $Date
+    Company_ID = $CompanyId
+    Ticker = $ticker
+    Market_Cap_Billion_HKD = $marketCap
+    Market_Cap_Native_Billion = $marketCap
+    Currency = $currency
+    Close = ""
+    Source = $Source
+    Updated_At = $UpdatedAt
+  }
+}
+
 function Convert-WindCsvToHistoryCsv([string]$InputCsv, [string]$OutputCsv, [string]$Unit) {
   $canonicalHeaders = @("Date", "Company_ID", "Ticker", "Market_Cap_Billion_HKD", "Market_Cap_Native_Billion", "Currency", "Close", "Source", "Updated_At")
   $rows = Import-Csv -LiteralPath $InputCsv
@@ -91,19 +185,9 @@ function Convert-WindCsvToHistoryCsv([string]$InputCsv, [string]$OutputCsv, [str
     throw "宽表必须有 Date 或 日期 列。推荐格式：Date | minimax | zhipu | ..."
   }
 
-  $companyRows = @{}
-  if (Test-Path (Join-Path $PSScriptRoot "ai_market_companies.csv")) {
-    Import-Csv -LiteralPath (Join-Path $PSScriptRoot "ai_market_companies.csv") | ForEach-Object {
-      $companyRows[$_.company_id] = $_
-    }
-  }
-
-  $existing = @{}
-  if (Test-Path $OutputCsv) {
-    Import-Csv -LiteralPath $OutputCsv | ForEach-Object {
-      $existing["$($_.Date)|$($_.Company_ID)"] = $_
-    }
-  }
+  $maps = Load-CompanyMaps
+  $companyRows = $maps.ById
+  $existing = Read-ExistingRows $OutputCsv
 
   $companyHeaders = $headers | Where-Object { $_ -ne $dateHeader -and $_ -and -not $_.StartsWith("Unnamed") }
   $updatedAt = (Get-Date).ToUniversalTime().ToString("s") + "Z"
@@ -121,28 +205,106 @@ function Convert-WindCsvToHistoryCsv([string]$InputCsv, [string]$OutputCsv, [str
       $companyId = CompanyIdFromHeader $header
       $value = Convert-ValueToBillionHKD $row.$header $Unit
       if ($null -eq $value) { continue }
-      $company = $companyRows[$companyId]
-      $ticker = if ($company) { $company.ticker } else { "" }
-      $currency = if ($company) { $company.currency } else { "HKD" }
-      $marketCap = "{0:F6}" -f $value
-      $existing["$date|$companyId"] = [pscustomobject]@{
-        Date = $date
-        Company_ID = $companyId
-        Ticker = $ticker
-        Market_Cap_Billion_HKD = $marketCap
-        Market_Cap_Native_Billion = $marketCap
-        Currency = $currency
-        Close = ""
-        Source = "wind_excel"
-        Updated_At = $updatedAt
+      Upsert-MarketCapRow -Rows $existing -CompanyRows $companyRows -Date $date -CompanyId $companyId -MarketCapBillion $value -Source "wind_excel" -UpdatedAt $updatedAt
+    }
+  }
+
+  Export-HistoryRows -Rows $existing -OutputCsv $OutputCsv
+}
+
+function Convert-WindWorkbookSheetsToHistoryCsv($Workbook, [string]$OutputCsv, [string]$Unit) {
+  $maps = Load-CompanyMaps
+  $companyRows = $maps.ById
+  $tickerMap = $maps.ByTicker
+  $existing = Read-ExistingRows $OutputCsv
+  $updatedAt = (Get-Date).ToUniversalTime().ToString("s") + "Z"
+
+  foreach ($sheet in $Workbook.Worksheets) {
+    $sheetName = $sheet.Name
+    if ($sheetName.StartsWith("_")) { continue }
+
+    $ticker = ""
+    $companyId = ""
+    for ($row = 1; $row -le [Math]::Min(10, $sheet.UsedRange.Rows.Count); $row++) {
+      $key = ($sheet.Cells.Item($row, 1).Text).Trim()
+      if ($key -in @("证券代码", "Ticker", "股票代码")) {
+        $ticker = ($sheet.Cells.Item($row, 2).Text).Trim()
+        break
+      }
+    }
+    if ($ticker) {
+      $companyId = $tickerMap[(Normalize-Header $ticker)]
+    }
+    if (-not $companyId) {
+      $companyId = CompanyIdFromHeader $sheetName
+    }
+
+    $headerRow = 0
+    $dateCol = 0
+    $valueCol = 0
+    for ($row = 1; $row -le [Math]::Min(20, $sheet.UsedRange.Rows.Count); $row++) {
+      for ($col = 1; $col -le [Math]::Min(10, $sheet.UsedRange.Columns.Count); $col++) {
+        $header = Normalize-Header ($sheet.Cells.Item($row, $col).Text)
+        if ($header -in @("date", "日期", "时间")) {
+          $headerRow = $row
+          $dateCol = $col
+        }
+        if ($header -in @("ev", "总市值", "总市值1", "marketcap", "市值", "市值亿港币")) {
+          $valueCol = $col
+        }
+      }
+      if ($headerRow -gt 0 -and $dateCol -gt 0 -and $valueCol -gt 0) { break }
+    }
+
+    if ($headerRow -eq 0 -or $dateCol -eq 0 -or $valueCol -eq 0) {
+      Write-Host "Skipping sheet '$sheetName': cannot find Date/ev columns."
+      continue
+    }
+
+    for ($row = $headerRow + 1; $row -le $sheet.UsedRange.Rows.Count; $row++) {
+      $dateText = ($sheet.Cells.Item($row, $dateCol).Text).Trim()
+      $valueText = ($sheet.Cells.Item($row, $valueCol).Text).Trim()
+      if (-not $dateText -or -not $valueText) { continue }
+      try {
+        $date = ([datetime]$dateText).ToString("yyyy-MM-dd")
+      } catch {
+        if ($dateText.Length -lt 10) { continue }
+        $date = $dateText.Substring(0, 10)
+      }
+      $value = Convert-ValueToBillionHKD $valueText $Unit
+      if ($null -eq $value) { continue }
+      Upsert-MarketCapRow -Rows $existing -CompanyRows $companyRows -Date $date -CompanyId $companyId -MarketCapBillion $value -Source "wind_excel_sheet" -UpdatedAt $updatedAt
+    }
+  }
+
+  Export-HistoryRows -Rows $existing -OutputCsv $OutputCsv
+}
+
+function Test-WindCompanySheet($Sheet) {
+  $hasTicker = $false
+  for ($row = 1; $row -le [Math]::Min(10, $Sheet.UsedRange.Rows.Count); $row++) {
+    $key = ($Sheet.Cells.Item($row, 1).Text).Trim()
+    if ($key -in @("证券代码", "Ticker", "股票代码")) {
+      $hasTicker = $true
+      break
+    }
+  }
+
+  $hasDate = $false
+  $hasValue = $false
+  for ($row = 1; $row -le [Math]::Min(20, $Sheet.UsedRange.Rows.Count); $row++) {
+    for ($col = 1; $col -le [Math]::Min(10, $Sheet.UsedRange.Columns.Count); $col++) {
+      $header = Normalize-Header ($Sheet.Cells.Item($row, $col).Text)
+      if ($header -in @("date", "日期", "时间")) {
+        $hasDate = $true
+      }
+      if ($header -in @("ev", "总市值", "总市值1", "marketcap", "市值", "市值亿港币")) {
+        $hasValue = $true
       }
     }
   }
 
-  $existing.Values |
-    Sort-Object Date, Company_ID |
-    Select-Object Date, Company_ID, Ticker, Market_Cap_Billion_HKD, Market_Cap_Native_Billion, Currency, Close, Source, Updated_At |
-    Export-Csv -LiteralPath $OutputCsv -NoTypeInformation -Encoding UTF8
+  return ($hasTicker -and $hasDate -and $hasValue)
 }
 
 if (-not $ExcelPath) {
@@ -171,34 +333,51 @@ try {
   $workbook = $excel.Workbooks.Open($ExcelPath)
 
   Write-Host "Refreshing Wind formulas..."
-  $workbook.RefreshAll()
+  Invoke-ExcelComWithRetry "RefreshAll" { $workbook.RefreshAll() } | Out-Null
   try {
-    $excel.CalculateUntilAsyncQueriesDone()
+    Invoke-ExcelComWithRetry "CalculateUntilAsyncQueriesDone" { $excel.CalculateUntilAsyncQueriesDone() } | Out-Null
   } catch {
     Write-Host "CalculateUntilAsyncQueriesDone unavailable, waiting manually..."
   }
   Start-Sleep -Seconds $RefreshWaitSeconds
-  $excel.CalculateFullRebuild()
-  $workbook.Save()
+  Invoke-ExcelComWithRetry "CalculateFullRebuild" { $excel.CalculateFullRebuild() } | Out-Null
+  Invoke-ExcelComWithRetry "Workbook.Save" { $workbook.Save() } | Out-Null
 
-  $worksheet = $null
-  foreach ($sheet in $workbook.Worksheets) {
-    if ($sheet.Name -eq $SheetName) {
-      $worksheet = $sheet
-      break
+  if ($WorkbookMode -eq "Sheets") {
+    Write-Host "Converting one-company-per-sheet workbook..."
+    Convert-WindWorkbookSheetsToHistoryCsv -Workbook $workbook -OutputCsv $OutputCsv -Unit $WideUnit
+  } else {
+    $worksheet = $null
+    foreach ($sheet in $workbook.Worksheets) {
+      if ($sheet.Name -eq $SheetName) {
+        $worksheet = $sheet
+        break
+      }
+    }
+    if (-not $worksheet) {
+      if ($WorkbookMode -eq "Auto") {
+        Write-Host "Sheet '$SheetName' not found. Falling back to one-company-per-sheet mode..."
+        Convert-WindWorkbookSheetsToHistoryCsv -Workbook $workbook -OutputCsv $OutputCsv -Unit $WideUnit
+      } else {
+        throw "找不到工作表 '$SheetName'。请确认 Excel 中有这个 sheet。推荐格式：Date | minimax | zhipu | ..."
+      }
+    } else {
+      $convertedWorkbook = $false
+      if ($WorkbookMode -eq "Auto" -and (Test-WindCompanySheet $worksheet)) {
+        Write-Host "Detected one-company-per-sheet Wind layout. Converting all company sheets..."
+        Convert-WindWorkbookSheetsToHistoryCsv -Workbook $workbook -OutputCsv $OutputCsv -Unit $WideUnit
+        $convertedWorkbook = $true
+      }
+      if (-not $convertedWorkbook) {
+        Write-Host "Exporting sheet '$SheetName' to CSV..."
+        $worksheet.Copy()
+        $tempWorkbook = $excel.ActiveWorkbook
+        $tempWorkbook.SaveAs($TempCsv, 6)
+        $tempWorkbook.Close($false)
+        Convert-WindCsvToHistoryCsv -InputCsv $TempCsv -OutputCsv $OutputCsv -Unit $WideUnit
+      }
     }
   }
-  if (-not $worksheet) {
-    throw "找不到工作表 '$SheetName'。请确认 Excel 中有这个 sheet。推荐格式：Date | minimax | zhipu | ..."
-  }
-
-  Write-Host "Exporting sheet '$SheetName' to CSV..."
-  $worksheet.Copy()
-  $tempWorkbook = $excel.ActiveWorkbook
-  $tempWorkbook.SaveAs($TempCsv, 6)
-  $tempWorkbook.Close($false)
-
-  Convert-WindCsvToHistoryCsv -InputCsv $TempCsv -OutputCsv $OutputCsv -Unit $WideUnit
   Write-Host "Updated CSV: $OutputCsv"
 } finally {
   if ($workbook) {
