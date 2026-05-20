@@ -1,4 +1,5 @@
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -39,6 +40,43 @@ def compact_model_name(name):
     return text
 
 
+def event_dedupe_key(event):
+    title = str(event.get("title") or "").lower()
+    for token in ("发布", "release", "minimax", "mini max", "kimi", "模型"):
+        title = title.replace(token, "")
+    title = re.sub(r"[-_\s]+", "", title)
+    title = re.sub(r"[^a-z0-9.]+", "", title)
+    return (
+        event.get("date", ""),
+        event.get("vendor", ""),
+        event.get("event_type", ""),
+        title,
+    )
+
+
+def merge_events(events):
+    priority = {"manual": 0, "notion": 1, "artificial_analysis": 2}
+    merged = {}
+    for event in events:
+        key = event_dedupe_key(event)
+        current = merged.get(key)
+        if not current:
+            merged[key] = event
+            continue
+        current_priority = priority.get(current.get("source", ""), 9)
+        event_priority = priority.get(event.get("source", ""), 9)
+        if event_priority < current_priority:
+            event.setdefault("source_url", current.get("source_url", ""))
+            event.setdefault("summary", current.get("summary", ""))
+            merged[key] = event
+        else:
+            if event.get("source_url") and event["source_url"] not in current.get("source_url", ""):
+                current["source_url"] = "; ".join(filter(None, [current.get("source_url", ""), event["source_url"]]))
+            if event.get("source") and event["source"] not in current.get("source", ""):
+                current["source"] = f"{current.get('source', '')}+{event['source']}"
+    return list(merged.values())
+
+
 def pricing_events():
     payload = read_json(PRICING_FILE, {})
     events = []
@@ -71,12 +109,10 @@ def pricing_events():
 
 def main():
     manual_payload = read_json(MANUAL_FILE, {"events": []})
-    events_by_id = {}
-    for event in manual_payload.get("events", []):
-        events_by_id[event["id"]] = event
+    events_by_id = {event["id"]: event for event in manual_payload.get("events", [])}
     for event in pricing_events():
         events_by_id.setdefault(event["id"], event)
-    events = sorted(events_by_id.values(), key=lambda item: (item.get("date", ""), item.get("vendor", ""), item.get("title", "")))
+    events = sorted(merge_events(events_by_id.values()), key=lambda item: (item.get("date", ""), item.get("vendor", ""), item.get("title", "")))
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": "manual_and_artificial_analysis",

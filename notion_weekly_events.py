@@ -172,12 +172,29 @@ def within_last_week(date_text):
     return today - timedelta(days=10) <= date <= today
 
 
+def explicit_event_date(text, fallback_date):
+    match = re.search(r"(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})", text)
+    if match:
+        year, month, day = match.groups()
+        return f"{int(year):04d}-{int(month):02d}-{int(day):02d}", "explicit_text_date", False
+    match = re.search(r"(?<!\d)(\d{1,2})月(\d{1,2})日", text)
+    if match:
+        month, day = match.groups()
+        try:
+            year = datetime.fromisoformat(fallback_date[:10]).year
+        except Exception:
+            year = datetime.now(timezone.utc).year
+        return f"{year:04d}-{int(month):02d}-{int(day):02d}", "explicit_text_month_day", False
+    return fallback_date[:10], "notion_page_date_needs_web_check", True
+
+
 def build_events(items):
     events = []
     for index, item in enumerate(items):
-        date = (item.get("date") or datetime.now(timezone.utc).date().isoformat())[:10]
+        fallback_date = (item.get("date") or datetime.now(timezone.utc).date().isoformat())[:10]
         text = f"{item.get('title', '')}\n{item.get('summary', '')}"
-        if not text.strip() or not within_last_week(date):
+        date, date_basis, needs_date_verification = explicit_event_date(text, fallback_date)
+        if not text.strip() or not within_last_week(fallback_date):
             continue
         event_type = detect_event_type(text)
         for vendor in detect_vendor(text):
@@ -193,6 +210,8 @@ def build_events(items):
                 "source": "notion",
                 "source_url": item.get("source_url", ""),
                 "confidence": "medium" if vendor != "macro" else "low",
+                "date_basis": date_basis,
+                "needs_date_verification": needs_date_verification,
                 "status": "draft",
             })
     return events

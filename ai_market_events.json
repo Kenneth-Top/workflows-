@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T10:29:07.674019+00:00",
+  "generated_at": "2026-05-20T15:03:01.886489+00:00",
   "source": "manual_and_artificial_analysis",
   "events": [
     {
@@ -1918,19 +1918,7 @@
       "event_type": "model_release",
       "title": "M2.5 发布",
       "summary": "MiniMax M2.5 发布。",
-      "source": "manual",
-      "source_url": "",
-      "status": "approved"
-    },
-    {
-      "id": "2026-02-12-minimax-minimax-m2.5",
-      "date": "2026-02-12",
-      "vendor": "minimax",
-      "company": "minimax",
-      "event_type": "model_release",
-      "title": "MiniMax-M2.5 发布",
-      "summary": "Artificial Analysis 记录 MiniMax-M2.5 的发布时间为 2026-02-12。",
-      "source": "artificial_analysis",
+      "source": "manual+artificial_analysis",
       "source_url": "https://artificialanalysis.ai/models/?pricing=input-and-output-pricing",
       "status": "approved"
     },
@@ -2302,19 +2290,7 @@
       "event_type": "model_release",
       "title": "M2.7 发布",
       "summary": "MiniMax M2.7 发布。",
-      "source": "manual",
-      "source_url": "",
-      "status": "approved"
-    },
-    {
-      "id": "2026-03-18-minimax-minimax-m2.7",
-      "date": "2026-03-18",
-      "vendor": "minimax",
-      "company": "minimax",
-      "event_type": "model_release",
-      "title": "MiniMax-M2.7 发布",
-      "summary": "Artificial Analysis 记录 MiniMax-M2.7 的发布时间为 2026-03-18。",
-      "source": "artificial_analysis",
+      "source": "manual+artificial_analysis",
       "source_url": "https://artificialanalysis.ai/models/?pricing=input-and-output-pricing",
       "status": "approved"
     },
@@ -2506,8 +2482,8 @@
       "event_type": "model_release",
       "title": "Kimi K2.6",
       "summary": "Kimi K2.6 发布或进入市场讨论。",
-      "source": "manual",
-      "source_url": "",
+      "source": "manual+artificial_analysis",
+      "source_url": "https://artificialanalysis.ai/models/?pricing=input-and-output-pricing",
       "status": "approved"
     },
     {
@@ -2518,18 +2494,6 @@
       "event_type": "model_release",
       "title": "Kimi K2.6 (Non-reasoning) 发布",
       "summary": "Artificial Analysis 记录 Kimi K2.6 (Non-reasoning) 的发布时间为 2026-04-20。",
-      "source": "artificial_analysis",
-      "source_url": "https://artificialanalysis.ai/models/?pricing=input-and-output-pricing",
-      "status": "approved"
-    },
-    {
-      "id": "2026-04-20-kimi-kimi-k2.6",
-      "date": "2026-04-20",
-      "vendor": "kimi",
-      "company": "kimi",
-      "event_type": "model_release",
-      "title": "Kimi K2.6 发布",
-      "summary": "Artificial Analysis 记录 Kimi K2.6 的发布时间为 2026-04-20。",
       "source": "artificial_analysis",
       "source_url": "https://artificialanalysis.ai/models/?pricing=input-and-output-pricing",
       "status": "approved"

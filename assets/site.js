@@ -1799,29 +1799,28 @@ const marketcapEventPlugin = {
     const { ctx, chartArea, scales } = chart;
     const xScale = scales.x;
     ctx.save();
-    ctx.font = "700 11px Arial, sans-serif";
+    ctx.font = "800 11px Arial, sans-serif";
+    ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    events.slice(0, 40).forEach((event, index) => {
+    events.slice(0, 60).forEach((event, index) => {
       const x = xScale.getPixelForValue(event.labelIndex);
       if (!Number.isFinite(x) || x < chartArea.left || x > chartArea.right) return;
-      const text = event.title.length > 18 ? `${event.title.slice(0, 18)}...` : event.title;
-      const width = Math.min(Math.ceil(ctx.measureText(text).width) + 12, 170);
-      const height = 22;
-      const y = chartArea.top + 12 + (index % 6) * 28;
-      let left = x - width / 2;
-      left = Math.max(chartArea.left, Math.min(left, chartArea.right - width));
-      ctx.strokeStyle = event.color;
-      ctx.fillStyle = event.fill;
-      ctx.lineWidth = 1;
-      ctx.fillRect(left, y, width, height);
-      ctx.strokeRect(left, y, width, height);
-      ctx.fillStyle = "#15201e";
-      ctx.fillText(text, left + 6, y + height / 2);
+      const radius = 10;
+      const y = chartArea.top + 12 + (index % 4) * 24;
       ctx.beginPath();
-      ctx.moveTo(x, y + height);
+      ctx.moveTo(x, y + radius);
       ctx.lineTo(x, chartArea.bottom);
       ctx.strokeStyle = "rgba(94, 107, 104, 0.18)";
       ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = event.color;
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText(String(event.displayIndex), x, y + 0.5);
     });
     ctx.restore();
   },
@@ -1866,7 +1865,8 @@ function renderMarketcap() {
       const selectedEvent = state.marketSelectedCompanies.has(event.vendor);
       const color = selectedEvent ? (companyColors.get(event.vendor) || "#0f8b8d") : "#8a8f93";
       return { ...event, color, fill: selectedEvent ? "rgba(238, 247, 247, 0.96)" : "rgba(246, 248, 247, 0.96)" };
-    });
+    })
+    .map((event, index) => ({ ...event, displayIndex: index + 1 }));
 
   if (state.charts.marketcap) state.charts.marketcap.destroy();
   const chart = new Chart($("#marketcap-chart"), {
@@ -1876,7 +1876,7 @@ function renderMarketcap() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 180 } },
+      layout: { padding: { top: 110 } },
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },
@@ -1892,8 +1892,41 @@ function renderMarketcap() {
   state.charts.marketcap = chart;
   chart.update();
   renderMarketcapEvents();
+  renderMarketTimeline(chartEvents);
   renderMarketEventMatrix(events);
   renderMarketDraftEvents();
+}
+
+function marketValueOnOrBefore(companyId, date) {
+  const rows = marketRowsInRange()
+    .filter((row) => row.Company_ID === companyId && row.Date <= date)
+    .sort((a, b) => a.Date.localeCompare(b.Date));
+  const row = rows.at(-1);
+  if (!row) return "";
+  const exact = row.Date === date ? "" : ` (${row.Date})`;
+  return `${marketCompanyLabel(companyId)} ${Number(row.Market_Cap_Billion_HKD).toFixed(1)}B${exact}`;
+}
+
+function renderMarketTimeline(events) {
+  const tbody = $("#marketcap-timeline-table tbody");
+  if (!events.length) {
+    tbody.innerHTML = `<tr><td colspan="6" class="marketcap-draft-empty">当前筛选下没有可展示的图表事件。</td></tr>`;
+    return;
+  }
+  const selected = Array.from(state.marketSelectedCompanies);
+  tbody.innerHTML = events.slice(0, 80).map((event) => {
+    const values = selected.map((companyId) => marketValueOnOrBefore(companyId, event.date)).filter(Boolean).join("<br>");
+    return `
+      <tr>
+        <td><span class="timeline-index" style="background:${escapeHtml(event.color)}">${event.displayIndex}</span></td>
+        <td>${escapeHtml(event.date)}</td>
+        <td>${escapeHtml(marketCompanyLabel(event.vendor))}</td>
+        <td>${values || "-"}</td>
+        <td><strong>${escapeHtml(event.title)}</strong><br><span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}</span></td>
+        <td>${escapeHtml(event.summary || "")}</td>
+      </tr>
+    `;
+  }).join("");
 }
 
 function renderMarketcapEvents() {
@@ -1960,7 +1993,7 @@ function renderMarketEventMatrix(events) {
 function renderMarketDraftEvents() {
   const tbody = $("#marketcap-draft-table tbody");
   if (!state.marketDraftEvents.length) {
-    tbody.innerHTML = `<tr><td colspan="6" class="marketcap-draft-empty">暂无待审核草稿。周一 Notion 任务生成后会出现在这里。</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" class="marketcap-draft-empty">暂无待审核草稿。周一 Notion 任务生成后会出现在这里。</td></tr>`;
     return;
   }
   tbody.innerHTML = state.marketDraftEvents.slice(0, 120).map((event) => `
@@ -1970,6 +2003,7 @@ function renderMarketDraftEvents() {
       <td>${escapeHtml(marketEventTypeLabel(event.event_type))}</td>
       <td>${escapeHtml(event.title || "")}</td>
       <td>${escapeHtml(event.summary || "")}</td>
+      <td>${escapeHtml(event.needs_date_verification ? "待联网核对" : (event.date_basis || ""))}</td>
       <td>${escapeHtml(event.confidence || "")}</td>
     </tr>
   `).join("");
