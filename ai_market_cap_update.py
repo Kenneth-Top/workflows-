@@ -14,6 +14,7 @@ COMPANY_FILE = ROOT / "ai_market_companies.csv"
 HISTORY_FILE = ROOT / "ai_market_cap_history.csv"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 USD_HKD_RATE = float(os.getenv("USD_HKD_RATE", "7.8"))
+FMP_API_KEY = os.getenv("FMP_API_KEY")
 
 
 def read_csv(path):
@@ -57,6 +58,26 @@ def yahoo_chart(ticker, start_date):
     return rows
 
 
+def fmp_market_cap_history(ticker, start_date):
+    if not FMP_API_KEY:
+        return []
+    url = f"https://financialmodelingprep.com/stable/historical-market-capitalization"
+    params = {"symbol": ticker, "from": start_date, "apikey": FMP_API_KEY}
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+    payload = response.json()
+    if isinstance(payload, dict):
+        payload = payload.get("historical") or payload.get("data") or []
+    rows = []
+    for item in payload or []:
+        date = item.get("date") or item.get("Date")
+        market_cap = item.get("marketCap") or item.get("market_cap") or item.get("marketCapitalization")
+        if not date or market_cap in (None, ""):
+            continue
+        rows.append({"date": str(date)[:10], "market_cap": float(market_cap)})
+    return rows
+
+
 def alpha_vantage_market_cap(ticker):
     api_key = os.getenv("ALPHAVANTAGE_API_KEY")
     if not api_key:
@@ -82,6 +103,21 @@ def native_to_hkd(value, currency):
     if currency == "USD":
         return value * USD_HKD_RATE
     return value
+
+
+def upsert_market_cap(existing, company, date, native_cap, close, source, updated_at):
+    hkd_cap = native_to_hkd(native_cap, company.get("currency", "HKD"))
+    existing[(date, company["company_id"])] = {
+        "Date": date,
+        "Company_ID": company["company_id"],
+        "Ticker": company.get("ticker", "").strip(),
+        "Market_Cap_Billion_HKD": f"{hkd_cap / 1_000_000_000:.6f}",
+        "Market_Cap_Native_Billion": f"{native_cap / 1_000_000_000:.6f}",
+        "Currency": company.get("currency", ""),
+        "Close": "" if close is None else f"{float(close):.6f}",
+        "Source": source,
+        "Updated_At": updated_at,
+    }
 
 
 def main():
@@ -110,30 +146,32 @@ def main():
         shares = float(company.get("shares_outstanding") or 0)
         if not ticker or shares <= 0:
             continue
+        fmp_rows = []
+        try:
+            fmp_rows = fmp_market_cap_history(ticker, start_date)
+        except Exception as exc:
+            print(f"[warn] failed to fetch FMP market cap for {ticker}: {exc}")
+        for item in fmp_rows:
+            date = item["date"]
+            if datetime.fromisoformat(date).date() > today:
+                continue
+            upsert_market_cap(existing, company, date, item["market_cap"], None, "fmp_historical_market_cap", updated_at)
+
         try:
             chart_rows = yahoo_chart(ticker, start_date)
         except Exception as exc:
             print(f"[warn] failed to fetch {ticker}: {exc}")
-            continue
+            chart_rows = []
 
         for item in chart_rows:
             date = item["date"]
+            if fmp_rows and (date, company["company_id"]) in existing:
+                continue
             if datetime.fromisoformat(date).date() > today:
                 continue
             close = item["close"]
             native_cap = close * shares
-            hkd_cap = native_to_hkd(native_cap, company.get("currency", "HKD"))
-            existing[(date, company["company_id"])] = {
-                "Date": date,
-                "Company_ID": company["company_id"],
-                "Ticker": ticker,
-                "Market_Cap_Billion_HKD": f"{hkd_cap / 1_000_000_000:.6f}",
-                "Market_Cap_Native_Billion": f"{native_cap / 1_000_000_000:.6f}",
-                "Currency": company.get("currency", ""),
-                "Close": f"{close:.6f}",
-                "Source": "yahoo_chart",
-                "Updated_At": updated_at,
-            }
+            upsert_market_cap(existing, company, date, native_cap, close, "yahoo_chart", updated_at)
 
         current_cap = alpha_vantage_market_cap(ticker)
         if current_cap:
