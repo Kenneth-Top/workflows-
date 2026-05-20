@@ -1,4 +1,5 @@
 import csv
+import io
 import json
 import os
 import time
@@ -14,7 +15,10 @@ COMPANY_FILE = ROOT / "ai_market_companies.csv"
 HISTORY_FILE = ROOT / "ai_market_cap_history.csv"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 USD_HKD_RATE = float(os.getenv("USD_HKD_RATE", "7.8"))
-FMP_API_KEY = os.getenv("FMP_API_KEY")
+ENABLE_FMP = os.getenv("AI_MARKET_ENABLE_FMP") == "1"
+FMP_API_KEY = os.getenv("FMP_API_KEY") if ENABLE_FMP else ""
+EODHD_API_KEY = os.getenv("EODHD_API_KEY")
+STOOQ_API_KEY = os.getenv("STOOQ_API_KEY")
 
 
 def safe_error(exc):
@@ -63,6 +67,73 @@ def yahoo_chart(ticker, start_date):
             "close": float(close),
         })
     return rows
+
+
+def eodhd_chart(ticker, start_date):
+    if not EODHD_API_KEY:
+        return []
+    url = f"https://eodhd.com/api/eod/{quote(ticker)}"
+    params = {"api_token": EODHD_API_KEY, "from": start_date, "fmt": "json", "period": "d"}
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+    payload = response.json()
+    rows = []
+    for item in payload or []:
+        date = item.get("date")
+        close = item.get("adjusted_close") or item.get("close")
+        if not date or close in (None, ""):
+            continue
+        rows.append({"date": str(date)[:10], "close": float(close)})
+    return rows
+
+
+def stooq_symbol(ticker):
+    text = ticker.strip()
+    if text.endswith(".HK"):
+        return text.lower()
+    if "." not in text:
+        return f"{text.lower()}.us"
+    return text.lower()
+
+
+def stooq_chart(ticker, start_date):
+    if not STOOQ_API_KEY:
+        return []
+    start = start_date.replace("-", "")
+    end = datetime.now(timezone.utc).date().isoformat().replace("-", "")
+    url = "https://stooq.com/q/d/l/"
+    params = {"s": stooq_symbol(ticker), "i": "d", "d1": start, "d2": end, "apikey": STOOQ_API_KEY}
+    response = requests.get(url, params=params, headers={"User-Agent": UA}, timeout=30)
+    response.raise_for_status()
+    text = response.text.strip()
+    if text.startswith("Get your apikey"):
+        raise RuntimeError("missing or invalid Stooq API key")
+    reader = csv.DictReader(io.StringIO(text))
+    rows = []
+    for item in reader:
+        close = item.get("Close")
+        date = item.get("Date")
+        if not date or close in (None, "", "N/D"):
+            continue
+        rows.append({"date": date, "close": float(close)})
+    return rows
+
+
+def price_chart(ticker, start_date):
+    sources = [
+        ("eodhd_chart", eodhd_chart),
+        ("stooq_chart", stooq_chart),
+        ("yahoo_chart", yahoo_chart),
+    ]
+    for source, loader in sources:
+        try:
+            rows = loader(ticker, start_date)
+        except Exception as exc:
+            print(f"[warn] failed to fetch {source} for {ticker}: {safe_error(exc)}")
+            rows = []
+        if rows:
+            return source, rows
+    return "", []
 
 
 def fmp_market_cap_history(ticker, start_date):
@@ -154,21 +225,18 @@ def main():
         if not ticker or shares <= 0:
             continue
         fmp_rows = []
-        try:
-            fmp_rows = fmp_market_cap_history(ticker, start_date)
-        except Exception as exc:
-            print(f"[warn] failed to fetch FMP market cap for {ticker}: {safe_error(exc)}")
+        if ENABLE_FMP:
+            try:
+                fmp_rows = fmp_market_cap_history(ticker, start_date)
+            except Exception as exc:
+                print(f"[warn] failed to fetch FMP market cap for {ticker}: {safe_error(exc)}")
         for item in fmp_rows:
             date = item["date"]
             if datetime.fromisoformat(date).date() > today:
                 continue
             upsert_market_cap(existing, company, date, item["market_cap"], None, "fmp_historical_market_cap", updated_at)
 
-        try:
-            chart_rows = yahoo_chart(ticker, start_date)
-        except Exception as exc:
-            print(f"[warn] failed to fetch {ticker}: {safe_error(exc)}")
-            chart_rows = []
+        price_source, chart_rows = price_chart(ticker, start_date)
 
         for item in chart_rows:
             date = item["date"]
@@ -178,7 +246,7 @@ def main():
                 continue
             close = item["close"]
             native_cap = close * shares
-            upsert_market_cap(existing, company, date, native_cap, close, "yahoo_chart", updated_at)
+            upsert_market_cap(existing, company, date, native_cap, close, price_source, updated_at)
 
         current_cap = alpha_vantage_market_cap(ticker)
         if current_cap:
