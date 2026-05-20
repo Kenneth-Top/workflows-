@@ -377,6 +377,7 @@ function setupMarketcapControls() {
     renderMarketcap();
   });
   $("#marketcap-range-select").addEventListener("change", renderMarketcap);
+  $("#marketcap-annotation-mode").addEventListener("change", renderMarketcap);
   $("#marketcap-event-search").addEventListener("input", renderMarketcap);
   $("#save-marketcap-preset").addEventListener("click", () => {
     saveMarketPreset();
@@ -1791,6 +1792,19 @@ function visibleMarketEvents() {
   });
 }
 
+function shortMarketEventLabel(event) {
+  let text = String(event.title || "");
+  text = text
+    .replace(/发布/g, "")
+    .replace(/MiniMax[- ]?/gi, "")
+    .replace(/Google /gi, "")
+    .replace(/Gemini /gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!text) text = marketCompanyLabel(event.vendor);
+  return text.length > 14 ? `${text.slice(0, 14)}...` : text;
+}
+
 const marketcapEventPlugin = {
   id: "marketcapEventLabels",
   afterDatasetsDraw(chart) {
@@ -1799,28 +1813,57 @@ const marketcapEventPlugin = {
     const { ctx, chartArea, scales } = chart;
     const xScale = scales.x;
     ctx.save();
-    ctx.font = "800 11px Arial, sans-serif";
-    ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     events.slice(0, 60).forEach((event, index) => {
       const x = xScale.getPixelForValue(event.labelIndex);
       if (!Number.isFinite(x) || x < chartArea.left || x > chartArea.right) return;
-      const radius = 10;
-      const y = chartArea.top + 12 + (index % 4) * 24;
+      const row = index % 5;
+      const y = chartArea.top + 14 + row * 28;
+      const anchorBottom = event.displayMode === "index" ? y + 10 : y + 12;
       ctx.beginPath();
-      ctx.moveTo(x, y + radius);
+      ctx.moveTo(x, anchorBottom);
       ctx.lineTo(x, chartArea.bottom);
       ctx.strokeStyle = "rgba(94, 107, 104, 0.18)";
       ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = event.color;
-      ctx.fill();
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.fillStyle = "#ffffff";
-      ctx.fillText(String(event.displayIndex), x, y + 0.5);
+
+      if (event.displayMode === "dot") {
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = event.color;
+        ctx.fill();
+        return;
+      }
+
+      if (event.displayMode === "index") {
+        ctx.font = "800 11px Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.fillStyle = event.color;
+        ctx.fill();
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(String(event.displayIndex), x, y + 0.5);
+        return;
+      }
+
+      ctx.font = "700 11px Arial, sans-serif";
+      ctx.textAlign = "left";
+      const text = event.displayLabel || String(event.displayIndex);
+      const paddingX = 6;
+      const width = Math.min(Math.ceil(ctx.measureText(text).width) + paddingX * 2, 132);
+      const height = 22;
+      let left = x - width / 2;
+      left = Math.max(chartArea.left, Math.min(left, chartArea.right - width));
+      ctx.fillStyle = event.fill;
+      ctx.strokeStyle = event.color;
+      ctx.lineWidth = 1.2;
+      ctx.fillRect(left, y - height / 2, width, height);
+      ctx.strokeRect(left, y - height / 2, width, height);
+      ctx.fillStyle = "#15201e";
+      ctx.fillText(text, left + paddingX, y + 0.5);
     });
     ctx.restore();
   },
@@ -1858,15 +1901,45 @@ function renderMarketcap() {
   $("#marketcap-draft-count").textContent = state.marketDraftEvents.length.toLocaleString();
 
   const events = visibleMarketEvents();
-  const chartEvents = events
+  const annotationMode = $("#marketcap-annotation-mode").value;
+  const rankedEvents = events
     .map((event) => ({ ...event, labelIndex: labels.indexOf(event.date) }))
     .filter((event) => event.labelIndex >= 0)
     .map((event) => {
       const selectedEvent = state.marketSelectedCompanies.has(event.vendor);
       const color = selectedEvent ? (companyColors.get(event.vendor) || "#0f8b8d") : "#8a8f93";
-      return { ...event, color, fill: selectedEvent ? "rgba(238, 247, 247, 0.96)" : "rgba(246, 248, 247, 0.96)" };
+      const isMacro = event.vendor === "macro";
+      const priority = selectedEvent ? 0 : isMacro ? 1 : event.event_type === "model_release" ? 2 : 3;
+      return {
+        ...event,
+        color,
+        fill: selectedEvent ? "rgba(238, 247, 247, 0.96)" : "rgba(246, 248, 247, 0.96)",
+        selectedEvent,
+        priority,
+      };
     })
-    .map((event, index) => ({ ...event, displayIndex: index + 1 }));
+    .sort((a, b) => a.priority - b.priority || a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
+  const labelLimit = annotationMode === "full" ? 42 : annotationMode === "index" ? 60 : 30;
+  const labelableEvents = rankedEvents.filter((event) => annotationMode === "full"
+    || annotationMode === "index"
+    || (annotationMode === "selected" && event.selectedEvent)
+    || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro" || event.priority <= 2)));
+  const labelIds = new Set(labelableEvents.slice(0, labelLimit).map((event) => event.id));
+  const chartEvents = rankedEvents
+    .slice()
+    .sort((a, b) => a.date.localeCompare(b.date) || a.priority - b.priority || a.title.localeCompare(b.title))
+    .map((event, index) => {
+    const shouldLabel = annotationMode === "full"
+      || annotationMode === "index"
+      || (annotationMode === "selected" && event.selectedEvent)
+      || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro" || event.priority <= 2));
+    return {
+      ...event,
+      displayIndex: index + 1,
+      displayLabel: shortMarketEventLabel(event),
+      displayMode: !shouldLabel || !labelIds.has(event.id) ? "dot" : annotationMode === "index" ? "index" : "label",
+    };
+  });
 
   if (state.charts.marketcap) state.charts.marketcap.destroy();
   const chart = new Chart($("#marketcap-chart"), {
@@ -1876,7 +1949,7 @@ function renderMarketcap() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 110 } },
+      layout: { padding: { top: 150 } },
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },
