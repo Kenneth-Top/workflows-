@@ -17,6 +17,13 @@ USD_HKD_RATE = float(os.getenv("USD_HKD_RATE", "7.8"))
 FMP_API_KEY = os.getenv("FMP_API_KEY")
 
 
+def safe_error(exc):
+    response = getattr(exc, "response", None)
+    if response is not None:
+        return f"{response.status_code} {response.reason}"
+    return str(exc).split(" for url: ")[0]
+
+
 def read_csv(path):
     if not path.exists():
         return []
@@ -150,7 +157,7 @@ def main():
         try:
             fmp_rows = fmp_market_cap_history(ticker, start_date)
         except Exception as exc:
-            print(f"[warn] failed to fetch FMP market cap for {ticker}: {exc}")
+            print(f"[warn] failed to fetch FMP market cap for {ticker}: {safe_error(exc)}")
         for item in fmp_rows:
             date = item["date"]
             if datetime.fromisoformat(date).date() > today:
@@ -160,7 +167,7 @@ def main():
         try:
             chart_rows = yahoo_chart(ticker, start_date)
         except Exception as exc:
-            print(f"[warn] failed to fetch {ticker}: {exc}")
+            print(f"[warn] failed to fetch {ticker}: {safe_error(exc)}")
             chart_rows = []
 
         for item in chart_rows:

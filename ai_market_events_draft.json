@@ -1,5 +1,124 @@
 {
-  "generated_at": "2026-05-20T09:27:45.235930+00:00",
-  "source": "local_export",
-  "events": []
+  "generated_at": "2026-05-20T10:38:00+00:00",
+  "source": "notion_mcp_manual_run",
+  "source_page": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+  "events": [
+    {
+      "id": "draft-2026-05-20-google-gemini-35-flash",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "model_release",
+      "title": "Gemini 3.5 Flash 高速发布",
+      "summary": "周报记录 Gemini 3.5 Flash 输出速度为其他前沿模型约 4 倍，编码、Agent 和工具调用能力超过 3.1 Pro。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "high",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-google-omni-flash",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "model_release",
+      "title": "Omni Flash 支持帧编辑",
+      "summary": "周报记录 Gemini Omni/Omni Flash 可在对话中生成和编辑视频，并支持对特定帧进行编辑。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "high",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-google-antigravity-20",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "product",
+      "title": "Antigravity 2.0 升级",
+      "summary": "Antigravity 2.0 支持多 Agent 编排、CLI 和 SDK，上线后成为 Google AI 付费体系下的重要编程入口。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "high",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-google-spark-halo",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "product",
+      "title": "Gemini Spark 与 Halo",
+      "summary": "周报记录 Gemini Spark 作为 7x24h 个人 Agent，Android Halo 作为 Agent 工作状态监控入口。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "medium",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-google-flow-tools",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "product",
+      "title": "Google Flow 加入 Omni",
+      "summary": "Google Flow 加入 Gemini Omni、Flow Agent 和 Flow Tools，强化 AI creative studio 与创作者工作流入口定位。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "high",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-google-search-agents",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "product",
+      "title": "Google Search Agents",
+      "summary": "Google 搜索支持多模态理解，并加入可 7x24h 扫描信息、满足条件后推送摘要的 Information Agents。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "high",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-google-agent-commerce",
+      "date": "2026-05-20",
+      "vendor": "google",
+      "company": "google",
+      "event_type": "product",
+      "title": "UCP/AP2 Agent 电商",
+      "summary": "周报记录 Google Agent 电商体系，UCP 和 AP2 支持 Agent 购物规则、支付授权和 Universal Cart。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "medium",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-openai-synthid",
+      "date": "2026-05-20",
+      "vendor": "openai",
+      "company": "openai",
+      "event_type": "company",
+      "title": "OpenAI 加入 SynthID",
+      "summary": "周报记录 Google AI 水印 SynthID 已覆盖大量图片、视频和音频，OpenAI、Kakao、ElevenLabs 加入。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "medium",
+      "status": "draft"
+    },
+    {
+      "id": "draft-2026-05-20-macro-china-compute-network",
+      "date": "2026-05-20",
+      "vendor": "macro",
+      "company": "macro",
+      "event_type": "macro",
+      "title": "中国建设全球算力网络",
+      "summary": "周报记录中国加强六张网规划建设，算力网纳入新基建工程，预计投资超过 7 万亿元。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/365faf1c85f38044b8d9f099146969a3",
+      "confidence": "high",
+      "status": "draft"
+    }
+  ]
 }
