@@ -16,6 +16,7 @@
     <nav class="tabs" aria-label="页面导航">
       <button class="tab active" data-view="cumulative" data-nav-group="openrouter" data-module-default="cumulative">OpenRouter 市场</button>
       <button class="tab" data-view="pricing">&#x6A21;&#x578B;&#x4EF7;&#x683C;</button>
+      <button class="tab" data-view="marketcap">AI 市值复盘</button>
       <button class="tab" data-view="products">AI 产品测评</button>
       <button class="tab" data-view="datasets">数据文件</button>
     </nav>
@@ -401,6 +402,100 @@
       </section>
     </section>
 
+    <section id="marketcap-view" class="view">
+      <div class="table-head">
+        <div>
+          <h2>AI 市值复盘</h2>
+          <p class="chart-note">按每日市值复盘公司曲线，并叠加模型发布、宏观叙事和公司事件。</p>
+        </div>
+      </div>
+
+      <div class="toolbar marketcap-toolbar">
+        <label>
+          复盘存档
+          <select id="marketcap-preset-select"></select>
+        </label>
+        <label>
+          时间范围
+          <select id="marketcap-range-select">
+            <option value="all">全部</option>
+            <option value="180">近 180 天</option>
+            <option value="90">近 90 天</option>
+            <option value="30">近 30 天</option>
+          </select>
+        </label>
+        <label>
+          搜索事件
+          <input id="marketcap-event-search" type="search" placeholder="输入公司、模型或事件关键词">
+        </label>
+        <button id="save-marketcap-preset" class="plain-button" type="button">保存当前选择</button>
+      </div>
+
+      <div class="marketcap-layout">
+        <div class="checkbox-panel marketcap-company-panel">
+          <div class="checkbox-toolbar">
+            <strong>选择公司</strong>
+            <span id="marketcap-selected-count">已选择 0 个</span>
+          </div>
+          <div id="marketcap-company-list" class="checkbox-list marketcap-company-list"></div>
+        </div>
+
+        <div class="checkbox-panel marketcap-event-panel">
+          <div class="checkbox-toolbar">
+            <strong>事件库</strong>
+            <span id="marketcap-event-count">已展示 0 条</span>
+            <button id="show-all-marketcap-events" class="plain-button" type="button">全部展示</button>
+            <button id="hide-unselected-marketcap-events" class="plain-button" type="button">隐藏非所选</button>
+          </div>
+          <div id="marketcap-event-list" class="marketcap-event-list"></div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div><span>上市对象</span><strong id="marketcap-listed-count">-</strong></div>
+        <div><span>最新市值日期</span><strong id="marketcap-latest-date">-</strong></div>
+        <div><span>最高市值</span><strong id="marketcap-leader">-</strong></div>
+        <div><span>待审核事件</span><strong id="marketcap-draft-count">-</strong></div>
+      </div>
+
+      <div class="chart-wrap tall">
+        <canvas id="marketcap-chart" aria-label="AI company market cap review"></canvas>
+      </div>
+
+      <div class="table-head">
+        <h2>按日期整理的事件</h2>
+        <button id="download-marketcap-events" class="plain-button" type="button">下载当前事件</button>
+      </div>
+      <div class="table-wrap">
+        <table id="marketcap-event-matrix">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="table-head">
+        <div>
+          <h2>Notion 待审核草稿</h2>
+          <p class="chart-note">周一自动生成，只作为候选，不会自动进入正式复盘图。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="marketcap-draft-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>公司/厂商</th>
+              <th>类型</th>
+              <th>短标题</th>
+              <th>摘要</th>
+              <th>置信度</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
 
     <section id="pricing-view" class="view">
       <div class="toolbar pricing-toolbar">
@@ -500,6 +595,11 @@
         <a href="openrouter_market_apps.json" download>OpenRouter Market & Apps JSON</a>
         <a href="artificial_analysis_pricing.csv" download>Artificial Analysis &#x4EF7;&#x683C; CSV</a>
         <a href="artificial_analysis_pricing.json" download>Artificial Analysis &#x4EF7;&#x683C; JSON</a>
+        <a href="ai_market_companies.csv" download>AI 市值公司库 CSV</a>
+        <a href="ai_market_cap_history.csv" download>AI 市值历史 CSV</a>
+        <a href="ai_market_events.json" download>AI 市值事件库 JSON</a>
+        <a href="ai_market_events_draft.json" download>AI 市值待审核事件 JSON</a>
+        <a href="ai_market_presets.json" download>AI 市值复盘存档 JSON</a>
         <a href="openrouter_benchmark_records.csv" download>Benchmark 跑分 CSV</a>
         <a href="lmarena_leaderboard_records.csv" download>LMARENA 排行 CSV</a>
         <div id="product-downloads" class="download-list nested"></div>

@@ -235,6 +235,63 @@ select[multiple] {
   height: 460px;
 }
 
+.marketcap-toolbar {
+  grid-template-columns: minmax(180px, 0.7fr) minmax(150px, 0.5fr) minmax(260px, 1fr) auto;
+}
+
+.marketcap-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.55fr) minmax(420px, 1.45fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.marketcap-company-list {
+  grid-template-columns: 1fr;
+  max-height: 320px;
+}
+
+.marketcap-event-list {
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.marketcap-event-row {
+  display: grid;
+  grid-template-columns: auto minmax(96px, 0.34fr) minmax(160px, 1fr) minmax(92px, 0.3fr);
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  font-size: 13px;
+}
+
+.marketcap-event-row input {
+  width: auto;
+}
+
+.marketcap-event-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.marketcap-event-meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.marketcap-draft-empty {
+  color: var(--muted);
+}
+
 .openrouter-toolbar {
   grid-template-columns: minmax(220px, 1fr) minmax(160px, 0.45fr);
 }
@@ -510,6 +567,8 @@ iframe {
 
   .toolbar,
   .pricing-controls-grid,
+  .marketcap-toolbar,
+  .marketcap-layout,
   .metrics,
   .alert-grid,
   .filter-panel,

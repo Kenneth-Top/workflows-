@@ -1,0 +1,13 @@
+company_id,display_name,vendor,ticker,exchange,currency,listed_status,shares_outstanding,source,aliases
+minimax,MiniMax,MiniMax,0100.HK,HKEX,HKD,listed,364000000,HKEX/Yahoo,MiniMax;MINIMAX-W;MiniMax Group;minimax
+zhipu,智谱,Zhipu,2513.HK,HKEX,HKD,listed,440200000,HKEX/Yahoo,智谱;Zhipu;Z.ai;GLM;Knowledge Atlas
+kimi,Kimi,Kimi,,,CNY,private,,manual,Kimi;Moonshot;Moonshot AI;月之暗面
+stepfun,阶跃星辰,StepFun,,,CNY,private,,manual,阶跃星辰;StepFun;step
+alibaba,阿里,Alibaba,9988.HK,HKEX,HKD,listed,18670000000,Yahoo,阿里;Alibaba;Qwen;通义千问
+bytedance,字节,ByteDance,,,CNY,private,,manual,字节;ByteDance;豆包;Seed
+tencent,腾讯,Tencent,0700.HK,HKEX,HKD,listed,9233000000,Yahoo,腾讯;Tencent;混元;Hunyuan
+openai,OpenAI,OpenAI,,,USD,private,,manual,OpenAI;ChatGPT;GPT
+anthropic,Anthropic,Anthropic,,,USD,private,,manual,Anthropic;Claude
+google,Google,Google,GOOGL,NASDAQ,USD,listed,12150000000,Yahoo,Google;Gemini;Alphabet
+meta,Meta,Meta,META,NASDAQ,USD,listed,2520000000,Yahoo,Meta;Llama;Facebook
+spacex,SpaceX,SpaceX,,,USD,private,,manual,SpaceX;Grok;xAI

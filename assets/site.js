@@ -9,6 +9,14 @@ const state = {
   pricingMetadata: {},
   pricingSelectedModels: new Set(),
   pricingSelectedPriceTypes: new Set(["Input_Price_1M", "Output_Price_1M", "Cache_Hit_Price_1M"]),
+  marketCompanies: [],
+  marketCaps: [],
+  marketEvents: [],
+  marketDraftEvents: [],
+  marketPresets: [],
+  marketSelectedCompanies: new Set(),
+  marketHiddenEvents: new Set(),
+  currentMarketPreset: "",
   marketShare: [],
   marketAuthors: [],
   marketSelectedAuthors: new Set(),
@@ -28,6 +36,7 @@ const state = {
     cumulative: null,
     token: null,
     pricing: null,
+    marketcap: null,
     marketShare: null,
     categoryBar: null,
     categoryTrend: null,
@@ -68,6 +77,17 @@ const pricingPriceTypes = [
   { key: "Cache_Storage_Price_Per_Hour_Per_1M", label: "Cache Storage" },
 ];
 
+const marketEventTypeLabels = {
+  model_release: "模型发布",
+  macro: "宏观事件",
+  company: "公司事件",
+  pricing: "价格调整",
+  financing: "融资/上市",
+  product: "产品事件",
+};
+
+const marketPresetStoragePrefix = "aiMarketPreset:";
+
 const alertConfig = {
   newModelLookbackDays: 30,
   rampObservationWindow: 7,
@@ -99,7 +119,7 @@ function escapeHtml(value) {
 }
 
 function parseCsv(text) {
-  const lines = text.trim().split(/\r?\n/);
+  const lines = text.replace(/^\ufeff/, "").trim().split(/\r?\n/);
   const headers = lines.shift().split(",");
   return lines.filter(Boolean).map((line) => {
     const cells = line.split(",");
@@ -348,6 +368,36 @@ function setupPricingControls() {
       "Cache_Storage_Price_Per_Hour_Per_1M",
       "Context_Window",
     ], state.filteredPricing);
+  });
+}
+
+function setupMarketcapControls() {
+  $("#marketcap-preset-select").addEventListener("change", () => {
+    loadMarketPreset($("#marketcap-preset-select").value);
+    renderMarketcap();
+  });
+  $("#marketcap-range-select").addEventListener("change", renderMarketcap);
+  $("#marketcap-event-search").addEventListener("input", renderMarketcap);
+  $("#save-marketcap-preset").addEventListener("click", () => {
+    saveMarketPreset();
+    showToast("市值复盘选择已保存到本地浏览器");
+  });
+  $("#show-all-marketcap-events").addEventListener("click", () => {
+    state.marketHiddenEvents.clear();
+    renderMarketcap();
+  });
+  $("#hide-unselected-marketcap-events").addEventListener("click", () => {
+    state.marketEvents.forEach((event) => {
+      if (!state.marketSelectedCompanies.has(event.vendor) && event.vendor !== "macro") {
+        state.marketHiddenEvents.add(event.id);
+      }
+    });
+    renderMarketcap();
+  });
+  $("#download-marketcap-events").addEventListener("click", () => {
+    const rows = visibleMarketEvents();
+    if (!rows.length) return;
+    downloadCsv("ai_market_events_filtered.csv", ["date", "vendor", "company", "event_type", "title", "summary", "source", "source_url", "status"], rows);
   });
 }
 
@@ -1606,6 +1656,325 @@ function renderPricingTable(rows) {
   `).join("");
 }
 
+function marketCompanyMap() {
+  return new Map(state.marketCompanies.map((company) => [company.company_id, company]));
+}
+
+function marketCompanyLabel(companyId) {
+  if (companyId === "macro") return "宏观事件";
+  const company = marketCompanyMap().get(companyId);
+  return company?.display_name || companyId || "其他";
+}
+
+function marketEventTypeLabel(type) {
+  return marketEventTypeLabels[type] || type || "事件";
+}
+
+function normalizeMarketEvent(event, index) {
+  return {
+    id: event.id || `${event.date || "na"}-${event.vendor || "other"}-${index}`,
+    date: event.date || "",
+    vendor: event.vendor || event.company || "other",
+    company: event.company || event.vendor || "other",
+    event_type: event.event_type || "company",
+    title: event.title || "",
+    summary: event.summary || "",
+    source: event.source || "",
+    source_url: event.source_url || "",
+    status: event.status || "approved",
+    confidence: event.confidence || "",
+  };
+}
+
+function marketPresetStorageKey(presetId = state.currentMarketPreset) {
+  return `${marketPresetStoragePrefix}${presetId || "default"}`;
+}
+
+function populateMarketPresets() {
+  const select = $("#marketcap-preset-select");
+  select.innerHTML = state.marketPresets.map((preset) => `
+    <option value="${escapeHtml(preset.id)}">${escapeHtml(preset.name)}</option>
+  `).join("");
+  if (!state.marketPresets.length) {
+    state.marketPresets = [{ id: "default", name: "默认复盘", companies: [] }];
+    select.innerHTML = `<option value="default">默认复盘</option>`;
+  }
+  loadMarketPreset(select.value || state.marketPresets[0].id);
+}
+
+function loadMarketPreset(presetId) {
+  state.currentMarketPreset = presetId;
+  const preset = state.marketPresets.find((item) => item.id === presetId) || state.marketPresets[0] || {};
+  let saved = null;
+  try {
+    saved = JSON.parse(localStorage.getItem(marketPresetStorageKey(presetId)) || "null");
+  } catch {
+    saved = null;
+  }
+  state.marketSelectedCompanies = new Set(saved?.companies || preset.companies || []);
+  state.marketHiddenEvents = new Set(saved?.hidden_events || preset.hidden_events || []);
+  if (saved?.range && $("#marketcap-range-select")) {
+    $("#marketcap-range-select").value = saved.range;
+  }
+  renderMarketCompanyOptions();
+}
+
+function saveMarketPreset() {
+  const payload = {
+    companies: Array.from(state.marketSelectedCompanies),
+    hidden_events: Array.from(state.marketHiddenEvents),
+    range: $("#marketcap-range-select").value,
+    saved_at: new Date().toISOString(),
+  };
+  localStorage.setItem(marketPresetStorageKey(), JSON.stringify(payload));
+}
+
+function renderMarketCompanyOptions() {
+  const listed = state.marketCompanies.filter((company) => company.listed_status === "listed");
+  if (!state.marketSelectedCompanies.size && listed.length) {
+    listed.slice(0, 2).forEach((company) => state.marketSelectedCompanies.add(company.company_id));
+  }
+  $("#marketcap-selected-count").textContent = `已选择 ${state.marketSelectedCompanies.size} 个`;
+  $("#marketcap-company-list").innerHTML = listed.map((company, index) => {
+    const checked = state.marketSelectedCompanies.has(company.company_id) ? "checked" : "";
+    const id = `market-company-${index}`;
+    return `
+      <label class="checkbox-row" for="${escapeHtml(id)}">
+        <input id="${escapeHtml(id)}" type="checkbox" value="${escapeHtml(company.company_id)}" ${checked}>
+        <span class="checkbox-label-text">${escapeHtml(company.display_name)} ${company.ticker ? `· ${escapeHtml(company.ticker)}` : ""}</span>
+      </label>
+    `;
+  }).join("");
+  document.querySelectorAll("#marketcap-company-list input").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        state.marketSelectedCompanies.add(checkbox.value);
+      } else {
+        state.marketSelectedCompanies.delete(checkbox.value);
+      }
+      renderMarketcap();
+    });
+  });
+}
+
+function marketcapCutoffDate() {
+  const range = $("#marketcap-range-select").value;
+  const latest = state.marketCaps.map((row) => row.Date).sort().at(-1);
+  if (range === "all" || !latest) return "";
+  const date = new Date(`${latest}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() - Number(range) + 1);
+  return date.toISOString().slice(0, 10);
+}
+
+function marketRowsInRange() {
+  const cutoff = marketcapCutoffDate();
+  return state.marketCaps.filter((row) => !cutoff || row.Date >= cutoff);
+}
+
+function visibleMarketEvents() {
+  const cutoff = marketcapCutoffDate();
+  const marketDates = marketRowsInRange().map((row) => row.Date).sort();
+  const minDate = marketDates[0] || "";
+  const maxDate = marketDates.at(-1) || "";
+  const query = $("#marketcap-event-search").value.trim().toLowerCase();
+  return state.marketEvents.filter((event) => {
+    if (event.status && event.status !== "approved") return false;
+    if (cutoff && event.date < cutoff) return false;
+    if (minDate && event.date < minDate) return false;
+    if (maxDate && event.date > maxDate) return false;
+    if (state.marketHiddenEvents.has(event.id)) return false;
+    if (!query) return true;
+    return [event.title, event.summary, event.vendor, event.company, marketCompanyLabel(event.vendor), event.event_type]
+      .join(" ")
+      .toLowerCase()
+      .includes(query);
+  });
+}
+
+const marketcapEventPlugin = {
+  id: "marketcapEventLabels",
+  afterDatasetsDraw(chart) {
+    const events = chart.$marketEvents || [];
+    if (!events.length) return;
+    const { ctx, chartArea, scales } = chart;
+    const xScale = scales.x;
+    ctx.save();
+    ctx.font = "700 11px Arial, sans-serif";
+    ctx.textBaseline = "middle";
+    events.slice(0, 40).forEach((event, index) => {
+      const x = xScale.getPixelForValue(event.labelIndex);
+      if (!Number.isFinite(x) || x < chartArea.left || x > chartArea.right) return;
+      const text = event.title.length > 18 ? `${event.title.slice(0, 18)}...` : event.title;
+      const width = Math.min(Math.ceil(ctx.measureText(text).width) + 12, 170);
+      const height = 22;
+      const y = chartArea.top + 12 + (index % 6) * 28;
+      let left = x - width / 2;
+      left = Math.max(chartArea.left, Math.min(left, chartArea.right - width));
+      ctx.strokeStyle = event.color;
+      ctx.fillStyle = event.fill;
+      ctx.lineWidth = 1;
+      ctx.fillRect(left, y, width, height);
+      ctx.strokeRect(left, y, width, height);
+      ctx.fillStyle = "#15201e";
+      ctx.fillText(text, left + 6, y + height / 2);
+      ctx.beginPath();
+      ctx.moveTo(x, y + height);
+      ctx.lineTo(x, chartArea.bottom);
+      ctx.strokeStyle = "rgba(94, 107, 104, 0.18)";
+      ctx.stroke();
+    });
+    ctx.restore();
+  },
+};
+
+function renderMarketcap() {
+  renderMarketCompanyOptions();
+  const rows = marketRowsInRange();
+  const selected = Array.from(state.marketSelectedCompanies);
+  const labels = Array.from(new Set(rows.map((row) => row.Date))).sort();
+  const byCompany = groupBy(rows, (row) => row.Company_ID);
+  const companyColors = new Map(selected.map((companyId, index) => [companyId, chartColor(index)]));
+  const datasets = selected.map((companyId, index) => {
+    const byDate = new Map((byCompany.get(companyId) || []).map((row) => [row.Date, numberValue(row.Market_Cap_Billion_HKD)]));
+    return {
+      label: marketCompanyLabel(companyId),
+      data: labels.map((date) => byDate.get(date) || null),
+      borderColor: companyColors.get(companyId) || chartColor(index),
+      backgroundColor: companyColors.get(companyId) || chartColor(index),
+      borderWidth: 2,
+      pointRadius: 1.5,
+      tension: 0.2,
+      spanGaps: true,
+    };
+  });
+  const latestDate = labels.at(-1) || "-";
+  const latestLeaders = selected.map((companyId) => {
+    const values = (byCompany.get(companyId) || []).filter((row) => row.Date === latestDate);
+    return { companyId, value: numberValue(values[0]?.Market_Cap_Billion_HKD) };
+  }).sort((a, b) => b.value - a.value);
+
+  $("#marketcap-listed-count").textContent = state.marketCompanies.filter((company) => company.listed_status === "listed").length.toLocaleString();
+  $("#marketcap-latest-date").textContent = latestDate;
+  $("#marketcap-leader").textContent = latestLeaders[0] ? `${marketCompanyLabel(latestLeaders[0].companyId)} ${latestLeaders[0].value.toFixed(1)}B HKD` : "-";
+  $("#marketcap-draft-count").textContent = state.marketDraftEvents.length.toLocaleString();
+
+  const events = visibleMarketEvents();
+  const chartEvents = events
+    .map((event) => ({ ...event, labelIndex: labels.indexOf(event.date) }))
+    .filter((event) => event.labelIndex >= 0)
+    .map((event) => {
+      const selectedEvent = state.marketSelectedCompanies.has(event.vendor);
+      const color = selectedEvent ? (companyColors.get(event.vendor) || "#0f8b8d") : "#8a8f93";
+      return { ...event, color, fill: selectedEvent ? "rgba(238, 247, 247, 0.96)" : "rgba(246, 248, 247, 0.96)" };
+    });
+
+  if (state.charts.marketcap) state.charts.marketcap.destroy();
+  const chart = new Chart($("#marketcap-chart"), {
+    type: "line",
+    data: { labels, datasets },
+    plugins: [marketcapEventPlugin],
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 180 } },
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${Number(ctx.parsed.y || 0).toFixed(2)}B HKD` } },
+      },
+      scales: {
+        x: { ticks: { maxTicksLimit: 14 } },
+        y: { title: { display: true, text: "市值 (Billion HKD)" } },
+      },
+    },
+  });
+  chart.$marketEvents = chartEvents;
+  state.charts.marketcap = chart;
+  chart.update();
+  renderMarketcapEvents();
+  renderMarketEventMatrix(events);
+  renderMarketDraftEvents();
+}
+
+function renderMarketcapEvents() {
+  const events = visibleMarketEvents();
+  $("#marketcap-event-count").textContent = `已展示 ${events.length} 条`;
+  const marketDates = marketRowsInRange().map((row) => row.Date).sort();
+  const minDate = marketDates[0] || "";
+  const maxDate = marketDates.at(-1) || "";
+  $("#marketcap-event-list").innerHTML = state.marketEvents
+    .filter((event) => {
+      if (event.status && event.status !== "approved") return false;
+      if (minDate && event.date < minDate) return false;
+      if (maxDate && event.date > maxDate) return false;
+      const query = $("#marketcap-event-search").value.trim().toLowerCase();
+      if (!query) return true;
+      return [event.title, event.summary, event.vendor, marketCompanyLabel(event.vendor)].join(" ").toLowerCase().includes(query);
+    })
+    .slice(0, 240)
+    .map((event) => {
+      const checked = state.marketHiddenEvents.has(event.id) ? "" : "checked";
+      return `
+        <label class="marketcap-event-row">
+          <input type="checkbox" value="${escapeHtml(event.id)}" ${checked}>
+          <span class="marketcap-event-meta">${escapeHtml(event.date)} · ${escapeHtml(marketCompanyLabel(event.vendor))}</span>
+          <span class="marketcap-event-title" title="${escapeHtml(event.summary || event.title)}">${escapeHtml(event.title)}</span>
+          <span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}</span>
+        </label>
+      `;
+    }).join("");
+  document.querySelectorAll("#marketcap-event-list input").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        state.marketHiddenEvents.delete(checkbox.value);
+      } else {
+        state.marketHiddenEvents.add(checkbox.value);
+      }
+      renderMarketcap();
+    });
+  });
+}
+
+function renderMarketEventMatrix(events) {
+  const table = $("#marketcap-event-matrix");
+  const dates = Array.from(new Set(events.map((event) => event.date))).sort();
+  const vendors = Array.from(new Set(events.map((event) => event.vendor)))
+    .sort((a, b) => {
+      const aSelected = state.marketSelectedCompanies.has(a) ? 0 : 1;
+      const bSelected = state.marketSelectedCompanies.has(b) ? 0 : 1;
+      return aSelected - bSelected || marketCompanyLabel(a).localeCompare(marketCompanyLabel(b));
+    });
+  table.querySelector("thead").innerHTML = `<tr><th>日期</th>${vendors.map((vendor) => `<th>${escapeHtml(marketCompanyLabel(vendor))}</th>`).join("")}</tr>`;
+  const grouped = groupBy(events, (event) => `${event.date}__${event.vendor}`);
+  table.querySelector("tbody").innerHTML = dates.map((date) => `
+    <tr>
+      <td>${escapeHtml(date)}</td>
+      ${vendors.map((vendor) => {
+        const cellEvents = grouped.get(`${date}__${vendor}`) || [];
+        return `<td>${cellEvents.map((event) => `<strong>${escapeHtml(event.title)}</strong><br><span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}</span>`).join("<hr>")}</td>`;
+      }).join("")}
+    </tr>
+  `).join("");
+}
+
+function renderMarketDraftEvents() {
+  const tbody = $("#marketcap-draft-table tbody");
+  if (!state.marketDraftEvents.length) {
+    tbody.innerHTML = `<tr><td colspan="6" class="marketcap-draft-empty">暂无待审核草稿。周一 Notion 任务生成后会出现在这里。</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = state.marketDraftEvents.slice(0, 120).map((event) => `
+    <tr>
+      <td>${escapeHtml(event.date || "")}</td>
+      <td>${escapeHtml(marketCompanyLabel(event.vendor || event.company))}</td>
+      <td>${escapeHtml(marketEventTypeLabel(event.event_type))}</td>
+      <td>${escapeHtml(event.title || "")}</td>
+      <td>${escapeHtml(event.summary || "")}</td>
+      <td>${escapeHtml(event.confidence || "")}</td>
+    </tr>
+  `).join("");
+}
+
 function renderProductOptions() {
   const vendor = $("#vendor-select").value;
   const productSelect = $("#product-select");
@@ -1786,6 +2155,7 @@ async function init() {
   setupCumulativeControls();
   setupTokenControls();
   setupPricingControls();
+  setupMarketcapControls();
   setupOpenRouterControls();
   setupProductControls();
 
@@ -1817,6 +2187,21 @@ async function init() {
     populatePricingProviders();
     renderPricingPriceTypeOptions();
     renderPricingModelOptions();
+
+    const [marketCompanies, marketCaps, marketEventsPayload, marketDraftPayload, marketPresetPayload] = await Promise.all([
+      loadCsv("ai_market_companies.csv"),
+      loadCsv("ai_market_cap_history.csv"),
+      loadJson("ai_market_events.json"),
+      loadJson("ai_market_events_draft.json"),
+      loadJson("ai_market_presets.json"),
+    ]);
+    state.marketCompanies = marketCompanies;
+    state.marketCaps = marketCaps;
+    state.marketEvents = (marketEventsPayload.events || []).map(normalizeMarketEvent);
+    state.marketDraftEvents = (marketDraftPayload.events || []).map(normalizeMarketEvent);
+    state.marketPresets = marketPresetPayload.presets || [];
+    populateMarketPresets();
+    renderMarketcap();
 
     const openRouterPayload = await loadJson("openrouter_market_apps.json");
     state.marketShare = openRouterPayload.market_share || [];

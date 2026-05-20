@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "presets": [
+    {
+      "id": "minimax",
+      "name": "MiniMax 单独",
+      "companies": ["minimax"],
+      "hidden_events": []
+    },
+    {
+      "id": "zhipu",
+      "name": "智谱单独",
+      "companies": ["zhipu"],
+      "hidden_events": []
+    },
+    {
+      "id": "minimax-zhipu",
+      "name": "MiniMax + 智谱",
+      "companies": ["minimax", "zhipu"],
+      "hidden_events": []
+    }
+  ]
+}

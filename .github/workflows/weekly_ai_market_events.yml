@@ -1,0 +1,39 @@
+name: Draft AI Market Events From Notion
+
+on:
+  schedule:
+    - cron: '0 1 * * 1' # Monday 09:00 Beijing time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  draft-ai-market-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Build Notion draft events
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_WEEKLY_SOURCE_ID: ${{ secrets.NOTION_WEEKLY_SOURCE_ID }}
+        run: python notion_weekly_events.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add ai_market_events_draft.json
+          git commit -m "Auto-draft AI market events" || exit 0
+          git pull --rebase origin main
+          git push
