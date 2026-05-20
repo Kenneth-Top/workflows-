@@ -146,14 +146,17 @@ def price_chart(ticker, start_date):
         ("stooq_chart", stooq_chart),
         ("yahoo_chart", yahoo_chart),
     ]
+    combined = {}
     for source, loader in sources:
         try:
             rows = loader(ticker, start_date)
         except Exception as exc:
             print(f"[warn] failed to fetch {source} for {ticker}: {safe_error(exc)}")
             rows = []
-        if rows:
-            return source, rows
+        for row in rows:
+            combined.setdefault(row["date"], {**row, "source": source})
+    if combined:
+        return "merged_price_chart", [combined[date] for date in sorted(combined)]
     return "", []
 
 
@@ -267,7 +270,7 @@ def main():
                 continue
             close = item["close"]
             native_cap = close * shares
-            upsert_market_cap(existing, company, date, native_cap, close, price_source, updated_at)
+            upsert_market_cap(existing, company, date, native_cap, close, item.get("source") or price_source, updated_at)
 
         current_cap = alpha_vantage_market_cap(ticker)
         if current_cap:
