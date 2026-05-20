@@ -3,6 +3,7 @@ import os
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 
@@ -37,6 +38,21 @@ def notion_headers():
         "Notion-Version": NOTION_VERSION,
         "Content-Type": "application/json",
     }
+
+
+def normalize_notion_id(value):
+    text = (value or "").strip()
+    if not text:
+        return ""
+    if text.startswith("collection://"):
+        text = text.replace("collection://", "", 1)
+    if "notion.so" in text:
+        path = urlparse(text).path.rstrip("/")
+        text = path.split("/")[-1]
+        if "-" in text:
+            text = text.split("-")[-1]
+    match = re.search(r"([0-9a-fA-F]{32})", text.replace("-", ""))
+    return match.group(1) if match else text
 
 
 def rich_text_text(items):
@@ -79,7 +95,7 @@ def fetch_database_pages(source_id, headers):
 
 def read_notion_items():
     headers = notion_headers()
-    source_id = os.getenv("NOTION_WEEKLY_SOURCE_ID")
+    source_id = normalize_notion_id(os.getenv("NOTION_WEEKLY_SOURCE_ID"))
     if not headers or not source_id:
         return []
     try:
