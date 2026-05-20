@@ -40,6 +40,7 @@ jobs:
         continue-on-error: true
         env:
           EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           STOOQ_API_KEY: ${{ secrets.STOOQ_API_KEY }}
           ALPHAVANTAGE_API_KEY: ${{ secrets.ALPHAVANTAGE_API_KEY }}
         run: python ai_market_cap_update.py

@@ -16,7 +16,7 @@ HISTORY_FILE = ROOT / "ai_market_cap_history.csv"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 USD_HKD_RATE = float(os.getenv("USD_HKD_RATE", "7.8"))
 ENABLE_FMP = os.getenv("AI_MARKET_ENABLE_FMP") == "1"
-FMP_API_KEY = os.getenv("FMP_API_KEY") if ENABLE_FMP else ""
+FMP_API_KEY = os.getenv("FMP_API_KEY")
 EODHD_API_KEY = os.getenv("EODHD_API_KEY")
 STOOQ_API_KEY = os.getenv("STOOQ_API_KEY")
 
@@ -119,9 +119,30 @@ def stooq_chart(ticker, start_date):
     return rows
 
 
+def fmp_price_chart(ticker, start_date):
+    if not FMP_API_KEY:
+        return []
+    url = "https://financialmodelingprep.com/stable/historical-price-eod/full"
+    params = {"symbol": ticker, "from": start_date, "apikey": FMP_API_KEY}
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+    payload = response.json()
+    if isinstance(payload, dict):
+        payload = payload.get("historical") or payload.get("data") or []
+    rows = []
+    for item in payload or []:
+        date = item.get("date") or item.get("Date")
+        close = item.get("adjClose") or item.get("adjustedClose") or item.get("close")
+        if not date or close in (None, ""):
+            continue
+        rows.append({"date": str(date)[:10], "close": float(close)})
+    return rows
+
+
 def price_chart(ticker, start_date):
     sources = [
         ("eodhd_chart", eodhd_chart),
+        ("fmp_price_chart", fmp_price_chart),
         ("stooq_chart", stooq_chart),
         ("yahoo_chart", yahoo_chart),
     ]
@@ -137,7 +158,7 @@ def price_chart(ticker, start_date):
 
 
 def fmp_market_cap_history(ticker, start_date):
-    if not FMP_API_KEY:
+    if not ENABLE_FMP or not FMP_API_KEY:
         return []
     url = f"https://financialmodelingprep.com/stable/historical-market-capitalization"
     params = {"symbol": ticker, "from": start_date, "apikey": FMP_API_KEY}
