@@ -13,6 +13,7 @@ import requests
 ROOT = Path(__file__).resolve().parent
 LOCAL_NEWS_FILE = ROOT / "notion_weekly_news.json"
 DRAFT_FILE = ROOT / "ai_market_events_draft.json"
+AA_PRICING_FILE = ROOT / "artificial_analysis_pricing.json"
 NOTION_VERSION = "2022-06-28"
 
 VENDOR_ALIASES = {
@@ -61,6 +62,106 @@ SOURCE_OVERRIDES = [
     (re.compile(r"Universal Cart|UCP|AP2|Agent Payments Protocol|Agent 电商", re.I), "https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/"),
     (re.compile(r"SynthID|OpenAI.*SynthID|Kakao.*SynthID|ElevenLabs.*SynthID", re.I), "https://openai.com/index/advancing-content-provenance/"),
     (re.compile(r"六张网|算力网.*7万亿|7\s*万亿.*算力网|全球算力网络", re.I), "https://zgeo.net/news/ndrc-7-trillion-investment-ai-infrastructure-digital-transformation"),
+]
+
+PREFIX_VENDOR_MAP = {
+    "OpenAI": "openai",
+    "OAI": "openai",
+    "Anthropic": "anthropic",
+    "Claude": "anthropic",
+    "Google": "google",
+    "Gemini": "google",
+    "GCP": "google",
+    "Meta": "meta",
+    "Deepseek": "deepseek",
+    "DeepSeek": "deepseek",
+    "Kimi": "kimi",
+    "月之暗面": "kimi",
+    "Minimax": "minimax",
+    "MiniMax": "minimax",
+    "通义千问": "alibaba",
+    "阿里": "alibaba",
+    "Alibaba": "alibaba",
+    "Qwen": "alibaba",
+    "字节": "bytedance",
+    "Bytedance": "bytedance",
+    "ByteDance": "bytedance",
+    "豆包": "bytedance",
+    "腾讯": "tencent",
+    "混元": "tencent",
+    "xAI": "spacex",
+    "Grok": "spacex",
+    "SpaceX": "spacex",
+    "智谱": "zhipu",
+    "GLM": "zhipu",
+    "OpenRouter": "macro",
+    "Similarweb数据": "macro",
+    "Similarweb": "macro",
+}
+
+NON_TARGET_PREFIXES = {
+    "Amazon", "AWS", "Oracle", "微软", "Microsoft", "Apple", "Cursor", "MongoDB",
+    "NVIDIA", "MSFT", "CRWV", "CoreWeave", "Cloudflare", "Reddit", "Notion",
+    "SAP", "CRM", "Uber", "PLTR", "NET", "RDDT", "Unity", "Shopify", "Tesla",
+}
+
+DROP_PATTERNS = [
+    re.compile(r"专题\*?$"),
+    re.compile(r"模型一月情况|模型发布专题|CapEx专题|AWS：?$"),
+    re.compile(r"值得一看的研究|研究：|TMT市场情绪"),
+    re.compile(r"^\s*(应用|广告|软件行业|模型与CSP)\s*$"),
+]
+
+TITLE_OVERRIDES = [
+    (re.compile(r"OpenRouter.*MiniMax M2\.5.*GLM.*Kimi", re.I), "OpenRouter：国产模型用量陡增", "OpenRouter 数据显示 MiniMax M2.5、GLM-5、Kimi K2.5 等模型周度调用显著上升。"),
+    (re.compile(r"OpenRouter.*Kimi K2\.5.*Minimax M2\.1", re.I), "OpenRouter：Kimi 与 MiniMax 上量", "OpenRouter 数据显示 Kimi K2.5 与 MiniMax M2.1 周度调用高增，主要受推荐和免费调用活动推动。"),
+    (re.compile(r"Openrouter：M 2\.5.*Kimi K2\.5.*Opus", re.I), "OpenRouter：M2.5/Kimi/Opus 前五", "OpenRouter 周度榜单显示 M2.5、Kimi K2.5、Opus 4.6 等模型位列前五。"),
+    (re.compile(r"Openrouter：Kimi K2\.6", re.I), "OpenRouter：Kimi K2.6 登顶", "OpenRouter 数据显示 Kimi K2.6 排名第一，并成为付费模型中上量速度第一档。"),
+    (re.compile(r"Openrouter：M2\.7", re.I), "OpenRouter：M2.7 付费调用领先", "OpenRouter 数据显示 M2.7 是周调用量前五中唯一付费模型。"),
+    (re.compile(r"Similarweb.*GPT.*Gemini.*Grok.*Deepseek", re.I), "Similarweb：Gemini/Grok 扩张", "Similarweb 数据显示 GPT 份额止跌、Gemini 继续扩张，Grok 首次超过 DeepSeek。"),
+    (re.compile(r"LLM公司对OpenClaw态度分歧", re.I), "OpenClaw 生态分化", "OpenAI 主动拥抱 OpenClaw，Anthropic 与 Google 因经济原因限制第三方工具使用。"),
+    (re.compile(r"Google.*I/O|I/O：Agent", re.I), "Google I/O Agent 生态发布", "Google I/O 发布 Gemini 3.5 Flash、Omni/Flow、Antigravity 2.0、Search Agents 与 Agent 电商能力。"),
+    (re.compile(r"OpenAI.*122B|OpenAI融资\$110B|OpenAI完成\$122B", re.I), "OpenAI 完成 122B 融资", "OpenAI 完成约 1220 亿美元融资，投后估值约 8520 亿美元。"),
+    (re.compile(r"OpenAI.*\$110B", re.I), "OpenAI 新融资估值上行", "周报记录 OpenAI 大额融资与估值继续上行。"),
+    (re.compile(r"Anthropic.*Opus 4\.7|Opus4\.7", re.I), "Claude Opus 4.7 发布", "Anthropic 发布 Claude Opus 4.7，并同步推出 Claude Design 等能力。"),
+    (re.compile(r"Deepseek发布V4|DeepSeek发布V4|DeepSeek V4", re.I), "DeepSeek V4 发布", "DeepSeek 发布 V4 Flash/Pro，进一步强化国产旗舰模型叙事。"),
+    (re.compile(r"腾讯、阿里.*Deepseek|Tencent.*Alibaba.*DeepSeek", re.I), "腾讯阿里洽投 DeepSeek", "腾讯、阿里被报道洽谈投资 DeepSeek，估值超过 200 亿美元。"),
+    (re.compile(r"Kimi：发布新模型Kimi K2\.5|Kimi K2\.5上榜", re.I), "Kimi K2.5 发布", "Kimi K2.5 发布后进入 OpenRouter 榜单并推动月之暗面模型叙事。"),
+    (re.compile(r"Kimi.*K2\.6", re.I), "Kimi K2.6 发布", "Kimi K2.6 发布并在 OpenRouter 形成高热度调用。"),
+    (re.compile(r"Minimax.*M2\.7|MiniMax.*M2\.7|M2\.7", re.I), "MiniMax M2.7 发布", "MiniMax M2.7 发布后在 OpenRouter 付费模型调用中表现突出。"),
+    (re.compile(r"GLM-5\.1|智谱.*GLM 5\.1", re.I), "GLM-5.1 发布", "智谱 GLM-5.1 发布，强化国产模型升级节奏。"),
+    (re.compile(r"六张网|算力网", re.I), "中国推进算力网建设", "中国推进六张网与算力网建设，AI 基础设施投资预期升温。"),
+    (re.compile(r"SpaceX.*IPO|SpaceX最早.*IPO", re.I), "SpaceX IPO 预期升温", "周报记录 SpaceX 最早可能提交 IPO 并寻求大额募资。"),
+    (re.compile(r"字节：估值", re.I), "字节估值上调", "周报记录字节估值较前期继续上调。"),
+    (re.compile(r"Bytedance：进军云计算市场|字节.*云计算", re.I), "字节进军云计算", "字节被记录为加速进入云计算与 AI 基础设施市场。"),
+    (re.compile(r"腾讯.*HY 3\.0|混元3", re.I), "腾讯混元 3 发布/预热", "腾讯混元 3/HY 3.0 进入发布窗口，强化腾讯模型厂商叙事。"),
+]
+
+VENDOR_TITLE_OVERRIDES = [
+    (re.compile(r"MiniMax M2\.7|M2\.7|Minimax.*M2\.7", re.I), "minimax"),
+    (re.compile(r"MiniMax M2\.5|M2\.5|MiMo|Mimo", re.I), "minimax"),
+    (re.compile(r"Kimi K2\.5|Kimi K2\.6|月之暗面", re.I), "kimi"),
+    (re.compile(r"GLM-5|GLM-5\.1|智谱", re.I), "zhipu"),
+    (re.compile(r"DeepSeek V4|Deepseek", re.I), "deepseek"),
+    (re.compile(r"Grok 4\.2|Grok 4\.20|xAI", re.I), "spacex"),
+    (re.compile(r"Claude Opus|Anthropic|Claude", re.I), "anthropic"),
+    (re.compile(r"Gemini|Google", re.I), "google"),
+    (re.compile(r"Qwen|阿里|Alibaba|通义", re.I), "alibaba"),
+    (re.compile(r"Seedance|豆包|字节|ByteDance", re.I), "bytedance"),
+    (re.compile(r"混元|腾讯|Hunyuan", re.I), "tencent"),
+    (re.compile(r"OpenAI|ChatGPT|GPT-|Codex|Sora", re.I), "openai"),
+]
+
+DATE_TITLE_OVERRIDES = [
+    (re.compile(r"OpenAI 完成 122B 融资|OpenAI.*122B|OpenAI融资\$110B", re.I), "2026-03-31", "web_verified_openai_funding"),
+    (re.compile(r"Claude Opus 4\.7|Opus4\.7", re.I), "2026-04-16", "artificial_analysis_release_date"),
+    (re.compile(r"DeepSeek V4|Deepseek发布V4|DeepSeek发布V4", re.I), "2026-04-24", "artificial_analysis_release_date"),
+    (re.compile(r"Kimi K2\.5", re.I), "2026-01-27", "artificial_analysis_release_date"),
+    (re.compile(r"Kimi K2\.6", re.I), "2026-04-20", "artificial_analysis_release_date"),
+    (re.compile(r"MiniMax M2\.7|M2\.7", re.I), "2026-03-18", "artificial_analysis_release_date"),
+    (re.compile(r"GLM-5\.1", re.I), "2026-04-07", "artificial_analysis_release_date"),
+    (re.compile(r"GLM-5(?!\.)", re.I), "2026-02-11", "artificial_analysis_release_date"),
+    (re.compile(r"Grok 4\.2|Grok 4\.20", re.I), "2026-03-10", "artificial_analysis_release_date"),
 ]
 
 
@@ -170,6 +271,134 @@ def source_url_for(text, fallback):
     return fallback
 
 
+def clean_text(text):
+    text = (text or "").strip().replace("\n", " ")
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"^[#\-\d、.\s]+", "", text)
+    return text.strip()
+
+
+def split_event_fragments(text):
+    text = clean_text(text)
+    return [part.strip() for part in re.split(r"[；;]\s*", text) if part.strip()]
+
+
+def text_prefix(text):
+    match = re.match(r"^([A-Za-z][A-Za-z0-9 .+\-/]{1,28}|[\u4e00-\u9fa5A-Za-z0-9 .+\-/]{1,18})[:：]", text)
+    return match.group(1).strip() if match else ""
+
+
+def vendor_from_prefix(text):
+    prefix = text_prefix(text)
+    if not prefix:
+        return ""
+    normalized = prefix.strip()
+    for name, vendor in PREFIX_VENDOR_MAP.items():
+        if normalized.lower() == name.lower():
+            return vendor
+    if normalized in NON_TARGET_PREFIXES:
+        return "drop"
+    return ""
+
+
+def is_market_data(text):
+    return bool(re.search(r"^(OpenRouter|Openrouter|Similarweb|美国Appstore|Appstore|AI 留存率|AI流量出口|Token数据|Tokens消耗量|OpenRouter Token)", text, re.I))
+
+
+def should_drop_text(text):
+    cleaned = clean_text(text)
+    if len(cleaned) < 8:
+        return True
+    if any(pattern.search(cleaned) for pattern in DROP_PATTERNS):
+        return True
+    prefix = text_prefix(cleaned)
+    return prefix in NON_TARGET_PREFIXES
+
+
+def subject_hint(text):
+    if is_market_data(text):
+        return "macro"
+    for pattern, vendor in VENDOR_TITLE_OVERRIDES:
+        if pattern.search(text):
+            return vendor
+    prefix_vendor = vendor_from_prefix(text)
+    if prefix_vendor and prefix_vendor not in {"drop", "macro"}:
+        return prefix_vendor
+    lowered = text.lower()
+    first_positions = []
+    for vendor, aliases in VENDOR_ALIASES.items():
+        if vendor == "spacex":
+            aliases = ["spacex", "xai", "grok"]
+        for alias in aliases:
+            if alias in {"m1", "m2", "seed", "flow", "agent", "oai", "gpt"}:
+                continue
+            pos = lowered.find(alias.lower())
+            if pos >= 0:
+                first_positions.append((pos, vendor))
+                break
+    if not first_positions:
+        return ""
+    first_positions.sort()
+    return first_positions[0][1]
+
+
+def rewrite_title_summary(text, vendor, event_type):
+    cleaned = clean_text(text)
+    for pattern, title, summary in TITLE_OVERRIDES:
+        if pattern.search(cleaned):
+            return title, summary
+    if "：" in cleaned or ":" in cleaned:
+        subject, rest = re.split(r"[:：]", cleaned, maxsplit=1)
+        rest = rest.strip()
+        if subject in PREFIX_VENDOR_MAP or subject in {"OAI", "GCP"}:
+            cleaned = f"{subject}：{rest}"
+    title = cleaned
+    title = re.sub(r"^OpenAI：", "OpenAI：", title)
+    title = re.sub(r"^Anthropic：", "Anthropic：", title)
+    title = re.sub(r"^Google：", "Google：", title)
+    title = re.sub(r"^Alibaba：", "阿里：", title)
+    title = re.sub(r"^Bytedance：", "字节：", title)
+    if len(title) > 30:
+        parts = re.split(r"，|,|；|;", title)
+        title = parts[0].strip()
+        if len(title) > 30:
+            title = title[:28].rstrip() + "..."
+    summary = cleaned
+    if event_type == "market_data":
+        summary = f"周报市场数据记录：{cleaned}"
+    elif event_type == "model_release":
+        summary = f"周报记录模型/产品更新：{cleaned}"
+    elif event_type == "financing":
+        summary = f"周报记录投融资或估值事件：{cleaned}"
+    elif event_type == "pricing":
+        summary = f"周报记录定价或商业化变化：{cleaned}"
+    else:
+        summary = f"周报记录公司事件：{cleaned}"
+    return title, summary[:320]
+
+
+def aa_release_lookup():
+    if not AA_PRICING_FILE.exists():
+        return []
+    try:
+        with AA_PRICING_FILE.open("r", encoding="utf-8") as f:
+            records = json.load(f).get("records", [])
+    except Exception:
+        return []
+    models = {}
+    for row in records:
+        model = row.get("Model") or ""
+        date = row.get("Release_Date") or ""
+        if not model or not date:
+            continue
+        simple = re.sub(r"\s*\([^)]*\)", "", model).strip()
+        models.setdefault(simple.lower(), (simple, date))
+    return sorted(models.values(), key=lambda item: len(item[0]), reverse=True)
+
+
+AA_RELEASES = aa_release_lookup()
+
+
 def row_from_block(block):
     return {
         "id": block.get("id", ""),
@@ -255,11 +484,28 @@ def read_local_items():
 
 
 def detect_vendor(text):
+    cleaned = clean_text(text)
+    if should_drop_text(cleaned):
+        return []
+    if is_market_data(cleaned):
+        return ["macro"]
+    prefix_vendor = vendor_from_prefix(cleaned)
+    if prefix_vendor == "drop":
+        return []
+    if prefix_vendor:
+        return [prefix_vendor]
+    hinted = subject_hint(cleaned)
+    if hinted:
+        return [hinted]
     lowered = text.lower()
     matches = []
     for vendor, aliases in VENDOR_ALIASES.items():
-        if any(alias.lower() in lowered for alias in aliases):
-            matches.append(vendor)
+        for alias in aliases:
+            if alias in {"m1", "m2", "seed", "flow", "agent", "oai", "gpt"}:
+                continue
+            if re.search(rf"(?<![A-Za-z0-9]){re.escape(alias.lower())}(?![A-Za-z0-9])", lowered):
+                matches.append(vendor)
+                break
     if matches:
         return matches
     if any(term.lower() in lowered for term in IMPORTANT_MACRO_TERMS):
@@ -269,30 +515,38 @@ def detect_vendor(text):
 
 def detect_event_type(text):
     lowered = text.lower()
-    if re.search(r"发布|release|launch|上线|推出|开源|灰度|测试|上榜|进入", lowered):
-        return "model_release"
+    if is_market_data(text):
+        return "market_data"
     if re.search(r"价格|price|token plan|订阅|降价|涨价|计费|收费", lowered):
         return "pricing"
-    if re.search(r"上市|融资|ipo|估值|财报|业绩|收入|arr|投资|收购|债券", lowered):
+    if re.search(r"上市|融资|ipo|估值|募资|领投|投后估值|收购|债券", lowered):
         return "financing"
     if re.search(r"爆发|潮|行业|生态|openrouter|openclaw|算力网|六张网|token调用", lowered):
         return "macro"
+    if re.search(r"发布|release|launch|上线|推出|开源|灰度|preview|beta", lowered):
+        if not re.search(r"广告|购物搜索|访问量|份额|上榜|进入.*前\d+", lowered):
+            return "model_release"
     return "company"
 
 
 def short_title(title, summary):
-    text = (title or summary or "").strip().replace("\n", " ")
-    text = re.sub(r"\s+", " ", text)
-    text = re.sub(r"^[#\-\d、.\s]+", "", text)
+    text = clean_text(title or summary or "")
     if len(text) <= 32:
         return text
-    return text[:32]
+    return text[:30].rstrip() + "..."
 
 
 def explicit_event_date(text, fallback_date):
+    for pattern, date, basis in DATE_TITLE_OVERRIDES:
+        if pattern.search(text):
+            return date, basis, False
     for pattern, date, basis in DATE_OVERRIDES:
         if pattern.search(text):
             return date, basis, False
+    lowered = text.lower()
+    for model, release_date in AA_RELEASES:
+        if model.lower() in lowered and re.search(r"发布|release|launch|上线|推出|开源|preview|beta", lowered):
+            return release_date, "artificial_analysis_release_date", False
     match = re.search(r"(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})", text)
     if match:
         year, month, day = match.groups()
@@ -324,32 +578,43 @@ def build_events(items):
     events = {}
     for item in items:
         fallback_date = (item.get("date") or datetime.now(timezone.utc).date().isoformat())[:10]
-        text = f"{item.get('section', '')}\n{item.get('title', '')}\n{item.get('summary', '')}"
-        if not text.strip() or not useful_item(item):
-            continue
-        date, date_basis, needs_date_verification = explicit_event_date(text, fallback_date)
-        event_type = detect_event_type(text)
-        for vendor in detect_vendor(text):
-            title = short_title(item.get("title", ""), item.get("summary", ""))
-            if not title:
+        raw_title = item.get("title", "")
+        fragments = split_event_fragments(raw_title)
+        for fragment in fragments:
+            text = fragment
+            if not text.strip() or should_drop_text(text) or not useful_item({"title": text, "summary": text, "section": ""}):
                 continue
-            key = event_id(date, vendor, title)
-            events[key] = {
-                "id": key,
-                "date": date,
-                "vendor": vendor,
-                "company": vendor,
-                "event_type": event_type,
-                "title": title,
-                "summary": (item.get("summary") or item.get("title") or "")[:300],
-                "source": "notion",
-                "source_url": source_url_for(text, item.get("source_url", "")),
-                "source_page_title": item.get("source_page_title", ""),
-                "confidence": "medium" if vendor != "macro" else "low",
-                "date_basis": date_basis,
-                "needs_date_verification": needs_date_verification,
-                "status": "draft",
-            }
+            event_type = detect_event_type(text)
+            has_manual_date = any(pattern.search(text) for pattern, _, _ in DATE_TITLE_OVERRIDES + DATE_OVERRIDES)
+            if event_type == "model_release" or has_manual_date:
+                date, date_basis, needs_date_verification = explicit_event_date(text, fallback_date)
+            else:
+                date, date_basis, needs_date_verification = fallback_date, "notion_week_date_needs_web_check", True
+            for vendor in detect_vendor(text):
+                title, summary = rewrite_title_summary(text, vendor, event_type)
+                if not title:
+                    continue
+                if subject_hint(text) and vendor != subject_hint(text) and event_type not in {"market_data", "macro"}:
+                    continue
+                key = event_id(date, vendor, title)
+                events[key] = {
+                    "id": key,
+                    "date": date,
+                    "vendor": vendor,
+                    "company": vendor,
+                    "event_type": event_type,
+                    "title": title,
+                    "summary": summary,
+                    "source": "notion",
+                    "source_url": source_url_for(text, item.get("source_url", "")),
+                    "source_page_title": item.get("source_page_title", ""),
+                    "source_section": item.get("section", ""),
+                    "raw_title": raw_title,
+                    "confidence": "medium" if vendor != "macro" else "low",
+                    "date_basis": date_basis,
+                    "needs_date_verification": needs_date_verification,
+                    "status": "draft",
+                }
     return sorted(events.values(), key=lambda event: (event["date"], event["vendor"], event["title"]))
 
 
