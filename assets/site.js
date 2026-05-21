@@ -13,6 +13,8 @@ const state = {
   marketCaps: [],
   marketEvents: [],
   marketDraftEvents: [],
+  marketDraftHiddenEvents: new Set(),
+  marketDraftEdits: {},
   marketPresets: [],
   marketSelectedCompanies: new Set(),
   marketHiddenEvents: new Set(),
@@ -92,6 +94,7 @@ const marketEventTypeLabels = {
 const marketPresetListStorageKey = "aiMarketPresetList";
 const marketLocalEventsStorageKey = "aiMarketLocalEvents";
 const marketDeletedEventsStorageKey = "aiMarketDeletedEvents";
+const marketDraftReviewStorageKey = "aiMarketDraftReview";
 
 const alertConfig = {
   newModelLookbackDays: 30,
@@ -1712,6 +1715,8 @@ function normalizeMarketEvent(event, index) {
     source_url: event.source_url || "",
     status: event.status || "approved",
     confidence: event.confidence || "",
+    date_basis: event.date_basis || "",
+    needs_date_verification: Boolean(event.needs_date_verification),
   };
 }
 
@@ -1870,6 +1875,87 @@ function deleteMarketEvent(eventId) {
   saveLocalMarketEvents();
   renderMarketcap();
   showToast("事件已从当前浏览器删除");
+}
+
+function loadDraftReviewState() {
+  const saved = readJsonStorage(marketDraftReviewStorageKey, {});
+  state.marketDraftHiddenEvents = new Set(Array.isArray(saved.hidden) ? saved.hidden : []);
+  state.marketDraftEdits = saved.edits && typeof saved.edits === "object" ? saved.edits : {};
+}
+
+function saveDraftReviewState() {
+  writeJsonStorage(marketDraftReviewStorageKey, {
+    hidden: Array.from(state.marketDraftHiddenEvents),
+    edits: state.marketDraftEdits,
+  });
+}
+
+function applyDraftReviewState(events) {
+  return (events || [])
+    .map(normalizeMarketEvent)
+    .map((event) => normalizeMarketEvent({ ...event, ...(state.marketDraftEdits[event.id] || {}) }))
+    .filter((event) => !state.marketDraftHiddenEvents.has(event.id));
+}
+
+function approveDraftEvent(eventId) {
+  const event = state.marketDraftEvents.find((item) => item.id === eventId);
+  if (!event) return;
+  const approved = normalizeMarketEvent({
+    ...event,
+    id: `approved-${event.id}`,
+    source: event.source || "notion",
+    status: "approved",
+  });
+  state.marketLocalEvents.push(approved);
+  state.marketEvents = mergeMarketEvents(state.marketEvents);
+  state.marketHiddenEvents.delete(approved.id);
+  state.marketPinnedEvents.add(approved.id);
+  state.marketDraftHiddenEvents.add(eventId);
+  saveLocalMarketEvents();
+  saveDraftReviewState();
+  renderMarketcap();
+  showToast("草稿已通过，并固定显示在图上");
+}
+
+function editDraftEvent(eventId) {
+  const event = state.marketDraftEvents.find((item) => item.id === eventId);
+  if (!event) return;
+  const date = window.prompt("事件日期 YYYY-MM-DD", event.date || "");
+  if (!date) return;
+  const vendor = window.prompt("公司/厂商 ID，例如 minimax、zhipu、google、macro", event.vendor || "macro");
+  if (!vendor) return;
+  const eventType = window.prompt("事件类型：model_release / macro / company / pricing / financing / product", event.event_type || "company");
+  if (!eventType) return;
+  const title = window.prompt("短标题", event.title || "");
+  if (!title) return;
+  const summary = window.prompt("摘要", event.summary || "") ?? event.summary;
+  const edited = normalizeMarketEvent({
+    ...event,
+    date: date.trim(),
+    vendor: vendor.trim(),
+    company: vendor.trim(),
+    event_type: eventType.trim(),
+    title: title.trim(),
+    summary: String(summary || "").trim(),
+    date_basis: "manual_review",
+    needs_date_verification: false,
+  });
+  state.marketDraftEdits[eventId] = edited;
+  state.marketDraftEvents = applyDraftReviewState(state.marketDraftEvents);
+  saveDraftReviewState();
+  renderMarketcap();
+  showToast("草稿已修改，等待通过");
+}
+
+function deleteDraftEvent(eventId) {
+  const event = state.marketDraftEvents.find((item) => item.id === eventId);
+  if (!event || !window.confirm(`删除草稿“${event.title}”？`)) return;
+  state.marketDraftHiddenEvents.add(eventId);
+  delete state.marketDraftEdits[eventId];
+  state.marketDraftEvents = state.marketDraftEvents.filter((item) => item.id !== eventId);
+  saveDraftReviewState();
+  renderMarketcap();
+  showToast("草稿已删除");
 }
 
 function renderMarketCompanyOptions() {
@@ -2266,10 +2352,10 @@ function renderMarketEventMatrix(events) {
 function renderMarketDraftEvents() {
   const tbody = $("#marketcap-draft-table tbody");
   if (!state.marketDraftEvents.length) {
-    tbody.innerHTML = `<tr><td colspan="7" class="marketcap-draft-empty">暂无待审核草稿。周一 Notion 任务生成后会出现在这里。</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="8" class="marketcap-draft-empty">暂无待审核草稿。周一 Notion 任务生成后会出现在这里。</td></tr>`;
     return;
   }
-  tbody.innerHTML = state.marketDraftEvents.slice(0, 120).map((event) => `
+  tbody.innerHTML = state.marketDraftEvents.slice(0, 500).map((event) => `
     <tr>
       <td>${escapeHtml(event.date || "")}</td>
       <td>${escapeHtml(marketCompanyLabel(event.vendor || event.company))}</td>
@@ -2278,8 +2364,24 @@ function renderMarketDraftEvents() {
       <td>${escapeHtml(event.summary || "")}</td>
       <td>${escapeHtml(event.needs_date_verification ? "待联网核对" : (event.date_basis || ""))}</td>
       <td>${escapeHtml(event.confidence || "")}</td>
+      <td>
+        <div class="draft-action-row">
+          <button class="plain-button draft-approve" type="button" data-event-id="${escapeHtml(event.id)}">通过</button>
+          <button class="plain-button draft-edit" type="button" data-event-id="${escapeHtml(event.id)}">修改</button>
+          <button class="plain-button danger-button draft-delete" type="button" data-event-id="${escapeHtml(event.id)}">删除</button>
+        </div>
+      </td>
     </tr>
   `).join("");
+  document.querySelectorAll("#marketcap-draft-table .draft-approve").forEach((button) => {
+    button.addEventListener("click", () => approveDraftEvent(button.dataset.eventId));
+  });
+  document.querySelectorAll("#marketcap-draft-table .draft-edit").forEach((button) => {
+    button.addEventListener("click", () => editDraftEvent(button.dataset.eventId));
+  });
+  document.querySelectorAll("#marketcap-draft-table .draft-delete").forEach((button) => {
+    button.addEventListener("click", () => deleteDraftEvent(button.dataset.eventId));
+  });
 }
 
 function renderProductOptions() {
@@ -2505,7 +2607,8 @@ async function init() {
     state.marketCaps = marketCaps;
     loadLocalMarketEventState();
     state.marketEvents = mergeMarketEvents(marketEventsPayload.events || []);
-    state.marketDraftEvents = (marketDraftPayload.events || []).map(normalizeMarketEvent);
+    loadDraftReviewState();
+    state.marketDraftEvents = applyDraftReviewState(marketDraftPayload.events || []);
     loadMarketPresetList();
     populateManualMarketEventForm();
     populateMarketPresets();

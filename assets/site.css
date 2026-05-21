@@ -339,6 +339,18 @@ select[multiple] {
   font-weight: 800;
 }
 
+.draft-action-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.draft-action-row .plain-button {
+  min-height: 30px;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
 .openrouter-toolbar {
   grid-template-columns: minmax(220px, 1fr) minmax(160px, 0.45fr);
 }

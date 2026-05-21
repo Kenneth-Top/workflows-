@@ -27,7 +27,8 @@ jobs:
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_WEEKLY_SOURCE_ID: ${{ secrets.NOTION_WEEKLY_SOURCE_ID }}
-        run: python notion_weekly_events.py
+          NOTION_SINCE_DATE: "2026-01-01"
+        run: python notion_weekly_events.py --since 2026-01-01
 
       - name: Commit and Push
         run: |
