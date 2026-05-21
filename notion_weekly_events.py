@@ -47,6 +47,26 @@ IMPORTANT_MACRO_TERMS = [
     "agentic",
 ]
 
+AI_NATIVE_VENDORS = {"openai", "anthropic", "google", "meta", "deepseek", "kimi", "minimax", "zhipu", "bytedance", "tencent", "alibaba", "spacex"}
+
+AI_RELEVANCE_TERMS = [
+    "ai", "aigc", "agi", "llm", "大模型", "模型", "多模态", "推理", "智能体", "agent",
+    "openrouter", "openclaw", "chatgpt", "claude", "gemini", "gpt", "sora", "codex",
+    "deepseek", "kimi", "minimax", "glm", "qwen", "通义", "豆包", "混元", "grok",
+    "llama", "mimo", "hailuo", "海螺", "seedance", "veo", "flow", "antigravity",
+    "算力", "gpu", "tpu", "芯片", "token", "api", "推理成本", "训练", "开源",
+]
+
+HIGH_VALUE_BUSINESS_TERMS = [
+    "融资", "估值", "上市", "ipo", "募资", "投资", "收购", "债券", "arr", "收入",
+    "付费", "订阅", "价格", "降价", "涨价", "token plan", "商业化", "算力协议",
+]
+
+LOW_VALUE_TERMS = [
+    "财季预览", "核心电商", "广告变现", "平台成瘾", "判罚", "游戏行业",
+    "效率应用排行", "访问量前20", "iphone maus", "市场情绪", "值得一看",
+]
+
 DATE_OVERRIDES = [
     (re.compile(r"Gemini\s*3\.5|3\.5\s*Flash|Gemini Omni|Omni Flash|Antigravity\s*2\.0|Gemini Spark|Google Flow|Information agents|Search Agents", re.I), "2026-05-19", "web_verified_google_io"),
     (re.compile(r"Universal Cart|UCP|AP2|Agent Payments Protocol|Agent 电商", re.I), "2026-05-19", "web_verified_google_shopping"),
@@ -103,6 +123,7 @@ NON_TARGET_PREFIXES = {
     "Amazon", "AWS", "Oracle", "微软", "Microsoft", "Apple", "Cursor", "MongoDB",
     "NVIDIA", "MSFT", "CRWV", "CoreWeave", "Cloudflare", "Reddit", "Notion",
     "SAP", "CRM", "Uber", "PLTR", "NET", "RDDT", "Unity", "Shopify", "Tesla",
+    "CloudX", "ADBE", "TTD", "NOW", "Snowflake", "Cerebras", "Ant", "蚂蚁灵波",
 }
 
 DROP_PATTERNS = [
@@ -110,6 +131,10 @@ DROP_PATTERNS = [
     re.compile(r"模型一月情况|模型发布专题|CapEx专题|AWS：?$"),
     re.compile(r"值得一看的研究|研究：|TMT市场情绪"),
     re.compile(r"^\s*(应用|广告|软件行业|模型与CSP)\s*$"),
+    re.compile(r"财季预览|核心电商业务|广告变现|平台成瘾|Unity CEO谈世界模型"),
+    re.compile(r"美国Appstore 效率应用排行|Gemini首次进入全球访问量前20|iPhone MAUs"),
+    re.compile(r"Seedance\*?$"),
+    re.compile(r"ChatGPT Health|Codex推出宠物功能|Google于安卓推出Gemini Intelligence"),
 ]
 
 TITLE_OVERRIDES = [
@@ -154,13 +179,17 @@ VENDOR_TITLE_OVERRIDES = [
 
 DATE_TITLE_OVERRIDES = [
     (re.compile(r"OpenAI 完成 122B 融资|OpenAI.*122B|OpenAI融资\$110B", re.I), "2026-03-31", "web_verified_openai_funding"),
+    (re.compile(r"GPT-5\.3-Codex|GPT-5\.3 Codex", re.I), "2026-02-05", "artificial_analysis_release_date"),
+    (re.compile(r"GPT-5\.5|Image 2\.0", re.I), "2026-04-23", "artificial_analysis_release_date"),
+    (re.compile(r"Claude Opus 4\.6|Opus 4\.6", re.I), "2026-02-05", "artificial_analysis_release_date"),
     (re.compile(r"Claude Opus 4\.7|Opus4\.7", re.I), "2026-04-16", "artificial_analysis_release_date"),
     (re.compile(r"DeepSeek V4|Deepseek发布V4|DeepSeek发布V4", re.I), "2026-04-24", "artificial_analysis_release_date"),
-    (re.compile(r"Kimi K2\.5", re.I), "2026-01-27", "artificial_analysis_release_date"),
-    (re.compile(r"Kimi K2\.6", re.I), "2026-04-20", "artificial_analysis_release_date"),
-    (re.compile(r"MiniMax M2\.7|M2\.7", re.I), "2026-03-18", "artificial_analysis_release_date"),
-    (re.compile(r"GLM-5\.1", re.I), "2026-04-07", "artificial_analysis_release_date"),
-    (re.compile(r"GLM-5(?!\.)", re.I), "2026-02-11", "artificial_analysis_release_date"),
+    (re.compile(r"Kimi.*K2\.5", re.I), "2026-01-27", "artificial_analysis_release_date"),
+    (re.compile(r"Kimi.*K2\.6", re.I), "2026-04-20", "artificial_analysis_release_date"),
+    (re.compile(r"MiniMax.*M2\.7|Minimax.*M2\.7|M2\.7", re.I), "2026-03-18", "artificial_analysis_release_date"),
+    (re.compile(r"GLM[-\s]?5\.1", re.I), "2026-04-07", "artificial_analysis_release_date"),
+    (re.compile(r"GLM[-\s]?5(?!\.)|GLM-5V", re.I), "2026-02-11", "artificial_analysis_release_date"),
+    (re.compile(r"Gemini 3\.1 Flash Lite|Gemini 3\.1 Flash-Lite", re.I), "2026-03-03", "artificial_analysis_release_date"),
     (re.compile(r"Grok 4\.2|Grok 4\.20", re.I), "2026-03-10", "artificial_analysis_release_date"),
 ]
 
@@ -280,7 +309,14 @@ def clean_text(text):
 
 def split_event_fragments(text):
     text = clean_text(text)
-    return [part.strip() for part in re.split(r"[；;]\s*", text) if part.strip()]
+    fragments = [part.strip() for part in re.split(r"[；;]\s*", text) if part.strip()]
+    expanded = []
+    for fragment in fragments:
+        if re.search(r"、", fragment) and re.search(r"发布|推出|开源|上线|release|launch", fragment, re.I):
+            expanded.extend(part.strip() for part in re.split(r"、", fragment) if part.strip())
+        else:
+            expanded.append(fragment)
+    return expanded
 
 
 def text_prefix(text):
@@ -311,16 +347,44 @@ def should_drop_text(text):
         return True
     if any(pattern.search(cleaned) for pattern in DROP_PATTERNS):
         return True
+    lowered = cleaned.lower()
+    if any(term.lower() in lowered for term in LOW_VALUE_TERMS) and not any(term.lower() in lowered for term in {"openai", "anthropic", "deepseek", "minimax", "kimi", "glm", "qwen"}):
+        return True
     prefix = text_prefix(cleaned)
     return prefix in NON_TARGET_PREFIXES
+
+
+def has_ai_relevance(text):
+    lowered = text.lower()
+    return any(term.lower() in lowered for term in AI_RELEVANCE_TERMS)
+
+
+def has_business_relevance(text):
+    lowered = text.lower()
+    return any(term.lower() in lowered for term in HIGH_VALUE_BUSINESS_TERMS)
+
+
+def is_high_value_event(text, vendor, event_type):
+    cleaned = clean_text(text)
+    lowered = cleaned.lower()
+    if should_drop_text(cleaned):
+        return False
+    if event_type == "market_data":
+        return bool(re.search(r"openrouter|token数据|token调用|tokens消耗|similarweb.*(gpt|gemini|grok|deepseek|claude|ai)|ai 留存率|ai流量出口", lowered, re.I))
+    if event_type == "macro":
+        return has_ai_relevance(lowered) and bool(re.search(r"openclaw|openrouter|算力网|六张网|token调用|ai融资|生态|爆发|agent", lowered, re.I))
+    if event_type == "model_release":
+        return has_ai_relevance(lowered) and bool(re.search(r"发布|release|launch|上线|推出|开源|preview|beta|灰度", lowered, re.I))
+    if event_type in {"financing", "pricing"}:
+        return vendor in AI_NATIVE_VENDORS and (has_ai_relevance(lowered) or has_business_relevance(lowered))
+    if vendor in AI_NATIVE_VENDORS:
+        return has_ai_relevance(lowered) and bool(re.search(r"合作|协议|收入|arr|招聘|团队|算力|芯片|数据中心|agent|智能体|api|企业|政府|广告|设备|搜索|购物|生态|使用量|调用", lowered, re.I))
+    return False
 
 
 def subject_hint(text):
     if is_market_data(text):
         return "macro"
-    for pattern, vendor in VENDOR_TITLE_OVERRIDES:
-        if pattern.search(text):
-            return vendor
     prefix_vendor = vendor_from_prefix(text)
     if prefix_vendor and prefix_vendor not in {"drop", "macro"}:
         return prefix_vendor
@@ -337,6 +401,9 @@ def subject_hint(text):
                 first_positions.append((pos, vendor))
                 break
     if not first_positions:
+        for pattern, vendor in VENDOR_TITLE_OVERRIDES:
+            if pattern.search(text):
+                return vendor
         return ""
     first_positions.sort()
     return first_positions[0][1]
@@ -346,6 +413,8 @@ def rewrite_title_summary(text, vendor, event_type):
     cleaned = clean_text(text)
     for pattern, title, summary in TITLE_OVERRIDES:
         if pattern.search(cleaned):
+            if event_type == "market_data" and re.search(r"发布$", title):
+                continue
             return title, summary
     if "：" in cleaned or ":" in cleaned:
         subject, rest = re.split(r"[:：]", cleaned, maxsplit=1)
@@ -366,6 +435,10 @@ def rewrite_title_summary(text, vendor, event_type):
     summary = cleaned
     if event_type == "market_data":
         summary = f"周报市场数据记录：{cleaned}"
+        if title == cleaned and re.search(r"openrouter", cleaned, re.I):
+            title = "OpenRouter：" + re.sub(r"^Openrouter[:：]?|^OpenRouter[:：]?", "", cleaned, flags=re.I).strip()
+            if len(title) > 32:
+                title = title[:30].rstrip() + "..."
     elif event_type == "model_release":
         summary = f"周报记录模型/产品更新：{cleaned}"
     elif event_type == "financing":
@@ -536,17 +609,19 @@ def short_title(title, summary):
     return text[:30].rstrip() + "..."
 
 
-def explicit_event_date(text, fallback_date):
-    for pattern, date, basis in DATE_TITLE_OVERRIDES:
-        if pattern.search(text):
-            return date, basis, False
+def explicit_event_date(text, fallback_date, event_type):
+    if event_type == "model_release":
+        for pattern, date, basis in DATE_TITLE_OVERRIDES:
+            if pattern.search(text):
+                return date, basis, False
     for pattern, date, basis in DATE_OVERRIDES:
         if pattern.search(text):
             return date, basis, False
     lowered = text.lower()
-    for model, release_date in AA_RELEASES:
-        if model.lower() in lowered and re.search(r"发布|release|launch|上线|推出|开源|preview|beta", lowered):
-            return release_date, "artificial_analysis_release_date", False
+    if event_type == "model_release":
+        for model, release_date in AA_RELEASES:
+            if model.lower() in lowered and re.search(r"发布|release|launch|上线|推出|开源|preview|beta", lowered):
+                return release_date, "artificial_analysis_release_date", False
     match = re.search(r"(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})", text)
     if match:
         year, month, day = match.groups()
@@ -564,9 +639,11 @@ def explicit_event_date(text, fallback_date):
 
 def useful_item(item):
     text = f"{item.get('section', '')}\n{item.get('title', '')}\n{item.get('summary', '')}"
-    if detect_vendor(text):
-        return True
-    return False
+    vendors = detect_vendor(text)
+    if not vendors:
+        return False
+    event_type = detect_event_type(text)
+    return any(is_high_value_event(text, vendor, event_type) for vendor in vendors)
 
 
 def event_id(date, vendor, title):
@@ -585,12 +662,14 @@ def build_events(items):
             if not text.strip() or should_drop_text(text) or not useful_item({"title": text, "summary": text, "section": ""}):
                 continue
             event_type = detect_event_type(text)
-            has_manual_date = any(pattern.search(text) for pattern, _, _ in DATE_TITLE_OVERRIDES + DATE_OVERRIDES)
+            has_manual_date = any(pattern.search(text) for pattern, _, _ in DATE_OVERRIDES)
             if event_type == "model_release" or has_manual_date:
-                date, date_basis, needs_date_verification = explicit_event_date(text, fallback_date)
+                date, date_basis, needs_date_verification = explicit_event_date(text, fallback_date, event_type)
             else:
-                date, date_basis, needs_date_verification = fallback_date, "notion_week_date_needs_web_check", True
+                date, date_basis, needs_date_verification = fallback_date, "notion_week_observation_date", True
             for vendor in detect_vendor(text):
+                if not is_high_value_event(text, vendor, event_type):
+                    continue
                 title, summary = rewrite_title_summary(text, vendor, event_type)
                 if not title:
                     continue
