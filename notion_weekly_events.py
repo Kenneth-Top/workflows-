@@ -3,7 +3,7 @@ import json
 import os
 import re
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -353,25 +353,48 @@ def build_events(items):
     return sorted(events.values(), key=lambda event: (event["date"], event["vendor"], event["title"]))
 
 
+def default_since_date():
+    lookback_days = int(os.getenv("NOTION_LOOKBACK_DAYS") or "10")
+    return (datetime.now(timezone.utc).date() - timedelta(days=lookback_days)).isoformat()
+
+
+def merge_existing_events(events, replace=False):
+    if replace or not DRAFT_FILE.exists():
+        return events
+    try:
+        with DRAFT_FILE.open("r", encoding="utf-8") as f:
+            existing = json.load(f).get("events", [])
+    except Exception:
+        existing = []
+    merged = {event.get("id"): event for event in existing if event.get("id")}
+    for event in events:
+        merged[event["id"]] = event
+    return sorted(merged.values(), key=lambda event: (event.get("date", ""), event.get("vendor", ""), event.get("title", "")))
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--since", default=os.getenv("NOTION_SINCE_DATE") or f"{datetime.now(timezone.utc).year}-01-01")
+    parser.add_argument("--since", default=os.getenv("NOTION_SINCE_DATE") or default_since_date())
+    parser.add_argument("--replace", action="store_true", help="Replace draft file instead of merging into existing draft pool.")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
     items = read_notion_items(args.since) or read_local_items()
-    events = build_events(items)
+    new_events = build_events(items)
+    events = merge_existing_events(new_events, replace=args.replace)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": "notion_api" if os.getenv("NOTION_API_KEY") and os.getenv("NOTION_WEEKLY_SOURCE_ID") else "local_export",
         "since": args.since,
+        "mode": "replace" if args.replace else "merge_existing",
+        "new_event_count": len(new_events),
         "events": events,
     }
     with DRAFT_FILE.open("w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    print(f"wrote {len(events)} draft events from {len(items)} notion items since {args.since}")
+    print(f"wrote {len(events)} draft events ({len(new_events)} new/updated) from {len(items)} notion items since {args.since}")
 
 
 if __name__ == "__main__":
