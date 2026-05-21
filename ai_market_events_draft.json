@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-21T07:15:36.849712+00:00",
+  "generated_at": "2026-05-21T07:22:38.733743+00:00",
   "source": "notion_api",
   "since": "2026-01-01",
   "mode": "replace",
-  "new_event_count": 112,
+  "new_event_count": 111,
   "events": [
     {
       "id": "draft-2026-01-11-openai-alex-heath-openai-chatg",
@@ -600,24 +600,6 @@
       "status": "draft"
     },
     {
-      "id": "draft-2026-03-01-openai-openai-122b",
-      "date": "2026-03-01",
-      "vendor": "openai",
-      "company": "openai",
-      "event_type": "financing",
-      "title": "OpenAI 完成 122B 融资",
-      "summary": "OpenAI 完成约 1220 亿美元融资，投后估值约 8520 亿美元。",
-      "source": "notion",
-      "source_url": "https://www.notion.so/TMT-260301-312faf1c85f380849bd4ec2ee16b0689",
-      "source_page_title": "海内外TMT观察-260301",
-      "source_section": "模型与CSP",
-      "raw_title": "OpenAI融资$110B，软银$30B、NVDA$30B、AMZN$50B，投后估值$840B",
-      "confidence": "medium",
-      "date_basis": "notion_week_observation_date",
-      "needs_date_verification": true,
-      "status": "draft"
-    },
-    {
       "id": "draft-2026-03-01-openai-openai",
       "date": "2026-03-01",
       "vendor": "openai",
@@ -1086,6 +1068,24 @@
       "status": "draft"
     },
     {
+      "id": "draft-2026-03-31-openai-openai-122b",
+      "date": "2026-03-31",
+      "vendor": "openai",
+      "company": "openai",
+      "event_type": "financing",
+      "title": "OpenAI 完成 122B 融资",
+      "summary": "OpenAI 完成约 1220 亿美元融资，投后估值约 8520 亿美元。",
+      "source": "notion",
+      "source_url": "https://www.notion.so/TMT-260301-312faf1c85f380849bd4ec2ee16b0689",
+      "source_page_title": "海内外TMT观察-260301",
+      "source_section": "模型与CSP",
+      "raw_title": "OpenAI融资$110B，软银$30B、NVDA$30B、AMZN$50B，投后估值$840B",
+      "confidence": "medium",
+      "date_basis": "web_verified_openai_funding",
+      "needs_date_verification": false,
+      "status": "draft"
+    },
+    {
       "id": "draft-2026-04-05-anthropic-claude-code",
       "date": "2026-04-05",
       "vendor": "anthropic",
@@ -1134,24 +1134,6 @@
       "source_page_title": "海内外TMT观察-260405",
       "source_section": "模型与CSP",
       "raw_title": "Coatue 预测 Anthropic 2030&2031年估值$1.995T&2.413T",
-      "confidence": "medium",
-      "date_basis": "notion_week_observation_date",
-      "needs_date_verification": true,
-      "status": "draft"
-    },
-    {
-      "id": "draft-2026-04-05-openai-openai-122b",
-      "date": "2026-04-05",
-      "vendor": "openai",
-      "company": "openai",
-      "event_type": "financing",
-      "title": "OpenAI 完成 122B 融资",
-      "summary": "OpenAI 完成约 1220 亿美元融资，投后估值约 8520 亿美元。",
-      "source": "notion",
-      "source_url": "https://www.notion.so/TMT-260405-334faf1c85f380d5aa3dd3c324682df0",
-      "source_page_title": "海内外TMT观察-260405",
-      "source_section": "模型与CSP",
-      "raw_title": "OpenAI完成$122B融资，投后估值$852B",
       "confidence": "medium",
       "date_basis": "notion_week_observation_date",
       "needs_date_verification": true,

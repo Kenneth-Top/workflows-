@@ -67,6 +67,7 @@ LOW_VALUE_TERMS = [
 ]
 
 DATE_OVERRIDES = [
+    (re.compile(r"OpenAI 完成 122B 融资|OpenAI.*122B|OpenAI融资\$110B", re.I), "2026-03-31", "web_verified_openai_funding"),
     (re.compile(r"Gemini\s*3\.5|3\.5\s*Flash|Gemini Omni|Omni Flash|Antigravity\s*2\.0|Gemini Spark|Google Flow|Information agents|Search Agents", re.I), "2026-05-19", "web_verified_google_io"),
     (re.compile(r"Universal Cart|UCP|AP2|Agent Payments Protocol|Agent 电商", re.I), "2026-05-19", "web_verified_google_shopping"),
     (re.compile(r"SynthID|OpenAI.*SynthID|Kakao.*SynthID|ElevenLabs.*SynthID", re.I), "2026-05-19", "web_verified_synthid"),
@@ -172,7 +173,6 @@ VENDOR_TITLE_OVERRIDES = [
 ]
 
 DATE_TITLE_OVERRIDES = [
-    (re.compile(r"OpenAI 完成 122B 融资|OpenAI.*122B|OpenAI融资\$110B", re.I), "2026-03-31", "web_verified_openai_funding"),
     (re.compile(r"GPT-5\.3-Codex|GPT-5\.3 Codex", re.I), "2026-02-05", "artificial_analysis_release_date"),
     (re.compile(r"GPT-5\.5|Image 2\.0", re.I), "2026-04-23", "artificial_analysis_release_date"),
     (re.compile(r"Claude Opus 4\.6|Opus 4\.6", re.I), "2026-02-05", "artificial_analysis_release_date"),
