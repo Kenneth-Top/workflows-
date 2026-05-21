@@ -33,7 +33,6 @@ VENDOR_ALIASES = {
 }
 
 IMPORTANT_MACRO_TERMS = [
-    "openrouter",
     "openclaw",
     "agent",
     "智能体",
@@ -51,7 +50,7 @@ AI_NATIVE_VENDORS = {"openai", "anthropic", "google", "meta", "deepseek", "kimi"
 
 AI_RELEVANCE_TERMS = [
     "ai", "aigc", "agi", "llm", "大模型", "模型", "多模态", "推理", "智能体", "agent",
-    "openrouter", "openclaw", "chatgpt", "claude", "gemini", "gpt", "sora", "codex",
+    "openclaw", "chatgpt", "claude", "gemini", "gpt", "sora", "codex",
     "deepseek", "kimi", "minimax", "glm", "qwen", "通义", "豆包", "混元", "grok",
     "llama", "mimo", "hailuo", "海螺", "seedance", "veo", "flow", "antigravity",
     "算力", "gpu", "tpu", "芯片", "token", "api", "推理成本", "训练", "开源",
@@ -114,7 +113,6 @@ PREFIX_VENDOR_MAP = {
     "SpaceX": "spacex",
     "智谱": "zhipu",
     "GLM": "zhipu",
-    "OpenRouter": "macro",
     "Similarweb数据": "macro",
     "Similarweb": "macro",
 }
@@ -135,14 +133,10 @@ DROP_PATTERNS = [
     re.compile(r"美国Appstore 效率应用排行|Gemini首次进入全球访问量前20|iPhone MAUs"),
     re.compile(r"Seedance\*?$"),
     re.compile(r"ChatGPT Health|Codex推出宠物功能|Google于安卓推出Gemini Intelligence"),
+    re.compile(r"OpenRouter|Openrouter|OpenRouter Token|Tokens?消耗|Token数据"),
 ]
 
 TITLE_OVERRIDES = [
-    (re.compile(r"OpenRouter.*MiniMax M2\.5.*GLM.*Kimi", re.I), "OpenRouter：国产模型用量陡增", "OpenRouter 数据显示 MiniMax M2.5、GLM-5、Kimi K2.5 等模型周度调用显著上升。"),
-    (re.compile(r"OpenRouter.*Kimi K2\.5.*Minimax M2\.1", re.I), "OpenRouter：Kimi 与 MiniMax 上量", "OpenRouter 数据显示 Kimi K2.5 与 MiniMax M2.1 周度调用高增，主要受推荐和免费调用活动推动。"),
-    (re.compile(r"Openrouter：M 2\.5.*Kimi K2\.5.*Opus", re.I), "OpenRouter：M2.5/Kimi/Opus 前五", "OpenRouter 周度榜单显示 M2.5、Kimi K2.5、Opus 4.6 等模型位列前五。"),
-    (re.compile(r"Openrouter：Kimi K2\.6", re.I), "OpenRouter：Kimi K2.6 登顶", "OpenRouter 数据显示 Kimi K2.6 排名第一，并成为付费模型中上量速度第一档。"),
-    (re.compile(r"Openrouter：M2\.7", re.I), "OpenRouter：M2.7 付费调用领先", "OpenRouter 数据显示 M2.7 是周调用量前五中唯一付费模型。"),
     (re.compile(r"Similarweb.*GPT.*Gemini.*Grok.*Deepseek", re.I), "Similarweb：Gemini/Grok 扩张", "Similarweb 数据显示 GPT 份额止跌、Gemini 继续扩张，Grok 首次超过 DeepSeek。"),
     (re.compile(r"LLM公司对OpenClaw态度分歧", re.I), "OpenClaw 生态分化", "OpenAI 主动拥抱 OpenClaw，Anthropic 与 Google 因经济原因限制第三方工具使用。"),
     (re.compile(r"Google.*I/O|I/O：Agent", re.I), "Google I/O Agent 生态发布", "Google I/O 发布 Gemini 3.5 Flash、Omni/Flow、Antigravity 2.0、Search Agents 与 Agent 电商能力。"),
@@ -151,9 +145,9 @@ TITLE_OVERRIDES = [
     (re.compile(r"Anthropic.*Opus 4\.7|Opus4\.7", re.I), "Claude Opus 4.7 发布", "Anthropic 发布 Claude Opus 4.7，并同步推出 Claude Design 等能力。"),
     (re.compile(r"Deepseek发布V4|DeepSeek发布V4|DeepSeek V4", re.I), "DeepSeek V4 发布", "DeepSeek 发布 V4 Flash/Pro，进一步强化国产旗舰模型叙事。"),
     (re.compile(r"腾讯、阿里.*Deepseek|Tencent.*Alibaba.*DeepSeek", re.I), "腾讯阿里洽投 DeepSeek", "腾讯、阿里被报道洽谈投资 DeepSeek，估值超过 200 亿美元。"),
-    (re.compile(r"Kimi：发布新模型Kimi K2\.5|Kimi K2\.5上榜", re.I), "Kimi K2.5 发布", "Kimi K2.5 发布后进入 OpenRouter 榜单并推动月之暗面模型叙事。"),
-    (re.compile(r"Kimi.*K2\.6", re.I), "Kimi K2.6 发布", "Kimi K2.6 发布并在 OpenRouter 形成高热度调用。"),
-    (re.compile(r"Minimax.*M2\.7|MiniMax.*M2\.7|M2\.7", re.I), "MiniMax M2.7 发布", "MiniMax M2.7 发布后在 OpenRouter 付费模型调用中表现突出。"),
+    (re.compile(r"Kimi：发布新模型Kimi K2\.5|Kimi K2\.5上榜", re.I), "Kimi K2.5 发布", "Kimi K2.5 发布，推动月之暗面模型升级叙事。"),
+    (re.compile(r"Kimi.*K2\.6", re.I), "Kimi K2.6 发布", "Kimi K2.6 发布，延续月之暗面高频模型更新节奏。"),
+    (re.compile(r"Minimax.*M2\.7|MiniMax.*M2\.7|M2\.7", re.I), "MiniMax M2.7 发布", "MiniMax M2.7 发布，强化 MiniMax 模型能力升级叙事。"),
     (re.compile(r"GLM-5\.1|智谱.*GLM 5\.1", re.I), "GLM-5.1 发布", "智谱 GLM-5.1 发布，强化国产模型升级节奏。"),
     (re.compile(r"六张网|算力网", re.I), "中国推进算力网建设", "中国推进六张网与算力网建设，AI 基础设施投资预期升温。"),
     (re.compile(r"SpaceX.*IPO|SpaceX最早.*IPO", re.I), "SpaceX IPO 预期升温", "周报记录 SpaceX 最早可能提交 IPO 并寻求大额募资。"),
@@ -338,7 +332,7 @@ def vendor_from_prefix(text):
 
 
 def is_market_data(text):
-    return bool(re.search(r"^(OpenRouter|Openrouter|Similarweb|美国Appstore|Appstore|AI 留存率|AI流量出口|Token数据|Tokens消耗量|OpenRouter Token)", text, re.I))
+    return bool(re.search(r"^(Similarweb|美国Appstore|Appstore|AI 留存率|AI流量出口)", text, re.I))
 
 
 def should_drop_text(text):
@@ -370,9 +364,9 @@ def is_high_value_event(text, vendor, event_type):
     if should_drop_text(cleaned):
         return False
     if event_type == "market_data":
-        return bool(re.search(r"openrouter|token数据|token调用|tokens消耗|similarweb.*(gpt|gemini|grok|deepseek|claude|ai)|ai 留存率|ai流量出口", lowered, re.I))
+        return bool(re.search(r"similarweb.*(gpt|gemini|grok|deepseek|claude|ai)|ai 留存率|ai流量出口", lowered, re.I))
     if event_type == "macro":
-        return has_ai_relevance(lowered) and bool(re.search(r"openclaw|openrouter|算力网|六张网|token调用|ai融资|生态|爆发|agent", lowered, re.I))
+        return has_ai_relevance(lowered) and bool(re.search(r"openclaw|算力网|六张网|ai融资|生态|爆发|agent", lowered, re.I))
     if event_type == "model_release":
         return has_ai_relevance(lowered) and bool(re.search(r"发布|release|launch|上线|推出|开源|preview|beta|灰度", lowered, re.I))
     if event_type in {"financing", "pricing"}:
@@ -435,10 +429,6 @@ def rewrite_title_summary(text, vendor, event_type):
     summary = cleaned
     if event_type == "market_data":
         summary = f"周报市场数据记录：{cleaned}"
-        if title == cleaned and re.search(r"openrouter", cleaned, re.I):
-            title = "OpenRouter：" + re.sub(r"^Openrouter[:：]?|^OpenRouter[:：]?", "", cleaned, flags=re.I).strip()
-            if len(title) > 32:
-                title = title[:30].rstrip() + "..."
     elif event_type == "model_release":
         summary = f"周报记录模型/产品更新：{cleaned}"
     elif event_type == "financing":
@@ -594,7 +584,7 @@ def detect_event_type(text):
         return "pricing"
     if re.search(r"上市|融资|ipo|估值|募资|领投|投后估值|收购|债券", lowered):
         return "financing"
-    if re.search(r"爆发|潮|行业|生态|openrouter|openclaw|算力网|六张网|token调用", lowered):
+    if re.search(r"爆发|潮|行业|生态|openclaw|算力网|六张网", lowered):
         return "macro"
     if re.search(r"发布|release|launch|上线|推出|开源|灰度|preview|beta", lowered):
         if not re.search(r"广告|购物搜索|访问量|份额|上榜|进入.*前\d+", lowered):
