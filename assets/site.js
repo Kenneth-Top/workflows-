@@ -16,6 +16,9 @@ const state = {
   marketPresets: [],
   marketSelectedCompanies: new Set(),
   marketHiddenEvents: new Set(),
+  marketPinnedEvents: new Set(),
+  marketDeletedEvents: new Set(),
+  marketLocalEvents: [],
   currentMarketPreset: "",
   marketShare: [],
   marketAuthors: [],
@@ -86,7 +89,9 @@ const marketEventTypeLabels = {
   product: "产品事件",
 };
 
-const marketPresetStoragePrefix = "aiMarketPreset:";
+const marketPresetListStorageKey = "aiMarketPresetList";
+const marketLocalEventsStorageKey = "aiMarketLocalEvents";
+const marketDeletedEventsStorageKey = "aiMarketDeletedEvents";
 
 const alertConfig = {
   newModelLookbackDays: 30,
@@ -116,6 +121,19 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function readJsonStorage(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJsonStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 function parseCsv(text) {
@@ -389,8 +407,9 @@ function setupMarketcapControls() {
   $("#marketcap-event-search").addEventListener("input", renderMarketcap);
   $("#save-marketcap-preset").addEventListener("click", () => {
     saveMarketPreset();
-    showToast("市值复盘选择已保存到本地浏览器");
   });
+  $("#delete-marketcap-preset").addEventListener("click", deleteMarketPreset);
+  $("#add-marketcap-event").addEventListener("click", addManualMarketEvent);
   $("#show-all-marketcap-events").addEventListener("click", () => {
     state.marketHiddenEvents.clear();
     renderMarketcap();
@@ -399,6 +418,7 @@ function setupMarketcapControls() {
     state.marketEvents.forEach((event) => {
       if (!state.marketSelectedCompanies.has(event.vendor) && event.vendor !== "macro") {
         state.marketHiddenEvents.add(event.id);
+        state.marketPinnedEvents.delete(event.id);
       }
     });
     renderMarketcap();
@@ -1695,47 +1715,161 @@ function normalizeMarketEvent(event, index) {
   };
 }
 
-function marketPresetStorageKey(presetId = state.currentMarketPreset) {
-  return `${marketPresetStoragePrefix}${presetId || "default"}`;
+function loadLocalMarketEventState() {
+  const localEvents = readJsonStorage(marketLocalEventsStorageKey, []);
+  const deletedEvents = readJsonStorage(marketDeletedEventsStorageKey, []);
+  state.marketLocalEvents = Array.isArray(localEvents) ? localEvents.map(normalizeMarketEvent) : [];
+  state.marketDeletedEvents = new Set(Array.isArray(deletedEvents) ? deletedEvents : []);
+}
+
+function saveLocalMarketEvents() {
+  writeJsonStorage(marketLocalEventsStorageKey, state.marketLocalEvents);
+  writeJsonStorage(marketDeletedEventsStorageKey, Array.from(state.marketDeletedEvents));
+}
+
+function mergeMarketEvents(baseEvents) {
+  const byId = new Map();
+  (baseEvents || []).map(normalizeMarketEvent).forEach((event) => {
+    if (!state.marketDeletedEvents.has(event.id)) byId.set(event.id, event);
+  });
+  state.marketLocalEvents.forEach((event) => {
+    if (!state.marketDeletedEvents.has(event.id)) byId.set(event.id, event);
+  });
+  return Array.from(byId.values()).sort((a, b) => a.date.localeCompare(b.date) || marketCompanyLabel(a.vendor).localeCompare(marketCompanyLabel(b.vendor)) || a.title.localeCompare(b.title));
+}
+
+function loadMarketPresetList() {
+  const saved = readJsonStorage(marketPresetListStorageKey, []);
+  state.marketPresets = Array.isArray(saved) ? saved : [];
 }
 
 function populateMarketPresets() {
   const select = $("#marketcap-preset-select");
-  select.innerHTML = state.marketPresets.map((preset) => `
+  select.innerHTML = `<option value="">未保存的复盘</option>` + state.marketPresets.map((preset) => `
     <option value="${escapeHtml(preset.id)}">${escapeHtml(preset.name)}</option>
   `).join("");
-  if (!state.marketPresets.length) {
-    state.marketPresets = [{ id: "default", name: "默认复盘", companies: [] }];
-    select.innerHTML = `<option value="default">默认复盘</option>`;
-  }
-  loadMarketPreset(select.value || state.marketPresets[0].id);
+  const nextPreset = state.currentMarketPreset && state.marketPresets.some((preset) => preset.id === state.currentMarketPreset)
+    ? state.currentMarketPreset
+    : "";
+  select.value = nextPreset;
+  loadMarketPreset(nextPreset);
 }
 
 function loadMarketPreset(presetId) {
-  state.currentMarketPreset = presetId;
-  const preset = state.marketPresets.find((item) => item.id === presetId) || state.marketPresets[0] || {};
-  let saved = null;
-  try {
-    saved = JSON.parse(localStorage.getItem(marketPresetStorageKey(presetId)) || "null");
-  } catch {
-    saved = null;
+  state.currentMarketPreset = presetId || "";
+  const preset = state.marketPresets.find((item) => item.id === presetId);
+  state.marketSelectedCompanies = new Set(preset?.companies || []);
+  state.marketHiddenEvents = new Set(preset?.hidden_events || []);
+  state.marketPinnedEvents = new Set(preset?.pinned_events || []);
+  if (preset?.range && $("#marketcap-range-select")) {
+    $("#marketcap-range-select").value = preset.range;
   }
-  state.marketSelectedCompanies = new Set(saved?.companies || preset.companies || []);
-  state.marketHiddenEvents = new Set(saved?.hidden_events || preset.hidden_events || []);
-  if (saved?.range && $("#marketcap-range-select")) {
-    $("#marketcap-range-select").value = saved.range;
+  if (preset?.annotation_mode && $("#marketcap-annotation-mode")) {
+    $("#marketcap-annotation-mode").value = preset.annotation_mode;
   }
   renderMarketCompanyOptions();
 }
 
 function saveMarketPreset() {
+  const existing = state.marketPresets.find((preset) => preset.id === state.currentMarketPreset);
+  const defaultName = existing?.name || "";
+  const name = window.prompt("给这个复盘存档起个名字", defaultName);
+  if (!name) return;
+  const presetId = existing?.id || `preset-${Date.now()}`;
   const payload = {
+    id: presetId,
+    name: name.trim(),
     companies: Array.from(state.marketSelectedCompanies),
     hidden_events: Array.from(state.marketHiddenEvents),
+    pinned_events: Array.from(state.marketPinnedEvents),
     range: $("#marketcap-range-select").value,
+    annotation_mode: $("#marketcap-annotation-mode").value,
     saved_at: new Date().toISOString(),
   };
-  localStorage.setItem(marketPresetStorageKey(), JSON.stringify(payload));
+  state.marketPresets = [
+    ...state.marketPresets.filter((preset) => preset.id !== presetId),
+    payload,
+  ].sort((a, b) => a.name.localeCompare(b.name, "zh-Hans-CN"));
+  state.currentMarketPreset = presetId;
+  writeJsonStorage(marketPresetListStorageKey, state.marketPresets);
+  populateMarketPresets();
+  $("#marketcap-preset-select").value = presetId;
+  showToast("市值复盘存档已保存到当前浏览器");
+}
+
+function deleteMarketPreset() {
+  if (!state.currentMarketPreset) {
+    showToast("当前没有已保存的复盘存档");
+    return;
+  }
+  const preset = state.marketPresets.find((item) => item.id === state.currentMarketPreset);
+  if (!preset || !window.confirm(`删除复盘存档“${preset.name}”？`)) return;
+  state.marketPresets = state.marketPresets.filter((item) => item.id !== preset.id);
+  state.currentMarketPreset = "";
+  writeJsonStorage(marketPresetListStorageKey, state.marketPresets);
+  populateMarketPresets();
+  renderMarketcap();
+  showToast("复盘存档已删除");
+}
+
+function populateManualMarketEventForm() {
+  const vendorSelect = $("#manual-market-event-vendor");
+  const options = [
+    { company_id: "macro", display_name: "宏观事件" },
+    ...state.marketCompanies,
+  ];
+  vendorSelect.innerHTML = options.map((company) => `
+    <option value="${escapeHtml(company.company_id)}">${escapeHtml(company.display_name || company.company_id)}</option>
+  `).join("");
+}
+
+function addManualMarketEvent() {
+  const date = $("#manual-market-event-date").value;
+  const vendor = $("#manual-market-event-vendor").value || "macro";
+  const eventType = $("#manual-market-event-type").value || "company";
+  const title = $("#manual-market-event-title").value.trim();
+  const summary = $("#manual-market-event-summary").value.trim();
+  if (!date || !title) {
+    showToast("请先填写事件日期和短标题");
+    return;
+  }
+  const event = normalizeMarketEvent({
+    id: `local-${Date.now()}`,
+    date,
+    vendor,
+    company: vendor,
+    event_type: eventType,
+    title,
+    summary,
+    source: "local_manual",
+    status: "approved",
+    confidence: "manual",
+  });
+  state.marketLocalEvents.push(event);
+  state.marketEvents = mergeMarketEvents(state.marketEvents);
+  state.marketHiddenEvents.delete(event.id);
+  state.marketPinnedEvents.add(event.id);
+  saveLocalMarketEvents();
+  $("#manual-market-event-title").value = "";
+  $("#manual-market-event-summary").value = "";
+  renderMarketcap();
+  showToast("事件已添加，并已固定显示在图上");
+}
+
+function deleteMarketEvent(eventId) {
+  const event = state.marketEvents.find((item) => item.id === eventId);
+  if (!event || !window.confirm(`删除事件“${event.title}”？`)) return;
+  if (event.source === "local_manual" || event.id.startsWith("local-")) {
+    state.marketLocalEvents = state.marketLocalEvents.filter((item) => item.id !== eventId);
+  } else {
+    state.marketDeletedEvents.add(eventId);
+  }
+  state.marketEvents = state.marketEvents.filter((item) => item.id !== eventId);
+  state.marketHiddenEvents.delete(eventId);
+  state.marketPinnedEvents.delete(eventId);
+  saveLocalMarketEvents();
+  renderMarketcap();
+  showToast("事件已从当前浏览器删除");
 }
 
 function renderMarketCompanyOptions() {
@@ -1781,6 +1915,17 @@ function marketRowsInRange() {
   return state.marketCaps.filter((row) => !cutoff || row.Date >= cutoff);
 }
 
+function marketEventLabelIndex(labels, eventDate) {
+  if (!labels.length || !eventDate) return -1;
+  const exact = labels.indexOf(eventDate);
+  if (exact >= 0) return exact;
+  let fallback = -1;
+  labels.forEach((date, index) => {
+    if (date <= eventDate) fallback = index;
+  });
+  return fallback >= 0 ? fallback : 0;
+}
+
 function visibleMarketEvents() {
   const cutoff = marketcapCutoffDate();
   const marketDates = marketRowsInRange().map((row) => row.Date).sort();
@@ -1803,13 +1948,14 @@ function visibleMarketEvents() {
 
 function shortMarketEventLabel(event) {
   let text = String(event.title || "");
-  text = text
-    .replace(/发布/g, "")
-    .replace(/MiniMax[- ]?/gi, "")
-    .replace(/Google /gi, "")
-    .replace(/Gemini /gi, "")
-    .replace(/\s+/g, " ")
-    .trim();
+  if (event.event_type === "model_release") {
+    text = text
+      .replace(/发布/g, "")
+      .replace(/^MiniMax[- ]?/i, "")
+      .replace(/^Google\s+/i, "")
+      .replace(/^Gemini\s+/i, "");
+  }
+  text = text.replace(/\s+/g, " ").trim();
   if (!text) text = marketCompanyLabel(event.vendor);
   return text.length > 14 ? `${text.slice(0, 14)}...` : text;
 }
@@ -1936,19 +2082,21 @@ function renderMarketcap() {
   const events = visibleMarketEvents();
   const annotationMode = $("#marketcap-annotation-mode").value;
   const rankedEvents = events
-    .map((event) => ({ ...event, labelIndex: labels.indexOf(event.date) }))
+    .map((event) => ({ ...event, labelIndex: marketEventLabelIndex(labels, event.date) }))
     .filter((event) => event.labelIndex >= 0)
     .map((event) => {
       const selectedEvent = state.marketSelectedCompanies.has(event.vendor);
+      const pinnedEvent = state.marketPinnedEvents.has(event.id);
       const color = selectedEvent ? (companyColors.get(event.vendor) || "#0f8b8d") : "#8a8f93";
       const isMacro = event.vendor === "macro";
-      const priority = selectedEvent ? 0 : isMacro ? 1 : event.event_type === "model_release" ? 2 : 3;
+      const priority = pinnedEvent ? -1 : selectedEvent ? 0 : isMacro ? 1 : event.event_type === "model_release" ? 2 : 3;
       const anchor = marketEventAnchor(event, selected, rows);
       return {
         ...event,
         color,
         fill: selectedEvent ? "rgba(238, 247, 247, 0.96)" : "rgba(246, 248, 247, 0.96)",
         selectedEvent,
+        pinnedEvent,
         priority,
         anchorCompanyId: anchor.companyId,
         anchorValue: anchor.value,
@@ -1957,14 +2105,19 @@ function renderMarketcap() {
     .sort((a, b) => a.priority - b.priority || a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
   const labelLimit = annotationMode === "full" ? 36 : 22;
   const labelableEvents = rankedEvents.filter((event) => annotationMode === "full"
+    || event.pinnedEvent
     || (annotationMode === "selected" && event.selectedEvent)
     || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro")));
-  const labelIds = new Set(labelableEvents.slice(0, labelLimit).map((event) => event.id));
+  const labelIds = new Set([
+    ...rankedEvents.filter((event) => event.pinnedEvent).map((event) => event.id),
+    ...labelableEvents.slice(0, labelLimit).map((event) => event.id),
+  ]);
   const chartEvents = rankedEvents
     .slice()
     .sort((a, b) => a.date.localeCompare(b.date) || a.priority - b.priority || a.title.localeCompare(b.title))
     .map((event, index) => {
     const shouldLabel = annotationMode === "full"
+      || event.pinnedEvent
       || (annotationMode === "selected" && event.selectedEvent)
       || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro"));
     return {
@@ -2060,24 +2213,31 @@ function renderMarketcapEvents() {
     .slice(0, 240)
     .map((event) => {
       const checked = state.marketHiddenEvents.has(event.id) ? "" : "checked";
+      const pinned = state.marketPinnedEvents.has(event.id) ? " · 已固定" : "";
       return `
-        <label class="marketcap-event-row">
-          <input type="checkbox" value="${escapeHtml(event.id)}" ${checked}>
+        <div class="marketcap-event-row">
+          <input type="checkbox" value="${escapeHtml(event.id)}" aria-label="显示事件" ${checked}>
           <span class="marketcap-event-meta">${escapeHtml(event.date)} · ${escapeHtml(marketCompanyLabel(event.vendor))}</span>
           <span class="marketcap-event-title" title="${escapeHtml(event.summary || event.title)}">${escapeHtml(event.title)}</span>
-          <span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}</span>
-        </label>
+          <span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}${escapeHtml(pinned)}</span>
+          <button class="plain-button danger-button marketcap-delete-event" type="button" data-event-id="${escapeHtml(event.id)}">删除</button>
+        </div>
       `;
     }).join("");
-  document.querySelectorAll("#marketcap-event-list input").forEach((checkbox) => {
+  document.querySelectorAll("#marketcap-event-list input[type='checkbox']").forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) {
         state.marketHiddenEvents.delete(checkbox.value);
+        state.marketPinnedEvents.add(checkbox.value);
       } else {
         state.marketHiddenEvents.add(checkbox.value);
+        state.marketPinnedEvents.delete(checkbox.value);
       }
       renderMarketcap();
     });
+  });
+  document.querySelectorAll("#marketcap-event-list .marketcap-delete-event").forEach((button) => {
+    button.addEventListener("click", () => deleteMarketEvent(button.dataset.eventId));
   });
 }
 
@@ -2335,18 +2495,19 @@ async function init() {
     renderPricingPriceTypeOptions();
     renderPricingModelOptions();
 
-    const [marketCompanies, marketCaps, marketEventsPayload, marketDraftPayload, marketPresetPayload] = await Promise.all([
+    const [marketCompanies, marketCaps, marketEventsPayload, marketDraftPayload] = await Promise.all([
       loadCsv("ai_market_companies.csv"),
       loadCsv("ai_market_cap_history.csv"),
       loadJson("ai_market_events.json"),
       loadJson("ai_market_events_draft.json"),
-      loadJson("ai_market_presets.json"),
     ]);
     state.marketCompanies = marketCompanies;
     state.marketCaps = marketCaps;
-    state.marketEvents = (marketEventsPayload.events || []).map(normalizeMarketEvent);
+    loadLocalMarketEventState();
+    state.marketEvents = mergeMarketEvents(marketEventsPayload.events || []);
     state.marketDraftEvents = (marketDraftPayload.events || []).map(normalizeMarketEvent);
-    state.marketPresets = marketPresetPayload.presets || [];
+    loadMarketPresetList();
+    populateManualMarketEventForm();
     populateMarketPresets();
     renderMarketcap();
 

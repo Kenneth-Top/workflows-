@@ -437,6 +437,7 @@
           <input id="marketcap-event-search" type="search" placeholder="输入公司、模型或事件关键词">
         </label>
         <button id="save-marketcap-preset" class="plain-button" type="button">保存当前选择</button>
+        <button id="delete-marketcap-preset" class="plain-button danger-button" type="button">删除存档</button>
       </div>
 
       <div class="marketcap-layout">
@@ -456,6 +457,42 @@
             <button id="hide-unselected-marketcap-events" class="plain-button" type="button">隐藏非所选</button>
           </div>
           <div id="marketcap-event-list" class="marketcap-event-list"></div>
+          <div class="marketcap-manual-event">
+            <div class="checkbox-toolbar">
+              <strong>手动补充事件</strong>
+              <span>只保存在当前浏览器，可随时删除</span>
+            </div>
+            <div class="manual-event-grid">
+              <label>
+                日期
+                <input id="manual-market-event-date" type="date">
+              </label>
+              <label>
+                公司/厂商
+                <select id="manual-market-event-vendor"></select>
+              </label>
+              <label>
+                类型
+                <select id="manual-market-event-type">
+                  <option value="company">公司事件</option>
+                  <option value="macro">宏观事件</option>
+                  <option value="product">产品事件</option>
+                  <option value="pricing">价格调整</option>
+                  <option value="financing">融资/上市</option>
+                  <option value="model_release">模型发布</option>
+                </select>
+              </label>
+              <label>
+                短标题
+                <input id="manual-market-event-title" type="text" placeholder="例如：OpenClaw 之父推荐 MiniMax">
+              </label>
+              <label class="manual-event-summary">
+                摘要
+                <textarea id="manual-market-event-summary" rows="2" placeholder="可选，写给下方事件表和 tooltip"></textarea>
+              </label>
+            </div>
+            <button id="add-marketcap-event" class="plain-button" type="button">添加事件</button>
+          </div>
         </div>
       </div>
 

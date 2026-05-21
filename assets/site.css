@@ -193,7 +193,8 @@ label {
 }
 
 select,
-input {
+input,
+textarea {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -201,6 +202,10 @@ input {
   color: var(--ink);
   background: #ffffff;
   font: inherit;
+}
+
+textarea {
+  resize: vertical;
 }
 
 select[multiple] {
@@ -236,7 +241,7 @@ select[multiple] {
 }
 
 .marketcap-toolbar {
-  grid-template-columns: minmax(170px, 0.65fr) minmax(140px, 0.45fr) minmax(150px, 0.5fr) minmax(240px, 1fr) auto;
+  grid-template-columns: minmax(170px, 0.65fr) minmax(140px, 0.45fr) minmax(150px, 0.5fr) minmax(240px, 1fr) auto auto;
 }
 
 .marketcap-layout {
@@ -260,7 +265,7 @@ select[multiple] {
 
 .marketcap-event-row {
   display: grid;
-  grid-template-columns: auto minmax(96px, 0.34fr) minmax(160px, 1fr) minmax(92px, 0.3fr);
+  grid-template-columns: auto minmax(96px, 0.34fr) minmax(160px, 1fr) minmax(92px, 0.3fr) auto;
   gap: 10px;
   align-items: center;
   border: 1px solid var(--line);
@@ -286,6 +291,37 @@ select[multiple] {
 .marketcap-event-meta {
   color: var(--muted);
   font-size: 12px;
+}
+
+.danger-button {
+  color: #b42318;
+  border-color: #f1b8b1;
+}
+
+.danger-button:hover {
+  border-color: #b42318;
+  background: #b42318;
+  color: #ffffff;
+}
+
+.marketcap-manual-event {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.manual-event-grid {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.55fr) minmax(150px, 0.7fr) minmax(140px, 0.6fr) minmax(220px, 1fr);
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 10px;
+}
+
+.manual-event-summary {
+  grid-column: 1 / -1;
 }
 
 .marketcap-draft-empty {
@@ -580,6 +616,7 @@ iframe {
   .pricing-controls-grid,
   .marketcap-toolbar,
   .marketcap-layout,
+  .manual-event-grid,
   .metrics,
   .alert-grid,
   .filter-panel,
