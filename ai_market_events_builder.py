@@ -11,6 +11,7 @@ OUTPUT_FILE = ROOT / "ai_market_events.json"
 
 PROVIDER_VENDOR_MAP = {
     "MiniMax": "minimax",
+    "DeepSeek": "deepseek",
     "Z.ai": "zhipu",
     "Kimi": "kimi",
     "Moonshot AI": "kimi",
@@ -22,6 +23,22 @@ PROVIDER_VENDOR_MAP = {
     "Google Vertex AI": "google",
     "Meta": "meta",
 }
+
+MODEL_VENDOR_RULES = [
+    ("deepseek", ("deepseek", "deepseek-ai")),
+    ("minimax", ("minimax", "minimaxai")),
+    ("kimi", ("kimi", "moonshot")),
+    ("zhipu", ("glm", "zai-org", "z.ai")),
+    ("alibaba", ("qwen", "alibaba")),
+    ("bytedance", ("doubao", "bytedance", "seed-")),
+    ("tencent", ("hunyuan", "tencent")),
+    ("openai", ("gpt", "openai/", "o1", "o3", "o4")),
+    ("anthropic", ("claude", "anthropic")),
+    ("google", ("gemini", "gemma", "google/")),
+    ("meta", ("llama", "meta-llama")),
+    ("spacex", ("grok", "xai")),
+    ("stepfun", ("stepfun", "step-")),
+]
 
 
 def read_json(path, fallback):
@@ -37,7 +54,22 @@ def compact_model_name(name):
     text = str(name).strip()
     for suffix in (" Preview", " Instruct"):
         text = text.replace(suffix, "")
+    text = re.sub(r"\s+\((Non-reasoning|Reasoning|Reasoning,\s*[^)]+|high|low|Max Effort|High Effort)\)", "", text, flags=re.I)
     return text
+
+
+def infer_model_vendor(row):
+    haystack = " ".join(str(row.get(key) or "") for key in (
+        "Model",
+        "Host_Model",
+        "Host_API_ID",
+        "Model_Slug",
+        "Host_Model_Slug",
+    )).lower()
+    for vendor, needles in MODEL_VENDOR_RULES:
+        if any(needle in haystack for needle in needles):
+            return vendor
+    return PROVIDER_VENDOR_MAP.get(row.get("Provider") or "")
 
 
 def event_dedupe_key(event):
@@ -55,7 +87,7 @@ def event_dedupe_key(event):
 
 
 def merge_events(events):
-    priority = {"manual": 0, "notion": 1, "artificial_analysis": 2}
+    priority = {"artificial_analysis": 0, "manual": 1, "notion": 2}
     merged = {}
     for event in events:
         key = event_dedupe_key(event)
@@ -82,8 +114,7 @@ def pricing_events():
     events = []
     seen = set()
     for row in payload.get("records", []):
-        provider = row.get("Provider") or ""
-        vendor = PROVIDER_VENDOR_MAP.get(provider)
+        vendor = infer_model_vendor(row)
         release_date = (row.get("Release_Date") or "").strip()
         model = compact_model_name(row.get("Model") or row.get("Host_Model"))
         if not vendor or not release_date or not model:
@@ -109,7 +140,11 @@ def pricing_events():
 
 def main():
     manual_payload = read_json(MANUAL_FILE, {"events": []})
-    events_by_id = {event["id"]: event for event in manual_payload.get("events", [])}
+    events_by_id = {
+        event["id"]: event
+        for event in manual_payload.get("events", [])
+        if event.get("event_type") != "model_release"
+    }
     for event in pricing_events():
         events_by_id.setdefault(event["id"], event)
     events = sorted(merge_events(events_by_id.values()), key=lambda item: (item.get("date", ""), item.get("vendor", ""), item.get("title", "")))

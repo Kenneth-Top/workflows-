@@ -1822,7 +1822,6 @@ const marketcapEventPlugin = {
     const { ctx, chartArea, scales } = chart;
     const xScale = scales.x;
     const yScale = scales.y;
-    const xOffsets = [0, 76, -76, 136, -136, 38, -38];
     ctx.save();
     ctx.textBaseline = "middle";
     events.slice(0, 60).forEach((event, index) => {
@@ -1853,18 +1852,13 @@ const marketcapEventPlugin = {
       const paddingX = 6;
       const width = Math.min(Math.ceil(ctx.measureText(text).width) + paddingX * 2, 160);
       const height = 24;
-      const lane = index % xOffsets.length;
-      const placeAbove = anchorY - chartArea.top > 120;
-      const verticalStep = Math.floor(index / xOffsets.length) % 4;
-      let boxCenterX = x + xOffsets[lane];
-      let y = placeAbove
-        ? anchorY - 42 - verticalStep * 28
-        : anchorY + 42 + verticalStep * 28;
+      const sameDateOffset = event.sameDateOffset || 0;
+      let y = anchorY - 42 - sameDateOffset * 28;
       y = Math.max(chartArea.top + height / 2 + 4, Math.min(y, chartArea.bottom - height / 2 - 4));
-      let left = boxCenterX - width / 2;
+      let left = x - width / 2;
       left = Math.max(chartArea.left, Math.min(left, chartArea.right - width));
       const boxCenterY = y;
-      const targetY = placeAbove ? y + height / 2 : y - height / 2;
+      const targetY = y + height / 2;
 
       ctx.beginPath();
       ctx.moveTo(x, anchorY);
@@ -1926,14 +1920,17 @@ function renderMarketcap() {
     };
   });
   const latestDate = labels.at(-1) || "-";
-  const latestLeaders = selected.map((companyId) => {
-    const values = (byCompany.get(companyId) || []).filter((row) => row.Date === latestDate);
-    return { companyId, value: numberValue(values[0]?.Market_Cap_Billion_HKD) };
-  }).sort((a, b) => b.value - a.value);
+  const highestPoint = selected
+    .flatMap((companyId) => (byCompany.get(companyId) || []).map((row) => ({
+      companyId,
+      date: row.Date,
+      value: numberValue(row.Market_Cap_Billion_HKD),
+    })))
+    .sort((a, b) => b.value - a.value)[0];
 
   $("#marketcap-listed-count").textContent = new Set(state.marketCaps.map((row) => row.Company_ID)).size.toLocaleString();
   $("#marketcap-latest-date").textContent = latestDate;
-  $("#marketcap-leader").textContent = latestLeaders[0] ? `${marketCompanyLabel(latestLeaders[0].companyId)} ${latestLeaders[0].value.toFixed(1)}B HKD` : "-";
+  $("#marketcap-leader").textContent = highestPoint ? `${marketCompanyLabel(highestPoint.companyId)} ${highestPoint.value.toFixed(1)}B HKD (${highestPoint.date.slice(5)})` : "-";
   $("#marketcap-draft-count").textContent = state.marketDraftEvents.length.toLocaleString();
 
   const events = visibleMarketEvents();
@@ -1977,6 +1974,12 @@ function renderMarketcap() {
       displayMode: !shouldLabel || !labelIds.has(event.id) ? "dot" : "label",
     };
   });
+  const labeledByDate = {};
+  chartEvents.forEach((event) => {
+    if (event.displayMode !== "label") return;
+    labeledByDate[event.date] = (labeledByDate[event.date] || 0) + 1;
+    event.sameDateOffset = labeledByDate[event.date] - 1;
+  });
 
   if (state.charts.marketcap) state.charts.marketcap.destroy();
   const chart = new Chart($("#marketcap-chart"), {
@@ -2002,7 +2005,7 @@ function renderMarketcap() {
   state.charts.marketcap = chart;
   chart.update();
   renderMarketcapEvents();
-  renderMarketTimeline(chartEvents);
+  renderMarketTimeline(chartEvents.filter((event) => event.displayMode === "label"));
   renderMarketEventMatrix(events);
   renderMarketDraftEvents();
 }
@@ -2024,11 +2027,11 @@ function renderMarketTimeline(events) {
     return;
   }
   const selected = Array.from(state.marketSelectedCompanies);
-  tbody.innerHTML = events.slice(0, 80).map((event) => {
+  tbody.innerHTML = events.slice(0, 80).map((event, index) => {
     const values = selected.map((companyId) => marketValueOnOrBefore(companyId, event.date)).filter(Boolean).join("<br>");
     return `
       <tr>
-        <td><span class="timeline-index" style="background:${escapeHtml(event.color)}">${event.displayIndex}</span></td>
+        <td><span class="timeline-index" style="background:${escapeHtml(event.color)}">${index + 1}</span></td>
         <td>${escapeHtml(event.date)}</td>
         <td>${escapeHtml(marketCompanyLabel(event.vendor))}</td>
         <td>${values || "-"}</td>

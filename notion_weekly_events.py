@@ -25,6 +25,7 @@ VENDOR_ALIASES = {
     "anthropic": ["anthropic", "claude"],
     "google": ["google", "gemini"],
     "meta": ["meta", "llama"],
+    "deepseek": ["deepseek", "深度求索"],
     "spacex": ["spacex", "xai", "grok"],
 }
 
