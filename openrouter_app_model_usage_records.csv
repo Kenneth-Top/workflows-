@@ -10196,13 +10196,13 @@
 2026-04-22,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.743945
 2026-04-22,2308106,Descript,descript,openai/gpt-5.2-20251211,0.005673
 2026-04-22,2308106,Descript,descript,openai/gpt-5.4-20260305,0.223071
-2026-04-22,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.000526
-2026-04-22,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.006174
-2026-04-22,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.206716
-2026-04-22,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,1.826879
-2026-04-22,2344758,Stanley,stan,google/gemini-2.5-flash,0.019157
-2026-04-22,2344758,Stanley,stan,google/gemini-2.5-pro,5.9e-05
-2026-04-22,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.00023
+2026-04-22,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.000526
+2026-04-22,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.006174
+2026-04-22,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.206716
+2026-04-22,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,1.826879
+2026-04-22,2344758,Sahasra,stan,google/gemini-2.5-flash,0.019157
+2026-04-22,2344758,Sahasra,stan,google/gemini-2.5-pro,5.9e-05
+2026-04-22,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.00023
 2026-04-22,2354934,Qwen Code,qwen-code,Others,0.563339
 2026-04-22,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-flash-20260421,0.169685
 2026-04-22,2354934,Qwen Code,qwen-code,minimax/minimax-m2.5-20260211,0.069762
@@ -10336,16 +10336,16 @@
 2026-04-22,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,1.124024
 2026-04-22,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000184
 2026-04-22,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,6.246771
-2026-04-22,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.066226
-2026-04-22,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.03083
-2026-04-22,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.933383
-2026-04-22,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.024444
-2026-04-22,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.006613
-2026-04-22,3296290,Mira,mira,openai/gpt-5-2025-08-07,2.4e-05
-2026-04-22,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.002421
-2026-04-22,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.015546
-2026-04-22,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.005939
-2026-04-22,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.12723
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.066226
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.03083
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.933383
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.024444
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.006613
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,2.4e-05
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.002421
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.015546
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.005939
+2026-04-22,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.12723
 2026-04-22,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.479106
 2026-04-22,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.562207
 2026-04-22,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.124553
@@ -10528,15 +10528,15 @@
 2026-04-23,2308106,Descript,descript,moonshotai/kimi-k2.6-20260420,0.017129
 2026-04-23,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.732971
 2026-04-23,2308106,Descript,descript,openai/gpt-5.4-20260305,0.157666
-2026-04-23,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.000671
-2026-04-23,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.005484
-2026-04-23,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.223346
-2026-04-23,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,3.904117
-2026-04-23,2344758,Stanley,stan,google/gemini-2.5-flash,0.021867
-2026-04-23,2344758,Stanley,stan,google/gemini-2.5-pro,1.1e-05
-2026-04-23,2344758,Stanley,stan,openai/gpt-4.1-2025-04-14,3e-06
-2026-04-23,2344758,Stanley,stan,openai/gpt-5-2025-08-07,5e-06
-2026-04-23,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000227
+2026-04-23,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.000671
+2026-04-23,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.005484
+2026-04-23,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.223346
+2026-04-23,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,3.904117
+2026-04-23,2344758,Sahasra,stan,google/gemini-2.5-flash,0.021867
+2026-04-23,2344758,Sahasra,stan,google/gemini-2.5-pro,1.1e-05
+2026-04-23,2344758,Sahasra,stan,openai/gpt-4.1-2025-04-14,3e-06
+2026-04-23,2344758,Sahasra,stan,openai/gpt-5-2025-08-07,5e-06
+2026-04-23,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000227
 2026-04-23,2354934,Qwen Code,qwen-code,Others,0.708963
 2026-04-23,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.077711
 2026-04-23,2354934,Qwen Code,qwen-code,minimax/minimax-m2.5-20260211,0.08983
@@ -10671,15 +10671,15 @@
 2026-04-23,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.866694
 2026-04-23,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000185
 2026-04-23,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.593668
-2026-04-23,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.055275
-2026-04-23,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.026786
-2026-04-23,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.493049
-2026-04-23,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.026351
-2026-04-23,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.00432
-2026-04-23,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.002391
-2026-04-23,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.019592
-2026-04-23,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003861
-2026-04-23,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.109642
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.055275
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.026786
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.493049
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.026351
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.00432
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.002391
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.019592
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003861
+2026-04-23,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.109642
 2026-04-23,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.494405
 2026-04-23,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.457846
 2026-04-23,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.100836
@@ -10862,15 +10862,15 @@
 2026-04-24,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.61118
 2026-04-24,2308106,Descript,descript,openai/gpt-5.4-20260305,0.077282
 2026-04-24,2308106,Descript,descript,openai/gpt-5.5-20260423,1.782481
-2026-04-24,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003204
-2026-04-24,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.003336
-2026-04-24,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,3e-06
-2026-04-24,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.186855
-2026-04-24,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003126
-2026-04-24,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,4.382445
-2026-04-24,2344758,Stanley,stan,google/gemini-2.5-flash,0.017303
-2026-04-24,2344758,Stanley,stan,google/gemini-2.5-pro,1.8e-05
-2026-04-24,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000202
+2026-04-24,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003204
+2026-04-24,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.003336
+2026-04-24,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,3e-06
+2026-04-24,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.186855
+2026-04-24,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003126
+2026-04-24,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,4.382445
+2026-04-24,2344758,Sahasra,stan,google/gemini-2.5-flash,0.017303
+2026-04-24,2344758,Sahasra,stan,google/gemini-2.5-pro,1.8e-05
+2026-04-24,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000202
 2026-04-24,2354934,Qwen Code,qwen-code,Others,0.549127
 2026-04-24,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.250579
 2026-04-24,2354934,Qwen Code,qwen-code,kwaipilot/kat-coder-pro-v2-20260327,0.059798
@@ -11004,17 +11004,17 @@
 2026-04-24,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.707464
 2026-04-24,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000137
 2026-04-24,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.851941
-2026-04-24,3296290,Mira,mira,Others,0.000398
-2026-04-24,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.042144
-2026-04-24,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.016899
-2026-04-24,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.151822
-2026-04-24,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.029529
-2026-04-24,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003151
-2026-04-24,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.003023
-2026-04-24,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.021802
-2026-04-24,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.006935
-2026-04-24,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003007
-2026-04-24,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.101116
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.000398
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.042144
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.016899
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.151822
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.029529
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003151
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.003023
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.021802
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.006935
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003007
+2026-04-24,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.101116
 2026-04-24,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.468354
 2026-04-24,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.235077
 2026-04-24,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.075128
@@ -11198,14 +11198,14 @@
 2026-04-25,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.779439
 2026-04-25,2308106,Descript,descript,openai/gpt-5.4-20260305,0.196726
 2026-04-25,2308106,Descript,descript,openai/gpt-5.5-20260423,0.350803
-2026-04-25,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003529
-2026-04-25,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.001215
-2026-04-25,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.117896
-2026-04-25,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003711
-2026-04-25,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,4.40763
-2026-04-25,2344758,Stanley,stan,google/gemini-2.5-flash,0.008253
-2026-04-25,2344758,Stanley,stan,google/gemini-2.5-pro,7e-06
-2026-04-25,2344758,Stanley,stan,x-ai/grok-4.1-fast,9.7e-05
+2026-04-25,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003529
+2026-04-25,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.001215
+2026-04-25,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.117896
+2026-04-25,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003711
+2026-04-25,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,4.40763
+2026-04-25,2344758,Sahasra,stan,google/gemini-2.5-flash,0.008253
+2026-04-25,2344758,Sahasra,stan,google/gemini-2.5-pro,7e-06
+2026-04-25,2344758,Sahasra,stan,x-ai/grok-4.1-fast,9.7e-05
 2026-04-25,2354934,Qwen Code,qwen-code,Others,0.545446
 2026-04-25,2354934,Qwen Code,qwen-code,deepseek/deepseek-v3.2-20251201,0.097928
 2026-04-25,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.122162
@@ -11339,17 +11339,17 @@
 2026-04-25,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.007953
 2026-04-25,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,6.1e-05
 2026-04-25,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,1.995046
-2026-04-25,3296290,Mira,mira,Others,2.1e-05
-2026-04-25,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.042816
-2026-04-25,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.016082
-2026-04-25,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.242592
-2026-04-25,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.04586
-2026-04-25,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003021
-2026-04-25,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.002931
-2026-04-25,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.017515
-2026-04-25,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.007442
-2026-04-25,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.002133
-2026-04-25,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.137197
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,Others,2.1e-05
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.042816
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.016082
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.242592
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.04586
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003021
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.002931
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.017515
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.007442
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.002133
+2026-04-25,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.137197
 2026-04-25,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.331428
 2026-04-25,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,1.993354
 2026-04-25,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.070801
@@ -11532,15 +11532,15 @@
 2026-04-26,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.755535
 2026-04-26,2308106,Descript,descript,openai/gpt-5.2-20251211,0.01525
 2026-04-26,2308106,Descript,descript,openai/gpt-5.4-20260305,0.177475
-2026-04-26,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003628
-2026-04-26,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.008728
-2026-04-26,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.183475
-2026-04-26,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003475
-2026-04-26,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,4.830988
-2026-04-26,2344758,Stanley,stan,google/gemini-2.5-flash,0.013318
-2026-04-26,2344758,Stanley,stan,google/gemini-2.5-pro,1.1e-05
-2026-04-26,2344758,Stanley,stan,x-ai/grok-4-fast,1e-06
-2026-04-26,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000171
+2026-04-26,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003628
+2026-04-26,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.008728
+2026-04-26,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.183475
+2026-04-26,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003475
+2026-04-26,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,4.830988
+2026-04-26,2344758,Sahasra,stan,google/gemini-2.5-flash,0.013318
+2026-04-26,2344758,Sahasra,stan,google/gemini-2.5-pro,1.1e-05
+2026-04-26,2344758,Sahasra,stan,x-ai/grok-4-fast,1e-06
+2026-04-26,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000171
 2026-04-26,2354934,Qwen Code,qwen-code,Others,0.491701
 2026-04-26,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.053649
 2026-04-26,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-flash-20260421,0.06871
@@ -11673,17 +11673,17 @@
 2026-04-26,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.006608
 2026-04-26,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,2e-05
 2026-04-26,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,1.688485
-2026-04-26,3296290,Mira,mira,Others,6e-05
-2026-04-26,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.055158
-2026-04-26,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.017937
-2026-04-26,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.650861
-2026-04-26,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.032585
-2026-04-26,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.003057
-2026-04-26,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.00291
-2026-04-26,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.027742
-2026-04-26,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.004583
-2026-04-26,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.006829
-2026-04-26,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.142112
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,Others,6e-05
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.055158
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.017937
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.650861
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.032585
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.003057
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.00291
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.027742
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.004583
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.006829
+2026-04-26,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.142112
 2026-04-26,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.28204
 2026-04-26,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.220934
 2026-04-26,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.063928
@@ -11866,16 +11866,16 @@
 2026-04-27,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.642348
 2026-04-27,2308106,Descript,descript,openai/gpt-5.2-20251211,0.018131
 2026-04-27,2308106,Descript,descript,openai/gpt-5.4-20260305,0.091545
-2026-04-27,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003569
-2026-04-27,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.010696
-2026-04-27,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.309129
-2026-04-27,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003704
-2026-04-27,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,3.314777
-2026-04-27,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,4.2e-05
-2026-04-27,2344758,Stanley,stan,google/gemini-2.5-flash,0.021897
-2026-04-27,2344758,Stanley,stan,google/gemini-2.5-pro,2.7e-05
-2026-04-27,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.24956
-2026-04-27,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000236
+2026-04-27,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003569
+2026-04-27,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.010696
+2026-04-27,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.309129
+2026-04-27,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003704
+2026-04-27,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,3.314777
+2026-04-27,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,4.2e-05
+2026-04-27,2344758,Sahasra,stan,google/gemini-2.5-flash,0.021897
+2026-04-27,2344758,Sahasra,stan,google/gemini-2.5-pro,2.7e-05
+2026-04-27,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.24956
+2026-04-27,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000236
 2026-04-27,2354934,Qwen Code,qwen-code,Others,0.33313
 2026-04-27,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.08021
 2026-04-27,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.063574
@@ -12004,17 +12004,17 @@
 2026-04-27,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.016232
 2026-04-27,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,6.5e-05
 2026-04-27,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.065525
-2026-04-27,3296290,Mira,mira,Others,0.004218
-2026-04-27,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.060421
-2026-04-27,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.013642
-2026-04-27,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.913664
-2026-04-27,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.069009
-2026-04-27,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.013568
-2026-04-27,3296290,Mira,mira,openai/gpt-4o-mini,0.180435
-2026-04-27,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.042358
-2026-04-27,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.007039
-2026-04-27,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.003065
-2026-04-27,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.190646
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.004218
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.060421
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.013642
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.913664
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.069009
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.013568
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.180435
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.042358
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.007039
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.003065
+2026-04-27,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.190646
 2026-04-27,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.459508
 2026-04-27,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.204808
 2026-04-27,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.065507
@@ -12199,17 +12199,17 @@
 2026-04-28,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.809053
 2026-04-28,2308106,Descript,descript,openai/gpt-5.4-20260305,0.108597
 2026-04-28,2308106,Descript,descript,openai/gpt-5.5-20260423,0.03765
-2026-04-28,2344758,Stanley,stan,Others,6e-06
-2026-04-28,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003431
-2026-04-28,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.009044
-2026-04-28,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.323905
-2026-04-28,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003727
-2026-04-28,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.856042
-2026-04-28,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,6e-06
-2026-04-28,2344758,Stanley,stan,google/gemini-2.5-flash,0.023364
-2026-04-28,2344758,Stanley,stan,google/gemini-2.5-pro,0.000116
-2026-04-28,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.579523
-2026-04-28,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000214
+2026-04-28,2344758,Sahasra,stan,Others,6e-06
+2026-04-28,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003431
+2026-04-28,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.009044
+2026-04-28,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.323905
+2026-04-28,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003727
+2026-04-28,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.856042
+2026-04-28,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,6e-06
+2026-04-28,2344758,Sahasra,stan,google/gemini-2.5-flash,0.023364
+2026-04-28,2344758,Sahasra,stan,google/gemini-2.5-pro,0.000116
+2026-04-28,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.579523
+2026-04-28,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000214
 2026-04-28,2354934,Qwen Code,qwen-code,Others,0.600142
 2026-04-28,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.145923
 2026-04-28,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-flash-20260421,0.117753
@@ -12338,17 +12338,17 @@
 2026-04-28,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.015401
 2026-04-28,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000131
 2026-04-28,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.782875
-2026-04-28,3296290,Mira,mira,Others,0.005716
-2026-04-28,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.060604
-2026-04-28,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.010538
-2026-04-28,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.451138
-2026-04-28,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.072787
-2026-04-28,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.029841
-2026-04-28,3296290,Mira,mira,openai/gpt-4o-mini,0.345548
-2026-04-28,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.007125
-2026-04-28,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.033068
-2026-04-28,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.479871
-2026-04-28,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.248222
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.005716
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.060604
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.010538
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.451138
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.072787
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.029841
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.345548
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.007125
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.033068
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.479871
+2026-04-28,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.248222
 2026-04-28,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.499842
 2026-04-28,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.41666
 2026-04-28,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.080344
@@ -12533,15 +12533,15 @@
 2026-04-29,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.747902
 2026-04-29,2308106,Descript,descript,openai/gpt-5.2-20251211,0.01968
 2026-04-29,2308106,Descript,descript,openai/gpt-5.4-20260305,0.109988
-2026-04-29,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003357
-2026-04-29,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.004496
-2026-04-29,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.285285
-2026-04-29,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003394
-2026-04-29,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.886178
-2026-04-29,2344758,Stanley,stan,google/gemini-2.5-flash,0.02173
-2026-04-29,2344758,Stanley,stan,google/gemini-2.5-pro,7.2e-05
-2026-04-29,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.545732
-2026-04-29,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000224
+2026-04-29,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003357
+2026-04-29,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.004496
+2026-04-29,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.285285
+2026-04-29,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003394
+2026-04-29,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.886178
+2026-04-29,2344758,Sahasra,stan,google/gemini-2.5-flash,0.02173
+2026-04-29,2344758,Sahasra,stan,google/gemini-2.5-pro,7.2e-05
+2026-04-29,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.545732
+2026-04-29,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000224
 2026-04-29,2354934,Qwen Code,qwen-code,Others,0.870236
 2026-04-29,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.383491
 2026-04-29,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.112756
@@ -12667,17 +12667,17 @@
 2026-04-29,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.015212
 2026-04-29,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000101
 2026-04-29,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.276388
-2026-04-29,3296290,Mira,mira,Others,0.003975
-2026-04-29,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.064379
-2026-04-29,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.013595
-2026-04-29,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.563966
-2026-04-29,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.083797
-2026-04-29,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.031497
-2026-04-29,3296290,Mira,mira,openai/gpt-4o-mini,0.334407
-2026-04-29,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.005207
-2026-04-29,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.030152
-2026-04-29,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.698587
-2026-04-29,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.168799
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.003975
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.064379
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.013595
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.563966
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.083797
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.031497
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.334407
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.005207
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.030152
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.698587
+2026-04-29,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.168799
 2026-04-29,3350625,extra.email,extra-email,anthropic/claude-4.6-sonnet-20260217,0.000431
 2026-04-29,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.488724
 2026-04-29,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.282087
@@ -12863,17 +12863,17 @@
 2026-04-30,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.795247
 2026-04-30,2308106,Descript,descript,openai/gpt-5.4-20260305,0.083835
 2026-04-30,2308106,Descript,descript,openai/gpt-5.5-20260423,0.1157
-2026-04-30,2344758,Stanley,stan,Others,6e-06
-2026-04-30,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003341
-2026-04-30,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.003204
-2026-04-30,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,7e-06
-2026-04-30,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.265348
-2026-04-30,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.00322
-2026-04-30,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.659764
-2026-04-30,2344758,Stanley,stan,google/gemini-2.5-flash,0.022348
-2026-04-30,2344758,Stanley,stan,google/gemini-2.5-flash-lite,8.9e-05
-2026-04-30,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.385465
-2026-04-30,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000147
+2026-04-30,2344758,Sahasra,stan,Others,6e-06
+2026-04-30,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003341
+2026-04-30,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.003204
+2026-04-30,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,7e-06
+2026-04-30,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.265348
+2026-04-30,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.00322
+2026-04-30,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.659764
+2026-04-30,2344758,Sahasra,stan,google/gemini-2.5-flash,0.022348
+2026-04-30,2344758,Sahasra,stan,google/gemini-2.5-flash-lite,8.9e-05
+2026-04-30,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.385465
+2026-04-30,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000147
 2026-04-30,2354934,Qwen Code,qwen-code,Others,0.728609
 2026-04-30,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.209135
 2026-04-30,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.107618
@@ -12997,17 +12997,17 @@
 2026-04-30,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.013425
 2026-04-30,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,5.6e-05
 2026-04-30,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.416232
-2026-04-30,3296290,Mira,mira,Others,0.004981
-2026-04-30,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.073922
-2026-04-30,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.009023
-2026-04-30,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.633974
-2026-04-30,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.058773
-2026-04-30,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.022697
-2026-04-30,3296290,Mira,mira,openai/gpt-4o-mini,0.373288
-2026-04-30,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.028986
-2026-04-30,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.035883
-2026-04-30,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.595295
-2026-04-30,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.110895
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.004981
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.073922
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.009023
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.633974
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.058773
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.022697
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.373288
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.028986
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.035883
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.595295
+2026-04-30,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.110895
 2026-04-30,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.520387
 2026-04-30,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.397096
 2026-04-30,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.085719
@@ -13192,14 +13192,14 @@
 2026-05-01,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,2.132416
 2026-05-01,2308106,Descript,descript,openai/gpt-5.4-20260305,0.024122
 2026-05-01,2308106,Descript,descript,openai/gpt-5.5-20260423,0.134598
-2026-05-01,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003544
-2026-05-01,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.005302
-2026-05-01,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.206941
-2026-05-01,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003529
-2026-05-01,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.652638
-2026-05-01,2344758,Stanley,stan,google/gemini-2.5-flash,0.017286
-2026-05-01,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.359351
-2026-05-01,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000124
+2026-05-01,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003544
+2026-05-01,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.005302
+2026-05-01,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.206941
+2026-05-01,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003529
+2026-05-01,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.652638
+2026-05-01,2344758,Sahasra,stan,google/gemini-2.5-flash,0.017286
+2026-05-01,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.359351
+2026-05-01,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000124
 2026-05-01,2354934,Qwen Code,qwen-code,Others,0.794312
 2026-05-01,2354934,Qwen Code,qwen-code,anthropic/claude-4.7-opus-20260416,0.14833
 2026-05-01,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.112809
@@ -13321,17 +13321,17 @@
 2026-05-01,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.011433
 2026-05-01,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,7e-05
 2026-05-01,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.136367
-2026-05-01,3296290,Mira,mira,Others,0.012529
-2026-05-01,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.108733
-2026-05-01,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.669659
-2026-05-01,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.073288
-2026-05-01,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.019091
-2026-05-01,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.064357
-2026-05-01,3296290,Mira,mira,openai/gpt-4o-mini,0.336131
-2026-05-01,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.059174
-2026-05-01,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.035282
-2026-05-01,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.564784
-2026-05-01,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.095922
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.012529
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.108733
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.669659
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.073288
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.019091
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.064357
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.336131
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.059174
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.035282
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.564784
+2026-05-01,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.095922
 2026-05-01,3350625,extra.email,extra-email,deepseek/deepseek-v3.2-20251201,0.000936
 2026-05-01,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.552739
 2026-05-01,3350625,extra.email,extra-email,moonshotai/kimi-k2.5-0127,7.9e-05
@@ -13520,14 +13520,14 @@
 2026-05-02,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.782172
 2026-05-02,2308106,Descript,descript,openai/gpt-5.4-20260305,0.031951
 2026-05-02,2308106,Descript,descript,openai/gpt-5.5-20260423,0.083347
-2026-05-02,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003447
-2026-05-02,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.00249
-2026-05-02,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.148664
-2026-05-02,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003618
-2026-05-02,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.651537
-2026-05-02,2344758,Stanley,stan,google/gemini-2.5-flash,0.011164
-2026-05-02,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.393849
-2026-05-02,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000121
+2026-05-02,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003447
+2026-05-02,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.00249
+2026-05-02,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.148664
+2026-05-02,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003618
+2026-05-02,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.651537
+2026-05-02,2344758,Sahasra,stan,google/gemini-2.5-flash,0.011164
+2026-05-02,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.393849
+2026-05-02,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000121
 2026-05-02,2354934,Qwen Code,qwen-code,Others,0.50858
 2026-05-02,2354934,Qwen Code,qwen-code,anthropic/claude-4.7-opus-20260416,0.110751
 2026-05-02,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.466873
@@ -13649,17 +13649,17 @@
 2026-05-02,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.006117
 2026-05-02,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,3.4e-05
 2026-05-02,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,1.245526
-2026-05-02,3296290,Mira,mira,Others,0.00787
-2026-05-02,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.084092
-2026-05-02,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.01275
-2026-05-02,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.728135
-2026-05-02,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.047396
-2026-05-02,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.01923
-2026-05-02,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.07999
-2026-05-02,3296290,Mira,mira,openai/gpt-4o-mini,0.369683
-2026-05-02,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.027989
-2026-05-02,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.528123
-2026-05-02,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.127922
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.00787
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.084092
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.01275
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.728135
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.047396
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.01923
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.07999
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.369683
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.027989
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.528123
+2026-05-02,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.127922
 2026-05-02,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.38731
 2026-05-02,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.213255
 2026-05-02,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.056348
@@ -13843,17 +13843,17 @@
 2026-05-03,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.884798
 2026-05-03,2308106,Descript,descript,openai/gpt-5.4-20260305,0.046523
 2026-05-03,2308106,Descript,descript,openai/gpt-5.5-20260423,0.147339
-2026-05-03,2344758,Stanley,stan,Others,8.2e-05
-2026-05-03,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003457
-2026-05-03,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.002451
-2026-05-03,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.175953
-2026-05-03,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.0036
-2026-05-03,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.704418
-2026-05-03,2344758,Stanley,stan,google/gemini-2.5-flash,0.013765
-2026-05-03,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.362292
-2026-05-03,2344758,Stanley,stan,openai/gpt-4.1-2025-04-14,0.0003
-2026-05-03,2344758,Stanley,stan,openai/gpt-5-2025-08-07,0.000616
-2026-05-03,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000102
+2026-05-03,2344758,Sahasra,stan,Others,8.2e-05
+2026-05-03,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003457
+2026-05-03,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.002451
+2026-05-03,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.175953
+2026-05-03,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.0036
+2026-05-03,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.704418
+2026-05-03,2344758,Sahasra,stan,google/gemini-2.5-flash,0.013765
+2026-05-03,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.362292
+2026-05-03,2344758,Sahasra,stan,openai/gpt-4.1-2025-04-14,0.0003
+2026-05-03,2344758,Sahasra,stan,openai/gpt-5-2025-08-07,0.000616
+2026-05-03,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000102
 2026-05-03,2354934,Qwen Code,qwen-code,Others,0.673106
 2026-05-03,2354934,Qwen Code,qwen-code,deepseek/deepseek-v4-flash-20260423,0.212196
 2026-05-03,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.181652
@@ -13978,17 +13978,17 @@
 2026-05-03,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.002201
 2026-05-03,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,3.3e-05
 2026-05-03,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.501487
-2026-05-03,3296290,Mira,mira,Others,0.008113
-2026-05-03,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.068008
-2026-05-03,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.012461
-2026-05-03,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.790475
-2026-05-03,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.050593
-2026-05-03,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.021634
-2026-05-03,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.080649
-2026-05-03,3296290,Mira,mira,openai/gpt-4o-mini,0.366817
-2026-05-03,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.02641
-2026-05-03,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.519018
-2026-05-03,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.153975
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.008113
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.068008
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.012461
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.790475
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.050593
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.021634
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.080649
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.366817
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.02641
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.519018
+2026-05-03,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.153975
 2026-05-03,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.324288
 2026-05-03,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.264598
 2026-05-03,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.055322
@@ -14174,17 +14174,17 @@
 2026-05-04,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.602107
 2026-05-04,2308106,Descript,descript,openai/gpt-5.4-20260305,0.029155
 2026-05-04,2308106,Descript,descript,openai/gpt-5.5-20260423,0.10154
-2026-05-04,2344758,Stanley,stan,Others,0.0001
-2026-05-04,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003187
-2026-05-04,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.00256
-2026-05-04,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.010168
-2026-05-04,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.267701
-2026-05-04,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003339
-2026-05-04,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.754602
-2026-05-04,2344758,Stanley,stan,google/gemini-2.5-flash,0.020681
-2026-05-04,2344758,Stanley,stan,google/gemini-2.5-pro,0.000119
-2026-05-04,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.397697
-2026-05-04,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000148
+2026-05-04,2344758,Sahasra,stan,Others,0.0001
+2026-05-04,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003187
+2026-05-04,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.00256
+2026-05-04,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.010168
+2026-05-04,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.267701
+2026-05-04,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003339
+2026-05-04,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.754602
+2026-05-04,2344758,Sahasra,stan,google/gemini-2.5-flash,0.020681
+2026-05-04,2344758,Sahasra,stan,google/gemini-2.5-pro,0.000119
+2026-05-04,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.397697
+2026-05-04,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000148
 2026-05-04,2354934,Qwen Code,qwen-code,Others,0.664459
 2026-05-04,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.175727
 2026-05-04,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.091264
@@ -14310,17 +14310,17 @@
 2026-05-04,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.062173
 2026-05-04,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,7.4e-05
 2026-05-04,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,2.572632
-2026-05-04,3296290,Mira,mira,Others,0.020532
-2026-05-04,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.081817
-2026-05-04,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.319169
-2026-05-04,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.056972
-2026-05-04,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.029985
-2026-05-04,3296290,Mira,mira,openai/gpt-4.1-mini-2025-04-14,0.081558
-2026-05-04,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.051468
-2026-05-04,3296290,Mira,mira,openai/gpt-4o-mini,0.369983
-2026-05-04,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.037964
-2026-05-04,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.575579
-2026-05-04,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.236304
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.020532
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.081817
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.319169
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.056972
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.029985
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-mini-2025-04-14,0.081558
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.051468
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.369983
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.037964
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.575579
+2026-05-04,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.236304
 2026-05-04,3350625,extra.email,extra-email,anthropic/claude-4.6-sonnet-20260217,0.000432
 2026-05-04,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,1.128823
 2026-05-04,3350625,extra.email,extra-email,moonshotai/kimi-k2.6-20260420,0.000409
@@ -14508,17 +14508,17 @@
 2026-05-05,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.46199
 2026-05-05,2308106,Descript,descript,openai/gpt-5.4-20260305,0.053556
 2026-05-05,2308106,Descript,descript,openai/gpt-5.5-20260423,0.192005
-2026-05-05,2344758,Stanley,stan,Others,4.6e-05
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003067
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.00463
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.028151
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.276647
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003467
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.626412
-2026-05-05,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.02445
-2026-05-05,2344758,Stanley,stan,google/gemini-2.5-flash,0.022522
-2026-05-05,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.445627
-2026-05-05,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000209
+2026-05-05,2344758,Sahasra,stan,Others,4.6e-05
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003067
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.00463
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.028151
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.276647
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003467
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.626412
+2026-05-05,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.02445
+2026-05-05,2344758,Sahasra,stan,google/gemini-2.5-flash,0.022522
+2026-05-05,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.445627
+2026-05-05,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000209
 2026-05-05,2354934,Qwen Code,qwen-code,Others,0.414914
 2026-05-05,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.133764
 2026-05-05,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.080327
@@ -14642,17 +14642,17 @@
 2026-05-05,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.014003
 2026-05-05,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,2e-05
 2026-05-05,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,2.803552
-2026-05-05,3296290,Mira,mira,Others,0.013568
-2026-05-05,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.055174
-2026-05-05,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.459134
-2026-05-05,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.059846
-2026-05-05,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.029881
-2026-05-05,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.402506
-2026-05-05,3296290,Mira,mira,openai/gpt-4o-mini,0.02062
-2026-05-05,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.01035
-2026-05-05,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.035342
-2026-05-05,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.463255
-2026-05-05,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.163309
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.013568
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.055174
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.459134
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.059846
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.029881
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.402506
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.02062
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.01035
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.035342
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.463255
+2026-05-05,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.163309
 2026-05-05,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,2.326286
 2026-05-05,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.231492
 2026-05-05,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.077675
@@ -14825,17 +14825,17 @@
 2026-05-06,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,1.116011
 2026-05-06,2308106,Descript,descript,openai/gpt-5.4-20260305,0.032799
 2026-05-06,2308106,Descript,descript,openai/gpt-5.5-20260423,0.152746
-2026-05-06,2344758,Stanley,stan,Others,3.6e-05
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.003208
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.00618
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.018771
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.277877
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.003207
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.592796
-2026-05-06,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.026017
-2026-05-06,2344758,Stanley,stan,google/gemini-2.5-flash,0.02187
-2026-05-06,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.541953
-2026-05-06,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000187
+2026-05-06,2344758,Sahasra,stan,Others,3.6e-05
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.003208
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.00618
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.018771
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.277877
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.003207
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.592796
+2026-05-06,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.026017
+2026-05-06,2344758,Sahasra,stan,google/gemini-2.5-flash,0.02187
+2026-05-06,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.541953
+2026-05-06,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000187
 2026-05-06,2354934,Qwen Code,qwen-code,Others,0.609335
 2026-05-06,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.187903
 2026-05-06,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.106135
@@ -14957,17 +14957,17 @@
 2026-05-06,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.014873
 2026-05-06,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000191
 2026-05-06,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.116203
-2026-05-06,3296290,Mira,mira,Others,0.008648
-2026-05-06,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.073022
-2026-05-06,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.011541
-2026-05-06,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.857697
-2026-05-06,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.054931
-2026-05-06,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.030826
-2026-05-06,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.374133
-2026-05-06,3296290,Mira,mira,openai/gpt-4o-mini,0.023365
-2026-05-06,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.040963
-2026-05-06,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.485465
-2026-05-06,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.185678
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.008648
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.073022
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.011541
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.857697
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.054931
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.030826
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.374133
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.023365
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.040963
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.485465
+2026-05-06,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.185678
 2026-05-06,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,1.313962
 2026-05-06,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.294734
 2026-05-06,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.074351
@@ -15141,17 +15141,17 @@
 2026-05-07,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.980767
 2026-05-07,2308106,Descript,descript,openai/gpt-5.4-20260305,0.024568
 2026-05-07,2308106,Descript,descript,openai/gpt-5.5-20260423,0.172463
-2026-05-07,2344758,Stanley,stan,Others,7.1e-05
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4-sonnet-20250522,0.000536
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.005945
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.073071
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.281877
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4.5-sonnet-20250929,0.000355
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.596984
-2026-05-07,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.101837
-2026-05-07,2344758,Stanley,stan,google/gemini-2.5-flash,0.022025
-2026-05-07,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.566245
-2026-05-07,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000177
+2026-05-07,2344758,Sahasra,stan,Others,7.1e-05
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4-sonnet-20250522,0.000536
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.005945
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.073071
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.281877
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4.5-sonnet-20250929,0.000355
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.596984
+2026-05-07,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.101837
+2026-05-07,2344758,Sahasra,stan,google/gemini-2.5-flash,0.022025
+2026-05-07,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.566245
+2026-05-07,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000177
 2026-05-07,2354934,Qwen Code,qwen-code,Others,0.584355
 2026-05-07,2354934,Qwen Code,qwen-code,inclusionai/ling-2.6-1t-20260423,0.103456
 2026-05-07,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.079589
@@ -15275,17 +15275,17 @@
 2026-05-07,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.015719
 2026-05-07,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,8.7e-05
 2026-05-07,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.611348
-2026-05-07,3296290,Mira,mira,Others,0.008214
-2026-05-07,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.096511
-2026-05-07,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.010681
-2026-05-07,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.601634
-2026-05-07,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.062342
-2026-05-07,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.043111
-2026-05-07,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.34066
-2026-05-07,3296290,Mira,mira,openai/gpt-4o-mini,0.023733
-2026-05-07,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.039246
-2026-05-07,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.450717
-2026-05-07,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.178449
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.008214
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.096511
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.010681
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.601634
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.062342
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.043111
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.34066
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.023733
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.039246
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.450717
+2026-05-07,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.178449
 2026-05-07,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.689562
 2026-05-07,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.345056
 2026-05-07,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.071542
@@ -15459,16 +15459,16 @@
 2026-05-08,2308106,Descript,descript,google/gemini-3.1-pro-preview-20260219,0.048725
 2026-05-08,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.619434
 2026-05-08,2308106,Descript,descript,openai/gpt-5.5-20260423,0.044364
-2026-05-08,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.005033
-2026-05-08,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.012227
-2026-05-08,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.235055
-2026-05-08,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.644813
-2026-05-08,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,6e-06
-2026-05-08,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.011401
-2026-05-08,2344758,Stanley,stan,google/gemini-2.5-flash,0.018865
-2026-05-08,2344758,Stanley,stan,google/gemini-2.5-pro,3e-05
-2026-05-08,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.679967
-2026-05-08,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000161
+2026-05-08,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.005033
+2026-05-08,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.012227
+2026-05-08,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.235055
+2026-05-08,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.644813
+2026-05-08,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,6e-06
+2026-05-08,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.011401
+2026-05-08,2344758,Sahasra,stan,google/gemini-2.5-flash,0.018865
+2026-05-08,2344758,Sahasra,stan,google/gemini-2.5-pro,3e-05
+2026-05-08,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.679967
+2026-05-08,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000161
 2026-05-08,2354934,Qwen Code,qwen-code,Others,0.429484
 2026-05-08,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.075024
 2026-05-08,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.099033
@@ -15593,17 +15593,17 @@
 2026-05-08,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.02389
 2026-05-08,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,8.8e-05
 2026-05-08,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.464341
-2026-05-08,3296290,Mira,mira,Others,0.008098
-2026-05-08,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.083791
-2026-05-08,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.009504
-2026-05-08,3296290,Mira,mira,minimax/minimax-m2.5-20260211,4.974402
-2026-05-08,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.067736
-2026-05-08,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.07812
-2026-05-08,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.430406
-2026-05-08,3296290,Mira,mira,openai/gpt-4o-mini,0.023045
-2026-05-08,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.053484
-2026-05-08,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.428061
-2026-05-08,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.212276
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.008098
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.083791
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.009504
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,4.974402
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.067736
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.07812
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.430406
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.023045
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.053484
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.428061
+2026-05-08,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.212276
 2026-05-08,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.627201
 2026-05-08,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.942094
 2026-05-08,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.072571
@@ -15776,15 +15776,15 @@
 2026-05-09,2308106,Descript,descript,google/gemini-3.1-pro-preview-20260219,0.19632
 2026-05-09,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.338211
 2026-05-09,2308106,Descript,descript,openai/gpt-5.5-20260423,0.095226
-2026-05-09,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.002106
-2026-05-09,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.017382
-2026-05-09,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.144326
-2026-05-09,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.789503
-2026-05-09,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.013773
-2026-05-09,2344758,Stanley,stan,google/gemini-2.5-flash,0.010148
-2026-05-09,2344758,Stanley,stan,google/gemini-2.5-pro,6e-06
-2026-05-09,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.703213
-2026-05-09,2344758,Stanley,stan,x-ai/grok-4.1-fast,8.1e-05
+2026-05-09,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.002106
+2026-05-09,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.017382
+2026-05-09,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.144326
+2026-05-09,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.789503
+2026-05-09,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.013773
+2026-05-09,2344758,Sahasra,stan,google/gemini-2.5-flash,0.010148
+2026-05-09,2344758,Sahasra,stan,google/gemini-2.5-pro,6e-06
+2026-05-09,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.703213
+2026-05-09,2344758,Sahasra,stan,x-ai/grok-4.1-fast,8.1e-05
 2026-05-09,2354934,Qwen Code,qwen-code,Others,0.367931
 2026-05-09,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.223453
 2026-05-09,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.066735
@@ -15905,17 +15905,17 @@
 2026-05-09,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.003963
 2026-05-09,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.00011
 2026-05-09,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.940263
-2026-05-09,3296290,Mira,mira,Others,0.005939
-2026-05-09,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.096469
-2026-05-09,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.008979
-2026-05-09,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.912462
-2026-05-09,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.059051
-2026-05-09,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.045392
-2026-05-09,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.413432
-2026-05-09,3296290,Mira,mira,openai/gpt-4o-mini,0.02202
-2026-05-09,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.037494
-2026-05-09,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.400325
-2026-05-09,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.180291
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.005939
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.096469
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.008979
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.912462
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.059051
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.045392
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.413432
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.02202
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.037494
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.400325
+2026-05-09,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.180291
 2026-05-09,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.444866
 2026-05-09,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,1.973637
 2026-05-09,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.053364
@@ -16086,15 +16086,15 @@
 2026-05-10,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.29616
 2026-05-10,2308106,Descript,descript,openai/gpt-5.4-20260305,0.004125
 2026-05-10,2308106,Descript,descript,openai/gpt-5.5-20260423,0.122906
-2026-05-10,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.002449
-2026-05-10,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.039893
-2026-05-10,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.168469
-2026-05-10,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.791671
-2026-05-10,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.064569
-2026-05-10,2344758,Stanley,stan,google/gemini-2.5-flash,0.013448
-2026-05-10,2344758,Stanley,stan,google/gemini-2.5-pro,1.6e-05
-2026-05-10,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.705695
-2026-05-10,2344758,Stanley,stan,x-ai/grok-4.1-fast,6.8e-05
+2026-05-10,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.002449
+2026-05-10,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.039893
+2026-05-10,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.168469
+2026-05-10,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.791671
+2026-05-10,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.064569
+2026-05-10,2344758,Sahasra,stan,google/gemini-2.5-flash,0.013448
+2026-05-10,2344758,Sahasra,stan,google/gemini-2.5-pro,1.6e-05
+2026-05-10,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.705695
+2026-05-10,2344758,Sahasra,stan,x-ai/grok-4.1-fast,6.8e-05
 2026-05-10,2354934,Qwen Code,qwen-code,Others,0.334468
 2026-05-10,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.216195
 2026-05-10,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.056759
@@ -16217,17 +16217,17 @@
 2026-05-10,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.001481
 2026-05-10,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,4.1e-05
 2026-05-10,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.249012
-2026-05-10,3296290,Mira,mira,Others,0.017256
-2026-05-10,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.124004
-2026-05-10,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.010045
-2026-05-10,3296290,Mira,mira,minimax/minimax-m2.5-20260211,17.288923
-2026-05-10,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.091521
-2026-05-10,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.05516
-2026-05-10,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.620549
-2026-05-10,3296290,Mira,mira,openai/gpt-4o-mini,0.030493
-2026-05-10,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.079494
-2026-05-10,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.465002
-2026-05-10,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.157521
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.017256
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.124004
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.010045
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,17.288923
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.091521
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.05516
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.620549
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.030493
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.079494
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.465002
+2026-05-10,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.157521
 2026-05-10,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.361731
 2026-05-10,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,1.760689
 2026-05-10,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.047971
@@ -16390,15 +16390,15 @@
 2026-05-11,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.662414
 2026-05-11,2308106,Descript,descript,openai/gpt-5.4-20260305,0.007459
 2026-05-11,2308106,Descript,descript,openai/gpt-5.5-20260423,0.098615
-2026-05-11,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.006556
-2026-05-11,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.031393
-2026-05-11,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.268468
-2026-05-11,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.869994
-2026-05-11,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.049924
-2026-05-11,2344758,Stanley,stan,google/gemini-2.5-flash,0.020939
-2026-05-11,2344758,Stanley,stan,google/gemini-2.5-pro,2.9e-05
-2026-05-11,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.695023
-2026-05-11,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000177
+2026-05-11,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.006556
+2026-05-11,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.031393
+2026-05-11,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.268468
+2026-05-11,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.869994
+2026-05-11,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.049924
+2026-05-11,2344758,Sahasra,stan,google/gemini-2.5-flash,0.020939
+2026-05-11,2344758,Sahasra,stan,google/gemini-2.5-pro,2.9e-05
+2026-05-11,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.695023
+2026-05-11,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000177
 2026-05-11,2354934,Qwen Code,qwen-code,Others,0.4304
 2026-05-11,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.636176
 2026-05-11,2354934,Qwen Code,qwen-code,moonshotai/kimi-k2.6-20260420,0.063948
@@ -16520,17 +16520,17 @@
 2026-05-11,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.017932
 2026-05-11,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000143
 2026-05-11,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.477899
-2026-05-11,3296290,Mira,mira,Others,0.01323
-2026-05-11,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.144893
-2026-05-11,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.013901
-2026-05-11,3296290,Mira,mira,minimax/minimax-m2.5-20260211,18.459338
-2026-05-11,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.086412
-2026-05-11,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.069727
-2026-05-11,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.726902
-2026-05-11,3296290,Mira,mira,openai/gpt-4o-mini,0.028132
-2026-05-11,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.078492
-2026-05-11,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.49254
-2026-05-11,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.213138
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.01323
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.144893
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.013901
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,18.459338
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.086412
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.069727
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.726902
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.028132
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.078492
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.49254
+2026-05-11,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.213138
 2026-05-11,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.626845
 2026-05-11,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.858304
 2026-05-11,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.063826
@@ -16693,15 +16693,15 @@
 2026-05-12,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.743877
 2026-05-12,2308106,Descript,descript,openai/gpt-5.4-20260305,0.015647
 2026-05-12,2308106,Descript,descript,openai/gpt-5.5-20260423,0.241405
-2026-05-12,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.005725
-2026-05-12,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.015921
-2026-05-12,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.287164
-2026-05-12,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.944785
-2026-05-12,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.016698
-2026-05-12,2344758,Stanley,stan,google/gemini-2.5-flash,0.022784
-2026-05-12,2344758,Stanley,stan,google/gemini-2.5-pro,3.7e-05
-2026-05-12,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.751965
-2026-05-12,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000155
+2026-05-12,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.005725
+2026-05-12,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.015921
+2026-05-12,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.287164
+2026-05-12,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.944785
+2026-05-12,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.016698
+2026-05-12,2344758,Sahasra,stan,google/gemini-2.5-flash,0.022784
+2026-05-12,2344758,Sahasra,stan,google/gemini-2.5-pro,3.7e-05
+2026-05-12,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.751965
+2026-05-12,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000155
 2026-05-12,2354934,Qwen Code,qwen-code,Others,0.700844
 2026-05-12,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.467073
 2026-05-12,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.11575
@@ -16826,17 +16826,17 @@
 2026-05-12,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.2433
 2026-05-12,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000392
 2026-05-12,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.249045
-2026-05-12,3296290,Mira,mira,Others,0.009343
-2026-05-12,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.085431
-2026-05-12,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.007914
-2026-05-12,3296290,Mira,mira,minimax/minimax-m2.5-20260211,13.195745
-2026-05-12,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.079003
-2026-05-12,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.063424
-2026-05-12,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.824081
-2026-05-12,3296290,Mira,mira,openai/gpt-4o-mini,0.027168
-2026-05-12,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.046346
-2026-05-12,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.46833
-2026-05-12,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.274698
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.009343
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.085431
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.007914
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,13.195745
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.079003
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.063424
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.824081
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.027168
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.046346
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.46833
+2026-05-12,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.274698
 2026-05-12,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.738559
 2026-05-12,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.195881
 2026-05-12,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.074488
@@ -16997,15 +16997,15 @@
 2026-05-13,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.722504
 2026-05-13,2308106,Descript,descript,openai/gpt-5.4-20260305,0.033886
 2026-05-13,2308106,Descript,descript,openai/gpt-5.5-20260423,0.232258
-2026-05-13,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.004967
-2026-05-13,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.018909
-2026-05-13,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.258271
-2026-05-13,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,1.02148
-2026-05-13,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.016498
-2026-05-13,2344758,Stanley,stan,google/gemini-2.5-flash,0.020513
-2026-05-13,2344758,Stanley,stan,google/gemini-2.5-pro,3.5e-05
-2026-05-13,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.776151
-2026-05-13,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.000204
+2026-05-13,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.004967
+2026-05-13,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.018909
+2026-05-13,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.258271
+2026-05-13,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,1.02148
+2026-05-13,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.016498
+2026-05-13,2344758,Sahasra,stan,google/gemini-2.5-flash,0.020513
+2026-05-13,2344758,Sahasra,stan,google/gemini-2.5-pro,3.5e-05
+2026-05-13,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.776151
+2026-05-13,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.000204
 2026-05-13,2354934,Qwen Code,qwen-code,Others,0.579956
 2026-05-13,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.291064
 2026-05-13,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.091462
@@ -17127,17 +17127,17 @@
 2026-05-13,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.016001
 2026-05-13,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000127
 2026-05-13,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,3.736279
-2026-05-13,3296290,Mira,mira,Others,0.008665
-2026-05-13,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.091464
-2026-05-13,3296290,Mira,mira,minimax/minimax-m2.5-20260211,9.981833
-2026-05-13,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.067466
-2026-05-13,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.05613
-2026-05-13,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.748873
-2026-05-13,3296290,Mira,mira,openai/gpt-4o-mini,0.02383
-2026-05-13,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.007063
-2026-05-13,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.041797
-2026-05-13,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.440181
-2026-05-13,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.327499
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.008665
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.091464
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,9.981833
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.067466
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.05613
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.748873
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.02383
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.007063
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.041797
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.440181
+2026-05-13,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.327499
 2026-05-13,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.679368
 2026-05-13,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.870808
 2026-05-13,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.074918
@@ -17299,16 +17299,16 @@
 2026-05-14,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.668053
 2026-05-14,2308106,Descript,descript,openai/gpt-5.4-20260305,0.103059
 2026-05-14,2308106,Descript,descript,openai/gpt-5.5-20260423,0.105655
-2026-05-14,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.002782
-2026-05-14,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.016645
-2026-05-14,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.242054
-2026-05-14,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.91072
-2026-05-14,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,2.9e-05
-2026-05-14,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.017266
-2026-05-14,2344758,Stanley,stan,google/gemini-2.5-flash,0.019849
-2026-05-14,2344758,Stanley,stan,google/gemini-2.5-pro,4.6e-05
-2026-05-14,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.801066
-2026-05-14,2344758,Stanley,stan,x-ai/grok-4.1-fast,0.00018
+2026-05-14,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.002782
+2026-05-14,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.016645
+2026-05-14,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.242054
+2026-05-14,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.91072
+2026-05-14,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,2.9e-05
+2026-05-14,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.017266
+2026-05-14,2344758,Sahasra,stan,google/gemini-2.5-flash,0.019849
+2026-05-14,2344758,Sahasra,stan,google/gemini-2.5-pro,4.6e-05
+2026-05-14,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.801066
+2026-05-14,2344758,Sahasra,stan,x-ai/grok-4.1-fast,0.00018
 2026-05-14,2354934,Qwen Code,qwen-code,Others,0.504982
 2026-05-14,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.444746
 2026-05-14,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.12674
@@ -17431,17 +17431,17 @@
 2026-05-14,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.018375
 2026-05-14,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,5.4e-05
 2026-05-14,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.357967
-2026-05-14,3296290,Mira,mira,Others,0.010705
-2026-05-14,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.131164
-2026-05-14,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.017739
-2026-05-14,3296290,Mira,mira,minimax/minimax-m2.5-20260211,8.966942
-2026-05-14,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.04985
-2026-05-14,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.053597
-2026-05-14,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.751441
-2026-05-14,3296290,Mira,mira,openai/gpt-4o-mini,0.025027
-2026-05-14,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.03534
-2026-05-14,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.402171
-2026-05-14,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.379713
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.010705
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.131164
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.017739
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,8.966942
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.04985
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.053597
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.751441
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.025027
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.03534
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.402171
+2026-05-14,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.379713
 2026-05-14,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.815011
 2026-05-14,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,3.545974
 2026-05-14,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.090247
@@ -17604,17 +17604,17 @@
 2026-05-15,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.631931
 2026-05-15,2308106,Descript,descript,openai/gpt-5.4-20260305,0.068962
 2026-05-15,2308106,Descript,descript,openai/gpt-5.5-20260423,0.139777
-2026-05-15,2344758,Stanley,stan,Others,3.5e-05
-2026-05-15,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.006149
-2026-05-15,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.017013
-2026-05-15,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.237635
-2026-05-15,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.973666
-2026-05-15,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,9.4e-05
-2026-05-15,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.017861
-2026-05-15,2344758,Stanley,stan,google/gemini-2.5-flash,0.019168
-2026-05-15,2344758,Stanley,stan,google/gemini-2.5-pro,6.7e-05
-2026-05-15,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.881822
-2026-05-15,2344758,Stanley,stan,x-ai/grok-4.1-fast,8e-05
+2026-05-15,2344758,Sahasra,stan,Others,3.5e-05
+2026-05-15,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.006149
+2026-05-15,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.017013
+2026-05-15,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.237635
+2026-05-15,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.973666
+2026-05-15,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,9.4e-05
+2026-05-15,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.017861
+2026-05-15,2344758,Sahasra,stan,google/gemini-2.5-flash,0.019168
+2026-05-15,2344758,Sahasra,stan,google/gemini-2.5-pro,6.7e-05
+2026-05-15,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.881822
+2026-05-15,2344758,Sahasra,stan,x-ai/grok-4.1-fast,8e-05
 2026-05-15,2354934,Qwen Code,qwen-code,Others,0.360548
 2026-05-15,2354934,Qwen Code,qwen-code,inclusionai/ring-2.6-1t-20260508,0.2663
 2026-05-15,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.192304
@@ -17737,17 +17737,17 @@
 2026-05-15,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.026299
 2026-05-15,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,8.3e-05
 2026-05-15,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.286287
-2026-05-15,3296290,Mira,mira,Others,0.009413
-2026-05-15,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.104076
-2026-05-15,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.00933
-2026-05-15,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.768088
-2026-05-15,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.063593
-2026-05-15,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.044813
-2026-05-15,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.697554
-2026-05-15,3296290,Mira,mira,openai/gpt-4o-mini,0.02423
-2026-05-15,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.036225
-2026-05-15,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.355269
-2026-05-15,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.815781
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.009413
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.104076
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.00933
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.768088
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.063593
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.044813
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.697554
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.02423
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.036225
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.355269
+2026-05-15,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.815781
 2026-05-15,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.762494
 2026-05-15,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.92654
 2026-05-15,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.074369
@@ -17910,16 +17910,16 @@
 2026-05-16,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.324811
 2026-05-16,2308106,Descript,descript,openai/gpt-5.4-20260305,0.036879
 2026-05-16,2308106,Descript,descript,openai/gpt-5.5-20260423,0.067516
-2026-05-16,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.0041
-2026-05-16,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.016498
-2026-05-16,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.176929
-2026-05-16,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.895699
-2026-05-16,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,2.1e-05
-2026-05-16,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.018258
-2026-05-16,2344758,Stanley,stan,google/gemini-2.5-flash,0.013935
-2026-05-16,2344758,Stanley,stan,google/gemini-2.5-pro,4.8e-05
-2026-05-16,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.836692
-2026-05-16,2344758,Stanley,stan,openai/gpt-5-mini-2025-08-07,8.3e-05
+2026-05-16,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.0041
+2026-05-16,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.016498
+2026-05-16,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.176929
+2026-05-16,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.895699
+2026-05-16,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,2.1e-05
+2026-05-16,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.018258
+2026-05-16,2344758,Sahasra,stan,google/gemini-2.5-flash,0.013935
+2026-05-16,2344758,Sahasra,stan,google/gemini-2.5-pro,4.8e-05
+2026-05-16,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.836692
+2026-05-16,2344758,Sahasra,stan,openai/gpt-5-mini-2025-08-07,8.3e-05
 2026-05-16,2354934,Qwen Code,qwen-code,Others,0.320967
 2026-05-16,2354934,Qwen Code,qwen-code,moonshotai/kimi-k2.6-20260420,0.041399
 2026-05-16,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.260362
@@ -18040,17 +18040,17 @@
 2026-05-16,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.002648
 2026-05-16,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000102
 2026-05-16,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.515309
-2026-05-16,3296290,Mira,mira,Others,0.010342
-2026-05-16,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.146505
-2026-05-16,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.373847
-2026-05-16,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.054135
-2026-05-16,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.042252
-2026-05-16,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.543744
-2026-05-16,3296290,Mira,mira,openai/gpt-4o-mini,0.022852
-2026-05-16,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.031853
-2026-05-16,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.010096
-2026-05-16,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.337186
-2026-05-16,3296290,Mira,mira,z-ai/glm-5.1-20260406,1.540452
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.010342
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.146505
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.373847
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.054135
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.042252
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.543744
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.022852
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.031853
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.010096
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.337186
+2026-05-16,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,1.540452
 2026-05-16,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.476333
 2026-05-16,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,1.751872
 2026-05-16,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.048909
@@ -18212,15 +18212,15 @@
 2026-05-17,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.363603
 2026-05-17,2308106,Descript,descript,openai/gpt-5.4-20260305,0.015875
 2026-05-17,2308106,Descript,descript,openai/gpt-5.5-20260423,0.138746
-2026-05-17,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.004921
-2026-05-17,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.011668
-2026-05-17,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.154712
-2026-05-17,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.892885
-2026-05-17,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,3.7e-05
-2026-05-17,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.018183
-2026-05-17,2344758,Stanley,stan,google/gemini-2.5-flash,0.013089
-2026-05-17,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.846026
-2026-05-17,2344758,Stanley,stan,openai/gpt-5-mini-2025-08-07,8.7e-05
+2026-05-17,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.004921
+2026-05-17,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.011668
+2026-05-17,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.154712
+2026-05-17,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.892885
+2026-05-17,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,3.7e-05
+2026-05-17,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.018183
+2026-05-17,2344758,Sahasra,stan,google/gemini-2.5-flash,0.013089
+2026-05-17,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.846026
+2026-05-17,2344758,Sahasra,stan,openai/gpt-5-mini-2025-08-07,8.7e-05
 2026-05-17,2354934,Qwen Code,qwen-code,Others,0.232435
 2026-05-17,2354934,Qwen Code,qwen-code,arcee-ai/trinity-large-thinking,0.039778
 2026-05-17,2354934,Qwen Code,qwen-code,minimax/minimax-m2.5-20260211,0.028914
@@ -18342,17 +18342,17 @@
 2026-05-17,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.004785
 2026-05-17,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,4.8e-05
 2026-05-17,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,0.615358
-2026-05-17,3296290,Mira,mira,Others,0.006785
-2026-05-17,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.109734
-2026-05-17,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.006337
-2026-05-17,3296290,Mira,mira,minimax/minimax-m2.5-20260211,6.016088
-2026-05-17,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.060096
-2026-05-17,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.045479
-2026-05-17,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.597483
-2026-05-17,3296290,Mira,mira,openai/gpt-4o-mini,0.023733
-2026-05-17,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.026929
-2026-05-17,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.370443
-2026-05-17,3296290,Mira,mira,z-ai/glm-5.1-20260406,1.769314
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.006785
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.109734
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.006337
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.016088
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.060096
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.045479
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.597483
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.023733
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.026929
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.370443
+2026-05-17,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,1.769314
 2026-05-17,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.410831
 2026-05-17,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,1.710158
 2026-05-17,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.050222
@@ -18514,17 +18514,17 @@
 2026-05-18,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.696984
 2026-05-18,2308106,Descript,descript,openai/gpt-5.4-20260305,0.036192
 2026-05-18,2308106,Descript,descript,openai/gpt-5.5-20260423,0.089746
-2026-05-18,2344758,Stanley,stan,Others,2.5e-05
-2026-05-18,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.007034
-2026-05-18,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.010236
-2026-05-18,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.303906
-2026-05-18,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.90273
-2026-05-18,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.01836
-2026-05-18,2344758,Stanley,stan,google/gemini-2.5-flash,0.026728
-2026-05-18,2344758,Stanley,stan,google/gemini-2.5-pro,4.1e-05
-2026-05-18,2344758,Stanley,stan,google/gemma-4-26b-a4b-it-20260403,0.000138
-2026-05-18,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.859224
-2026-05-18,2344758,Stanley,stan,openai/gpt-5-mini-2025-08-07,0.000243
+2026-05-18,2344758,Sahasra,stan,Others,2.5e-05
+2026-05-18,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.007034
+2026-05-18,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.010236
+2026-05-18,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.303906
+2026-05-18,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.90273
+2026-05-18,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.01836
+2026-05-18,2344758,Sahasra,stan,google/gemini-2.5-flash,0.026728
+2026-05-18,2344758,Sahasra,stan,google/gemini-2.5-pro,4.1e-05
+2026-05-18,2344758,Sahasra,stan,google/gemma-4-26b-a4b-it-20260403,0.000138
+2026-05-18,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.859224
+2026-05-18,2344758,Sahasra,stan,openai/gpt-5-mini-2025-08-07,0.000243
 2026-05-18,2354934,Qwen Code,qwen-code,Others,0.343386
 2026-05-18,2354934,Qwen Code,qwen-code,arcee-ai/trinity-large-thinking,0.041514
 2026-05-18,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.219512
@@ -18647,17 +18647,17 @@
 2026-05-18,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.062945
 2026-05-18,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,7.5e-05
 2026-05-18,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.792879
-2026-05-18,3296290,Mira,mira,Others,0.009522
-2026-05-18,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.139437
-2026-05-18,3296290,Mira,mira,deepseek/deepseek-v3.2-20251201,0.006144
-2026-05-18,3296290,Mira,mira,minimax/minimax-m2.5-20260211,8.145259
-2026-05-18,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.07303
-2026-05-18,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.054946
-2026-05-18,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.702194
-2026-05-18,3296290,Mira,mira,openai/gpt-4o-mini,0.023888
-2026-05-18,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.036858
-2026-05-18,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.380505
-2026-05-18,3296290,Mira,mira,z-ai/glm-5.1-20260406,1.159702
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.009522
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.139437
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.006144
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,8.145259
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.07303
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.054946
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.702194
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.023888
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.036858
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.380505
+2026-05-18,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,1.159702
 2026-05-18,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.67097
 2026-05-18,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.801957
 2026-05-18,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.058835
@@ -18820,16 +18820,16 @@
 2026-05-19,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.670273
 2026-05-19,2308106,Descript,descript,openai/gpt-5.4-20260305,0.028033
 2026-05-19,2308106,Descript,descript,openai/gpt-5.5-20260423,0.188197
-2026-05-19,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.006006
-2026-05-19,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.014177
-2026-05-19,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.320877
-2026-05-19,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,0.943879
-2026-05-19,2344758,Stanley,stan,anthropic/claude-4.6-sonnet-20260217,3e-05
-2026-05-19,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.01849
-2026-05-19,2344758,Stanley,stan,google/gemini-2.5-flash,0.026256
-2026-05-19,2344758,Stanley,stan,google/gemini-2.5-pro,1.8e-05
-2026-05-19,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.84255
-2026-05-19,2344758,Stanley,stan,openai/gpt-5-mini-2025-08-07,0.000346
+2026-05-19,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.006006
+2026-05-19,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.014177
+2026-05-19,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.320877
+2026-05-19,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,0.943879
+2026-05-19,2344758,Sahasra,stan,anthropic/claude-4.6-sonnet-20260217,3e-05
+2026-05-19,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.01849
+2026-05-19,2344758,Sahasra,stan,google/gemini-2.5-flash,0.026256
+2026-05-19,2344758,Sahasra,stan,google/gemini-2.5-pro,1.8e-05
+2026-05-19,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.84255
+2026-05-19,2344758,Sahasra,stan,openai/gpt-5-mini-2025-08-07,0.000346
 2026-05-19,2354934,Qwen Code,qwen-code,Others,0.273215
 2026-05-19,2354934,Qwen Code,qwen-code,google/gemma-4-31b-it-20260402,0.034875
 2026-05-19,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.049936
@@ -18956,17 +18956,17 @@
 2026-05-19,3178860,Ito,ito,anthropic/claude-4.5-sonnet-20250929,0.003477
 2026-05-19,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.00016
 2026-05-19,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.526518
-2026-05-19,3296290,Mira,mira,Others,0.012523
-2026-05-19,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.26099
-2026-05-19,3296290,Mira,mira,minimax/minimax-m2.5-20260211,13.984538
-2026-05-19,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.354164
-2026-05-19,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.595551
-2026-05-19,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.803373
-2026-05-19,3296290,Mira,mira,openai/gpt-4o-mini,0.035853
-2026-05-19,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.05855
-2026-05-19,3296290,Mira,mira,xiaomi/mimo-v2-pro-20260318,0.00955
-2026-05-19,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.498182
-2026-05-19,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.773516
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.012523
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.26099
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,13.984538
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.354164
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.595551
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.803373
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.035853
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.05855
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-pro-20260318,0.00955
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.498182
+2026-05-19,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.773516
 2026-05-19,3350625,extra.email,extra-email,deepseek/deepseek-v4-flash-20260423,0.000673
 2026-05-19,3350625,extra.email,extra-email,google/gemma-4-26b-a4b-it-20260403,0.000449
 2026-05-19,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.498949
@@ -19130,17 +19130,17 @@
 2026-05-20,2308106,Descript,descript,google/gemini-3.5-flash-20260519,0.69058
 2026-05-20,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.6946
 2026-05-20,2308106,Descript,descript,openai/gpt-5.5-20260423,0.159572
-2026-05-20,2344758,Stanley,stan,Others,4.3e-05
-2026-05-20,2344758,Stanley,stan,anthropic/claude-4.1-opus-20250805,0.008743
-2026-05-20,2344758,Stanley,stan,anthropic/claude-4.5-haiku-20251001,0.025451
-2026-05-20,2344758,Stanley,stan,anthropic/claude-4.5-opus-20251124,0.325358
-2026-05-20,2344758,Stanley,stan,anthropic/claude-4.6-opus-20260205,1.10932
-2026-05-20,2344758,Stanley,stan,anthropic/claude-4.7-opus-20260416,0.025264
-2026-05-20,2344758,Stanley,stan,google/gemini-2.5-flash,0.026167
-2026-05-20,2344758,Stanley,stan,google/gemini-2.5-pro,5.5e-05
-2026-05-20,2344758,Stanley,stan,google/gemma-4-26b-a4b-it-20260403,8.7e-05
-2026-05-20,2344758,Stanley,stan,minimax/minimax-m2.7-20260318,0.916518
-2026-05-20,2344758,Stanley,stan,openai/gpt-5-mini-2025-08-07,0.00028
+2026-05-20,2344758,Sahasra,stan,Others,4.3e-05
+2026-05-20,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.008743
+2026-05-20,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.025451
+2026-05-20,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.325358
+2026-05-20,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,1.10932
+2026-05-20,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.025264
+2026-05-20,2344758,Sahasra,stan,google/gemini-2.5-flash,0.026167
+2026-05-20,2344758,Sahasra,stan,google/gemini-2.5-pro,5.5e-05
+2026-05-20,2344758,Sahasra,stan,google/gemma-4-26b-a4b-it-20260403,8.7e-05
+2026-05-20,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,0.916518
+2026-05-20,2344758,Sahasra,stan,openai/gpt-5-mini-2025-08-07,0.00028
 2026-05-20,2354934,Qwen Code,qwen-code,Others,0.369902
 2026-05-20,2354934,Qwen Code,qwen-code,google/gemma-4-31b-it-20260402,0.047944
 2026-05-20,2354934,Qwen Code,qwen-code,minimax/minimax-m2.7-20260318,0.059668
@@ -19267,17 +19267,17 @@
 2026-05-20,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.03148
 2026-05-20,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000157
 2026-05-20,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,5.885562
-2026-05-20,3296290,Mira,mira,Others,0.016606
-2026-05-20,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.235186
-2026-05-20,3296290,Mira,mira,minimax/minimax-m2.5-20260211,8.619384
-2026-05-20,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.597685
-2026-05-20,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.042188
-2026-05-20,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,1.235628
-2026-05-20,3296290,Mira,mira,openai/gpt-4o-mini,0.029055
-2026-05-20,3296290,Mira,mira,qwen/qwen3.6-35b-a3b-20260415,0.066577
-2026-05-20,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.060581
-2026-05-20,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,3.866686
-2026-05-20,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.38576
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.016606
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.235186
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,8.619384
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.597685
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.042188
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,1.235628
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.029055
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-35b-a3b-20260415,0.066577
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.060581
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,3.866686
+2026-05-20,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.38576
 2026-05-20,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.691791
 2026-05-20,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.718649
 2026-05-20,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.075274
@@ -19292,3 +19292,311 @@
 2026-05-20,831074,Roo Code,roo-code,openrouter/owl-alpha,2.997885
 2026-05-20,831074,Roo Code,roo-code,poolside/laguna-m.1-20260312,0.322763
 2026-05-20,831074,Roo Code,roo-code,tencent/hy3-preview-20260421,0.38825
+2026-05-21,142576,SillyTavern,sillytavern,Others,2.383833
+2026-05-21,142576,SillyTavern,sillytavern,anthropic/claude-4.5-sonnet-20250929,0.413308
+2026-05-21,142576,SillyTavern,sillytavern,anthropic/claude-4.6-opus-20260205,0.530851
+2026-05-21,142576,SillyTavern,sillytavern,anthropic/claude-4.6-sonnet-20260217,0.187077
+2026-05-21,142576,SillyTavern,sillytavern,anthropic/claude-4.7-opus-20260416,0.475554
+2026-05-21,142576,SillyTavern,sillytavern,deepseek/deepseek-v3.2-20251201,0.78341
+2026-05-21,142576,SillyTavern,sillytavern,deepseek/deepseek-v4-flash-20260423,0.738435
+2026-05-21,142576,SillyTavern,sillytavern,deepseek/deepseek-v4-pro-20260423,0.959014
+2026-05-21,142576,SillyTavern,sillytavern,google/gemini-3.1-pro-preview-20260219,0.396696
+2026-05-21,142576,SillyTavern,sillytavern,z-ai/glm-5-20260211,0.219659
+2026-05-21,142576,SillyTavern,sillytavern,z-ai/glm-5.1-20260406,0.609519
+2026-05-21,169155,Janitor AI,janitor-ai,Others,7.385373
+2026-05-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.371388
+2026-05-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.837013
+2026-05-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-r1-0528,0.767799
+2026-05-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-v3.2-20251201,8.415917
+2026-05-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-flash-20260423,2.251536
+2026-05-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-pro-20260423,1.289496
+2026-05-21,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,1.196392
+2026-05-21,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.343968
+2026-05-21,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.607995
+2026-05-21,169155,Janitor AI,janitor-ai,z-ai/glm-5.1-20260406,0.55027
+2026-05-21,169295,Portkey AI,portkey-ai,Others,0.380178
+2026-05-21,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,1.241087
+2026-05-21,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.167235
+2026-05-21,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.892532
+2026-05-21,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.081022
+2026-05-21,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.355661
+2026-05-21,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.968674
+2026-05-21,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.098303
+2026-05-21,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.079681
+2026-05-21,169295,Portkey AI,portkey-ai,openai/gpt-oss-120b,0.072594
+2026-05-21,169295,Portkey AI,portkey-ai,stepfun/step-3.5-flash,0.097868
+2026-05-21,184102,Open WebUI,open-webui,Others,1.489781
+2026-05-21,184102,Open WebUI,open-webui,anthropic/claude-4.6-opus-20260205,0.181689
+2026-05-21,184102,Open WebUI,open-webui,anthropic/claude-4.6-sonnet-20260217,0.96529
+2026-05-21,184102,Open WebUI,open-webui,anthropic/claude-4.7-opus-20260416,0.788648
+2026-05-21,184102,Open WebUI,open-webui,deepseek/deepseek-v4-flash-20260423,0.348626
+2026-05-21,184102,Open WebUI,open-webui,deepseek/deepseek-v4-pro-20260423,0.152861
+2026-05-21,184102,Open WebUI,open-webui,google/gemini-3-flash-preview-20251217,0.2729
+2026-05-21,184102,Open WebUI,open-webui,google/gemini-3.1-pro-preview-20260219,0.261473
+2026-05-21,184102,Open WebUI,open-webui,google/gemini-3.5-flash-20260519,0.239723
+2026-05-21,184102,Open WebUI,open-webui,openai/gpt-5.4-20260305,0.518311
+2026-05-21,184102,Open WebUI,open-webui,openai/gpt-5.5-20260423,0.526325
+2026-05-21,188881,Chub AI,chub-ai,Others,1.248647
+2026-05-21,188881,Chub AI,chub-ai,anthropic/claude-4.5-sonnet-20250929,0.298672
+2026-05-21,188881,Chub AI,chub-ai,deepseek/deepseek-chat-v3-0324,0.198867
+2026-05-21,188881,Chub AI,chub-ai,deepseek/deepseek-v3.1-terminus,0.128158
+2026-05-21,188881,Chub AI,chub-ai,deepseek/deepseek-v3.2-20251201,0.521171
+2026-05-21,188881,Chub AI,chub-ai,deepseek/deepseek-v3.2-exp,0.141006
+2026-05-21,188881,Chub AI,chub-ai,deepseek/deepseek-v4-flash-20260423,0.43354
+2026-05-21,188881,Chub AI,chub-ai,deepseek/deepseek-v4-pro-20260423,0.575027
+2026-05-21,188881,Chub AI,chub-ai,z-ai/glm-4.5-air,0.183557
+2026-05-21,188881,Chub AI,chub-ai,z-ai/glm-5-20260211,0.17889
+2026-05-21,188881,Chub AI,chub-ai,z-ai/glm-5.1-20260406,0.137616
+2026-05-21,189563,OpenHands,openhands,Others,0.426033
+2026-05-21,189563,OpenHands,openhands,deepseek/deepseek-v4-flash-20260423,0.062662
+2026-05-21,189563,OpenHands,openhands,deepseek/deepseek-v4-pro-20260423,0.071416
+2026-05-21,189563,OpenHands,openhands,google/gemini-2.5-flash,0.067476
+2026-05-21,189563,OpenHands,openhands,google/gemini-3.5-flash-20260519,0.419303
+2026-05-21,189563,OpenHands,openhands,minimax/minimax-m2.7-20260318,3.099492
+2026-05-21,189563,OpenHands,openhands,moonshotai/kimi-k2.5-0127,0.857224
+2026-05-21,189563,OpenHands,openhands,openai/gpt-5.5-20260423,0.873986
+2026-05-21,189563,OpenHands,openhands,qwen/qwen3.5-397b-a17b-20260216,0.462611
+2026-05-21,189563,OpenHands,openhands,tencent/hy3-preview-20260421,7.04935
+2026-05-21,189563,OpenHands,openhands,z-ai/glm-4.6,0.319153
+2026-05-21,190604,Cline,cline,Others,6.68356
+2026-05-21,190604,Cline,cline,anthropic/claude-4.5-sonnet-20250929,0.637176
+2026-05-21,190604,Cline,cline,anthropic/claude-4.6-opus-20260205,0.829658
+2026-05-21,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.288557
+2026-05-21,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,3.422472
+2026-05-21,190604,Cline,cline,arcee-ai/trinity-large-thinking,1.404745
+2026-05-21,190604,Cline,cline,deepseek/deepseek-v4-flash-20260423,5.26037
+2026-05-21,190604,Cline,cline,deepseek/deepseek-v4-pro-20260423,0.900034
+2026-05-21,190604,Cline,cline,openai/gpt-4o-mini,0.631134
+2026-05-21,190604,Cline,cline,openai/gpt-oss-120b,0.708763
+2026-05-21,190604,Cline,cline,qwen/qwen3.6-plus-04-02,0.618009
+2026-05-21,2235067,HammerAI,hammerai,Others,0.005124
+2026-05-21,2235067,HammerAI,hammerai,aion-labs/aion-2.0-20260223,0.035214
+2026-05-21,2235067,HammerAI,hammerai,anthropic/claude-4.5-sonnet-20250929,0.006475
+2026-05-21,2235067,HammerAI,hammerai,gryphe/mythomax-l2-13b,0.002237
+2026-05-21,2235067,HammerAI,hammerai,microsoft/wizardlm-2-8x22b,0.004627
+2026-05-21,2235067,HammerAI,hammerai,mistralai/mistral-nemo,4.973104
+2026-05-21,2235067,HammerAI,hammerai,mistralai/mistral-small-24b-instruct-2501,0.005041
+2026-05-21,2235067,HammerAI,hammerai,nousresearch/hermes-4-70b,0.002972
+2026-05-21,2235067,HammerAI,hammerai,sao10k/l3-lunaris-8b,0.363136
+2026-05-21,2235067,HammerAI,hammerai,sao10k/l3.1-euryale-70b,0.003964
+2026-05-21,2235067,HammerAI,hammerai,thedrummer/unslopnemo-12b,0.009542
+2026-05-21,2262242,Kilo Code,kilo-code,Others,13.017385
+2026-05-21,2262242,Kilo Code,kilo-code,anthropic/claude-4.6-sonnet-20260217,4.984005
+2026-05-21,2262242,Kilo Code,kilo-code,anthropic/claude-4.7-opus-20260416,5.968903
+2026-05-21,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-flash-20260423,5.010147
+2026-05-21,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-pro-20260423,2.193378
+2026-05-21,2262242,Kilo Code,kilo-code,moonshotai/kimi-k2.6-20260420,1.329672
+2026-05-21,2262242,Kilo Code,kilo-code,nvidia/nemotron-3-super-120b-a12b-20230311,18.697628
+2026-05-21,2262242,Kilo Code,kilo-code,openrouter/owl-alpha,4.638387
+2026-05-21,2262242,Kilo Code,kilo-code,poolside/laguna-m.1-20260312,28.978129
+2026-05-21,2262242,Kilo Code,kilo-code,poolside/laguna-xs.2-20260421,3.400395
+2026-05-21,2262242,Kilo Code,kilo-code,stepfun/step-3.5-flash,74.662776
+2026-05-21,2267189,Zed Editor,zed-editor,Others,0.734073
+2026-05-21,2267189,Zed Editor,zed-editor,anthropic/claude-4.6-sonnet-20260217,0.198891
+2026-05-21,2267189,Zed Editor,zed-editor,anthropic/claude-4.7-opus-20260416,0.42608
+2026-05-21,2267189,Zed Editor,zed-editor,deepseek/deepseek-v4-flash-20260423,1.371909
+2026-05-21,2267189,Zed Editor,zed-editor,deepseek/deepseek-v4-pro-20260423,0.211535
+2026-05-21,2267189,Zed Editor,zed-editor,google/gemini-3.5-flash-20260519,0.372885
+2026-05-21,2267189,Zed Editor,zed-editor,moonshotai/kimi-k2.6-20260420,0.263401
+2026-05-21,2267189,Zed Editor,zed-editor,openai/gpt-5.4-20260305,0.110506
+2026-05-21,2267189,Zed Editor,zed-editor,openrouter/owl-alpha,0.251554
+2026-05-21,2267189,Zed Editor,zed-editor,poolside/laguna-m.1-20260312,0.227459
+2026-05-21,2267189,Zed Editor,zed-editor,z-ai/glm-5.1-20260406,0.231012
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,deepseek/deepseek-v4-flash-20260423,0.03691
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,google/gemini-2.5-flash-lite-preview-09-2025,6.6e-05
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,google/gemini-3-flash-preview-20251217,0.460321
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,google/gemini-3.1-flash-image-preview-20260226,0.0001
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,google/gemini-3.1-flash-lite-20260507,0.049003
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,google/gemini-3.1-pro-preview-20260219,0.062053
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,openai/gpt-5-mini-2025-08-07,6e-05
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,openai/gpt-5.4-image-2-20260421,1.8e-05
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,openai/gpt-oss-120b,0.004528
+2026-05-21,2284381,Gobii Meta Gobii Skill Eval,gobii,qwen/qwen3.5-flash-20260224,0.198742
+2026-05-21,2293498,Agent Zero,agent-zero,Others,0.862911
+2026-05-21,2293498,Agent Zero,agent-zero,anthropic/claude-4.6-opus-20260205,1.083562
+2026-05-21,2293498,Agent Zero,agent-zero,anthropic/claude-4.6-sonnet-20260217,0.513668
+2026-05-21,2293498,Agent Zero,agent-zero,anthropic/claude-4.7-opus-20260416,0.328237
+2026-05-21,2293498,Agent Zero,agent-zero,deepseek/deepseek-v4-flash-20260423,0.207307
+2026-05-21,2293498,Agent Zero,agent-zero,deepseek/deepseek-v4-pro-20260423,0.243448
+2026-05-21,2293498,Agent Zero,agent-zero,google/gemini-3.1-flash-lite-preview-20260303,0.068502
+2026-05-21,2293498,Agent Zero,agent-zero,google/gemini-3.5-flash-20260519,0.056931
+2026-05-21,2293498,Agent Zero,agent-zero,moonshotai/kimi-k2.6-20260420,0.116122
+2026-05-21,2293498,Agent Zero,agent-zero,openai/gpt-5.5-20260423,0.068959
+2026-05-21,2293498,Agent Zero,agent-zero,poolside/laguna-xs.2-20260421,0.067394
+2026-05-21,2299688,GDevelop,gdevelop,deepseek/deepseek-v4-pro-20260423,0.000425
+2026-05-21,2299688,GDevelop,gdevelop,google/gemini-2.5-flash,2.422102
+2026-05-21,2299688,GDevelop,gdevelop,google/gemini-2.5-flash-lite,0.079388
+2026-05-21,2299688,GDevelop,gdevelop,google/gemini-3-flash-preview-20251217,0.049353
+2026-05-21,2299688,GDevelop,gdevelop,openai/gpt-oss-20b,0.072155
+2026-05-21,2308106,Descript,descript,Others,0.009249
+2026-05-21,2308106,Descript,descript,anthropic/claude-4.5-haiku-20251001,0.06033
+2026-05-21,2308106,Descript,descript,anthropic/claude-4.6-opus-20260205,1.883774
+2026-05-21,2308106,Descript,descript,anthropic/claude-4.6-sonnet-20260217,56.590265
+2026-05-21,2308106,Descript,descript,anthropic/claude-4.7-opus-20260416,0.606718
+2026-05-21,2308106,Descript,descript,google/gemini-2.0-flash-lite-001,0.665533
+2026-05-21,2308106,Descript,descript,google/gemini-2.5-flash-lite,8.877788
+2026-05-21,2308106,Descript,descript,google/gemini-3.1-pro-preview-20260219,0.141074
+2026-05-21,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.670826
+2026-05-21,2308106,Descript,descript,openai/gpt-5.4-20260305,0.190576
+2026-05-21,2308106,Descript,descript,openai/gpt-5.5-20260423,0.150918
+2026-05-21,2344758,Sahasra,stan,Others,6e-06
+2026-05-21,2344758,Sahasra,stan,anthropic/claude-4.1-opus-20250805,0.010029
+2026-05-21,2344758,Sahasra,stan,anthropic/claude-4.5-haiku-20251001,0.021159
+2026-05-21,2344758,Sahasra,stan,anthropic/claude-4.5-opus-20251124,0.301767
+2026-05-21,2344758,Sahasra,stan,anthropic/claude-4.6-opus-20260205,1.175989
+2026-05-21,2344758,Sahasra,stan,anthropic/claude-4.7-opus-20260416,0.01923
+2026-05-21,2344758,Sahasra,stan,google/gemini-2.5-flash,0.025306
+2026-05-21,2344758,Sahasra,stan,google/gemini-2.5-pro,3.1e-05
+2026-05-21,2344758,Sahasra,stan,google/gemma-4-26b-a4b-it-20260403,1.5e-05
+2026-05-21,2344758,Sahasra,stan,minimax/minimax-m2.7-20260318,1.248194
+2026-05-21,2344758,Sahasra,stan,openai/gpt-5-mini-2025-08-07,0.000229
+2026-05-21,2354934,Qwen Code,qwen-code,Others,0.495052
+2026-05-21,2354934,Qwen Code,qwen-code,nvidia/nemotron-3-super-120b-a12b-20230311,0.082144
+2026-05-21,2354934,Qwen Code,qwen-code,openai/gpt-oss-120b,0.145676
+2026-05-21,2354934,Qwen Code,qwen-code,openrouter/owl-alpha,0.381456
+2026-05-21,2354934,Qwen Code,qwen-code,poolside/laguna-m.1-20260312,0.059666
+2026-05-21,2354934,Qwen Code,qwen-code,qwen/qwen3-coder-480b-a35b-07-25,0.095526
+2026-05-21,2354934,Qwen Code,qwen-code,qwen/qwen3-coder-next-2025-02-03,0.188212
+2026-05-21,2354934,Qwen Code,qwen-code,qwen/qwen3.6-plus-04-02,0.294787
+2026-05-21,2354934,Qwen Code,qwen-code,tencent/hy3-preview-20260421,0.072169
+2026-05-21,2354934,Qwen Code,qwen-code,xiaomi/mimo-v2-omni-20260318,0.050273
+2026-05-21,2354934,Qwen Code,qwen-code,z-ai/glm-4.5-air,0.422231
+2026-05-21,2400899,MinutaIA,minuta-ia,google/gemini-2.5-flash-lite,0.066553
+2026-05-21,2400899,MinutaIA,minuta-ia,google/gemini-2.5-flash-lite-preview-09-2025,0.654048
+2026-05-21,2400899,MinutaIA,minuta-ia,google/gemini-2.5-pro,0.0
+2026-05-21,2400899,MinutaIA,minuta-ia,google/gemini-3-flash-preview-20251217,0.004773
+2026-05-21,2400899,MinutaIA,minuta-ia,google/gemini-3.5-flash-20260519,0.016568
+2026-05-21,2511276,VidMuse,vidmuse,anthropic/claude-4.6-sonnet-20260217,11.183385
+2026-05-21,2511276,VidMuse,vidmuse,google/gemini-2.5-flash,0.005856
+2026-05-21,2511276,VidMuse,vidmuse,google/gemini-2.5-pro,2.5e-05
+2026-05-21,2511276,VidMuse,vidmuse,google/gemini-3-flash-preview-20251217,0.012149
+2026-05-21,2511276,VidMuse,vidmuse,google/gemini-3.1-pro-preview-20260219,0.077047
+2026-05-21,2511276,VidMuse,vidmuse,google/gemini-3.5-flash-20260519,0.03374
+2026-05-21,2511276,VidMuse,vidmuse,openai/gpt-5.4-20260305,0.0131
+2026-05-21,2524738,LangChain,langchain,Others,1.300469
+2026-05-21,2524738,LangChain,langchain,anthropic/claude-4.6-sonnet-20260217,0.366738
+2026-05-21,2524738,LangChain,langchain,deepseek/deepseek-v4-flash-20260423,0.315843
+2026-05-21,2524738,LangChain,langchain,deepseek/deepseek-v4-pro-20260423,0.199355
+2026-05-21,2524738,LangChain,langchain,google/gemini-2.5-flash,0.456899
+2026-05-21,2524738,LangChain,langchain,google/gemini-3-flash-preview-20251217,1.123804
+2026-05-21,2524738,LangChain,langchain,google/gemini-3.1-flash-lite-20260507,0.984548
+2026-05-21,2524738,LangChain,langchain,google/gemini-3.1-flash-lite-preview-20260303,0.957773
+2026-05-21,2524738,LangChain,langchain,openai/gpt-5.4-nano-20260317,0.193409
+2026-05-21,2524738,LangChain,langchain,openai/gpt-5.5-20260423,3.868933
+2026-05-21,2524738,LangChain,langchain,z-ai/glm-5-20260211,0.278459
+2026-05-21,2627404,Claude Code,claude-code,Others,9.516468
+2026-05-21,2627404,Claude Code,claude-code,anthropic/claude-4.5-haiku-20251001,1.436931
+2026-05-21,2627404,Claude Code,claude-code,anthropic/claude-4.6-opus-20260205,5.051296
+2026-05-21,2627404,Claude Code,claude-code,anthropic/claude-4.6-sonnet-20260217,11.652952
+2026-05-21,2627404,Claude Code,claude-code,anthropic/claude-4.7-opus-20260416,20.860304
+2026-05-21,2627404,Claude Code,claude-code,deepseek/deepseek-v4-flash-20260423,2.370078
+2026-05-21,2627404,Claude Code,claude-code,deepseek/deepseek-v4-pro-20260423,6.787637
+2026-05-21,2627404,Claude Code,claude-code,moonshotai/kimi-k2.6-20260420,1.134828
+2026-05-21,2627404,Claude Code,claude-code,nvidia/nemotron-3-super-120b-a12b-20230311,1.909534
+2026-05-21,2627404,Claude Code,claude-code,openai/gpt-oss-120b,1.124073
+2026-05-21,2627404,Claude Code,claude-code,openrouter/owl-alpha,1.947823
+2026-05-21,2637375,Lemonade,lemonade,anthropic/claude-4.5-sonnet-20250929,0.297971
+2026-05-21,2637375,Lemonade,lemonade,anthropic/claude-4.6-opus-20260205,0.243638
+2026-05-21,2637375,Lemonade,lemonade,google/gemini-3-flash-preview-20251217,8.314735
+2026-05-21,2637375,Lemonade,lemonade,openai/gpt-5.5-20260423,0.443
+2026-05-21,2637375,Lemonade,lemonade,stepfun/step-3.5-flash,11.214545
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,Others,2.491613
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v3.2-20251201,0.462756
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-flash-20260423,7.177418
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-pro-20260423,10.337725
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,google/gemini-2.5-flash-lite,0.541864
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,google/gemini-3-flash-preview-20251217,0.471492
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,google/gemini-3.1-flash-lite-20260507,0.460973
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,google/gemma-4-31b-it-20260402,0.462491
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,minimax/minimax-m2.7-20260318,1.159838
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,xiaomi/mimo-v2.5-20260422,0.466855
+2026-05-21,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5-20260211,0.800085
+2026-05-21,2725608,OpenClaw,openclaw,Others,73.317969
+2026-05-21,2725608,OpenClaw,openclaw,anthropic/claude-4.6-opus-20260205,7.104758
+2026-05-21,2725608,OpenClaw,openclaw,anthropic/claude-4.6-sonnet-20260217,16.376881
+2026-05-21,2725608,OpenClaw,openclaw,anthropic/claude-4.7-opus-20260416,10.826328
+2026-05-21,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-flash-20260423,11.811303
+2026-05-21,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-pro-20260423,5.590203
+2026-05-21,2725608,OpenClaw,openclaw,google/gemini-2.5-flash-lite,7.646518
+2026-05-21,2725608,OpenClaw,openclaw,minimax/minimax-m2.7-20260318,8.713377
+2026-05-21,2725608,OpenClaw,openclaw,nvidia/nemotron-3-super-120b-a12b-20230311,9.519232
+2026-05-21,2725608,OpenClaw,openclaw,openai/gpt-oss-120b,5.831314
+2026-05-21,2725608,OpenClaw,openclaw,openrouter/owl-alpha,7.841656
+2026-05-21,2735766,nanobot,nanobot,Others,0.318351
+2026-05-21,2735766,nanobot,nanobot,anthropic/claude-4.6-opus-20260205,0.244386
+2026-05-21,2735766,nanobot,nanobot,anthropic/claude-4.6-sonnet-20260217,0.064936
+2026-05-21,2735766,nanobot,nanobot,anthropic/claude-4.7-opus-20260416,0.223038
+2026-05-21,2735766,nanobot,nanobot,arcee-ai/trinity-large-thinking,0.174542
+2026-05-21,2735766,nanobot,nanobot,deepseek/deepseek-v4-flash-20260423,0.225631
+2026-05-21,2735766,nanobot,nanobot,deepseek/deepseek-v4-pro-20260423,0.220773
+2026-05-21,2735766,nanobot,nanobot,google/gemini-2.5-flash,0.140478
+2026-05-21,2735766,nanobot,nanobot,google/gemini-3.1-pro-preview-20260219,0.288126
+2026-05-21,2735766,nanobot,nanobot,nvidia/nemotron-3-super-120b-a12b-20230311,0.082053
+2026-05-21,2735766,nanobot,nanobot,z-ai/glm-5.1-20260406,0.769308
+2026-05-21,2853275,pi,pi,Others,8.134271
+2026-05-21,2853275,pi,pi,anthropic/claude-4.6-sonnet-20260217,4.224604
+2026-05-21,2853275,pi,pi,anthropic/claude-4.7-opus-20260416,6.352589
+2026-05-21,2853275,pi,pi,deepseek/deepseek-v4-flash-20260423,6.892034
+2026-05-21,2853275,pi,pi,deepseek/deepseek-v4-pro-20260423,5.641996
+2026-05-21,2853275,pi,pi,google/gemini-3.5-flash-20260519,1.035166
+2026-05-21,2853275,pi,pi,minimax/minimax-m2.7-20260318,13.881413
+2026-05-21,2853275,pi,pi,moonshotai/kimi-k2.6-20260420,2.322044
+2026-05-21,2853275,pi,pi,openai/gpt-5.5-20260423,2.777921
+2026-05-21,2853275,pi,pi,openrouter/owl-alpha,1.318046
+2026-05-21,2853275,pi,pi,z-ai/glm-5.1-20260406,1.616944
+2026-05-21,2938662,Nous Research API,nous-research-api,Others,0.204468
+2026-05-21,2938662,Nous Research API,nous-research-api,anthropic/claude-4.6-sonnet-20260217,0.027196
+2026-05-21,2938662,Nous Research API,nous-research-api,deepseek/deepseek-v4-flash-20260423,6.090361
+2026-05-21,2938662,Nous Research API,nous-research-api,deepseek/deepseek-v4-pro-20260423,0.252703
+2026-05-21,2938662,Nous Research API,nous-research-api,google/gemini-3.1-pro-preview-20260219,0.049839
+2026-05-21,2938662,Nous Research API,nous-research-api,inclusionai/ling-2.6-flash-20260421,0.098151
+2026-05-21,2938662,Nous Research API,nous-research-api,moonshotai/kimi-k2.6-20260420,0.078669
+2026-05-21,2938662,Nous Research API,nous-research-api,openrouter/owl-alpha,0.075834
+2026-05-21,2938662,Nous Research API,nous-research-api,qwen/qwen3.6-plus-04-02,0.072458
+2026-05-21,2938662,Nous Research API,nous-research-api,stepfun/step-3.5-flash,0.775903
+2026-05-21,2938662,Nous Research API,nous-research-api,z-ai/glm-5.1-20260406,0.028967
+2026-05-21,3067167,Hermes Agent,hermes-agent,Others,96.414118
+2026-05-21,3067167,Hermes Agent,hermes-agent,anthropic/claude-4.6-sonnet-20260217,13.041765
+2026-05-21,3067167,Hermes Agent,hermes-agent,anthropic/claude-4.7-opus-20260416,14.642887
+2026-05-21,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-flash-20260423,143.572417
+2026-05-21,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-pro-20260423,35.258424
+2026-05-21,3067167,Hermes Agent,hermes-agent,minimax/minimax-m2.7-20260318,17.133534
+2026-05-21,3067167,Hermes Agent,hermes-agent,moonshotai/kimi-k2.6-20260420,10.83211
+2026-05-21,3067167,Hermes Agent,hermes-agent,nvidia/nemotron-3-super-120b-a12b-20230311,26.490117
+2026-05-21,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,45.378318
+2026-05-21,3067167,Hermes Agent,hermes-agent,qwen/qwen3.6-plus-04-02,8.996793
+2026-05-21,3067167,Hermes Agent,hermes-agent,stepfun/step-3.5-flash,17.955781
+2026-05-21,3097485,Studs.gg,studsgg,google/gemini-2.0-flash-001,3.3e-05
+2026-05-21,3097485,Studs.gg,studsgg,google/gemini-3-flash-preview-20251217,0.006108
+2026-05-21,3097485,Studs.gg,studsgg,google/gemini-3.1-flash-lite-preview-20260303,0.001413
+2026-05-21,3097485,Studs.gg,studsgg,google/gemini-3.1-pro-preview-20260219,0.000524
+2026-05-21,3097485,Studs.gg,studsgg,google/gemini-3.5-flash-20260519,2.013555
+2026-05-21,3097485,Studs.gg,studsgg,qwen/qwen3-vl-8b-instruct,0.011
+2026-05-21,3178860,Ito,ito,anthropic/claude-4.5-haiku-20251001,0.024172
+2026-05-21,3178860,Ito,ito,google/gemini-3-pro-image-preview-20251120,0.000146
+2026-05-21,3178860,Ito,ito,openai/gpt-5.3-codex-20260224,4.885019
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.042238
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.22107
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v3.2-20251201,0.067865
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,6.037373
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.25786
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.041252
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,1.120881
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-35b-a3b-20260415,0.101089
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.054422
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,5.352479
+2026-05-21,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.383735
+2026-05-21,3350625,extra.email,extra-email,google/gemma-4-31b-it-20260402,0.718127
+2026-05-21,3350625,extra.email,extra-email,qwen/qwen3-235b-a22b-07-25,2.709036
+2026-05-21,3350625,extra.email,extra-email,qwen/qwen3-vl-30b-a3b-instruct,0.079521
+2026-05-21,831074,Roo Code,roo-code,Others,4.857246
+2026-05-21,831074,Roo Code,roo-code,anthropic/claude-4.5-sonnet-20250929,0.535593
+2026-05-21,831074,Roo Code,roo-code,anthropic/claude-4.6-opus-20260205,1.510619
+2026-05-21,831074,Roo Code,roo-code,anthropic/claude-4.6-sonnet-20260217,2.933546
+2026-05-21,831074,Roo Code,roo-code,anthropic/claude-4.7-opus-20260416,0.399818
+2026-05-21,831074,Roo Code,roo-code,deepseek/deepseek-v4-flash-20260423,4.744767
+2026-05-21,831074,Roo Code,roo-code,deepseek/deepseek-v4-pro-20260423,2.219972
+2026-05-21,831074,Roo Code,roo-code,google/gemini-3.5-flash-20260519,0.515594
+2026-05-21,831074,Roo Code,roo-code,openai/gpt-oss-120b,0.662662
+2026-05-21,831074,Roo Code,roo-code,openrouter/owl-alpha,1.655904
+2026-05-21,831074,Roo Code,roo-code,poolside/laguna-m.1-20260312,0.475142
