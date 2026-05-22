@@ -401,6 +401,16 @@ function setupPricingControls() {
 }
 
 function setupMarketcapControls() {
+  $("#launch-wind-refresh").addEventListener("click", () => {
+    showToast("正在请求打开本机 Wind 刷新脚本。若浏览器询问，请允许打开 wind-market-refresh。", true);
+    window.location.href = "wind-market-refresh://run";
+    window.setTimeout(() => {
+      showToast("脚本完成并推送后，等待 Cloudflare 部署完成，再刷新网页数据。", true);
+    }, 2200);
+  });
+  $("#reload-marketcap-page").addEventListener("click", () => {
+    window.location.reload();
+  });
   $("#marketcap-preset-select").addEventListener("change", () => {
     loadMarketPreset($("#marketcap-preset-select").value);
     renderMarketcap();

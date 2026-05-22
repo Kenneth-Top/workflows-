@@ -244,6 +244,44 @@ select[multiple] {
   grid-template-columns: minmax(170px, 0.65fr) minmax(140px, 0.45fr) minmax(150px, 0.5fr) minmax(240px, 1fr) auto auto;
 }
 
+.local-refresh-panel {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin: -4px 0 18px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.local-refresh-panel p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.local-refresh-panel code {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.local-refresh-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.primary-action {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
 .marketcap-layout {
   display: grid;
   grid-template-columns: minmax(260px, 0.55fr) minmax(420px, 1.45fr);
@@ -628,6 +666,7 @@ iframe {
   .pricing-controls-grid,
   .marketcap-toolbar,
   .marketcap-layout,
+  .local-refresh-panel,
   .manual-event-grid,
   .metrics,
   .alert-grid,

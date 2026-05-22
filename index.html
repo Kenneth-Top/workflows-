@@ -440,6 +440,18 @@
         <button id="delete-marketcap-preset" class="plain-button danger-button" type="button">删除存档</button>
       </div>
 
+      <div class="local-refresh-panel">
+        <div>
+          <strong>Wind 市值数据</strong>
+          <p>第一次使用先在本机仓库根目录运行 <code>.\install_wind_market_protocol.ps1</code>。之后点击按钮会打开 Wind Excel，刷新并推送最新 CSV；Cloudflare 部署完成后刷新页面即可看到新数据。</p>
+        </div>
+        <div class="local-refresh-actions">
+          <button id="launch-wind-refresh" class="plain-button primary-action" type="button">打开 Wind Excel 并更新市值</button>
+          <a class="plain-link" href="install_wind_market_protocol.ps1" download>协议安装脚本</a>
+          <button id="reload-marketcap-page" class="plain-button" type="button">刷新网页数据</button>
+        </div>
+      </div>
+
       <div class="marketcap-layout">
         <div class="checkbox-panel marketcap-company-panel">
           <div class="checkbox-toolbar">
