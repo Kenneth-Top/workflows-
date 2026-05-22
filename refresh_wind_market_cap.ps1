@@ -7,6 +7,7 @@ param(
   [ValidateSet("YiHKD", "BillionHKD")]
   [string]$WideUnit = "YiHKD",
   [int]$RefreshWaitSeconds = 90,
+  [switch]$IncludeLatestDate,
   [switch]$NoGitPush
 )
 
@@ -48,6 +49,18 @@ function Convert-ValueToBillionHKD([string]$Value, [string]$Unit) {
     return $number / 10.0
   }
   return $number
+}
+
+function Convert-ToIsoDate([string]$Value) {
+  if ($null -eq $Value) { return "" }
+  $text = $Value.ToString().Trim()
+  if (-not $text) { return "" }
+  try {
+    return ([datetime]$text).ToString("yyyy-MM-dd")
+  } catch {
+    if ($text.Length -lt 10) { return "" }
+    return $text.Substring(0, 10)
+  }
 }
 
 function CompanyIdFromHeader([string]$Header) {
@@ -163,6 +176,15 @@ function Upsert-MarketCapRow(
   }
 }
 
+function Remove-MarketCapRowsForDate([hashtable]$Rows, [string]$Date) {
+  if (-not $Date) { return }
+  foreach ($key in @($Rows.Keys)) {
+    if ($key.StartsWith("$Date|")) {
+      $Rows.Remove($key)
+    }
+  }
+}
+
 function Convert-WindCsvToHistoryCsv([string]$InputCsv, [string]$OutputCsv, [string]$Unit) {
   $canonicalHeaders = @("Date", "Company_ID", "Ticker", "Market_Cap_Billion_HKD", "Market_Cap_Native_Billion", "Currency", "Close", "Source", "Updated_At")
   $rows = Import-Csv -LiteralPath $InputCsv
@@ -176,7 +198,25 @@ function Convert-WindCsvToHistoryCsv([string]$InputCsv, [string]$OutputCsv, [str
   $isCanonical = @($canonicalNormalized | Where-Object { $_ -notin $normalizedHeaders }).Count -eq 0
 
   if ($isCanonical) {
-    Copy-Item -LiteralPath $InputCsv -Destination $OutputCsv -Force
+    if ($IncludeLatestDate) {
+      Copy-Item -LiteralPath $InputCsv -Destination $OutputCsv -Force
+      return
+    }
+    $maxDate = @($rows | ForEach-Object { Convert-ToIsoDate $_.Date } | Where-Object { $_ } | Sort-Object | Select-Object -Last 1)[0]
+    $filteredRows = if ($maxDate) { @($rows | Where-Object { (Convert-ToIsoDate $_.Date) -ne $maxDate }) } else { @($rows) }
+    if ($maxDate) {
+      Write-Host "Skipping latest workbook date $maxDate. Use -IncludeLatestDate to publish it."
+    }
+    $lines = New-Object System.Collections.Generic.List[string]
+    $lines.Add(($headers -join ","))
+    foreach ($row in $filteredRows) {
+      $values = foreach ($header in $headers) {
+        Format-CsvCell $row.$header
+      }
+      $lines.Add(($values -join ","))
+    }
+    $utf8WithBom = New-Object System.Text.UTF8Encoding($true)
+    [System.IO.File]::WriteAllLines($OutputCsv, $lines, $utf8WithBom)
     return
   }
 
@@ -191,16 +231,24 @@ function Convert-WindCsvToHistoryCsv([string]$InputCsv, [string]$OutputCsv, [str
 
   $companyHeaders = $headers | Where-Object { $_ -ne $dateHeader -and $_ -and -not $_.StartsWith("Unnamed") }
   $updatedAt = (Get-Date).ToUniversalTime().ToString("s") + "Z"
-  foreach ($row in $rows) {
-    $date = $row.$dateHeader
-    if ($null -eq $date) { $date = "" }
-    $date = $date.ToString().Trim()
-    if (-not $date) { continue }
-    try {
-      $date = ([datetime]$date).ToString("yyyy-MM-dd")
-    } catch {
-      $date = $date.Substring(0, [Math]::Min(10, $date.Length))
+  $parsedRows = @($rows | ForEach-Object {
+    [pscustomobject]@{
+      Row = $_
+      Date = Convert-ToIsoDate $_.$dateHeader
     }
+  } | Where-Object { $_.Date })
+  $skipDate = ""
+  if (-not $IncludeLatestDate) {
+    $skipDate = @($parsedRows | ForEach-Object { $_.Date } | Sort-Object | Select-Object -Last 1)[0]
+    if ($skipDate) {
+      Write-Host "Skipping latest workbook date $skipDate. Use -IncludeLatestDate to publish it."
+      Remove-MarketCapRowsForDate -Rows $existing -Date $skipDate
+    }
+  }
+  foreach ($item in $parsedRows) {
+    if ($skipDate -and $item.Date -eq $skipDate) { continue }
+    $row = $item.Row
+    $date = $item.Date
     foreach ($header in $companyHeaders) {
       $companyId = CompanyIdFromHeader $header
       $value = Convert-ValueToBillionHKD $row.$header $Unit
@@ -218,6 +266,7 @@ function Convert-WindWorkbookSheetsToHistoryCsv($Workbook, [string]$OutputCsv, [
   $tickerMap = $maps.ByTicker
   $existing = Read-ExistingRows $OutputCsv
   $updatedAt = (Get-Date).ToUniversalTime().ToString("s") + "Z"
+  $candidateRows = New-Object System.Collections.Generic.List[object]
 
   foreach ($sheet in $Workbook.Worksheets) {
     $sheetName = $sheet.Name
@@ -265,16 +314,31 @@ function Convert-WindWorkbookSheetsToHistoryCsv($Workbook, [string]$OutputCsv, [
       $dateText = ($sheet.Cells.Item($row, $dateCol).Text).Trim()
       $valueText = ($sheet.Cells.Item($row, $valueCol).Text).Trim()
       if (-not $dateText -or -not $valueText) { continue }
-      try {
-        $date = ([datetime]$dateText).ToString("yyyy-MM-dd")
-      } catch {
-        if ($dateText.Length -lt 10) { continue }
-        $date = $dateText.Substring(0, 10)
-      }
+      $date = Convert-ToIsoDate $dateText
+      if (-not $date) { continue }
       $value = Convert-ValueToBillionHKD $valueText $Unit
       if ($null -eq $value) { continue }
-      Upsert-MarketCapRow -Rows $existing -CompanyRows $companyRows -Date $date -CompanyId $companyId -MarketCapBillion $value -Source "wind_excel_sheet" -UpdatedAt $updatedAt
+      $candidateRows.Add([pscustomobject]@{
+        Date = $date
+        CompanyId = $companyId
+        MarketCapBillion = $value
+        Source = "wind_excel_sheet"
+      }) | Out-Null
     }
+  }
+
+  $skipDate = ""
+  if (-not $IncludeLatestDate -and $candidateRows.Count -gt 0) {
+    $skipDate = @($candidateRows | ForEach-Object { $_.Date } | Sort-Object | Select-Object -Last 1)[0]
+    if ($skipDate) {
+      Write-Host "Skipping latest workbook date $skipDate. Use -IncludeLatestDate to publish it."
+      Remove-MarketCapRowsForDate -Rows $existing -Date $skipDate
+    }
+  }
+
+  foreach ($row in $candidateRows) {
+    if ($skipDate -and $row.Date -eq $skipDate) { continue }
+    Upsert-MarketCapRow -Rows $existing -CompanyRows $companyRows -Date $row.Date -CompanyId $row.CompanyId -MarketCapBillion $row.MarketCapBillion -Source $row.Source -UpdatedAt $updatedAt
   }
 
   Export-HistoryRows -Rows $existing -OutputCsv $OutputCsv
