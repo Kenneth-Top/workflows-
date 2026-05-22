@@ -17,6 +17,7 @@
       <button class="tab active" data-view="cumulative" data-nav-group="openrouter" data-module-default="cumulative">OpenRouter 市场</button>
       <button class="tab" data-view="pricing">&#x6A21;&#x578B;&#x4EF7;&#x683C;</button>
       <button class="tab" data-view="marketcap">AI 市值复盘</button>
+      <button class="tab" data-view="plans">套餐监控</button>
       <button class="tab" data-view="products">AI 产品测评</button>
       <button class="tab" data-view="datasets">数据文件</button>
     </nav>
@@ -576,6 +577,77 @@
     </section>
 
 
+    <section id="plans-view" class="view">
+      <div class="table-head">
+        <div>
+          <h2>智谱 GLM Coding Plan 套餐监控</h2>
+          <p class="chart-note">每天 09:59:50 到 10:05:00 观察公开页面，记录 10 点开售后的首次售罄时间。</p>
+        </div>
+        <a class="plain-link" href="https://bigmodel.cn/glm-coding" target="_blank" rel="noreferrer">打开官网</a>
+      </div>
+
+      <div class="toolbar plans-toolbar">
+        <label>
+          时间范围
+          <select id="plans-range-select">
+            <option value="all">全部</option>
+            <option value="60">近 60 天</option>
+            <option value="30">近 30 天</option>
+            <option value="14">近 14 天</option>
+            <option value="7">近 7 天</option>
+          </select>
+        </label>
+        <label>
+          套餐筛选
+          <input id="plans-search" type="search" placeholder="Lite / Pro / Max / 月 / 季 / 年">
+        </label>
+        <button id="download-plans" class="plain-button" type="button">下载监控历史</button>
+      </div>
+
+      <div class="metrics">
+        <div><span>监控天数</span><strong id="plans-days-count">-</strong></div>
+        <div><span>最新日期</span><strong id="plans-latest-date">-</strong></div>
+        <div><span>最快售罄</span><strong id="plans-fastest">-</strong></div>
+        <div><span>窗口结束仍可订阅</span><strong id="plans-available-count">-</strong></div>
+      </div>
+
+      <div class="chart-wrap tall">
+        <canvas id="plans-chart" aria-label="GLM Coding Plan 售罄时间趋势"></canvas>
+      </div>
+
+      <div class="table-head">
+        <div>
+          <h2>售罄时间序列表</h2>
+          <p class="chart-note">空值表示监控窗口内未观测到售罄；状态列保留当日窗口结束时的最后观测。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="plans-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="table-head">
+        <h2>最近观测快照</h2>
+      </div>
+      <div class="table-wrap">
+        <table id="plans-snapshot-table">
+          <thead>
+            <tr>
+              <th>观测时间</th>
+              <th>套餐</th>
+              <th>周期</th>
+              <th>状态</th>
+              <th>按钮文本</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+
     <section id="pricing-view" class="view">
       <div class="toolbar pricing-toolbar">
         <label>
@@ -679,6 +751,8 @@
         <a href="ai_market_events.json" download>AI 市值事件库 JSON</a>
         <a href="ai_market_events_draft.json" download>AI 市值待审核事件 JSON</a>
         <a href="ai_market_presets.json" download>AI 市值复盘存档 JSON</a>
+        <a href="glm_coding_plan_history.csv" download>GLM Coding Plan 监控 CSV</a>
+        <a href="glm_coding_plan_snapshots.json" download>GLM Coding Plan 最新快照 JSON</a>
         <a href="openrouter_benchmark_records.csv" download>Benchmark 跑分 CSV</a>
         <a href="lmarena_leaderboard_records.csv" download>LMARENA 排行 CSV</a>
         <div id="product-downloads" class="download-list nested"></div>

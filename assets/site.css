@@ -240,6 +240,41 @@ select[multiple] {
   height: 460px;
 }
 
+.plans-toolbar {
+  grid-template-columns: minmax(150px, 0.45fr) minmax(260px, 1fr) auto;
+}
+
+.plan-status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plan-status-sold {
+  background: #fde8e7;
+  color: #b42318;
+}
+
+.plan-status-open {
+  background: #e6f5ef;
+  color: #0f6f52;
+}
+
+.plan-status-error {
+  background: #fff1d6;
+  color: #946200;
+}
+
+.plan-status-muted {
+  background: #eef2f1;
+  color: var(--muted);
+}
+
 .marketcap-toolbar {
   grid-template-columns: minmax(170px, 0.65fr) minmax(140px, 0.45fr) minmax(150px, 0.5fr) minmax(240px, 1fr) auto auto;
 }

@@ -1,0 +1,40 @@
+name: Monitor GLM Coding Plan
+
+on:
+  schedule:
+    - cron: '45 1 * * *' # 北京时间 09:45，预留依赖安装与 GitHub 调度延迟
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monitor-glm-coding-plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install browser dependencies
+        run: |
+          pip install playwright
+          python -m playwright install chromium --with-deps
+
+      - name: Monitor GLM Coding Plan
+        run: python glm_coding_plan_monitor.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add glm_coding_plan_history.csv
+          git add glm_coding_plan_snapshots.json
+          git commit -m "Auto-update GLM Coding Plan monitor" || exit 0
+          git pull --rebase origin main
+          git push

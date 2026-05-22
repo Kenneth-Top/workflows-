@@ -16,6 +16,8 @@ const state = {
   marketDraftHiddenEvents: new Set(),
   marketDraftEdits: {},
   marketPresets: [],
+  planHistory: [],
+  planSnapshots: {},
   marketSelectedCompanies: new Set(),
   marketHiddenEvents: new Set(),
   marketPinnedEvents: new Set(),
@@ -42,6 +44,7 @@ const state = {
     token: null,
     pricing: null,
     marketcap: null,
+    plans: null,
     marketShare: null,
     categoryBar: null,
     categoryTrend: null,
@@ -81,6 +84,29 @@ const pricingPriceTypes = [
   { key: "Cache_Hit_Price_1M", label: "Cache Hit" },
   { key: "Cache_Storage_Price_Per_Hour_Per_1M", label: "Cache Storage" },
 ];
+
+const planColumns = [
+  { key: "Lite_Month", label: "Lite 月", tier: "Lite", duration: "连续包月" },
+  { key: "Lite_Quarter", label: "Lite 季", tier: "Lite", duration: "连续包季" },
+  { key: "Lite_Year", label: "Lite 年", tier: "Lite", duration: "连续包年" },
+  { key: "Pro_Month", label: "Pro 月", tier: "Pro", duration: "连续包月" },
+  { key: "Pro_Quarter", label: "Pro 季", tier: "Pro", duration: "连续包季" },
+  { key: "Pro_Year", label: "Pro 年", tier: "Pro", duration: "连续包年" },
+  { key: "Max_Month", label: "Max 月", tier: "Max", duration: "连续包月" },
+  { key: "Max_Quarter", label: "Max 季", tier: "Max", duration: "连续包季" },
+  { key: "Max_Year", label: "Max 年", tier: "Max", duration: "连续包年" },
+];
+
+const planStatusLabels = {
+  sold_out: "已售罄",
+  available: "可订阅",
+  available_at_end: "窗口结束仍可订阅",
+  pre_sale: "未开售",
+  disabled: "按钮不可用",
+  unknown: "未知",
+  not_observed: "未观测",
+  error: "监控失败",
+};
 
 const marketEventTypeLabels = {
   model_release: "模型发布",
@@ -285,6 +311,7 @@ function activateView(view, navGroup = view) {
   if (viewEl) viewEl.classList.add("active");
   const tab = document.querySelector(`.tab[data-nav-group="${navGroup}"], .tab[data-view="${view}"]`);
   if (tab) tab.classList.add("active");
+  if (view === "plans") renderPlans();
 }
 
 function activateViewFromHash() {
@@ -293,6 +320,7 @@ function activateViewFromHash() {
   activateView(view);
   if (view === "marketcap") renderMarketcap();
   if (view === "pricing") renderPricing();
+  if (view === "plans") renderPlans();
 }
 
 function setupOpenRouterModules() {
@@ -397,6 +425,15 @@ function setupPricingControls() {
       "Cache_Storage_Price_Per_Hour_Per_1M",
       "Context_Window",
     ], state.filteredPricing);
+  });
+}
+
+function setupPlansControls() {
+  $("#plans-range-select").addEventListener("change", renderPlans);
+  $("#plans-search").addEventListener("input", renderPlans);
+  $("#download-plans").addEventListener("click", () => {
+    if (!state.planHistory.length) return;
+    downloadCsv("glm_coding_plan_history.csv", Object.keys(state.planHistory[0]), state.planHistory);
   });
 }
 
@@ -1420,6 +1457,172 @@ function renderAppsTable() {
       <td>${escapeHtml(app.App_Slug || "")}</td>
       <td>${shortNumber(numberValue(app.Total_Tokens) / 1e9)}</td>
       <td>${Number(app.Total_Requests || 0).toLocaleString()}</td>
+    </tr>
+  `).join("");
+}
+
+function planStatusLabel(status) {
+  return planStatusLabels[status] || status || "-";
+}
+
+function planStatusClass(status) {
+  if (status === "sold_out") return "plan-status-sold";
+  if (status === "available" || status === "available_at_end") return "plan-status-open";
+  if (status === "error") return "plan-status-error";
+  return "plan-status-muted";
+}
+
+function planSelloutSeconds(value) {
+  const match = String(value || "").match(/^(\d{2}):(\d{2}):(\d{2})$/);
+  if (!match) return null;
+  const hour = Number(match[1]);
+  const minute = Number(match[2]);
+  const second = Number(match[3]);
+  const seconds = (hour - 10) * 3600 + minute * 60 + second;
+  return Number.isFinite(seconds) ? seconds : null;
+}
+
+function formatSelloutOffset(seconds) {
+  if (!Number.isFinite(seconds)) return "-";
+  const sign = seconds < 0 ? "-" : "+";
+  const absolute = Math.abs(seconds);
+  const minutes = Math.floor(absolute / 60);
+  const secs = absolute % 60;
+  return minutes ? `${sign}${minutes}m${String(secs).padStart(2, "0")}s` : `${sign}${secs}s`;
+}
+
+function filteredPlanColumns() {
+  const query = $("#plans-search").value.trim().toLowerCase();
+  if (!query) return planColumns;
+  return planColumns.filter((column) => [
+    column.key,
+    column.label,
+    column.tier,
+    column.duration,
+  ].join(" ").toLowerCase().includes(query));
+}
+
+function filteredPlanRows() {
+  const range = $("#plans-range-select").value;
+  const rows = state.planHistory.slice().sort((a, b) => a.Date.localeCompare(b.Date));
+  if (range === "all" || !rows.length) return rows;
+  const latest = rows.at(-1).Date;
+  const cutoff = new Date(`${latest}T00:00:00Z`);
+  cutoff.setUTCDate(cutoff.getUTCDate() - Number(range) + 1);
+  const cutoffDate = cutoff.toISOString().slice(0, 10);
+  return rows.filter((row) => row.Date >= cutoffDate);
+}
+
+function latestPlanSummary(row, columns) {
+  if (!row) return { fastest: "-", available: "-" };
+  const sold = columns
+    .map((column) => ({ column, time: row[column.key], seconds: planSelloutSeconds(row[column.key]) }))
+    .filter((item) => item.seconds !== null)
+    .sort((a, b) => a.seconds - b.seconds);
+  const available = columns.filter((column) => {
+    const status = row[`${column.key}_Status`];
+    return status === "available_at_end" || status === "available";
+  }).length;
+  return {
+    fastest: sold[0] ? `${sold[0].column.label} ${sold[0].time} (${formatSelloutOffset(sold[0].seconds)})` : "-",
+    available: available.toLocaleString(),
+  };
+}
+
+function renderPlans() {
+  if (!$("#plans-view")) return;
+  const rows = filteredPlanRows();
+  const columns = filteredPlanColumns();
+  const latestRow = rows.at(-1);
+  const summary = latestPlanSummary(latestRow, columns);
+
+  $("#plans-days-count").textContent = rows.length.toLocaleString();
+  $("#plans-latest-date").textContent = latestRow?.Date || "-";
+  $("#plans-fastest").textContent = summary.fastest;
+  $("#plans-available-count").textContent = summary.available;
+
+  renderPlansChart(rows, columns);
+  renderPlansTable(rows, columns);
+  renderPlansSnapshotTable();
+}
+
+function renderPlansChart(rows, columns) {
+  if (state.charts.plans) state.charts.plans.destroy();
+  const labels = rows.map((row) => row.Date);
+  state.charts.plans = new Chart($("#plans-chart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: columns.map((column, index) => ({
+        label: column.label,
+        data: rows.map((row) => planSelloutSeconds(row[column.key])),
+        borderColor: chartColor(index),
+        backgroundColor: chartColor(index),
+        tension: 0,
+        spanGaps: true,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "nearest", intersect: false },
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: {
+          callbacks: {
+            label: (context) => `${context.dataset.label}: ${formatSelloutOffset(context.parsed.y)}`,
+          },
+        },
+      },
+      scales: {
+        y: {
+          title: { display: true, text: "距离 10:00 的售罄秒数" },
+          ticks: { callback: (value) => formatSelloutOffset(Number(value)) },
+        },
+      },
+    },
+  });
+}
+
+function renderPlansTable(rows, columns) {
+  const table = $("#plans-table");
+  table.querySelector("thead").innerHTML = `
+    <tr>
+      <th>日期</th>
+      ${columns.map((column) => `<th>${escapeHtml(column.label)}</th>`).join("")}
+      ${columns.map((column) => `<th>${escapeHtml(column.label)} 状态</th>`).join("")}
+      <th>备注</th>
+    </tr>
+  `;
+  table.querySelector("tbody").innerHTML = rows.slice().reverse().map((row) => `
+    <tr>
+      <td>${escapeHtml(row.Date)}</td>
+      ${columns.map((column) => `<td>${escapeHtml(row[column.key] || "-")}</td>`).join("")}
+      ${columns.map((column) => {
+        const status = row[`${column.key}_Status`] || "unknown";
+        return `<td><span class="plan-status-pill ${planStatusClass(status)}">${escapeHtml(planStatusLabel(status))}</span></td>`;
+      }).join("")}
+      <td>${escapeHtml(row.Notes || "")}</td>
+    </tr>
+  `).join("");
+}
+
+function renderPlansSnapshotTable() {
+  const tbody = $("#plans-snapshot-table tbody");
+  const observations = (state.planSnapshots.observations || []).slice(-54).reverse();
+  if (!observations.length) {
+    tbody.innerHTML = `<tr><td colspan="5" class="marketcap-draft-empty">暂无观测快照。首次定时任务完成后会出现在这里。</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = observations.map((item) => `
+    <tr>
+      <td>${escapeHtml((item.observed_at || "").replace("T", " ").slice(0, 19))}</td>
+      <td>${escapeHtml(item.tier_label || item.tier || "")}</td>
+      <td>${escapeHtml(item.duration_label || item.duration || "")}</td>
+      <td><span class="plan-status-pill ${planStatusClass(item.status)}">${escapeHtml(item.status_label || planStatusLabel(item.status))}</span></td>
+      <td>${escapeHtml(item.button_text || "")}</td>
     </tr>
   `).join("");
 }
@@ -2574,6 +2777,7 @@ async function init() {
   setupCumulativeControls();
   setupTokenControls();
   setupPricingControls();
+  setupPlansControls();
   setupMarketcapControls();
   setupOpenRouterControls();
   setupProductControls();
@@ -2606,6 +2810,14 @@ async function init() {
     populatePricingProviders();
     renderPricingPriceTypeOptions();
     renderPricingModelOptions();
+
+    const [planHistory, planSnapshots] = await Promise.all([
+      loadCsv("glm_coding_plan_history.csv"),
+      loadJson("glm_coding_plan_snapshots.json"),
+    ]);
+    state.planHistory = planHistory;
+    state.planSnapshots = planSnapshots || {};
+    renderPlans();
 
     const [marketCompanies, marketCaps, marketEventsPayload, marketDraftPayload] = await Promise.all([
       loadCsv("ai_market_companies.csv"),
