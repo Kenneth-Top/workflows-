@@ -485,8 +485,18 @@ select[multiple] {
   padding: 14px;
 }
 
+.chart-shell {
+  display: grid;
+  gap: 8px;
+}
+
+.chart-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .chart-wrap.tall {
-  height: 500px;
+  height: 560px;
 }
 
 .table-head {

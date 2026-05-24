@@ -294,6 +294,25 @@ function downloadCsv(filename, headers, rows) {
   URL.revokeObjectURL(url);
 }
 
+function downloadChartImage(chart, filename) {
+  if (!chart?.canvas) {
+    showToast("当前图表还没有生成");
+    return;
+  }
+  const source = chart.canvas;
+  const canvas = document.createElement("canvas");
+  canvas.width = source.width;
+  canvas.height = source.height;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(source, 0, 0);
+  const link = document.createElement("a");
+  link.href = canvas.toDataURL("image/png");
+  link.download = filename;
+  link.click();
+}
+
 function setupTabs() {
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => {
@@ -479,6 +498,9 @@ function setupMarketcapControls() {
     const rows = visibleMarketEvents();
     if (!rows.length) return;
     downloadCsv("ai_market_events_filtered.csv", ["date", "vendor", "company", "event_type", "title", "summary", "source", "source_url", "status"], rows);
+  });
+  $("#download-marketcap-chart").addEventListener("click", () => {
+    downloadChartImage(state.charts.marketcap, "ai_market_cap_review.png");
   });
 }
 
@@ -2259,7 +2281,92 @@ function shortMarketEventLabel(event) {
   }
   text = text.replace(/\s+/g, " ").trim();
   if (!text) text = marketCompanyLabel(event.vendor);
-  return text.length > 14 ? `${text.slice(0, 14)}...` : text;
+  return text.length > 28 ? `${text.slice(0, 28)}...` : text;
+}
+
+function clampNumber(value, min, max) {
+  return Math.max(min, Math.min(value, max));
+}
+
+function wrapCanvasLabel(ctx, text, maxWidth, maxLines = 2) {
+  const chars = Array.from(String(text || "").replace(/\s+/g, " ").trim());
+  const lines = [];
+  let current = "";
+  let usedChars = 0;
+  for (const char of chars) {
+    const next = current + char;
+    if (!current || ctx.measureText(next).width <= maxWidth) {
+      current = next;
+      usedChars += 1;
+      continue;
+    }
+    lines.push(current.trim());
+    current = char;
+    usedChars += 1;
+    if (lines.length === maxLines - 1) break;
+  }
+  if (current && lines.length < maxLines) {
+    lines.push(current.trim());
+  }
+  if (usedChars < chars.length && lines.length) {
+    let last = `${lines[lines.length - 1].replace(/[.。…]+$/g, "")}...`;
+    while (last.length > 4 && ctx.measureText(last).width > maxWidth) {
+      last = `${last.slice(0, -4)}...`;
+    }
+    lines[lines.length - 1] = last;
+  }
+  return lines.length ? lines : [String(text || "")];
+}
+
+function labelBoxesOverlap(a, b, margin = 6) {
+  return !(
+    a.right + margin < b.left
+    || a.left - margin > b.right
+    || a.bottom + margin < b.top
+    || a.top - margin > b.bottom
+  );
+}
+
+function findMarketLabelPlacement(x, anchorY, width, height, chartArea, occupied, index) {
+  const safeLeft = chartArea.left + 4;
+  const safeRight = chartArea.right - 4;
+  const safeTop = chartArea.top + 4;
+  const safeBottom = chartArea.bottom - 4;
+  const sideOrder = index % 2 === 0 ? ["above", "below"] : ["below", "above"];
+  const nudges = [0, -width * 0.45, width * 0.45, -width * 0.9, width * 0.9];
+
+  for (let lane = 0; lane < 10; lane += 1) {
+    for (const side of sideOrder) {
+      for (const nudge of nudges) {
+        const left = clampNumber(x - width / 2 + nudge, safeLeft, safeRight - width);
+        const gap = 24 + lane * (height + 7);
+        const rawTop = side === "above" ? anchorY - gap - height : anchorY + gap;
+        const top = clampNumber(rawTop, safeTop, safeBottom - height);
+        const box = { left, top, right: left + width, bottom: top + height };
+        if (!occupied.some((item) => labelBoxesOverlap(box, item))) {
+          return {
+            left,
+            top,
+            box,
+            side,
+            connectorY: side === "above" ? top + height : top,
+          };
+        }
+      }
+    }
+  }
+
+  const left = clampNumber(x - width / 2, safeLeft, safeRight - width);
+  const fallbackSide = sideOrder[0];
+  const rawTop = fallbackSide === "above" ? anchorY - 24 - height : anchorY + 24;
+  const top = clampNumber(rawTop, safeTop, safeBottom - height);
+  return {
+    left,
+    top,
+    box: { left, top, right: left + width, bottom: top + height },
+    side: fallbackSide,
+    connectorY: fallbackSide === "above" ? top + height : top,
+  };
 }
 
 const marketcapEventPlugin = {
@@ -2270,8 +2377,10 @@ const marketcapEventPlugin = {
     const { ctx, chartArea, scales } = chart;
     const xScale = scales.x;
     const yScale = scales.y;
+    const occupied = [];
     ctx.save();
     ctx.textBaseline = "middle";
+    ctx.textAlign = "left";
     events.slice(0, 60).forEach((event, index) => {
       const x = xScale.getPixelForValue(event.labelIndex);
       if (!Number.isFinite(x) || x < chartArea.left || x > chartArea.right) return;
@@ -2295,22 +2404,21 @@ const marketcapEventPlugin = {
       }
 
       ctx.font = "700 11px Arial, sans-serif";
-      ctx.textAlign = "left";
       const text = event.displayLabel || String(event.displayIndex);
       const paddingX = 6;
-      const width = Math.min(Math.ceil(ctx.measureText(text).width) + paddingX * 2, 160);
-      const height = 24;
-      const sameDateOffset = event.sameDateOffset || 0;
-      let y = anchorY - 42 - sameDateOffset * 28;
-      y = Math.max(chartArea.top + height / 2 + 4, Math.min(y, chartArea.bottom - height / 2 - 4));
-      let left = x - width / 2;
-      left = Math.max(chartArea.left, Math.min(left, chartArea.right - width));
-      const boxCenterY = y;
-      const targetY = y + height / 2;
+      const paddingY = 6;
+      const lineHeight = 13;
+      const maxTextWidth = 128;
+      const lines = wrapCanvasLabel(ctx, text, maxTextWidth, 2);
+      const textWidth = Math.max(...lines.map((line) => ctx.measureText(line).width));
+      const width = Math.min(Math.ceil(textWidth) + paddingX * 2, maxTextWidth + paddingX * 2);
+      const height = lines.length * lineHeight + paddingY * 2;
+      const placement = findMarketLabelPlacement(x, anchorY, width, height, chartArea, occupied, index + (event.sameDateOffset || 0));
+      occupied.push(placement.box);
 
       ctx.beginPath();
       ctx.moveTo(x, anchorY);
-      ctx.lineTo(left + width / 2, targetY);
+      ctx.lineTo(placement.left + width / 2, placement.connectorY);
       ctx.strokeStyle = event.color;
       ctx.lineWidth = 1;
       ctx.stroke();
@@ -2318,10 +2426,13 @@ const marketcapEventPlugin = {
       ctx.fillStyle = event.fill;
       ctx.strokeStyle = event.color;
       ctx.lineWidth = 1.2;
-      ctx.fillRect(left, y - height / 2, width, height);
-      ctx.strokeRect(left, y - height / 2, width, height);
+      ctx.fillRect(placement.left, placement.top, width, height);
+      ctx.strokeRect(placement.left, placement.top, width, height);
       ctx.fillStyle = "#15201e";
-      ctx.fillText(text, left + paddingX, boxCenterY + 0.5);
+      lines.forEach((line, lineIndex) => {
+        const textY = placement.top + paddingY + lineHeight * lineIndex + lineHeight / 2;
+        ctx.fillText(line, placement.left + paddingX, textY);
+      });
     });
     ctx.restore();
   },
@@ -2444,7 +2555,7 @@ function renderMarketcap() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 150 } },
+      layout: { padding: { top: 120, bottom: 36 } },
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },

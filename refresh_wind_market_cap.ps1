@@ -13,6 +13,82 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$GitSyncEnabled = -not $NoGitPush
+
+function Invoke-GitCommand([string]$Description, [scriptblock]$Action) {
+  & $Action
+  if ($LASTEXITCODE -ne 0) {
+    throw "$Description failed with exit code $LASTEXITCODE."
+  }
+}
+
+function Initialize-GitSync([string]$OutputCsvPath) {
+  if (-not $GitSyncEnabled) { return $false }
+  Push-Location $PSScriptRoot
+  try {
+    if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+      Write-Warning "Git is not available. The CSV will be refreshed locally only."
+      return $false
+    }
+
+    $outputFullPath = [System.IO.Path]::GetFullPath($OutputCsvPath)
+    $repoFullPath = [System.IO.Path]::GetFullPath($PSScriptRoot)
+    $outputRelativePath = $outputFullPath
+    if ($outputFullPath.StartsWith($repoFullPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+      $outputRelativePath = $outputFullPath.Substring($repoFullPath.Length).TrimStart("\", "/")
+    }
+    $outputRelativePath = $outputRelativePath.Replace("\", "/")
+    $dirty = @(git status --porcelain --untracked-files=no | Where-Object {
+      $path = $_.Substring(3).Replace("\", "/")
+      $path -ne $outputRelativePath
+    })
+    if ($dirty.Count -gt 0) {
+      Write-Warning "Working tree has unrelated local changes. The CSV will be refreshed locally, but git pull/push will be skipped."
+      $dirty | ForEach-Object { Write-Warning "  $_" }
+      return $false
+    }
+
+    Write-Host "Syncing repository before refreshing CSV..."
+    Invoke-GitCommand "git pull --rebase origin main" { git pull --rebase origin main }
+    return $true
+  } catch {
+    Write-Warning $_.Exception.Message
+    Write-Warning "The CSV will be refreshed locally only. Commit and push manually after resolving git state."
+    return $false
+  } finally {
+    Pop-Location
+  }
+}
+
+function Publish-GitCsv([string]$OutputCsvPath) {
+  if (-not $GitSyncEnabled) { return }
+  Push-Location $PSScriptRoot
+  try {
+    $outputFullPath = [System.IO.Path]::GetFullPath($OutputCsvPath)
+    $repoFullPath = [System.IO.Path]::GetFullPath($PSScriptRoot)
+    $outputRelativePath = $outputFullPath
+    if ($outputFullPath.StartsWith($repoFullPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+      $outputRelativePath = $outputFullPath.Substring($repoFullPath.Length).TrimStart("\", "/")
+    }
+    $outputRelativePath = $outputRelativePath.Replace("\", "/")
+
+    Write-Host "Committing updated market cap CSV..."
+    Invoke-GitCommand "git add $outputRelativePath" { git add -- $outputRelativePath }
+    git diff --cached --quiet -- $outputRelativePath
+    if ($LASTEXITCODE -eq 0) {
+      Write-Host "No CSV changes to commit."
+      return
+    }
+    Invoke-GitCommand "git commit" { git commit -m "Refresh Wind market cap data" }
+    Invoke-GitCommand "git push origin main" { git push origin main }
+  } catch {
+    Write-Warning $_.Exception.Message
+    Write-Warning "CSV refresh finished locally, but automatic git push did not complete."
+  } finally {
+    Pop-Location
+  }
+}
+
 function Resolve-RepoPath([string]$PathValue) {
   if ([System.IO.Path]::IsPathRooted($PathValue)) {
     return $PathValue
@@ -386,6 +462,7 @@ if (-not $ExcelPath -or -not (Test-Path $ExcelPath)) {
 $ExcelPath = Resolve-RepoPath $ExcelPath
 $OutputCsv = Resolve-RepoPath $OutputCsv
 $TempCsv = Join-Path $env:TEMP ("wind_market_cap_{0}.csv" -f ([guid]::NewGuid().ToString("N")))
+$GitSyncEnabled = Initialize-GitSync $OutputCsv
 
 Write-Host "Opening Excel: $ExcelPath"
 $excel = $null
@@ -457,21 +534,6 @@ try {
   [System.GC]::WaitForPendingFinalizers()
 }
 
-if (-not $NoGitPush) {
-  Push-Location $PSScriptRoot
-  try {
-    Write-Host "Pushing updated market cap CSV..."
-    git pull --rebase origin main
-    git add ai_market_cap_history.csv
-    git commit -m "Refresh Wind market cap data"
-    if ($LASTEXITCODE -ne 0) {
-      Write-Host "No CSV changes to commit."
-    } else {
-      git push origin main
-    }
-  } finally {
-    Pop-Location
-  }
-}
+Publish-GitCsv $OutputCsv
 
 Write-Host "Done."
