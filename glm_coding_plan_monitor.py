@@ -364,7 +364,12 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         for item in batch:
             latest_status[item.plan_key] = item.status
             latest_source[item.plan_key] = item.source
-            if observed_now >= sale_start and item.status == "sold_out" and item.plan_key not in first_sold_out:
+            if (
+                not started_after_window
+                and observed_now >= sale_start
+                and item.status == "sold_out"
+                and item.plan_key not in first_sold_out
+            ):
                 first_sold_out[item.plan_key] = observed_now.strftime("%H:%M:%S")
 
     used_api = False
