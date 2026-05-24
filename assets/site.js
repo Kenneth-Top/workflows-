@@ -2563,7 +2563,7 @@ function renderMarketcap() {
       },
       scales: {
         x: { ticks: { maxTicksLimit: 14 } },
-        y: { title: { display: true, text: "市值 (Billion HKD)" } },
+        y: { grace: "8%", title: { display: true, text: "市值 (Billion HKD)" } },
       },
     },
   });

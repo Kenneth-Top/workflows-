@@ -488,6 +488,8 @@ select[multiple] {
 .chart-shell {
   display: grid;
   gap: 8px;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 .chart-actions {
@@ -496,7 +498,7 @@ select[multiple] {
 }
 
 .chart-wrap.tall {
-  height: 560px;
+  height: 660px;
 }
 
 .table-head {
