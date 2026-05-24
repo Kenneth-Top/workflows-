@@ -27,6 +27,9 @@ jobs:
           python -m playwright install chromium --with-deps
 
       - name: Monitor GLM Coding Plan
+        env:
+          BIGMODEL_AUTHORIZATION: ${{ secrets.BIGMODEL_AUTHORIZATION }}
+          BIGMODEL_COOKIE: ${{ secrets.BIGMODEL_COOKIE }}
         run: python glm_coding_plan_monitor.py
 
       - name: Commit and Push

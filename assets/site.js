@@ -100,7 +100,9 @@ const planColumns = [
 const planStatusLabels = {
   sold_out: "已售罄",
   available: "可订阅",
-  available_at_end: "窗口结束仍可订阅",
+  available_at_end: "API 确认仍可订阅",
+  missed_window: "错过监控窗口",
+  auth_required: "需要登录态",
   pre_sale: "未开售",
   disabled: "按钮不可用",
   unknown: "未知",
@@ -1468,7 +1470,7 @@ function planStatusLabel(status) {
 function planStatusClass(status) {
   if (status === "sold_out") return "plan-status-sold";
   if (status === "available" || status === "available_at_end") return "plan-status-open";
-  if (status === "error") return "plan-status-error";
+  if (status === "error" || status === "missed_window" || status === "auth_required") return "plan-status-error";
   return "plan-status-muted";
 }
 
@@ -1613,7 +1615,7 @@ function renderPlansSnapshotTable() {
   const tbody = $("#plans-snapshot-table tbody");
   const observations = (state.planSnapshots.observations || []).slice(-54).reverse();
   if (!observations.length) {
-    tbody.innerHTML = `<tr><td colspan="5" class="marketcap-draft-empty">暂无观测快照。首次定时任务完成后会出现在这里。</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" class="marketcap-draft-empty">暂无观测快照。首次定时任务完成后会出现在这里。</td></tr>`;
     return;
   }
   tbody.innerHTML = observations.map((item) => `
@@ -1623,6 +1625,7 @@ function renderPlansSnapshotTable() {
       <td>${escapeHtml(item.duration_label || item.duration || "")}</td>
       <td><span class="plan-status-pill ${planStatusClass(item.status)}">${escapeHtml(item.status_label || planStatusLabel(item.status))}</span></td>
       <td>${escapeHtml(item.button_text || "")}</td>
+      <td>${escapeHtml(item.source || "public_page")}</td>
     </tr>
   `).join("");
 }

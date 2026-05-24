@@ -10,15 +10,20 @@ import argparse
 import asyncio
 import csv
 import json
+import os
 import re
 from dataclasses import dataclass
 from datetime import datetime, time, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 
 SOURCE_URL = "https://bigmodel.cn/glm-coding"
+API_BASE_URL = "https://bigmodel.cn/api"
+API_BATCH_PREVIEW_URL = f"{API_BASE_URL}/biz/pay/batch-preview"
 TZ = ZoneInfo("Asia/Shanghai")
 SALE_START = time(10, 0, 0)
 DEFAULT_MONITOR_START = time(9, 59, 50)
@@ -44,6 +49,18 @@ PLAN_COLUMNS = [
     for _, _, duration_label in DURATIONS
 ]
 
+PRODUCT_IDS = {
+    "Lite_Month": "product-02434c",
+    "Pro_Month": "product-1df3e1",
+    "Max_Month": "product-2fc421",
+    "Lite_Quarter": "product-b8ea38",
+    "Pro_Quarter": "product-fef82f",
+    "Max_Quarter": "product-5d3a03",
+    "Lite_Year": "product-70a804",
+    "Pro_Year": "product-5643e6",
+    "Max_Year": "product-d46f8b",
+}
+
 STATUS_COLUMNS = [f"{column}_Status" for column in PLAN_COLUMNS]
 
 CSV_HEADERS = [
@@ -68,6 +85,7 @@ class Observation:
     status: str
     button_text: str
     card_text: str
+    source: str = "public_page"
 
 
 def now_local() -> datetime:
@@ -89,10 +107,11 @@ def infer_status(card_text: str, button_text: str, disabled: bool) -> str:
         return "sold_out"
     if re.search(r"未开始|即将开售|10[:：]00|明日", text) and not re.search(r"订阅|抢购", button_text):
         return "pre_sale"
-    if re.search(r"订阅|抢购|购买", button_text):
-        return "available"
     if disabled and re.search(r"订阅|抢购|购买", text):
         return "disabled"
+    # The public marketing page keeps showing "特惠订阅" even after the daily quota
+    # is gone. Treat it as non-authoritative unless the rendered text explicitly
+    # says sold out.
     return "unknown"
 
 
@@ -105,12 +124,130 @@ def status_to_cn(status: str) -> str:
         "sold_out": "已售罄",
         "available": "可订阅",
         "available_at_end": "窗口结束仍可订阅",
+        "missed_window": "错过监控窗口",
+        "auth_required": "需要登录态",
         "pre_sale": "未开售",
         "disabled": "按钮不可用",
         "unknown": "未知",
         "not_observed": "未观测",
         "error": "监控失败",
     }.get(status, status)
+
+
+def bigmodel_api_headers() -> dict[str, str] | None:
+    authorization = clean_text(os.environ.get("BIGMODEL_AUTHORIZATION"))
+    cookie = clean_text(os.environ.get("BIGMODEL_COOKIE"))
+    if not authorization and not cookie:
+        return None
+
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Origin": "https://bigmodel.cn",
+        "Referer": SOURCE_URL,
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+    }
+    if authorization:
+        headers["Authorization"] = authorization
+    if cookie:
+        headers["Cookie"] = cookie
+    return headers
+
+
+def product_column_parts(plan_key: str) -> tuple[str, str, str, str]:
+    tier_label, duration_column_label = plan_key.split("_", 1)
+    tier_key = tier_label.lower()
+    duration = next((key for key, _, label in DURATIONS if label == duration_column_label), duration_column_label.lower())
+    duration_label = next((label for key, label, column_label in DURATIONS if column_label == duration_column_label), duration_column_label)
+    return tier_key, tier_label, duration, duration_label
+
+
+def infer_api_status(product: dict[str, Any]) -> str:
+    if product.get("soldOut"):
+        return "sold_out"
+    if product.get("forbidden") or product.get("disabled"):
+        return "disabled"
+    if product.get("isLimitBuy"):
+        return "disabled"
+    return "available"
+
+
+def api_product_plan_key(product: dict[str, Any]) -> str | None:
+    tier_label = clean_text(product.get("productName"))
+    unit = clean_text(product.get("unit"))
+    duration_column_label = {
+        "month": "Month",
+        "quarter": "Quarter",
+        "year": "Year",
+    }.get(unit)
+    if tier_label in {"Lite", "Pro", "Max"} and duration_column_label:
+        return plan_column(tier_label, duration_column_label)
+    return None
+
+
+def fetch_api_observations(headers: dict[str, str]) -> tuple[list[Observation], str | None]:
+    payload = json.dumps({"invitationCode": ""}).encode("utf-8")
+    request = Request(API_BATCH_PREVIEW_URL, data=payload, headers=headers, method="POST")
+    try:
+        with urlopen(request, timeout=30) as response:
+            raw = response.read().decode("utf-8", errors="replace")
+    except (HTTPError, URLError, TimeoutError) as exc:
+        return [], f"api_error:{clean_text(str(exc))[:160]}"
+
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError:
+        return [], "api_error:invalid_json"
+
+    code = parsed.get("code")
+    if code != 200:
+        if code in {401, 1001}:
+            return [], "api_auth_required"
+        if code == 555:
+            return [], "api_busy"
+        return [], f"api_code_{code}:{clean_text(parsed.get('msg'))[:120]}"
+
+    products = parsed.get("data", {}).get("productList") or []
+    product_by_id = {item.get("productId"): item for item in products if item.get("productId")}
+    product_by_plan_key = {
+        plan_key: item
+        for item in products
+        for plan_key in [api_product_plan_key(item)]
+        if plan_key
+    }
+    observed_at = now_local().isoformat(timespec="seconds")
+    observations: list[Observation] = []
+    for plan_key, product_id in PRODUCT_IDS.items():
+        product = product_by_id.get(product_id) or product_by_plan_key.get(plan_key)
+        if not product:
+            continue
+        tier_key, tier_label, duration, duration_label = product_column_parts(plan_key)
+        status = infer_api_status(product)
+        observations.append(
+            Observation(
+                observed_at=observed_at,
+                tier=tier_key,
+                tier_label=tier_label,
+                duration=duration,
+                duration_label=duration_label,
+                plan_key=plan_key,
+                status=status,
+                button_text="batch-preview",
+                card_text=json.dumps(
+                    {
+                        "product_id": product_id,
+                        "product_name": product.get("productName"),
+                        "sold_out": product.get("soldOut"),
+                        "forbidden": product.get("forbidden"),
+                        "is_limit_buy": product.get("isLimitBuy"),
+                    },
+                    ensure_ascii=False,
+                    sort_keys=True,
+                ),
+                source="api_batch_preview",
+            )
+        )
+    return observations, None
 
 
 async def safe_goto(page: Any, url: str) -> None:
@@ -199,6 +336,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     target_end = combine_today(DEFAULT_MONITOR_END)
     sale_start = combine_today(SALE_START)
     current = now_local()
+    started_after_window = False
 
     if args.once:
         target_start = current
@@ -207,6 +345,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     elif current < target_start:
         await asyncio.sleep((target_start - current).total_seconds())
     elif current > target_end:
+        started_after_window = True
         notes.append("started_after_window")
         target_end = current
     elif current > sale_start:
@@ -214,42 +353,68 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
 
     first_sold_out: dict[str, str] = {}
     latest_status: dict[str, str] = {}
+    latest_source: dict[str, str] = {}
     observations: list[Observation] = []
+    api_headers = bigmodel_api_headers()
+    if not api_headers:
+        notes.append("no_bigmodel_auth")
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
-        context = await browser.new_context(
-            locale="zh-CN",
-            timezone_id="Asia/Shanghai",
-            viewport={"width": 1440, "height": 1200},
-        )
-        page = await context.new_page()
+    def record_batch(batch: list[Observation], observed_now: datetime) -> None:
+        observations.extend(batch)
+        for item in batch:
+            latest_status[item.plan_key] = item.status
+            latest_source[item.plan_key] = item.source
+            if observed_now >= sale_start and item.status == "sold_out" and item.plan_key not in first_sold_out:
+                first_sold_out[item.plan_key] = observed_now.strftime("%H:%M:%S")
 
-        async def route_handler(route: Any) -> None:
-            if route.request.resource_type in {"image", "font", "media"}:
-                await route.abort()
-            else:
-                await route.continue_()
-
-        await page.route("**/*", route_handler)
-        await safe_goto(page, SOURCE_URL)
-
+    used_api = False
+    if api_headers:
         while True:
             observed_now = now_local()
-            if args.reload_each_poll:
-                await safe_reload(page)
-            batch = await collect_once(page)
-            observations.extend(batch)
-            for item in batch:
-                latest_status[item.plan_key] = item.status
-                if observed_now >= sale_start and item.status == "sold_out" and item.plan_key not in first_sold_out:
-                    first_sold_out[item.plan_key] = observed_now.strftime("%H:%M:%S")
-
+            batch, api_note = await asyncio.to_thread(fetch_api_observations, api_headers)
+            if api_note and api_note not in notes:
+                notes.append(api_note)
+            if not batch:
+                break
+            used_api = True
+            record_batch(batch, observed_now)
             if args.once or now_local() >= target_end:
                 break
             await asyncio.sleep(max(1, args.poll_interval))
 
-        await browser.close()
+    if not used_api:
+        async with async_playwright() as p:
+            browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
+            context = await browser.new_context(
+                locale="zh-CN",
+                timezone_id="Asia/Shanghai",
+                viewport={"width": 1440, "height": 1200},
+            )
+            page = await context.new_page()
+
+            async def route_handler(route: Any) -> None:
+                if route.request.resource_type in {"image", "font", "media"}:
+                    await route.abort()
+                else:
+                    await route.continue_()
+
+            await page.route("**/*", route_handler)
+            await safe_goto(page, SOURCE_URL)
+
+            while True:
+                observed_now = now_local()
+                if args.reload_each_poll:
+                    await safe_reload(page)
+                batch = await collect_once(page)
+                if "public_page_status_only" not in notes:
+                    notes.append("public_page_status_only")
+                record_batch(batch, observed_now)
+
+                if args.once or now_local() >= target_end:
+                    break
+                await asyncio.sleep(max(1, args.poll_interval))
+
+            await browser.close()
 
     row = {
         "Date": run_date,
@@ -258,11 +423,23 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         "Source": SOURCE_URL,
         "Notes": ";".join(notes),
     }
+    auth_required = "api_auth_required" in notes
     for column in PLAN_COLUMNS:
         row[column] = first_sold_out.get(column, "")
         raw_status = latest_status.get(column, "not_observed")
-        if column not in first_sold_out and raw_status == "available":
+        reliable_inventory = latest_source.get(column) == "api_batch_preview"
+        if column in first_sold_out:
+            raw_status = "sold_out"
+        elif raw_status == "sold_out":
+            raw_status = "sold_out"
+        elif auth_required and not reliable_inventory:
+            raw_status = "auth_required"
+        elif started_after_window and not reliable_inventory:
+            raw_status = "missed_window"
+        elif raw_status == "available" and reliable_inventory:
             raw_status = "available_at_end"
+        elif raw_status == "available":
+            raw_status = "unknown"
         row[f"{column}_Status"] = raw_status
     return row, observations, notes
 
@@ -315,6 +492,7 @@ def write_snapshot(row: dict[str, str], observations: list[Observation], notes: 
                 "status_label": status_to_cn(item.status),
                 "button_text": item.button_text,
                 "card_text": item.card_text,
+                "source": item.source,
             }
             for item in observations
         ],
