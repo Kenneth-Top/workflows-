@@ -276,7 +276,7 @@ select[multiple] {
 }
 
 .marketcap-toolbar {
-  grid-template-columns: minmax(170px, 0.65fr) minmax(140px, 0.45fr) minmax(150px, 0.5fr) minmax(240px, 1fr) auto auto;
+  grid-template-columns: minmax(160px, 0.58fr) minmax(130px, 0.38fr) minmax(140px, 0.44fr) minmax(120px, 0.36fr) minmax(220px, 1fr) auto auto;
 }
 
 .local-refresh-panel {

@@ -475,6 +475,7 @@ function setupMarketcapControls() {
   });
   $("#marketcap-range-select").addEventListener("change", renderMarketcap);
   $("#marketcap-annotation-mode").addEventListener("change", renderMarketcap);
+  $("#marketcap-label-detail").addEventListener("change", renderMarketcap);
   $("#marketcap-event-search").addEventListener("input", renderMarketcap);
   $("#save-marketcap-preset").addEventListener("click", () => {
     saveMarketPreset();
@@ -2010,6 +2011,9 @@ function loadMarketPreset(presetId) {
   if (preset?.annotation_mode && $("#marketcap-annotation-mode")) {
     $("#marketcap-annotation-mode").value = preset.annotation_mode;
   }
+  if (preset?.label_detail && $("#marketcap-label-detail")) {
+    $("#marketcap-label-detail").value = preset.label_detail;
+  }
   renderMarketCompanyOptions();
 }
 
@@ -2027,6 +2031,7 @@ function saveMarketPreset() {
     pinned_events: Array.from(state.marketPinnedEvents),
     range: $("#marketcap-range-select").value,
     annotation_mode: $("#marketcap-annotation-mode").value,
+    label_detail: $("#marketcap-label-detail").value,
     saved_at: new Date().toISOString(),
   };
   state.marketPresets = [
@@ -2284,11 +2289,15 @@ function shortMarketEventLabel(event) {
   return text.length > 28 ? `${text.slice(0, 28)}...` : text;
 }
 
+function fullMarketEventLabel(event) {
+  return String(event.title || marketCompanyLabel(event.vendor) || "事件").replace(/\s+/g, " ").trim();
+}
+
 function clampNumber(value, min, max) {
   return Math.max(min, Math.min(value, max));
 }
 
-function wrapCanvasLabel(ctx, text, maxWidth, maxLines = 2) {
+function wrapCanvasLabel(ctx, text, maxWidth, maxLines = Infinity, truncate = true) {
   const chars = Array.from(String(text || "").replace(/\s+/g, " ").trim());
   const lines = [];
   let current = "";
@@ -2303,12 +2312,12 @@ function wrapCanvasLabel(ctx, text, maxWidth, maxLines = 2) {
     lines.push(current.trim());
     current = char;
     usedChars += 1;
-    if (lines.length === maxLines - 1) break;
+    if (Number.isFinite(maxLines) && lines.length === maxLines - 1) break;
   }
   if (current && lines.length < maxLines) {
     lines.push(current.trim());
   }
-  if (usedChars < chars.length && lines.length) {
+  if (truncate && usedChars < chars.length && lines.length) {
     let last = `${lines[lines.length - 1].replace(/[.。…]+$/g, "")}...`;
     while (last.length > 4 && ctx.measureText(last).width > maxWidth) {
       last = `${last.slice(0, -4)}...`;
@@ -2316,6 +2325,29 @@ function wrapCanvasLabel(ctx, text, maxWidth, maxLines = 2) {
     lines[lines.length - 1] = last;
   }
   return lines.length ? lines : [String(text || "")];
+}
+
+function marketLabelLines(ctx, event, maxWidth) {
+  const expanded = event.labelDetail === "expanded";
+  const items = event.labelItems?.length
+    ? event.labelItems
+    : [{ title: event.displayLabel || String(event.displayIndex) }];
+  const lines = [];
+  const maxLines = expanded ? Infinity : (items.length > 1 ? Math.min(6, items.length * 2) : 2);
+  let renderedItems = 0;
+  items.forEach((item, index) => {
+    if (Number.isFinite(maxLines) && lines.length >= maxLines) return;
+    const title = expanded ? fullMarketEventLabel(item) : shortMarketEventLabel(item);
+    const prefix = items.length > 1 ? `${index + 1}. ` : "";
+    const remaining = Number.isFinite(maxLines) ? maxLines - lines.length : Infinity;
+    const wrapped = wrapCanvasLabel(ctx, `${prefix}${title}`, maxWidth, remaining, !expanded);
+    lines.push(...wrapped);
+    renderedItems += 1;
+  });
+  if (!expanded && renderedItems < items.length && lines.length) {
+    lines[lines.length - 1] = `${lines[lines.length - 1].replace(/[.。…]+$/g, "")}...`;
+  }
+  return lines;
 }
 
 function labelBoxesOverlap(a, b, margin = 6) {
@@ -2369,6 +2401,56 @@ function findMarketLabelPlacement(x, anchorY, width, height, chartArea, occupied
   };
 }
 
+function shouldLabelMarketEvent(event, annotationMode) {
+  return annotationMode === "full"
+    || event.pinnedEvent
+    || (annotationMode === "selected" && event.selectedEvent)
+    || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro"));
+}
+
+function aggregateMarketChartEvents(events, labelDetail) {
+  const dots = events.filter((event) => event.displayMode === "dot");
+  const labeled = events.filter((event) => event.displayMode === "label");
+  const grouped = groupBy(labeled, (event) => event.date);
+  const labels = Array.from(grouped.entries()).map(([date, items]) => {
+    const sortedItems = items.slice().sort((a, b) => a.priority - b.priority || a.title.localeCompare(b.title));
+    if (sortedItems.length === 1) {
+      return {
+        ...sortedItems[0],
+        labelDetail,
+        labelItems: [sortedItems[0]],
+      };
+    }
+
+    const vendors = Array.from(new Set(sortedItems.map((event) => event.vendor).filter(Boolean)));
+    const singleVendor = vendors.length === 1;
+    const finiteAnchors = sortedItems
+      .map((event) => Number(event.anchorValue))
+      .filter((value) => Number.isFinite(value));
+    const anchorValue = finiteAnchors.length ? Math.max(...finiteAnchors) : null;
+    const color = singleVendor ? sortedItems[0].color : "#edae49";
+    const fill = singleVendor ? sortedItems[0].fill : "rgba(255, 248, 229, 0.97)";
+    const priority = Math.min(...sortedItems.map((event) => event.priority));
+    return {
+      ...sortedItems[0],
+      id: `group-${date}-${sortedItems.map((event) => event.id).join("-")}`,
+      title: sortedItems.map((event, index) => `${index + 1}. ${event.title}`).join("\n"),
+      summary: sortedItems.map((event, index) => `${index + 1}. ${event.summary || event.title}`).join("\n"),
+      vendor: singleVendor ? vendors[0] : "multi",
+      color,
+      fill,
+      priority,
+      anchorValue,
+      displayMode: "label",
+      displayLabel: sortedItems.map((event, index) => `${index + 1}. ${labelDetail === "expanded" ? fullMarketEventLabel(event) : shortMarketEventLabel(event)}`).join(" "),
+      labelDetail,
+      labelItems: sortedItems,
+      groupedEvents: sortedItems,
+    };
+  });
+  return [...dots, ...labels].sort((a, b) => a.date.localeCompare(b.date) || a.priority - b.priority || a.title.localeCompare(b.title));
+}
+
 const marketcapEventPlugin = {
   id: "marketcapEventLabels",
   afterDatasetsDraw(chart) {
@@ -2404,12 +2486,12 @@ const marketcapEventPlugin = {
       }
 
       ctx.font = "700 11px Arial, sans-serif";
-      const text = event.displayLabel || String(event.displayIndex);
       const paddingX = 6;
       const paddingY = 6;
       const lineHeight = 13;
-      const maxTextWidth = 128;
-      const lines = wrapCanvasLabel(ctx, text, maxTextWidth, 2);
+      const expanded = event.labelDetail === "expanded";
+      const maxTextWidth = expanded ? 210 : 150;
+      const lines = marketLabelLines(ctx, event, maxTextWidth);
       const textWidth = Math.max(...lines.map((line) => ctx.measureText(line).width));
       const width = Math.min(Math.ceil(textWidth) + paddingX * 2, maxTextWidth + paddingX * 2);
       const height = lines.length * lineHeight + paddingY * 2;
@@ -2494,6 +2576,7 @@ function renderMarketcap() {
 
   const events = visibleMarketEvents();
   const annotationMode = $("#marketcap-annotation-mode").value;
+  const labelDetail = $("#marketcap-label-detail").value || "compact";
   const rankedEvents = events
     .map((event) => ({ ...event, labelIndex: marketEventLabelIndex(labels, event.date) }))
     .filter((event) => event.labelIndex >= 0)
@@ -2517,29 +2600,25 @@ function renderMarketcap() {
     })
     .sort((a, b) => a.priority - b.priority || a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
   const labelLimit = annotationMode === "full" ? 36 : 22;
-  const labelableEvents = rankedEvents.filter((event) => annotationMode === "full"
-    || event.pinnedEvent
-    || (annotationMode === "selected" && event.selectedEvent)
-    || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro")));
+  const labelableEvents = rankedEvents.filter((event) => shouldLabelMarketEvent(event, annotationMode));
   const labelIds = new Set([
     ...rankedEvents.filter((event) => event.pinnedEvent).map((event) => event.id),
     ...labelableEvents.slice(0, labelLimit).map((event) => event.id),
   ]);
-  const chartEvents = rankedEvents
+  const rawChartEvents = rankedEvents
     .slice()
     .sort((a, b) => a.date.localeCompare(b.date) || a.priority - b.priority || a.title.localeCompare(b.title))
     .map((event, index) => {
-    const shouldLabel = annotationMode === "full"
-      || event.pinnedEvent
-      || (annotationMode === "selected" && event.selectedEvent)
-      || (annotationMode === "smart" && (event.selectedEvent || event.vendor === "macro"));
+    const shouldLabel = shouldLabelMarketEvent(event, annotationMode);
     return {
       ...event,
       displayIndex: index + 1,
-      displayLabel: shortMarketEventLabel(event),
+      displayLabel: labelDetail === "expanded" ? fullMarketEventLabel(event) : shortMarketEventLabel(event),
       displayMode: !shouldLabel || !labelIds.has(event.id) ? "dot" : "label",
+      labelDetail,
     };
   });
+  const chartEvents = aggregateMarketChartEvents(rawChartEvents, labelDetail);
   const labeledByDate = {};
   chartEvents.forEach((event) => {
     if (event.displayMode !== "label") return;
@@ -2586,6 +2665,26 @@ function marketValueOnOrBefore(companyId, date) {
   return `${marketCompanyLabel(companyId)} ${Number(row.Market_Cap_Billion_HKD).toFixed(1)}B${exact}`;
 }
 
+function marketEventPartyLabel(event) {
+  const events = event.groupedEvents || [event];
+  const labels = Array.from(new Set(events.map((item) => marketCompanyLabel(item.vendor))));
+  return labels.join(" / ");
+}
+
+function marketEventTitleHtml(event) {
+  const events = event.groupedEvents || [event];
+  if (events.length === 1) {
+    return `<strong>${escapeHtml(event.title)}</strong>`;
+  }
+  return events.map((item, index) => `<strong>${index + 1}. ${escapeHtml(item.title)}</strong>`).join("<br>");
+}
+
+function marketEventSummaryHtml(event) {
+  const events = event.groupedEvents || [event];
+  if (events.length === 1) return escapeHtml(event.summary || "");
+  return events.map((item, index) => `${index + 1}. ${escapeHtml(item.summary || item.title)}`).join("<br>");
+}
+
 function renderMarketTimeline(events) {
   const tbody = $("#marketcap-timeline-table tbody");
   if (!events.length) {
@@ -2599,10 +2698,10 @@ function renderMarketTimeline(events) {
       <tr>
         <td><span class="timeline-index" style="background:${escapeHtml(event.color)}">${index + 1}</span></td>
         <td>${escapeHtml(event.date)}</td>
-        <td>${escapeHtml(marketCompanyLabel(event.vendor))}</td>
+        <td>${escapeHtml(marketEventPartyLabel(event))}</td>
         <td>${values || "-"}</td>
-        <td><strong>${escapeHtml(event.title)}</strong><br><span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}</span></td>
-        <td>${escapeHtml(event.summary || "")}</td>
+        <td>${marketEventTitleHtml(event)}<br><span class="marketcap-event-meta">${escapeHtml(marketEventTypeLabel(event.event_type))}</span></td>
+        <td>${marketEventSummaryHtml(event)}</td>
       </tr>
     `;
   }).join("");
