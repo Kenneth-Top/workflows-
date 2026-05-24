@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T11:10:20+08:00",
+  "generated_at": "2026-05-24T13:46:53+08:00",
   "source_url": "https://bigmodel.cn/glm-coding",
   "monitor_window": {
     "start": "09:59:50",
@@ -9,36 +9,35 @@
   },
   "latest_run": {
     "Date": "2026-05-24",
-    "Run_Start": "11:10:20",
-    "Run_End": "11:10:20",
+    "Run_Start": "09:59:50",
+    "Run_End": "13:46:53",
     "Source": "https://bigmodel.cn/glm-coding",
+    "Notes": "started_after_window",
     "Lite_Month": "",
-    "Lite_Quarter": "",
-    "Lite_Year": "",
-    "Pro_Month": "",
-    "Pro_Quarter": "",
-    "Pro_Year": "",
-    "Max_Month": "",
-    "Max_Quarter": "",
-    "Max_Year": "",
     "Lite_Month_Status": "sold_out",
+    "Lite_Quarter": "",
     "Lite_Quarter_Status": "sold_out",
+    "Lite_Year": "",
     "Lite_Year_Status": "sold_out",
+    "Pro_Month": "",
     "Pro_Month_Status": "sold_out",
+    "Pro_Quarter": "",
     "Pro_Quarter_Status": "sold_out",
+    "Pro_Year": "",
     "Pro_Year_Status": "sold_out",
+    "Max_Month": "",
     "Max_Month_Status": "sold_out",
+    "Max_Quarter": "",
     "Max_Quarter_Status": "sold_out",
-    "Max_Year_Status": "sold_out",
-    "Notes": "manual_override_current_sold_out"
+    "Max_Year": "",
+    "Max_Year_Status": "sold_out"
   },
   "notes": [
-    "manual_override_current_sold_out",
-    "old_snapshots_removed"
+    "started_after_window"
   ],
   "observations": [
     {
-      "observed_at": "2026-05-24T11:10:20+08:00",
+      "observed_at": "2026-05-24T13:46:53+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -46,38 +45,12 @@
       "plan_key": "Lite_Month",
       "status": "sold_out",
       "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T11:10:20+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
-    },
-    {
-      "observed_at": "2026-05-24T11:10:20+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
-    },
-    {
-      "observed_at": "2026-05-24T11:10:20+08:00",
+      "observed_at": "2026-05-24T13:46:53+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -85,38 +58,12 @@
       "plan_key": "Pro_Month",
       "status": "sold_out",
       "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T11:10:20+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
-    },
-    {
-      "observed_at": "2026-05-24T11:10:20+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
-    },
-    {
-      "observed_at": "2026-05-24T11:10:20+08:00",
+      "observed_at": "2026-05-24T13:46:53+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -124,12 +71,38 @@
       "plan_key": "Max_Month",
       "status": "sold_out",
       "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T11:10:20+08:00",
+      "observed_at": "2026-05-24T13:46:53+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-24T13:46:53+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-24T13:46:53+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -137,12 +110,38 @@
       "plan_key": "Max_Quarter",
       "status": "sold_out",
       "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T11:10:20+08:00",
+      "observed_at": "2026-05-24T13:46:53+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-24T13:46:53+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-24T13:46:53+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -150,9 +149,9 @@
       "plan_key": "Max_Year",
       "status": "sold_out",
       "status_label": "已售罄",
-      "button_text": "manual override",
-      "card_text": "Current public status manually corrected as sold out; exact first sell-out time was not observed.",
-      "source": "manual_override"
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
     }
   ]
 }
