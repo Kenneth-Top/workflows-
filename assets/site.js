@@ -2362,33 +2362,43 @@ function labelBoxesOverlap(a, b, margin = 6) {
 function findMarketLabelPlacement(x, anchorY, width, height, chartArea, occupied, index, canvasHeight) {
   const safeLeft = chartArea.left + 4;
   const safeRight = chartArea.right - 4;
-  const safeTop = 8;
-  const annotationBottom = Math.max(safeTop + height, chartArea.top - 10);
+  const safeTop = chartArea.top + 4;
+  const safeBottom = Math.min(chartArea.bottom - 4, canvasHeight - 56);
+  const sideOrder = anchorY > chartArea.top + (chartArea.height * 0.35)
+    ? ["above", "below"]
+    : ["below", "above"];
   const left = clampNumber(x - width / 2, safeLeft, safeRight - width);
   const connectorX = clampNumber(x, left, left + width);
 
-  for (let lane = 0; lane < 16; lane += 1) {
-    const top = annotationBottom - height - lane * (height + 10);
-    if (top < safeTop) continue;
-    const box = { left, top, right: left + width, bottom: top + height };
-    if (!occupied.some((item) => labelBoxesOverlap(box, item))) {
-      return {
-        left,
-        top,
-        box,
-        connectorX,
-        connectorY: top + height,
-      };
+  for (let lane = 0; lane < 18; lane += 1) {
+    for (const side of sideOrder) {
+      const gap = 22 + lane * (height + 9);
+      const top = side === "above" ? anchorY - gap - height : anchorY + gap;
+      if (top < safeTop || top + height > safeBottom) continue;
+      const box = { left, top, right: left + width, bottom: top + height };
+      if (!occupied.some((item) => labelBoxesOverlap(box, item))) {
+        return {
+          left,
+          top,
+          box,
+          side,
+          connectorX,
+          connectorY: side === "above" ? top + height : top,
+        };
+      }
     }
   }
 
-  const fallbackTop = clampNumber(annotationBottom - height, safeTop, Math.max(safeTop, canvasHeight - height - 56));
+  const fallbackSide = sideOrder[0];
+  const rawTop = fallbackSide === "above" ? anchorY - 24 - height : anchorY + 24;
+  const fallbackTop = clampNumber(rawTop, safeTop, safeBottom - height);
   return {
     left,
     top: fallbackTop,
     box: { left, top: fallbackTop, right: left + width, bottom: fallbackTop + height },
+    side: fallbackSide,
     connectorX,
-    connectorY: fallbackTop + height,
+    connectorY: fallbackSide === "above" ? fallbackTop + height : fallbackTop,
   };
 }
 
@@ -2451,6 +2461,7 @@ const marketcapEventPlugin = {
     const xScale = scales.x;
     const yScale = scales.y;
     const occupied = [];
+    const labelsToDraw = [];
     ctx.save();
     ctx.textBaseline = "middle";
     ctx.textAlign = "left";
@@ -2488,23 +2499,39 @@ const marketcapEventPlugin = {
       const height = lines.length * lineHeight + paddingY * 2;
       const placement = findMarketLabelPlacement(x, anchorY, width, height, chartArea, occupied, index + (event.sameDateOffset || 0), chart.height);
       occupied.push(placement.box);
+      labelsToDraw.push({
+        event,
+        lines,
+        placement,
+        width,
+        height,
+        paddingX,
+        paddingY,
+        lineHeight,
+        anchorX: x,
+        anchorY,
+      });
+    });
 
+    labelsToDraw.forEach((item) => {
       ctx.beginPath();
-      ctx.moveTo(x, anchorY);
-      ctx.lineTo(placement.connectorX, placement.connectorY);
-      ctx.strokeStyle = event.color;
+      ctx.moveTo(item.anchorX, item.anchorY);
+      ctx.lineTo(item.placement.connectorX, item.placement.connectorY);
+      ctx.strokeStyle = item.event.color;
       ctx.lineWidth = 1;
       ctx.stroke();
+    });
 
-      ctx.fillStyle = event.fill;
-      ctx.strokeStyle = event.color;
+    labelsToDraw.forEach((item) => {
+      ctx.fillStyle = item.event.fill;
+      ctx.strokeStyle = item.event.color;
       ctx.lineWidth = 1.2;
-      ctx.fillRect(placement.left, placement.top, width, height);
-      ctx.strokeRect(placement.left, placement.top, width, height);
+      ctx.fillRect(item.placement.left, item.placement.top, item.width, item.height);
+      ctx.strokeRect(item.placement.left, item.placement.top, item.width, item.height);
       ctx.fillStyle = "#15201e";
-      lines.forEach((line, lineIndex) => {
-        const textY = placement.top + paddingY + lineHeight * lineIndex + lineHeight / 2;
-        ctx.fillText(line, placement.left + paddingX, textY);
+      item.lines.forEach((line, lineIndex) => {
+        const textY = item.placement.top + item.paddingY + item.lineHeight * lineIndex + item.lineHeight / 2;
+        ctx.fillText(line, item.placement.left + item.paddingX, textY);
       });
     });
     ctx.restore();
@@ -2625,7 +2652,7 @@ function renderMarketcap() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 190, bottom: 36 } },
+      layout: { padding: { top: 120, bottom: 36 } },
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },
