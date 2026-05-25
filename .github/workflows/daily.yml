@@ -64,23 +64,3 @@ jobs:
           git pull --rebase origin main
           git push
 
-      - name: Generate daily briefing
-        continue-on-error: true
-        env:
-          MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          SMTP_SENDER: ${{ secrets.SMTP_SENDER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_RECIPIENTS: ${{ secrets.SMTP_RECIPIENTS }}
-        run: python daily_briefing_job.py
-
-      - name: Commit daily briefing
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add briefing_cache/
-          git commit -m "Auto-update daily briefing" || exit 0
-          git pull --rebase origin main
-          git push
