@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T13:46:53+08:00",
+  "generated_at": "2026-05-25T14:10:00+08:00",
   "source_url": "https://bigmodel.cn/glm-coding",
   "monitor_window": {
     "start": "09:59:50",
@@ -8,9 +8,9 @@
     "timezone": "Asia/Shanghai"
   },
   "latest_run": {
-    "Date": "2026-05-24",
+    "Date": "2026-05-25",
     "Run_Start": "09:59:50",
-    "Run_End": "13:46:53",
+    "Run_End": "14:10:00",
     "Source": "https://bigmodel.cn/glm-coding",
     "Notes": "started_after_window",
     "Lite_Month": "",
@@ -37,7 +37,7 @@
   ],
   "observations": [
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -50,7 +50,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -63,7 +63,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -76,7 +76,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -89,7 +89,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -102,7 +102,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -115,7 +115,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -128,7 +128,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -141,7 +141,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-24T13:46:53+08:00",
+      "observed_at": "2026-05-25T14:10:00+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
