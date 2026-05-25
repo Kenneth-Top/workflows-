@@ -2363,40 +2363,32 @@ function findMarketLabelPlacement(x, anchorY, width, height, chartArea, occupied
   const safeLeft = chartArea.left + 4;
   const safeRight = chartArea.right - 4;
   const safeTop = 8;
-  const safeBottom = Math.min(chartArea.bottom - 4, canvasHeight - 56);
-  const sideOrder = index % 2 === 0 ? ["above", "below"] : ["below", "above"];
+  const annotationBottom = Math.max(safeTop + height, chartArea.top - 10);
   const left = clampNumber(x - width / 2, safeLeft, safeRight - width);
   const connectorX = clampNumber(x, left, left + width);
 
-  for (let lane = 0; lane < 18; lane += 1) {
-    for (const side of sideOrder) {
-      const gap = 26 + lane * (height + 10);
-      const rawTop = side === "above" ? anchorY - gap - height : anchorY + gap;
-      if (rawTop < safeTop || rawTop + height > safeBottom) continue;
-      const box = { left, top: rawTop, right: left + width, bottom: rawTop + height };
-      if (!occupied.some((item) => labelBoxesOverlap(box, item))) {
-        return {
-          left,
-          top: rawTop,
-          box,
-          side,
-          connectorX,
-          connectorY: side === "above" ? rawTop + height : rawTop,
-        };
-      }
+  for (let lane = 0; lane < 16; lane += 1) {
+    const top = annotationBottom - height - lane * (height + 10);
+    if (top < safeTop) continue;
+    const box = { left, top, right: left + width, bottom: top + height };
+    if (!occupied.some((item) => labelBoxesOverlap(box, item))) {
+      return {
+        left,
+        top,
+        box,
+        connectorX,
+        connectorY: top + height,
+      };
     }
   }
 
-  const fallbackSide = sideOrder[0];
-  const rawTop = fallbackSide === "above" ? anchorY - 24 - height : anchorY + 24;
-  const top = clampNumber(rawTop, safeTop, safeBottom - height);
+  const fallbackTop = clampNumber(annotationBottom - height, safeTop, Math.max(safeTop, canvasHeight - height - 56));
   return {
     left,
-    top,
-    box: { left, top, right: left + width, bottom: top + height },
-    side: fallbackSide,
+    top: fallbackTop,
+    box: { left, top: fallbackTop, right: left + width, bottom: fallbackTop + height },
     connectorX,
-    connectorY: fallbackSide === "above" ? top + height : top,
+    connectorY: fallbackTop + height,
   };
 }
 
@@ -2633,7 +2625,7 @@ function renderMarketcap() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 120, bottom: 36 } },
+      layout: { padding: { top: 190, bottom: 36 } },
       interaction: { mode: "index", intersect: false },
       plugins: {
         legend: { position: "bottom" },
