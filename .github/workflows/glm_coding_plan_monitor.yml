@@ -2,7 +2,7 @@ name: Monitor GLM Coding Plan
 
 on:
   schedule:
-    - cron: '45 1 * * *' # 北京时间 09:45，预留依赖安装与 GitHub 调度延迟
+    - cron: '0 21 * * *' # 北京时间次日 05:00，提前占住 runner，避免 GitHub 调度延迟错过 10:00 窗口
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   monitor-glm-coding-plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 360
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
