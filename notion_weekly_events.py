@@ -68,6 +68,27 @@ LOW_VALUE_TERMS = [
 
 DATE_OVERRIDES = [
     (re.compile(r"OpenAI 完成 122B 融资|OpenAI.*122B|OpenAI融资\$110B", re.I), "2026-03-31", "web_verified_openai_funding"),
+    (re.compile(r"OpenAI.*Cerebras|Cerebras.*OpenAI", re.I), "2026-01-14", "web_verified_openai_cerebras"),
+    (re.compile(r"ChatGPT.*广告|OpenAI.*广告|广告.*ChatGPT", re.I), "2026-02-09", "web_verified_openai_ads"),
+    (re.compile(r"Qwen3-Max-Thinking", re.I), "2026-01-27", "web_verified_qwen_release"),
+    (re.compile(r"Seedance 2\.0", re.I), "2026-02-12", "web_verified_seedance_release"),
+    (re.compile(r"Gemini Embedding 2", re.I), "2026-03-10", "web_verified_google_embedding"),
+    (re.compile(r"腾讯.*微信AI智能体|微信AI智能体", re.I), "2026-03-18", "web_verified_tencent_wechat_agent"),
+    (re.compile(r"HY 3\.0|混元 3|Hunyuan 3|Hy3", re.I), "2026-04-23", "web_verified_tencent_hy3"),
+    (re.compile(r"TurboQuant", re.I), "2026-03-25", "web_verified_google_turboquant"),
+    (re.compile(r"Managed Agents|Managed Agents及Advisor", re.I), "2026-04-08", "web_verified_anthropic_managed_agents"),
+    (re.compile(r"金融服务agent|金融服务 agent|10个金融", re.I), "2026-05-05", "web_verified_anthropic_finance_agents"),
+    (re.compile(r"Deepseek.*缓存|DeepSeek.*缓存|cache.*1/10", re.I), "2026-04-26", "web_verified_deepseek_pricing"),
+    (re.compile(r"Grok Build", re.I), "2026-05-14", "web_verified_xai_grok_build"),
+    (re.compile(r"DeployCo融资|OpenAI.*DeployCo", re.I), "2026-05-11", "web_verified_openai_deployco"),
+    (re.compile(r"Moonshot|月之暗面.*融资|Kimi.*融资|Kimi新一轮拟融资", re.I), "2026-02-18", "web_verified_moonshot_funding"),
+    (re.compile(r"字节.*估值\$550B|ByteDance.*\$550B", re.I), "2026-02-25", "web_verified_bytedance_valuation"),
+    (re.compile(r"SpaceX.*IPO", re.I), "2026-03-30", "web_verified_spacex_ipo"),
+    (re.compile(r"Deepseek拟首次融资|DeepSeek.*\$300M|Deepseek.*\$3亿", re.I), "2026-04-17", "web_verified_deepseek_funding"),
+    (re.compile(r"腾讯阿里洽投 DeepSeek|腾讯、阿里与Deepseek|Tencent.*Alibaba.*DeepSeek", re.I), "2026-04-22", "web_verified_deepseek_tencent_alibaba"),
+    (re.compile(r"Anthropic两周内拟融资|Anthropic 5月底.*\$900B|Anthropic.*\$50B", re.I), "2026-04-29", "web_verified_anthropic_funding"),
+    (re.compile(r"Anthropic获得AMZN|Amazon.*Anthropic.*5GW|Anthropic.*Amazon.*5GW", re.I), "2026-04-20", "web_verified_anthropic_amazon_compute"),
+    (re.compile(r"Anthropic获SpaceX 300MW|Anthropic.*SpaceX.*300MW", re.I), "2026-05-20", "web_verified_anthropic_spacex_compute"),
     (re.compile(r"Gemini\s*3\.5|3\.5\s*Flash|Gemini Omni|Omni Flash|Antigravity\s*2\.0|Gemini Spark|Google Flow|Information agents|Search Agents", re.I), "2026-05-19", "web_verified_google_io"),
     (re.compile(r"Universal Cart|UCP|AP2|Agent Payments Protocol|Agent 电商", re.I), "2026-05-19", "web_verified_google_shopping"),
     (re.compile(r"SynthID|OpenAI.*SynthID|Kakao.*SynthID|ElevenLabs.*SynthID", re.I), "2026-05-19", "web_verified_synthid"),
@@ -75,6 +96,27 @@ DATE_OVERRIDES = [
 ]
 
 SOURCE_OVERRIDES = [
+    (re.compile(r"OpenAI.*Cerebras|Cerebras.*OpenAI", re.I), "https://openai.com/index/cerebras-partnership/"),
+    (re.compile(r"ChatGPT.*广告|OpenAI.*广告|广告.*ChatGPT", re.I), "https://openai.com/index/testing-ads-in-chatgpt/"),
+    (re.compile(r"Qwen3-Max-Thinking", re.I), "https://en.wikipedia.org/wiki/Qwen"),
+    (re.compile(r"Seedance 2\.0", re.I), "https://seed.bytedance.com/blog/seedance-2-0-official-launch"),
+    (re.compile(r"Gemini Embedding 2", re.I), "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"),
+    (re.compile(r"腾讯.*微信AI智能体|微信AI智能体", re.I), "https://www.caixinglobal.com/2026-03-18/tencent-to-launch-hunyuan-30-in-april-build-wechat-ai-agent-102424421.html"),
+    (re.compile(r"HY 3\.0|混元 3|Hunyuan 3|Hy3", re.I), "https://www.bloomberg.com/news/articles/2026-04-23/tencent-unveils-ai-model-in-high-stakes-test-for-openai-hire"),
+    (re.compile(r"TurboQuant", re.I), "https://techcrunch.com/2026/03/25/google-turboquant-ai-memory-compression-silicon-valley-pied-piper/"),
+    (re.compile(r"Managed Agents|Managed Agents及Advisor", re.I), "https://www.anthropic.com/engineering/managed-agents"),
+    (re.compile(r"金融服务agent|金融服务 agent|10个金融", re.I), "https://www.anthropic.com/news/finance-agents"),
+    (re.compile(r"Deepseek.*缓存|DeepSeek.*缓存|cache.*1/10", re.I), "https://api-docs.deepseek.com/quick_start/pricing/"),
+    (re.compile(r"Grok Build", re.I), "https://www.europapress.es/portaltic/sector/noticia-xai-presenta-grok-build-nuevo-agente-codificacion-fase-beta-inicial-20260515103500.html"),
+    (re.compile(r"DeployCo融资|OpenAI.*DeployCo", re.I), "https://www.axios.com/2026/05/11/openai-deployco-private-equity"),
+    (re.compile(r"Moonshot|月之暗面.*融资|Kimi.*融资|Kimi新一轮拟融资", re.I), "https://www.scmp.com/tech/tech-trends/article/3343927/moonshot-ai-targets-us12-billion-valuation-overseas-revenue-surges-kimi-models"),
+    (re.compile(r"字节.*估值\$550B|ByteDance.*\$550B", re.I), "https://www.pymnts.com/news/investment-tracker/2026/bytedance-valuation-hits-550-billion-in-planned-share-sale/"),
+    (re.compile(r"SpaceX.*IPO", re.I), "https://www.axios.com/2026/03/30/spacex-ipo-elon-musk-wall-street"),
+    (re.compile(r"Deepseek拟首次融资|DeepSeek.*\$300M|Deepseek.*\$3亿", re.I), "https://cntechpost.com/2026/04/18/deepseek-launches-first-funding-round-report/"),
+    (re.compile(r"腾讯阿里洽投 DeepSeek|腾讯、阿里与Deepseek|Tencent.*Alibaba.*DeepSeek", re.I), "https://www.reuters.com/world/asia-pacific/tencent-alibaba-talks-invest-deepseek-information-reports-2026-04-22/"),
+    (re.compile(r"Anthropic两周内拟融资|Anthropic 5月底.*\$900B|Anthropic.*\$50B", re.I), "https://techcrunch.com/2026/04/29/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/"),
+    (re.compile(r"Anthropic获得AMZN|Amazon.*Anthropic.*5GW|Anthropic.*Amazon.*5GW", re.I), "https://techcrunch.com/2026/04/20/anthropic-takes-5b-from-amazon-and-pledges-100b-in-cloud-spending-in-return/"),
+    (re.compile(r"Anthropic获SpaceX 300MW|Anthropic.*SpaceX.*300MW", re.I), "https://www.axios.com/2026/05/20/anthropic-spacex-compute"),
     (re.compile(r"Gemini\s*3\.5", re.I), "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"),
     (re.compile(r"Gemini Omni|Omni Flash|Google Flow", re.I), "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-collection/"),
     (re.compile(r"Antigravity", re.I), "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/"),
@@ -306,8 +348,8 @@ def split_event_fragments(text):
     fragments = [part.strip() for part in re.split(r"[；;]\s*", text) if part.strip()]
     expanded = []
     for fragment in fragments:
-        if re.search(r"、", fragment) and re.search(r"发布|推出|开源|上线|release|launch", fragment, re.I):
-            expanded.extend(part.strip() for part in re.split(r"、", fragment) if part.strip())
+        if re.search(r"[、，,]", fragment) and re.search(r"发布|推出|开源|上线|release|launch", fragment, re.I):
+            expanded.extend(part.strip() for part in re.split(r"[、，,]", fragment) if part.strip())
         else:
             expanded.append(fragment)
     return expanded
@@ -656,7 +698,7 @@ def build_events(items):
             if event_type == "model_release" or has_manual_date:
                 date, date_basis, needs_date_verification = explicit_event_date(text, fallback_date, event_type)
             else:
-                date, date_basis, needs_date_verification = fallback_date, "notion_week_observation_date", True
+                date, date_basis, needs_date_verification = fallback_date, "needs_web_date_check", True
             for vendor in detect_vendor(text):
                 if not is_high_value_event(text, vendor, event_type):
                     continue
