@@ -89,6 +89,17 @@ h2 {
   color: #ffffff;
 }
 
+.plain-button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.plain-button:disabled:hover {
+  border-color: var(--line);
+  background: #ffffff;
+  color: var(--ink);
+}
+
 main {
   padding: 24px 32px 40px;
 }
@@ -495,6 +506,8 @@ select[multiple] {
 .chart-actions {
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .chart-wrap.tall {

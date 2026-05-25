@@ -20,6 +20,7 @@ const state = {
   planSnapshots: {},
   marketSelectedCompanies: new Set(),
   marketHiddenEvents: new Set(),
+  marketTempHiddenLabels: new Set(),
   marketPinnedEvents: new Set(),
   marketDeletedEvents: new Set(),
   marketLocalEvents: [],
@@ -500,6 +501,13 @@ function setupMarketcapControls() {
     if (!rows.length) return;
     downloadCsv("ai_market_events_filtered.csv", ["date", "vendor", "company", "event_type", "title", "summary", "source", "source_url", "status"], rows);
   });
+  $("#restore-marketcap-labels").addEventListener("click", () => {
+    if (!state.marketTempHiddenLabels.size) return;
+    state.marketTempHiddenLabels.clear();
+    renderMarketcap();
+    showToast("图表临时隐藏已恢复");
+  });
+  $("#marketcap-chart").addEventListener("click", handleMarketcapChartClick);
   $("#download-marketcap-chart").addEventListener("click", () => {
     downloadChartImage(state.charts.marketcap, "ai_market_cap_review.png");
   });
@@ -2452,16 +2460,46 @@ function aggregateMarketChartEvents(events, labelDetail) {
   return [...dots, ...labels].sort((a, b) => a.date.localeCompare(b.date) || a.priority - b.priority || a.title.localeCompare(b.title));
 }
 
+function marketChartHitTargetAt(chart, x, y) {
+  const targets = chart?.$marketHitTargets || [];
+  return targets
+    .slice()
+    .reverse()
+    .find((target) => (
+      x >= target.left
+      && x <= target.right
+      && y >= target.top
+      && y <= target.bottom
+    ));
+}
+
+function handleMarketcapChartClick(event) {
+  const chart = state.charts.marketcap;
+  if (!chart) return;
+  const target = marketChartHitTargetAt(chart, event.offsetX, event.offsetY);
+  if (!target?.id) return;
+  if (state.marketTempHiddenLabels.has(target.id)) {
+    state.marketTempHiddenLabels.delete(target.id);
+    showToast("已恢复该图表标注");
+  } else {
+    state.marketTempHiddenLabels.add(target.id);
+    showToast("已临时隐藏该图表标注");
+  }
+  renderMarketcap();
+}
+
 const marketcapEventPlugin = {
   id: "marketcapEventLabels",
   afterDatasetsDraw(chart) {
     const events = chart.$marketEvents || [];
+    chart.$marketHitTargets = [];
     if (!events.length) return;
     const { ctx, chartArea, scales } = chart;
     const xScale = scales.x;
     const yScale = scales.y;
     const occupied = [];
     const labelsToDraw = [];
+    const hitTargets = [];
     ctx.save();
     ctx.textBaseline = "middle";
     ctx.textAlign = "left";
@@ -2482,6 +2520,13 @@ const marketcapEventPlugin = {
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 1.5;
       ctx.stroke();
+      hitTargets.push({
+        id: event.id,
+        left: x - 8,
+        right: x + 8,
+        top: anchorY - 8,
+        bottom: anchorY + 8,
+      });
 
       if (event.displayMode === "dot") {
         return;
@@ -2511,6 +2556,13 @@ const marketcapEventPlugin = {
         anchorX: x,
         anchorY,
       });
+      hitTargets.push({
+        id: event.id,
+        left: placement.left,
+        right: placement.left + width,
+        top: placement.top,
+        bottom: placement.top + height,
+      });
     });
 
     labelsToDraw.forEach((item) => {
@@ -2534,6 +2586,7 @@ const marketcapEventPlugin = {
         ctx.fillText(line, item.placement.left + item.paddingX, textY);
       });
     });
+    chart.$marketHitTargets = hitTargets;
     ctx.restore();
   },
 };
@@ -2636,7 +2689,15 @@ function renderMarketcap() {
       labelDetail,
     };
   });
-  const chartEvents = aggregateMarketChartEvents(rawChartEvents, labelDetail);
+  const chartEvents = aggregateMarketChartEvents(rawChartEvents, labelDetail)
+    .map((event) => state.marketTempHiddenLabels.has(event.id)
+      ? { ...event, displayMode: "dot" }
+      : event);
+  const restoreButton = $("#restore-marketcap-labels");
+  restoreButton.textContent = state.marketTempHiddenLabels.size
+    ? `恢复临时隐藏 (${state.marketTempHiddenLabels.size})`
+    : "恢复临时隐藏";
+  restoreButton.disabled = state.marketTempHiddenLabels.size === 0;
   const labeledByDate = {};
   chartEvents.forEach((event) => {
     if (event.displayMode !== "label") return;
