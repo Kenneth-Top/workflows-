@@ -29,6 +29,8 @@ SALE_START = time(10, 0, 0)
 DEFAULT_MONITOR_START = time(9, 59, 50)
 DEFAULT_MONITOR_END = time(10, 5, 0)
 DEFAULT_LATE_RETRY_SECONDS = 180
+DEFAULT_API_POLL_INTERVAL = 0.5
+DEFAULT_API_TIMEOUT = 2.0
 HISTORY_PATH = Path("glm_coding_plan_history.csv")
 SNAPSHOT_PATH = Path("glm_coding_plan_snapshots.json")
 
@@ -91,6 +93,10 @@ class Observation:
 
 def now_local() -> datetime:
     return datetime.now(TZ)
+
+
+def format_local_time(value: datetime) -> str:
+    return value.strftime("%H:%M:%S.%f")[:-3]
 
 
 def combine_today(target: time, base: datetime | None = None) -> datetime:
@@ -186,11 +192,11 @@ def api_product_plan_key(product: dict[str, Any]) -> str | None:
     return None
 
 
-def fetch_api_observations(headers: dict[str, str]) -> tuple[list[Observation], str | None]:
+def fetch_api_observations(headers: dict[str, str], timeout: float = DEFAULT_API_TIMEOUT) -> tuple[list[Observation], str | None]:
     payload = json.dumps({"invitationCode": ""}).encode("utf-8")
     request = Request(API_BATCH_PREVIEW_URL, data=payload, headers=headers, method="POST")
     try:
-        with urlopen(request, timeout=30) as response:
+        with urlopen(request, timeout=timeout) as response:
             raw = response.read().decode("utf-8", errors="replace")
     except (HTTPError, URLError, TimeoutError) as exc:
         return [], f"api_error:{clean_text(str(exc))[:160]}"
@@ -216,7 +222,7 @@ def fetch_api_observations(headers: dict[str, str]) -> tuple[list[Observation], 
         for plan_key in [api_product_plan_key(item)]
         if plan_key
     }
-    observed_at = now_local().isoformat(timespec="seconds")
+    observed_at = now_local().isoformat(timespec="milliseconds")
     observations: list[Observation] = []
     for plan_key, product_id in PRODUCT_IDS.items():
         product = product_by_id.get(product_id) or product_by_plan_key.get(plan_key)
@@ -356,6 +362,11 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     latest_status: dict[str, str] = {}
     latest_source: dict[str, str] = {}
     observations: list[Observation] = []
+    api_attempts = 0
+    api_busy_count = 0
+    api_error_count = 0
+    first_api_busy_at = ""
+    first_api_success_at = ""
     api_headers = bigmodel_api_headers()
     if not api_headers:
         notes.append("no_bigmodel_auth")
@@ -371,15 +382,22 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 and item.status == "sold_out"
                 and item.plan_key not in first_sold_out
             ):
-                first_sold_out[item.plan_key] = observed_now.strftime("%H:%M:%S")
+                first_sold_out[item.plan_key] = format_local_time(observed_now)
 
     used_api = False
     if api_headers:
         while True:
             observed_now = now_local()
-            batch, api_note = await asyncio.to_thread(fetch_api_observations, api_headers)
+            api_attempts += 1
+            batch, api_note = await asyncio.to_thread(fetch_api_observations, api_headers, args.api_timeout)
             if api_note and api_note not in notes:
                 notes.append(api_note)
+            if api_note == "api_busy":
+                api_busy_count += 1
+                if not first_api_busy_at:
+                    first_api_busy_at = format_local_time(observed_now)
+            elif api_note and api_note.startswith("api_error:"):
+                api_error_count += 1
             retryable_api_failure = bool(
                 api_note
                 and (
@@ -388,15 +406,28 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 )
             )
             if not batch and retryable_api_failure and not args.once and now_local() < target_end:
-                await asyncio.sleep(max(1, args.poll_interval))
+                await asyncio.sleep(max(0.1, args.poll_interval))
                 continue
             if not batch:
                 break
             used_api = True
+            if not first_api_success_at:
+                first_api_success_at = format_local_time(observed_now)
             record_batch(batch, observed_now)
             if args.once or now_local() >= target_end:
                 break
-            await asyncio.sleep(max(1, args.poll_interval))
+            await asyncio.sleep(max(0.1, args.poll_interval))
+
+    if api_attempts:
+        notes.append(f"api_attempts={api_attempts}")
+        notes.append(f"api_busy_count={api_busy_count}")
+        if api_error_count:
+            notes.append(f"api_error_count={api_error_count}")
+        if first_api_busy_at:
+            notes.append(f"first_api_busy={first_api_busy_at}")
+        if first_api_success_at:
+            notes.append(f"first_api_success={first_api_success_at}")
+        notes.append(f"api_poll_interval={args.poll_interval:g}s")
 
     if not used_api:
         async with async_playwright() as p:
@@ -519,7 +550,8 @@ def write_snapshot(row: dict[str, str], observations: list[Observation], notes: 
 async def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--once", action="store_true", help="Run one observation immediately.")
-    parser.add_argument("--poll-interval", type=float, default=5.0, help="Seconds between polling rounds.")
+    parser.add_argument("--poll-interval", type=float, default=DEFAULT_API_POLL_INTERVAL, help="Seconds between API polling rounds.")
+    parser.add_argument("--api-timeout", type=float, default=DEFAULT_API_TIMEOUT, help="Seconds before one API request is treated as timed out.")
     parser.add_argument(
         "--late-retry-seconds",
         type=float,

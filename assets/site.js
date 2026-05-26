@@ -1506,12 +1506,13 @@ function planStatusClass(status) {
 }
 
 function planSelloutSeconds(value) {
-  const match = String(value || "").match(/^(\d{2}):(\d{2}):(\d{2})$/);
+  const match = String(value || "").match(/^(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,6}))?$/);
   if (!match) return null;
   const hour = Number(match[1]);
   const minute = Number(match[2]);
   const second = Number(match[3]);
-  const seconds = (hour - 10) * 3600 + minute * 60 + second;
+  const fraction = match[4] ? Number(`0.${match[4]}`) : 0;
+  const seconds = (hour - 10) * 3600 + minute * 60 + second + fraction;
   return Number.isFinite(seconds) ? seconds : null;
 }
 
@@ -1520,8 +1521,10 @@ function formatSelloutOffset(seconds) {
   const sign = seconds < 0 ? "-" : "+";
   const absolute = Math.abs(seconds);
   const minutes = Math.floor(absolute / 60);
-  const secs = absolute % 60;
-  return minutes ? `${sign}${minutes}m${String(secs).padStart(2, "0")}s` : `${sign}${secs}s`;
+  const secs = absolute - minutes * 60;
+  const secondLabel = secs % 1 === 0 ? String(Math.round(secs)) : secs.toFixed(1);
+  const paddedSecondLabel = secs % 1 === 0 ? secondLabel.padStart(2, "0") : secondLabel.padStart(4, "0");
+  return minutes ? `${sign}${minutes}m${paddedSecondLabel}s` : `${sign}${secondLabel}s`;
 }
 
 function filteredPlanColumns() {
