@@ -28,6 +28,7 @@ TZ = ZoneInfo("Asia/Shanghai")
 SALE_START = time(10, 0, 0)
 DEFAULT_MONITOR_START = time(9, 59, 50)
 DEFAULT_MONITOR_END = time(10, 5, 0)
+DEFAULT_LATE_RETRY_SECONDS = 180
 HISTORY_PATH = Path("glm_coding_plan_history.csv")
 SNAPSHOT_PATH = Path("glm_coding_plan_snapshots.json")
 
@@ -347,7 +348,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     elif current > target_end:
         started_after_window = True
         notes.append("started_after_window")
-        target_end = current
+        target_end = current + timedelta(seconds=max(0, args.late_retry_seconds))
     elif current > sale_start:
         notes.append("started_after_10")
 
@@ -379,6 +380,16 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             batch, api_note = await asyncio.to_thread(fetch_api_observations, api_headers)
             if api_note and api_note not in notes:
                 notes.append(api_note)
+            retryable_api_failure = bool(
+                api_note
+                and (
+                    api_note == "api_busy"
+                    or api_note.startswith("api_error:")
+                )
+            )
+            if not batch and retryable_api_failure and not args.once and now_local() < target_end:
+                await asyncio.sleep(max(1, args.poll_interval))
+                continue
             if not batch:
                 break
             used_api = True
@@ -509,6 +520,12 @@ async def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--once", action="store_true", help="Run one observation immediately.")
     parser.add_argument("--poll-interval", type=float, default=5.0, help="Seconds between polling rounds.")
+    parser.add_argument(
+        "--late-retry-seconds",
+        type=float,
+        default=DEFAULT_LATE_RETRY_SECONDS,
+        help="Seconds to keep retrying API inventory when the job starts after the monitor window.",
+    )
     parser.add_argument("--reload-each-poll", action=argparse.BooleanOptionalAction, default=True)
     args = parser.parse_args()
 

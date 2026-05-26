@@ -3,6 +3,12 @@ name: Monitor GLM Coding Plan
 on:
   schedule:
     - cron: '0 21 * * *' # 北京时间次日 05:00，提前占住 runner，避免 GitHub 调度延迟错过 10:00 窗口
+  push:
+    branches:
+      - main
+    paths:
+      - 'glm_coding_plan_monitor.py'
+      - '.github/workflows/glm_coding_plan_monitor.yml'
   workflow_dispatch:
 
 permissions:
