@@ -36,6 +36,7 @@ jobs:
         env:
           BIGMODEL_AUTHORIZATION: ${{ secrets.BIGMODEL_AUTHORIZATION }}
           BIGMODEL_COOKIE: ${{ secrets.BIGMODEL_COOKIE }}
+        # Keep the rendered-page fallback enabled so cookie regressions surface in run notes.
         run: python glm_coding_plan_monitor.py --poll-interval 0.5 --api-timeout 2 --page-monitor --page-poll-interval 5
 
       - name: Commit and Push
