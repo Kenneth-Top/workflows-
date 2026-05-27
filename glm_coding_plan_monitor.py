@@ -519,10 +519,30 @@ def write_history(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writerows(normalized)
 
 
-def upsert_history(row: dict[str, str]) -> None:
-    rows = [item for item in read_history(HISTORY_PATH) if item.get("Date") != row["Date"]]
-    rows.append(row)
+def merge_history_row(existing: dict[str, str] | None, row: dict[str, str]) -> dict[str, str]:
+    if not existing:
+        return row
+    merged = dict(row)
+    for column in PLAN_COLUMNS:
+        if not clean_text(merged.get(column)) and clean_text(existing.get(column)):
+            merged[column] = existing[column]
+    previous_notes = clean_text(existing.get("Notes"))
+    current_notes = clean_text(merged.get("Notes"))
+    if previous_notes and current_notes and previous_notes != current_notes:
+        merged["Notes"] = f"{previous_notes};{current_notes}"
+    elif previous_notes and not current_notes:
+        merged["Notes"] = previous_notes
+    return merged
+
+
+def upsert_history(row: dict[str, str]) -> dict[str, str]:
+    existing_rows = read_history(HISTORY_PATH)
+    existing = next((item for item in existing_rows if item.get("Date") == row["Date"]), None)
+    rows = [item for item in existing_rows if item.get("Date") != row["Date"]]
+    merged = merge_history_row(existing, row)
+    rows.append(merged)
     write_history(HISTORY_PATH, rows)
+    return merged
 
 
 def write_snapshot(row: dict[str, str], observations: list[Observation], notes: list[str]) -> None:
@@ -589,7 +609,7 @@ async def main() -> None:
     if not observations:
         notes.append("no_cards_observed")
         row["Notes"] = ";".join(notes)
-    upsert_history(row)
+    row = upsert_history(row)
     write_snapshot(row, observations, notes)
     print(json.dumps({"row": row, "observations": len(observations)}, ensure_ascii=False, indent=2))
 
