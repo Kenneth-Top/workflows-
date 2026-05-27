@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T13:46:56+08:00",
+  "generated_at": "2026-05-27T13:52:37+08:00",
   "source_url": "https://bigmodel.cn/glm-coding",
   "monitor_window": {
     "start": "09:59:50",
@@ -10,9 +10,9 @@
   "latest_run": {
     "Date": "2026-05-27",
     "Run_Start": "09:59:50",
-    "Run_End": "13:46:56",
+    "Run_End": "13:52:37",
     "Source": "https://bigmodel.cn/glm-coding",
-    "Notes": "manual_override_all_sold_out;biased_observations_removed;started_after_window;public_page_status;api_busy;api_attempts=24;api_busy_count=9;first_api_busy=13:44:28.581;first_api_success=13:43:54.521;api_poll_interval=0.5s;page_attempts=8;page_batches=8;page_source=public_page;first_page_success=13:44:25.750",
+    "Notes": "manual_override_all_sold_out;biased_observations_removed;started_after_window;public_page_status;api_busy;api_attempts=24;api_busy_count=9;first_api_busy=13:44:28.581;first_api_success=13:43:54.521;api_poll_interval=0.5s;page_attempts=8;page_batches=8;page_source=public_page;first_page_success=13:44:25.750;started_after_window;no_bigmodel_cookie_for_page;authenticated_page_status;api_busy;api_attempts=50;api_busy_count=24;first_api_busy=13:50:01.583;first_api_success=13:49:35.877;api_poll_interval=0.5s;page_attempts=13;page_batches=13;page_source=authenticated_page;first_page_success=13:49:59.402",
     "Lite_Month": "",
     "Lite_Month_Status": "sold_out",
     "Lite_Quarter": "",
@@ -34,21 +34,22 @@
   },
   "notes": [
     "started_after_window",
-    "public_page_status",
+    "no_bigmodel_cookie_for_page",
+    "authenticated_page_status",
     "api_busy",
-    "api_attempts=24",
-    "api_busy_count=9",
-    "first_api_busy=13:44:28.581",
-    "first_api_success=13:43:54.521",
+    "api_attempts=50",
+    "api_busy_count=24",
+    "first_api_busy=13:50:01.583",
+    "first_api_success=13:49:35.877",
     "api_poll_interval=0.5s",
-    "page_attempts=8",
-    "page_batches=8",
-    "page_source=public_page",
-    "first_page_success=13:44:25.750"
+    "page_attempts=13",
+    "page_batches=13",
+    "page_source=authenticated_page",
+    "first_page_success=13:49:59.402"
   ],
   "observations": [
     {
-      "observed_at": "2026-05-27T13:44:24.425+08:00",
+      "observed_at": "2026-05-27T13:49:58.111+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -58,10 +59,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:24.425+08:00",
+      "observed_at": "2026-05-27T13:49:58.111+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -71,10 +72,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:24.425+08:00",
+      "observed_at": "2026-05-27T13:49:58.111+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -84,10 +85,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:25.085+08:00",
+      "observed_at": "2026-05-27T13:49:58.753+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -97,10 +98,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:25.085+08:00",
+      "observed_at": "2026-05-27T13:49:58.753+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -110,10 +111,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:25.085+08:00",
+      "observed_at": "2026-05-27T13:49:58.753+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -123,10 +124,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:25.750+08:00",
+      "observed_at": "2026-05-27T13:49:59.402+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -136,10 +137,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:25.750+08:00",
+      "observed_at": "2026-05-27T13:49:59.402+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -149,10 +150,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:25.750+08:00",
+      "observed_at": "2026-05-27T13:49:59.402+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -162,10 +163,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -178,7 +179,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -191,7 +192,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -204,7 +205,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -217,7 +218,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -230,7 +231,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -243,7 +244,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -256,7 +257,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -269,7 +270,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:43:56.128+08:00",
+      "observed_at": "2026-05-27T13:49:37.397+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -282,7 +283,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -295,7 +296,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -308,7 +309,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -321,7 +322,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -334,7 +335,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -347,7 +348,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -360,7 +361,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -373,7 +374,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -386,7 +387,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:28.080+08:00",
+      "observed_at": "2026-05-27T13:50:01.082+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -399,7 +400,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:40.567+08:00",
+      "observed_at": "2026-05-27T13:50:12.352+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -409,10 +410,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:40.567+08:00",
+      "observed_at": "2026-05-27T13:50:12.352+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -422,10 +423,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:40.567+08:00",
+      "observed_at": "2026-05-27T13:50:12.352+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -435,10 +436,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:41.232+08:00",
+      "observed_at": "2026-05-27T13:50:13.002+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -448,10 +449,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:41.232+08:00",
+      "observed_at": "2026-05-27T13:50:13.002+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -461,10 +462,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:41.232+08:00",
+      "observed_at": "2026-05-27T13:50:13.002+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -474,10 +475,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:41.882+08:00",
+      "observed_at": "2026-05-27T13:50:13.652+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -487,10 +488,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:41.882+08:00",
+      "observed_at": "2026-05-27T13:50:13.652+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -500,10 +501,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:41.882+08:00",
+      "observed_at": "2026-05-27T13:50:13.652+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -513,10 +514,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -529,7 +530,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -542,7 +543,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -555,7 +556,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -568,7 +569,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -581,7 +582,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -594,7 +595,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -607,7 +608,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -620,7 +621,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:31.554+08:00",
+      "observed_at": "2026-05-27T13:50:05.454+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -633,7 +634,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -646,7 +647,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -659,7 +660,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -672,7 +673,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -685,7 +686,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -698,7 +699,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -711,7 +712,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -724,7 +725,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -737,7 +738,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:43.659+08:00",
+      "observed_at": "2026-05-27T13:50:15.000+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -750,7 +751,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:21.869+08:00",
+      "observed_at": "2026-05-27T13:50:25.968+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -760,10 +761,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:21.869+08:00",
+      "observed_at": "2026-05-27T13:50:25.968+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -773,10 +774,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:21.869+08:00",
+      "observed_at": "2026-05-27T13:50:25.968+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -786,10 +787,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:22.534+08:00",
+      "observed_at": "2026-05-27T13:50:26.615+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -799,10 +800,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:22.534+08:00",
+      "observed_at": "2026-05-27T13:50:26.615+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -812,10 +813,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:22.534+08:00",
+      "observed_at": "2026-05-27T13:50:26.615+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -825,10 +826,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:23.197+08:00",
+      "observed_at": "2026-05-27T13:50:27.288+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -838,10 +839,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:23.197+08:00",
+      "observed_at": "2026-05-27T13:50:27.288+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -851,10 +852,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:23.197+08:00",
+      "observed_at": "2026-05-27T13:50:27.288+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -864,10 +865,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -880,7 +881,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -893,7 +894,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -906,7 +907,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -919,7 +920,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -932,7 +933,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -945,7 +946,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -958,7 +959,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -971,7 +972,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:44:47.060+08:00",
+      "observed_at": "2026-05-27T13:50:19.367+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -984,7 +985,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -997,7 +998,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1010,7 +1011,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1023,7 +1024,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1036,7 +1037,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1049,7 +1050,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1062,7 +1063,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1075,7 +1076,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1088,7 +1089,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:25.140+08:00",
+      "observed_at": "2026-05-27T13:50:28.787+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1101,7 +1102,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:37.346+08:00",
+      "observed_at": "2026-05-27T13:50:39.369+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1111,10 +1112,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:37.346+08:00",
+      "observed_at": "2026-05-27T13:50:39.369+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1124,10 +1125,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:37.346+08:00",
+      "observed_at": "2026-05-27T13:50:39.369+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1137,10 +1138,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:37.991+08:00",
+      "observed_at": "2026-05-27T13:50:40.017+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1150,10 +1151,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:37.991+08:00",
+      "observed_at": "2026-05-27T13:50:40.017+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1163,10 +1164,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:37.991+08:00",
+      "observed_at": "2026-05-27T13:50:40.017+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1176,10 +1177,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:38.645+08:00",
+      "observed_at": "2026-05-27T13:50:40.665+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1189,10 +1190,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:38.645+08:00",
+      "observed_at": "2026-05-27T13:50:40.665+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1202,10 +1203,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:38.645+08:00",
+      "observed_at": "2026-05-27T13:50:40.665+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1215,10 +1216,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1231,7 +1232,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1244,7 +1245,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1257,7 +1258,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1270,7 +1271,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1283,7 +1284,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1296,7 +1297,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1309,7 +1310,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1322,7 +1323,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:28.577+08:00",
+      "observed_at": "2026-05-27T13:50:32.694+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1335,7 +1336,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1348,7 +1349,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1361,7 +1362,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1374,7 +1375,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1387,7 +1388,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1400,7 +1401,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1413,7 +1414,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1426,7 +1427,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1439,7 +1440,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:40.384+08:00",
+      "observed_at": "2026-05-27T13:50:42.098+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1452,7 +1453,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:51.913+08:00",
+      "observed_at": "2026-05-27T13:50:52.515+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1462,10 +1463,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:51.913+08:00",
+      "observed_at": "2026-05-27T13:50:52.515+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1475,10 +1476,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:51.913+08:00",
+      "observed_at": "2026-05-27T13:50:52.515+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1488,10 +1489,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:52.566+08:00",
+      "observed_at": "2026-05-27T13:50:53.165+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1501,10 +1502,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:52.566+08:00",
+      "observed_at": "2026-05-27T13:50:53.165+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1514,10 +1515,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:52.566+08:00",
+      "observed_at": "2026-05-27T13:50:53.165+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1527,10 +1528,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:53.233+08:00",
+      "observed_at": "2026-05-27T13:50:53.814+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1540,10 +1541,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:53.233+08:00",
+      "observed_at": "2026-05-27T13:50:53.814+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1553,10 +1554,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:53.233+08:00",
+      "observed_at": "2026-05-27T13:50:53.814+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1566,10 +1567,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1582,7 +1583,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1595,7 +1596,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1608,7 +1609,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1621,7 +1622,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1634,7 +1635,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1647,7 +1648,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1660,7 +1661,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1673,7 +1674,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:43.870+08:00",
+      "observed_at": "2026-05-27T13:50:46.351+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1686,7 +1687,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1699,7 +1700,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1712,7 +1713,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1725,7 +1726,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1738,7 +1739,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1751,7 +1752,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1764,7 +1765,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1777,7 +1778,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1790,7 +1791,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:54.974+08:00",
+      "observed_at": "2026-05-27T13:50:55.239+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1803,124 +1804,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:45:58.196+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:17.629+08:00",
+      "observed_at": "2026-05-27T13:51:05.400+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1930,10 +1814,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:17.629+08:00",
+      "observed_at": "2026-05-27T13:51:05.400+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1943,10 +1827,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:17.629+08:00",
+      "observed_at": "2026-05-27T13:51:05.400+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1956,10 +1840,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:18.271+08:00",
+      "observed_at": "2026-05-27T13:51:06.048+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1969,10 +1853,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:18.271+08:00",
+      "observed_at": "2026-05-27T13:51:06.048+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1982,10 +1866,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:18.271+08:00",
+      "observed_at": "2026-05-27T13:51:06.048+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1995,10 +1879,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:18.928+08:00",
+      "observed_at": "2026-05-27T13:51:06.698+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2008,10 +1892,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:18.928+08:00",
+      "observed_at": "2026-05-27T13:51:06.698+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2021,10 +1905,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:18.928+08:00",
+      "observed_at": "2026-05-27T13:51:06.698+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2034,10 +1918,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2050,7 +1934,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2063,7 +1947,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2076,7 +1960,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2089,7 +1973,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2102,7 +1986,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2115,7 +1999,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2128,7 +2012,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2141,7 +2025,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:20.593+08:00",
+      "observed_at": "2026-05-27T13:50:59.281+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2154,7 +2038,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2167,7 +2051,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2180,7 +2064,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2193,7 +2077,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2206,7 +2090,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2219,7 +2103,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2232,7 +2116,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2245,7 +2129,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2258,7 +2142,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:23.880+08:00",
+      "observed_at": "2026-05-27T13:51:08.032+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2271,7 +2155,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:41.148+08:00",
+      "observed_at": "2026-05-27T13:51:18.182+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2281,10 +2165,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:41.148+08:00",
+      "observed_at": "2026-05-27T13:51:18.182+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2294,10 +2178,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:41.148+08:00",
+      "observed_at": "2026-05-27T13:51:18.182+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2307,10 +2191,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:41.811+08:00",
+      "observed_at": "2026-05-27T13:51:18.830+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2320,10 +2204,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:41.811+08:00",
+      "observed_at": "2026-05-27T13:51:18.830+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2333,10 +2217,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:41.811+08:00",
+      "observed_at": "2026-05-27T13:51:18.830+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2346,10 +2230,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:42.460+08:00",
+      "observed_at": "2026-05-27T13:51:19.480+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2359,10 +2243,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:42.460+08:00",
+      "observed_at": "2026-05-27T13:51:19.480+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2372,10 +2256,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:42.460+08:00",
+      "observed_at": "2026-05-27T13:51:19.480+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2385,10 +2269,10 @@
       "status_label": "未知",
       "button_text": "特惠订阅",
       "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
+      "source": "authenticated_page"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2401,7 +2285,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2414,7 +2298,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2427,7 +2311,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2440,7 +2324,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2453,7 +2337,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2466,7 +2350,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2479,7 +2363,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2492,7 +2376,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:44.146+08:00",
+      "observed_at": "2026-05-27T13:51:11.939+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2505,124 +2389,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:55.572+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:55.572+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:55.572+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:56.227+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:56.227+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:56.227+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:56.875+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:56.875+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:56.875+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "unknown",
-      "status_label": "未知",
-      "button_text": "特惠订阅",
-      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
-      "source": "public_page"
-    },
-    {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2635,7 +2402,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2648,7 +2415,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2661,7 +2428,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2674,7 +2441,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2687,7 +2454,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2700,7 +2467,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2713,7 +2480,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2726,7 +2493,2113 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:46:47.614+08:00",
+      "observed_at": "2026-05-27T13:51:20.868+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:30.916+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:30.916+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:30.916+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:31.564+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:31.564+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:31.564+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:32.215+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:32.215+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:32.215+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:24.849+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:33.656+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:43.832+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:43.832+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:43.832+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:44.481+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:44.481+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:44.481+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:45.134+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:45.134+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:45.134+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:37.505+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:46.586+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:56.546+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:56.546+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:56.546+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:57.198+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:57.198+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:57.198+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:57.848+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:57.848+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:57.848+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:50.604+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:51:59.190+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:09.398+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:09.398+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:09.398+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:10.047+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:10.047+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:10.047+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:10.695+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:10.695+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:10.695+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:03.055+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:12.045+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:21.847+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:21.847+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:21.847+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:22.495+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:22.495+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:22.495+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:23.147+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:23.147+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:23.147+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:15.893+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:24.574+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:34.397+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite ​ ￥49/月 下个月度续费金额：￥49 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:34.397+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 ​ ￥149/月 下个月度续费金额：￥149 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:34.397+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 ​ ￥469/月 下个月度续费金额：￥469 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:35.047+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包季 9 折 ￥44.1/月 ￥49/月 下个季度续费金额：￥132.3 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:35.047+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包季 9 折 ￥134.1/月 ￥149/月 下个季度续费金额：￥402.3 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:35.047+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包季 9 折 ￥422.1/月 ￥469/月 下个季度续费金额：￥1266.3 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:35.696+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Lite 连续包年 8 折 ￥39.2/月 ￥49/月 下个年度续费金额：￥470.4 特惠订阅 3x Claude Pro 用量额度 适合小型 Repo 轻量级迭代 逐步开放最新旗舰模型及功能 支持 Claude Code 等 20+ 编程工具",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:35.696+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Pro 最受欢迎 🔥 连续包年 8 折 ￥119.2/月 ￥149/月 下个年度续费金额：￥1430.4 特惠订阅 5x Lite 用量额度 + Lite 全量权益 适合中型 Repo 日常开发 优先体验最新旗舰模型及功能 覆盖多款精选 MCP 工具 更快生成速度",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:35.696+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "unknown",
+      "status_label": "未知",
+      "button_text": "特惠订阅",
+      "card_text": "Max 量大管饱 连续包年 8 折 ￥375.2/月 ￥469/月 下个年度续费金额：￥4502.4 特惠订阅 20x Lite 用量额度 + Pro 全量权益 适合高阶用户中大型 Repo 深度开发 首发接入最新旗舰模型及功能 高峰期专属资源优先保障",
+      "source": "authenticated_page"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:28.451+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Max_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Lite_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Pro_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "month",
+      "duration_label": "连续包月",
+      "plan_key": "Max_Month",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Lite_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Pro_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "max",
+      "tier_label": "Max",
+      "duration": "quarter",
+      "duration_label": "连续包季",
+      "plan_key": "Max_Quarter",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "lite",
+      "tier_label": "Lite",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Lite_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
+      "tier": "pro",
+      "tier_label": "Pro",
+      "duration": "year",
+      "duration_label": "连续包年",
+      "plan_key": "Pro_Year",
+      "status": "sold_out",
+      "status_label": "已售罄",
+      "button_text": "batch-preview",
+      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
+      "source": "api_batch_preview"
+    },
+    {
+      "observed_at": "2026-05-27T13:52:37.220+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
