@@ -166,6 +166,10 @@ def bigmodel_cookie_header() -> str:
     return clean_text(os.environ.get("BIGMODEL_COOKIE"))
 
 
+def bigmodel_authorization_header() -> str:
+    return clean_text(os.environ.get("BIGMODEL_AUTHORIZATION"))
+
+
 def playwright_cookies_from_header(cookie_header: str) -> list[dict[str, Any]]:
     cookies = []
     for part in cookie_header.split(";"):
@@ -406,7 +410,10 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     if not api_headers:
         notes.append("no_bigmodel_auth")
     cookie_header = bigmodel_cookie_header()
-    page_source = "authenticated_page" if cookie_header else "public_page"
+    authorization_header = bigmodel_authorization_header()
+    page_source = "authenticated_page" if cookie_header or authorization_header else "public_page"
+    if args.page_monitor and not cookie_header:
+        notes.append("no_bigmodel_cookie_for_page")
     playwright = None
     browser = None
     context = None
@@ -437,10 +444,12 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             return page
         playwright = await async_playwright().start()
         browser = await playwright.chromium.launch(headless=True, args=["--no-sandbox"])
+        extra_http_headers = {"Authorization": authorization_header} if authorization_header else None
         context = await browser.new_context(
             locale="zh-CN",
             timezone_id="Asia/Shanghai",
             viewport={"width": 1440, "height": 1200},
+            extra_http_headers=extra_http_headers,
         )
         cookies = playwright_cookies_from_header(cookie_header)
         if cookies:
