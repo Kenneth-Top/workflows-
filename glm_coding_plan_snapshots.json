@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T13:27:34+08:00",
+  "generated_at": "2026-05-27T13:33:31+08:00",
   "source_url": "https://bigmodel.cn/glm-coding",
   "monitor_window": {
     "start": "09:59:50",
@@ -10,20 +10,20 @@
   "latest_run": {
     "Date": "2026-05-27",
     "Run_Start": "09:59:50",
-    "Run_End": "13:27:34",
+    "Run_End": "13:33:31",
     "Source": "https://bigmodel.cn/glm-coding",
-    "Notes": "started_after_window;api_busy;api_attempts=119;api_busy_count=69;first_api_busy=13:24:35.470;first_api_success=13:24:33.449;api_poll_interval=0.5s",
-    "Lite_Month": "",
+    "Notes": "api_busy;api_attempts=214;api_busy_count=211;first_api_busy=09:59:50.045;first_api_success=10:00:28.329;api_poll_interval=0.5s;started_after_window;api_attempts=119;api_busy_count=69;first_api_busy=13:24:35.470;first_api_success=13:24:33.449;started_after_window;api_busy;api_attempts=128;api_busy_count=85;first_api_busy=13:30:32.154;first_api_success=13:30:30.327;api_poll_interval=0.5s",
+    "Lite_Month": "10:03:05.270",
     "Lite_Month_Status": "sold_out",
-    "Lite_Quarter": "",
+    "Lite_Quarter": "10:03:05.270",
     "Lite_Quarter_Status": "sold_out",
-    "Lite_Year": "",
+    "Lite_Year": "10:03:05.270",
     "Lite_Year_Status": "sold_out",
-    "Pro_Month": "",
+    "Pro_Month": "10:03:05.270",
     "Pro_Month_Status": "sold_out",
-    "Pro_Quarter": "",
+    "Pro_Quarter": "10:03:05.270",
     "Pro_Quarter_Status": "sold_out",
-    "Pro_Year": "",
+    "Pro_Year": "10:03:05.270",
     "Pro_Year_Status": "sold_out",
     "Max_Month": "",
     "Max_Month_Status": "sold_out",
@@ -35,15 +35,15 @@
   "notes": [
     "started_after_window",
     "api_busy",
-    "api_attempts=119",
-    "api_busy_count=69",
-    "first_api_busy=13:24:35.470",
-    "first_api_success=13:24:33.449",
+    "api_attempts=128",
+    "api_busy_count=85",
+    "first_api_busy=13:30:32.154",
+    "first_api_success=13:30:30.327",
     "api_poll_interval=0.5s"
   ],
   "observations": [
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -56,7 +56,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -69,7 +69,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -82,7 +82,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -95,7 +95,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -108,7 +108,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -121,7 +121,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -134,7 +134,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -147,7 +147,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:34.968+08:00",
+      "observed_at": "2026-05-27T13:30:31.653+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -160,7 +160,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -173,7 +173,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -186,7 +186,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -199,7 +199,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -212,7 +212,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -225,7 +225,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -238,7 +238,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -251,7 +251,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -264,7 +264,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:38.174+08:00",
+      "observed_at": "2026-05-27T13:30:35.987+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -277,7 +277,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -290,7 +290,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -303,7 +303,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -316,7 +316,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -329,7 +329,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -342,7 +342,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -355,7 +355,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -368,7 +368,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -381,7 +381,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:41.539+08:00",
+      "observed_at": "2026-05-27T13:30:40.368+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -394,7 +394,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -407,7 +407,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -420,7 +420,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -433,7 +433,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -446,7 +446,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -459,7 +459,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -472,7 +472,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -485,7 +485,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -498,7 +498,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:44.615+08:00",
+      "observed_at": "2026-05-27T13:30:44.695+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -511,7 +511,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -524,7 +524,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -537,7 +537,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -550,7 +550,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -563,7 +563,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -576,7 +576,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -589,7 +589,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -602,7 +602,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -615,7 +615,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:47.642+08:00",
+      "observed_at": "2026-05-27T13:30:48.933+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -628,7 +628,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -641,7 +641,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -654,7 +654,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -667,7 +667,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -680,7 +680,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -693,7 +693,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -706,7 +706,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -719,7 +719,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -732,7 +732,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:52.105+08:00",
+      "observed_at": "2026-05-27T13:30:51.877+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -745,7 +745,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -758,7 +758,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -771,7 +771,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -784,7 +784,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -797,7 +797,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -810,7 +810,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -823,7 +823,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -836,7 +836,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -849,7 +849,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:55.164+08:00",
+      "observed_at": "2026-05-27T13:30:56.093+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -862,7 +862,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -875,7 +875,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -888,7 +888,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -901,7 +901,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -914,7 +914,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -927,7 +927,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -940,7 +940,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -953,7 +953,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -966,7 +966,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:24:59.488+08:00",
+      "observed_at": "2026-05-27T13:31:00.303+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -979,7 +979,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -992,7 +992,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1005,7 +1005,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1018,7 +1018,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1031,7 +1031,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1044,7 +1044,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1057,7 +1057,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1070,7 +1070,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1083,7 +1083,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:02.701+08:00",
+      "observed_at": "2026-05-27T13:31:04.409+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1096,7 +1096,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1109,7 +1109,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1122,7 +1122,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1135,7 +1135,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1148,7 +1148,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1161,7 +1161,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1174,7 +1174,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1187,7 +1187,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1200,7 +1200,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:05.788+08:00",
+      "observed_at": "2026-05-27T13:31:08.677+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1213,7 +1213,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1226,7 +1226,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1239,7 +1239,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1252,7 +1252,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1265,7 +1265,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1278,7 +1278,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1291,7 +1291,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1304,7 +1304,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1317,7 +1317,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:10.191+08:00",
+      "observed_at": "2026-05-27T13:31:12.895+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1330,7 +1330,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1343,7 +1343,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1356,7 +1356,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1369,7 +1369,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1382,7 +1382,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1395,7 +1395,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1408,7 +1408,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1421,7 +1421,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1434,7 +1434,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:14.592+08:00",
+      "observed_at": "2026-05-27T13:31:17.047+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1447,7 +1447,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1460,7 +1460,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1473,7 +1473,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1486,7 +1486,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1499,7 +1499,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1512,7 +1512,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1525,7 +1525,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1538,7 +1538,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1551,7 +1551,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:17.594+08:00",
+      "observed_at": "2026-05-27T13:31:21.212+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1564,7 +1564,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1577,7 +1577,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1590,7 +1590,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1603,7 +1603,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1616,7 +1616,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1629,7 +1629,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1642,7 +1642,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1655,7 +1655,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1668,7 +1668,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:20.671+08:00",
+      "observed_at": "2026-05-27T13:31:25.305+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1681,7 +1681,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1694,7 +1694,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1707,7 +1707,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1720,7 +1720,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1733,7 +1733,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1746,7 +1746,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1759,7 +1759,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1772,7 +1772,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1785,7 +1785,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:23.808+08:00",
+      "observed_at": "2026-05-27T13:31:29.512+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1798,7 +1798,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1811,7 +1811,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1824,7 +1824,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1837,7 +1837,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1850,7 +1850,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1863,7 +1863,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1876,7 +1876,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -1889,7 +1889,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -1902,7 +1902,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:26.987+08:00",
+      "observed_at": "2026-05-27T13:31:33.743+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -1915,7 +1915,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -1928,7 +1928,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -1941,7 +1941,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -1954,7 +1954,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -1967,7 +1967,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -1980,7 +1980,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -1993,7 +1993,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2006,7 +2006,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2019,7 +2019,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:31.335+08:00",
+      "observed_at": "2026-05-27T13:31:37.901+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2032,7 +2032,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2045,7 +2045,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2058,7 +2058,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2071,7 +2071,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2084,7 +2084,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2097,7 +2097,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2110,7 +2110,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2123,7 +2123,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2136,7 +2136,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:34.549+08:00",
+      "observed_at": "2026-05-27T13:31:42.143+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2149,7 +2149,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2162,7 +2162,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2175,7 +2175,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2188,7 +2188,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2201,7 +2201,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2214,7 +2214,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2227,7 +2227,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2240,7 +2240,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2253,7 +2253,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:37.697+08:00",
+      "observed_at": "2026-05-27T13:31:46.471+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2266,7 +2266,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2279,7 +2279,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2292,7 +2292,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2305,7 +2305,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2318,7 +2318,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2331,7 +2331,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2344,7 +2344,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2357,7 +2357,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2370,7 +2370,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:42.102+08:00",
+      "observed_at": "2026-05-27T13:31:50.702+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2383,7 +2383,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2396,7 +2396,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2409,7 +2409,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2422,7 +2422,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2435,7 +2435,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2448,7 +2448,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2461,7 +2461,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2474,7 +2474,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2487,7 +2487,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:45.107+08:00",
+      "observed_at": "2026-05-27T13:31:54.832+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2500,7 +2500,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2513,7 +2513,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2526,7 +2526,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2539,7 +2539,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2552,7 +2552,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2565,7 +2565,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2578,7 +2578,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2591,7 +2591,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2604,7 +2604,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:49.526+08:00",
+      "observed_at": "2026-05-27T13:31:59.164+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2617,7 +2617,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2630,7 +2630,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2643,7 +2643,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2656,7 +2656,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2669,7 +2669,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2682,7 +2682,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2695,7 +2695,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2708,7 +2708,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2721,7 +2721,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:53.954+08:00",
+      "observed_at": "2026-05-27T13:32:03.366+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2734,7 +2734,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2747,7 +2747,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2760,7 +2760,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2773,7 +2773,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2786,7 +2786,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2799,7 +2799,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2812,7 +2812,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2825,7 +2825,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2838,7 +2838,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:25:56.948+08:00",
+      "observed_at": "2026-05-27T13:32:07.627+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2851,7 +2851,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2864,7 +2864,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2877,7 +2877,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -2890,7 +2890,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -2903,7 +2903,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -2916,7 +2916,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -2929,7 +2929,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -2942,7 +2942,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -2955,7 +2955,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:01.367+08:00",
+      "observed_at": "2026-05-27T13:32:11.761+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -2968,7 +2968,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -2981,7 +2981,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -2994,7 +2994,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3007,7 +3007,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3020,7 +3020,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3033,7 +3033,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3046,7 +3046,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3059,7 +3059,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3072,7 +3072,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:05.865+08:00",
+      "observed_at": "2026-05-27T13:32:16.001+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3085,7 +3085,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3098,7 +3098,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3111,7 +3111,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3124,7 +3124,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3137,7 +3137,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3150,7 +3150,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3163,7 +3163,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3176,7 +3176,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3189,7 +3189,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:10.363+08:00",
+      "observed_at": "2026-05-27T13:32:20.115+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3202,7 +3202,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3215,7 +3215,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3228,7 +3228,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3241,7 +3241,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3254,7 +3254,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3267,7 +3267,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3280,7 +3280,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3293,7 +3293,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3306,7 +3306,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:13.407+08:00",
+      "observed_at": "2026-05-27T13:32:24.385+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3319,7 +3319,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3332,7 +3332,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3345,7 +3345,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3358,7 +3358,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3371,7 +3371,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3384,7 +3384,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3397,7 +3397,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3410,7 +3410,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3423,7 +3423,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:16.533+08:00",
+      "observed_at": "2026-05-27T13:32:28.858+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3436,7 +3436,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3449,7 +3449,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3462,7 +3462,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3475,7 +3475,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3488,7 +3488,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3501,7 +3501,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3514,7 +3514,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3527,7 +3527,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3540,7 +3540,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:21.009+08:00",
+      "observed_at": "2026-05-27T13:32:33.145+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3553,7 +3553,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3566,7 +3566,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3579,7 +3579,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3592,7 +3592,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3605,7 +3605,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3618,7 +3618,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3631,7 +3631,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3644,7 +3644,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3657,7 +3657,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:25.376+08:00",
+      "observed_at": "2026-05-27T13:32:37.519+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3670,7 +3670,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3683,7 +3683,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3696,7 +3696,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3709,7 +3709,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3722,7 +3722,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3735,7 +3735,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3748,7 +3748,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3761,7 +3761,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3774,7 +3774,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:29.777+08:00",
+      "observed_at": "2026-05-27T13:32:41.870+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3787,7 +3787,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3800,7 +3800,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3813,7 +3813,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3826,7 +3826,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3839,7 +3839,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3852,7 +3852,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3865,7 +3865,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3878,7 +3878,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -3891,7 +3891,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:32.870+08:00",
+      "observed_at": "2026-05-27T13:32:45.931+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -3904,7 +3904,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -3917,7 +3917,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -3930,7 +3930,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -3943,7 +3943,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -3956,7 +3956,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -3969,7 +3969,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -3982,7 +3982,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -3995,7 +3995,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4008,7 +4008,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:37.299+08:00",
+      "observed_at": "2026-05-27T13:32:50.073+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4021,7 +4021,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4034,7 +4034,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4047,7 +4047,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4060,7 +4060,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4073,7 +4073,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4086,7 +4086,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4099,7 +4099,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4112,7 +4112,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4125,7 +4125,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:41.679+08:00",
+      "observed_at": "2026-05-27T13:32:54.356+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4138,7 +4138,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4151,7 +4151,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4164,7 +4164,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4177,7 +4177,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4190,7 +4190,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4203,7 +4203,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4216,7 +4216,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4229,7 +4229,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4242,7 +4242,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:44.824+08:00",
+      "observed_at": "2026-05-27T13:32:58.561+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4255,7 +4255,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4268,7 +4268,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4281,7 +4281,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4294,7 +4294,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4307,7 +4307,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4320,7 +4320,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4333,7 +4333,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4346,7 +4346,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4359,7 +4359,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:49.190+08:00",
+      "observed_at": "2026-05-27T13:33:02.847+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4372,7 +4372,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4385,7 +4385,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4398,7 +4398,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4411,7 +4411,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4424,7 +4424,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4437,7 +4437,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4450,7 +4450,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4463,7 +4463,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4476,7 +4476,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:52.429+08:00",
+      "observed_at": "2026-05-27T13:33:07.186+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4489,7 +4489,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4502,7 +4502,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4515,7 +4515,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4528,7 +4528,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4541,7 +4541,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4554,7 +4554,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4567,7 +4567,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4580,7 +4580,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4593,7 +4593,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:26:56.829+08:00",
+      "observed_at": "2026-05-27T13:33:11.307+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4606,7 +4606,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4619,7 +4619,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4632,7 +4632,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4645,7 +4645,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4658,7 +4658,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4671,7 +4671,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4684,7 +4684,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4697,7 +4697,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4710,7 +4710,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:01.234+08:00",
+      "observed_at": "2026-05-27T13:33:15.620+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4723,7 +4723,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4736,7 +4736,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4749,7 +4749,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4762,7 +4762,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4775,7 +4775,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4788,7 +4788,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4801,7 +4801,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4814,7 +4814,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4827,7 +4827,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:04.376+08:00",
+      "observed_at": "2026-05-27T13:33:19.858+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4840,7 +4840,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4853,7 +4853,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4866,7 +4866,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4879,7 +4879,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -4892,7 +4892,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -4905,7 +4905,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -4918,7 +4918,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -4931,7 +4931,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -4944,7 +4944,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:08.775+08:00",
+      "observed_at": "2026-05-27T13:33:24.123+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
@@ -4957,7 +4957,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "month",
@@ -4970,7 +4970,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "month",
@@ -4983,7 +4983,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "month",
@@ -4996,7 +4996,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "quarter",
@@ -5009,7 +5009,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "quarter",
@@ -5022,7 +5022,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "quarter",
@@ -5035,7 +5035,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "lite",
       "tier_label": "Lite",
       "duration": "year",
@@ -5048,7 +5048,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "pro",
       "tier_label": "Pro",
       "duration": "year",
@@ -5061,826 +5061,7 @@
       "source": "api_batch_preview"
     },
     {
-      "observed_at": "2026-05-27T13:27:11.909+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:15.133+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:18.228+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:21.426+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:24.681+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:27.877+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:30.893+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Max_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-d46f8b\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Lite_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-02434c\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Pro_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-1df3e1\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "month",
-      "duration_label": "连续包月",
-      "plan_key": "Max_Month",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-2fc421\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Lite_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-b8ea38\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Pro_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-fef82f\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "max",
-      "tier_label": "Max",
-      "duration": "quarter",
-      "duration_label": "连续包季",
-      "plan_key": "Max_Quarter",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5d3a03\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "lite",
-      "tier_label": "Lite",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Lite_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-70a804\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
-      "tier": "pro",
-      "tier_label": "Pro",
-      "duration": "year",
-      "duration_label": "连续包年",
-      "plan_key": "Pro_Year",
-      "status": "sold_out",
-      "status_label": "已售罄",
-      "button_text": "batch-preview",
-      "card_text": "{\"forbidden\": false, \"is_limit_buy\": null, \"product_id\": \"product-5643e6\", \"product_name\": null, \"sold_out\": true}",
-      "source": "api_batch_preview"
-    },
-    {
-      "observed_at": "2026-05-27T13:27:34.280+08:00",
+      "observed_at": "2026-05-27T13:33:28.460+08:00",
       "tier": "max",
       "tier_label": "Max",
       "duration": "year",
