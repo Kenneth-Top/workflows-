@@ -31,6 +31,7 @@ DEFAULT_MONITOR_END = time(11, 0, 0)
 DEFAULT_LATE_RETRY_SECONDS = 180
 DEFAULT_API_POLL_INTERVAL = 0.5
 DEFAULT_API_TIMEOUT = 2.0
+DEFAULT_PAGE_POLL_INTERVAL = 5.0
 HISTORY_PATH = Path("glm_coding_plan_history.csv")
 SNAPSHOT_PATH = Path("glm_coding_plan_snapshots.json")
 
@@ -161,6 +162,33 @@ def bigmodel_api_headers() -> dict[str, str] | None:
     return headers
 
 
+def bigmodel_cookie_header() -> str:
+    return clean_text(os.environ.get("BIGMODEL_COOKIE"))
+
+
+def playwright_cookies_from_header(cookie_header: str) -> list[dict[str, Any]]:
+    cookies = []
+    for part in cookie_header.split(";"):
+        if "=" not in part:
+            continue
+        name, value = part.split("=", 1)
+        name = clean_text(name)
+        value = value.strip()
+        if not name:
+            continue
+        cookies.append(
+            {
+                "name": name,
+                "value": value,
+                "domain": ".bigmodel.cn",
+                "path": "/",
+                "secure": True,
+                "sameSite": "Lax",
+            }
+        )
+    return cookies
+
+
 def product_column_parts(plan_key: str) -> tuple[str, str, str, str]:
     tier_label, duration_column_label = plan_key.split("_", 1)
     tier_key = tier_label.lower()
@@ -279,7 +307,7 @@ async def select_duration(page: Any, duration_label: str) -> None:
     await page.wait_for_timeout(600)
 
 
-async def read_cards(page: Any, duration_key: str, duration_label: str, duration_column_label: str) -> list[Observation]:
+async def read_cards(page: Any, duration_key: str, duration_label: str, duration_column_label: str, source: str) -> list[Observation]:
     cards = await page.evaluate(
         """
         () => {
@@ -299,7 +327,7 @@ async def read_cards(page: Any, duration_key: str, duration_label: str, duration
         }
         """
     )
-    observed_at = now_local().isoformat(timespec="seconds")
+    observed_at = now_local().isoformat(timespec="milliseconds")
     observations: list[Observation] = []
     for item in cards:
         tier_label = item["title"]
@@ -318,16 +346,17 @@ async def read_cards(page: Any, duration_key: str, duration_label: str, duration
                 status=status,
                 button_text=button_text,
                 card_text=card_text[:500],
+                source=source,
             )
         )
     return observations
 
 
-async def collect_once(page: Any) -> list[Observation]:
+async def collect_once(page: Any, source: str) -> list[Observation]:
     observations: list[Observation] = []
     for duration_key, duration_label, duration_column_label in DURATIONS:
         await select_duration(page, duration_label)
-        observations.extend(await read_cards(page, duration_key, duration_label, duration_column_label))
+        observations.extend(await read_cards(page, duration_key, duration_label, duration_column_label, source))
     return observations
 
 
@@ -369,9 +398,19 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     api_error_count = 0
     first_api_busy_at = ""
     first_api_success_at = ""
+    page_attempts = 0
+    page_observation_batches = 0
+    first_page_success_at = ""
+    next_page_poll_at = current if args.once or current >= sale_start else sale_start + timedelta(seconds=2)
     api_headers = bigmodel_api_headers()
     if not api_headers:
         notes.append("no_bigmodel_auth")
+    cookie_header = bigmodel_cookie_header()
+    page_source = "authenticated_page" if cookie_header else "public_page"
+    playwright = None
+    browser = None
+    context = None
+    page = None
 
     def record_batch(batch: list[Observation], observed_now: datetime) -> None:
         observations.extend(batch)
@@ -391,6 +430,54 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 previous = last_not_sold_at.get(item.plan_key)
                 if previous:
                     sold_out_windows[item.plan_key] = f"{previous}~{observed_label}"
+
+    async def ensure_page() -> Any:
+        nonlocal playwright, browser, context, page
+        if page is not None:
+            return page
+        playwright = await async_playwright().start()
+        browser = await playwright.chromium.launch(headless=True, args=["--no-sandbox"])
+        context = await browser.new_context(
+            locale="zh-CN",
+            timezone_id="Asia/Shanghai",
+            viewport={"width": 1440, "height": 1200},
+        )
+        cookies = playwright_cookies_from_header(cookie_header)
+        if cookies:
+            await context.add_cookies(cookies)
+        page = await context.new_page()
+
+        async def route_handler(route: Any) -> None:
+            if route.request.resource_type in {"image", "font", "media"}:
+                await route.abort()
+            else:
+                await route.continue_()
+
+        await page.route("**/*", route_handler)
+        await safe_goto(page, SOURCE_URL)
+        return page
+
+    async def collect_page_observations() -> list[Observation]:
+        nonlocal page_attempts, page_observation_batches, first_page_success_at
+        page_attempts += 1
+        try:
+            current_page = await ensure_page()
+            if args.reload_each_poll:
+                await safe_reload(current_page)
+            batch = await collect_once(current_page, page_source)
+        except Exception as exc:
+            note = f"page_error:{clean_text(str(exc))[:120]}"
+            if note not in notes:
+                notes.append(note)
+            return []
+        if batch:
+            page_observation_batches += 1
+            if not first_page_success_at:
+                first_page_success_at = format_local_time(now_local())
+            note = f"{page_source}_status"
+            if note not in notes:
+                notes.append(note)
+        return batch
 
     used_api = False
     if api_headers:
@@ -413,6 +500,16 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                     or api_note.startswith("api_error:")
                 )
             )
+            should_poll_page = bool(
+                args.page_monitor
+                and not args.once
+                and now_local() >= next_page_poll_at
+                and now_local() < target_end
+            )
+            if should_poll_page:
+                page_batch = await collect_page_observations()
+                record_batch(page_batch, now_local())
+                next_page_poll_at = now_local() + timedelta(seconds=max(1, args.page_poll_interval))
             if not batch and retryable_api_failure and not args.once and now_local() < target_end:
                 await asyncio.sleep(max(0.1, args.poll_interval))
                 continue
@@ -424,6 +521,10 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             record_batch(batch, observed_now)
             if args.once or now_local() >= target_end:
                 break
+            if args.page_monitor and now_local() >= next_page_poll_at and now_local() < target_end:
+                page_batch = await collect_page_observations()
+                record_batch(page_batch, now_local())
+                next_page_poll_at = now_local() + timedelta(seconds=max(1, args.page_poll_interval))
             await asyncio.sleep(max(0.1, args.poll_interval))
 
     if api_attempts:
@@ -439,39 +540,26 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         for plan_key, window in sorted(sold_out_windows.items()):
             notes.append(f"{plan_key}_sold_between={window}")
 
-    if not used_api:
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
-            context = await browser.new_context(
-                locale="zh-CN",
-                timezone_id="Asia/Shanghai",
-                viewport={"width": 1440, "height": 1200},
-            )
-            page = await context.new_page()
+    if (not used_api or args.once) and args.page_monitor:
+        while True:
+            observed_now = now_local()
+            batch = await collect_page_observations()
+            record_batch(batch, observed_now)
+            if args.once or now_local() >= target_end:
+                break
+            await asyncio.sleep(max(1, args.page_poll_interval))
 
-            async def route_handler(route: Any) -> None:
-                if route.request.resource_type in {"image", "font", "media"}:
-                    await route.abort()
-                else:
-                    await route.continue_()
+    if page_attempts:
+        notes.append(f"page_attempts={page_attempts}")
+        notes.append(f"page_batches={page_observation_batches}")
+        notes.append(f"page_source={page_source}")
+        if first_page_success_at:
+            notes.append(f"first_page_success={first_page_success_at}")
 
-            await page.route("**/*", route_handler)
-            await safe_goto(page, SOURCE_URL)
-
-            while True:
-                observed_now = now_local()
-                if args.reload_each_poll:
-                    await safe_reload(page)
-                batch = await collect_once(page)
-                if "public_page_status_only" not in notes:
-                    notes.append("public_page_status_only")
-                record_batch(batch, observed_now)
-
-                if args.once or now_local() >= target_end:
-                    break
-                await asyncio.sleep(max(1, args.poll_interval))
-
-            await browser.close()
+    if browser:
+        await browser.close()
+    if playwright:
+        await playwright.stop()
 
     row = {
         "Date": run_date,
@@ -582,6 +670,8 @@ async def main() -> None:
     parser.add_argument("--once", action="store_true", help="Run one observation immediately.")
     parser.add_argument("--poll-interval", type=float, default=DEFAULT_API_POLL_INTERVAL, help="Seconds between API polling rounds.")
     parser.add_argument("--api-timeout", type=float, default=DEFAULT_API_TIMEOUT, help="Seconds before one API request is treated as timed out.")
+    parser.add_argument("--page-monitor", action=argparse.BooleanOptionalAction, default=True, help="Also inspect the rendered BigModel pricing page with the configured cookie.")
+    parser.add_argument("--page-poll-interval", type=float, default=DEFAULT_PAGE_POLL_INTERVAL, help="Seconds between rendered-page polling rounds.")
     parser.add_argument(
         "--late-retry-seconds",
         type=float,
