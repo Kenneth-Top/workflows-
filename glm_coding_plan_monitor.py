@@ -27,7 +27,7 @@ API_BATCH_PREVIEW_URL = f"{API_BASE_URL}/biz/pay/batch-preview"
 TZ = ZoneInfo("Asia/Shanghai")
 SALE_START = time(10, 0, 0)
 DEFAULT_MONITOR_START = time(9, 59, 50)
-DEFAULT_MONITOR_END = time(10, 5, 0)
+DEFAULT_MONITOR_END = time(11, 0, 0)
 DEFAULT_LATE_RETRY_SECONDS = 180
 DEFAULT_API_POLL_INTERVAL = 0.5
 DEFAULT_API_TIMEOUT = 2.0
@@ -361,6 +361,8 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     first_sold_out: dict[str, str] = {}
     latest_status: dict[str, str] = {}
     latest_source: dict[str, str] = {}
+    last_not_sold_at: dict[str, str] = {}
+    sold_out_windows: dict[str, str] = {}
     observations: list[Observation] = []
     api_attempts = 0
     api_busy_count = 0
@@ -376,13 +378,19 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         for item in batch:
             latest_status[item.plan_key] = item.status
             latest_source[item.plan_key] = item.source
+            observed_label = format_local_time(observed_now)
+            if observed_now >= sale_start and item.status != "sold_out":
+                last_not_sold_at[item.plan_key] = observed_label
             if (
                 not started_after_window
                 and observed_now >= sale_start
                 and item.status == "sold_out"
                 and item.plan_key not in first_sold_out
             ):
-                first_sold_out[item.plan_key] = format_local_time(observed_now)
+                first_sold_out[item.plan_key] = observed_label
+                previous = last_not_sold_at.get(item.plan_key)
+                if previous:
+                    sold_out_windows[item.plan_key] = f"{previous}~{observed_label}"
 
     used_api = False
     if api_headers:
@@ -428,6 +436,8 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         if first_api_success_at:
             notes.append(f"first_api_success={first_api_success_at}")
         notes.append(f"api_poll_interval={args.poll_interval:g}s")
+        for plan_key, window in sorted(sold_out_windows.items()):
+            notes.append(f"{plan_key}_sold_between={window}")
 
     if not used_api:
         async with async_playwright() as p:
