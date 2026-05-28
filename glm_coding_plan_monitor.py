@@ -31,7 +31,7 @@ DEFAULT_MONITOR_END = time(11, 0, 0)
 DEFAULT_LATE_RETRY_SECONDS = 180
 DEFAULT_API_POLL_INTERVAL = 0.5
 DEFAULT_API_TIMEOUT = 2.0
-DEFAULT_PAGE_POLL_INTERVAL = 5.0
+DEFAULT_PAGE_POLL_INTERVAL = 1.0
 HISTORY_PATH = Path("glm_coding_plan_history.csv")
 SNAPSHOT_PATH = Path("glm_coding_plan_snapshots.json")
 
@@ -113,6 +113,8 @@ def infer_status(card_text: str, button_text: str, disabled: bool) -> str:
     text = f"{card_text} {button_text}"
     if re.search(r"售罄|已抢光|抢光|无库存|今日已售|已售完", text):
         return "sold_out"
+    if re.search(r"抢购人数过多|请刷新再试|系统繁忙|稍后再试", text):
+        return "purchase_busy"
     if re.search(r"未开始|即将开售|10[:：]00|明日", text) and not re.search(r"订阅|抢购", button_text):
         return "pre_sale"
     if disabled and re.search(r"订阅|抢购|购买", text):
@@ -134,6 +136,7 @@ def status_to_cn(status: str) -> str:
         "available_at_end": "窗口结束仍可订阅",
         "missed_window": "错过监控窗口",
         "auth_required": "需要登录态",
+        "purchase_busy": "抢购拥堵",
         "pre_sale": "未开售",
         "disabled": "按钮不可用",
         "unknown": "未知",
@@ -291,24 +294,26 @@ def fetch_api_observations(headers: dict[str, str], timeout: float = DEFAULT_API
 
 async def safe_goto(page: Any, url: str) -> None:
     try:
-        await page.goto(url, wait_until="networkidle", timeout=60_000)
+        await page.goto(url, wait_until="domcontentloaded", timeout=20_000)
+        await page.wait_for_timeout(500)
     except Exception:
-        await page.goto(url, wait_until="domcontentloaded", timeout=60_000)
-        await page.wait_for_timeout(2_000)
+        await page.goto(url, wait_until="commit", timeout=20_000)
+        await page.wait_for_timeout(500)
 
 
 async def safe_reload(page: Any) -> None:
     try:
-        await page.reload(wait_until="networkidle", timeout=60_000)
+        await page.reload(wait_until="domcontentloaded", timeout=15_000)
+        await page.wait_for_timeout(350)
     except Exception:
-        await page.reload(wait_until="domcontentloaded", timeout=60_000)
-        await page.wait_for_timeout(1_500)
+        await page.reload(wait_until="commit", timeout=15_000)
+        await page.wait_for_timeout(350)
 
 
 async def select_duration(page: Any, duration_label: str) -> None:
     tab = page.locator(".switch-tab-item", has_text=duration_label).first
     await tab.click(timeout=10_000)
-    await page.wait_for_timeout(600)
+    await page.wait_for_timeout(150)
 
 
 async def read_cards(page: Any, duration_key: str, duration_label: str, duration_column_label: str, source: str) -> list[Observation]:
@@ -405,7 +410,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     page_attempts = 0
     page_observation_batches = 0
     first_page_success_at = ""
-    next_page_poll_at = current if args.once or current >= sale_start else sale_start + timedelta(seconds=2)
+    next_page_poll_at = current if args.once or current >= sale_start else target_start
     api_headers = bigmodel_api_headers()
     if not api_headers:
         notes.append("no_bigmodel_auth")
@@ -488,6 +493,13 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 notes.append(note)
         return batch
 
+    if args.page_monitor and not args.once and now_local() < sale_start:
+        try:
+            await ensure_page()
+            notes.append("page_prewarmed")
+        except Exception as exc:
+            notes.append(f"page_prewarm_error:{clean_text(str(exc))[:120]}")
+
     used_api = False
     if api_headers:
         while True:
@@ -518,7 +530,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             if should_poll_page:
                 page_batch = await collect_page_observations()
                 record_batch(page_batch, now_local())
-                next_page_poll_at = now_local() + timedelta(seconds=max(1, args.page_poll_interval))
+                next_page_poll_at = now_local() + timedelta(seconds=max(0.5, args.page_poll_interval))
             if not batch and retryable_api_failure and not args.once and now_local() < target_end:
                 await asyncio.sleep(max(0.1, args.poll_interval))
                 continue
@@ -533,7 +545,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             if args.page_monitor and now_local() >= next_page_poll_at and now_local() < target_end:
                 page_batch = await collect_page_observations()
                 record_batch(page_batch, now_local())
-                next_page_poll_at = now_local() + timedelta(seconds=max(1, args.page_poll_interval))
+                next_page_poll_at = now_local() + timedelta(seconds=max(0.5, args.page_poll_interval))
             await asyncio.sleep(max(0.1, args.poll_interval))
 
     if api_attempts:
@@ -556,7 +568,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             record_batch(batch, observed_now)
             if args.once or now_local() >= target_end:
                 break
-            await asyncio.sleep(max(1, args.page_poll_interval))
+            await asyncio.sleep(max(0.5, args.page_poll_interval))
 
     if page_attempts:
         notes.append(f"page_attempts={page_attempts}")
