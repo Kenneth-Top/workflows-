@@ -31,7 +31,7 @@ DEFAULT_MONITOR_END = time(11, 0, 0)
 DEFAULT_LATE_RETRY_SECONDS = 180
 DEFAULT_API_POLL_INTERVAL = 0.5
 DEFAULT_API_TIMEOUT = 2.0
-DEFAULT_PAGE_POLL_INTERVAL = 1.0
+DEFAULT_PAGE_POLL_INTERVAL = 0.5
 HISTORY_PATH = Path("glm_coding_plan_history.csv")
 SNAPSHOT_PATH = Path("glm_coding_plan_snapshots.json")
 
@@ -361,12 +361,12 @@ async def read_cards(page: Any, duration_key: str, duration_label: str, duration
     return observations
 
 
-async def collect_once(page: Any, source: str) -> list[Observation]:
-    observations: list[Observation] = []
-    for duration_key, duration_label, duration_column_label in DURATIONS:
+async def collect_duration_page(page: Any, duration: tuple[str, str, str], source: str, reload_each_poll: bool) -> list[Observation]:
+    duration_key, duration_label, duration_column_label = duration
+    if reload_each_poll:
+        await safe_reload(page)
         await select_duration(page, duration_label)
-        observations.extend(await read_cards(page, duration_key, duration_label, duration_column_label, source))
-    return observations
+    return await read_cards(page, duration_key, duration_label, duration_column_label, source)
 
 
 async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observation], list[str]]:
@@ -410,7 +410,6 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     page_attempts = 0
     page_observation_batches = 0
     first_page_success_at = ""
-    next_page_poll_at = current if args.once or current >= sale_start else target_start
     api_headers = bigmodel_api_headers()
     if not api_headers:
         notes.append("no_bigmodel_auth")
@@ -422,7 +421,7 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     playwright = None
     browser = None
     context = None
-    page = None
+    duration_pages: dict[str, Any] = {}
 
     def record_batch(batch: list[Observation], observed_now: datetime) -> None:
         observations.extend(batch)
@@ -443,10 +442,10 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 if previous:
                     sold_out_windows[item.plan_key] = f"{previous}~{observed_label}"
 
-    async def ensure_page() -> Any:
-        nonlocal playwright, browser, context, page
-        if page is not None:
-            return page
+    async def ensure_context() -> Any:
+        nonlocal playwright, browser, context
+        if context is not None:
+            return context
         playwright = await async_playwright().start()
         browser = await playwright.chromium.launch(headless=True, args=["--no-sandbox"])
         extra_http_headers = {"Authorization": authorization_header} if authorization_header else None
@@ -459,7 +458,6 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         cookies = playwright_cookies_from_header(cookie_header)
         if cookies:
             await context.add_cookies(cookies)
-        page = await context.new_page()
 
         async def route_handler(route: Any) -> None:
             if route.request.resource_type in {"image", "font", "media"}:
@@ -467,18 +465,55 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             else:
                 await route.continue_()
 
-        await page.route("**/*", route_handler)
-        await safe_goto(page, SOURCE_URL)
-        return page
+        await context.route("**/*", route_handler)
+        return context
+
+    async def open_duration_page(duration: tuple[str, str, str]) -> tuple[str, Any]:
+        duration_key, duration_label, _ = duration
+        current_context = await ensure_context()
+        duration_page = await current_context.new_page()
+        await safe_goto(duration_page, SOURCE_URL)
+        await select_duration(duration_page, duration_label)
+        return duration_key, duration_page
+
+    async def ensure_duration_pages() -> dict[str, Any]:
+        missing = [
+            duration
+            for duration in DURATIONS
+            if duration[0] not in duration_pages or duration_pages[duration[0]].is_closed()
+        ]
+        if missing:
+            await ensure_context()
+            opened = await asyncio.gather(*(open_duration_page(duration) for duration in missing))
+            duration_pages.update(opened)
+        return duration_pages
 
     async def collect_page_observations() -> list[Observation]:
         nonlocal page_attempts, page_observation_batches, first_page_success_at
         page_attempts += 1
         try:
-            current_page = await ensure_page()
-            if args.reload_each_poll:
-                await safe_reload(current_page)
-            batch = await collect_once(current_page, page_source)
+            current_pages = await ensure_duration_pages()
+            duration_tasks = [
+                (
+                    duration_key,
+                    collect_duration_page(
+                        current_pages[duration_key],
+                        (duration_key, duration_label, duration_column_label),
+                        page_source,
+                        args.reload_each_poll,
+                    ),
+                )
+                for duration_key, duration_label, duration_column_label in DURATIONS
+            ]
+            results = await asyncio.gather(*(task for _, task in duration_tasks), return_exceptions=True)
+            batch = []
+            for (duration_key, _), result in zip(duration_tasks, results):
+                if isinstance(result, Exception):
+                    note = f"page_{duration_key}_error:{clean_text(str(result))[:100]}"
+                    if note not in notes:
+                        notes.append(note)
+                    continue
+                batch.extend(result)
         except Exception as exc:
             note = f"page_error:{clean_text(str(exc))[:120]}"
             if note not in notes:
@@ -493,12 +528,31 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 notes.append(note)
         return batch
 
+    async def poll_page_until_end() -> None:
+        while True:
+            observed_now = now_local()
+            if observed_now >= target_end:
+                break
+            batch = await collect_page_observations()
+            record_batch(batch, observed_now)
+            if now_local() >= target_end:
+                break
+            await asyncio.sleep(max(0.1, args.page_poll_interval))
+
     if args.page_monitor and not args.once and now_local() < sale_start:
         try:
-            await ensure_page()
+            await ensure_duration_pages()
             notes.append("page_prewarmed")
+            notes.append("parallel_duration_pages")
         except Exception as exc:
             notes.append(f"page_prewarm_error:{clean_text(str(exc))[:120]}")
+
+    page_task: asyncio.Task[None] | None = None
+    if args.page_monitor and not args.once:
+        if "parallel_duration_pages" not in notes:
+            notes.append("parallel_duration_pages")
+        page_task = asyncio.create_task(poll_page_until_end())
+        notes.append("page_async_poller")
 
     used_api = False
     if api_headers:
@@ -521,16 +575,6 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                     or api_note.startswith("api_error:")
                 )
             )
-            should_poll_page = bool(
-                args.page_monitor
-                and not args.once
-                and now_local() >= next_page_poll_at
-                and now_local() < target_end
-            )
-            if should_poll_page:
-                page_batch = await collect_page_observations()
-                record_batch(page_batch, now_local())
-                next_page_poll_at = now_local() + timedelta(seconds=max(0.5, args.page_poll_interval))
             if not batch and retryable_api_failure and not args.once and now_local() < target_end:
                 await asyncio.sleep(max(0.1, args.poll_interval))
                 continue
@@ -542,10 +586,6 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             record_batch(batch, observed_now)
             if args.once or now_local() >= target_end:
                 break
-            if args.page_monitor and now_local() >= next_page_poll_at and now_local() < target_end:
-                page_batch = await collect_page_observations()
-                record_batch(page_batch, now_local())
-                next_page_poll_at = now_local() + timedelta(seconds=max(0.5, args.page_poll_interval))
             await asyncio.sleep(max(0.1, args.poll_interval))
 
     if api_attempts:
@@ -558,10 +598,10 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
         if first_api_success_at:
             notes.append(f"first_api_success={first_api_success_at}")
         notes.append(f"api_poll_interval={args.poll_interval:g}s")
-        for plan_key, window in sorted(sold_out_windows.items()):
-            notes.append(f"{plan_key}_sold_between={window}")
 
-    if (not used_api or args.once) and args.page_monitor:
+    if page_task:
+        await page_task
+    elif (not used_api or args.once) and args.page_monitor:
         while True:
             observed_now = now_local()
             batch = await collect_page_observations()
@@ -569,6 +609,11 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
             if args.once or now_local() >= target_end:
                 break
             await asyncio.sleep(max(0.5, args.page_poll_interval))
+
+    for plan_key, window in sorted(sold_out_windows.items()):
+        note = f"{plan_key}_sold_between={window}"
+        if note not in notes:
+            notes.append(note)
 
     if page_attempts:
         notes.append(f"page_attempts={page_attempts}")
