@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T05:51:28.523473+00:00",
+  "generated_at": "2026-05-31T06:23:10.535161+00:00",
   "sources": {
     "rankings": "https://openrouter.ai/rankings",
     "apps": "https://openrouter.ai/apps",
@@ -195027,365 +195027,365 @@
       "Date": "2026-03-02",
       "Provider": "ai21",
       "Provider_Display": "AI21",
-      "Tokens": 0.020267,
-      "Model_Count": 1
+      "Tokens": "0.020267",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "aion-labs",
       "Provider_Display": "AionLabs",
-      "Tokens": 0.232237,
-      "Model_Count": 4
+      "Tokens": "0.232237",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "alibaba",
       "Provider_Display": "Alibaba Cloud Int.",
-      "Tokens": 30.130965,
-      "Model_Count": 10
+      "Tokens": "30.130965",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "amazon-bedrock",
       "Provider_Display": "Amazon Bedrock",
-      "Tokens": 130.073355,
-      "Model_Count": 10
+      "Tokens": "130.073355",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "ambient",
       "Provider_Display": "Ambient",
-      "Tokens": 0.08258,
-      "Model_Count": 1
+      "Tokens": "0.08258",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "anthropic",
       "Provider_Display": "Anthropic",
-      "Tokens": 90.58934,
-      "Model_Count": 9
+      "Tokens": "90.58934",
+      "Model_Count": "9"
     },
     {
       "Date": "2026-03-02",
       "Provider": "arcee-ai",
       "Provider_Display": "Arcee AI",
-      "Tokens": 85.501939,
-      "Model_Count": 2
+      "Tokens": "85.501939",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "atlas-cloud",
       "Provider_Display": "AtlasCloud",
-      "Tokens": 65.428077,
-      "Model_Count": 10
+      "Tokens": "65.428077",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "azure",
       "Provider_Display": "Azure",
-      "Tokens": 32.840551,
-      "Model_Count": 10
+      "Tokens": "32.840551",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "baseten",
       "Provider_Display": "Baseten",
-      "Tokens": 2.247829,
-      "Model_Count": 5
+      "Tokens": "2.247829",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-02",
       "Provider": "black-forest-labs",
       "Provider_Display": "Black Forest Labs",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-02",
       "Provider": "cerebras",
       "Provider_Display": "Cerebras",
-      "Tokens": 4.771088,
-      "Model_Count": 3
+      "Tokens": "4.771088",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-02",
       "Provider": "chutes",
       "Provider_Display": "Chutes",
-      "Tokens": 9.998418,
-      "Model_Count": 10
+      "Tokens": "9.998418",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "clarifai",
       "Provider_Display": "Clarifai",
-      "Tokens": 2.247506,
-      "Model_Count": 4
+      "Tokens": "2.247506",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "cloudflare",
       "Provider_Display": "Cloudflare",
-      "Tokens": 0.678374,
-      "Model_Count": 10
+      "Tokens": "0.678374",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "cohere",
       "Provider_Display": "Cohere",
-      "Tokens": 0.018098,
-      "Model_Count": 4
+      "Tokens": "0.018098",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "deepinfra",
       "Provider_Display": "DeepInfra",
-      "Tokens": 73.29721,
-      "Model_Count": 10
+      "Tokens": "73.29721",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "deepseek",
       "Provider_Display": "DeepSeek",
-      "Tokens": 10.910453,
-      "Model_Count": 1
+      "Tokens": "10.910453",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000338,
-      "Model_Count": 2
+      "Tokens": "0.000338",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "fireworks",
       "Provider_Display": "Fireworks",
-      "Tokens": 8.025486,
-      "Model_Count": 8
+      "Tokens": "8.025486",
+      "Model_Count": "8"
     },
     {
       "Date": "2026-03-02",
       "Provider": "friendli",
       "Provider_Display": "Friendli",
-      "Tokens": 8.761866,
-      "Model_Count": 10
+      "Tokens": "8.761866",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "gmicloud",
       "Provider_Display": "GMICloud",
-      "Tokens": 1.003549,
-      "Model_Count": 2
+      "Tokens": "1.003549",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "google-ai-studio",
       "Provider_Display": "Google AI Studio",
-      "Tokens": 145.710706,
-      "Model_Count": 10
+      "Tokens": "145.710706",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "google-vertex",
       "Provider_Display": "Google Vertex",
-      "Tokens": 430.5793,
-      "Model_Count": 10
+      "Tokens": "430.5793",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "groq",
       "Provider_Display": "Groq",
-      "Tokens": 23.809215,
-      "Model_Count": 10
+      "Tokens": "23.809215",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "inception",
       "Provider_Display": "Inception",
-      "Tokens": 0.028427,
-      "Model_Count": 2
+      "Tokens": "0.028427",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "inceptron",
       "Provider_Display": "Inceptron",
-      "Tokens": 17.318046,
-      "Model_Count": 3
+      "Tokens": "17.318046",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-02",
       "Provider": "infermatic",
       "Provider_Display": "Infermatic",
-      "Tokens": 0.036832,
-      "Model_Count": 3
+      "Tokens": "0.036832",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-02",
       "Provider": "inflection",
       "Provider_Display": "Inflection",
-      "Tokens": 0.000372,
-      "Model_Count": 2
+      "Tokens": "0.000372",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "io-net",
       "Provider_Display": "io.net",
-      "Tokens": 1.43416,
-      "Model_Count": 1
+      "Tokens": "1.43416",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "ionstream",
       "Provider_Display": "Ionstream",
-      "Tokens": 1.08233,
-      "Model_Count": 3
+      "Tokens": "1.08233",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-02",
       "Provider": "liquid",
       "Provider_Display": "Liquid",
-      "Tokens": 0.639688,
-      "Model_Count": 4
+      "Tokens": "0.639688",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "mancer",
       "Provider_Display": "Mancer",
-      "Tokens": 0.050706,
-      "Model_Count": 5
+      "Tokens": "0.050706",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-02",
       "Provider": "minimax",
       "Provider_Display": "MiniMax",
-      "Tokens": 223.661246,
-      "Model_Count": 6
+      "Tokens": "223.661246",
+      "Model_Count": "6"
     },
     {
       "Date": "2026-03-02",
       "Provider": "mistral",
       "Provider_Display": "Mistral",
-      "Tokens": 9.430646,
-      "Model_Count": 10
+      "Tokens": "9.430646",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "modelrun",
       "Provider_Display": "ModelRun",
-      "Tokens": 0.282388,
-      "Model_Count": 1
+      "Tokens": "0.282388",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "moonshotai",
       "Provider_Display": "Moonshot AI",
-      "Tokens": 71.472543,
-      "Model_Count": 4
+      "Tokens": "71.472543",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "morph",
       "Provider_Display": "Morph",
-      "Tokens": 0.14777,
-      "Model_Count": 2
+      "Tokens": "0.14777",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "nebius",
       "Provider_Display": "Nebius Token Factory",
-      "Tokens": 10.955058,
-      "Model_Count": 10
+      "Tokens": "10.955058",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "nextbit",
       "Provider_Display": "NextBit",
-      "Tokens": 2.358666,
-      "Model_Count": 10
+      "Tokens": "2.358666",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "novita",
       "Provider_Display": "NovitaAI",
-      "Tokens": 153.670852,
-      "Model_Count": 10
+      "Tokens": "153.670852",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "nvidia",
       "Provider_Display": "NVIDIA",
-      "Tokens": 6.429169,
-      "Model_Count": 4
+      "Tokens": "6.429169",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "open-inference",
       "Provider_Display": "OpenInference",
-      "Tokens": 0.902567,
-      "Model_Count": 4
+      "Tokens": "0.902567",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "openai",
       "Provider_Display": "OpenAI",
-      "Tokens": 146.310719,
-      "Model_Count": 10
+      "Tokens": "146.310719",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "parasail",
       "Provider_Display": "Parasail",
-      "Tokens": 11.147035,
-      "Model_Count": 10
+      "Tokens": "11.147035",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "perplexity",
       "Provider_Display": "Perplexity",
-      "Tokens": 1.17836,
-      "Model_Count": 5
+      "Tokens": "1.17836",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-02",
       "Provider": "phala",
       "Provider_Display": "Phala",
-      "Tokens": 2.31092,
-      "Model_Count": 7
+      "Tokens": "2.31092",
+      "Model_Count": "7"
     },
     {
       "Date": "2026-03-02",
       "Provider": "relace",
       "Provider_Display": "Relace",
-      "Tokens": 0.008647,
-      "Model_Count": 2
+      "Tokens": "0.008647",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "sambanova",
       "Provider_Display": "SambaNova",
-      "Tokens": 2.570783,
-      "Model_Count": 10
+      "Tokens": "2.570783",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "seed",
       "Provider_Display": "Seed",
-      "Tokens": 0.760574,
-      "Model_Count": 4
+      "Tokens": "0.760574",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-02",
       "Provider": "siliconflow",
       "Provider_Display": "SiliconFlow",
-      "Tokens": 39.799713,
-      "Model_Count": 10
+      "Tokens": "39.799713",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "sourceful",
       "Provider_Display": "Sourceful",
-      "Tokens": 0.031673,
-      "Model_Count": 5
+      "Tokens": "0.031673",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-02",
@@ -195398,71 +195398,71 @@
       "Date": "2026-03-02",
       "Provider": "stepfun",
       "Provider_Display": "StepFun",
-      "Tokens": 70.351669,
-      "Model_Count": 2
+      "Tokens": "70.351669",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-02",
       "Provider": "streamlake",
       "Provider_Display": "StreamLake",
-      "Tokens": 0.040383,
-      "Model_Count": 1
+      "Tokens": "0.040383",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "switchpoint",
       "Provider_Display": "Switchpoint",
-      "Tokens": 0.000955,
-      "Model_Count": 1
+      "Tokens": "0.000955",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "together",
       "Provider_Display": "Together",
-      "Tokens": 11.195463,
-      "Model_Count": 10
+      "Tokens": "11.195463",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.977271,
-      "Model_Count": 1
+      "Tokens": "0.977271",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "venice",
       "Provider_Display": "Venice",
-      "Tokens": 4.227603,
-      "Model_Count": 10
+      "Tokens": "4.227603",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-02",
       "Provider": "wandb",
       "Provider_Display": "Weights & Biases",
-      "Tokens": 6.559215,
-      "Model_Count": 8
+      "Tokens": "6.559215",
+      "Model_Count": "8"
     },
     {
       "Date": "2026-03-02",
       "Provider": "xai",
       "Provider_Display": "xAI",
-      "Tokens": 112.775112,
-      "Model_Count": 6
+      "Tokens": "112.775112",
+      "Model_Count": "6"
     },
     {
       "Date": "2026-03-02",
       "Provider": "xiaomi",
       "Provider_Display": "Xiaomi",
-      "Tokens": 7.036675,
-      "Model_Count": 1
+      "Tokens": "7.036675",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-02",
       "Provider": "z-ai",
       "Provider_Display": "Z.ai",
-      "Tokens": 33.627276,
-      "Model_Count": 10
+      "Tokens": "33.627276",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-03",
@@ -195594,8 +195594,8 @@
       "Date": "2026-03-03",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000482,
-      "Model_Count": 2
+      "Tokens": "0.000482",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-03",
@@ -195867,8 +195867,8 @@
       "Date": "2026-03-03",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.023651,
-      "Model_Count": 2
+      "Tokens": "0.023651",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-03",
@@ -196035,8 +196035,8 @@
       "Date": "2026-03-04",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000375,
-      "Model_Count": 2
+      "Tokens": "0.000375",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-04",
@@ -196308,8 +196308,8 @@
       "Date": "2026-03-04",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.008727,
-      "Model_Count": 1
+      "Tokens": "0.008727",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-04",
@@ -196476,8 +196476,8 @@
       "Date": "2026-03-05",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.00024,
-      "Model_Count": 2
+      "Tokens": "0.00024",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-05",
@@ -196749,8 +196749,8 @@
       "Date": "2026-03-05",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.010156,
-      "Model_Count": 1
+      "Tokens": "0.010156",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-05",
@@ -196917,8 +196917,8 @@
       "Date": "2026-03-06",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 5.6e-05,
-      "Model_Count": 2
+      "Tokens": "5.6e-05",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-06",
@@ -197190,8 +197190,8 @@
       "Date": "2026-03-06",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.007208,
-      "Model_Count": 1
+      "Tokens": "0.007208",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-06",
@@ -197358,8 +197358,8 @@
       "Date": "2026-03-07",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000145,
-      "Model_Count": 2
+      "Tokens": "0.000145",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-07",
@@ -197631,8 +197631,8 @@
       "Date": "2026-03-07",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.007709,
-      "Model_Count": 1
+      "Tokens": "0.007709",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-07",
@@ -197799,8 +197799,8 @@
       "Date": "2026-03-08",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000147,
-      "Model_Count": 2
+      "Tokens": "0.000147",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-08",
@@ -198072,8 +198072,8 @@
       "Date": "2026-03-08",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.009942,
-      "Model_Count": 1
+      "Tokens": "0.009942",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-08",
@@ -198240,8 +198240,8 @@
       "Date": "2026-03-09",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000116,
-      "Model_Count": 2
+      "Tokens": "0.000116",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-09",
@@ -198513,8 +198513,8 @@
       "Date": "2026-03-09",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005059,
-      "Model_Count": 1
+      "Tokens": "0.005059",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-09",
@@ -198681,8 +198681,8 @@
       "Date": "2026-03-10",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 7.3e-05,
-      "Model_Count": 1
+      "Tokens": "7.3e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-10",
@@ -198954,8 +198954,8 @@
       "Date": "2026-03-10",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.00518,
-      "Model_Count": 1
+      "Tokens": "0.00518",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-10",
@@ -199122,8 +199122,8 @@
       "Date": "2026-03-11",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 1
+      "Tokens": "0.0",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-11",
@@ -199395,8 +199395,8 @@
       "Date": "2026-03-11",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.002045,
-      "Model_Count": 1
+      "Tokens": "0.002045",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-11",
@@ -199570,8 +199570,8 @@
       "Date": "2026-03-12",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-12",
@@ -199843,8 +199843,8 @@
       "Date": "2026-03-12",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.024624,
-      "Model_Count": 1
+      "Tokens": "0.024624",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-12",
@@ -200018,8 +200018,8 @@
       "Date": "2026-03-13",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 1e-06,
-      "Model_Count": 1
+      "Tokens": "1e-06",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-13",
@@ -200291,8 +200291,8 @@
       "Date": "2026-03-13",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.006815,
-      "Model_Count": 1
+      "Tokens": "0.006815",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-13",
@@ -200466,8 +200466,8 @@
       "Date": "2026-03-14",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-14",
@@ -200739,8 +200739,8 @@
       "Date": "2026-03-14",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.002851,
-      "Model_Count": 1
+      "Tokens": "0.002851",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-14",
@@ -200914,8 +200914,8 @@
       "Date": "2026-03-15",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000333,
-      "Model_Count": 1
+      "Tokens": "0.000333",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-15",
@@ -201187,8 +201187,8 @@
       "Date": "2026-03-15",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.018566,
-      "Model_Count": 1
+      "Tokens": "0.018566",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-15",
@@ -201362,8 +201362,8 @@
       "Date": "2026-03-16",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 3.3e-05,
-      "Model_Count": 1
+      "Tokens": "3.3e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-16",
@@ -201635,8 +201635,8 @@
       "Date": "2026-03-16",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.010871,
-      "Model_Count": 1
+      "Tokens": "0.010871",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-16",
@@ -201810,8 +201810,8 @@
       "Date": "2026-03-17",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 3.3e-05,
-      "Model_Count": 2
+      "Tokens": "3.3e-05",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-17",
@@ -202083,8 +202083,8 @@
       "Date": "2026-03-17",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.022861,
-      "Model_Count": 1
+      "Tokens": "0.022861",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-17",
@@ -202258,8 +202258,8 @@
       "Date": "2026-03-18",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 6e-06,
-      "Model_Count": 2
+      "Tokens": "6e-06",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-18",
@@ -202531,8 +202531,8 @@
       "Date": "2026-03-18",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.015401,
-      "Model_Count": 1
+      "Tokens": "0.015401",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-18",
@@ -202706,8 +202706,8 @@
       "Date": "2026-03-19",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 4.7e-05,
-      "Model_Count": 2
+      "Tokens": "4.7e-05",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-19",
@@ -202979,8 +202979,8 @@
       "Date": "2026-03-19",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.00852,
-      "Model_Count": 1
+      "Tokens": "0.00852",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-19",
@@ -203154,8 +203154,8 @@
       "Date": "2026-03-20",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 2e-06,
-      "Model_Count": 2
+      "Tokens": "2e-06",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-20",
@@ -203427,8 +203427,8 @@
       "Date": "2026-03-20",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.035713,
-      "Model_Count": 1
+      "Tokens": "0.035713",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-20",
@@ -203602,8 +203602,8 @@
       "Date": "2026-03-21",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 1
+      "Tokens": "0.0",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
@@ -203875,8 +203875,8 @@
       "Date": "2026-03-21",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005226,
-      "Model_Count": 1
+      "Tokens": "0.005226",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
@@ -204050,8 +204050,8 @@
       "Date": "2026-03-22",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-22",
@@ -204323,8 +204323,8 @@
       "Date": "2026-03-22",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.004561,
-      "Model_Count": 1
+      "Tokens": "0.004561",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-22",
@@ -204498,8 +204498,8 @@
       "Date": "2026-03-23",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-23",
@@ -204771,8 +204771,8 @@
       "Date": "2026-03-23",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.008115,
-      "Model_Count": 1
+      "Tokens": "0.008115",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-23",
@@ -204946,8 +204946,8 @@
       "Date": "2026-03-24",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-24",
@@ -205219,8 +205219,8 @@
       "Date": "2026-03-24",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.002866,
-      "Model_Count": 1
+      "Tokens": "0.002866",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-24",
@@ -205394,8 +205394,8 @@
       "Date": "2026-03-25",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-25",
@@ -205674,8 +205674,8 @@
       "Date": "2026-03-25",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.012587,
-      "Model_Count": 1
+      "Tokens": "0.012587",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-25",
@@ -205849,8 +205849,8 @@
       "Date": "2026-03-26",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 1.1e-05,
-      "Model_Count": 1
+      "Tokens": "1.1e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-26",
@@ -206129,8 +206129,8 @@
       "Date": "2026-03-26",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005848,
-      "Model_Count": 1
+      "Tokens": "0.005848",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-26",
@@ -206304,8 +206304,8 @@
       "Date": "2026-03-27",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 2e-06,
-      "Model_Count": 1
+      "Tokens": "2e-06",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-27",
@@ -206584,8 +206584,8 @@
       "Date": "2026-03-27",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.02311,
-      "Model_Count": 1
+      "Tokens": "0.02311",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-27",
@@ -206759,8 +206759,8 @@
       "Date": "2026-03-28",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 7e-06,
-      "Model_Count": 1
+      "Tokens": "7e-06",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-28",
@@ -207039,8 +207039,8 @@
       "Date": "2026-03-28",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005167,
-      "Model_Count": 1
+      "Tokens": "0.005167",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-28",
@@ -207214,8 +207214,8 @@
       "Date": "2026-03-29",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-29",
@@ -207494,8 +207494,8 @@
       "Date": "2026-03-29",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003911,
-      "Model_Count": 1
+      "Tokens": "0.003911",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-29",
@@ -207669,8 +207669,8 @@
       "Date": "2026-03-30",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-30",
@@ -207949,8 +207949,8 @@
       "Date": "2026-03-30",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.010714,
-      "Model_Count": 1
+      "Tokens": "0.010714",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-30",
@@ -208124,8 +208124,8 @@
       "Date": "2026-03-31",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 4e-05,
-      "Model_Count": 2
+      "Tokens": "4e-05",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-31",
@@ -208404,8 +208404,8 @@
       "Date": "2026-03-31",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.007312,
-      "Model_Count": 1
+      "Tokens": "0.007312",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-31",
@@ -208579,8 +208579,8 @@
       "Date": "2026-04-01",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 6e-06,
-      "Model_Count": 2
+      "Tokens": "6e-06",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-01",
@@ -208859,8 +208859,8 @@
       "Date": "2026-04-01",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003863,
-      "Model_Count": 1
+      "Tokens": "0.003863",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-01",
@@ -209034,8 +209034,8 @@
       "Date": "2026-04-02",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 1
+      "Tokens": "0.0",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-02",
@@ -209314,8 +209314,8 @@
       "Date": "2026-04-02",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.016504,
-      "Model_Count": 1
+      "Tokens": "0.016504",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-02",
@@ -209489,8 +209489,8 @@
       "Date": "2026-04-03",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 3e-06,
-      "Model_Count": 2
+      "Tokens": "3e-06",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-03",
@@ -209776,8 +209776,8 @@
       "Date": "2026-04-03",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005848,
-      "Model_Count": 1
+      "Tokens": "0.005848",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-03",
@@ -209951,8 +209951,8 @@
       "Date": "2026-04-04",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 1
+      "Tokens": "0.0",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-04",
@@ -210238,8 +210238,8 @@
       "Date": "2026-04-04",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.00967,
-      "Model_Count": 1
+      "Tokens": "0.00967",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-04",
@@ -210413,8 +210413,8 @@
       "Date": "2026-04-05",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-05",
@@ -210700,8 +210700,8 @@
       "Date": "2026-04-05",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.01254,
-      "Model_Count": 1
+      "Tokens": "0.01254",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-05",
@@ -210875,8 +210875,8 @@
       "Date": "2026-04-06",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 1e-06,
-      "Model_Count": 2
+      "Tokens": "1e-06",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-06",
@@ -211162,8 +211162,8 @@
       "Date": "2026-04-06",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005184,
-      "Model_Count": 1
+      "Tokens": "0.005184",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-06",
@@ -211337,8 +211337,8 @@
       "Date": "2026-04-07",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 7.8e-05,
-      "Model_Count": 2
+      "Tokens": "7.8e-05",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-07",
@@ -211624,8 +211624,8 @@
       "Date": "2026-04-07",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.002317,
-      "Model_Count": 1
+      "Tokens": "0.002317",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-07",
@@ -211799,8 +211799,8 @@
       "Date": "2026-04-08",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000271,
-      "Model_Count": 2
+      "Tokens": "0.000271",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-08",
@@ -212086,8 +212086,8 @@
       "Date": "2026-04-08",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.017497,
-      "Model_Count": 1
+      "Tokens": "0.017497",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-08",
@@ -212261,8 +212261,8 @@
       "Date": "2026-04-09",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 9.5e-05,
-      "Model_Count": 2
+      "Tokens": "9.5e-05",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-09",
@@ -212548,8 +212548,8 @@
       "Date": "2026-04-09",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.015,
-      "Model_Count": 1
+      "Tokens": "0.015",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-09",
@@ -212723,8 +212723,8 @@
       "Date": "2026-04-10",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.002312,
-      "Model_Count": 2
+      "Tokens": "0.002312",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-10",
@@ -213010,8 +213010,8 @@
       "Date": "2026-04-10",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.009632,
-      "Model_Count": 1
+      "Tokens": "0.009632",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-10",
@@ -213185,8 +213185,8 @@
       "Date": "2026-04-11",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.00017,
-      "Model_Count": 2
+      "Tokens": "0.00017",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-11",
@@ -213472,8 +213472,8 @@
       "Date": "2026-04-11",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.004526,
-      "Model_Count": 1
+      "Tokens": "0.004526",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-11",
@@ -213647,8 +213647,8 @@
       "Date": "2026-04-12",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0002,
-      "Model_Count": 2
+      "Tokens": "0.0002",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-04-12",
@@ -213934,8 +213934,8 @@
       "Date": "2026-04-12",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.002016,
-      "Model_Count": 1
+      "Tokens": "0.002016",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-12",
@@ -214109,8 +214109,8 @@
       "Date": "2026-04-13",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000168,
-      "Model_Count": 1
+      "Tokens": "0.000168",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-13",
@@ -214396,8 +214396,8 @@
       "Date": "2026-04-13",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.002561,
-      "Model_Count": 1
+      "Tokens": "0.002561",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-13",
@@ -214571,8 +214571,8 @@
       "Date": "2026-04-14",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000204,
-      "Model_Count": 1
+      "Tokens": "0.000204",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-14",
@@ -214858,8 +214858,8 @@
       "Date": "2026-04-14",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.004179,
-      "Model_Count": 1
+      "Tokens": "0.004179",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-14",
@@ -215033,8 +215033,8 @@
       "Date": "2026-04-15",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.001919,
-      "Model_Count": 1
+      "Tokens": "0.001919",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-15",
@@ -215320,8 +215320,8 @@
       "Date": "2026-04-15",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003021,
-      "Model_Count": 1
+      "Tokens": "0.003021",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-15",
@@ -215502,8 +215502,8 @@
       "Date": "2026-04-16",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000115,
-      "Model_Count": 1
+      "Tokens": "0.000115",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-16",
@@ -215789,8 +215789,8 @@
       "Date": "2026-04-16",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.027167,
-      "Model_Count": 1
+      "Tokens": "0.027167",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-16",
@@ -215978,8 +215978,8 @@
       "Date": "2026-04-17",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 7.7e-05,
-      "Model_Count": 1
+      "Tokens": "7.7e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-17",
@@ -216265,8 +216265,8 @@
       "Date": "2026-04-17",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.00701,
-      "Model_Count": 1
+      "Tokens": "0.00701",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-17",
@@ -216454,8 +216454,8 @@
       "Date": "2026-04-18",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 9.9e-05,
-      "Model_Count": 1
+      "Tokens": "9.9e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-18",
@@ -216741,8 +216741,8 @@
       "Date": "2026-04-18",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.001256,
-      "Model_Count": 1
+      "Tokens": "0.001256",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-18",
@@ -216930,8 +216930,8 @@
       "Date": "2026-04-19",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 9e-05,
-      "Model_Count": 1
+      "Tokens": "9e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-19",
@@ -217217,8 +217217,8 @@
       "Date": "2026-04-19",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003865,
-      "Model_Count": 1
+      "Tokens": "0.003865",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-19",
@@ -217406,8 +217406,8 @@
       "Date": "2026-04-20",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.000287,
-      "Model_Count": 1
+      "Tokens": "0.000287",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-20",
@@ -217693,8 +217693,8 @@
       "Date": "2026-04-20",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.008586,
-      "Model_Count": 1
+      "Tokens": "0.008586",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-20",
@@ -217882,8 +217882,8 @@
       "Date": "2026-04-21",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 8.3e-05,
-      "Model_Count": 1
+      "Tokens": "8.3e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-21",
@@ -218169,8 +218169,8 @@
       "Date": "2026-04-21",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.01203,
-      "Model_Count": 1
+      "Tokens": "0.01203",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-21",
@@ -218358,8 +218358,8 @@
       "Date": "2026-04-22",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-22",
@@ -218645,8 +218645,8 @@
       "Date": "2026-04-22",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.04414,
-      "Model_Count": 1
+      "Tokens": "0.04414",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-22",
@@ -218834,8 +218834,8 @@
       "Date": "2026-04-23",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-23",
@@ -219121,8 +219121,8 @@
       "Date": "2026-04-23",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.007987,
-      "Model_Count": 1
+      "Tokens": "0.007987",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-23",
@@ -219310,8 +219310,8 @@
       "Date": "2026-04-24",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-24",
@@ -219597,8 +219597,8 @@
       "Date": "2026-04-24",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.030894,
-      "Model_Count": 1
+      "Tokens": "0.030894",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-24",
@@ -219786,8 +219786,8 @@
       "Date": "2026-04-25",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-25",
@@ -220073,8 +220073,8 @@
       "Date": "2026-04-25",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.01027,
-      "Model_Count": 1
+      "Tokens": "0.01027",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-25",
@@ -220262,8 +220262,8 @@
       "Date": "2026-04-26",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-26",
@@ -220549,8 +220549,8 @@
       "Date": "2026-04-26",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.012744,
-      "Model_Count": 1
+      "Tokens": "0.012744",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-26",
@@ -220738,8 +220738,8 @@
       "Date": "2026-04-27",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-27",
@@ -221025,8 +221025,8 @@
       "Date": "2026-04-27",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.009326,
-      "Model_Count": 1
+      "Tokens": "0.009326",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-27",
@@ -221214,8 +221214,8 @@
       "Date": "2026-04-28",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-28",
@@ -221508,8 +221508,8 @@
       "Date": "2026-04-28",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005058,
-      "Model_Count": 1
+      "Tokens": "0.005058",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-28",
@@ -221697,8 +221697,8 @@
       "Date": "2026-04-29",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-29",
@@ -221991,8 +221991,8 @@
       "Date": "2026-04-29",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003621,
-      "Model_Count": 1
+      "Tokens": "0.003621",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-29",
@@ -222180,8 +222180,8 @@
       "Date": "2026-04-30",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-04-30",
@@ -222474,8 +222474,8 @@
       "Date": "2026-04-30",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.011974,
-      "Model_Count": 1
+      "Tokens": "0.011974",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-04-30",
@@ -222663,8 +222663,8 @@
       "Date": "2026-05-01",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-01",
@@ -222957,8 +222957,8 @@
       "Date": "2026-05-01",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.019773,
-      "Model_Count": 1
+      "Tokens": "0.019773",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-01",
@@ -223146,8 +223146,8 @@
       "Date": "2026-05-02",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-02",
@@ -223440,8 +223440,8 @@
       "Date": "2026-05-02",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003042,
-      "Model_Count": 1
+      "Tokens": "0.003042",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-02",
@@ -223629,8 +223629,8 @@
       "Date": "2026-05-03",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-03",
@@ -223923,8 +223923,8 @@
       "Date": "2026-05-03",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.003248,
-      "Model_Count": 1
+      "Tokens": "0.003248",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-03",
@@ -224112,8 +224112,8 @@
       "Date": "2026-05-04",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-04",
@@ -224406,8 +224406,8 @@
       "Date": "2026-05-04",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.026318,
-      "Model_Count": 1
+      "Tokens": "0.026318",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-04",
@@ -224595,8 +224595,8 @@
       "Date": "2026-05-05",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 1.5e-05,
-      "Model_Count": 1
+      "Tokens": "1.5e-05",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-05",
@@ -224889,8 +224889,8 @@
       "Date": "2026-05-05",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.048899,
-      "Model_Count": 1
+      "Tokens": "0.048899",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-05",
@@ -225078,8 +225078,8 @@
       "Date": "2026-05-06",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-06",
@@ -225372,8 +225372,8 @@
       "Date": "2026-05-06",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.021169,
-      "Model_Count": 1
+      "Tokens": "0.021169",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-06",
@@ -225561,8 +225561,8 @@
       "Date": "2026-05-07",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-07",
@@ -225862,8 +225862,8 @@
       "Date": "2026-05-07",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.075329,
-      "Model_Count": 1
+      "Tokens": "0.075329",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-05-07",
@@ -226051,8 +226051,8 @@
       "Date": "2026-05-08",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-08",
@@ -226534,8 +226534,8 @@
       "Date": "2026-05-09",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-09",
@@ -227017,8 +227017,8 @@
       "Date": "2026-05-10",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-10",
@@ -227500,8 +227500,8 @@
       "Date": "2026-05-11",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-11",
@@ -227983,8 +227983,8 @@
       "Date": "2026-05-12",
       "Provider": "featherless",
       "Provider_Display": "Featherless",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-05-12",
@@ -236692,6 +236692,503 @@
       "Provider": "z-ai",
       "Provider_Display": "Z.ai",
       "Tokens": 60.709106,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "ai21",
+      "Provider_Display": "AI21",
+      "Tokens": 0.031774,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "aion-labs",
+      "Provider_Display": "AionLabs",
+      "Tokens": 0.898496,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "akashml",
+      "Provider_Display": "AkashML",
+      "Tokens": 4.084317,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "alibaba",
+      "Provider_Display": "Alibaba Cloud Int.",
+      "Tokens": 185.052877,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "amazon-bedrock",
+      "Provider_Display": "Amazon Bedrock",
+      "Tokens": 73.120125,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "ambient",
+      "Provider_Display": "Ambient",
+      "Tokens": 3.089273,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "anthropic",
+      "Provider_Display": "Anthropic",
+      "Tokens": 323.134157,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "arcee-ai",
+      "Provider_Display": "Arcee AI",
+      "Tokens": 0.038478,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "atlas-cloud",
+      "Provider_Display": "AtlasCloud",
+      "Tokens": 54.514925,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "azure",
+      "Provider_Display": "Azure",
+      "Tokens": 46.397235,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "baidu",
+      "Provider_Display": "Baidu Qianfan",
+      "Tokens": 28.685871,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "baseten",
+      "Provider_Display": "Baseten",
+      "Tokens": 0.708117,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "black-forest-labs",
+      "Provider_Display": "Black Forest Labs",
+      "Tokens": 0.119714,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "cerebras",
+      "Provider_Display": "Cerebras",
+      "Tokens": 2.864736,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "chutes",
+      "Provider_Display": "Chutes",
+      "Tokens": 17.719386,
+      "Model_Count": 8
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "clarifai",
+      "Provider_Display": "Clarifai",
+      "Tokens": 0.040509,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "cloudflare",
+      "Provider_Display": "Cloudflare",
+      "Tokens": 13.797801,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "cohere",
+      "Provider_Display": "Cohere",
+      "Tokens": 0.05946,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "crucible",
+      "Provider_Display": "Crucible",
+      "Tokens": 1.83964,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "deepinfra",
+      "Provider_Display": "DeepInfra",
+      "Tokens": 144.686983,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "deepseek",
+      "Provider_Display": "DeepSeek",
+      "Tokens": 120.675901,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "dekallm",
+      "Provider_Display": "DekaLLM",
+      "Tokens": 8.487931,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "digitalocean",
+      "Provider_Display": "DigitalOcean",
+      "Tokens": 4.043101,
+      "Model_Count": 5
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "fireworks",
+      "Provider_Display": "Fireworks",
+      "Tokens": 3.582627,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "friendli",
+      "Provider_Display": "Friendli",
+      "Tokens": 8.223626,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "gmicloud",
+      "Provider_Display": "GMICloud",
+      "Tokens": 100.384693,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "google-ai-studio",
+      "Provider_Display": "Google AI Studio",
+      "Tokens": 73.164505,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "google-vertex",
+      "Provider_Display": "Google Vertex",
+      "Tokens": 510.186647,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "groq",
+      "Provider_Display": "Groq",
+      "Tokens": 19.907474,
+      "Model_Count": 8
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "inception",
+      "Provider_Display": "Inception",
+      "Tokens": 0.305305,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "inceptron",
+      "Provider_Display": "Inceptron",
+      "Tokens": 11.077489,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "infermatic",
+      "Provider_Display": "Infermatic",
+      "Tokens": 0.016253,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "inflection",
+      "Provider_Display": "Inflection",
+      "Tokens": 0.000356,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "io-net",
+      "Provider_Display": "io.net",
+      "Tokens": 2.215106,
+      "Model_Count": 5
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "ionstream",
+      "Provider_Display": "Ionstream",
+      "Tokens": 2.237121,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "liquid",
+      "Provider_Display": "Liquid",
+      "Tokens": 0.239553,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "mancer",
+      "Provider_Display": "Mancer",
+      "Tokens": 0.049825,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "mara",
+      "Provider_Display": "MARA",
+      "Tokens": 1.539262,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "minimax",
+      "Provider_Display": "MiniMax",
+      "Tokens": 49.849499,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "mistral",
+      "Provider_Display": "Mistral",
+      "Tokens": 19.030014,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "modelrun",
+      "Provider_Display": "ModelRun",
+      "Tokens": 7.465113,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "moonshotai",
+      "Provider_Display": "Moonshot AI",
+      "Tokens": 7.56715,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "morph",
+      "Provider_Display": "Morph",
+      "Tokens": 8.365551,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "nebius",
+      "Provider_Display": "Nebius Token Factory",
+      "Tokens": 6.158442,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "nextbit",
+      "Provider_Display": "NextBit",
+      "Tokens": 2.932908,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "novita",
+      "Provider_Display": "NovitaAI",
+      "Tokens": 188.083909,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "nvidia",
+      "Provider_Display": "NVIDIA",
+      "Tokens": 102.503981,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "open-inference",
+      "Provider_Display": "OpenInference",
+      "Tokens": 34.970331,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "openai",
+      "Provider_Display": "OpenAI",
+      "Tokens": 202.298132,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "parasail",
+      "Provider_Display": "Parasail",
+      "Tokens": 60.720711,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "perceptron",
+      "Provider_Display": "Perceptron",
+      "Tokens": 0.009466,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "perplexity",
+      "Provider_Display": "Perplexity",
+      "Tokens": 1.603718,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "phala",
+      "Provider_Display": "Phala",
+      "Tokens": 3.520429,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "poolside",
+      "Provider_Display": "Poolside",
+      "Tokens": 95.544269,
+      "Model_Count": 8
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "recraft",
+      "Provider_Display": "Recraft",
+      "Tokens": 0.010887,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "reka",
+      "Provider_Display": "Reka AI",
+      "Tokens": 0.000681,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "relace",
+      "Provider_Display": "Relace",
+      "Tokens": 0.004736,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "sambanova",
+      "Provider_Display": "SambaNova",
+      "Tokens": 4.761586,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "seed",
+      "Provider_Display": "Seed",
+      "Tokens": 0.600016,
+      "Model_Count": 5
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "siliconflow",
+      "Provider_Display": "SiliconFlow",
+      "Tokens": 465.708041,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "sourceful",
+      "Provider_Display": "Sourceful",
+      "Tokens": 0.010665,
+      "Model_Count": 5
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "stealth",
+      "Provider_Display": "Stealth",
+      "Tokens": 251.77865,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "stepfun",
+      "Provider_Display": "StepFun",
+      "Tokens": 19.352812,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "streamlake",
+      "Provider_Display": "StreamLake",
+      "Tokens": 33.250303,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "switchpoint",
+      "Provider_Display": "Switchpoint",
+      "Tokens": 0.000122,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "together",
+      "Provider_Display": "Together",
+      "Tokens": 24.963268,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "venice",
+      "Provider_Display": "Venice",
+      "Tokens": 4.07144,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "wandb",
+      "Provider_Display": "Weights & Biases",
+      "Tokens": 11.507719,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "xai",
+      "Provider_Display": "xAI",
+      "Tokens": 15.397588,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "xiaomi",
+      "Provider_Display": "Xiaomi",
+      "Tokens": 602.742874,
+      "Model_Count": 5
+    },
+    {
+      "Date": "2026-05-30",
+      "Provider": "z-ai",
+      "Provider_Display": "Z.ai",
+      "Tokens": 49.263566,
       "Model_Count": 10
     }
   ],
