@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T06:56:39.502117+00:00",
+  "generated_at": "2026-06-19T07:11:36.908944+00:00",
   "sources": {
     "rankings": "https://openrouter.ai/rankings",
     "apps": "https://openrouter.ai/apps",
@@ -203469,134 +203469,134 @@
       "Date": "2026-03-21",
       "Provider": "ai21",
       "Provider_Display": "AI21",
-      "Tokens": 0.010556,
-      "Model_Count": 1
+      "Tokens": "0.010556",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "aion-labs",
       "Provider_Display": "AionLabs",
-      "Tokens": 0.136261,
-      "Model_Count": 4
+      "Tokens": "0.136261",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-21",
       "Provider": "akashml",
       "Provider_Display": "AkashML",
-      "Tokens": 1.266046,
-      "Model_Count": 2
+      "Tokens": "1.266046",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "alibaba",
       "Provider_Display": "Alibaba Cloud Int.",
-      "Tokens": 23.387287,
-      "Model_Count": 10
+      "Tokens": "23.387287",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "amazon-bedrock",
       "Provider_Display": "Amazon Bedrock",
-      "Tokens": 136.48453,
-      "Model_Count": 10
+      "Tokens": "136.48453",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "ambient",
       "Provider_Display": "Ambient",
-      "Tokens": 0.419759,
-      "Model_Count": 1
+      "Tokens": "0.419759",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "anthropic",
       "Provider_Display": "Anthropic",
-      "Tokens": 53.570691,
-      "Model_Count": 9
+      "Tokens": "53.570691",
+      "Model_Count": "9"
     },
     {
       "Date": "2026-03-21",
       "Provider": "arcee-ai",
       "Provider_Display": "Arcee AI",
-      "Tokens": 20.143776,
-      "Model_Count": 2
+      "Tokens": "20.143776",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "atlas-cloud",
       "Provider_Display": "AtlasCloud",
-      "Tokens": 65.912383,
-      "Model_Count": 10
+      "Tokens": "65.912383",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "azure",
       "Provider_Display": "Azure",
-      "Tokens": 28.112553,
-      "Model_Count": 10
+      "Tokens": "28.112553",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "baseten",
       "Provider_Display": "Baseten",
-      "Tokens": 2.18379,
-      "Model_Count": 4
+      "Tokens": "2.18379",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-21",
       "Provider": "black-forest-labs",
       "Provider_Display": "Black Forest Labs",
-      "Tokens": 0.0,
-      "Model_Count": 0
+      "Tokens": "0.0",
+      "Model_Count": "0"
     },
     {
       "Date": "2026-03-21",
       "Provider": "cerebras",
       "Provider_Display": "Cerebras",
-      "Tokens": 0.199271,
-      "Model_Count": 1
+      "Tokens": "0.199271",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "chutes",
       "Provider_Display": "Chutes",
-      "Tokens": 16.828925,
-      "Model_Count": 10
+      "Tokens": "16.828925",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "clarifai",
       "Provider_Display": "Clarifai",
-      "Tokens": 1.305904,
-      "Model_Count": 3
+      "Tokens": "1.305904",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-21",
       "Provider": "cloudflare",
       "Provider_Display": "Cloudflare",
-      "Tokens": 1.062307,
-      "Model_Count": 10
+      "Tokens": "1.062307",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "cohere",
       "Provider_Display": "Cohere",
-      "Tokens": 0.02726,
-      "Model_Count": 4
+      "Tokens": "0.02726",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-21",
       "Provider": "deepinfra",
       "Provider_Display": "DeepInfra",
-      "Tokens": 84.167729,
-      "Model_Count": 10
+      "Tokens": "84.167729",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "deepseek",
       "Provider_Display": "DeepSeek",
-      "Tokens": 32.773256,
-      "Model_Count": 1
+      "Tokens": "32.773256",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
@@ -203609,232 +203609,232 @@
       "Date": "2026-03-21",
       "Provider": "fireworks",
       "Provider_Display": "Fireworks",
-      "Tokens": 10.187721,
-      "Model_Count": 7
+      "Tokens": "10.187721",
+      "Model_Count": "7"
     },
     {
       "Date": "2026-03-21",
       "Provider": "friendli",
       "Provider_Display": "Friendli",
-      "Tokens": 5.043016,
-      "Model_Count": 7
+      "Tokens": "5.043016",
+      "Model_Count": "7"
     },
     {
       "Date": "2026-03-21",
       "Provider": "gmicloud",
       "Provider_Display": "GMICloud",
-      "Tokens": 0.235124,
-      "Model_Count": 1
+      "Tokens": "0.235124",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "google-ai-studio",
       "Provider_Display": "Google AI Studio",
-      "Tokens": 74.787673,
-      "Model_Count": 10
+      "Tokens": "74.787673",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "google-vertex",
       "Provider_Display": "Google Vertex",
-      "Tokens": 397.149205,
-      "Model_Count": 10
+      "Tokens": "397.149205",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "groq",
       "Provider_Display": "Groq",
-      "Tokens": 24.44434,
-      "Model_Count": 8
+      "Tokens": "24.44434",
+      "Model_Count": "8"
     },
     {
       "Date": "2026-03-21",
       "Provider": "inception",
       "Provider_Display": "Inception",
-      "Tokens": 0.795875,
-      "Model_Count": 3
+      "Tokens": "0.795875",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-21",
       "Provider": "inceptron",
       "Provider_Display": "Inceptron",
-      "Tokens": 3.184693,
-      "Model_Count": 3
+      "Tokens": "3.184693",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-21",
       "Provider": "infermatic",
       "Provider_Display": "Infermatic",
-      "Tokens": 0.03088,
-      "Model_Count": 2
+      "Tokens": "0.03088",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "inflection",
       "Provider_Display": "Inflection",
-      "Tokens": 0.000406,
-      "Model_Count": 2
+      "Tokens": "0.000406",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "io-net",
       "Provider_Display": "io.net",
-      "Tokens": 0.73132,
-      "Model_Count": 4
+      "Tokens": "0.73132",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-21",
       "Provider": "ionstream",
       "Provider_Display": "Ionstream",
-      "Tokens": 1.429468,
-      "Model_Count": 3
+      "Tokens": "1.429468",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-21",
       "Provider": "liquid",
       "Provider_Display": "Liquid",
-      "Tokens": 0.211988,
-      "Model_Count": 4
+      "Tokens": "0.211988",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-21",
       "Provider": "mancer",
       "Provider_Display": "Mancer",
-      "Tokens": 0.069267,
-      "Model_Count": 5
+      "Tokens": "0.069267",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-21",
       "Provider": "minimax",
       "Provider_Display": "MiniMax",
-      "Tokens": 163.736402,
-      "Model_Count": 7
+      "Tokens": "163.736402",
+      "Model_Count": "7"
     },
     {
       "Date": "2026-03-21",
       "Provider": "mistral",
       "Provider_Display": "Mistral",
-      "Tokens": 8.890317,
-      "Model_Count": 10
+      "Tokens": "8.890317",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "modelrun",
       "Provider_Display": "ModelRun",
-      "Tokens": 2.066912,
-      "Model_Count": 2
+      "Tokens": "2.066912",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "moonshotai",
       "Provider_Display": "Moonshot AI",
-      "Tokens": 26.762945,
-      "Model_Count": 4
+      "Tokens": "26.762945",
+      "Model_Count": "4"
     },
     {
       "Date": "2026-03-21",
       "Provider": "morph",
       "Provider_Display": "Morph",
-      "Tokens": 0.106826,
-      "Model_Count": 2
+      "Tokens": "0.106826",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "nebius",
       "Provider_Display": "Nebius Token Factory",
-      "Tokens": 14.648413,
-      "Model_Count": 10
+      "Tokens": "14.648413",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "nextbit",
       "Provider_Display": "NextBit",
-      "Tokens": 2.008983,
-      "Model_Count": 10
+      "Tokens": "2.008983",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "novita",
       "Provider_Display": "NovitaAI",
-      "Tokens": 150.524847,
-      "Model_Count": 10
+      "Tokens": "150.524847",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "nvidia",
       "Provider_Display": "NVIDIA",
-      "Tokens": 76.754457,
-      "Model_Count": 5
+      "Tokens": "76.754457",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-21",
       "Provider": "open-inference",
       "Provider_Display": "OpenInference",
-      "Tokens": 0.729676,
-      "Model_Count": 3
+      "Tokens": "0.729676",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-21",
       "Provider": "openai",
       "Provider_Display": "OpenAI",
-      "Tokens": 130.967544,
-      "Model_Count": 10
+      "Tokens": "130.967544",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "parasail",
       "Provider_Display": "Parasail",
-      "Tokens": 8.345118,
-      "Model_Count": 10
+      "Tokens": "8.345118",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "perplexity",
       "Provider_Display": "Perplexity",
-      "Tokens": 0.629703,
-      "Model_Count": 7
+      "Tokens": "0.629703",
+      "Model_Count": "7"
     },
     {
       "Date": "2026-03-21",
       "Provider": "phala",
       "Provider_Display": "Phala",
-      "Tokens": 1.262937,
-      "Model_Count": 8
+      "Tokens": "1.262937",
+      "Model_Count": "8"
     },
     {
       "Date": "2026-03-21",
       "Provider": "relace",
       "Provider_Display": "Relace",
-      "Tokens": 0.007993,
-      "Model_Count": 2
+      "Tokens": "0.007993",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "sambanova",
       "Provider_Display": "SambaNova",
-      "Tokens": 2.250355,
-      "Model_Count": 10
+      "Tokens": "2.250355",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "seed",
       "Provider_Display": "Seed",
-      "Tokens": 0.806908,
-      "Model_Count": 5
+      "Tokens": "0.806908",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-21",
       "Provider": "siliconflow",
       "Provider_Display": "SiliconFlow",
-      "Tokens": 22.299146,
-      "Model_Count": 10
+      "Tokens": "22.299146",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "sourceful",
       "Provider_Display": "Sourceful",
-      "Tokens": 0.075768,
-      "Model_Count": 5
+      "Tokens": "0.075768",
+      "Model_Count": "5"
     },
     {
       "Date": "2026-03-21",
@@ -203847,71 +203847,71 @@
       "Date": "2026-03-21",
       "Provider": "stepfun",
       "Provider_Display": "StepFun",
-      "Tokens": 222.551642,
-      "Model_Count": 2
+      "Tokens": "222.551642",
+      "Model_Count": "2"
     },
     {
       "Date": "2026-03-21",
       "Provider": "streamlake",
       "Provider_Display": "StreamLake",
-      "Tokens": 0.012365,
-      "Model_Count": 1
+      "Tokens": "0.012365",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "switchpoint",
       "Provider_Display": "Switchpoint",
-      "Tokens": 0.001218,
-      "Model_Count": 1
+      "Tokens": "0.001218",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "together",
       "Provider_Display": "Together",
-      "Tokens": 7.873652,
-      "Model_Count": 10
+      "Tokens": "7.873652",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "upstage",
       "Provider_Display": "Upstage",
-      "Tokens": 0.005226,
-      "Model_Count": 1
+      "Tokens": "0.005226",
+      "Model_Count": "1"
     },
     {
       "Date": "2026-03-21",
       "Provider": "venice",
       "Provider_Display": "Venice",
-      "Tokens": 2.222624,
-      "Model_Count": 10
+      "Tokens": "2.222624",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-21",
       "Provider": "wandb",
       "Provider_Display": "Weights & Biases",
-      "Tokens": 4.966582,
-      "Model_Count": 7
+      "Tokens": "4.966582",
+      "Model_Count": "7"
     },
     {
       "Date": "2026-03-21",
       "Provider": "xai",
       "Provider_Display": "xAI",
-      "Tokens": 72.973379,
-      "Model_Count": 8
+      "Tokens": "72.973379",
+      "Model_Count": "8"
     },
     {
       "Date": "2026-03-21",
       "Provider": "xiaomi",
       "Provider_Display": "Xiaomi",
-      "Tokens": 492.410391,
-      "Model_Count": 3
+      "Tokens": "492.410391",
+      "Model_Count": "3"
     },
     {
       "Date": "2026-03-21",
       "Provider": "z-ai",
       "Provider_Display": "Z.ai",
-      "Tokens": 172.777661,
-      "Model_Count": 10
+      "Tokens": "172.777661",
+      "Model_Count": "10"
     },
     {
       "Date": "2026-03-22",
@@ -246429,6 +246429,524 @@
       "Provider": "z-ai",
       "Provider_Display": "Z.ai",
       "Tokens": 290.308056,
+      "Model_Count": 9
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "ai21",
+      "Provider_Display": "AI21",
+      "Tokens": 0.040485,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "aion-labs",
+      "Provider_Display": "AionLabs",
+      "Tokens": 1.077221,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "akashml",
+      "Provider_Display": "AkashML",
+      "Tokens": 5.173083,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "alibaba",
+      "Provider_Display": "Alibaba Cloud Int.",
+      "Tokens": 264.147146,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "amazon-bedrock",
+      "Provider_Display": "Amazon Bedrock",
+      "Tokens": 556.257315,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "ambient",
+      "Provider_Display": "Ambient",
+      "Tokens": 8.675927,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "anthropic",
+      "Provider_Display": "Anthropic",
+      "Tokens": 468.124869,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "arcee-ai",
+      "Provider_Display": "Arcee AI",
+      "Tokens": 0.163439,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "atlas-cloud",
+      "Provider_Display": "AtlasCloud",
+      "Tokens": 85.812693,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "azure",
+      "Provider_Display": "Azure",
+      "Tokens": 140.098372,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "baidu",
+      "Provider_Display": "Baidu Qianfan",
+      "Tokens": 203.156088,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "baseten",
+      "Provider_Display": "Baseten",
+      "Tokens": 2.785089,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "black-forest-labs",
+      "Provider_Display": "Black Forest Labs",
+      "Tokens": 0.163368,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "cerebras",
+      "Provider_Display": "Cerebras",
+      "Tokens": 4.364869,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "chutes",
+      "Provider_Display": "Chutes",
+      "Tokens": 5.037999,
+      "Model_Count": 8
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "clarifai",
+      "Provider_Display": "Clarifai",
+      "Tokens": 0.018188,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "cloudflare",
+      "Provider_Display": "Cloudflare",
+      "Tokens": 30.572105,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "cohere",
+      "Provider_Display": "Cohere",
+      "Tokens": 3.151922,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "darkbloom",
+      "Provider_Display": "Darkbloom",
+      "Tokens": 0.090858,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "decart",
+      "Provider_Display": "Decart",
+      "Tokens": 25.956209,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "deepinfra",
+      "Provider_Display": "DeepInfra",
+      "Tokens": 133.601447,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "deepseek",
+      "Provider_Display": "DeepSeek",
+      "Tokens": 317.847333,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "dekallm",
+      "Provider_Display": "DekaLLM",
+      "Tokens": 5.589547,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "digitalocean",
+      "Provider_Display": "DigitalOcean",
+      "Tokens": 12.945801,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "fireworks",
+      "Provider_Display": "Fireworks",
+      "Tokens": 17.200483,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "friendli",
+      "Provider_Display": "Friendli",
+      "Tokens": 23.644105,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "gmicloud",
+      "Provider_Display": "GMICloud",
+      "Tokens": 222.276111,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "google-ai-studio",
+      "Provider_Display": "Google AI Studio",
+      "Tokens": 146.059844,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "google-vertex",
+      "Provider_Display": "Google Vertex",
+      "Tokens": 512.236267,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "groq",
+      "Provider_Display": "Groq",
+      "Tokens": 18.100154,
+      "Model_Count": 8
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "inception",
+      "Provider_Display": "Inception",
+      "Tokens": 0.82624,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "inceptron",
+      "Provider_Display": "Inceptron",
+      "Tokens": 9.954235,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "infermatic",
+      "Provider_Display": "Infermatic",
+      "Tokens": 0.015311,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "io-net",
+      "Provider_Display": "io.net",
+      "Tokens": 3.037523,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "ionstream",
+      "Provider_Display": "Ionstream",
+      "Tokens": 1.877541,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "liquid",
+      "Provider_Display": "Liquid",
+      "Tokens": 0.480806,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "mancer",
+      "Provider_Display": "Mancer",
+      "Tokens": 0.042039,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "mara",
+      "Provider_Display": "MARA",
+      "Tokens": 0.80136,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "minimax",
+      "Provider_Display": "MiniMax",
+      "Tokens": 501.504803,
+      "Model_Count": 8
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "mistral",
+      "Provider_Display": "Mistral",
+      "Tokens": 11.532968,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "modelrun",
+      "Provider_Display": "ModelRun",
+      "Tokens": 9.583363,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "moonshotai",
+      "Provider_Display": "Moonshot AI",
+      "Tokens": 54.276204,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "morph",
+      "Provider_Display": "Morph",
+      "Tokens": 8.989472,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "nebius",
+      "Provider_Display": "Nebius Token Factory",
+      "Tokens": 11.369869,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "nex-agi",
+      "Provider_Display": "Nex AGI",
+      "Tokens": 91.85664,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "nextbit",
+      "Provider_Display": "NextBit",
+      "Tokens": 5.473018,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "novita",
+      "Provider_Display": "NovitaAI",
+      "Tokens": 296.727583,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "nvidia",
+      "Provider_Display": "NVIDIA",
+      "Tokens": 154.605293,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "open-inference",
+      "Provider_Display": "OpenInference",
+      "Tokens": 41.579027,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "openai",
+      "Provider_Display": "OpenAI",
+      "Tokens": 379.450744,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "parasail",
+      "Provider_Display": "Parasail",
+      "Tokens": 46.505778,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "perceptron",
+      "Provider_Display": "Perceptron",
+      "Tokens": 0.120118,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "perplexity",
+      "Provider_Display": "Perplexity",
+      "Tokens": 1.486409,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "phala",
+      "Provider_Display": "Phala",
+      "Tokens": 4.042998,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "poolside",
+      "Provider_Display": "Poolside",
+      "Tokens": 99.181015,
+      "Model_Count": 4
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "recraft",
+      "Provider_Display": "Recraft",
+      "Tokens": 0.011406,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "reka",
+      "Provider_Display": "Reka AI",
+      "Tokens": 0.002745,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "relace",
+      "Provider_Display": "Relace",
+      "Tokens": 0.006158,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "sambanova",
+      "Provider_Display": "SambaNova",
+      "Tokens": 1.209229,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "seed",
+      "Provider_Display": "Seed",
+      "Tokens": 1.873926,
+      "Model_Count": 5
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "siliconflow",
+      "Provider_Display": "SiliconFlow",
+      "Tokens": 696.100003,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "sourceful",
+      "Provider_Display": "Sourceful",
+      "Tokens": 0.014365,
+      "Model_Count": 7
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "stealth",
+      "Provider_Display": "Stealth",
+      "Tokens": 335.050798,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "stepfun",
+      "Provider_Display": "StepFun",
+      "Tokens": 110.665854,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "streamlake",
+      "Provider_Display": "StreamLake",
+      "Tokens": 246.702707,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "switchpoint",
+      "Provider_Display": "Switchpoint",
+      "Tokens": 0.000239,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "together",
+      "Provider_Display": "Together",
+      "Tokens": 15.107008,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "upstage",
+      "Provider_Display": "Upstage",
+      "Tokens": 0.007306,
+      "Model_Count": 1
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "venice",
+      "Provider_Display": "Venice",
+      "Tokens": 7.02827,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "wafer",
+      "Provider_Display": "Wafer",
+      "Tokens": 17.674263,
+      "Model_Count": 3
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "wandb",
+      "Provider_Display": "Weights & Biases",
+      "Tokens": 24.930819,
+      "Model_Count": 10
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "xai",
+      "Provider_Display": "xAI",
+      "Tokens": 18.647826,
+      "Model_Count": 6
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "xiaomi",
+      "Provider_Display": "Xiaomi",
+      "Tokens": 651.733619,
+      "Model_Count": 2
+    },
+    {
+      "Date": "2026-06-18",
+      "Provider": "z-ai",
+      "Provider_Display": "Z.ai",
+      "Tokens": 229.589805,
       "Model_Count": 9
     }
   ],
