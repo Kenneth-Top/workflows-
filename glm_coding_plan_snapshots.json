@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T11:00:08+08:00",
+  "generated_at": "2026-06-28T11:00:00+08:00",
   "source_url": "https://bigmodel.cn/glm-coding",
   "monitor_window": {
     "start": "09:59:50",
@@ -8,11 +8,11 @@
     "timezone": "Asia/Shanghai"
   },
   "latest_run": {
-    "Date": "2026-06-27",
+    "Date": "2026-06-28",
     "Run_Start": "09:59:50",
-    "Run_End": "11:00:08",
+    "Run_End": "11:00:00",
     "Source": "https://bigmodel.cn/glm-coding",
-    "Notes": "page_prewarmed;parallel_duration_pages;page_async_poller;api_busy;api_error:HTTP Error 405: Not Allowed;page_year_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(;page_quarter_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(;page_month_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(;api_attempts=2480;api_busy_count=7;api_error_count=2473;first_api_busy=10:00:19.555;api_poll_interval=0.5s;page_attempts=242;page_batches=0;page_source=authenticated_page;no_cards_observed",
+    "Notes": "page_prewarmed;parallel_duration_pages;page_async_poller;api_busy;api_error:HTTP Error 405: Not Allowed;page_year_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(;page_month_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(;api_attempts=3002;api_busy_count=7;api_error_count=2995;first_api_busy=10:00:04.886;api_poll_interval=0.5s;page_attempts=448;page_batches=0;page_source=authenticated_page;no_cards_observed",
     "Lite_Month": "",
     "Lite_Month_Status": "not_observed",
     "Lite_Quarter": "",
@@ -39,14 +39,13 @@
     "api_busy",
     "api_error:HTTP Error 405: Not Allowed",
     "page_year_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(",
-    "page_quarter_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(",
     "page_month_error:Locator.click: Timeout 10000ms exceeded. Call log: - waiting for locator(\".switch-tab-item\").filter(",
-    "api_attempts=2480",
+    "api_attempts=3002",
     "api_busy_count=7",
-    "api_error_count=2473",
-    "first_api_busy=10:00:19.555",
+    "api_error_count=2995",
+    "first_api_busy=10:00:04.886",
     "api_poll_interval=0.5s",
-    "page_attempts=242",
+    "page_attempts=448",
     "page_batches=0",
     "page_source=authenticated_page",
     "no_cards_observed"
