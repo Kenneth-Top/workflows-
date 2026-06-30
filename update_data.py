@@ -2,7 +2,7 @@ import requests
 import re
 import json
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import time
 
@@ -11,7 +11,9 @@ DATA_FILE = "history_database.csv"
 MODELS_API = "https://openrouter.ai/api/v1/models"
 RANKINGS_URL = "https://openrouter.ai/rankings"
 RANKINGS_MODELS_API = "https://openrouter.ai/api/frontend/v1/rankings/models"
-MODEL_ACTIVITY_API = "https://openrouter.ai/api/frontend/stats/model-activity"
+MODEL_ACTIVITY_API = "https://openrouter.ai/api/frontend/v1/stats/model-activity"
+ACTIVITY_LOOKBACK_DAYS = int(os.environ.get("OPENROUTER_ACTIVITY_LOOKBACK_DAYS", "45"))
+RECENT_REFRESH_DAYS = int(os.environ.get("OPENROUTER_RECENT_REFRESH_DAYS", "3"))
 CANONICAL_TO_ID = {}
 MODEL_TO_PERMASLUG = {}
 
@@ -134,19 +136,15 @@ def fetch_rankings_day_models(max_existing_date, today_str):
     return records, latest_available_date
 
 
-def build_activity_records(model_id, variant, analytics, max_existing_date, today_str):
+def build_activity_records(model_id, variant, analytics, target_dates=None):
     records = []
     latest_available_date = None
-    output_model_id = variant_model_id(model_id, variant)
     for record in analytics:
         record_date_str = str(record.get("date", ""))[:10]
         if not record_date_str:
             continue
-        if record_date_str != today_str:
-            latest_available_date = max(latest_available_date or record_date_str, record_date_str)
-        if record_date_str == today_str:
-            continue
-        if max_existing_date and record_date_str <= max_existing_date:
+        latest_available_date = max(latest_available_date or record_date_str, record_date_str)
+        if target_dates is not None and record_date_str not in target_dates:
             continue
 
         p = (record.get('total_prompt_tokens') or 0) / 1e9
@@ -156,6 +154,8 @@ def build_activity_records(model_id, variant, analytics, max_existing_date, toda
         if t <= 0:
             continue
 
+        raw_model = record.get("variant_permaslug") or record.get("model_permaslug")
+        output_model_id = normalize_model_id(raw_model) if raw_model else variant_model_id(model_id, variant)
         records.append({
             'Date': datetime.strptime(record_date_str, "%Y-%m-%d"),
             'Model': output_model_id,
@@ -165,6 +165,36 @@ def build_activity_records(model_id, variant, analytics, max_existing_date, toda
             'Total_Tokens': round(t, 6)
         })
     return records, latest_available_date
+
+
+def recent_activity_target_dates(df_old, today_str):
+    """Fill holes in the recent activity window and refresh the latest few days."""
+    today = datetime.strptime(today_str, "%Y-%m-%d").date()
+    start = today - timedelta(days=ACTIVITY_LOOKBACK_DAYS)
+    refresh_start = today - timedelta(days=max(RECENT_REFRESH_DAYS - 1, 0))
+    existing_days = set()
+    if not df_old.empty and "Date" in df_old:
+        existing_days = set(df_old["Date"].dt.strftime("%Y-%m-%d"))
+
+    target_dates = set()
+    current = start
+    while current <= today:
+        day = current.isoformat()
+        if day not in existing_days or current >= refresh_start:
+            target_dates.add(day)
+        current += timedelta(days=1)
+    return target_dates
+
+
+def activity_model_candidates(all_models, existing_models):
+    """Use current catalog models plus historical/special models still served by activity API."""
+    candidates = []
+    seen = set()
+    for model in list(all_models) + sorted(str(model) for model in existing_models if str(model)):
+        if model and model not in seen:
+            candidates.append(model)
+            seen.add(model)
+    return candidates
 
 
 def decode_next_rsc(html):
@@ -415,21 +445,28 @@ def update_database():
         and max_existing_date
         and max_existing_date >= latest_available_date
     ):
-        print("✅ 历史库已覆盖 rankings API 最新可用日期，无需更新")
-        return
+        print("✅ 历史库已覆盖 rankings API 最新可用日期，继续检查 activity 缺口")
 
-    # 4. 如果 rankings API 不可用，再回退到旧的逐模型 activity API。
+    # 4. 无论最新日榜是否可用，都用逐模型 activity API 回填最近窗口内的缺失日期。
+    target_dates = recent_activity_target_dates(df_old, today_str)
     latest_available_dates = []
-    for i, model in enumerate(all_models):
-        if new_records:
+    if target_dates:
+        print(
+            f"🧩 准备从 activity API 回填/刷新 {len(target_dates)} 天: "
+            f"{min(target_dates)} ~ {max(target_dates)}"
+        )
+    candidates = activity_model_candidates(all_models, existing_models)
+    all_model_set.update(existing_models)
+    for i, model in enumerate(candidates):
+        if not target_dates:
             break
-        print(f"🚀 [{i+1}/{len(all_models)}] 正在抓取 activity: {model}")
+        print(f"🚀 [{i+1}/{len(candidates)}] 正在抓取 activity: {model}")
         for variant in variants_for_model(model, observed_variants, all_model_set):
             data = fetch_model_activity(model, variant)
             if not data:
                 continue
             records, latest_available_date = build_activity_records(
-                model, variant, data, max_existing_date, today_str
+                model, variant, data, target_dates
             )
             new_records.extend(records)
             if latest_available_date:

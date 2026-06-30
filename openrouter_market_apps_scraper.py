@@ -20,6 +20,7 @@ PROVIDER_URL = f"{BASE_URL}/provider"
 PROVIDERS_URL = f"{BASE_URL}/providers"
 RANKINGS_MODELS_API = f"{BASE_URL}/api/frontend/v1/rankings/models"
 RANKINGS_APPS_API = f"{BASE_URL}/api/frontend/v1/rankings/apps"
+MODEL_ACTIVITY_API = f"{BASE_URL}/api/frontend/v1/stats/model-activity"
 TOP_APP_LIMIT = 60
 CATEGORY_DEFINITIONS = [
     ("programming", "Programming"),
@@ -41,6 +42,7 @@ CURRENT_CATEGORY_ENDPOINTS = [
 ]
 
 MARKET_CSV = Path("openrouter_market_share_records.csv")
+HISTORY_CSV = Path("history_database.csv")
 APPS_CSV = Path("openrouter_apps_records.csv")
 APP_USAGE_CSV = Path("openrouter_app_model_usage_records.csv")
 PROVIDER_USAGE_CSV = Path("openrouter_provider_usage_records.csv")
@@ -186,7 +188,15 @@ def is_weekly_model_series(series: list[Any]) -> bool:
 
 
 def fetch_market_share() -> list[dict[str, Any]]:
-    model_rows = fetch_latest_model_rankings()
+    history_rows = fetch_market_share_from_history()
+    history_dates = {str(row.get("Date", "")) for row in history_rows}
+
+    try:
+        model_rows = fetch_latest_model_rankings()
+    except Exception:
+        if history_rows:
+            return history_rows
+        raise
     author_totals: dict[tuple[str, str], float] = {}
     date_totals: dict[str, float] = {}
     for row in model_rows:
@@ -215,7 +225,11 @@ def fetch_market_share() -> list[dict[str, Any]]:
             }
         )
     if rows:
+        if history_rows:
+            return history_rows + [row for row in rows if str(row.get("Date", "")) not in history_dates]
         return rows
+    if history_rows:
+        return history_rows
 
     text = decode_next_rsc(fetch_text(RANKINGS_URL))
     candidates = [series for series in arrays_for_key(text, "data") if is_market_share_series(series)]
@@ -238,6 +252,45 @@ def fetch_market_share() -> list[dict[str, Any]]:
                     "Share": round(token_value / total_tokens, 8),
                 }
             )
+    return rows
+
+
+def fetch_market_share_from_history() -> list[dict[str, Any]]:
+    if not HISTORY_CSV.exists():
+        return []
+
+    author_totals: dict[tuple[str, str], float] = {}
+    date_totals: dict[str, float] = {}
+    with HISTORY_CSV.open("r", newline="", encoding="utf-8-sig") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            date = str(row.get("Date", ""))[:10]
+            model = str(row.get("Model", ""))
+            if not date or "/" not in model:
+                continue
+            try:
+                tokens = float(row.get("Total_Tokens") or 0)
+            except ValueError:
+                continue
+            if tokens <= 0:
+                continue
+            author = model.split("/", 1)[0].lower()
+            author_totals[(date, author)] = author_totals.get((date, author), 0) + tokens
+            date_totals[date] = date_totals.get(date, 0) + tokens
+
+    rows: list[dict[str, Any]] = []
+    for (date, author), tokens in author_totals.items():
+        total_tokens = date_totals.get(date, 0)
+        if total_tokens <= 0:
+            continue
+        rows.append(
+            {
+                "Date": date,
+                "Author": author,
+                "Tokens": round(tokens, 6),
+                "Share": round(tokens / total_tokens, 8),
+            }
+        )
     return rows
 
 
@@ -386,13 +439,9 @@ def fetch_app_model_usage(apps: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not series:
             continue
 
-        dates = sorted({str(point.get("x", ""))[:10] for point in series if point.get("x")})
-        latest_date = dates[-1] if dates else None
         for point in series:
             date = str(point.get("x", ""))[:10]
             if not date:
-                continue
-            if date == latest_date:
                 continue
             for model, tokens in (point.get("ys") or {}).items():
                 daily_rows.append(
@@ -447,11 +496,9 @@ def fetch_provider_usage(providers: list[dict[str, Any]]) -> list[dict[str, Any]
         if not series:
             continue
 
-        dates = sorted({str(point.get("x", ""))[:10] for point in series if point.get("x")})
-        latest_date = dates[-1] if dates else None
         for point in series:
             date = str(point.get("x", ""))[:10]
-            if not date or date == latest_date:
+            if not date:
                 continue
             values = point.get("ys") or {}
             tokens = sum(float(value or 0) for value in values.values())
@@ -465,7 +512,50 @@ def fetch_provider_usage(providers: list[dict[str, Any]]) -> list[dict[str, Any]
                 }
             )
         time.sleep(0.25)
+
+    stealth_rows = fetch_stealth_provider_usage()
+    if stealth_rows:
+        combined = {
+            (str(row.get("Date")), str(row.get("Provider"))): row
+            for row in daily_rows
+        }
+        for row in stealth_rows:
+            combined[(str(row.get("Date")), str(row.get("Provider")))] = row
+        daily_rows = list(combined.values())
     return daily_rows
+
+
+def fetch_stealth_provider_usage() -> list[dict[str, Any]]:
+    """Stealth router usage is exposed through model activity, not provider catalog."""
+    rows_by_date: dict[str, dict[str, Any]] = {}
+    stealth_models = ["openrouter/owl-alpha"]
+    for permaslug in stealth_models:
+        try:
+            payload = fetch_json(MODEL_ACTIVITY_API, {"permaslug": permaslug})
+        except Exception as exc:
+            print(f"  skipped stealth activity {permaslug}: {exc}")
+            continue
+        analytics = payload.get("data", {}).get("analytics", []) if isinstance(payload, dict) else []
+        for point in analytics:
+            date = str(point.get("date", ""))[:10]
+            if not date:
+                continue
+            tokens = float(point.get("total_prompt_tokens") or 0) + float(point.get("total_completion_tokens") or 0)
+            if tokens <= 0:
+                continue
+            row = rows_by_date.setdefault(
+                date,
+                {
+                    "Date": date,
+                    "Provider": "stealth",
+                    "Provider_Display": "Stealth",
+                    "Tokens": 0.0,
+                    "Model_Count": 0,
+                },
+            )
+            row["Tokens"] = round(float(row["Tokens"]) + tokens / 1e9, 6)
+            row["Model_Count"] = int(row["Model_Count"]) + 1
+    return list(rows_by_date.values())
 
 
 def read_csv(path: Path, key_fields: list[str]) -> dict[tuple[str, ...], dict[str, Any]]:
