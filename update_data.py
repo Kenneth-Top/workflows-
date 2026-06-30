@@ -10,6 +10,7 @@ import time
 DATA_FILE = "history_database.csv"
 MODELS_API = "https://openrouter.ai/api/v1/models"
 RANKINGS_URL = "https://openrouter.ai/rankings"
+RANKINGS_MODELS_API = "https://openrouter.ai/api/frontend/v1/rankings/models"
 MODEL_ACTIVITY_API = "https://openrouter.ai/api/frontend/stats/model-activity"
 CANONICAL_TO_ID = {}
 MODEL_TO_PERMASLUG = {}
@@ -89,6 +90,48 @@ def fetch_model_activity(model_id, variant=None):
         suffix = f":{variant}" if variant else ""
         print(f"  ❌ activity API 错误 {model_id}{suffix}: {e}")
     return []
+
+
+def fetch_rankings_day_models(max_existing_date, today_str):
+    """从 OpenRouter 当前公开 rankings API 获取最新完整日的模型 token 用量。"""
+    print("📊 正在从 OpenRouter rankings API 获取最新日榜...")
+    resp = SESSION.get(RANKINGS_MODELS_API, params={"view": "day"}, timeout=60)
+    resp.raise_for_status()
+    rows = resp.json().get("data", []) or []
+
+    records = []
+    available_days = []
+    for row in rows:
+        record_date_str = parse_day(row.get("date"))
+        if not record_date_str or record_date_str == today_str:
+            continue
+        available_days.append(record_date_str)
+        if max_existing_date and record_date_str <= max_existing_date:
+            continue
+
+        prompt_tokens = int(row.get("total_prompt_tokens") or 0)
+        completion_tokens = int(row.get("total_completion_tokens") or 0)
+        reasoning_tokens = int(row.get("total_native_tokens_reasoning") or 0)
+        total_tokens = prompt_tokens + completion_tokens
+        if total_tokens <= 0:
+            continue
+
+        raw_model = row.get("variant_permaslug") or row.get("model_permaslug")
+        model = normalize_model_id(raw_model)
+        records.append({
+            'Date': datetime.strptime(record_date_str, "%Y-%m-%d"),
+            'Model': model,
+            'Prompt': round(prompt_tokens / 1e9, 6),
+            'Completion': round(completion_tokens / 1e9, 6),
+            'Reasoning': round(reasoning_tokens / 1e9, 6),
+            'Total_Tokens': round(total_tokens / 1e9, 6)
+        })
+
+    latest_available_date = max(available_days) if available_days else None
+    print(f"✅ rankings API 新增记录: {len(records)}")
+    if latest_available_date:
+        print(f"📅 rankings API 最新可用日期: {latest_available_date}")
+    return records, latest_available_date
 
 
 def build_activity_records(model_id, variant, analytics, max_existing_date, today_str):
@@ -357,11 +400,29 @@ def update_database():
         base_model, variant = str(existing_model).rsplit(":", 1)
         observed_variants.setdefault(base_model, set()).add(variant)
 
-    # 3. 从 OpenRouter 官方 model-activity API 抓取每日模型 token 数据
+    # 3. 优先从当前公开 rankings API 抓取最新完整日数据。
     new_records = []
-    latest_available_dates = []
     today_str = datetime.utcnow().strftime("%Y-%m-%d")  # OpenRouter 使用 UTC 日期
+    try:
+        new_records, latest_available_date = fetch_rankings_day_models(max_existing_date, today_str)
+    except Exception as e:
+        print(f"⚠️ rankings API 抓取失败，准备回退到旧 activity API: {e}")
+        latest_available_date = None
+
+    if (
+        not new_records
+        and latest_available_date
+        and max_existing_date
+        and max_existing_date >= latest_available_date
+    ):
+        print("✅ 历史库已覆盖 rankings API 最新可用日期，无需更新")
+        return
+
+    # 4. 如果 rankings API 不可用，再回退到旧的逐模型 activity API。
+    latest_available_dates = []
     for i, model in enumerate(all_models):
+        if new_records:
+            break
         print(f"🚀 [{i+1}/{len(all_models)}] 正在抓取 activity: {model}")
         for variant in variants_for_model(model, observed_variants, all_model_set):
             data = fetch_model_activity(model, variant)
@@ -393,13 +454,13 @@ def update_database():
 
     df_new = pd.DataFrame(new_records)
 
-    # 4. 增量合并 (Upsert)：Date + Model 为唯一键
+    # 5. 增量合并 (Upsert)：Date + Model 为唯一键
     df_combined = pd.concat([df_old, df_new])
     df_combined = df_combined.drop_duplicates(
         subset=['Date', 'Model'], keep='last'
     )
 
-    # 5. 保存
+    # 6. 保存
     df_combined.to_csv(DATA_FILE, index=False)
     print(f"✅ 数据库更新完成！当前总记录数: {len(df_combined)}")
 

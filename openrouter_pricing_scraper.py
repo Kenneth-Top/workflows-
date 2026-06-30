@@ -4,6 +4,8 @@ from datetime import datetime
 import os
 import concurrent.futures
 
+CATALOG_MODELS_API = "https://openrouter.ai/api/frontend/v1/catalog/models"
+
 def fetch_models():
     print("Fetching all models to get their canonical slugs...")
     url = "https://openrouter.ai/api/v1/models"
@@ -14,6 +16,41 @@ def fetch_models():
     except Exception as e:
         print(f"Error fetching models: {e}")
         return []
+
+def price_per_million(value):
+    if value is None or value == "":
+        return None
+    return float(value) * 1_000_000
+
+def fetch_catalog_pricing_snapshot(session):
+    """Fallback: current public catalog endpoint prices when effective-pricing is unavailable."""
+    try:
+        response = session.get(CATALOG_MODELS_API, timeout=60)
+        response.raise_for_status()
+        models = response.json().get("data", [])
+    except Exception as e:
+        print(f"Error fetching catalog pricing: {e}")
+        return []
+
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    records = []
+    for model in models:
+        endpoint = model.get("endpoint") or {}
+        pricing = endpoint.get("pricing") or {}
+        input_price = price_per_million(pricing.get("prompt"))
+        output_price = price_per_million(pricing.get("completion"))
+        if input_price is None and output_price is None:
+            continue
+
+        records.append({
+            'Date': current_date,
+            'Model': model.get("slug") or endpoint.get("model_variant_slug") or model.get("permaslug"),
+            'Provider': endpoint.get("provider_display_name") or endpoint.get("provider_name") or "Catalog",
+            'Input_Price_1M': input_price,
+            'Output_Price_1M': output_price,
+            'Cache_Hit_Rate': None
+        })
+    return records
 
 def fetch_effective_pricing(model, session):
     model_id = model.get('id')
@@ -136,6 +173,10 @@ def main():
 
     print("Completed API calls. Building dataframe...")
     new_df = pd.DataFrame(all_records)
+
+    if new_df.empty:
+        print("Effective pricing endpoint returned no records. Falling back to catalog pricing snapshot...")
+        new_df = pd.DataFrame(fetch_catalog_pricing_snapshot(session))
     
     if not new_df.empty:
         new_df = new_df[['Date', 'Model', 'Provider', 'Input_Price_1M', 'Output_Price_1M', 'Cache_Hit_Rate']]

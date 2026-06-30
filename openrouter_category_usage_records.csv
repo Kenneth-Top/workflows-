@@ -3587,3 +3587,460 @@
 2026-04-27,trivia,Trivia,others,21.386951,0.55056676
 2026-04-27,trivia,Trivia,qwen,1.26876,0.03266184
 2026-04-27,trivia,Trivia,x-ai,1.696964,0.04368514
+2026-05-31,natural-language,Natural Language,anthropic,456.336125,0.08237967
+2026-05-31,natural-language,Natural Language,deepseek,1073.222003,0.19374245
+2026-05-31,natural-language,Natural Language,openrouter,377.283491,0.06810877
+2026-05-31,natural-language,Natural Language,others,2478.375689,0.44740656
+2026-05-31,natural-language,Natural Language,tencent,376.011151,0.06787908
+2026-05-31,natural-language,Natural Language,xiaomi,778.197872,0.14048348
+2026-05-31,programming-language,Programming,anthropic,109.000363,0.07558721
+2026-05-31,programming-language,Programming,deepseek,278.290732,0.19298304
+2026-05-31,programming-language,Programming,openrouter,127.970011,0.08874187
+2026-05-31,programming-language,Programming,others,622.322399,0.43155467
+2026-05-31,programming-language,Programming,tencent,148.840931,0.10321499
+2026-05-31,programming-language,Programming,xiaomi,155.623209,0.10791822
+2026-06-01,natural-language,Natural Language,anthropic,374.9143,0.06064455
+2026-06-01,natural-language,Natural Language,deepseek,1078.365567,0.17443186
+2026-06-01,natural-language,Natural Language,google,182.393993,0.02950328
+2026-06-01,natural-language,Natural Language,openrouter,409.778457,0.06628403
+2026-06-01,natural-language,Natural Language,others,3080.737801,0.49832713
+2026-06-01,natural-language,Natural Language,tencent,356.351115,0.05764185
+2026-06-01,natural-language,Natural Language,xiaomi,699.618301,0.1131673
+2026-06-01,programming-language,Programming,anthropic,115.309069,0.07462197
+2026-06-01,programming-language,Programming,deepseek,296.647444,0.19197464
+2026-06-01,programming-language,Programming,openrouter,130.303383,0.0843255
+2026-06-01,programming-language,Programming,others,745.601838,0.48251434
+2026-06-01,programming-language,Programming,tencent,131.305083,0.08497375
+2026-06-01,programming-language,Programming,xiaomi,126.076045,0.08158979
+2026-06-02,natural-language,Natural Language,anthropic,384.455363,0.06084032
+2026-06-02,natural-language,Natural Language,deepseek,1139.970396,0.18040109
+2026-06-02,natural-language,Natural Language,minimax,278.885315,0.04413379
+2026-06-02,natural-language,Natural Language,openrouter,410.060736,0.06489239
+2026-06-02,natural-language,Natural Language,others,3179.408376,0.50314355
+2026-06-02,natural-language,Natural Language,tencent,361.411003,0.05719354
+2026-06-02,natural-language,Natural Language,xiaomi,564.896859,0.08939531
+2026-06-02,programming-language,Programming,anthropic,73.518745,0.04469433
+2026-06-02,programming-language,Programming,deepseek,317.090427,0.1927691
+2026-06-02,programming-language,Programming,google,45.082607,0.02740711
+2026-06-02,programming-language,Programming,minimax,65.756533,0.03997544
+2026-06-02,programming-language,Programming,openrouter,128.819496,0.07831337
+2026-06-02,programming-language,Programming,others,809.012432,0.49182375
+2026-06-02,programming-language,Programming,tencent,130.9931,0.07963477
+2026-06-02,programming-language,Programming,xiaomi,74.650148,0.04538214
+2026-06-03,natural-language,Natural Language,anthropic,579.520299,0.0832628
+2026-06-03,natural-language,Natural Language,deepseek,1140.764216,0.16389973
+2026-06-03,natural-language,Natural Language,minimax,752.192045,0.10807147
+2026-06-03,natural-language,Natural Language,openrouter,384.827615,0.05529025
+2026-06-03,natural-language,Natural Language,others,3131.762663,0.44995718
+2026-06-03,natural-language,Natural Language,tencent,461.677083,0.06633163
+2026-06-03,natural-language,Natural Language,xiaomi,509.391005,0.07318694
+2026-06-03,programming-language,Programming,anthropic,138.135216,0.07702105
+2026-06-03,programming-language,Programming,deepseek,300.327668,0.16745587
+2026-06-03,programming-language,Programming,minimax,182.068239,0.1015171
+2026-06-03,programming-language,Programming,openrouter,135.257261,0.07541637
+2026-06-03,programming-language,Programming,others,791.170113,0.44113844
+2026-06-03,programming-language,Programming,tencent,128.554023,0.0716788
+2026-06-03,programming-language,Programming,xiaomi,117.961009,0.06577237
+2026-06-04,natural-language,Natural Language,anthropic,580.261147,0.08837195
+2026-06-04,natural-language,Natural Language,deepseek,1117.365123,0.1701712
+2026-06-04,natural-language,Natural Language,minimax,657.357643,0.10011351
+2026-06-04,natural-language,Natural Language,openrouter,349.00896,0.05315297
+2026-06-04,natural-language,Natural Language,others,3034.296559,0.46211385
+2026-06-04,natural-language,Natural Language,tencent,458.0649,0.06976185
+2026-06-04,natural-language,Natural Language,xiaomi,369.769069,0.05631467
+2026-06-04,programming-language,Programming,anthropic,146.413044,0.0946408
+2026-06-04,programming-language,Programming,deepseek,263.359524,0.17023453
+2026-06-04,programming-language,Programming,minimax,135.713499,0.08772466
+2026-06-04,programming-language,Programming,openrouter,97.953027,0.06331644
+2026-06-04,programming-language,Programming,others,705.097227,0.455772
+2026-06-04,programming-language,Programming,tencent,118.785375,0.07678239
+2026-06-04,programming-language,Programming,xiaomi,79.717673,0.05152918
+2026-06-05,natural-language,Natural Language,anthropic,341.650561,0.05378904
+2026-06-05,natural-language,Natural Language,deepseek,1269.310197,0.19983863
+2026-06-05,natural-language,Natural Language,google,182.171688,0.02868089
+2026-06-05,natural-language,Natural Language,minimax,513.991119,0.08092213
+2026-06-05,natural-language,Natural Language,openrouter,182.273467,0.02869691
+2026-06-05,natural-language,Natural Language,others,3075.898799,0.4842657
+2026-06-05,natural-language,Natural Language,tencent,434.34388,0.06838256
+2026-06-05,natural-language,Natural Language,xiaomi,352.036176,0.05542414
+2026-06-05,programming-language,Programming,anthropic,127.689359,0.08008963
+2026-06-05,programming-language,Programming,deepseek,333.534107,0.20920007
+2026-06-05,programming-language,Programming,minimax,99.522644,0.06242283
+2026-06-05,programming-language,Programming,openai,59.674484,0.03742918
+2026-06-05,programming-language,Programming,others,783.445051,0.49139431
+2026-06-05,programming-language,Programming,tencent,131.472956,0.08246279
+2026-06-05,programming-language,Programming,xiaomi,58.992129,0.03700119
+2026-06-06,natural-language,Natural Language,anthropic,380.349279,0.06964787
+2026-06-06,natural-language,Natural Language,deepseek,1206.365331,0.22090426
+2026-06-06,natural-language,Natural Language,minimax,403.087456,0.07381158
+2026-06-06,natural-language,Natural Language,openrouter,280.142456,0.05129844
+2026-06-06,natural-language,Natural Language,others,2461.354987,0.45071239
+2026-06-06,natural-language,Natural Language,tencent,426.595941,0.07811635
+2026-06-06,natural-language,Natural Language,xiaomi,303.136988,0.0555091
+2026-06-06,programming-language,Programming,anthropic,98.942887,0.06779304
+2026-06-06,programming-language,Programming,deepseek,346.988241,0.23774714
+2026-06-06,programming-language,Programming,minimax,77.842252,0.05333545
+2026-06-06,programming-language,Programming,openrouter,79.463847,0.05444652
+2026-06-06,programming-language,Programming,others,646.55704,0.44300373
+2026-06-06,programming-language,Programming,tencent,164.8052,0.11292015
+2026-06-06,programming-language,Programming,xiaomi,44.884953,0.03075398
+2026-06-07,natural-language,Natural Language,anthropic,522.988008,0.08891438
+2026-06-07,natural-language,Natural Language,deepseek,1393.413649,0.23689742
+2026-06-07,natural-language,Natural Language,minimax,506.690883,0.08614367
+2026-06-07,natural-language,Natural Language,openrouter,349.733532,0.05945899
+2026-06-07,natural-language,Natural Language,others,2427.145483,0.41264452
+2026-06-07,natural-language,Natural Language,tencent,334.95624,0.05694667
+2026-06-07,natural-language,Natural Language,xiaomi,347.000477,0.05899434
+2026-06-07,programming-language,Programming,anthropic,149.37612,0.09277439
+2026-06-07,programming-language,Programming,deepseek,360.011131,0.2235954
+2026-06-07,programming-language,Programming,minimax,100.886984,0.0626588
+2026-06-07,programming-language,Programming,openrouter,106.950288,0.06642459
+2026-06-07,programming-language,Programming,others,638.3645,0.39647487
+2026-06-07,programming-language,Programming,tencent,194.432752,0.12075812
+2026-06-07,programming-language,Programming,xiaomi,60.079028,0.03731383
+2026-06-08,natural-language,Natural Language,anthropic,731.794263,0.0957865
+2026-06-08,natural-language,Natural Language,deepseek,1590.372429,0.20816808
+2026-06-08,natural-language,Natural Language,minimax,501.847643,0.06568817
+2026-06-08,natural-language,Natural Language,openrouter,433.586092,0.05675324
+2026-06-08,natural-language,Natural Language,others,3090.715619,0.404552
+2026-06-08,natural-language,Natural Language,tencent,761.7883,0.0997125
+2026-06-08,natural-language,Natural Language,xiaomi,529.743257,0.06933951
+2026-06-08,programming-language,Programming,anthropic,191.420351,0.09259862
+2026-06-08,programming-language,Programming,deepseek,413.586491,0.20007035
+2026-06-08,programming-language,Programming,minimax,104.201072,0.05040674
+2026-06-08,programming-language,Programming,openrouter,127.192436,0.06152869
+2026-06-08,programming-language,Programming,others,805.599446,0.38970462
+2026-06-08,programming-language,Programming,tencent,313.92082,0.15185759
+2026-06-08,programming-language,Programming,xiaomi,111.284664,0.05383339
+2026-06-09,natural-language,Natural Language,anthropic,661.840313,0.09857329
+2026-06-09,natural-language,Natural Language,deepseek,1242.833884,0.18510541
+2026-06-09,natural-language,Natural Language,minimax,520.805637,0.07756784
+2026-06-09,natural-language,Natural Language,openrouter,341.800575,0.05090715
+2026-06-09,natural-language,Natural Language,others,2857.090167,0.42552979
+2026-06-09,natural-language,Natural Language,tencent,563.329663,0.08390129
+2026-06-09,natural-language,Natural Language,xiaomi,526.495177,0.07841523
+2026-06-09,programming-language,Programming,anthropic,167.879849,0.09503168
+2026-06-09,programming-language,Programming,deepseek,312.305233,0.17678651
+2026-06-09,programming-language,Programming,minimax,113.374499,0.06417786
+2026-06-09,programming-language,Programming,openrouter,106.749117,0.06042743
+2026-06-09,programming-language,Programming,others,753.108944,0.42631209
+2026-06-09,programming-language,Programming,tencent,197.176527,0.11161564
+2026-06-09,programming-language,Programming,xiaomi,115.972985,0.06564878
+2026-06-10,natural-language,Natural Language,anthropic,750.66296,0.09109193
+2026-06-10,natural-language,Natural Language,deepseek,1348.387876,0.16362503
+2026-06-10,natural-language,Natural Language,minimax,801.886764,0.09730786
+2026-06-10,natural-language,Natural Language,openrouter,422.806961,0.05130705
+2026-06-10,natural-language,Natural Language,others,3487.000239,0.42314272
+2026-06-10,natural-language,Natural Language,tencent,871.702012,0.10577985
+2026-06-10,natural-language,Natural Language,xiaomi,558.272205,0.06774557
+2026-06-10,programming-language,Programming,anthropic,191.858071,0.09114517
+2026-06-10,programming-language,Programming,deepseek,344.159248,0.16349822
+2026-06-10,programming-language,Programming,minimax,152.922792,0.07264836
+2026-06-10,programming-language,Programming,openrouter,113.084623,0.05372262
+2026-06-10,programming-language,Programming,others,922.953888,0.43846365
+2026-06-10,programming-language,Programming,tencent,263.000623,0.12494255
+2026-06-10,programming-language,Programming,xiaomi,116.993163,0.05557943
+2026-06-11,natural-language,Natural Language,anthropic,774.856699,0.09250523
+2026-06-11,natural-language,Natural Language,deepseek,1345.463025,0.16062631
+2026-06-11,natural-language,Natural Language,minimax,821.513463,0.09807529
+2026-06-11,natural-language,Natural Language,openrouter,489.506584,0.05843909
+2026-06-11,natural-language,Natural Language,others,3466.185397,0.41380592
+2026-06-11,natural-language,Natural Language,tencent,955.781203,0.11410466
+2026-06-11,natural-language,Natural Language,xiaomi,523.048832,0.06244349
+2026-06-11,programming-language,Programming,anthropic,217.378295,0.09607991
+2026-06-11,programming-language,Programming,deepseek,360.432823,0.15930916
+2026-06-11,programming-language,Programming,minimax,160.548939,0.07096167
+2026-06-11,programming-language,Programming,openrouter,165.024091,0.07293966
+2026-06-11,programming-language,Programming,others,916.437138,0.40505976
+2026-06-11,programming-language,Programming,tencent,325.97834,0.14408048
+2026-06-11,programming-language,Programming,xiaomi,116.674309,0.05156935
+2026-06-12,natural-language,Natural Language,anthropic,336.182072,0.04309845
+2026-06-12,natural-language,Natural Language,deepseek,1320.152279,0.16924315
+2026-06-12,natural-language,Natural Language,google,178.937649,0.02293976
+2026-06-12,natural-language,Natural Language,minimax,817.383511,0.10478833
+2026-06-12,natural-language,Natural Language,openrouter,462.218049,0.05925622
+2026-06-12,natural-language,Natural Language,others,3381.060868,0.43345104
+2026-06-12,natural-language,Natural Language,tencent,759.395965,0.09735435
+2026-06-12,natural-language,Natural Language,xiaomi,544.998964,0.06986871
+2026-06-12,programming-language,Programming,anthropic,61.684736,0.03186343
+2026-06-12,programming-language,Programming,deepseek,342.019004,0.17667091
+2026-06-12,programming-language,Programming,minimax,156.796843,0.08099386
+2026-06-12,programming-language,Programming,openrouter,123.370617,0.06372745
+2026-06-12,programming-language,Programming,others,832.366887,0.42996153
+2026-06-12,programming-language,Programming,tencent,234.125751,0.12093834
+2026-06-12,programming-language,Programming,xiaomi,108.550215,0.05607193
+2026-06-12,programming-language,Programming,z-ai,76.996084,0.03977255
+2026-06-13,natural-language,Natural Language,anthropic,392.961759,0.06140795
+2026-06-13,natural-language,Natural Language,deepseek,1170.299477,0.18288216
+2026-06-13,natural-language,Natural Language,minimax,739.693404,0.11559155
+2026-06-13,natural-language,Natural Language,openrouter,457.415849,0.07148017
+2026-06-13,natural-language,Natural Language,others,2637.799045,0.41220765
+2026-06-13,natural-language,Natural Language,tencent,497.934829,0.07781205
+2026-06-13,natural-language,Natural Language,xiaomi,503.095307,0.07861847
+2026-06-13,programming-language,Programming,anthropic,71.438405,0.0458502
+2026-06-13,programming-language,Programming,deepseek,326.14062,0.20932175
+2026-06-13,programming-language,Programming,minimax,124.750588,0.08006673
+2026-06-13,programming-language,Programming,openrouter,127.651213,0.08192839
+2026-06-13,programming-language,Programming,others,653.127227,0.41918647
+2026-06-13,programming-language,Programming,tencent,171.424197,0.11002252
+2026-06-13,programming-language,Programming,xiaomi,83.550528,0.05362393
+2026-06-14,natural-language,Natural Language,anthropic,384.825281,0.06260628
+2026-06-14,natural-language,Natural Language,deepseek,1263.448995,0.20554742
+2026-06-14,natural-language,Natural Language,minimax,723.427891,0.11769271
+2026-06-14,natural-language,Natural Language,openrouter,437.736017,0.0712142
+2026-06-14,natural-language,Natural Language,others,2494.692649,0.40585543
+2026-06-14,natural-language,Natural Language,tencent,345.033421,0.05613264
+2026-06-14,natural-language,Natural Language,xiaomi,497.587611,0.08095131
+2026-06-14,programming-language,Programming,anthropic,40.378043,0.02718949
+2026-06-14,programming-language,Programming,deepseek,365.749325,0.24628573
+2026-06-14,programming-language,Programming,minimax,124.756901,0.08400793
+2026-06-14,programming-language,Programming,openai,33.253484,0.022392
+2026-06-14,programming-language,Programming,openrouter,121.457311,0.08178608
+2026-06-14,programming-language,Programming,others,599.101801,0.403419
+2026-06-14,programming-language,Programming,tencent,111.545084,0.07511145
+2026-06-14,programming-language,Programming,xiaomi,88.819005,0.05980832
+2026-06-15,natural-language,Natural Language,anthropic,493.741732,0.07049578
+2026-06-15,natural-language,Natural Language,deepseek,1336.125131,0.19077014
+2026-06-15,natural-language,Natural Language,minimax,782.768725,0.11176266
+2026-06-15,natural-language,Natural Language,openrouter,406.137139,0.05798771
+2026-06-15,natural-language,Natural Language,others,2970.861772,0.42417564
+2026-06-15,natural-language,Natural Language,tencent,425.353852,0.06073145
+2026-06-15,natural-language,Natural Language,xiaomi,588.859868,0.08407662
+2026-06-15,programming-language,Programming,anthropic,88.846788,0.05543609
+2026-06-15,programming-language,Programming,deepseek,341.056767,0.21280288
+2026-06-15,programming-language,Programming,minimax,138.981413,0.08671766
+2026-06-15,programming-language,Programming,openrouter,111.915325,0.06982973
+2026-06-15,programming-language,Programming,others,681.871817,0.42545494
+2026-06-15,programming-language,Programming,tencent,139.379331,0.08696594
+2026-06-15,programming-language,Programming,xiaomi,100.637248,0.06279276
+2026-06-16,natural-language,Natural Language,anthropic,295.662791,0.03797452
+2026-06-16,natural-language,Natural Language,deepseek,1566.025656,0.20113819
+2026-06-16,natural-language,Natural Language,minimax,706.907657,0.09079425
+2026-06-16,natural-language,Natural Language,openrouter,411.507535,0.05285346
+2026-06-16,natural-language,Natural Language,others,3408.782528,0.43781936
+2026-06-16,natural-language,Natural Language,tencent,544.458888,0.06992955
+2026-06-16,natural-language,Natural Language,xiaomi,556.403352,0.07146369
+2026-06-16,natural-language,Natural Language,z-ai,296.071047,0.03802696
+2026-06-16,programming-language,Programming,anthropic,93.061868,0.05043087
+2026-06-16,programming-language,Programming,deepseek,406.45816,0.2202625
+2026-06-16,programming-language,Programming,minimax,138.148499,0.07486363
+2026-06-16,programming-language,Programming,openrouter,125.595123,0.06806087
+2026-06-16,programming-language,Programming,others,806.417043,0.43700299
+2026-06-16,programming-language,Programming,tencent,175.429688,0.09506657
+2026-06-16,programming-language,Programming,xiaomi,100.224904,0.05431257
+2026-06-17,natural-language,Natural Language,anthropic,336.925863,0.03755761
+2026-06-17,natural-language,Natural Language,deepseek,1291.410339,0.14395535
+2026-06-17,natural-language,Natural Language,minimax,779.632183,0.08690671
+2026-06-17,natural-language,Natural Language,openrouter,414.115085,0.046162
+2026-06-17,natural-language,Natural Language,others,4169.976225,0.4648332
+2026-06-17,natural-language,Natural Language,tencent,598.152288,0.06667689
+2026-06-17,natural-language,Natural Language,xiaomi,568.133815,0.06333069
+2026-06-17,natural-language,Natural Language,z-ai,812.562881,0.09057754
+2026-06-17,programming-language,Programming,deepseek,414.702596,0.20212004
+2026-06-17,programming-language,Programming,minimax,146.085315,0.07119987
+2026-06-17,programming-language,Programming,openai,77.916353,0.0379753
+2026-06-17,programming-language,Programming,openrouter,117.63264,0.05733244
+2026-06-17,programming-language,Programming,others,924.574321,0.45062413
+2026-06-17,programming-language,Programming,tencent,200.933325,0.09793199
+2026-06-17,programming-language,Programming,xiaomi,109.658495,0.05344596
+2026-06-17,programming-language,Programming,z-ai,60.260841,0.02937026
+2026-06-18,natural-language,Natural Language,anthropic,305.175972,0.03697161
+2026-06-18,natural-language,Natural Language,deepseek,1252.243177,0.15170738
+2026-06-18,natural-language,Natural Language,minimax,555.634787,0.06731432
+2026-06-18,natural-language,Natural Language,openrouter,417.668011,0.05059985
+2026-06-18,natural-language,Natural Language,others,3740.839493,0.45319709
+2026-06-18,natural-language,Natural Language,tencent,698.323125,0.0846008
+2026-06-18,natural-language,Natural Language,xiaomi,579.693147,0.07022895
+2026-06-18,natural-language,Natural Language,z-ai,704.754929,0.08538
+2026-06-18,programming-language,Programming,deepseek,351.215879,0.19570057
+2026-06-18,programming-language,Programming,minimax,103.971211,0.05793367
+2026-06-18,programming-language,Programming,openai,71.759309,0.03998492
+2026-06-18,programming-language,Programming,openrouter,114.490957,0.06379537
+2026-06-18,programming-language,Programming,others,764.284221,0.42586588
+2026-06-18,programming-language,Programming,tencent,230.286212,0.1283175
+2026-06-18,programming-language,Programming,xiaomi,99.679088,0.05554206
+2026-06-18,programming-language,Programming,z-ai,58.972579,0.03286004
+2026-06-19,natural-language,Natural Language,anthropic,272.731683,0.03701722
+2026-06-19,natural-language,Natural Language,deepseek,1249.669307,0.16961461
+2026-06-19,natural-language,Natural Language,minimax,480.259231,0.06518443
+2026-06-19,natural-language,Natural Language,openai,254.29578,0.03451496
+2026-06-19,natural-language,Natural Language,openrouter,476.355344,0.06465457
+2026-06-19,natural-language,Natural Language,others,3307.581884,0.44893015
+2026-06-19,natural-language,Natural Language,tencent,414.749504,0.05629295
+2026-06-19,natural-language,Natural Language,xiaomi,573.542724,0.07784558
+2026-06-19,natural-language,Natural Language,z-ai,338.512865,0.04594554
+2026-06-19,programming-language,Programming,deepseek,366.070728,0.20590393
+2026-06-19,programming-language,Programming,minimax,93.491124,0.05258599
+2026-06-19,programming-language,Programming,openai,69.450043,0.03906359
+2026-06-19,programming-language,Programming,openrouter,124.318008,0.06992519
+2026-06-19,programming-language,Programming,others,786.272532,0.44225499
+2026-06-19,programming-language,Programming,tencent,163.595933,0.09201786
+2026-06-19,programming-language,Programming,xiaomi,100.980324,0.05679844
+2026-06-19,programming-language,Programming,z-ai,73.692771,0.04145
+2026-06-20,natural-language,Natural Language,anthropic,241.583197,0.037813
+2026-06-20,natural-language,Natural Language,deepseek,1355.523565,0.2121688
+2026-06-20,natural-language,Natural Language,minimax,562.092384,0.08797963
+2026-06-20,natural-language,Natural Language,openrouter,511.161344,0.08000782
+2026-06-20,natural-language,Natural Language,others,2604.025443,0.40758639
+2026-06-20,natural-language,Natural Language,tencent,347.485215,0.05438896
+2026-06-20,natural-language,Natural Language,xiaomi,503.97414,0.07888287
+2026-06-20,natural-language,Natural Language,z-ai,263.046712,0.04117251
+2026-06-20,programming-language,Programming,anthropic,49.494031,0.0320279
+2026-06-20,programming-language,Programming,deepseek,322.271423,0.20854388
+2026-06-20,programming-language,Programming,minimax,100.276369,0.06488948
+2026-06-20,programming-language,Programming,openrouter,149.749353,0.09690376
+2026-06-20,programming-language,Programming,others,630.708339,0.40813537
+2026-06-20,programming-language,Programming,tencent,149.5008,0.09674292
+2026-06-20,programming-language,Programming,xiaomi,84.249563,0.05451843
+2026-06-20,programming-language,Programming,z-ai,59.091163,0.03823827
+2026-06-21,natural-language,Natural Language,anthropic,185.693808,0.0298611
+2026-06-21,natural-language,Natural Language,deepseek,1212.571676,0.19499153
+2026-06-21,natural-language,Natural Language,minimax,536.042951,0.08620013
+2026-06-21,natural-language,Natural Language,openrouter,557.497021,0.08965012
+2026-06-21,natural-language,Natural Language,others,2578.222433,0.41459943
+2026-06-21,natural-language,Natural Language,tencent,319.537867,0.05138432
+2026-06-21,natural-language,Natural Language,xiaomi,590.426985,0.09494553
+2026-06-21,natural-language,Natural Language,z-ai,238.593807,0.03836785
+2026-06-21,programming-language,Programming,deepseek,316.991245,0.2038331
+2026-06-21,programming-language,Programming,minimax,95.165464,0.06119371
+2026-06-21,programming-language,Programming,openrouter,166.552311,0.1070972
+2026-06-21,programming-language,Programming,others,634.508472,0.40800442
+2026-06-21,programming-language,Programming,stepfun,49.169467,0.03161717
+2026-06-21,programming-language,Programming,tencent,139.150496,0.08947716
+2026-06-21,programming-language,Programming,xiaomi,94.531857,0.06078629
+2026-06-21,programming-language,Programming,z-ai,59.081653,0.03799094
+2026-06-22,natural-language,Natural Language,anthropic,262.572101,0.03513972
+2026-06-22,natural-language,Natural Language,deepseek,1247.130688,0.16690207
+2026-06-22,natural-language,Natural Language,minimax,790.538907,0.10579691
+2026-06-22,natural-language,Natural Language,openrouter,589.837401,0.07893726
+2026-06-22,natural-language,Natural Language,others,3228.539974,0.4320718
+2026-06-22,natural-language,Natural Language,tencent,341.056088,0.04564314
+2026-06-22,natural-language,Natural Language,xiaomi,725.79078,0.09713175
+2026-06-22,natural-language,Natural Language,z-ai,286.764385,0.03837735
+2026-06-22,programming-language,Programming,deepseek,318.939924,0.17695187
+2026-06-22,programming-language,Programming,minimax,157.455616,0.08735835
+2026-06-22,programming-language,Programming,openrouter,175.995331,0.09764442
+2026-06-22,programming-language,Programming,others,751.959716,0.41719669
+2026-06-22,programming-language,Programming,stepfun,61.226133,0.03396903
+2026-06-22,programming-language,Programming,tencent,147.172565,0.08165319
+2026-06-22,programming-language,Programming,xiaomi,125.095173,0.06940437
+2026-06-22,programming-language,Programming,z-ai,64.566109,0.03582209
+2026-06-23,natural-language,Natural Language,anthropic,576.604557,0.07250622
+2026-06-23,natural-language,Natural Language,deepseek,1108.577229,0.13940013
+2026-06-23,natural-language,Natural Language,minimax,750.767197,0.09440663
+2026-06-23,natural-language,Natural Language,openrouter,520.515644,0.06545322
+2026-06-23,natural-language,Natural Language,others,3475.236733,0.43700018
+2026-06-23,natural-language,Natural Language,tencent,415.348265,0.05222875
+2026-06-23,natural-language,Natural Language,xiaomi,743.372643,0.09347679
+2026-06-23,natural-language,Natural Language,z-ai,362.061289,0.04552808
+2026-06-23,programming-language,Programming,deepseek,320.197932,0.174064
+2026-06-23,programming-language,Programming,minimax,160.474072,0.08723591
+2026-06-23,programming-language,Programming,openrouter,138.50284,0.07529205
+2026-06-23,programming-language,Programming,others,825.647237,0.44883318
+2026-06-23,programming-language,Programming,stepfun,66.601067,0.03620525
+2026-06-23,programming-language,Programming,tencent,121.733437,0.06617597
+2026-06-23,programming-language,Programming,xiaomi,122.465359,0.06657385
+2026-06-23,programming-language,Programming,z-ai,83.919491,0.04561979
+2026-06-24,natural-language,Natural Language,anthropic,551.694996,0.06886285
+2026-06-24,natural-language,Natural Language,deepseek,1222.99664,0.15265507
+2026-06-24,natural-language,Natural Language,minimax,839.853045,0.10483089
+2026-06-24,natural-language,Natural Language,openrouter,546.943912,0.06826982
+2026-06-24,natural-language,Natural Language,others,3447.778623,0.4303535
+2026-06-24,natural-language,Natural Language,tencent,388.333677,0.04847201
+2026-06-24,natural-language,Natural Language,xiaomi,647.246623,0.08078966
+2026-06-24,natural-language,Natural Language,z-ai,366.656097,0.0457662
+2026-06-24,programming-language,Programming,deepseek,361.333984,0.1845765
+2026-06-24,programming-language,Programming,minimax,184.495972,0.09424417
+2026-06-24,programming-language,Programming,openrouter,153.088369,0.07820055
+2026-06-24,programming-language,Programming,others,871.908846,0.44538818
+2026-06-24,programming-language,Programming,stepfun,60.875133,0.03109621
+2026-06-24,programming-language,Programming,tencent,118.164184,0.06036059
+2026-06-24,programming-language,Programming,xiaomi,120.403092,0.06150427
+2026-06-24,programming-language,Programming,z-ai,87.368473,0.04462953
+2026-06-25,natural-language,Natural Language,anthropic,552.881367,0.07066814
+2026-06-25,natural-language,Natural Language,deepseek,1175.877863,0.15029825
+2026-06-25,natural-language,Natural Language,minimax,683.367429,0.0873466
+2026-06-25,natural-language,Natural Language,openrouter,651.605017,0.08328679
+2026-06-25,natural-language,Natural Language,others,3216.954632,0.41118442
+2026-06-25,natural-language,Natural Language,tencent,495.410343,0.06332231
+2026-06-25,natural-language,Natural Language,xiaomi,637.315949,0.08146039
+2026-06-25,natural-language,Natural Language,z-ai,410.21712,0.05243309
+2026-06-25,programming-language,Programming,deepseek,350.6256,0.18409898
+2026-06-25,programming-language,Programming,minimax,143.966891,0.07559105
+2026-06-25,programming-language,Programming,openrouter,182.806908,0.09598434
+2026-06-25,programming-language,Programming,others,795.853483,0.4178697
+2026-06-25,programming-language,Programming,stepfun,54.833249,0.02879067
+2026-06-25,programming-language,Programming,tencent,151.567923,0.07958204
+2026-06-25,programming-language,Programming,xiaomi,125.451133,0.06586919
+2026-06-25,programming-language,Programming,z-ai,99.444216,0.05221404
+2026-06-26,natural-language,Natural Language,anthropic,506.7945,0.06790762
+2026-06-26,natural-language,Natural Language,deepseek,1114.468056,0.14933247
+2026-06-26,natural-language,Natural Language,minimax,534.487277,0.0716183
+2026-06-26,natural-language,Natural Language,openrouter,589.228397,0.0789533
+2026-06-26,natural-language,Natural Language,others,3072.057705,0.41163849
+2026-06-26,natural-language,Natural Language,tencent,558.36964,0.0748184
+2026-06-26,natural-language,Natural Language,xiaomi,617.864948,0.08279044
+2026-06-26,natural-language,Natural Language,z-ai,469.728576,0.06294099
+2026-06-26,programming-language,Programming,anthropic,50.869207,0.02696878
+2026-06-26,programming-language,Programming,deepseek,306.002237,0.1622299
+2026-06-26,programming-language,Programming,minimax,109.506175,0.0580557
+2026-06-26,programming-language,Programming,openrouter,172.773845,0.09159764
+2026-06-26,programming-language,Programming,others,792.766826,0.42029261
+2026-06-26,programming-language,Programming,stepfun,51.561876,0.027336
+2026-06-26,programming-language,Programming,tencent,179.880603,0.09536535
+2026-06-26,programming-language,Programming,xiaomi,107.174116,0.05681934
+2026-06-26,programming-language,Programming,z-ai,115.691049,0.06133467
+2026-06-27,natural-language,Natural Language,anthropic,160.150705,0.02534598
+2026-06-27,natural-language,Natural Language,deepseek,1036.99782,0.16411867
+2026-06-27,natural-language,Natural Language,minimax,479.986765,0.07596428
+2026-06-27,natural-language,Natural Language,openrouter,612.686596,0.09696579
+2026-06-27,natural-language,Natural Language,others,2418.921955,0.38282651
+2026-06-27,natural-language,Natural Language,stepfun,206.636151,0.03270291
+2026-06-27,natural-language,Natural Language,tencent,512.608307,0.08112707
+2026-06-27,natural-language,Natural Language,xiaomi,559.262881,0.08851078
+2026-06-27,natural-language,Natural Language,z-ai,331.334085,0.05243802
+2026-06-27,programming-language,Programming,anthropic,32.131445,0.01981058
+2026-06-27,programming-language,Programming,deepseek,250.004921,0.15414008
+2026-06-27,programming-language,Programming,minimax,110.687233,0.06824401
+2026-06-27,programming-language,Programming,openrouter,198.688259,0.12250089
+2026-06-27,programming-language,Programming,others,630.150153,0.38851794
+2026-06-27,programming-language,Programming,stepfun,51.790996,0.03193165
+2026-06-27,programming-language,Programming,tencent,149.038932,0.09188969
+2026-06-27,programming-language,Programming,xiaomi,114.527917,0.07061198
+2026-06-27,programming-language,Programming,z-ai,84.913352,0.05235317
+2026-06-28,natural-language,Natural Language,deepseek,973.126949,0.14575232
+2026-06-28,natural-language,Natural Language,minimax,540.24994,0.08091718
+2026-06-28,natural-language,Natural Language,openai,210.953891,0.0315961
+2026-06-28,natural-language,Natural Language,openrouter,663.924676,0.09944084
+2026-06-28,natural-language,Natural Language,others,2532.024869,0.37923984
+2026-06-28,natural-language,Natural Language,stepfun,204.823533,0.03067791
+2026-06-28,natural-language,Natural Language,tencent,592.989689,0.08881639
+2026-06-28,natural-language,Natural Language,xiaomi,551.815628,0.08264945
+2026-06-28,natural-language,Natural Language,z-ai,406.670176,0.06090996
+2026-06-28,programming-language,Programming,deepseek,268.034979,0.14623299
+2026-06-28,programming-language,Programming,minimax,127.950843,0.06980669
+2026-06-28,programming-language,Programming,openai,39.901435,0.0217692
+2026-06-28,programming-language,Programming,openrouter,211.870615,0.11559116
+2026-06-28,programming-language,Programming,others,730.535236,0.39856125
+2026-06-28,programming-language,Programming,stepfun,50.668267,0.0276433
+2026-06-28,programming-language,Programming,tencent,201.019001,0.1096708
+2026-06-28,programming-language,Programming,xiaomi,103.999815,0.05673963
+2026-06-28,programming-language,Programming,z-ai,98.950745,0.05398498
+2026-06-29,natural-language,Natural Language,anthropic,276.813064,0.03509862
+2026-06-29,natural-language,Natural Language,deepseek,1187.883204,0.15061812
+2026-06-29,natural-language,Natural Language,minimax,711.751,0.09024675
+2026-06-29,natural-language,Natural Language,openrouter,657.120075,0.0833198
+2026-06-29,natural-language,Natural Language,others,3072.58086,0.38958911
+2026-06-29,natural-language,Natural Language,stepfun,252.043005,0.03195789
+2026-06-29,natural-language,Natural Language,tencent,675.056869,0.0855941
+2026-06-29,natural-language,Natural Language,xiaomi,615.166011,0.07800022
+2026-06-29,natural-language,Natural Language,z-ai,438.307639,0.05557539
+2026-06-29,programming-language,Programming,anthropic,62.584327,0.03127978
+2026-06-29,programming-language,Programming,deepseek,313.279392,0.15657773
+2026-06-29,programming-language,Programming,minimax,137.441001,0.06869331
+2026-06-29,programming-language,Programming,openrouter,178.768953,0.08934911
+2026-06-29,programming-language,Programming,others,801.033399,0.40035825
+2026-06-29,programming-language,Programming,stepfun,53.393272,0.02668607
+2026-06-29,programming-language,Programming,tencent,227.653928,0.11378193
+2026-06-29,programming-language,Programming,xiaomi,124.742012,0.06234633
+2026-06-29,programming-language,Programming,z-ai,101.895276,0.05092748

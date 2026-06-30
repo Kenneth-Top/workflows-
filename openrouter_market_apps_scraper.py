@@ -18,6 +18,8 @@ RANKINGS_URL = f"{BASE_URL}/rankings"
 APPS_URL = f"{BASE_URL}/apps"
 PROVIDER_URL = f"{BASE_URL}/provider"
 PROVIDERS_URL = f"{BASE_URL}/providers"
+RANKINGS_MODELS_API = f"{BASE_URL}/api/frontend/v1/rankings/models"
+RANKINGS_APPS_API = f"{BASE_URL}/api/frontend/v1/rankings/apps"
 TOP_APP_LIMIT = 60
 CATEGORY_DEFINITIONS = [
     ("programming", "Programming"),
@@ -32,6 +34,10 @@ CATEGORY_DEFINITIONS = [
     ("health", "Health"),
     ("trivia", "Trivia"),
     ("academia", "Academia"),
+]
+CURRENT_CATEGORY_ENDPOINTS = [
+    ("natural-language", "Natural Language"),
+    ("programming-language", "Programming"),
 ]
 
 MARKET_CSV = Path("openrouter_market_share_records.csv")
@@ -56,6 +62,33 @@ def fetch_text(url: str) -> str:
     response = SESSION.get(url, timeout=60)
     response.raise_for_status()
     return response.text
+
+
+def fetch_json(url: str, params: Optional[dict[str, Any]] = None) -> Any:
+    response = SESSION.get(url, params=params, timeout=60)
+    response.raise_for_status()
+    return response.json()
+
+
+def fetch_latest_model_rankings() -> list[dict[str, Any]]:
+    payload = fetch_json(RANKINGS_MODELS_API, {"view": "day"})
+    rows = payload.get("data", []) if isinstance(payload, dict) else []
+    return [row for row in rows if isinstance(row, dict)]
+
+
+def token_total_from_ranking_row(row: dict[str, Any]) -> float:
+    return float(row.get("total_prompt_tokens") or 0) + float(row.get("total_completion_tokens") or 0)
+
+
+def latest_rankings_date() -> str:
+    dates = sorted(
+        {
+            str(row.get("date", ""))[:10]
+            for row in fetch_latest_model_rankings()
+            if row.get("date")
+        }
+    )
+    return dates[-1] if dates else datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
 def decode_next_rsc(html: str) -> str:
@@ -153,13 +186,42 @@ def is_weekly_model_series(series: list[Any]) -> bool:
 
 
 def fetch_market_share() -> list[dict[str, Any]]:
+    model_rows = fetch_latest_model_rankings()
+    author_totals: dict[tuple[str, str], float] = {}
+    date_totals: dict[str, float] = {}
+    for row in model_rows:
+        date = str(row.get("date", ""))[:10]
+        model = str(row.get("variant_permaslug") or row.get("model_permaslug") or "")
+        if not date or "/" not in model:
+            continue
+        tokens = token_total_from_ranking_row(row)
+        if tokens <= 0:
+            continue
+        author = model.split("/", 1)[0].lower()
+        author_totals[(date, author)] = author_totals.get((date, author), 0) + tokens
+        date_totals[date] = date_totals.get(date, 0) + tokens
+
+    rows: list[dict[str, Any]] = []
+    for (date, author), tokens in author_totals.items():
+        total_tokens = date_totals.get(date, 0)
+        if total_tokens <= 0:
+            continue
+        rows.append(
+            {
+                "Date": date,
+                "Author": author,
+                "Tokens": round(tokens / 1e9, 6),
+                "Share": round(tokens / total_tokens, 8),
+            }
+        )
+    if rows:
+        return rows
+
     text = decode_next_rsc(fetch_text(RANKINGS_URL))
     candidates = [series for series in arrays_for_key(text, "data") if is_market_share_series(series)]
     if not candidates:
         raise RuntimeError("Could not find OpenRouter market-share series")
     series = max(candidates, key=len)
-
-    rows: list[dict[str, Any]] = []
     for point in series:
         date = str(point.get("x", ""))[:10]
         values = point.get("ys") or {}
@@ -193,7 +255,7 @@ def usage_series_from_category_page(category: str) -> list[dict[str, Any]]:
     return max(candidates, key=len)
 
 
-def fetch_category_usage() -> list[dict[str, Any]]:
+def fetch_legacy_category_usage() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for index, (category, label) in enumerate(CATEGORY_DEFINITIONS, start=1):
         print(f"Fetching category usage {index}/{len(CATEGORY_DEFINITIONS)}: {category}")
@@ -224,22 +286,59 @@ def fetch_category_usage() -> list[dict[str, Any]]:
     return rows
 
 
-def fetch_top_apps(limit: int = TOP_APP_LIMIT) -> list[dict[str, Any]]:
-    text = decode_next_rsc(fetch_text(APPS_URL))
-    unique: dict[int, dict[str, Any]] = {}
-    for item in objects_starting_with(text, '{"app_id":'):
-        if "rank" not in item or "app" not in item:
-            continue
-        app_id = item.get("app_id")
-        if not isinstance(app_id, int):
-            continue
-        existing = unique.get(app_id)
-        if existing is None or int(item.get("total_tokens") or 0) > int(existing.get("total_tokens") or 0):
-            unique[app_id] = item
-
-    apps = sorted(unique.values(), key=lambda item: int(item.get("total_tokens") or 0), reverse=True)[:limit]
+def fetch_current_category_usage() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    for index, (category, label) in enumerate(CURRENT_CATEGORY_ENDPOINTS, start=1):
+        print(f"Fetching current category usage {index}/{len(CURRENT_CATEGORY_ENDPOINTS)}: {category}")
+        payload = fetch_json(f"{BASE_URL}/api/frontend/v1/rankings/{category}")
+        series = payload.get("data", payload) if isinstance(payload, dict) else payload
+        if not isinstance(series, list):
+            raise RuntimeError(f"Unexpected category API payload for {category}")
+
+        for point in series:
+            if not isinstance(point, dict):
+                continue
+            date = str(point.get("x", ""))[:10]
+            values = point.get("ys") or {}
+            author_totals: dict[str, float] = {}
+            for model, tokens in values.items():
+                model_key = str(model)
+                author = model_key.split("/", 1)[0].lower() if "/" in model_key else model_key.lower()
+                author_totals[author] = author_totals.get(author, 0) + float(tokens or 0)
+            category_total = sum(author_totals.values())
+            if not date or category_total <= 0:
+                continue
+            for author, tokens in author_totals.items():
+                rows.append(
+                    {
+                        "Date": date,
+                        "Category": category,
+                        "Category_Label": label,
+                        "Author": author,
+                        "Tokens": round(tokens / 1e9, 6),
+                        "Share_In_Category": round(tokens / category_total, 8),
+                    }
+                )
+    return rows
+
+
+def fetch_category_usage() -> list[dict[str, Any]]:
+    try:
+        return fetch_legacy_category_usage()
+    except Exception as exc:
+        print(f"Legacy category usage failed: {exc}")
+        print("Using current OpenRouter category ranking APIs instead.")
+        return fetch_current_category_usage()
+
+
+def fetch_top_apps(limit: int = TOP_APP_LIMIT) -> list[dict[str, Any]]:
+    payload = fetch_json(RANKINGS_APPS_API)
+    rank_map = payload.get("data", {}) if isinstance(payload, dict) else {}
+    apps = rank_map.get("day") or rank_map.get("week") or rank_map.get("month") or []
+    apps = [item for item in apps if isinstance(item, dict) and item.get("app_id") is not None]
+    apps = sorted(apps, key=lambda item: int(item.get("total_tokens") or 0), reverse=True)[:limit]
+    rows: list[dict[str, Any]] = []
+    snapshot_date = latest_rankings_date()
     for item in apps:
         app = item.get("app") or {}
         rows.append(
@@ -498,7 +597,7 @@ def main() -> None:
         ["Date", "Provider", "Provider_Display", "Tokens", "Model_Count"],
         ["Date", "Provider"],
     )
-    category_usage_all = write_replace_csv(
+    category_usage_all = write_csv(
         CATEGORY_USAGE_CSV,
         category_usage_rows,
         ["Date", "Category", "Category_Label", "Author", "Tokens", "Share_In_Category"],

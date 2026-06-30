@@ -6,6 +6,8 @@ import os
 import time
 import concurrent.futures
 
+FRONTEND_BENCHMARKS_API = "https://openrouter.ai/api/frontend/v1/rankings/benchmarks"
+
 def fetch_model_slugs():
     print("Fetching all models to get their slugs...")
     url = "https://openrouter.ai/api/v1/models"
@@ -17,6 +19,41 @@ def fetch_model_slugs():
     except Exception as e:
         print(f"Error fetching models: {e}")
         return []
+
+def fetch_frontend_benchmarks(session):
+    try:
+        response = session.get(FRONTEND_BENCHMARKS_API, timeout=60)
+        response.raise_for_status()
+        return response.json().get("data", {}) or {}
+    except Exception as e:
+        print(f"Error fetching frontend benchmark API: {e}")
+        return {}
+
+def build_frontend_benchmark_dataframe(payload):
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    rows = []
+
+    for category, items in (payload.get("aaData") or {}).items():
+        row = {"Date": current_date, "Metric": f"AA {category}"}
+        for item in items or []:
+            name = item.get("aa_name") or item.get("permaslug") or item.get("uid")
+            score = item.get("score")
+            if name and score is not None:
+                row[name] = score
+        if len(row) > 2:
+            rows.append(row)
+
+    for metric, items in (payload.get("daData") or {}).items():
+        row = {"Date": current_date, "Metric": f"DA {metric}"}
+        for item in items or []:
+            name = item.get("aa_name") or item.get("permaslug") or item.get("uid")
+            score = item.get("score")
+            if name and score is not None:
+                row[name] = score
+        if len(row) > 2:
+            rows.append(row)
+
+    return pd.DataFrame(rows)
 
 def fetch_benchmark_for_model(slug, session):
     url = f"https://openopen_router_internal.ai/api/internal/v1/artificial-analysis-benchmarks?slug={slug}"
@@ -107,17 +144,24 @@ def update_benchmark_database(new_df, file_name="openrouter_benchmark_records.cs
     print(f"Metrics count: {len(new_df['Metric'].unique())}, Models count: {len(remaining_cols)}")
 
 def main():
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    })
+
+    payload = fetch_frontend_benchmarks(session)
+    frontend_df = build_frontend_benchmark_dataframe(payload)
+    if not frontend_df.empty:
+        print(f"Fetched frontend benchmark API rows: {len(frontend_df)}")
+        update_benchmark_database(frontend_df)
+        return
+
     slugs = fetch_model_slugs()
     if not slugs:
         print("No slugs extracted.")
         return
         
     print(f"Found {len(slugs)} models. Fetching benchmarks concurrently...")
-    
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    })
     
     results = []
     # Use ThreadPool to fetch quickly

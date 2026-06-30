@@ -119,6 +119,36 @@ def largest_object_array(text: str, key: str) -> list[dict[str, Any]]:
     return best
 
 
+def all_object_arrays(text: str, key: str) -> list[list[dict[str, Any]]]:
+    arrays: list[list[dict[str, Any]]] = []
+    key_pattern = re.compile(rf'"{re.escape(key)}"\s*:')
+    for match in key_pattern.finditer(text):
+        start = text.find("[", match.end())
+        if start < 0:
+            continue
+        try:
+            parsed = json.loads(extract_array(text, start))
+        except (json.JSONDecodeError, RuntimeError):
+            continue
+        if parsed and isinstance(parsed[0], dict):
+            arrays.append(parsed)
+    return arrays
+
+
+def flatten_object_arrays(text: str, key: str) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    seen_ids: set[Any] = set()
+    for array in all_object_arrays(text, key):
+        for item in array:
+            item_id = item.get("id")
+            if item_id and item_id in seen_ids:
+                continue
+            if item_id:
+                seen_ids.add(item_id)
+            rows.append(item)
+    return rows
+
+
 def normalize_number(value: Any) -> float | int | None:
     if value is None or value == "":
         return None
@@ -137,13 +167,32 @@ def fallback_provider_name(host_model: dict[str, Any]) -> str:
     return label.split("_", 1)[0].replace("-", " ").strip() or "Unknown"
 
 
-def build_records(models: list[dict[str, Any]], hosts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def model_value(model: dict[str, Any], snake_key: str, camel_key: str) -> Any:
+    return model.get(snake_key) if snake_key in model else model.get(camel_key)
+
+
+def build_records(
+    models: list[dict[str, Any]],
+    hosts: list[dict[str, Any]],
+    host_models: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
     generated_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     host_by_id = {host.get("id"): host for host in hosts}
+    host_models_by_model: dict[Any, list[dict[str, Any]]] = {}
+    if host_models is not None:
+        for host_model in host_models:
+            host_models_by_model.setdefault(host_model.get("model_id"), []).append(host_model)
     records: list[dict[str, Any]] = []
+    seen_host_models: set[Any] = set()
 
     for model in models:
-        for host_model in model.get("host_models") or []:
+        model_host_rows = model.get("host_models") or host_models_by_model.get(model.get("id"), [])
+        for host_model in model_host_rows:
+            host_model_id = host_model.get("id")
+            if host_model_id and host_model_id in seen_host_models:
+                continue
+            if host_model_id:
+                seen_host_models.add(host_model_id)
             if host_model.get("deleted"):
                 continue
 
@@ -160,19 +209,20 @@ def build_records(models: list[dict[str, Any]], hosts: list[dict[str, Any]]) -> 
             host = host_by_id.get(host_model.get("host_id"), {})
             provider = host.get("name") or fallback_provider_name(host_model)
             provider_slug = host.get("slug") or str(provider).lower().replace(" ", "_")
+            release_date = model_value(model, "release_date", "releaseDate")
 
             records.append(
                 {
                     "Date": generated_date,
                     "Provider": provider,
                     "Provider_Slug": provider_slug,
-                    "Model": model.get("name") or model.get("short_name") or model.get("slug"),
+                    "Model": model.get("name") or model_value(model, "short_name", "shortName") or model.get("slug"),
                     "Model_Slug": model.get("slug"),
                     "Host_Model": host_model.get("host_model_string"),
                     "Host_Model_Slug": host_model.get("slug"),
                     "Host_API_ID": host_model.get("host_api_id"),
-                    "Release_Date": model.get("release_date"),
-                    "Release_Date_Source": "Artificial Analysis" if model.get("release_date") else None,
+                    "Release_Date": release_date,
+                    "Release_Date_Source": "Artificial Analysis" if release_date else None,
                     "Input_Price_1M": normalize_number(host_model.get("price_1m_input_tokens")),
                     "Output_Price_1M": normalize_number(host_model.get("price_1m_output_tokens")),
                     "Cache_Write_Price_1M": normalize_number(host_model.get("cache_write_price")),
@@ -183,9 +233,9 @@ def build_records(models: list[dict[str, Any]], hosts: list[dict[str, Any]]) -> 
                     "Blended_3_1_Price_1M": normalize_number(host_model.get("price_1m_blended_3_to_1")),
                     "Context_Window": normalize_number(
                         host_model.get("context_window_if_different_to_model")
-                        or model.get("context_window_tokens")
+                        or model_value(model, "context_window_tokens", "contextWindowTokens")
                     ),
-                    "Reasoning_Model": bool(model.get("reasoning_model")),
+                    "Reasoning_Model": bool(model.get("reasoning_model") or model.get("isReasoning")),
                     "JSON_Mode": bool(host_model.get("json_mode")),
                     "Function_Calling": bool(host_model.get("function_calling")),
                     "Source_URL": SOURCE_URL,
@@ -217,7 +267,8 @@ def main() -> None:
     text = decode_next_rsc(html)
     models = largest_object_array(text, "models")
     hosts = largest_object_array(text, "hosts")
-    records = build_records(models, hosts)
+    host_models = flatten_object_arrays(text, "host_models")
+    records = build_records(models, hosts, host_models)
     if not records:
         raise RuntimeError("No Artificial Analysis pricing records extracted")
     write_outputs(records)
