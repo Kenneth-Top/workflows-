@@ -21525,6 +21525,17 @@
 2026-05-31,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.744882
 2026-05-31,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.448147
 2026-05-31,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.703155
+2026-05-31,169295,Portkey AI,portkey-ai,Others,0.207137
+2026-05-31,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.303978
+2026-05-31,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,4.382083
+2026-05-31,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.093865
+2026-05-31,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.047071
+2026-05-31,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.12636
+2026-05-31,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.105008
+2026-05-31,169295,Portkey AI,portkey-ai,openai/gpt-oss-120b,0.059622
+2026-05-31,169295,Portkey AI,portkey-ai,openai/gpt-oss-20b,0.077948
+2026-05-31,169295,Portkey AI,portkey-ai,qwen/qwen3.5-35b-a3b-20260224,0.076423
+2026-05-31,169295,Portkey AI,portkey-ai,xiaomi/mimo-v2.5-20260422,0.037038
 2026-05-31,190604,Cline,cline,Others,5.682915
 2026-05-31,190604,Cline,cline,anthropic/claude-4.6-opus-20260205,0.521215
 2026-05-31,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.773142
@@ -21681,6 +21692,17 @@
 2026-06-01,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.740847
 2026-06-01,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.39245
 2026-06-01,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.688897
+2026-06-01,169295,Portkey AI,portkey-ai,Others,0.602201
+2026-06-01,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.747502
+2026-06-01,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,1.939421
+2026-06-01,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.117141
+2026-06-01,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.316668
+2026-06-01,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.232023
+2026-06-01,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.17378
+2026-06-01,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.108984
+2026-06-01,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.102431
+2026-06-01,169295,Portkey AI,portkey-ai,openai/gpt-oss-120b,0.123406
+2026-06-01,169295,Portkey AI,portkey-ai,openai/gpt-oss-20b,0.111542
 2026-06-01,190604,Cline,cline,Others,7.282298
 2026-06-01,190604,Cline,cline,anthropic/claude-4.6-opus-20260205,0.660203
 2026-06-01,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.39283
@@ -21816,17 +21838,17 @@
 2026-06-01,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,42.997849
 2026-06-01,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,10.259793
 2026-06-01,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,10.393708
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.009086
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.071215
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,15.676812
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.075151
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.044371
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,3.205236
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.044436
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.054637
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.084034
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.454237
-2026-06-01,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.397341
+2026-06-01,3296290,Mira,mira,Others,0.009086
+2026-06-01,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.071215
+2026-06-01,3296290,Mira,mira,minimax/minimax-m2.5-20260211,15.676812
+2026-06-01,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.075151
+2026-06-01,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.044371
+2026-06-01,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,3.205236
+2026-06-01,3296290,Mira,mira,openai/gpt-4o-mini,0.044436
+2026-06-01,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.054637
+2026-06-01,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.084034
+2026-06-01,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.454237
+2026-06-01,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.397341
 2026-06-02,169155,Janitor AI,janitor-ai,Others,7.400313
 2026-06-02,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.304462
 2026-06-02,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.772921
@@ -21838,6 +21860,17 @@
 2026-06-02,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.716934
 2026-06-02,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.561293
 2026-06-02,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.597318
+2026-06-02,169295,Portkey AI,portkey-ai,Others,0.557784
+2026-06-02,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,1.602909
+2026-06-02,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,1.830319
+2026-06-02,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.147271
+2026-06-02,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.084138
+2026-06-02,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.346356
+2026-06-02,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.2451
+2026-06-02,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.206868
+2026-06-02,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.14708
+2026-06-02,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.141908
+2026-06-02,169295,Portkey AI,portkey-ai,tencent/hy3-preview-20260421,4.485938
 2026-06-02,190604,Cline,cline,Others,7.74894
 2026-06-02,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.825375
 2026-06-02,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,1.148795
@@ -21973,17 +22006,17 @@
 2026-06-02,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,216.144939
 2026-06-02,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,50.773176
 2026-06-02,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,11.889161
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.011338
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.086722
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,14.895285
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.114912
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.03835
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,3.827558
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.043318
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.049669
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.076637
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.452907
-2026-06-02,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.457636
+2026-06-02,3296290,Mira,mira,Others,0.011338
+2026-06-02,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.086722
+2026-06-02,3296290,Mira,mira,minimax/minimax-m2.5-20260211,14.895285
+2026-06-02,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.114912
+2026-06-02,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.03835
+2026-06-02,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,3.827558
+2026-06-02,3296290,Mira,mira,openai/gpt-4o-mini,0.043318
+2026-06-02,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.049669
+2026-06-02,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.076637
+2026-06-02,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.452907
+2026-06-02,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.457636
 2026-06-03,169155,Janitor AI,janitor-ai,Others,7.510156
 2026-06-03,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.236764
 2026-06-03,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.764044
@@ -21995,6 +22028,17 @@
 2026-06-03,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.849553
 2026-06-03,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.639588
 2026-06-03,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.598197
+2026-06-03,169295,Portkey AI,portkey-ai,Others,0.494315
+2026-06-03,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,1.12438
+2026-06-03,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,2.865723
+2026-06-03,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.175019
+2026-06-03,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.090073
+2026-06-03,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.496109
+2026-06-03,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.232619
+2026-06-03,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.211018
+2026-06-03,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.10907
+2026-06-03,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.162085
+2026-06-03,169295,Portkey AI,portkey-ai,tencent/hy3-preview-20260421,3.447096
 2026-06-03,190604,Cline,cline,Others,7.372096
 2026-06-03,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,3.109642
 2026-06-03,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,1.326141
@@ -22129,17 +22173,17 @@
 2026-06-03,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,224.51115
 2026-06-03,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,60.529434
 2026-06-03,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,13.915527
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.018214
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.106403
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,13.882446
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.116582
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.042753
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,3.804984
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.042195
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.040446
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.066338
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.435923
-2026-06-03,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.43467
+2026-06-03,3296290,Mira,mira,Others,0.018214
+2026-06-03,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.106403
+2026-06-03,3296290,Mira,mira,minimax/minimax-m2.5-20260211,13.882446
+2026-06-03,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.116582
+2026-06-03,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.042753
+2026-06-03,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,3.804984
+2026-06-03,3296290,Mira,mira,openai/gpt-4o-mini,0.042195
+2026-06-03,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.040446
+2026-06-03,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.066338
+2026-06-03,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.435923
+2026-06-03,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.43467
 2026-06-04,169155,Janitor AI,janitor-ai,Others,7.799876
 2026-06-04,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.180417
 2026-06-04,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.748728
@@ -22151,6 +22195,17 @@
 2026-06-04,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.660703
 2026-06-04,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.524738
 2026-06-04,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.677013
+2026-06-04,169295,Portkey AI,portkey-ai,Others,0.795419
+2026-06-04,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,1.010717
+2026-06-04,169295,Portkey AI,portkey-ai,deepseek/deepseek-r1,0.209678
+2026-06-04,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.514743
+2026-06-04,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.777935
+2026-06-04,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.419815
+2026-06-04,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.299909
+2026-06-04,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.259756
+2026-06-04,169295,Portkey AI,portkey-ai,meta-llama/llama-4-maverick-17b-128e-instruct,0.155051
+2026-06-04,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.5-0127,0.124975
+2026-06-04,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.14528
 2026-06-04,190604,Cline,cline,Others,9.118746
 2026-06-04,190604,Cline,cline,anthropic/claude-4.5-sonnet-20250929,0.731343
 2026-06-04,190604,Cline,cline,anthropic/claude-4.6-opus-20260205,0.642741
@@ -22290,17 +22345,17 @@
 2026-06-04,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,202.473799
 2026-06-04,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,62.914673
 2026-06-04,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,21.134812
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.028161
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.056049
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,12.770343
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.102951
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.0335
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,3.859244
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.04236
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.033133
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.066401
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.415637
-2026-06-04,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.422632
+2026-06-04,3296290,Mira,mira,Others,0.028161
+2026-06-04,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.056049
+2026-06-04,3296290,Mira,mira,minimax/minimax-m2.5-20260211,12.770343
+2026-06-04,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.102951
+2026-06-04,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.0335
+2026-06-04,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,3.859244
+2026-06-04,3296290,Mira,mira,openai/gpt-4o-mini,0.04236
+2026-06-04,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.033133
+2026-06-04,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.066401
+2026-06-04,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.415637
+2026-06-04,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.422632
 2026-06-05,169155,Janitor AI,janitor-ai,Others,8.501053
 2026-06-05,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.195384
 2026-06-05,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.790023
@@ -22312,6 +22367,17 @@
 2026-06-05,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,1.371582
 2026-06-05,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.455368
 2026-06-05,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.620315
+2026-06-05,169295,Portkey AI,portkey-ai,Others,0.302764
+2026-06-05,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.974699
+2026-06-05,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.747189
+2026-06-05,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,1.546454
+2026-06-05,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.103015
+2026-06-05,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.253827
+2026-06-05,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.312926
+2026-06-05,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.179053
+2026-06-05,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.111626
+2026-06-05,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.200214
+2026-06-05,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.088018
 2026-06-05,190604,Cline,cline,Others,8.005396
 2026-06-05,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.937956
 2026-06-05,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,0.799539
@@ -22451,17 +22517,17 @@
 2026-06-05,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,106.700352
 2026-06-05,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,58.736543
 2026-06-05,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,15.325608
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.014244
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.051707
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,12.040327
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.096116
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.030411
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,4.153872
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.042736
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.037689
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.061381
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.397963
-2026-06-05,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.384463
+2026-06-05,3296290,Mira,mira,Others,0.014244
+2026-06-05,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.051707
+2026-06-05,3296290,Mira,mira,minimax/minimax-m2.5-20260211,12.040327
+2026-06-05,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.096116
+2026-06-05,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.030411
+2026-06-05,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,4.153872
+2026-06-05,3296290,Mira,mira,openai/gpt-4o-mini,0.042736
+2026-06-05,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.037689
+2026-06-05,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.061381
+2026-06-05,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.397963
+2026-06-05,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.384463
 2026-06-06,169155,Janitor AI,janitor-ai,Others,8.500381
 2026-06-06,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.262752
 2026-06-06,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.786265
@@ -22473,6 +22539,17 @@
 2026-06-06,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.544654
 2026-06-06,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.346106
 2026-06-06,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.687725
+2026-06-06,169295,Portkey AI,portkey-ai,Others,0.147765
+2026-06-06,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.716248
+2026-06-06,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.671524
+2026-06-06,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.966395
+2026-06-06,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.033682
+2026-06-06,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.086519
+2026-06-06,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.401446
+2026-06-06,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.045435
+2026-06-06,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.111893
+2026-06-06,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.5-0127,0.02963
+2026-06-06,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.041287
 2026-06-06,190604,Cline,cline,Others,6.349107
 2026-06-06,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.179611
 2026-06-06,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,1.756715
@@ -22610,17 +22687,17 @@
 2026-06-06,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,56.070519
 2026-06-06,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,14.740395
 2026-06-06,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,13.485035
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.017106
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.049367
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,12.496103
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.09109
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.044722
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,3.774099
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.041635
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.038206
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.054433
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.390104
-2026-06-06,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.335781
+2026-06-06,3296290,Mira,mira,Others,0.017106
+2026-06-06,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.049367
+2026-06-06,3296290,Mira,mira,minimax/minimax-m2.5-20260211,12.496103
+2026-06-06,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.09109
+2026-06-06,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.044722
+2026-06-06,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,3.774099
+2026-06-06,3296290,Mira,mira,openai/gpt-4o-mini,0.041635
+2026-06-06,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.038206
+2026-06-06,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.054433
+2026-06-06,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.390104
+2026-06-06,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.335781
 2026-06-07,169155,Janitor AI,janitor-ai,Others,9.242061
 2026-06-07,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.427694
 2026-06-07,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.876627
@@ -22632,6 +22709,17 @@
 2026-06-07,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.767464
 2026-06-07,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.414286
 2026-06-07,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.68597
+2026-06-07,169295,Portkey AI,portkey-ai,Others,0.177947
+2026-06-07,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-opus-20260205,0.047083
+2026-06-07,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.314264
+2026-06-07,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.56995
+2026-06-07,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.05808
+2026-06-07,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.054784
+2026-06-07,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.407591
+2026-06-07,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.102604
+2026-06-07,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.042921
+2026-06-07,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.040947
+2026-06-07,169295,Portkey AI,portkey-ai,z-ai/glm-4.5-air,0.024538
 2026-06-07,190604,Cline,cline,Others,7.462963
 2026-06-07,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.628261
 2026-06-07,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.712507
@@ -22769,17 +22857,17 @@
 2026-06-07,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,53.878978
 2026-06-07,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,14.795566
 2026-06-07,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,13.779534
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.014016
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.060877
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,11.784468
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.095147
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.036342
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,4.029011
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.040532
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.03131
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.052665
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.393106
-2026-06-07,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.39465
+2026-06-07,3296290,Mira,mira,Others,0.014016
+2026-06-07,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.060877
+2026-06-07,3296290,Mira,mira,minimax/minimax-m2.5-20260211,11.784468
+2026-06-07,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.095147
+2026-06-07,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.036342
+2026-06-07,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,4.029011
+2026-06-07,3296290,Mira,mira,openai/gpt-4o-mini,0.040532
+2026-06-07,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.03131
+2026-06-07,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.052665
+2026-06-07,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.393106
+2026-06-07,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.39465
 2026-06-08,169155,Janitor AI,janitor-ai,Others,8.571771
 2026-06-08,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.433899
 2026-06-08,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.854026
@@ -22791,6 +22879,17 @@
 2026-06-08,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.65846
 2026-06-08,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,2.232426
 2026-06-08,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.70287
+2026-06-08,169295,Portkey AI,portkey-ai,Others,0.400563
+2026-06-08,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-opus-20260205,0.084987
+2026-06-08,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,1.01752
+2026-06-08,169295,Portkey AI,portkey-ai,deepseek/deepseek-r1,0.059316
+2026-06-08,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.871061
+2026-06-08,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.071229
+2026-06-08,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,1.926089
+2026-06-08,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.459465
+2026-06-08,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.091537
+2026-06-08,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.113385
+2026-06-08,169295,Portkey AI,portkey-ai,tencent/hy3-preview-20260421,0.80403
 2026-06-08,190604,Cline,cline,Others,9.542731
 2026-06-08,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.286822
 2026-06-08,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,0.721151
@@ -22926,17 +23025,17 @@
 2026-06-08,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,55.60838
 2026-06-08,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,13.791844
 2026-06-08,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,15.650604
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.017177
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.063098
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,11.613154
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.104199
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.039881
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,4.221008
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.039235
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.029093
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.067689
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.418108
-2026-06-08,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.464004
+2026-06-08,3296290,Mira,mira,Others,0.017177
+2026-06-08,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.063098
+2026-06-08,3296290,Mira,mira,minimax/minimax-m2.5-20260211,11.613154
+2026-06-08,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.104199
+2026-06-08,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.039881
+2026-06-08,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,4.221008
+2026-06-08,3296290,Mira,mira,openai/gpt-4o-mini,0.039235
+2026-06-08,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.029093
+2026-06-08,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.067689
+2026-06-08,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.418108
+2026-06-08,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.464004
 2026-06-09,169155,Janitor AI,janitor-ai,Others,7.522894
 2026-06-09,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.050096
 2026-06-09,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.790735
@@ -22948,6 +23047,17 @@
 2026-06-09,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.310501
 2026-06-09,169155,Janitor AI,janitor-ai,z-ai/glm-4.5-air,1.809857
 2026-06-09,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.591414
+2026-06-09,169295,Portkey AI,portkey-ai,Others,0.518826
+2026-06-09,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.863517
+2026-06-09,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.953766
+2026-06-09,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.131795
+2026-06-09,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,3.773564
+2026-06-09,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.24732
+2026-06-09,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.098729
+2026-06-09,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.117158
+2026-06-09,169295,Portkey AI,portkey-ai,openai/gpt-5.4-nano-20260317,0.430718
+2026-06-09,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.169211
+2026-06-09,169295,Portkey AI,portkey-ai,tencent/hy3-preview-20260421,0.077762
 2026-06-09,190604,Cline,cline,Others,9.756597
 2026-06-09,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.403025
 2026-06-09,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,0.905998
@@ -23083,17 +23193,17 @@
 2026-06-09,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,51.545287
 2026-06-09,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,16.794381
 2026-06-09,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,16.095089
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.023339
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.095426
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,10.265734
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.112583
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.033952
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,4.403271
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.039099
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-mini-2025-08-07,0.030478
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.063704
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.413245
-2026-06-09,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.410507
+2026-06-09,3296290,Mira,mira,Others,0.023339
+2026-06-09,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.095426
+2026-06-09,3296290,Mira,mira,minimax/minimax-m2.5-20260211,10.265734
+2026-06-09,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.112583
+2026-06-09,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.033952
+2026-06-09,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,4.403271
+2026-06-09,3296290,Mira,mira,openai/gpt-4o-mini,0.039099
+2026-06-09,3296290,Mira,mira,openai/gpt-5-mini-2025-08-07,0.030478
+2026-06-09,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.063704
+2026-06-09,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.413245
+2026-06-09,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.410507
 2026-06-10,169155,Janitor AI,janitor-ai,Others,6.802057
 2026-06-10,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.692014
 2026-06-10,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.679433
@@ -23105,6 +23215,17 @@
 2026-06-10,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.429047
 2026-06-10,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.289349
 2026-06-10,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.557016
+2026-06-10,169295,Portkey AI,portkey-ai,Others,0.863516
+2026-06-10,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.870517
+2026-06-10,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.823737
+2026-06-10,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.698826
+2026-06-10,169295,Portkey AI,portkey-ai,anthropic/claude-5-fable-20260609,2.492756
+2026-06-10,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.157014
+2026-06-10,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,3.736806
+2026-06-10,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.148883
+2026-06-10,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.139659
+2026-06-10,169295,Portkey AI,portkey-ai,openai/gpt-5.4-nano-20260317,4.493886
+2026-06-10,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.167609
 2026-06-10,190604,Cline,cline,Others,10.889629
 2026-06-10,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.905203
 2026-06-10,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.219451
@@ -23241,17 +23362,17 @@
 2026-06-10,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,49.911435
 2026-06-10,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,19.907507
 2026-06-10,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,15.122662
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.05305
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.109478
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,7.281701
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.115061
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.03624
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.591844
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.03977
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.641978
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.080648
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.447764
-2026-06-10,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.428195
+2026-06-10,3296290,Mira,mira,Others,0.05305
+2026-06-10,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.109478
+2026-06-10,3296290,Mira,mira,minimax/minimax-m2.5-20260211,7.281701
+2026-06-10,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.115061
+2026-06-10,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.03624
+2026-06-10,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.591844
+2026-06-10,3296290,Mira,mira,openai/gpt-4o-mini,0.03977
+2026-06-10,3296290,Mira,mira,openai/gpt-oss-120b,2.641978
+2026-06-10,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.080648
+2026-06-10,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.447764
+2026-06-10,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.428195
 2026-06-11,169155,Janitor AI,janitor-ai,Others,8.024424
 2026-06-11,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.14671
 2026-06-11,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.808927
@@ -23263,6 +23384,17 @@
 2026-06-11,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.58932
 2026-06-11,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.964638
 2026-06-11,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.677405
+2026-06-11,169295,Portkey AI,portkey-ai,Others,0.607903
+2026-06-11,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.169883
+2026-06-11,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.138027
+2026-06-11,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,4.098124
+2026-06-11,169295,Portkey AI,portkey-ai,anthropic/claude-5-fable-20260609,0.499567
+2026-06-11,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.308897
+2026-06-11,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,1.98382
+2026-06-11,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.185999
+2026-06-11,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.09464
+2026-06-11,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.09071
+2026-06-11,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.143457
 2026-06-11,190604,Cline,cline,Others,10.745775
 2026-06-11,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.098884
 2026-06-11,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,1.026069
@@ -23399,17 +23531,17 @@
 2026-06-11,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,260.901532
 2026-06-11,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,50.780938
 2026-06-11,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,18.705756
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.148123
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.5-20260211,5.137428
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m2.7-20260318,0.106421
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,1.282039
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.107332
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.789188
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.247407
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.065306
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,1.512271
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.389617
-2026-06-11,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.437093
+2026-06-11,3296290,Mira,mira,Others,0.148123
+2026-06-11,3296290,Mira,mira,minimax/minimax-m2.5-20260211,5.137428
+2026-06-11,3296290,Mira,mira,minimax/minimax-m2.7-20260318,0.106421
+2026-06-11,3296290,Mira,mira,minimax/minimax-m3-20260531,1.282039
+2026-06-11,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.107332
+2026-06-11,3296290,Mira,mira,openai/gpt-oss-120b,2.789188
+2026-06-11,3296290,Mira,mira,openai/gpt-oss-20b,0.247407
+2026-06-11,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.065306
+2026-06-11,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,1.512271
+2026-06-11,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.389617
+2026-06-11,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.437093
 2026-06-12,169155,Janitor AI,janitor-ai,Others,8.413948
 2026-06-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.074447
 2026-06-12,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.779306
@@ -23421,6 +23553,17 @@
 2026-06-12,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.601373
 2026-06-12,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.059985
 2026-06-12,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.710446
+2026-06-12,169295,Portkey AI,portkey-ai,Others,0.5064
+2026-06-12,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.264094
+2026-06-12,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.133426
+2026-06-12,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,2.459624
+2026-06-12,169295,Portkey AI,portkey-ai,anthropic/claude-5-fable-20260609,1.378137
+2026-06-12,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.078198
+2026-06-12,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.106333
+2026-06-12,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.53659
+2026-06-12,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.112106
+2026-06-12,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.100859
+2026-06-12,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.170983
 2026-06-12,190604,Cline,cline,Others,9.697591
 2026-06-12,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.864162
 2026-06-12,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.467731
@@ -23556,17 +23699,17 @@
 2026-06-12,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,247.553113
 2026-06-12,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,50.806215
 2026-06-12,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,23.495634
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.077077
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.035574
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.043535
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,6.919104
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.121526
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.802112
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.832219
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.031609
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,5.261612
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.275972
-2026-06-12,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.400281
+2026-06-12,3296290,Mira,mira,Others,0.077077
+2026-06-12,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.035574
+2026-06-12,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.043535
+2026-06-12,3296290,Mira,mira,minimax/minimax-m3-20260531,6.919104
+2026-06-12,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.121526
+2026-06-12,3296290,Mira,mira,openai/gpt-oss-120b,2.802112
+2026-06-12,3296290,Mira,mira,openai/gpt-oss-20b,0.832219
+2026-06-12,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.031609
+2026-06-12,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,5.261612
+2026-06-12,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.275972
+2026-06-12,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.400281
 2026-06-13,169155,Janitor AI,janitor-ai,Others,8.296555
 2026-06-13,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,2.081052
 2026-06-13,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.785141
@@ -23578,6 +23721,17 @@
 2026-06-13,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.658065
 2026-06-13,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.150772
 2026-06-13,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.643533
+2026-06-13,169295,Portkey AI,portkey-ai,Others,0.180129
+2026-06-13,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.065075
+2026-06-13,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.037025
+2026-06-13,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.056743
+2026-06-13,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.105747
+2026-06-13,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.183822
+2026-06-13,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.108571
+2026-06-13,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.075531
+2026-06-13,169295,Portkey AI,portkey-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.046248
+2026-06-13,169295,Portkey AI,portkey-ai,openai/gpt-oss-20b,0.104642
+2026-06-13,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.184312
 2026-06-13,190604,Cline,cline,Others,8.376973
 2026-06-13,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.531149
 2026-06-13,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.979717
@@ -23713,17 +23867,17 @@
 2026-06-13,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,219.687809
 2026-06-13,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,46.668548
 2026-06-13,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,20.65407
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.06773
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.045124
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,6.920005
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.034678
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.133817
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.598155
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.727312
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.02822
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,4.984923
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.262931
-2026-06-13,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.334285
+2026-06-13,3296290,Mira,mira,Others,0.06773
+2026-06-13,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.045124
+2026-06-13,3296290,Mira,mira,minimax/minimax-m3-20260531,6.920005
+2026-06-13,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.034678
+2026-06-13,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.133817
+2026-06-13,3296290,Mira,mira,openai/gpt-oss-120b,2.598155
+2026-06-13,3296290,Mira,mira,openai/gpt-oss-20b,0.727312
+2026-06-13,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.02822
+2026-06-13,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,4.984923
+2026-06-13,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.262931
+2026-06-13,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.334285
 2026-06-14,169155,Janitor AI,janitor-ai,Others,9.172191
 2026-06-14,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.997522
 2026-06-14,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.844602
@@ -23735,6 +23889,17 @@
 2026-06-14,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.706181
 2026-06-14,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.501684
 2026-06-14,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.744941
+2026-06-14,169295,Portkey AI,portkey-ai,Others,0.139535
+2026-06-14,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.895576
+2026-06-14,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.045987
+2026-06-14,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.036954
+2026-06-14,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.117965
+2026-06-14,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.072392
+2026-06-14,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.045463
+2026-06-14,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.102389
+2026-06-14,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.042412
+2026-06-14,169295,Portkey AI,portkey-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.053996
+2026-06-14,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.246628
 2026-06-14,190604,Cline,cline,Others,9.044989
 2026-06-14,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.468003
 2026-06-14,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,4.111852
@@ -23875,17 +24040,17 @@
 2026-06-14,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,227.612514
 2026-06-14,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,53.578534
 2026-06-14,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,22.723474
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.104417
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.045585
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-pro-20260423,0.05817
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,6.798774
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.028749
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.150792
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.796336
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.722684
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,4.526848
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.340154
-2026-06-14,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.328069
+2026-06-14,3296290,Mira,mira,Others,0.104417
+2026-06-14,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.045585
+2026-06-14,3296290,Mira,mira,deepseek/deepseek-v4-pro-20260423,0.05817
+2026-06-14,3296290,Mira,mira,minimax/minimax-m3-20260531,6.798774
+2026-06-14,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.028749
+2026-06-14,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.150792
+2026-06-14,3296290,Mira,mira,openai/gpt-oss-120b,2.796336
+2026-06-14,3296290,Mira,mira,openai/gpt-oss-20b,0.722684
+2026-06-14,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,4.526848
+2026-06-14,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.340154
+2026-06-14,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.328069
 2026-06-15,169155,Janitor AI,janitor-ai,Others,8.907297
 2026-06-15,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.914518
 2026-06-15,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.874238
@@ -23897,6 +24062,17 @@
 2026-06-15,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.653499
 2026-06-15,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.306046
 2026-06-15,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.706644
+2026-06-15,169295,Portkey AI,portkey-ai,Others,0.495624
+2026-06-15,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.354033
+2026-06-15,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.151265
+2026-06-15,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.284462
+2026-06-15,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.091399
+2026-06-15,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.546275
+2026-06-15,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.349695
+2026-06-15,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.081562
+2026-06-15,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.125976
+2026-06-15,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.129888
+2026-06-15,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.29588
 2026-06-15,190604,Cline,cline,Others,9.311552
 2026-06-15,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.027162
 2026-06-15,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,0.78664
@@ -24035,17 +24211,17 @@
 2026-06-15,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,211.525702
 2026-06-15,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,56.893442
 2026-06-15,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,24.612176
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.098014
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.033841
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.061662
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.70972
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.035249
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.16333
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,3.203134
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.762401
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,5.151859
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.238835
-2026-06-15,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.362782
+2026-06-15,3296290,Mira,mira,Others,0.098014
+2026-06-15,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.033841
+2026-06-15,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.061662
+2026-06-15,3296290,Mira,mira,minimax/minimax-m3-20260531,7.70972
+2026-06-15,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.035249
+2026-06-15,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.16333
+2026-06-15,3296290,Mira,mira,openai/gpt-oss-120b,3.203134
+2026-06-15,3296290,Mira,mira,openai/gpt-oss-20b,0.762401
+2026-06-15,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,5.151859
+2026-06-15,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.238835
+2026-06-15,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.362782
 2026-06-16,169155,Janitor AI,janitor-ai,Others,8.512757
 2026-06-16,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.863658
 2026-06-16,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.842956
@@ -24057,6 +24233,17 @@
 2026-06-16,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.598902
 2026-06-16,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.204339
 2026-06-16,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.617295
+2026-06-16,169295,Portkey AI,portkey-ai,Others,0.43805
+2026-06-16,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.27377
+2026-06-16,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.328706
+2026-06-16,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.338404
+2026-06-16,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.751673
+2026-06-16,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.652318
+2026-06-16,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,1.22187
+2026-06-16,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.780721
+2026-06-16,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.116472
+2026-06-16,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.1933
+2026-06-16,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.207584
 2026-06-16,190604,Cline,cline,Others,11.407712
 2026-06-16,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.558534
 2026-06-16,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,4.105445
@@ -24198,17 +24385,17 @@
 2026-06-16,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,204.652621
 2026-06-16,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,57.706953
 2026-06-16,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,23.681984
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.104574
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.8-opus-20260528,0.058703
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.062482
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.093507
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.030488
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.170529
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,3.20424
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.67626
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,5.001586
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,0.23754
-2026-06-16,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.289535
+2026-06-16,3296290,Mira,mira,Others,0.104574
+2026-06-16,3296290,Mira,mira,anthropic/claude-4.8-opus-20260528,0.058703
+2026-06-16,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.062482
+2026-06-16,3296290,Mira,mira,minimax/minimax-m3-20260531,7.093507
+2026-06-16,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.030488
+2026-06-16,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.170529
+2026-06-16,3296290,Mira,mira,openai/gpt-oss-120b,3.20424
+2026-06-16,3296290,Mira,mira,openai/gpt-oss-20b,0.67626
+2026-06-16,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,5.001586
+2026-06-16,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,0.23754
+2026-06-16,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.289535
 2026-06-17,169155,Janitor AI,janitor-ai,Others,8.305539
 2026-06-17,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.911199
 2026-06-17,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.847157
@@ -24220,6 +24407,17 @@
 2026-06-17,169155,Janitor AI,janitor-ai,nex-agi/nex-n2-pro,0.620631
 2026-06-17,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.049341
 2026-06-17,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.694415
+2026-06-17,169295,Portkey AI,portkey-ai,Others,0.725251
+2026-06-17,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.265111
+2026-06-17,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.198257
+2026-06-17,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,4.514455
+2026-06-17,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.394136
+2026-06-17,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,2.598552
+2026-06-17,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.887301
+2026-06-17,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.522142
+2026-06-17,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,0.234104
+2026-06-17,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.120444
+2026-06-17,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.129495
 2026-06-17,190604,Cline,cline,Others,12.267631
 2026-06-17,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.763246
 2026-06-17,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,4.743633
@@ -24357,17 +24555,17 @@
 2026-06-17,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,38.604829
 2026-06-17,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,18.33036
 2026-06-17,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,16.942737
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.119607
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.034944
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.074955
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.394306
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.032915
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.172421
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.538976
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.696066
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,xiaomi/mimo-v2-flash-20251210,3.695205
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,1.309405
-2026-06-17,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.429303
+2026-06-17,3296290,Mira,mira,Others,0.119607
+2026-06-17,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.034944
+2026-06-17,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.074955
+2026-06-17,3296290,Mira,mira,minimax/minimax-m3-20260531,7.394306
+2026-06-17,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.032915
+2026-06-17,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.172421
+2026-06-17,3296290,Mira,mira,openai/gpt-oss-120b,2.538976
+2026-06-17,3296290,Mira,mira,openai/gpt-oss-20b,0.696066
+2026-06-17,3296290,Mira,mira,xiaomi/mimo-v2-flash-20251210,3.695205
+2026-06-17,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,1.309405
+2026-06-17,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.429303
 2026-06-18,169155,Janitor AI,janitor-ai,Others,8.445038
 2026-06-18,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.904453
 2026-06-18,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.765289
@@ -24379,6 +24577,17 @@
 2026-06-18,169155,Janitor AI,janitor-ai,nex-agi/nex-n2-pro,0.646088
 2026-06-18,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.097225
 2026-06-18,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.615913
+2026-06-18,169295,Portkey AI,portkey-ai,Others,0.655811
+2026-06-18,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.171879
+2026-06-18,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.134779
+2026-06-18,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.549222
+2026-06-18,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,1.357915
+2026-06-18,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,2.343569
+2026-06-18,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.813337
+2026-06-18,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.150144
+2026-06-18,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.363094
+2026-06-18,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,0.457724
+2026-06-18,169295,Portkey AI,portkey-ai,openai/gpt-5-mini-2025-08-07,0.187989
 2026-06-18,190604,Cline,cline,Others,11.016125
 2026-06-18,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.414164
 2026-06-18,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,4.392078
@@ -24515,17 +24724,17 @@
 2026-06-18,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,216.124342
 2026-06-18,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,45.680538
 2026-06-18,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,25.247716
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.083562
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.8-opus-20260528,0.038243
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.072986
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.537107
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.170905
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.333031
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.638361
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.030627
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.030331
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,4.23005
-2026-06-18,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.318418
+2026-06-18,3296290,Mira,mira,Others,0.083562
+2026-06-18,3296290,Mira,mira,anthropic/claude-4.8-opus-20260528,0.038243
+2026-06-18,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.072986
+2026-06-18,3296290,Mira,mira,minimax/minimax-m3-20260531,7.537107
+2026-06-18,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.170905
+2026-06-18,3296290,Mira,mira,openai/gpt-oss-120b,2.333031
+2026-06-18,3296290,Mira,mira,openai/gpt-oss-20b,0.638361
+2026-06-18,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.030627
+2026-06-18,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.030331
+2026-06-18,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,4.23005
+2026-06-18,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.318418
 2026-06-19,169155,Janitor AI,janitor-ai,Others,8.341197
 2026-06-19,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.71343
 2026-06-19,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.812694
@@ -24537,6 +24746,17 @@
 2026-06-19,169155,Janitor AI,janitor-ai,nex-agi/nex-n2-pro,0.592219
 2026-06-19,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.241066
 2026-06-19,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.624497
+2026-06-19,169295,Portkey AI,portkey-ai,Others,0.546599
+2026-06-19,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.441596
+2026-06-19,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.130303
+2026-06-19,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.193319
+2026-06-19,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,1.823394
+2026-06-19,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,2.24679
+2026-06-19,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.822402
+2026-06-19,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.286687
+2026-06-19,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,0.516103
+2026-06-19,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.10373
+2026-06-19,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.289032
 2026-06-19,190604,Cline,cline,Others,10.762703
 2026-06-19,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.629001
 2026-06-19,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.236311
@@ -24673,17 +24893,17 @@
 2026-06-19,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,64.178431
 2026-06-19,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,20.738232
 2026-06-19,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,28.560549
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.058288
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.084861
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.283733
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.021716
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.156312
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.150753
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.640715
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.02585
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.034799
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,3.945971
-2026-06-19,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.308153
+2026-06-19,3296290,Mira,mira,Others,0.058288
+2026-06-19,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.084861
+2026-06-19,3296290,Mira,mira,minimax/minimax-m3-20260531,7.283733
+2026-06-19,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.021716
+2026-06-19,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.156312
+2026-06-19,3296290,Mira,mira,openai/gpt-oss-120b,2.150753
+2026-06-19,3296290,Mira,mira,openai/gpt-oss-20b,0.640715
+2026-06-19,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.02585
+2026-06-19,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.034799
+2026-06-19,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,3.945971
+2026-06-19,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.308153
 2026-06-20,169155,Janitor AI,janitor-ai,Others,8.151691
 2026-06-20,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.573795
 2026-06-20,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.824356
@@ -24695,6 +24915,17 @@
 2026-06-20,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.590822
 2026-06-20,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.611947
 2026-06-20,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.668624
+2026-06-20,169295,Portkey AI,portkey-ai,Others,0.268431
+2026-06-20,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.055893
+2026-06-20,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.020461
+2026-06-20,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,4.138648
+2026-06-20,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,2.293716
+2026-06-20,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-image-preview-20260226,0.071084
+2026-06-20,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.751776
+2026-06-20,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.188104
+2026-06-20,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,0.386188
+2026-06-20,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.122507
+2026-06-20,169295,Portkey AI,portkey-ai,openrouter/owl-alpha,0.210359
 2026-06-20,190604,Cline,cline,Others,8.782176
 2026-06-20,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.447642
 2026-06-20,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.705223
@@ -24831,17 +25062,17 @@
 2026-06-20,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,68.892242
 2026-06-20,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,17.540222
 2026-06-20,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,34.337758
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.052455
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.083326
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,8.679891
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.029756
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.162052
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.395969
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.693448
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.029298
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.035583
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,4.274897
-2026-06-20,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.288607
+2026-06-20,3296290,Mira,mira,Others,0.052455
+2026-06-20,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.083326
+2026-06-20,3296290,Mira,mira,minimax/minimax-m3-20260531,8.679891
+2026-06-20,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.029756
+2026-06-20,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.162052
+2026-06-20,3296290,Mira,mira,openai/gpt-oss-120b,2.395969
+2026-06-20,3296290,Mira,mira,openai/gpt-oss-20b,0.693448
+2026-06-20,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.029298
+2026-06-20,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.035583
+2026-06-20,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,4.274897
+2026-06-20,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.288607
 2026-06-21,169155,Janitor AI,janitor-ai,Others,8.503773
 2026-06-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.589407
 2026-06-21,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.932485
@@ -24853,6 +25084,17 @@
 2026-06-21,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.589674
 2026-06-21,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.675597
 2026-06-21,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.763623
+2026-06-21,169295,Portkey AI,portkey-ai,Others,0.365458
+2026-06-21,169295,Portkey AI,portkey-ai,anthropic/claude-4.5-haiku-20251001,0.069537
+2026-06-21,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.146143
+2026-06-21,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.520079
+2026-06-21,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.906844
+2026-06-21,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,2.218443
+2026-06-21,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.832233
+2026-06-21,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.151145
+2026-06-21,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,0.358454
+2026-06-21,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.095882
+2026-06-21,169295,Portkey AI,portkey-ai,openai/gpt-4o-mini,0.128918
 2026-06-21,190604,Cline,cline,Others,8.847259
 2026-06-21,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.423561
 2026-06-21,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.453816
@@ -24988,17 +25230,17 @@
 2026-06-21,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,100.115271
 2026-06-21,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,17.263778
 2026-06-21,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,37.110946
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.051265
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.077026
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.359515
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.025543
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.159806
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.351117
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.650036
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.023661
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.027263
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,3.799255
-2026-06-21,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.279284
+2026-06-21,3296290,Mira,mira,Others,0.051265
+2026-06-21,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,0.077026
+2026-06-21,3296290,Mira,mira,minimax/minimax-m3-20260531,7.359515
+2026-06-21,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.025543
+2026-06-21,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.159806
+2026-06-21,3296290,Mira,mira,openai/gpt-oss-120b,2.351117
+2026-06-21,3296290,Mira,mira,openai/gpt-oss-20b,0.650036
+2026-06-21,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.023661
+2026-06-21,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.027263
+2026-06-21,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,3.799255
+2026-06-21,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.279284
 2026-06-22,169155,Janitor AI,janitor-ai,Others,7.902582
 2026-06-22,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.491861
 2026-06-22,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,1.000453
@@ -25010,6 +25252,17 @@
 2026-06-22,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.541355
 2026-06-22,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.755865
 2026-06-22,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.727763
+2026-06-22,169295,Portkey AI,portkey-ai,Others,0.46533
+2026-06-22,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.554766
+2026-06-22,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.192036
+2026-06-22,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.152734
+2026-06-22,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.221106
+2026-06-22,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.081108
+2026-06-22,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,2.531711
+2026-06-22,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.761819
+2026-06-22,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.170872
+2026-06-22,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.115512
+2026-06-22,169295,Portkey AI,portkey-ai,openai/gpt-4o-mini,0.247497
 2026-06-22,190604,Cline,cline,Others,9.528493
 2026-06-22,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.288456
 2026-06-22,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.759026
@@ -25145,17 +25398,17 @@
 2026-06-22,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,118.263525
 2026-06-22,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,18.969496
 2026-06-22,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,49.540092
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.059849
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.719014
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.79404
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.027066
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.170503
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.368816
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-20b,0.123381
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.023792
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.0404
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,3.94159
-2026-06-22,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.296354
+2026-06-22,3296290,Mira,mira,Others,0.059849
+2026-06-22,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.719014
+2026-06-22,3296290,Mira,mira,minimax/minimax-m3-20260531,7.79404
+2026-06-22,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.027066
+2026-06-22,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.170503
+2026-06-22,3296290,Mira,mira,openai/gpt-oss-120b,2.368816
+2026-06-22,3296290,Mira,mira,openai/gpt-oss-20b,0.123381
+2026-06-22,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.023792
+2026-06-22,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.0404
+2026-06-22,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,3.94159
+2026-06-22,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.296354
 2026-06-23,169155,Janitor AI,janitor-ai,Others,7.293683
 2026-06-23,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.395408
 2026-06-23,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.859105
@@ -25167,6 +25420,17 @@
 2026-06-23,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,0.718556
 2026-06-23,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.276259
 2026-06-23,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.640854
+2026-06-23,169295,Portkey AI,portkey-ai,Others,0.736031
+2026-06-23,169295,Portkey AI,portkey-ai,anthropic/claude-4.5-haiku-20251001,0.770138
+2026-06-23,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.359063
+2026-06-23,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.627679
+2026-06-23,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.158175
+2026-06-23,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,1.884496
+2026-06-23,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.752165
+2026-06-23,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.185647
+2026-06-23,169295,Portkey AI,portkey-ai,google/gemini-embedding-001,0.17156
+2026-06-23,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.162834
+2026-06-23,169295,Portkey AI,portkey-ai,openai/gpt-4o-mini,1.532034
 2026-06-23,190604,Cline,cline,Others,10.057949
 2026-06-23,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.604758
 2026-06-23,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.68375
@@ -25303,17 +25567,17 @@
 2026-06-23,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,121.947843
 2026-06-23,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,19.186995
 2026-06-23,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,50.567168
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.05193
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.8-opus-20260528,0.019107
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,2.144453
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,7.262331
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.025581
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.161044
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.553425
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.023912
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.03505
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,3.628037
-2026-06-23,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.300025
+2026-06-23,3296290,Mira,mira,Others,0.05193
+2026-06-23,3296290,Mira,mira,anthropic/claude-4.8-opus-20260528,0.019107
+2026-06-23,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,2.144453
+2026-06-23,3296290,Mira,mira,minimax/minimax-m3-20260531,7.262331
+2026-06-23,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.025581
+2026-06-23,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.161044
+2026-06-23,3296290,Mira,mira,openai/gpt-oss-120b,2.553425
+2026-06-23,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.023912
+2026-06-23,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.03505
+2026-06-23,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,3.628037
+2026-06-23,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.300025
 2026-06-24,169155,Janitor AI,janitor-ai,Others,7.397806
 2026-06-24,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.469305
 2026-06-24,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.849493
@@ -25325,6 +25589,17 @@
 2026-06-24,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.657696
 2026-06-24,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,3.412666
 2026-06-24,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.671062
+2026-06-24,169295,Portkey AI,portkey-ai,Others,0.706541
+2026-06-24,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.481746
+2026-06-24,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.150532
+2026-06-24,169295,Portkey AI,portkey-ai,deepseek/deepseek-v3.2-20251201,0.131543
+2026-06-24,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.050507
+2026-06-24,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.139309
+2026-06-24,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,1.435003
+2026-06-24,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.673234
+2026-06-24,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.178448
+2026-06-24,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.264417
+2026-06-24,169295,Portkey AI,portkey-ai,openai/gpt-4o-mini,0.162612
 2026-06-24,190604,Cline,cline,Others,10.941205
 2026-06-24,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.365496
 2026-06-24,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,1.256538
@@ -25461,17 +25736,17 @@
 2026-06-24,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,111.004592
 2026-06-24,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-20260422,17.909632
 2026-06-24,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,56.98589
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.042648
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.027001
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.685541
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,6.312865
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.017787
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.14054
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.285654
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.6-plus-04-02,0.023893
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.04104
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,3.409191
-2026-06-24,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.335887
+2026-06-24,3296290,Mira,mira,Others,0.042648
+2026-06-24,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.027001
+2026-06-24,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.685541
+2026-06-24,3296290,Mira,mira,minimax/minimax-m3-20260531,6.312865
+2026-06-24,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.017787
+2026-06-24,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.14054
+2026-06-24,3296290,Mira,mira,openai/gpt-oss-120b,2.285654
+2026-06-24,3296290,Mira,mira,qwen/qwen3.6-plus-04-02,0.023893
+2026-06-24,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.04104
+2026-06-24,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,3.409191
+2026-06-24,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.335887
 2026-06-25,169155,Janitor AI,janitor-ai,Others,7.618191
 2026-06-25,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.336971
 2026-06-25,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.814336
@@ -25483,6 +25758,17 @@
 2026-06-25,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.626458
 2026-06-25,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,4.183258
 2026-06-25,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.697103
+2026-06-25,169295,Portkey AI,portkey-ai,Others,0.551532
+2026-06-25,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.182558
+2026-06-25,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.18122
+2026-06-25,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.196406
+2026-06-25,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,0.99446
+2026-06-25,169295,Portkey AI,portkey-ai,google/gemini-2.5-flash,0.106062
+2026-06-25,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.444964
+2026-06-25,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.644444
+2026-06-25,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.163731
+2026-06-25,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.7-code-20260612,0.124491
+2026-06-25,169295,Portkey AI,portkey-ai,openai/gpt-5-mini-2025-08-07,0.284425
 2026-06-25,190604,Cline,cline,Others,9.792105
 2026-06-25,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.164815
 2026-06-25,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.890808
@@ -25620,17 +25906,17 @@
 2026-06-25,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,89.598479
 2026-06-25,3067167,Hermes Agent,hermes-agent,xiaomi/mimo-v2.5-pro-20260422,10.55356
 2026-06-25,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,56.656662
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.04219
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.015782
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.8-opus-20260528,0.014627
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.19476
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,4.805103
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.100698
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.01515
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.271021
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.023174
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,2.265148
-2026-06-25,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.306944
+2026-06-25,3296290,Mira,mira,Others,0.04219
+2026-06-25,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.015782
+2026-06-25,3296290,Mira,mira,anthropic/claude-4.8-opus-20260528,0.014627
+2026-06-25,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.19476
+2026-06-25,3296290,Mira,mira,minimax/minimax-m3-20260531,4.805103
+2026-06-25,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.100698
+2026-06-25,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.01515
+2026-06-25,3296290,Mira,mira,openai/gpt-oss-120b,2.271021
+2026-06-25,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.023174
+2026-06-25,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,2.265148
+2026-06-25,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.306944
 2026-06-26,169155,Janitor AI,janitor-ai,Others,7.678351
 2026-06-26,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.222452
 2026-06-26,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.841124
@@ -25642,6 +25928,17 @@
 2026-06-26,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.621344
 2026-06-26,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,0.643713
 2026-06-26,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,4.390837
+2026-06-26,169295,Portkey AI,portkey-ai,Others,0.92665
+2026-06-26,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.296889
+2026-06-26,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.152031
+2026-06-26,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.201298
+2026-06-26,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.10505
+2026-06-26,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.724884
+2026-06-26,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.672225
+2026-06-26,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-preview-20260303,0.138922
+2026-06-26,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.143883
+2026-06-26,169295,Portkey AI,portkey-ai,qwen/qwen3-235b-a22b-07-25,0.477457
+2026-06-26,169295,Portkey AI,portkey-ai,qwen/qwen3.5-flash-20260224,0.236217
 2026-06-26,190604,Cline,cline,Others,10.294145
 2026-06-26,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.088543
 2026-06-26,190604,Cline,cline,anthropic/claude-4.7-opus-20260416,1.033267
@@ -25777,17 +26074,17 @@
 2026-06-26,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,338.582114
 2026-06-26,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,84.511191
 2026-06-26,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,61.653682
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.026125
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,anthropic/claude-4.6-sonnet-20260217,0.009715
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.363779
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,5.437295
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.015131
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.108487
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.014606
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.495881
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.020239
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,2.552901
-2026-06-26,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.279449
+2026-06-26,3296290,Mira,mira,Others,0.026125
+2026-06-26,3296290,Mira,mira,anthropic/claude-4.6-sonnet-20260217,0.009715
+2026-06-26,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.363779
+2026-06-26,3296290,Mira,mira,minimax/minimax-m3-20260531,5.437295
+2026-06-26,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.015131
+2026-06-26,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.108487
+2026-06-26,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.014606
+2026-06-26,3296290,Mira,mira,openai/gpt-oss-120b,2.495881
+2026-06-26,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.020239
+2026-06-26,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,2.552901
+2026-06-26,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.279449
 2026-06-27,169155,Janitor AI,janitor-ai,Others,7.834466
 2026-06-27,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.124889
 2026-06-27,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.917633
@@ -25799,6 +26096,17 @@
 2026-06-27,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.64781
 2026-06-27,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,1.181759
 2026-06-27,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,4.431355
+2026-06-27,169295,Portkey AI,portkey-ai,Others,0.424301
+2026-06-27,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.477539
+2026-06-27,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.067059
+2026-06-27,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.16405
+2026-06-27,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.117802
+2026-06-27,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,5.767374
+2026-06-27,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.605944
+2026-06-27,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,0.401566
+2026-06-27,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.153094
+2026-06-27,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.081826
+2026-06-27,169295,Portkey AI,portkey-ai,qwen/qwen3-235b-a22b-07-25,0.910473
 2026-06-27,190604,Cline,cline,Others,3.850855
 2026-06-27,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,0.589362
 2026-06-27,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,1.867407
@@ -25934,17 +26242,17 @@
 2026-06-27,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,334.746768
 2026-06-27,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,89.047769
 2026-06-27,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,55.081059
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.0257
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.182988
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-pro-20260423,0.009231
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,5.278277
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.018617
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.105194
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.013613
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.501753
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.025028
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,2.514236
-2026-06-27,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.198682
+2026-06-27,3296290,Mira,mira,Others,0.0257
+2026-06-27,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.182988
+2026-06-27,3296290,Mira,mira,deepseek/deepseek-v4-pro-20260423,0.009231
+2026-06-27,3296290,Mira,mira,minimax/minimax-m3-20260531,5.278277
+2026-06-27,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.018617
+2026-06-27,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.105194
+2026-06-27,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.013613
+2026-06-27,3296290,Mira,mira,openai/gpt-oss-120b,2.501753
+2026-06-27,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.025028
+2026-06-27,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,2.514236
+2026-06-27,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.198682
 2026-06-28,169155,Janitor AI,janitor-ai,Others,8.338097
 2026-06-28,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.139177
 2026-06-28,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,1.019805
@@ -25956,6 +26264,17 @@
 2026-06-28,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,1.190603
 2026-06-28,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,5.263853
 2026-06-28,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.663581
+2026-06-28,169295,Portkey AI,portkey-ai,Others,0.26075
+2026-06-28,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,9.886769
+2026-06-28,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.161835
+2026-06-28,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.524764
+2026-06-28,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-pro-20260423,0.055268
+2026-06-28,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.207503
+2026-06-28,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.588543
+2026-06-28,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,2.410165
+2026-06-28,169295,Portkey AI,portkey-ai,minimax/minimax-m3-20260531,0.116486
+2026-06-28,169295,Portkey AI,portkey-ai,openai/gpt-5.4-20260305,0.066674
+2026-06-28,169295,Portkey AI,portkey-ai,qwen/qwen3-235b-a22b-07-25,0.977865
 2026-06-28,190604,Cline,cline,Others,4.501661
 2026-06-28,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,0.849714
 2026-06-28,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.697693
@@ -26091,17 +26410,17 @@
 2026-06-28,3067167,Hermes Agent,hermes-agent,poolside/laguna-m.1-20260312,13.464384
 2026-06-28,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,90.624286
 2026-06-28,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,62.258504
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.019999
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.347482
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-pro-20260423,0.015497
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,5.175543
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.018634
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.10342
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.01432
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.508164
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.026038
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,2.415429
-2026-06-28,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.197028
+2026-06-28,3296290,Mira,mira,Others,0.019999
+2026-06-28,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.347482
+2026-06-28,3296290,Mira,mira,deepseek/deepseek-v4-pro-20260423,0.015497
+2026-06-28,3296290,Mira,mira,minimax/minimax-m3-20260531,5.175543
+2026-06-28,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.018634
+2026-06-28,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.10342
+2026-06-28,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.01432
+2026-06-28,3296290,Mira,mira,openai/gpt-oss-120b,2.508164
+2026-06-28,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.026038
+2026-06-28,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,2.415429
+2026-06-28,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.197028
 2026-06-29,169155,Janitor AI,janitor-ai,Others,8.151473
 2026-06-29,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.207149
 2026-06-29,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.990693
@@ -26113,6 +26432,17 @@
 2026-06-29,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,1.209403
 2026-06-29,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,4.924365
 2026-06-29,169155,Janitor AI,janitor-ai,z-ai/glm-5-20260211,0.640365
+2026-06-29,169295,Portkey AI,portkey-ai,Others,1.146522
+2026-06-29,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,0.732995
+2026-06-29,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.228502
+2026-06-29,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.298502
+2026-06-29,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.516566
+2026-06-29,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.626067
+2026-06-29,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.271847
+2026-06-29,169295,Portkey AI,portkey-ai,google/gemini-3.5-flash-20260519,2.297561
+2026-06-29,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,0.959852
+2026-06-29,169295,Portkey AI,portkey-ai,qwen/qwen3-235b-a22b-07-25,0.895525
+2026-06-29,169295,Portkey AI,portkey-ai,z-ai/glm-5.2-20260616,1.246873
 2026-06-29,190604,Cline,cline,Others,7.715214
 2026-06-29,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.860399
 2026-06-29,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.957963
@@ -26248,50 +26578,62 @@
 2026-06-29,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,357.474195
 2026-06-29,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,91.982347
 2026-06-29,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,65.429675
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.036525
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,1.528309
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-pro-20260423,0.027922
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,5.470212
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.019896
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.109456
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.015927
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,2.798611
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.025444
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,2.516241
-2026-06-29,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.323736
-2026-06-30,169155,Janitor AI,janitor-ai,Others,5.331553
-2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,0.766332
-2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.584913
-2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-r1-0528,0.507583
-2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-v3.2-20251201,6.170646
-2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-flash-20260423,2.124299
-2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-pro-20260423,1.515462
-2026-06-30,169155,Janitor AI,janitor-ai,google/gemma-4-31b-it-20260402,0.99339
-2026-06-30,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.442832
-2026-06-30,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,0.931517
+2026-06-29,3296290,Mira,mira,Others,0.036525
+2026-06-29,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.528309
+2026-06-29,3296290,Mira,mira,deepseek/deepseek-v4-pro-20260423,0.027922
+2026-06-29,3296290,Mira,mira,minimax/minimax-m3-20260531,5.470212
+2026-06-29,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.019896
+2026-06-29,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.109456
+2026-06-29,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.015927
+2026-06-29,3296290,Mira,mira,openai/gpt-oss-120b,2.798611
+2026-06-29,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.025444
+2026-06-29,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,2.516241
+2026-06-29,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.323736
+2026-06-30,169155,Janitor AI,janitor-ai,Others,8.23688
+2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3-0324,1.15261
+2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-chat-v3.1,0.88891
+2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-r1-0528,0.76365
+2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-v3.2-20251201,9.28645
+2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-flash-20260423,3.282577
+2026-06-30,169155,Janitor AI,janitor-ai,deepseek/deepseek-v4-pro-20260423,2.33021
+2026-06-30,169155,Janitor AI,janitor-ai,google/gemma-4-31b-it-20260402,1.507365
+2026-06-30,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-super-120b-a12b-20230311,0.744987
+2026-06-30,169155,Janitor AI,janitor-ai,nvidia/nemotron-3-ultra-550b-a55b-20260604,1.469598
 2026-06-30,169155,Janitor AI,janitor-ai,openrouter/owl-alpha,2.048581
-2026-06-30,190604,Cline,cline,Others,5.849141
-2026-06-30,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,1.589788
-2026-06-30,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,2.15291
-2026-06-30,190604,Cline,cline,deepseek/deepseek-v4-flash-20260423,2.968026
-2026-06-30,190604,Cline,cline,deepseek/deepseek-v4-pro-20260423,1.156381
-2026-06-30,190604,Cline,cline,nvidia/nemotron-3-ultra-550b-a55b-20260604,1.052149
+2026-06-30,169295,Portkey AI,portkey-ai,Others,1.149666
+2026-06-30,169295,Portkey AI,portkey-ai,anthropic/claude-4.6-sonnet-20260217,2.30163
+2026-06-30,169295,Portkey AI,portkey-ai,anthropic/claude-4.7-opus-20260416,0.198281
+2026-06-30,169295,Portkey AI,portkey-ai,anthropic/claude-4.8-opus-20260528,0.364157
+2026-06-30,169295,Portkey AI,portkey-ai,deepseek/deepseek-v4-flash-20260423,1.320584
+2026-06-30,169295,Portkey AI,portkey-ai,google/gemini-3-flash-preview-20251217,0.431972
+2026-06-30,169295,Portkey AI,portkey-ai,google/gemini-3.1-flash-lite-20260507,0.617598
+2026-06-30,169295,Portkey AI,portkey-ai,google/gemini-3.1-pro-preview-20260219,0.288211
+2026-06-30,169295,Portkey AI,portkey-ai,moonshotai/kimi-k2.6-20260420,1.309213
+2026-06-30,169295,Portkey AI,portkey-ai,qwen/qwen3-235b-a22b-07-25,0.552703
+2026-06-30,169295,Portkey AI,portkey-ai,z-ai/glm-5.2-20260616,1.55945
+2026-06-30,190604,Cline,cline,Others,9.380533
+2026-06-30,190604,Cline,cline,anthropic/claude-4.6-sonnet-20260217,2.302384
+2026-06-30,190604,Cline,cline,anthropic/claude-4.8-opus-20260528,3.503731
+2026-06-30,190604,Cline,cline,deepseek/deepseek-v4-flash-20260423,4.168854
+2026-06-30,190604,Cline,cline,deepseek/deepseek-v4-pro-20260423,1.747813
+2026-06-30,190604,Cline,cline,nvidia/nemotron-3-ultra-550b-a55b-20260604,1.561231
 2026-06-30,190604,Cline,cline,openrouter/owl-alpha,1.323838
-2026-06-30,190604,Cline,cline,stepfun/step-3.7-flash-20260528,27.597803
-2026-06-30,190604,Cline,cline,xiaomi/mimo-v2.5-20260422,1.323631
-2026-06-30,190604,Cline,cline,xiaomi/mimo-v2.5-pro-20260422,1.297695
-2026-06-30,190604,Cline,cline,z-ai/glm-5.2-20260616,0.875269
-2026-06-30,2262242,Kilo Code,kilo-code,Others,22.960137
+2026-06-30,190604,Cline,cline,stepfun/step-3.7-flash-20260528,39.25544
+2026-06-30,190604,Cline,cline,xiaomi/mimo-v2.5-20260422,1.914148
+2026-06-30,190604,Cline,cline,xiaomi/mimo-v2.5-pro-20260422,2.087192
+2026-06-30,190604,Cline,cline,z-ai/glm-5.2-20260616,1.518152
+2026-06-30,2262242,Kilo Code,kilo-code,Others,34.461456
 2026-06-30,2262242,Kilo Code,kilo-code,anthropic/claude-4.8-opus-20260528,3.645873
-2026-06-30,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-flash-20260423,4.906452
-2026-06-30,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-pro-20260423,5.424263
-2026-06-30,2262242,Kilo Code,kilo-code,minimax/minimax-m3-20260531,22.112679
-2026-06-30,2262242,Kilo Code,kilo-code,nvidia/nemotron-3-super-120b-a12b-20230311,5.060162
+2026-06-30,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-flash-20260423,7.681475
+2026-06-30,2262242,Kilo Code,kilo-code,deepseek/deepseek-v4-pro-20260423,8.985908
+2026-06-30,2262242,Kilo Code,kilo-code,minimax/minimax-m3-20260531,33.650398
+2026-06-30,2262242,Kilo Code,kilo-code,nvidia/nemotron-3-super-120b-a12b-20230311,7.366652
+2026-06-30,2262242,Kilo Code,kilo-code,nvidia/nemotron-3-ultra-550b-a55b-20260604,5.166759
 2026-06-30,2262242,Kilo Code,kilo-code,openrouter/owl-alpha,12.706789
-2026-06-30,2262242,Kilo Code,kilo-code,poolside/laguna-m.1-20260312,69.333837
-2026-06-30,2262242,Kilo Code,kilo-code,poolside/laguna-xs.2-20260421,6.451325
-2026-06-30,2262242,Kilo Code,kilo-code,stepfun/step-3.7-flash-20260528,43.935953
-2026-06-30,2262242,Kilo Code,kilo-code,z-ai/glm-5.2-20260616,3.807067
+2026-06-30,2262242,Kilo Code,kilo-code,poolside/laguna-m.1-20260312,100.26339
+2026-06-30,2262242,Kilo Code,kilo-code,poolside/laguna-xs.2-20260421,9.940925
+2026-06-30,2262242,Kilo Code,kilo-code,stepfun/step-3.7-flash-20260528,67.193077
+2026-06-30,2262242,Kilo Code,kilo-code,z-ai/glm-5.2-20260616,6.067739
 2026-06-30,2267189,Zed Editor,zed-editor,Others,0.827954
 2026-06-30,2267189,Zed Editor,zed-editor,cohere/north-mini-code-20260617,0.091319
 2026-06-30,2267189,Zed Editor,zed-editor,deepseek/deepseek-v4-flash-20260423,0.903218
@@ -26303,117 +26645,125 @@
 2026-06-30,2267189,Zed Editor,zed-editor,poolside/laguna-m.1-20260312,0.305833
 2026-06-30,2267189,Zed Editor,zed-editor,xiaomi/mimo-v2.5-20260422,0.278415
 2026-06-30,2267189,Zed Editor,zed-editor,z-ai/glm-5.2-20260616,0.786146
-2026-06-30,2299688,GDevelop,gdevelop,anthropic/claude-4.6-sonnet-20260217,0.115674
-2026-06-30,2299688,GDevelop,gdevelop,deepseek/deepseek-v4-flash-20260423,0.001386
-2026-06-30,2299688,GDevelop,gdevelop,deepseek/deepseek-v4-pro-20260423,1.956598
-2026-06-30,2299688,GDevelop,gdevelop,google/gemini-2.5-flash,1.342759
-2026-06-30,2299688,GDevelop,gdevelop,google/gemini-2.5-flash-lite,0.046039
-2026-06-30,2299688,GDevelop,gdevelop,google/gemini-3-flash-preview-20251217,0.20182
-2026-06-30,2299688,GDevelop,gdevelop,openai/gpt-5.4-mini-20260317,0.108667
-2026-06-30,2299688,GDevelop,gdevelop,openai/gpt-5.4-nano-20260317,3.372984
-2026-06-30,2299688,GDevelop,gdevelop,openai/gpt-oss-20b,0.197291
-2026-06-30,2308106,Descript,descript,Others,0.035196
+2026-06-30,2299688,GDevelop,gdevelop,anthropic/claude-4.6-sonnet-20260217,0.152112
+2026-06-30,2299688,GDevelop,gdevelop,deepseek/deepseek-v4-flash-20260423,0.003112
+2026-06-30,2299688,GDevelop,gdevelop,deepseek/deepseek-v4-pro-20260423,3.464696
+2026-06-30,2299688,GDevelop,gdevelop,google/gemini-2.5-flash,2.260986
+2026-06-30,2299688,GDevelop,gdevelop,google/gemini-2.5-flash-lite,0.075713
+2026-06-30,2299688,GDevelop,gdevelop,google/gemini-3-flash-preview-20251217,0.282568
+2026-06-30,2299688,GDevelop,gdevelop,openai/gpt-5.4-mini-20260317,0.191155
+2026-06-30,2299688,GDevelop,gdevelop,openai/gpt-5.4-nano-20260317,5.860921
+2026-06-30,2299688,GDevelop,gdevelop,openai/gpt-oss-20b,0.3358
+2026-06-30,2308106,Descript,descript,Others,0.112618
 2026-06-30,2308106,Descript,descript,anthropic/claude-4.5-haiku-20251001,0.033405
-2026-06-30,2308106,Descript,descript,anthropic/claude-4.6-opus-20260205,0.972068
-2026-06-30,2308106,Descript,descript,anthropic/claude-4.6-sonnet-20260217,34.362943
-2026-06-30,2308106,Descript,descript,anthropic/claude-4.8-opus-20260528,0.510758
-2026-06-30,2308106,Descript,descript,google/gemini-2.5-flash-lite,6.112705
-2026-06-30,2308106,Descript,descript,google/gemini-3.1-pro-preview-20260219,0.023723
-2026-06-30,2308106,Descript,descript,google/gemini-3.5-flash-20260519,0.060549
-2026-06-30,2308106,Descript,descript,moonshotai/kimi-k2.6-20260420,0.467905
-2026-06-30,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.093241
-2026-06-30,2308106,Descript,descript,openai/gpt-5.5-20260423,0.093089
-2026-06-30,2524738,LangChain,langchain,Others,2.274438
-2026-06-30,2524738,LangChain,langchain,anthropic/claude-4.6-sonnet-20260217,0.723723
+2026-06-30,2308106,Descript,descript,anthropic/claude-4.6-opus-20260205,2.493914
+2026-06-30,2308106,Descript,descript,anthropic/claude-4.6-sonnet-20260217,53.9794
+2026-06-30,2308106,Descript,descript,anthropic/claude-4.8-opus-20260528,1.115463
+2026-06-30,2308106,Descript,descript,anthropic/claude-sonnet-5-20260630,6.493256
+2026-06-30,2308106,Descript,descript,google/gemini-2.5-flash-lite,10.960727
+2026-06-30,2308106,Descript,descript,google/gemini-3.1-pro-preview-20260219,0.118124
+2026-06-30,2308106,Descript,descript,google/gemini-3.5-flash-20260519,0.080248
+2026-06-30,2308106,Descript,descript,moonshotai/kimi-k2.6-20260420,0.770068
+2026-06-30,2308106,Descript,descript,openai/gpt-4.1-mini-2025-04-14,0.168574
+2026-06-30,2308106,Descript,descript,openai/gpt-5.5-20260423,0.228388
+2026-06-30,2524738,LangChain,langchain,Others,3.213307
+2026-06-30,2524738,LangChain,langchain,anthropic/claude-4.6-sonnet-20260217,1.013531
 2026-06-30,2524738,LangChain,langchain,anthropic/claude-4.8-opus-20260528,0.226831
-2026-06-30,2524738,LangChain,langchain,deepseek/deepseek-v4-flash-20260423,1.90814
-2026-06-30,2524738,LangChain,langchain,deepseek/deepseek-v4-pro-20260423,0.38377
-2026-06-30,2524738,LangChain,langchain,google/gemini-2.5-flash,0.31341
+2026-06-30,2524738,LangChain,langchain,deepseek/deepseek-v4-flash-20260423,2.291998
+2026-06-30,2524738,LangChain,langchain,deepseek/deepseek-v4-pro-20260423,0.612197
+2026-06-30,2524738,LangChain,langchain,google/gemini-2.5-flash,0.387748
 2026-06-30,2524738,LangChain,langchain,google/gemini-2.5-flash-lite,0.253881
-2026-06-30,2524738,LangChain,langchain,google/gemini-3-flash-preview-20251217,1.025388
-2026-06-30,2524738,LangChain,langchain,google/gemini-3.1-flash-lite-20260507,1.38541
-2026-06-30,2524738,LangChain,langchain,qwen/qwen3-next-80b-a3b-instruct-2509,0.732898
-2026-06-30,2524738,LangChain,langchain,z-ai/glm-5.1-20260406,0.410511
-2026-06-30,2627404,Claude Code,claude-code,Others,19.912439
-2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.6-sonnet-20260217,12.739769
-2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.7-opus-20260416,4.225669
-2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.8-opus-20260528,30.094426
-2026-06-30,2627404,Claude Code,claude-code,deepseek/deepseek-v4-flash-20260423,8.855673
-2026-06-30,2627404,Claude Code,claude-code,deepseek/deepseek-v4-pro-20260423,12.791329
-2026-06-30,2627404,Claude Code,claude-code,nvidia/nemotron-3-ultra-550b-a55b-20260604,3.690857
+2026-06-30,2524738,LangChain,langchain,google/gemini-3-flash-preview-20251217,1.465127
+2026-06-30,2524738,LangChain,langchain,google/gemini-3.1-flash-lite-20260507,2.439837
+2026-06-30,2524738,LangChain,langchain,google/gemini-3.5-flash-20260519,0.357204
+2026-06-30,2524738,LangChain,langchain,openai/gpt-4.1-mini-2025-04-14,1.010152
+2026-06-30,2524738,LangChain,langchain,qwen/qwen3-next-80b-a3b-instruct-2509,0.851289
+2026-06-30,2524738,LangChain,langchain,z-ai/glm-5.1-20260406,0.467289
+2026-06-30,2627404,Claude Code,claude-code,Others,28.87379
+2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.5-haiku-20251001,4.246716
+2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.6-sonnet-20260217,15.40833
+2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.7-opus-20260416,6.120968
+2026-06-30,2627404,Claude Code,claude-code,anthropic/claude-4.8-opus-20260528,41.545995
+2026-06-30,2627404,Claude Code,claude-code,deepseek/deepseek-v4-flash-20260423,12.760942
+2026-06-30,2627404,Claude Code,claude-code,deepseek/deepseek-v4-pro-20260423,17.980462
+2026-06-30,2627404,Claude Code,claude-code,nvidia/nemotron-3-ultra-550b-a55b-20260604,4.814136
 2026-06-30,2627404,Claude Code,claude-code,openrouter/owl-alpha,10.667935
 2026-06-30,2627404,Claude Code,claude-code,poolside/laguna-m.1-20260312,2.933179
-2026-06-30,2627404,Claude Code,claude-code,xiaomi/mimo-v2.5-20260422,5.480468
-2026-06-30,2627404,Claude Code,claude-code,z-ai/glm-5.2-20260616,24.991911
-2026-06-30,2637375,Lemonade,lemonade,anthropic/claude-4.6-opus-20260205,0.389134
-2026-06-30,2637375,Lemonade,lemonade,deepseek/deepseek-v4-flash-20260423,0.498621
-2026-06-30,2637375,Lemonade,lemonade,google/gemini-3-flash-preview-20251217,6.423245
-2026-06-30,2637375,Lemonade,lemonade,openai/gpt-5.5-20260423,0.188699
+2026-06-30,2627404,Claude Code,claude-code,xiaomi/mimo-v2.5-20260422,6.282767
+2026-06-30,2627404,Claude Code,claude-code,z-ai/glm-5.2-20260616,31.79604
+2026-06-30,2637375,Lemonade,lemonade,anthropic/claude-4.6-opus-20260205,0.600033
+2026-06-30,2637375,Lemonade,lemonade,anthropic/claude-sonnet-5-20260630,0.062481
+2026-06-30,2637375,Lemonade,lemonade,deepseek/deepseek-v4-flash-20260423,0.866287
+2026-06-30,2637375,Lemonade,lemonade,google/gemini-3-flash-preview-20251217,11.598738
+2026-06-30,2637375,Lemonade,lemonade,openai/gpt-5.5-20260423,0.412313
 2026-06-30,2637375,Lemonade,lemonade,qwen/qwen3.5-35b-a3b-20260224,0.019766
-2026-06-30,2637375,Lemonade,lemonade,stepfun/step-3.7-flash-20260528,7.841656
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,Others,0.809483
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-flash-20260423,2.045325
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-pro-20260423,10.953791
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,google/gemini-2.5-flash-lite,0.230633
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,openai/gpt-oss-safeguard-20b,0.256795
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,xiaomi/mimo-v2.5-20260422,2.53515
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,xiaomi/mimo-v2.5-pro-20260422,1.33758
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-4.7-20251222,0.18811
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5-20260211,0.211914
+2026-06-30,2637375,Lemonade,lemonade,stepfun/step-3.7-flash-20260528,15.383789
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,Others,1.386507
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v3.2-20251201,0.245237
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-flash-20260423,3.270954
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,deepseek/deepseek-v4-pro-20260423,16.917892
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,google/gemini-2.5-flash-lite,0.381984
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,openai/gpt-oss-safeguard-20b,0.432974
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,xiaomi/mimo-v2.5-20260422,4.036917
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,xiaomi/mimo-v2.5-pro-20260422,2.117583
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-4.7-20251222,0.318299
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5-20260211,0.37172
 2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5.1-20260406,0.161421
-2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5.2-20260616,0.687946
-2026-06-30,2725608,OpenClaw,openclaw,Others,36.504366
-2026-06-30,2725608,OpenClaw,openclaw,anthropic/claude-4.6-sonnet-20260217,4.316776
-2026-06-30,2725608,OpenClaw,openclaw,anthropic/claude-4.8-opus-20260528,2.459051
-2026-06-30,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-flash-20260423,11.390983
-2026-06-30,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-pro-20260423,4.356096
-2026-06-30,2725608,OpenClaw,openclaw,minimax/minimax-m3-20260531,32.579217
-2026-06-30,2725608,OpenClaw,openclaw,nvidia/nemotron-3-super-120b-a12b-20230311,7.37592
-2026-06-30,2725608,OpenClaw,openclaw,nvidia/nemotron-3-ultra-550b-a55b-20260604,2.068356
-2026-06-30,2725608,OpenClaw,openclaw,openai/gpt-5.5-20260423,3.01929
+2026-06-30,2699842,ISEKAI ZERO,isekai-zero,z-ai/glm-5.2-20260616,1.077846
+2026-06-30,2725608,OpenClaw,openclaw,Others,51.328806
+2026-06-30,2725608,OpenClaw,openclaw,anthropic/claude-4.6-sonnet-20260217,6.295224
+2026-06-30,2725608,OpenClaw,openclaw,anthropic/claude-4.8-opus-20260528,3.759995
+2026-06-30,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-flash-20260423,17.095223
+2026-06-30,2725608,OpenClaw,openclaw,deepseek/deepseek-v4-pro-20260423,6.46369
+2026-06-30,2725608,OpenClaw,openclaw,minimax/minimax-m3-20260531,47.551858
+2026-06-30,2725608,OpenClaw,openclaw,nvidia/nemotron-3-super-120b-a12b-20230311,9.886899
+2026-06-30,2725608,OpenClaw,openclaw,nvidia/nemotron-3-ultra-550b-a55b-20260604,3.101381
+2026-06-30,2725608,OpenClaw,openclaw,openai/gpt-5.5-20260423,4.359321
 2026-06-30,2725608,OpenClaw,openclaw,openrouter/owl-alpha,7.872882
-2026-06-30,2725608,OpenClaw,openclaw,z-ai/glm-5.2-20260616,4.12766
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,Others,0.01638
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,anthropic/claude-4.5-haiku-20251001,0.013027
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,anthropic/claude-4.6-sonnet-20260217,0.288821
+2026-06-30,2725608,OpenClaw,openclaw,z-ai/glm-5.2-20260616,6.15652
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,Others,0.059019
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,anthropic/claude-4.5-haiku-20251001,0.025857
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,anthropic/claude-4.6-sonnet-20260217,0.388546
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,anthropic/claude-sonnet-5-20260630,0.040714
 2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,deepseek/deepseek-v4-flash-20260423,0.025551
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,deepseek/deepseek-v4-pro-20260423,0.07649
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,google/gemini-3.1-flash-lite-20260507,9.915693
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,google/gemini-3.5-flash-20260519,1.721636
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,openai/gpt-5.2-20251211,0.176739
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,openai/gpt-5.5-20260423,0.178756
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,x-ai/grok-4.3-20260430,2.50434
-2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,z-ai/glm-5.2-20260616,0.797544
-2026-06-30,2853275,pi,pi,Others,6.823009
-2026-06-30,2853275,pi,pi,anthropic/claude-4.6-sonnet-20260217,12.914876
-2026-06-30,2853275,pi,pi,anthropic/claude-4.8-opus-20260528,3.126235
-2026-06-30,2853275,pi,pi,deepseek/deepseek-v4-flash-20260423,6.090031
-2026-06-30,2853275,pi,pi,deepseek/deepseek-v4-pro-20260423,6.590308
-2026-06-30,2853275,pi,pi,minimax/minimax-m3-20260531,2.373078
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,deepseek/deepseek-v4-pro-20260423,0.076491
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,google/gemini-3.1-flash-lite-20260507,15.273904
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,google/gemini-3.5-flash-20260519,2.416917
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,openai/gpt-5.2-20251211,0.181272
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,openai/gpt-5.5-20260423,0.230679
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,x-ai/grok-4.3-20260430,3.932138
+2026-06-30,2755681,Pieces.app: Ambient Artificial Memory,pieces,z-ai/glm-5.2-20260616,0.801654
+2026-06-30,2853275,pi,pi,Others,10.517036
+2026-06-30,2853275,pi,pi,anthropic/claude-4.6-sonnet-20260217,19.445228
+2026-06-30,2853275,pi,pi,anthropic/claude-4.8-opus-20260528,4.627626
+2026-06-30,2853275,pi,pi,deepseek/deepseek-v4-flash-20260423,9.527469
+2026-06-30,2853275,pi,pi,deepseek/deepseek-v4-pro-20260423,10.104635
+2026-06-30,2853275,pi,pi,minimax/minimax-m2.7-20260318,0.922468
+2026-06-30,2853275,pi,pi,minimax/minimax-m3-20260531,3.374725
 2026-06-30,2853275,pi,pi,nvidia/nemotron-3-nano-30b-a3b,0.593922
-2026-06-30,2853275,pi,pi,openai/gpt-5.5-20260423,0.588942
+2026-06-30,2853275,pi,pi,openai/gpt-5.5-20260423,1.168229
 2026-06-30,2853275,pi,pi,openrouter/owl-alpha,2.290012
-2026-06-30,2853275,pi,pi,xiaomi/mimo-v2.5-20260422,0.629763
-2026-06-30,2853275,pi,pi,z-ai/glm-5.2-20260616,8.953509
-2026-06-30,3067167,Hermes Agent,hermes-agent,Others,85.173556
-2026-06-30,3067167,Hermes Agent,hermes-agent,anthropic/claude-4.8-opus-20260528,13.654375
-2026-06-30,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-flash-20260423,117.072584
-2026-06-30,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-pro-20260423,36.676328
-2026-06-30,3067167,Hermes Agent,hermes-agent,minimax/minimax-m3-20260531,69.687018
-2026-06-30,3067167,Hermes Agent,hermes-agent,nvidia/nemotron-3-super-120b-a12b-20230311,21.242262
-2026-06-30,3067167,Hermes Agent,hermes-agent,nvidia/nemotron-3-ultra-550b-a55b-20260604,31.045165
+2026-06-30,2853275,pi,pi,xiaomi/mimo-v2.5-20260422,0.874145
+2026-06-30,2853275,pi,pi,z-ai/glm-5.2-20260616,15.987628
+2026-06-30,3067167,Hermes Agent,hermes-agent,Others,130.968697
+2026-06-30,3067167,Hermes Agent,hermes-agent,anthropic/claude-4.8-opus-20260528,21.139173
+2026-06-30,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-flash-20260423,188.197288
+2026-06-30,3067167,Hermes Agent,hermes-agent,deepseek/deepseek-v4-pro-20260423,56.213333
+2026-06-30,3067167,Hermes Agent,hermes-agent,minimax/minimax-m3-20260531,105.336525
+2026-06-30,3067167,Hermes Agent,hermes-agent,nvidia/nemotron-3-super-120b-a12b-20230311,33.642989
+2026-06-30,3067167,Hermes Agent,hermes-agent,nvidia/nemotron-3-ultra-550b-a55b-20260604,47.932786
 2026-06-30,3067167,Hermes Agent,hermes-agent,openrouter/owl-alpha,144.414746
-2026-06-30,3067167,Hermes Agent,hermes-agent,poolside/laguna-m.1-20260312,12.875031
-2026-06-30,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,59.541231
-2026-06-30,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,41.393883
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,Others,0.023182
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,deepseek/deepseek-v4-flash-20260423,0.895559
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,minimax/minimax-m3-20260531,3.446989
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-2025-04-14,0.011235
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4.1-nano-2025-04-14,0.071759
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-4o-mini,0.015713
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-5-2025-08-07,0.010685
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,openai/gpt-oss-120b,1.646632
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,qwen/qwen3.7-plus-20260602,0.017781
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-4.7-flash-20260119,1.691753
-2026-06-30,3296290,Mira is the leading AI agent inside Telegram,mira,z-ai/glm-5.1-20260406,0.201735
+2026-06-30,3067167,Hermes Agent,hermes-agent,poolside/laguna-m.1-20260312,23.434445
+2026-06-30,3067167,Hermes Agent,hermes-agent,stepfun/step-3.7-flash-20260528,90.294188
+2026-06-30,3067167,Hermes Agent,hermes-agent,z-ai/glm-5.2-20260616,64.511725
+2026-06-30,3296290,Mira,mira,Others,0.043321
+2026-06-30,3296290,Mira,mira,deepseek/deepseek-v4-flash-20260423,1.374211
+2026-06-30,3296290,Mira,mira,minimax/minimax-m3-20260531,5.005461
+2026-06-30,3296290,Mira,mira,openai/gpt-4.1-2025-04-14,0.015365
+2026-06-30,3296290,Mira,mira,openai/gpt-4.1-nano-2025-04-14,0.102462
+2026-06-30,3296290,Mira,mira,openai/gpt-4o-mini,0.032774
+2026-06-30,3296290,Mira,mira,openai/gpt-5-2025-08-07,0.015644
+2026-06-30,3296290,Mira,mira,openai/gpt-oss-120b,2.889848
+2026-06-30,3296290,Mira,mira,qwen/qwen3.7-plus-20260602,0.02734
+2026-06-30,3296290,Mira,mira,z-ai/glm-4.7-flash-20260119,2.381501
+2026-06-30,3296290,Mira,mira,z-ai/glm-5.1-20260406,0.313243

@@ -2,7 +2,7 @@ name: Update Database
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天 UTC 0点运行
+    - cron: '0 1 * * *' # 每天 UTC 1点运行，避开 OpenRouter 当天数据未完整
   workflow_dispatch:      # 允许手动点按钮运行
 
 permissions:

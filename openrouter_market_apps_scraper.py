@@ -72,6 +72,10 @@ def fetch_json(url: str, params: Optional[dict[str, Any]] = None) -> Any:
     return response.json()
 
 
+def latest_complete_utc_date() -> str:
+    return (datetime.now(timezone.utc).date() - timedelta(days=1)).isoformat()
+
+
 def fetch_latest_model_rankings() -> list[dict[str, Any]]:
     payload = fetch_json(RANKINGS_MODELS_API, {"view": "day"})
     rows = payload.get("data", []) if isinstance(payload, dict) else []
@@ -83,14 +87,15 @@ def token_total_from_ranking_row(row: dict[str, Any]) -> float:
 
 
 def latest_rankings_date() -> str:
+    complete_date = latest_complete_utc_date()
     dates = sorted(
         {
             str(row.get("date", ""))[:10]
             for row in fetch_latest_model_rankings()
-            if row.get("date")
+            if row.get("date") and str(row.get("date", ""))[:10] <= complete_date
         }
     )
-    return dates[-1] if dates else datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return dates[-1] if dates else complete_date
 
 
 def decode_next_rsc(html: str) -> str:
@@ -259,6 +264,7 @@ def fetch_market_share_from_history() -> list[dict[str, Any]]:
     if not HISTORY_CSV.exists():
         return []
 
+    complete_date = latest_complete_utc_date()
     author_totals: dict[tuple[str, str], float] = {}
     date_totals: dict[str, float] = {}
     with HISTORY_CSV.open("r", newline="", encoding="utf-8-sig") as file:
@@ -266,7 +272,7 @@ def fetch_market_share_from_history() -> list[dict[str, Any]]:
         for row in reader:
             date = str(row.get("Date", ""))[:10]
             model = str(row.get("Model", ""))
-            if not date or "/" not in model:
+            if not date or date > complete_date or "/" not in model:
                 continue
             try:
                 tokens = float(row.get("Total_Tokens") or 0)
@@ -341,6 +347,7 @@ def fetch_legacy_category_usage() -> list[dict[str, Any]]:
 
 def fetch_current_category_usage() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
+    complete_date = latest_complete_utc_date()
     for index, (category, label) in enumerate(CURRENT_CATEGORY_ENDPOINTS, start=1):
         print(f"Fetching current category usage {index}/{len(CURRENT_CATEGORY_ENDPOINTS)}: {category}")
         payload = fetch_json(f"{BASE_URL}/api/frontend/v1/rankings/{category}")
@@ -352,6 +359,8 @@ def fetch_current_category_usage() -> list[dict[str, Any]]:
             if not isinstance(point, dict):
                 continue
             date = str(point.get("x", ""))[:10]
+            if not date or date > complete_date:
+                continue
             values = point.get("ys") or {}
             author_totals: dict[str, float] = {}
             for model, tokens in values.items():
@@ -359,7 +368,7 @@ def fetch_current_category_usage() -> list[dict[str, Any]]:
                 author = model_key.split("/", 1)[0].lower() if "/" in model_key else model_key.lower()
                 author_totals[author] = author_totals.get(author, 0) + float(tokens or 0)
             category_total = sum(author_totals.values())
-            if not date or category_total <= 0:
+            if category_total <= 0:
                 continue
             for author, tokens in author_totals.items():
                 rows.append(
@@ -427,6 +436,7 @@ def usage_series_from_app_page(slug: str) -> list[dict[str, Any]]:
 
 def fetch_app_model_usage(apps: list[dict[str, Any]]) -> list[dict[str, Any]]:
     daily_rows: list[dict[str, Any]] = []
+    complete_date = latest_complete_utc_date()
     slugged_apps = [app for app in apps if app.get("App_Slug")]
     for index, app in enumerate(slugged_apps, start=1):
         slug = str(app["App_Slug"])
@@ -441,7 +451,7 @@ def fetch_app_model_usage(apps: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
         for point in series:
             date = str(point.get("x", ""))[:10]
-            if not date:
+            if not date or date > complete_date:
                 continue
             for model, tokens in (point.get("ys") or {}).items():
                 daily_rows.append(
@@ -484,6 +494,7 @@ def usage_series_from_provider_page(provider_slug: str) -> list[dict[str, Any]]:
 
 def fetch_provider_usage(providers: list[dict[str, Any]]) -> list[dict[str, Any]]:
     daily_rows: list[dict[str, Any]] = []
+    complete_date = latest_complete_utc_date()
     for index, provider in enumerate(providers, start=1):
         provider_slug = str(provider.get("slug"))
         provider_display = str(provider.get("displayName") or provider.get("name") or provider_slug)
@@ -498,7 +509,7 @@ def fetch_provider_usage(providers: list[dict[str, Any]]) -> list[dict[str, Any]
 
         for point in series:
             date = str(point.get("x", ""))[:10]
-            if not date:
+            if not date or date > complete_date:
                 continue
             values = point.get("ys") or {}
             tokens = sum(float(value or 0) for value in values.values())
@@ -528,6 +539,7 @@ def fetch_provider_usage(providers: list[dict[str, Any]]) -> list[dict[str, Any]
 def fetch_stealth_provider_usage() -> list[dict[str, Any]]:
     """Stealth router usage is exposed through model activity, not provider catalog."""
     rows_by_date: dict[str, dict[str, Any]] = {}
+    complete_date = latest_complete_utc_date()
     stealth_models = ["openrouter/owl-alpha"]
     for permaslug in stealth_models:
         try:
@@ -538,7 +550,7 @@ def fetch_stealth_provider_usage() -> list[dict[str, Any]]:
         analytics = payload.get("data", {}).get("analytics", []) if isinstance(payload, dict) else []
         for point in analytics:
             date = str(point.get("date", ""))[:10]
-            if not date:
+            if not date or date > complete_date:
                 continue
             tokens = float(point.get("total_prompt_tokens") or 0) + float(point.get("total_completion_tokens") or 0)
             if tokens <= 0:

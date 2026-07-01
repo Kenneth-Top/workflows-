@@ -2,7 +2,7 @@ import requests
 import re
 import json
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import os
 import time
 
@@ -94,7 +94,15 @@ def fetch_model_activity(model_id, variant=None):
     return []
 
 
-def fetch_rankings_day_models(max_existing_date, today_str):
+def current_utc_date():
+    return datetime.now(timezone.utc).date()
+
+
+def latest_complete_utc_date_str():
+    return (current_utc_date() - timedelta(days=1)).isoformat()
+
+
+def fetch_rankings_day_models(max_existing_date, current_utc_date_str, latest_complete_date):
     """从 OpenRouter 当前公开 rankings API 获取最新完整日的模型 token 用量。"""
     print("📊 正在从 OpenRouter rankings API 获取最新日榜...")
     resp = SESSION.get(RANKINGS_MODELS_API, params={"view": "day"}, timeout=60)
@@ -105,7 +113,9 @@ def fetch_rankings_day_models(max_existing_date, today_str):
     available_days = []
     for row in rows:
         record_date_str = parse_day(row.get("date"))
-        if not record_date_str or record_date_str == today_str:
+        if not record_date_str:
+            continue
+        if record_date_str == current_utc_date_str or record_date_str > latest_complete_date:
             continue
         available_days.append(record_date_str)
         if max_existing_date and record_date_str <= max_existing_date:
@@ -167,18 +177,18 @@ def build_activity_records(model_id, variant, analytics, target_dates=None):
     return records, latest_available_date
 
 
-def recent_activity_target_dates(df_old, today_str):
+def recent_activity_target_dates(df_old, latest_complete_date):
     """Fill holes in the recent activity window and refresh the latest few days."""
-    today = datetime.strptime(today_str, "%Y-%m-%d").date()
-    start = today - timedelta(days=ACTIVITY_LOOKBACK_DAYS)
-    refresh_start = today - timedelta(days=max(RECENT_REFRESH_DAYS - 1, 0))
+    complete_date = datetime.strptime(latest_complete_date, "%Y-%m-%d").date()
+    start = complete_date - timedelta(days=ACTIVITY_LOOKBACK_DAYS)
+    refresh_start = complete_date - timedelta(days=max(RECENT_REFRESH_DAYS - 1, 0))
     existing_days = set()
     if not df_old.empty and "Date" in df_old:
         existing_days = set(df_old["Date"].dt.strftime("%Y-%m-%d"))
 
     target_dates = set()
     current = start
-    while current <= today:
+    while current <= complete_date:
         day = current.isoformat()
         if day not in existing_days or current >= refresh_start:
             target_dates.add(day)
@@ -318,7 +328,7 @@ def looks_like_model_token_series(series):
     return latest_total > 1e9
 
 
-def fetch_rankings_daily_tokens(max_existing_date, today_str):
+def fetch_rankings_daily_tokens(max_existing_date, current_utc_date_str, latest_complete_date):
     """从 rankings 页抓取每日模型 token 总量，避免逐模型页面 analytics 失效。"""
     print("📈 正在从 OpenRouter rankings 提取每日模型 token 序列...")
     resp = SESSION.get(RANKINGS_URL, timeout=60)
@@ -344,7 +354,9 @@ def fetch_rankings_daily_tokens(max_existing_date, today_str):
         if not isinstance(point, dict):
             continue
         day = parse_day(point.get("x"))
-        if not day or day == today_str:
+        if not day:
+            continue
+        if day == current_utc_date_str or day > latest_complete_date:
             continue
         available_days.append(day)
         if max_existing_date and day <= max_existing_date:
@@ -432,9 +444,13 @@ def update_database():
 
     # 3. 优先从当前公开 rankings API 抓取最新完整日数据。
     new_records = []
-    today_str = datetime.utcnow().strftime("%Y-%m-%d")  # OpenRouter 使用 UTC 日期
+    current_utc_date_str = current_utc_date().isoformat()
+    latest_complete_date = latest_complete_utc_date_str()
+    print(f"📅 本次只抓取 UTC 完整日，截止到: {latest_complete_date}")
     try:
-        new_records, latest_available_date = fetch_rankings_day_models(max_existing_date, today_str)
+        new_records, latest_available_date = fetch_rankings_day_models(
+            max_existing_date, current_utc_date_str, latest_complete_date
+        )
     except Exception as e:
         print(f"⚠️ rankings API 抓取失败，准备回退到旧 activity API: {e}")
         latest_available_date = None
@@ -448,7 +464,7 @@ def update_database():
         print("✅ 历史库已覆盖 rankings API 最新可用日期，继续检查 activity 缺口")
 
     # 4. 无论最新日榜是否可用，都用逐模型 activity API 回填最近窗口内的缺失日期。
-    target_dates = recent_activity_target_dates(df_old, today_str)
+    target_dates = recent_activity_target_dates(df_old, latest_complete_date)
     latest_available_dates = []
     if target_dates:
         print(
