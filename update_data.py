@@ -25,6 +25,12 @@ SESSION.headers.update({
 })
 
 
+def register_canonical_mapping(canonical_slug, model_id):
+    existing = CANONICAL_TO_ID.get(canonical_slug)
+    if existing is None or (existing.endswith(":free") and not model_id.endswith(":free")):
+        CANONICAL_TO_ID[canonical_slug] = model_id
+
+
 def fetch_all_model_ids():
     """从 OpenRouter API 自动获取所有可用模型的 id 列表"""
     global CANONICAL_TO_ID, MODEL_TO_PERMASLUG
@@ -42,7 +48,7 @@ def fetch_all_model_ids():
             CANONICAL_TO_ID[model_id] = model_id
             canonical_slug = model.get("canonical_slug")
             if canonical_slug:
-                CANONICAL_TO_ID[canonical_slug] = model_id
+                register_canonical_mapping(canonical_slug, model_id)
                 MODEL_TO_PERMASLUG[model_id] = canonical_slug
             else:
                 MODEL_TO_PERMASLUG[model_id] = model_id
@@ -102,13 +108,14 @@ def latest_complete_utc_date_str():
     return (current_utc_date() - timedelta(days=1)).isoformat()
 
 
-def fetch_rankings_day_models(max_existing_date, current_utc_date_str, latest_complete_date):
+def fetch_rankings_day_models(max_existing_date, current_utc_date_str, latest_complete_date, refresh_dates=None):
     """从 OpenRouter 当前公开 rankings API 获取最新完整日的模型 token 用量。"""
     print("📊 正在从 OpenRouter rankings API 获取最新日榜...")
     resp = SESSION.get(RANKINGS_MODELS_API, params={"view": "day"}, timeout=60)
     resp.raise_for_status()
     rows = resp.json().get("data", []) or []
 
+    refresh_dates = refresh_dates or set()
     records = []
     available_days = []
     for row in rows:
@@ -118,7 +125,7 @@ def fetch_rankings_day_models(max_existing_date, current_utc_date_str, latest_co
         if record_date_str == current_utc_date_str or record_date_str > latest_complete_date:
             continue
         available_days.append(record_date_str)
-        if max_existing_date and record_date_str <= max_existing_date:
+        if max_existing_date and record_date_str <= max_existing_date and record_date_str not in refresh_dates:
             continue
 
         prompt_tokens = int(row.get("total_prompt_tokens") or 0)
@@ -144,6 +151,13 @@ def fetch_rankings_day_models(max_existing_date, current_utc_date_str, latest_co
     if latest_available_date:
         print(f"📅 rankings API 最新可用日期: {latest_available_date}")
     return records, latest_available_date
+
+
+def date_key(record):
+    value = record.get("Date")
+    if hasattr(value, "strftime"):
+        return value.strftime("%Y-%m-%d")
+    return str(value)[:10]
 
 
 def build_activity_records(model_id, variant, analytics, target_dates=None):
@@ -285,13 +299,17 @@ def normalize_model_id(raw_model):
     """把 rankings 的 canonical slug 转成前端历史库一直使用的 OpenRouter model id。"""
     raw_model = str(raw_model)
     if raw_model in CANONICAL_TO_ID:
-        return CANONICAL_TO_ID[raw_model]
+        mapped_model = CANONICAL_TO_ID[raw_model]
+        if raw_model.endswith(":free") or not mapped_model.endswith(":free"):
+            return mapped_model
 
     free_suffix = ":free" if raw_model.endswith(":free") else ""
     base_model = raw_model[:-5] if free_suffix else raw_model
     undated = re.sub(r"-\d{8}$", "", base_model) + free_suffix
     if undated in CANONICAL_TO_ID:
-        return CANONICAL_TO_ID[undated]
+        mapped_model = CANONICAL_TO_ID[undated]
+        if free_suffix or not mapped_model.endswith(":free"):
+            return mapped_model
     return undated
 
 
@@ -442,39 +460,48 @@ def update_database():
         base_model, variant = str(existing_model).rsplit(":", 1)
         observed_variants.setdefault(base_model, set()).add(variant)
 
-    # 3. 优先从当前公开 rankings API 抓取最新完整日数据。
-    new_records = []
+    # 3. 计算最近窗口内需要回填或刷新的完整日。
     current_utc_date_str = current_utc_date().isoformat()
     latest_complete_date = latest_complete_utc_date_str()
     print(f"📅 本次只抓取 UTC 完整日，截止到: {latest_complete_date}")
+    target_dates = recent_activity_target_dates(df_old, latest_complete_date)
+
+    # 4. rankings day 是最新完整日的权威来源，稍后覆盖 activity 同日同模型记录。
+    rankings_records = []
     try:
-        new_records, latest_available_date = fetch_rankings_day_models(
-            max_existing_date, current_utc_date_str, latest_complete_date
+        rankings_records, latest_available_date = fetch_rankings_day_models(
+            max_existing_date,
+            current_utc_date_str,
+            latest_complete_date,
+            target_dates,
         )
     except Exception as e:
         print(f"⚠️ rankings API 抓取失败，准备回退到旧 activity API: {e}")
         latest_available_date = None
 
     if (
-        not new_records
+        not rankings_records
         and latest_available_date
         and max_existing_date
         and max_existing_date >= latest_available_date
     ):
         print("✅ 历史库已覆盖 rankings API 最新可用日期，继续检查 activity 缺口")
 
-    # 4. 无论最新日榜是否可用，都用逐模型 activity API 回填最近窗口内的缺失日期。
-    target_dates = recent_activity_target_dates(df_old, latest_complete_date)
+    ranking_refresh_dates = {date_key(record) for record in rankings_records}
+    activity_target_dates = target_dates - ranking_refresh_dates
+
+    # 5. 逐模型 activity API 负责最近窗口内 rankings day 没覆盖的历史缺口和明细字段。
+    activity_records = []
     latest_available_dates = []
-    if target_dates:
+    if activity_target_dates:
         print(
-            f"🧩 准备从 activity API 回填/刷新 {len(target_dates)} 天: "
-            f"{min(target_dates)} ~ {max(target_dates)}"
+            f"🧩 准备从 activity API 回填/刷新 {len(activity_target_dates)} 天: "
+            f"{min(activity_target_dates)} ~ {max(activity_target_dates)}"
         )
     candidates = activity_model_candidates(all_models, existing_models)
     all_model_set.update(existing_models)
     for i, model in enumerate(candidates):
-        if not target_dates:
+        if not activity_target_dates:
             break
         print(f"🚀 [{i+1}/{len(candidates)}] 正在抓取 activity: {model}")
         for variant in variants_for_model(model, observed_variants, all_model_set):
@@ -482,9 +509,9 @@ def update_database():
             if not data:
                 continue
             records, latest_available_date = build_activity_records(
-                model, variant, data, target_dates
+                model, variant, data, activity_target_dates
             )
-            new_records.extend(records)
+            activity_records.extend(records)
             if latest_available_date:
                 latest_available_dates.append(latest_available_date)
         time.sleep(0.15)
@@ -494,7 +521,8 @@ def update_database():
         print(f"📅 activity API 最新可用日期: {latest_available_date}")
 
     if (
-        not new_records
+        not activity_records
+        and not rankings_records
         and latest_available_date
         and max_existing_date
         and max_existing_date >= latest_available_date
@@ -502,6 +530,17 @@ def update_database():
         print("✅ 历史库已覆盖 activity API 最新可用日期，无需更新")
         return
 
+    if rankings_records and activity_records:
+        activity_reasoning = {
+            (date_key(record), record["Model"]): record.get("Reasoning", 0)
+            for record in activity_records
+        }
+        for record in rankings_records:
+            key = (date_key(record), record["Model"])
+            if not record.get("Reasoning") and activity_reasoning.get(key):
+                record["Reasoning"] = activity_reasoning[key]
+
+    new_records = activity_records + rankings_records
     if not new_records:
         raise RuntimeError("本次未抓取到任何 token 数据，停止工作流，避免静默卡住")
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T01:20:43.225941+00:00",
+  "generated_at": "2026-07-01T01:54:04.534855+00:00",
   "sources": {
     "rankings": "https://openrouter.ai/rankings",
     "apps": "https://openrouter.ai/apps",
@@ -76132,62 +76132,68 @@
     {
       "Date": "2026-06-30",
       "Author": "ai21",
-      "Tokens": 0.014343,
-      "Share": 2.02e-06
+      "Tokens": 0.014518,
+      "Share": 2.03e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "aion-labs",
       "Tokens": 0.953036,
-      "Share": 0.00013407
+      "Share": 0.00013297
     },
     {
       "Date": "2026-06-30",
       "Author": "amazon",
-      "Tokens": 4.545474,
-      "Share": 0.00063946
+      "Tokens": 4.572092,
+      "Share": 0.00063792
     },
     {
       "Date": "2026-06-30",
       "Author": "anthracite-org",
-      "Tokens": 0.01144,
+      "Tokens": 0.011524,
       "Share": 1.61e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "anthropic",
-      "Tokens": 987.664976,
-      "Share": 0.13894622
+      "Tokens": 1005.062719,
+      "Share": 0.14023176
     },
     {
       "Date": "2026-06-30",
       "Author": "arcee-ai",
       "Tokens": 0.249694,
-      "Share": 3.513e-05
+      "Share": 3.484e-05
+    },
+    {
+      "Date": "2026-06-30",
+      "Author": "baai",
+      "Tokens": 4.971166,
+      "Share": 0.0006936
     },
     {
       "Date": "2026-06-30",
       "Author": "baidu",
       "Tokens": 0.007009,
-      "Share": 9.9e-07
+      "Share": 9.8e-07
     },
     {
       "Date": "2026-06-30",
       "Author": "black-forest-labs",
-      "Tokens": 0.158664,
-      "Share": 2.232e-05
+      "Tokens": 0.158919,
+      "Share": 2.217e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "bytedance",
-      "Tokens": 0.044606,
-      "Share": 6.28e-06
+      "Tokens": 0.044789,
+      "Share": 6.25e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "bytedance-seed",
-      "Tokens": 0.987672,
-      "Share": 0.00013895
+      "Tokens": 1.398431,
+      "Share": 0.00019512
     },
     {
       "Date": "2026-06-30",
@@ -76198,164 +76204,176 @@
     {
       "Date": "2026-06-30",
       "Author": "cohere",
-      "Tokens": 22.799362,
-      "Share": 0.00320745
+      "Tokens": 23.664344,
+      "Share": 0.00330178
     },
     {
       "Date": "2026-06-30",
       "Author": "deepcogito",
       "Tokens": 0.01957,
-      "Share": 2.75e-06
+      "Share": 2.73e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "deepseek",
-      "Tokens": 1187.579107,
-      "Share": 0.16707045
+      "Tokens": 1188.732526,
+      "Share": 0.16585836
     },
     {
       "Date": "2026-06-30",
       "Author": "google",
-      "Tokens": 675.248598,
-      "Share": 0.09499501
+      "Tokens": 679.507711,
+      "Share": 0.09480857
     },
     {
       "Date": "2026-06-30",
       "Author": "gryphe",
-      "Tokens": 0.160435,
-      "Share": 2.257e-05
+      "Tokens": 0.162184,
+      "Share": 2.263e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "hexgrad",
       "Tokens": 0.009801,
-      "Share": 1.38e-06
+      "Share": 1.37e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "ibm-granite",
-      "Tokens": 0.676084,
-      "Share": 9.511e-05
+      "Tokens": 0.691674,
+      "Share": 9.651e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "inception",
       "Tokens": 0.683974,
-      "Share": 9.622e-05
+      "Share": 9.543e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "inclusionai",
-      "Tokens": 6.840005,
-      "Share": 0.00096226
+      "Tokens": 6.941274,
+      "Share": 0.00096848
+    },
+    {
+      "Date": "2026-06-30",
+      "Author": "intfloat",
+      "Tokens": 0.28812,
+      "Share": 4.02e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "kwaipilot",
       "Tokens": 0.202437,
-      "Share": 2.848e-05
+      "Share": 2.825e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "liquid",
-      "Tokens": 1.60064,
-      "Share": 0.00022518
+      "Tokens": 1.610206,
+      "Share": 0.00022466
     },
     {
       "Date": "2026-06-30",
       "Author": "mancer",
-      "Tokens": 0.001387,
+      "Tokens": 0.001438,
       "Share": 2e-07
     },
     {
       "Date": "2026-06-30",
       "Author": "meta-llama",
-      "Tokens": 20.357068,
-      "Share": 0.00286386
+      "Tokens": 20.357109,
+      "Share": 0.00284033
     },
     {
       "Date": "2026-06-30",
       "Author": "microsoft",
-      "Tokens": 0.836078,
-      "Share": 0.00011762
+      "Tokens": 0.836327,
+      "Share": 0.00011669
     },
     {
       "Date": "2026-06-30",
       "Author": "minimax",
-      "Tokens": 624.549602,
-      "Share": 0.08786259
+      "Tokens": 624.553757,
+      "Share": 0.0871411
     },
     {
       "Date": "2026-06-30",
       "Author": "mistralai",
-      "Tokens": 51.621073,
-      "Share": 0.00726213
+      "Tokens": 51.622,
+      "Share": 0.00720258
     },
     {
       "Date": "2026-06-30",
       "Author": "moonshotai",
-      "Tokens": 107.892327,
-      "Share": 0.01517846
+      "Tokens": 110.808803,
+      "Share": 0.01546064
     },
     {
       "Date": "2026-06-30",
       "Author": "morph",
       "Tokens": 0.052627,
-      "Share": 7.4e-06
+      "Share": 7.34e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "nex-agi",
-      "Tokens": 0.048362,
-      "Share": 6.8e-06
+      "Tokens": 0.048582,
+      "Share": 6.78e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "nousresearch",
-      "Tokens": 0.687588,
-      "Share": 9.673e-05
+      "Tokens": 0.688666,
+      "Share": 9.609e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "nvidia",
-      "Tokens": 260.102143,
-      "Share": 0.03659157
+      "Tokens": 268.103448,
+      "Share": 0.03740724
     },
     {
       "Date": "2026-06-30",
       "Author": "openai",
-      "Tokens": 522.389821,
-      "Share": 0.0734906
+      "Tokens": 525.283052,
+      "Share": 0.07329032
     },
     {
       "Date": "2026-06-30",
       "Author": "openrouter",
       "Tokens": 226.776344,
-      "Share": 0.03190324
+      "Share": 0.03164106
     },
     {
       "Date": "2026-06-30",
       "Author": "perceptron",
       "Tokens": 0.628477,
-      "Share": 8.842e-05
+      "Share": 8.769e-05
     },
     {
       "Date": "2026-06-30",
       "Author": "perplexity",
-      "Tokens": 1.817578,
-      "Share": 0.0002557
+      "Tokens": 1.822064,
+      "Share": 0.00025422
     },
     {
       "Date": "2026-06-30",
       "Author": "poolside",
-      "Tokens": 170.232276,
-      "Share": 0.02394854
+      "Tokens": 170.488724,
+      "Share": 0.0237875
     },
     {
       "Date": "2026-06-30",
       "Author": "qwen",
-      "Tokens": 195.709897,
-      "Share": 0.02753277
+      "Tokens": 198.264013,
+      "Share": 0.02766286
+    },
+    {
+      "Date": "2026-06-30",
+      "Author": "recraft",
+      "Tokens": 0.009873,
+      "Share": 1.38e-06
     },
     {
       "Date": "2026-06-30",
@@ -76373,13 +76391,19 @@
       "Date": "2026-06-30",
       "Author": "sakana",
       "Tokens": 3.868671,
-      "Share": 0.00054425
+      "Share": 0.00053978
     },
     {
       "Date": "2026-06-30",
       "Author": "sao10k",
-      "Tokens": 0.92077,
-      "Share": 0.00012954
+      "Tokens": 0.964032,
+      "Share": 0.00013451
+    },
+    {
+      "Date": "2026-06-30",
+      "Author": "sentence-transformers",
+      "Tokens": 0.142031,
+      "Share": 1.982e-05
     },
     {
       "Date": "2026-06-30",
@@ -76390,14 +76414,14 @@
     {
       "Date": "2026-06-30",
       "Author": "sourceful",
-      "Tokens": 0.000361,
-      "Share": 5e-08
+      "Tokens": 0.012545,
+      "Share": 1.75e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "stepfun",
       "Tokens": 221.805553,
-      "Share": 0.03120394
+      "Share": 0.0309475
     },
     {
       "Date": "2026-06-30",
@@ -76408,56 +76432,62 @@
     {
       "Date": "2026-06-30",
       "Author": "tencent",
-      "Tokens": 622.528215,
-      "Share": 0.08757822
+      "Tokens": 622.528707,
+      "Share": 0.08685856
     },
     {
       "Date": "2026-06-30",
       "Author": "thedrummer",
       "Tokens": 0.447707,
-      "Share": 6.298e-05
+      "Share": 6.247e-05
+    },
+    {
+      "Date": "2026-06-30",
+      "Author": "thenlper",
+      "Tokens": 0.002692,
+      "Share": 3.8e-07
     },
     {
       "Date": "2026-06-30",
       "Author": "undi95",
       "Tokens": 0.020075,
-      "Share": 2.82e-06
+      "Share": 2.8e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "upstage",
       "Tokens": 0.007662,
-      "Share": 1.08e-06
+      "Share": 1.07e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "venice",
       "Tokens": 0.013466,
-      "Share": 1.89e-06
+      "Share": 1.88e-06
     },
     {
       "Date": "2026-06-30",
       "Author": "writer",
       "Tokens": 0.003743,
-      "Share": 5.3e-07
+      "Share": 5.2e-07
     },
     {
       "Date": "2026-06-30",
       "Author": "x-ai",
-      "Tokens": 22.299799,
-      "Share": 0.00313717
+      "Tokens": 23.018835,
+      "Share": 0.00321171
     },
     {
       "Date": "2026-06-30",
       "Author": "xiaomi",
-      "Tokens": 709.342126,
-      "Share": 0.09979134
+      "Tokens": 710.562044,
+      "Share": 0.09914144
     },
     {
       "Date": "2026-06-30",
       "Author": "z-ai",
-      "Tokens": 452.829746,
-      "Share": 0.06370478
+      "Tokens": 463.447749,
+      "Share": 0.06466272
     },
     {
       "Date": "2026-06-30",
@@ -76675,7 +76705,7 @@
       "Date": "2026-06-30",
       "Rank": 24,
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Origin_URL": "https://mira.tg/",
       "Categories": "personal-agent",
@@ -248919,91 +248949,91 @@
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "Others",
-      "Tokens": 0.207137
+      "Tokens": "0.207137"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
-      "Tokens": 0.303978
+      "Tokens": "0.303978"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "anthropic/claude-4.7-opus-20260416",
-      "Tokens": 4.382083
+      "Tokens": "4.382083"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.093865
+      "Tokens": "0.093865"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.047071
+      "Tokens": "0.047071"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 0.12636
+      "Tokens": "0.12636"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "google/gemini-3.1-flash-lite-20260507",
-      "Tokens": 1.105008
+      "Tokens": "1.105008"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "openai/gpt-oss-120b",
-      "Tokens": 0.059622
+      "Tokens": "0.059622"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "openai/gpt-oss-20b",
-      "Tokens": 0.077948
+      "Tokens": "0.077948"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "qwen/qwen3.5-35b-a3b-20260224",
-      "Tokens": 0.076423
+      "Tokens": "0.076423"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 169295,
+      "App_ID": "169295",
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 0.037038
+      "Tokens": "0.037038"
     },
     {
       "Date": "2026-05-31",
@@ -249271,59 +249301,59 @@
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
-      "Tokens": 0.00113
+      "Tokens": "0.00113"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 1.285877
+      "Tokens": "1.285877"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.958979
+      "Tokens": "0.958979"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "google/gemini-2.5-flash",
-      "Tokens": 2.363567
+      "Tokens": "2.363567"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "google/gemini-2.5-flash-lite",
-      "Tokens": 0.094831
+      "Tokens": "0.094831"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 0.030196
+      "Tokens": "0.030196"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2299688,
+      "App_ID": "2299688",
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "openai/gpt-oss-20b",
-      "Tokens": 0.173043
+      "Tokens": "0.173043"
     },
     {
       "Date": "2026-05-31",
@@ -249415,91 +249445,91 @@
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "Others",
-      "Tokens": 0.748856
+      "Tokens": "0.748856"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
-      "Tokens": 0.286324
+      "Tokens": "0.286324"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.319026
+      "Tokens": "0.319026"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.113809
+      "Tokens": "0.113809"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-2.5-flash",
-      "Tokens": 0.184823
+      "Tokens": "0.184823"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-2.5-flash-lite",
-      "Tokens": 0.189653
+      "Tokens": "0.189653"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 0.82218
+      "Tokens": "0.82218"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-3.1-flash-lite-20260507",
-      "Tokens": 0.833822
+      "Tokens": "0.833822"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemma-4-31b-it-20260402",
-      "Tokens": 0.088464
+      "Tokens": "0.088464"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "xiaomi/mimo-v2-flash-20251210",
-      "Tokens": 0.266516
+      "Tokens": "0.266516"
     },
     {
       "Date": "2026-05-31",
-      "App_ID": 2524738,
+      "App_ID": "2524738",
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 1.951609
+      "Tokens": "1.951609"
     },
     {
       "Date": "2026-05-31",
@@ -251424,7 +251454,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.009086
@@ -251432,7 +251462,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.071215
@@ -251440,7 +251470,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 15.676812
@@ -251448,7 +251478,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.075151
@@ -251456,7 +251486,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.044371
@@ -251464,7 +251494,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 3.205236
@@ -251472,7 +251502,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.044436
@@ -251480,7 +251510,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.054637
@@ -251488,7 +251518,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.084034
@@ -251496,7 +251526,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.454237
@@ -251504,7 +251534,7 @@
     {
       "Date": "2026-06-01",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.397341
@@ -252768,7 +252798,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.011338
@@ -252776,7 +252806,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.086722
@@ -252784,7 +252814,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 14.895285
@@ -252792,7 +252822,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.114912
@@ -252800,7 +252830,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.03835
@@ -252808,7 +252838,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 3.827558
@@ -252816,7 +252846,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.043318
@@ -252824,7 +252854,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.049669
@@ -252832,7 +252862,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.076637
@@ -252840,7 +252870,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.452907
@@ -252848,7 +252878,7 @@
     {
       "Date": "2026-06-02",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.457636
@@ -254104,7 +254134,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.018214
@@ -254112,7 +254142,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.106403
@@ -254120,7 +254150,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 13.882446
@@ -254128,7 +254158,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.116582
@@ -254136,7 +254166,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.042753
@@ -254144,7 +254174,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 3.804984
@@ -254152,7 +254182,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.042195
@@ -254160,7 +254190,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.040446
@@ -254168,7 +254198,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.066338
@@ -254176,7 +254206,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.435923
@@ -254184,7 +254214,7 @@
     {
       "Date": "2026-06-03",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.43467
@@ -255480,7 +255510,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.028161
@@ -255488,7 +255518,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.056049
@@ -255496,7 +255526,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 12.770343
@@ -255504,7 +255534,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.102951
@@ -255512,7 +255542,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.0335
@@ -255520,7 +255550,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 3.859244
@@ -255528,7 +255558,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.04236
@@ -255536,7 +255566,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.033133
@@ -255544,7 +255574,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.066401
@@ -255552,7 +255582,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.415637
@@ -255560,7 +255590,7 @@
     {
       "Date": "2026-06-04",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.422632
@@ -256856,7 +256886,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.014244
@@ -256864,7 +256894,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.051707
@@ -256872,7 +256902,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 12.040327
@@ -256880,7 +256910,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.096116
@@ -256888,7 +256918,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.030411
@@ -256896,7 +256926,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 4.153872
@@ -256904,7 +256934,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.042736
@@ -256912,7 +256942,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.037689
@@ -256920,7 +256950,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.061381
@@ -256928,7 +256958,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.397963
@@ -256936,7 +256966,7 @@
     {
       "Date": "2026-06-05",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.384463
@@ -258216,7 +258246,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.017106
@@ -258224,7 +258254,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.049367
@@ -258232,7 +258262,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 12.496103
@@ -258240,7 +258270,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.09109
@@ -258248,7 +258278,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.044722
@@ -258256,7 +258286,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 3.774099
@@ -258264,7 +258294,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.041635
@@ -258272,7 +258302,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.038206
@@ -258280,7 +258310,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.054433
@@ -258288,7 +258318,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.390104
@@ -258296,7 +258326,7 @@
     {
       "Date": "2026-06-06",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.335781
@@ -259576,7 +259606,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.014016
@@ -259584,7 +259614,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.060877
@@ -259592,7 +259622,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 11.784468
@@ -259600,7 +259630,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.095147
@@ -259608,7 +259638,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.036342
@@ -259616,7 +259646,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 4.029011
@@ -259624,7 +259654,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.040532
@@ -259632,7 +259662,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.03131
@@ -259640,7 +259670,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.052665
@@ -259648,7 +259678,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.393106
@@ -259656,7 +259686,7 @@
     {
       "Date": "2026-06-07",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.39465
@@ -260920,7 +260950,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.017177
@@ -260928,7 +260958,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.063098
@@ -260936,7 +260966,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 11.613154
@@ -260944,7 +260974,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.104199
@@ -260952,7 +260982,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.039881
@@ -260960,7 +260990,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 4.221008
@@ -260968,7 +260998,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.039235
@@ -260976,7 +261006,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.029093
@@ -260984,7 +261014,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.067689
@@ -260992,7 +261022,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.418108
@@ -261000,7 +261030,7 @@
     {
       "Date": "2026-06-08",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.464004
@@ -262264,7 +262294,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.023339
@@ -262272,7 +262302,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.095426
@@ -262280,7 +262310,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 10.265734
@@ -262288,7 +262318,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.112583
@@ -262296,7 +262326,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.033952
@@ -262304,7 +262334,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 4.403271
@@ -262312,7 +262342,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.039099
@@ -262320,7 +262350,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-mini-2025-08-07",
       "Tokens": 0.030478
@@ -262328,7 +262358,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.063704
@@ -262336,7 +262366,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.413245
@@ -262344,7 +262374,7 @@
     {
       "Date": "2026-06-09",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.410507
@@ -263616,7 +263646,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.05305
@@ -263624,7 +263654,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.109478
@@ -263632,7 +263662,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 7.281701
@@ -263640,7 +263670,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.115061
@@ -263648,7 +263678,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.03624
@@ -263656,7 +263686,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.591844
@@ -263664,7 +263694,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.03977
@@ -263672,7 +263702,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.641978
@@ -263680,7 +263710,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.080648
@@ -263688,7 +263718,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.447764
@@ -263696,7 +263726,7 @@
     {
       "Date": "2026-06-10",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.428195
@@ -264968,7 +264998,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.148123
@@ -264976,7 +265006,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.5-20260211",
       "Tokens": 5.137428
@@ -264984,7 +265014,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m2.7-20260318",
       "Tokens": 0.106421
@@ -264992,7 +265022,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 1.282039
@@ -265000,7 +265030,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.107332
@@ -265008,7 +265038,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.789188
@@ -265016,7 +265046,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.247407
@@ -265024,7 +265054,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.065306
@@ -265032,7 +265062,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 1.512271
@@ -265040,7 +265070,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.389617
@@ -265048,7 +265078,7 @@
     {
       "Date": "2026-06-11",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.437093
@@ -266312,7 +266342,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.077077
@@ -266320,7 +266350,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.035574
@@ -266328,7 +266358,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.043535
@@ -266336,7 +266366,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 6.919104
@@ -266344,7 +266374,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.121526
@@ -266352,7 +266382,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.802112
@@ -266360,7 +266390,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.832219
@@ -266368,7 +266398,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.031609
@@ -266376,7 +266406,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 5.261612
@@ -266384,7 +266414,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.275972
@@ -266392,7 +266422,7 @@
     {
       "Date": "2026-06-12",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.400281
@@ -267656,7 +267686,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.06773
@@ -267664,7 +267694,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.045124
@@ -267672,7 +267702,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 6.920005
@@ -267680,7 +267710,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.034678
@@ -267688,7 +267718,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.133817
@@ -267696,7 +267726,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.598155
@@ -267704,7 +267734,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.727312
@@ -267712,7 +267742,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.02822
@@ -267720,7 +267750,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 4.984923
@@ -267728,7 +267758,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.262931
@@ -267736,7 +267766,7 @@
     {
       "Date": "2026-06-13",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.334285
@@ -269040,7 +269070,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.104417
@@ -269048,7 +269078,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.045585
@@ -269056,7 +269086,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-pro-20260423",
       "Tokens": 0.05817
@@ -269064,7 +269094,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 6.798774
@@ -269072,7 +269102,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.028749
@@ -269080,7 +269110,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.150792
@@ -269088,7 +269118,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.796336
@@ -269096,7 +269126,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.722684
@@ -269104,7 +269134,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 4.526848
@@ -269112,7 +269142,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.340154
@@ -269120,7 +269150,7 @@
     {
       "Date": "2026-06-14",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.328069
@@ -270408,7 +270438,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.098014
@@ -270416,7 +270446,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.033841
@@ -270424,7 +270454,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.061662
@@ -270432,7 +270462,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.70972
@@ -270440,7 +270470,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.035249
@@ -270448,7 +270478,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.16333
@@ -270456,7 +270486,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 3.203134
@@ -270464,7 +270494,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.762401
@@ -270472,7 +270502,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 5.151859
@@ -270480,7 +270510,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.238835
@@ -270488,7 +270518,7 @@
     {
       "Date": "2026-06-15",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.362782
@@ -271800,7 +271830,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.104574
@@ -271808,7 +271838,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.8-opus-20260528",
       "Tokens": 0.058703
@@ -271816,7 +271846,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.062482
@@ -271824,7 +271854,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.093507
@@ -271832,7 +271862,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.030488
@@ -271840,7 +271870,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.170529
@@ -271848,7 +271878,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 3.20424
@@ -271856,7 +271886,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.67626
@@ -271864,7 +271894,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 5.001586
@@ -271872,7 +271902,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 0.23754
@@ -271880,7 +271910,7 @@
     {
       "Date": "2026-06-16",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.289535
@@ -273160,7 +273190,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.119607
@@ -273168,7 +273198,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.034944
@@ -273176,7 +273206,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.074955
@@ -273184,7 +273214,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.394306
@@ -273192,7 +273222,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.032915
@@ -273200,7 +273230,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.172421
@@ -273208,7 +273238,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.538976
@@ -273216,7 +273246,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.696066
@@ -273224,7 +273254,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "xiaomi/mimo-v2-flash-20251210",
       "Tokens": 3.695205
@@ -273232,7 +273262,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 1.309405
@@ -273240,7 +273270,7 @@
     {
       "Date": "2026-06-17",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.429303
@@ -274512,7 +274542,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.083562
@@ -274520,7 +274550,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.8-opus-20260528",
       "Tokens": 0.038243
@@ -274528,7 +274558,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.072986
@@ -274536,7 +274566,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.537107
@@ -274544,7 +274574,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.170905
@@ -274552,7 +274582,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.333031
@@ -274560,7 +274590,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.638361
@@ -274568,7 +274598,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.030627
@@ -274576,7 +274606,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.030331
@@ -274584,7 +274614,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 4.23005
@@ -274592,7 +274622,7 @@
     {
       "Date": "2026-06-18",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.318418
@@ -275864,7 +275894,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.058288
@@ -275872,7 +275902,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.084861
@@ -275880,7 +275910,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.283733
@@ -275888,7 +275918,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.021716
@@ -275896,7 +275926,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.156312
@@ -275904,7 +275934,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.150753
@@ -275912,7 +275942,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.640715
@@ -275920,7 +275950,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.02585
@@ -275928,7 +275958,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.034799
@@ -275936,7 +275966,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 3.945971
@@ -275944,7 +275974,7 @@
     {
       "Date": "2026-06-19",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.308153
@@ -277216,7 +277246,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.052455
@@ -277224,7 +277254,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.083326
@@ -277232,7 +277262,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 8.679891
@@ -277240,7 +277270,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.029756
@@ -277248,7 +277278,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.162052
@@ -277256,7 +277286,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.395969
@@ -277264,7 +277294,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.693448
@@ -277272,7 +277302,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.029298
@@ -277280,7 +277310,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.035583
@@ -277288,7 +277318,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 4.274897
@@ -277296,7 +277326,7 @@
     {
       "Date": "2026-06-20",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.288607
@@ -278560,7 +278590,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.051265
@@ -278568,7 +278598,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 0.077026
@@ -278576,7 +278606,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.359515
@@ -278584,7 +278614,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.025543
@@ -278592,7 +278622,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.159806
@@ -278600,7 +278630,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.351117
@@ -278608,7 +278638,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.650036
@@ -278616,7 +278646,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.023661
@@ -278624,7 +278654,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.027263
@@ -278632,7 +278662,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 3.799255
@@ -278640,7 +278670,7 @@
     {
       "Date": "2026-06-21",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.279284
@@ -279904,7 +279934,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.059849
@@ -279912,7 +279942,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.719014
@@ -279920,7 +279950,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.79404
@@ -279928,7 +279958,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.027066
@@ -279936,7 +279966,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.170503
@@ -279944,7 +279974,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.368816
@@ -279952,7 +279982,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-20b",
       "Tokens": 0.123381
@@ -279960,7 +279990,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.023792
@@ -279968,7 +279998,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.0404
@@ -279976,7 +280006,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 3.94159
@@ -279984,7 +280014,7 @@
     {
       "Date": "2026-06-22",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.296354
@@ -281256,7 +281286,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.05193
@@ -281264,7 +281294,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.8-opus-20260528",
       "Tokens": 0.019107
@@ -281272,7 +281302,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 2.144453
@@ -281280,7 +281310,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 7.262331
@@ -281288,7 +281318,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.025581
@@ -281296,7 +281326,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.161044
@@ -281304,7 +281334,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.553425
@@ -281312,7 +281342,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.023912
@@ -281320,7 +281350,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.03505
@@ -281328,7 +281358,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 3.628037
@@ -281336,7 +281366,7 @@
     {
       "Date": "2026-06-23",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.300025
@@ -282608,7 +282638,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.042648
@@ -282616,7 +282646,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.027001
@@ -282624,7 +282654,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.685541
@@ -282632,7 +282662,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 6.312865
@@ -282640,7 +282670,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.017787
@@ -282648,7 +282678,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.14054
@@ -282656,7 +282686,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.285654
@@ -282664,7 +282694,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.6-plus-04-02",
       "Tokens": 0.023893
@@ -282672,7 +282702,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.04104
@@ -282680,7 +282710,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 3.409191
@@ -282688,7 +282718,7 @@
     {
       "Date": "2026-06-24",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.335887
@@ -283968,7 +283998,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.04219
@@ -283976,7 +284006,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.015782
@@ -283984,7 +284014,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.8-opus-20260528",
       "Tokens": 0.014627
@@ -283992,7 +284022,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.19476
@@ -284000,7 +284030,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 4.805103
@@ -284008,7 +284038,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.100698
@@ -284016,7 +284046,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-2025-08-07",
       "Tokens": 0.01515
@@ -284024,7 +284054,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.271021
@@ -284032,7 +284062,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.023174
@@ -284040,7 +284070,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 2.265148
@@ -284048,7 +284078,7 @@
     {
       "Date": "2026-06-25",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.306944
@@ -285312,7 +285342,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.026125
@@ -285320,7 +285350,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
       "Tokens": 0.009715
@@ -285328,7 +285358,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.363779
@@ -285336,7 +285366,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 5.437295
@@ -285344,7 +285374,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.015131
@@ -285352,7 +285382,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.108487
@@ -285360,7 +285390,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-2025-08-07",
       "Tokens": 0.014606
@@ -285368,7 +285398,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.495881
@@ -285376,7 +285406,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.020239
@@ -285384,7 +285414,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 2.552901
@@ -285392,7 +285422,7 @@
     {
       "Date": "2026-06-26",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.279449
@@ -286656,7 +286686,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.0257
@@ -286664,7 +286694,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.182988
@@ -286672,7 +286702,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-pro-20260423",
       "Tokens": 0.009231
@@ -286680,7 +286710,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 5.278277
@@ -286688,7 +286718,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.018617
@@ -286696,7 +286726,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.105194
@@ -286704,7 +286734,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-2025-08-07",
       "Tokens": 0.013613
@@ -286712,7 +286742,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.501753
@@ -286720,7 +286750,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.025028
@@ -286728,7 +286758,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 2.514236
@@ -286736,7 +286766,7 @@
     {
       "Date": "2026-06-27",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.198682
@@ -288000,7 +288030,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.019999
@@ -288008,7 +288038,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.347482
@@ -288016,7 +288046,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-pro-20260423",
       "Tokens": 0.015497
@@ -288024,7 +288054,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 5.175543
@@ -288032,7 +288062,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.018634
@@ -288040,7 +288070,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.10342
@@ -288048,7 +288078,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-2025-08-07",
       "Tokens": 0.01432
@@ -288056,7 +288086,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.508164
@@ -288064,7 +288094,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.026038
@@ -288072,7 +288102,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 2.415429
@@ -288080,7 +288110,7 @@
     {
       "Date": "2026-06-28",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.197028
@@ -289344,7 +289374,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.036525
@@ -289352,7 +289382,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.528309
@@ -289360,7 +289390,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-pro-20260423",
       "Tokens": 0.027922
@@ -289368,7 +289398,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 5.470212
@@ -289376,7 +289406,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.019896
@@ -289384,7 +289414,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.109456
@@ -289392,7 +289422,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-2025-08-07",
       "Tokens": 0.015927
@@ -289400,7 +289430,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.798611
@@ -289408,7 +289438,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.025444
@@ -289416,7 +289446,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 2.516241
@@ -289424,7 +289454,7 @@
     {
       "Date": "2026-06-29",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.323736
@@ -289523,7 +289553,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "Others",
-      "Tokens": 1.149666
+      "Tokens": 1.15074
     },
     {
       "Date": "2026-06-30",
@@ -289547,7 +289577,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "anthropic/claude-4.8-opus-20260528",
-      "Tokens": 0.364157
+      "Tokens": 0.381203
     },
     {
       "Date": "2026-06-30",
@@ -289555,7 +289585,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 1.320584
+      "Tokens": 1.320956
     },
     {
       "Date": "2026-06-30",
@@ -289563,7 +289593,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 0.431972
+      "Tokens": 0.431973
     },
     {
       "Date": "2026-06-30",
@@ -289571,7 +289601,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "google/gemini-3.1-flash-lite-20260507",
-      "Tokens": 0.617598
+      "Tokens": 0.618797
     },
     {
       "Date": "2026-06-30",
@@ -289579,7 +289609,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "google/gemini-3.1-pro-preview-20260219",
-      "Tokens": 0.288211
+      "Tokens": 0.288482
     },
     {
       "Date": "2026-06-30",
@@ -289587,7 +289617,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "moonshotai/kimi-k2.6-20260420",
-      "Tokens": 1.309213
+      "Tokens": 1.311001
     },
     {
       "Date": "2026-06-30",
@@ -289603,7 +289633,7 @@
       "App_Title": "Portkey AI",
       "App_Slug": "portkey-ai",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 1.55945
+      "Tokens": 1.560491
     },
     {
       "Date": "2026-06-30",
@@ -289899,7 +289929,7 @@
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 3.464696
+      "Tokens": 3.50018
     },
     {
       "Date": "2026-06-30",
@@ -289907,7 +289937,7 @@
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "google/gemini-2.5-flash",
-      "Tokens": 2.260986
+      "Tokens": 2.278387
     },
     {
       "Date": "2026-06-30",
@@ -289915,7 +289945,7 @@
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "google/gemini-2.5-flash-lite",
-      "Tokens": 0.075713
+      "Tokens": 0.076225
     },
     {
       "Date": "2026-06-30",
@@ -289931,7 +289961,7 @@
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "openai/gpt-5.4-mini-20260317",
-      "Tokens": 0.191155
+      "Tokens": 0.194456
     },
     {
       "Date": "2026-06-30",
@@ -289939,7 +289969,7 @@
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "openai/gpt-5.4-nano-20260317",
-      "Tokens": 5.860921
+      "Tokens": 5.915824
     },
     {
       "Date": "2026-06-30",
@@ -289947,7 +289977,7 @@
       "App_Title": "GDevelop",
       "App_Slug": "gdevelop",
       "Model": "openai/gpt-oss-20b",
-      "Tokens": 0.3358
+      "Tokens": 0.338494
     },
     {
       "Date": "2026-06-30",
@@ -290051,7 +290081,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "Others",
-      "Tokens": 3.213307
+      "Tokens": 3.233774
     },
     {
       "Date": "2026-06-30",
@@ -290059,7 +290089,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
-      "Tokens": 1.013531
+      "Tokens": 1.017273
     },
     {
       "Date": "2026-06-30",
@@ -290075,7 +290105,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 2.291998
+      "Tokens": 2.29565
     },
     {
       "Date": "2026-06-30",
@@ -290083,7 +290113,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.612197
+      "Tokens": 0.622378
     },
     {
       "Date": "2026-06-30",
@@ -290091,7 +290121,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-2.5-flash",
-      "Tokens": 0.387748
+      "Tokens": 0.389421
     },
     {
       "Date": "2026-06-30",
@@ -290107,7 +290137,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 1.465127
+      "Tokens": 1.475326
     },
     {
       "Date": "2026-06-30",
@@ -290115,7 +290145,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-3.1-flash-lite-20260507",
-      "Tokens": 2.439837
+      "Tokens": 2.463897
     },
     {
       "Date": "2026-06-30",
@@ -290123,7 +290153,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "google/gemini-3.5-flash-20260519",
-      "Tokens": 0.357204
+      "Tokens": 0.359789
     },
     {
       "Date": "2026-06-30",
@@ -290131,7 +290161,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "openai/gpt-4.1-mini-2025-04-14",
-      "Tokens": 1.010152
+      "Tokens": 1.043029
     },
     {
       "Date": "2026-06-30",
@@ -290139,7 +290169,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "qwen/qwen3-next-80b-a3b-instruct-2509",
-      "Tokens": 0.851289
+      "Tokens": 0.851755
     },
     {
       "Date": "2026-06-30",
@@ -290147,7 +290177,7 @@
       "App_Title": "LangChain",
       "App_Slug": "langchain",
       "Model": "z-ai/glm-5.1-20260406",
-      "Tokens": 0.467289
+      "Tokens": 0.467424
     },
     {
       "Date": "2026-06-30",
@@ -290768,7 +290798,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "Others",
       "Tokens": 0.043321
@@ -290776,7 +290806,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "deepseek/deepseek-v4-flash-20260423",
       "Tokens": 1.374211
@@ -290784,7 +290814,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "minimax/minimax-m3-20260531",
       "Tokens": 5.005461
@@ -290792,7 +290822,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-2025-04-14",
       "Tokens": 0.015365
@@ -290800,7 +290830,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4.1-nano-2025-04-14",
       "Tokens": 0.102462
@@ -290808,7 +290838,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-4o-mini",
       "Tokens": 0.032774
@@ -290816,7 +290846,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-5-2025-08-07",
       "Tokens": 0.015644
@@ -290824,7 +290854,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "openai/gpt-oss-120b",
       "Tokens": 2.889848
@@ -290832,7 +290862,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "qwen/qwen3.7-plus-20260602",
       "Tokens": 0.02734
@@ -290840,7 +290870,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-4.7-flash-20260119",
       "Tokens": 2.381501
@@ -290848,7 +290878,7 @@
     {
       "Date": "2026-06-30",
       "App_ID": 3296290,
-      "App_Title": "Mira",
+      "App_Title": "Mira is the leading AI agent inside Telegram",
       "App_Slug": "mira",
       "Model": "z-ai/glm-5.1-20260406",
       "Tokens": 0.313243
@@ -364996,7 +365026,7 @@
       "Date": "2026-06-30",
       "Provider": "cohere",
       "Provider_Display": "Cohere",
-      "Tokens": 23.622873,
+      "Tokens": 23.623501,
       "Model_Count": 5
     },
     {
@@ -365010,7 +365040,7 @@
       "Date": "2026-06-30",
       "Provider": "decart",
       "Provider_Display": "Decart",
-      "Tokens": 17.905519,
+      "Tokens": 17.905647,
       "Model_Count": 2
     },
     {
@@ -365178,7 +365208,7 @@
       "Date": "2026-06-30",
       "Provider": "nebius",
       "Provider_Display": "Nebius Token Factory",
-      "Tokens": 10.903023,
+      "Tokens": 10.903156,
       "Model_Count": 10
     },
     {
@@ -365206,7 +365236,7 @@
       "Date": "2026-06-30",
       "Provider": "nvidia",
       "Provider_Display": "NVIDIA",
-      "Tokens": 226.680946,
+      "Tokens": 226.681032,
       "Model_Count": 9
     },
     {
@@ -365297,7 +365327,7 @@
       "Date": "2026-06-30",
       "Provider": "siliconflow",
       "Provider_Display": "SiliconFlow",
-      "Tokens": 582.097615,
+      "Tokens": 582.098276,
       "Model_Count": 10
     },
     {
@@ -365318,7 +365348,7 @@
       "Date": "2026-06-30",
       "Provider": "stepfun",
       "Provider_Display": "StepFun",
-      "Tokens": 217.320823,
+      "Tokens": 217.321008,
       "Model_Count": 1
     },
     {

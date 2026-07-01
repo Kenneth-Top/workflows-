@@ -2,7 +2,7 @@ name: Update OpenRouter Market Apps
 
 on:
   schedule:
-    - cron: '0 2 * * *' # 每天 UTC 2点运行，北京时间 10点
+    - cron: '0 5 * * *' # 每天 UTC 5点运行，北京时间 13点，等待主历史数据先更新
   workflow_dispatch:
 
 permissions:
