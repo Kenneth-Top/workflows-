@@ -73493,6 +73493,8 @@ Date,Model,Prompt,Completion,Reasoning,Total_Tokens
 2026-06-28,mistralai/voxtral-small-24b-2507,0.009596,0.006418,0.0,0.016014
 2026-06-29,openai/gpt-oss-safeguard-20b,0.688006,0.087513,0.072321,0.775519
 2026-06-28,openai/gpt-oss-safeguard-20b,0.72172,0.089617,0.074303,0.811337
+2026-06-29,nvidia/nemotron-nano-12b-v2-vl:free,1.081515,0.039344,0.000678,1.120859
+2026-06-28,nvidia/nemotron-nano-12b-v2-vl:free,1.028543,0.038355,0.000446,1.066899
 2026-06-29,minimax/minimax-m2,0.154105,0.005292,0.003178,0.159397
 2026-06-28,minimax/minimax-m2,0.101712,0.005528,0.004195,0.10724
 2026-06-29,qwen/qwen3-vl-32b-instruct,1.063959,0.092448,0.0,1.156408
@@ -73554,6 +73556,7 @@ Date,Model,Prompt,Completion,Reasoning,Total_Tokens
 2026-06-29,qwen/qwen-plus-2025-07-28,0.021426,0.002107,0.0,0.023533
 2026-06-28,qwen/qwen-plus-2025-07-28,0.019001,0.00209,0.0,0.021091
 2026-06-29,nvidia/nemotron-nano-9b-v2:free,1.798791,0.208469,0.174417,2.00726
+2026-06-28,nvidia/nemotron-nano-9b-v2:free,1.573798,0.138704,0.111779,1.712501
 2026-06-29,qwen/qwen3-30b-a3b-thinking-2507,0.286548,0.041148,0.03498,0.327697
 2026-06-28,qwen/qwen3-30b-a3b-thinking-2507,0.075686,0.015027,0.01297,0.090713
 2026-06-29,nousresearch/hermes-4-70b,0.369853,0.02926,0.000349,0.399113
@@ -73865,9 +73868,9 @@ Date,Model,Prompt,Completion,Reasoning,Total_Tokens
 2026-06-28,nvidia/llama-nemotron-embed-vl-1b-v2:free,2e-06,0.0,0.0,2e-06
 2026-06-29,nvidia/llama-nemotron-rerank-vl-1b-v2:free,0.281972,0.0,0.0,0.281972
 2026-06-28,nvidia/llama-nemotron-rerank-vl-1b-v2:free,0.293196,0.0,0.0,0.293196
-2026-06-29,nvidia/nemotron-nano-12b-v2-vl:free,0.000404,1.3e-05,0.0,0.000418
-2026-06-28,nvidia/nemotron-nano-12b-v2-vl:free,0.000315,7.4e-05,0.0,0.000389
-2026-06-28,nvidia/nemotron-nano-9b-v2:free,0.000335,3.5e-05,1.9e-05,0.00037
+2026-06-29,nvidia/nemotron-nano-12b-v2-vl,0.000404,1.3e-05,0.0,0.000418
+2026-06-28,nvidia/nemotron-nano-12b-v2-vl,0.000315,7.4e-05,0.0,0.000389
+2026-06-28,nvidia/nemotron-nano-9b-v2,0.000335,3.5e-05,1.9e-05,0.00037
 2026-06-29,openai/gpt-4o-mini-transcribe,0.026925,0.006686,0.0,0.033611
 2026-06-28,openai/gpt-4o-mini-transcribe,0.017064,0.004187,0.0,0.021251
 2026-06-29,openai/gpt-4o-transcribe,0.006631,0.001645,0.0,0.008276
