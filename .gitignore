@@ -9,7 +9,17 @@ wind_market_cap.xlsx
 __pycache__/
 *.pyc
 *.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # IDE
 .vscode/
 .idea/
+
+# Local scratch files
+.playwright-cli/
+_tmp*/
+_tmp*
+*.log
+*.tmp
