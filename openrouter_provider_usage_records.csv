@@ -11889,75 +11889,147 @@
 2026-07-17,xai,xAI,71.961151,7
 2026-07-17,xiaomi,Xiaomi,1457.81438,2
 2026-07-17,z-ai,Z.ai,50.138903,10
-2026-07-18,ai21,AI21,0.011794,1
-2026-07-18,aion-labs,AionLabs,1.496617,4
-2026-07-18,akashml,AkashML,14.393737,5
-2026-07-18,alibaba,Alibaba Cloud Int.,189.817435,10
-2026-07-18,amazon-bedrock,Amazon Bedrock,501.057792,10
-2026-07-18,ambient,Ambient,2.185449,5
-2026-07-18,anthropic,Anthropic,226.256506,10
-2026-07-18,arcee-ai,Arcee AI,0.116885,1
-2026-07-18,atlas-cloud,AtlasCloud,63.059861,10
-2026-07-18,azure,Azure,68.521312,10
-2026-07-18,baidu,Baidu Qianfan,164.137911,7
-2026-07-18,baseten,Baseten,3.924244,6
-2026-07-18,black-forest-labs,Black Forest Labs,0.109337,4
-2026-07-18,cerebras,Cerebras,5.518488,3
-2026-07-18,chutes,Chutes,10.142541,9
-2026-07-18,cloudflare,Cloudflare,19.971717,10
-2026-07-18,cohere,Cohere,16.036171,5
-2026-07-18,darkbloom,Darkbloom,2.814501,2
-2026-07-18,decart,Decart,33.063289,2
+2026-07-18,ai21,AI21,0.013113,1
+2026-07-18,aion-labs,AionLabs,1.519833,4
+2026-07-18,akashml,AkashML,14.455714,5
+2026-07-18,alibaba,Alibaba Cloud Int.,192.484693,10
+2026-07-18,amazon-bedrock,Amazon Bedrock,503.051016,10
+2026-07-18,ambient,Ambient,2.205936,5
+2026-07-18,anthropic,Anthropic,228.095256,10
+2026-07-18,arcee-ai,Arcee AI,0.117687,1
+2026-07-18,atlas-cloud,AtlasCloud,63.302201,10
+2026-07-18,azure,Azure,68.777603,10
+2026-07-18,baidu,Baidu Qianfan,165.852126,7
+2026-07-18,baseten,Baseten,3.936403,6
+2026-07-18,black-forest-labs,Black Forest Labs,0.109806,4
+2026-07-18,cerebras,Cerebras,5.540564,3
+2026-07-18,chutes,Chutes,10.162828,9
+2026-07-18,cloudflare,Cloudflare,19.982074,10
+2026-07-18,cohere,Cohere,16.248247,5
+2026-07-18,darkbloom,Darkbloom,2.819372,2
+2026-07-18,decart,Decart,33.116574,2
 2026-07-18,deepgram,Deepgram,9.6e-05,1
-2026-07-18,deepinfra,DeepInfra,186.804807,10
-2026-07-18,deepseek,DeepSeek,396.731434,2
-2026-07-18,dekallm,DekaLLM,17.205234,7
-2026-07-18,digitalocean,DigitalOcean,20.119397,10
-2026-07-18,fireworks,Fireworks,26.091858,8
-2026-07-18,friendli,Friendli,15.194381,6
-2026-07-18,gmicloud,GMICloud,118.718473,10
-2026-07-18,google-ai-studio,Google AI Studio,91.672609,10
-2026-07-18,google-vertex,Google Vertex,362.436999,10
-2026-07-18,groq,Groq,16.456766,9
-2026-07-18,inception,Inception,1.100596,1
-2026-07-18,inceptron,Inceptron,11.130098,4
-2026-07-18,io-net,io.net,2.826804,3
-2026-07-18,ionstream,Ionstream,2.25232,3
-2026-07-18,mancer,Mancer,2.486425,5
-2026-07-18,mara,MARA,0.866084,4
-2026-07-18,meta,Meta,5.21064,1
-2026-07-18,minimax,MiniMax,435.624648,10
-2026-07-18,mistral,Mistral,11.364107,10
-2026-07-18,modelrun,ModelRun,7.502674,2
-2026-07-18,moonshotai,Moonshot AI,145.506322,4
-2026-07-18,morph,Morph,12.464161,7
-2026-07-18,nebius,Nebius Token Factory,10.586116,10
-2026-07-18,nex-agi,Nex AGI,0.999156,2
-2026-07-18,nextbit,NextBit,9.619057,10
-2026-07-18,novita,NovitaAI,1947.089838,10
-2026-07-18,nvidia,NVIDIA,480.177199,10
-2026-07-18,open-inference,OpenInference,2.061758,2
-2026-07-18,openai,OpenAI,286.347284,10
-2026-07-18,parasail,Parasail,39.659094,10
-2026-07-18,perceptron,Perceptron,0.029437,1
-2026-07-18,perplexity,Perplexity,1.981932,7
-2026-07-18,phala,Phala,5.291683,10
-2026-07-18,poolside,Poolside,106.840197,4
-2026-07-18,recraft,Recraft,0.009523,10
-2026-07-18,reka,Reka AI,0.005238,2
+2026-07-18,deepinfra,DeepInfra,187.647726,10
+2026-07-18,deepseek,DeepSeek,398.709336,2
+2026-07-18,dekallm,DekaLLM,17.35238,7
+2026-07-18,digitalocean,DigitalOcean,20.230087,10
+2026-07-18,fireworks,Fireworks,26.249403,8
+2026-07-18,friendli,Friendli,15.226784,6
+2026-07-18,gmicloud,GMICloud,119.985202,10
+2026-07-18,google-ai-studio,Google AI Studio,92.550928,10
+2026-07-18,google-vertex,Google Vertex,364.131097,10
+2026-07-18,groq,Groq,16.532002,9
+2026-07-18,inception,Inception,1.101323,1
+2026-07-18,inceptron,Inceptron,11.164125,4
+2026-07-18,io-net,io.net,2.844976,3
+2026-07-18,ionstream,Ionstream,2.266453,3
+2026-07-18,mancer,Mancer,2.488602,5
+2026-07-18,mara,MARA,0.892827,4
+2026-07-18,meta,Meta,5.31217,1
+2026-07-18,minimax,MiniMax,441.539137,10
+2026-07-18,mistral,Mistral,11.520377,10
+2026-07-18,modelrun,ModelRun,7.591494,2
+2026-07-18,moonshotai,Moonshot AI,146.542267,4
+2026-07-18,morph,Morph,12.553714,7
+2026-07-18,nebius,Nebius Token Factory,10.622368,10
+2026-07-18,nex-agi,Nex AGI,1.044529,2
+2026-07-18,nextbit,NextBit,9.672706,10
+2026-07-18,novita,NovitaAI,1949.618868,10
+2026-07-18,nvidia,NVIDIA,486.348599,10
+2026-07-18,open-inference,OpenInference,2.070019,2
+2026-07-18,openai,OpenAI,287.867809,10
+2026-07-18,parasail,Parasail,39.884748,10
+2026-07-18,perceptron,Perceptron,0.029468,1
+2026-07-18,perplexity,Perplexity,1.984412,7
+2026-07-18,phala,Phala,5.322722,10
+2026-07-18,poolside,Poolside,106.982092,4
+2026-07-18,recraft,Recraft,0.009573,10
+2026-07-18,reka,Reka AI,0.005298,2
 2026-07-18,relace,Relace,0.004958,2
-2026-07-18,sakana,Sakana,0.145624,1
-2026-07-18,sambanova,SambaNova,2.177203,6
-2026-07-18,seed,Seed,0.771656,5
-2026-07-18,siliconflow,SiliconFlow,81.459156,10
-2026-07-18,sourceful,Sourceful,0.010965,4
-2026-07-18,stepfun,StepFun,100.55803,1
-2026-07-18,streamlake,StreamLake,250.521576,10
-2026-07-18,together,Together,17.776429,10
-2026-07-18,upstage,Upstage,0.012769,1
-2026-07-18,venice,Venice,10.000844,10
-2026-07-18,wafer,Wafer,6.59744,3
-2026-07-18,wandb,Weights & Biases,44.29306,10
-2026-07-18,xai,xAI,53.62163,7
-2026-07-18,xiaomi,Xiaomi,1289.863875,2
-2026-07-18,z-ai,Z.ai,40.183019,10
+2026-07-18,sakana,Sakana,0.151205,1
+2026-07-18,sambanova,SambaNova,2.189087,6
+2026-07-18,seed,Seed,0.775815,5
+2026-07-18,siliconflow,SiliconFlow,82.896643,10
+2026-07-18,sourceful,Sourceful,0.010974,4
+2026-07-18,stepfun,StepFun,100.601211,1
+2026-07-18,streamlake,StreamLake,252.301832,10
+2026-07-18,together,Together,17.81599,10
+2026-07-18,upstage,Upstage,0.0128,1
+2026-07-18,venice,Venice,10.034684,10
+2026-07-18,wafer,Wafer,6.602538,3
+2026-07-18,wandb,Weights & Biases,44.467169,10
+2026-07-18,xai,xAI,53.949428,7
+2026-07-18,xiaomi,Xiaomi,1296.107178,2
+2026-07-18,z-ai,Z.ai,40.24042,10
+2026-07-19,ai21,AI21,0.00719,1
+2026-07-19,aion-labs,AionLabs,1.316628,4
+2026-07-19,akashml,AkashML,13.791826,5
+2026-07-19,alibaba,Alibaba Cloud Int.,119.897174,10
+2026-07-19,amazon-bedrock,Amazon Bedrock,305.776934,10
+2026-07-19,ambient,Ambient,9.581195,3
+2026-07-19,anthropic,Anthropic,191.549784,10
+2026-07-19,arcee-ai,Arcee AI,0.183293,1
+2026-07-19,atlas-cloud,AtlasCloud,66.670006,10
+2026-07-19,azure,Azure,75.411586,10
+2026-07-19,baidu,Baidu Qianfan,226.698826,7
+2026-07-19,baseten,Baseten,3.708695,6
+2026-07-19,black-forest-labs,Black Forest Labs,0.097213,4
+2026-07-19,cerebras,Cerebras,4.92175,3
+2026-07-19,chutes,Chutes,12.468274,9
+2026-07-19,cloudflare,Cloudflare,28.784125,10
+2026-07-19,cohere,Cohere,12.64393,5
+2026-07-19,darkbloom,Darkbloom,2.857572,2
+2026-07-19,decart,Decart,23.087317,2
+2026-07-19,deepgram,Deepgram,8.1e-05,1
+2026-07-19,deepinfra,DeepInfra,161.27708,10
+2026-07-19,deepseek,DeepSeek,356.88477,2
+2026-07-19,dekallm,DekaLLM,17.317291,7
+2026-07-19,digitalocean,DigitalOcean,18.136319,10
+2026-07-19,fireworks,Fireworks,22.449529,8
+2026-07-19,friendli,Friendli,13.583492,6
+2026-07-19,gmicloud,GMICloud,139.384443,10
+2026-07-19,google-ai-studio,Google AI Studio,75.714408,10
+2026-07-19,google-vertex,Google Vertex,319.038528,10
+2026-07-19,groq,Groq,15.847845,9
+2026-07-19,inception,Inception,0.545392,1
+2026-07-19,inceptron,Inceptron,9.7138,4
+2026-07-19,io-net,io.net,1.310008,3
+2026-07-19,ionstream,Ionstream,2.646391,3
+2026-07-19,mancer,Mancer,1.351499,5
+2026-07-19,mara,MARA,0.879934,4
+2026-07-19,meta,Meta,4.86986,1
+2026-07-19,minimax,MiniMax,284.417413,10
+2026-07-19,mistral,Mistral,11.527314,10
+2026-07-19,modelrun,ModelRun,9.261227,2
+2026-07-19,moonshotai,Moonshot AI,158.087774,4
+2026-07-19,morph,Morph,13.704818,7
+2026-07-19,nebius,Nebius Token Factory,9.88293,10
+2026-07-19,nex-agi,Nex AGI,0.983845,2
+2026-07-19,nextbit,NextBit,13.465897,10
+2026-07-19,novita,NovitaAI,1898.516747,10
+2026-07-19,nvidia,NVIDIA,423.867504,10
+2026-07-19,open-inference,OpenInference,3.545274,1
+2026-07-19,openai,OpenAI,297.465899,10
+2026-07-19,parasail,Parasail,30.744608,10
+2026-07-19,perceptron,Perceptron,0.012813,1
+2026-07-19,perplexity,Perplexity,1.597515,7
+2026-07-19,phala,Phala,3.459088,10
+2026-07-19,poolside,Poolside,99.190423,4
+2026-07-19,recraft,Recraft,0.005588,10
+2026-07-19,reka,Reka AI,0.005878,2
+2026-07-19,relace,Relace,0.001558,2
+2026-07-19,sakana,Sakana,0.281935,1
+2026-07-19,sambanova,SambaNova,1.970854,6
+2026-07-19,seed,Seed,0.893672,5
+2026-07-19,siliconflow,SiliconFlow,66.959959,10
+2026-07-19,sourceful,Sourceful,0.035653,4
+2026-07-19,stepfun,StepFun,105.052381,1
+2026-07-19,streamlake,StreamLake,259.849925,10
+2026-07-19,together,Together,15.899009,10
+2026-07-19,upstage,Upstage,0.013836,1
+2026-07-19,venice,Venice,9.52917,10
+2026-07-19,wafer,Wafer,5.41451,3
+2026-07-19,wandb,Weights & Biases,37.736041,10
+2026-07-19,xai,xAI,47.815904,7
+2026-07-19,xiaomi,Xiaomi,1145.877709,2
+2026-07-19,z-ai,Z.ai,30.420291,10
