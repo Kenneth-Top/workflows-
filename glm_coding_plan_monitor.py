@@ -426,8 +426,18 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
     def record_batch(batch: list[Observation], observed_now: datetime) -> None:
         observations.extend(batch)
         for item in batch:
-            latest_status[item.plan_key] = item.status
-            latest_source[item.plan_key] = item.source
+            current_status = latest_status.get(item.plan_key)
+            current_source = latest_source.get(item.plan_key)
+            reliable_inventory = item.source == "api_batch_preview"
+            current_reliable_inventory = current_source == "api_batch_preview"
+            if not (
+                current_reliable_inventory
+                and current_status == "sold_out"
+                and not reliable_inventory
+                and item.status != "sold_out"
+            ):
+                latest_status[item.plan_key] = item.status
+                latest_source[item.plan_key] = item.source
             observed_label = format_local_time(observed_now)
             if observed_now >= sale_start and item.status != "sold_out":
                 last_not_sold_at[item.plan_key] = observed_label
