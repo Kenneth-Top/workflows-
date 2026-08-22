@@ -289,6 +289,10 @@ def fetch_api_observations(headers: dict[str, str], timeout: float = DEFAULT_API
                 source="api_batch_preview",
             )
         )
+    if not products:
+        return [], "api_empty_product_list"
+    if not observations:
+        return [], f"api_unmapped_products:{len(products)}"
     return observations, None
 
 
@@ -583,6 +587,8 @@ async def monitor(args: argparse.Namespace) -> tuple[dict[str, str], list[Observ
                 and (
                     api_note == "api_busy"
                     or api_note.startswith("api_error:")
+                    or api_note == "api_empty_product_list"
+                    or api_note.startswith("api_unmapped_products:")
                 )
             )
             if not batch and retryable_api_failure and not args.once and now_local() < target_end:
@@ -754,7 +760,7 @@ async def main() -> None:
         default=DEFAULT_LATE_RETRY_SECONDS,
         help="Seconds to keep retrying API inventory when the job starts after the monitor window.",
     )
-    parser.add_argument("--reload-each-poll", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--reload-each-poll", action=argparse.BooleanOptionalAction, default=False)
     args = parser.parse_args()
 
     try:
