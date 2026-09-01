@@ -14810,7 +14810,7 @@
 2026-08-23,alibaba,Alibaba Cloud Int.,179.280876,10
 2026-08-23,amazon-bedrock,Amazon Bedrock,151.739133,10
 2026-08-23,ambient,Ambient,6.805359,3
-2026-08-23,anthropic,Anthropic,70.83932,10
+2026-08-23,anthropic,Anthropic,70.866364,10
 2026-08-23,arcee-ai,Arcee AI,0.005548,1
 2026-08-23,atlas-cloud,AtlasCloud,43.122169,10
 2026-08-23,azure,Azure,202.415518,10
@@ -15416,7 +15416,7 @@
 2026-08-30,friendli,Friendli,21.824198,7
 2026-08-30,gmicloud,GMICloud,922.340004,10
 2026-08-30,google-ai-studio,Google AI Studio,137.669412,10
-2026-08-30,google-vertex,Google Vertex,637.888003,10
+2026-08-30,google-vertex,Google Vertex,637.922413,10
 2026-08-30,groq,Groq,21.320993,8
 2026-08-30,heygen,HeyGen,0.0,0
 2026-08-30,inception,Inception,0.248864,1
@@ -15469,3 +15469,86 @@
 2026-08-30,xai,SpaceXAI,69.864852,9
 2026-08-30,xiaomi,Xiaomi,554.432183,2
 2026-08-30,z-ai,Z.ai,1084.891652,10
+2026-08-31,aion-labs,AionLabs,1.896226,4
+2026-08-31,akashml,AkashML,25.838994,6
+2026-08-31,alibaba,Alibaba Cloud Int.,283.164757,10
+2026-08-31,amazon-bedrock,Amazon Bedrock,244.550568,10
+2026-08-31,ambient,Ambient,14.286549,3
+2026-08-31,anthropic,Anthropic,169.873396,10
+2026-08-31,arcee-ai,Arcee AI,0.098392,1
+2026-08-31,atlas-cloud,AtlasCloud,85.25079,10
+2026-08-31,azure,Azure,143.672163,10
+2026-08-31,baidu,Baidu Qianfan,383.060429,9
+2026-08-31,baseten,Baseten,103.051611,10
+2026-08-31,black-forest-labs,Black Forest Labs,0.322347,4
+2026-08-31,cerebras,Cerebras,6.357222,2
+2026-08-31,chutes,Chutes,6.285462,6
+2026-08-31,claude-on-aws,Claude Platform on AWS,252.020815,9
+2026-08-31,cloudflare,Cloudflare,42.874071,10
+2026-08-31,cohere,Cohere,16.440306,5
+2026-08-31,coreweave,CoreWeave,208.599942,10
+2026-08-31,crusoe,Crusoe,16.459937,7
+2026-08-31,darkbloom,Darkbloom,7.318998,5
+2026-08-31,decart,Decart,19.327541,4
+2026-08-31,deepgram,Deepgram,0.000563,2
+2026-08-31,deepinfra,DeepInfra,410.242844,10
+2026-08-31,deepseek,DeepSeek,222.644014,3
+2026-08-31,digitalocean,DigitalOcean,122.362322,10
+2026-08-31,fireworks,Fireworks,100.034578,9
+2026-08-31,fish-audio,Fish Audio,0.002194,4
+2026-08-31,friendli,Friendli,38.376974,7
+2026-08-31,gmicloud,GMICloud,594.374751,10
+2026-08-31,google-ai-studio,Google AI Studio,167.15704,10
+2026-08-31,google-vertex,Google Vertex,740.320919,10
+2026-08-31,groq,Groq,34.583023,8
+2026-08-31,heygen,HeyGen,0.0,0
+2026-08-31,inception,Inception,0.315526,1
+2026-08-31,inceptron,Inceptron,18.913443,4
+2026-08-31,io-net,io.net,6.633965,5
+2026-08-31,ionstream,Ionstream,3.463774,1
+2026-08-31,krea,Krea,0.044418,3
+2026-08-31,liquid,Liquid,1.497924,2
+2026-08-31,makora,Makora,11.931214,4
+2026-08-31,mancer,Mancer,2.865393,8
+2026-08-31,mara,MARA,0.708278,4
+2026-08-31,meta,Meta,34.691896,4
+2026-08-31,minimax,MiniMax,183.778247,10
+2026-08-31,mistral,Mistral,16.551022,10
+2026-08-31,modal,Modal,104.963357,4
+2026-08-31,modelrun,ModelRun [by Modular],8.750278,3
+2026-08-31,moonshotai,Moonshot AI,54.517862,4
+2026-08-31,morph,Morph,31.379172,6
+2026-08-31,nebius,Nebius Token Factory,11.910435,10
+2026-08-31,nex-agi,Nex AGI,0.797526,2
+2026-08-31,nextbit,NextBit,23.975753,10
+2026-08-31,novita,NovitaAI,648.304125,10
+2026-08-31,nvidia,NVIDIA,691.605274,8
+2026-08-31,open-inference,OpenInference,52.739777,1
+2026-08-31,openai,OpenAI,1780.180385,10
+2026-08-31,parasail,Parasail,168.031635,10
+2026-08-31,perceptron,Perceptron,0.010688,1
+2026-08-31,perplexity,Perplexity,9.683323,7
+2026-08-31,phala,Phala,42.91577,10
+2026-08-31,poolside,Poolside,220.158279,4
+2026-08-31,recraft,Recraft,0.011207,10
+2026-08-31,reka,Reka AI,30.07064,7
+2026-08-31,relace,Relace,667.398321,4
+2026-08-31,runway,Runway,0.0,0
+2026-08-31,sail-research,Sail Research,36.967476,4
+2026-08-31,sakana,Sakana,0.290215,2
+2026-08-31,sambanova,SambaNova,1.518036,7
+2026-08-31,seed,Seed,3.749284,9
+2026-08-31,siliconflow,SiliconFlow,127.690122,10
+2026-08-31,sourceful,Sourceful,0.0074,4
+2026-08-31,stepfun,StepFun,68.945844,1
+2026-08-31,streamlake,StreamLake,447.857716,10
+2026-08-31,tencent,Tencent Cloud,1731.480949,5
+2026-08-31,thinkingmachines,Thinking Machines,43.772432,2
+2026-08-31,together,Together,122.627479,10
+2026-08-31,upstage,Upstage,167.290551,2
+2026-08-31,venice,Venice,46.000101,10
+2026-08-31,voyageai,Voyage AI by MongoDB,3.45602,7
+2026-08-31,wafer,Wafer,33.224424,2
+2026-08-31,xai,SpaceXAI,97.890605,9
+2026-08-31,xiaomi,Xiaomi,570.543835,2
+2026-08-31,z-ai,Z.ai,1521.600996,10
