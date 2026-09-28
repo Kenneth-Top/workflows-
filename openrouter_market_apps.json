@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T10:17:01.568665+00:00",
+  "generated_at": "2026-09-28T11:19:31.021715+00:00",
   "sources": {
     "rankings": "https://openrouter.ai/rankings",
     "apps": "https://openrouter.ai/apps",
@@ -109974,248 +109974,668 @@
       "Author": "z-ai",
       "Tokens": 1707.718526,
       "Share": 0.08600666
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "aion-labs",
+      "Tokens": 1.144936,
+      "Share": 5.577e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "amazon",
+      "Tokens": 3.40874,
+      "Share": 0.00016604
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "anthracite-org",
+      "Tokens": 0.023775,
+      "Share": 1.16e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "anthropic",
+      "Tokens": 559.579774,
+      "Share": 0.02725647
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "arcee-ai",
+      "Tokens": 0.101765,
+      "Share": 4.96e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "baai",
+      "Tokens": 3.980487,
+      "Share": 0.00019388
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "baidu",
+      "Tokens": 0.012102,
+      "Share": 5.9e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "black-forest-labs",
+      "Tokens": 0.158028,
+      "Share": 7.7e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "bytedance",
+      "Tokens": 0.057366,
+      "Share": 2.79e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "bytedance-seed",
+      "Tokens": 2.363805,
+      "Share": 0.00011514
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "canopylabs",
+      "Tokens": 5e-06,
+      "Share": 0.0
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "cohere",
+      "Tokens": 15.901299,
+      "Share": 0.00077453
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "deepgram",
+      "Tokens": 0.000644,
+      "Share": 3e-08
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "deepseek",
+      "Tokens": 4991.994107,
+      "Share": 0.24315418
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "dots-studio",
+      "Tokens": 71.089964,
+      "Share": 0.00346271
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "fireworks",
+      "Tokens": 0.34872,
+      "Share": 1.699e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "fish-audio",
+      "Tokens": 0.00239,
+      "Share": 1.2e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "google",
+      "Tokens": 771.985155,
+      "Share": 0.03760249
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "gryphe",
+      "Tokens": 0.092489,
+      "Share": 4.51e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "hexgrad",
+      "Tokens": 0.002308,
+      "Share": 1.1e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "ibm-granite",
+      "Tokens": 0.843278,
+      "Share": 4.108e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "inception",
+      "Tokens": 3.965023,
+      "Share": 0.00019313
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "inclusionai",
+      "Tokens": 220.36881,
+      "Share": 0.01073391
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "inference-net",
+      "Tokens": 0.024591,
+      "Share": 1.2e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "intfloat",
+      "Tokens": 0.189053,
+      "Share": 9.21e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "jaredpalmer",
+      "Tokens": 0.058397,
+      "Share": 2.84e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "krea",
+      "Tokens": 0.018832,
+      "Share": 9.2e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "liquid",
+      "Tokens": 2.537778,
+      "Share": 0.00012361
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "mancer",
+      "Tokens": 0.00035,
+      "Share": 2e-08
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "meituan",
+      "Tokens": 1.200036,
+      "Share": 5.845e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "meta",
+      "Tokens": 247.422876,
+      "Share": 0.01205168
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "meta-llama",
+      "Tokens": 17.695091,
+      "Share": 0.00086191
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "microsoft",
+      "Tokens": 0.273197,
+      "Share": 1.331e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "minimax",
+      "Tokens": 186.236468,
+      "Share": 0.00907136
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "mistralai",
+      "Tokens": 61.35015,
+      "Share": 0.00298829
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "moonshotai",
+      "Tokens": 236.011094,
+      "Share": 0.01149582
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "morph",
+      "Tokens": 0.020571,
+      "Share": 1e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "nousresearch",
+      "Tokens": 0.328581,
+      "Share": 1.6e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "nvidia",
+      "Tokens": 1154.281118,
+      "Share": 0.05622368
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "openai",
+      "Tokens": 2530.503948,
+      "Share": 0.12325788
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "perceptron",
+      "Tokens": 0.493335,
+      "Share": 2.403e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "perplexity",
+      "Tokens": 1.515793,
+      "Share": 7.383e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "poolside",
+      "Tokens": 167.0765,
+      "Share": 0.0081381
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "prism-ml",
+      "Tokens": 0.03116,
+      "Share": 1.52e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "qwen",
+      "Tokens": 294.165758,
+      "Share": 0.01432847
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "recraft",
+      "Tokens": 0.054492,
+      "Share": 2.65e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "rekaai",
+      "Tokens": 0.008458,
+      "Share": 4.1e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "relace",
+      "Tokens": 0.010847,
+      "Share": 5.3e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "respan",
+      "Tokens": 2.205471,
+      "Share": 0.00010743
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "sakana",
+      "Tokens": 0.11584,
+      "Share": 5.64e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "sao10k",
+      "Tokens": 0.806319,
+      "Share": 3.927e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "sentence-transformers",
+      "Tokens": 0.254955,
+      "Share": 1.242e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "sesame",
+      "Tokens": 2e-06,
+      "Share": 0.0
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "sourceful",
+      "Tokens": 0.008842,
+      "Share": 4.3e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "stealth",
+      "Tokens": 3992.090049,
+      "Share": 0.19445002
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "stepfun",
+      "Tokens": 2.777748,
+      "Share": 0.0001353
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "tencent",
+      "Tokens": 1265.50662,
+      "Share": 0.06164134
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "thedrummer",
+      "Tokens": 0.391981,
+      "Share": 1.909e-05
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "thenlper",
+      "Tokens": 0.02529,
+      "Share": 1.23e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "thinkingmachines",
+      "Tokens": 52.996584,
+      "Share": 0.0025814
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "typesafe",
+      "Tokens": 360.756567,
+      "Share": 0.01757203
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "unbiased",
+      "Tokens": 0.181049,
+      "Share": 8.82e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "undi95",
+      "Tokens": 0.029972,
+      "Share": 1.46e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "upstage",
+      "Tokens": 220.184442,
+      "Share": 0.01072493
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "venice",
+      "Tokens": 0.200267,
+      "Share": 9.75e-06
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "voyageai",
+      "Tokens": 14.554879,
+      "Share": 0.00070895
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "writer",
+      "Tokens": 0.00246,
+      "Share": 1.2e-07
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "x-ai",
+      "Tokens": 73.151346,
+      "Share": 0.00356312
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "xiaomi",
+      "Tokens": 1578.635819,
+      "Share": 0.0768935
+    },
+    {
+      "Date": "2026-09-27",
+      "Author": "z-ai",
+      "Tokens": 1416.34972,
+      "Share": 0.06898873
     }
   ],
   "apps": [
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 2,
       "App_ID": 3067167,
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Origin_URL": "https://hermes-agent.nousresearch.com/",
       "Categories": "personal-agent;cli-agent",
-      "Total_Tokens": 1695303579267,
-      "Total_Requests": 17322029,
+      "Total_Tokens": 1729210473166,
+      "Total_Requests": 18124609,
       "Created_At": "2026-03-12T23:26:33.624Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 3,
       "App_ID": 190604,
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Origin_URL": "https://cline.bot/",
       "Categories": "ide-extension;cli-agent",
-      "Total_Tokens": 867415096314,
-      "Total_Requests": 5494957,
+      "Total_Tokens": 926893776688,
+      "Total_Requests": 5781615,
       "Created_At": "2024-10-09T07:53:24.932Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 4,
       "App_ID": 2262242,
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Origin_URL": "https://kilocode.ai/",
       "Categories": "cli-agent;ide-extension",
-      "Total_Tokens": 793139018374,
-      "Total_Requests": 9431673,
+      "Total_Tokens": 869519452406,
+      "Total_Requests": 10526408,
       "Created_At": "2025-04-09T15:16:20.620Z"
     },
     {
-      "Date": "2026-09-26",
-      "Rank": 5,
+      "Date": "2026-09-27",
+      "Rank": 6,
       "App_ID": 2627404,
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Origin_URL": "https://claude.ai/code",
       "Categories": "cli-agent",
-      "Total_Tokens": 760182083870,
-      "Total_Requests": 7495007,
+      "Total_Tokens": 625896463651,
+      "Total_Requests": 6136620,
       "Created_At": "2025-12-23T22:23:47.378Z"
     },
     {
-      "Date": "2026-09-26",
-      "Rank": 8,
+      "Date": "2026-09-27",
+      "Rank": 7,
       "App_ID": 2853275,
       "App_Title": "pi",
       "App_Slug": "pi",
       "Origin_URL": "https://pi.dev/",
       "Categories": "cli-agent",
-      "Total_Tokens": 397157738737,
-      "Total_Requests": 3600212,
+      "Total_Tokens": 459445595540,
+      "Total_Requests": 3818218,
       "Created_At": "2026-02-15T08:18:07.110Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 9,
       "App_ID": 3682314,
       "App_Title": "omp",
       "App_Slug": null,
       "Origin_URL": "https://omp.sh/",
       "Categories": "cli-agent",
-      "Total_Tokens": 392479830792,
-      "Total_Requests": 2188488,
+      "Total_Tokens": 384734699702,
+      "Total_Requests": 2005792,
       "Created_At": "2026-05-15T19:18:27.144Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 10,
-      "App_ID": 2668297,
-      "App_Title": "Codex",
-      "App_Slug": "codex",
-      "Origin_URL": "https://openai.com/codex/",
-      "Categories": "cli-agent",
-      "Total_Tokens": 365116885248,
-      "Total_Requests": 3516487,
-      "Created_At": "2026-01-10T03:00:25.305Z"
-    },
-    {
-      "Date": "2026-09-26",
-      "Rank": 11,
       "App_ID": 3909382,
       "App_Title": "Command Code",
       "App_Slug": null,
       "Origin_URL": "https://commandcode.ai/",
       "Categories": "programming-app;cli-agent;ide-extension;native-app-builder;personal-agent",
-      "Total_Tokens": 280704494805,
-      "Total_Requests": 3863751,
+      "Total_Tokens": 305727570535,
+      "Total_Requests": 3971731,
       "Created_At": "2026-05-29T15:20:36.924Z"
     },
     {
-      "Date": "2026-09-26",
-      "Rank": 12,
+      "Date": "2026-09-27",
+      "Rank": 11,
       "App_ID": 4137556,
       "App_Title": "Freebuff",
       "App_Slug": null,
       "Origin_URL": "https://freebuff.com/",
       "Categories": "",
-      "Total_Tokens": 278510704811,
-      "Total_Requests": 1871842,
+      "Total_Tokens": 287963987537,
+      "Total_Requests": 1930623,
       "Created_At": "2026-06-18T22:24:38.005Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
+      "Rank": 12,
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Origin_URL": "https://openai.com/codex/",
+      "Categories": "cli-agent",
+      "Total_Tokens": 273206008551,
+      "Total_Requests": 2747888,
+      "Created_At": "2026-01-10T03:00:25.305Z"
+    },
+    {
+      "Date": "2026-09-27",
       "Rank": 13,
       "App_ID": 4706207,
       "App_Title": "DeepSeek Harness",
       "App_Slug": null,
       "Origin_URL": "https://github.com/deepseek-ai/deepseek-harness",
       "Categories": "",
-      "Total_Tokens": 200944822928,
-      "Total_Requests": 1325771,
+      "Total_Tokens": 229438308447,
+      "Total_Requests": 1465975,
       "Created_At": "2026-08-14T02:52:48.939Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 14,
       "App_ID": 2725608,
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Origin_URL": "https://openclaw.ai/",
       "Categories": "personal-agent;cli-agent",
-      "Total_Tokens": 179441378124,
-      "Total_Requests": 2370080,
+      "Total_Tokens": 176949190816,
+      "Total_Requests": 2405254,
       "Created_At": "2026-01-30T06:12:11.182Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 17,
       "App_ID": 2823243,
       "App_Title": "ZCode",
       "App_Slug": null,
       "Origin_URL": "https://zcode.z.ai/",
       "Categories": "programming-app",
-      "Total_Tokens": 97757903262,
-      "Total_Requests": 518718,
+      "Total_Tokens": 97614720231,
+      "Total_Requests": 474840,
       "Created_At": "2026-02-12T03:46:38.223Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 18,
       "App_ID": 2637375,
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Origin_URL": "https://lemonade.gg/",
       "Categories": "programming-app",
-      "Total_Tokens": 63706146701,
-      "Total_Requests": 1187539,
+      "Total_Tokens": 74115784755,
+      "Total_Requests": 1353312,
       "Created_At": "2025-12-28T17:23:36.463Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 19,
       "App_ID": 2699842,
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Origin_URL": "https://www.isekai.world/",
       "Categories": "game",
-      "Total_Tokens": 60883169777,
-      "Total_Requests": 1118117,
+      "Total_Tokens": 62478624051,
+      "Total_Requests": 1120471,
       "Created_At": "2026-01-21T19:15:22.288Z"
     },
     {
-      "Date": "2026-09-26",
+      "Date": "2026-09-27",
       "Rank": 20,
       "App_ID": 4132065,
       "App_Title": "Hello Minds, powered by Ethoswarm",
       "App_Slug": null,
       "Origin_URL": "https://www.hellominds.ai/",
       "Categories": "roleplay;personal-agent;creative-writing",
-      "Total_Tokens": 59534436577,
-      "Total_Requests": 368582,
+      "Total_Tokens": 58176053617,
+      "Total_Requests": 365749,
       "Created_At": "2026-06-18T14:24:30.601Z"
     },
     {
-      "Date": "2026-09-26",
-      "Rank": 22,
-      "App_ID": 2938662,
-      "App_Title": "Nous Research API",
-      "App_Slug": "nous-research-api",
-      "Origin_URL": "https://api.nousresearch.com/",
-      "Categories": "general-chat",
-      "Total_Tokens": 46662195804,
-      "Total_Requests": 1135979,
-      "Created_At": "2026-02-26T06:16:33.177Z"
-    },
-    {
-      "Date": "2026-09-26",
-      "Rank": 23,
-      "App_ID": 4780809,
-      "App_Title": "CodeGPT",
-      "App_Slug": null,
-      "Origin_URL": "https://codegpt.co/",
-      "Categories": "ide-extension;cli-agent;cloud-agent",
-      "Total_Tokens": 46096026620,
-      "Total_Requests": 400045,
-      "Created_At": "2026-08-21T21:07:36.114Z"
-    },
-    {
-      "Date": "2026-09-26",
-      "Rank": 24,
+      "Date": "2026-09-27",
+      "Rank": 21,
       "App_ID": 189563,
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Origin_URL": "https://docs.all-hands.dev/",
       "Categories": "cli-agent",
-      "Total_Tokens": 44605557687,
-      "Total_Requests": 464414,
+      "Total_Tokens": 50764723272,
+      "Total_Requests": 546346,
       "Created_At": "2024-09-24T08:02:50.387Z"
     },
     {
-      "Date": "2026-09-26",
-      "Rank": 25,
-      "App_ID": 2368812,
-      "App_Title": "Letta",
-      "App_Slug": "letta",
-      "Origin_URL": "https://letta.com/",
-      "Categories": "cli-agent;cloud-agent",
-      "Total_Tokens": 44213252259,
-      "Total_Requests": 169359,
-      "Created_At": "2025-08-10T10:46:18.175Z"
+      "Date": "2026-09-27",
+      "Rank": 23,
+      "App_ID": 2595273,
+      "App_Title": "Open WebUI plugin for OpenRouter Responses API",
+      "App_Slug": null,
+      "Origin_URL": "https://github.com/rbb-dev/Open-WebUI-OpenRouter-pipe",
+      "Categories": "general-chat",
+      "Total_Tokens": 47013944909,
+      "Total_Requests": 413990,
+      "Created_At": "2025-12-10T12:38:27.427Z"
     },
     {
-      "Date": "2026-09-26",
-      "Rank": 26,
-      "App_ID": 4580044,
-      "App_Title": "HighLevel",
+      "Date": "2026-09-27",
+      "Rank": 24,
+      "App_ID": 4780809,
+      "App_Title": "CodeGPT",
       "App_Slug": null,
-      "Origin_URL": "https://www.gohighlevel.com/",
-      "Categories": "",
-      "Total_Tokens": 41390248100,
-      "Total_Requests": 731342,
-      "Created_At": "2026-07-31T15:56:03.697Z"
+      "Origin_URL": "https://codegpt.co/",
+      "Categories": "ide-extension;cli-agent;cloud-agent",
+      "Total_Tokens": 46095408051,
+      "Total_Requests": 405242,
+      "Created_At": "2026-08-21T21:07:36.114Z"
+    },
+    {
+      "Date": "2026-09-27",
+      "Rank": 25,
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Origin_URL": "https://api.nousresearch.com/",
+      "Categories": "general-chat",
+      "Total_Tokens": 45939187968,
+      "Total_Requests": 1135355,
+      "Created_At": "2026-02-26T06:16:33.177Z"
+    },
+    {
+      "Date": "2026-09-27",
+      "Rank": 26,
+      "App_ID": 4725308,
+      "App_Title": "Proto Agent",
+      "App_Slug": null,
+      "Origin_URL": "https://proto.erp.ai/",
+      "Categories": "personal-agent;general-chat;cli-agent;programming-app",
+      "Total_Tokens": 45702205247,
+      "Total_Requests": 81020,
+      "Created_At": "2026-08-16T08:57:45.322Z"
     }
   ],
   "app_model_usage": [
@@ -426701,267 +427121,267 @@
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "Others",
-      "Tokens": 4.624839
+      "Tokens": "4.624839"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 0.543966
+      "Tokens": "0.543966"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 1.279411
+      "Tokens": "1.279411"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 15.870133
+      "Tokens": "15.870133"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 0.676032
+      "Tokens": "0.676032"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 3.812556
+      "Tokens": "3.812556"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "nvidia/nemotron-3.5-lightning-20260807",
-      "Tokens": 5.544146
+      "Tokens": "5.544146"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 1.006112
+      "Tokens": "1.006112"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "x-ai/grok-4.6-20260810",
-      "Tokens": 0.636364
+      "Tokens": "0.636364"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 3.445421
+      "Tokens": "3.445421"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.622279
+      "Tokens": "0.622279"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "Others",
-      "Tokens": 8.813149
+      "Tokens": "8.813149"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 3.751234
+      "Tokens": "3.751234"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 3.837188
+      "Tokens": "3.837188"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 24.713343
+      "Tokens": "24.713343"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 132.240859
+      "Tokens": "132.240859"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 7.742625
+      "Tokens": "7.742625"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 6.971427
+      "Tokens": "6.971427"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 4.994051
+      "Tokens": "4.994051"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 20.746409
+      "Tokens": "20.746409"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 4.41356
+      "Tokens": "4.41356"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 135.238041
+      "Tokens": "135.238041"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "Others",
-      "Tokens": 35.75745
+      "Tokens": "35.75745"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "cohere/north-mini-code-20260617",
-      "Tokens": 5.215263
+      "Tokens": "5.215263"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 11.960487
+      "Tokens": "11.960487"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "dots-studio/dots-3-note-preview-20260813",
-      "Tokens": 8.699066
+      "Tokens": "8.699066"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "inclusionai/ling-3.0-flash-fin-20260827",
-      "Tokens": 3.673897
+      "Tokens": "3.673897"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 11.333838
+      "Tokens": "11.333838"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
-      "Tokens": 16.053462
+      "Tokens": "16.053462"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
-      "Tokens": 30.418353
+      "Tokens": "30.418353"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 74.252578
+      "Tokens": "74.252578"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "tencent/hy3-20260706",
-      "Tokens": 85.075131
+      "Tokens": "85.075131"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 16.684617
+      "Tokens": "16.684617"
     },
     {
       "Date": "2026-08-28",
@@ -427053,763 +427473,763 @@
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.037518
+      "Tokens": "0.037518"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.044906
+      "Tokens": "0.044906"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.078809
+      "Tokens": "1.078809"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.764369
+      "Tokens": "0.764369"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.024911
+      "Tokens": "0.024911"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-oss-120b",
-      "Tokens": 0.030502
+      "Tokens": "0.030502"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "x-ai/grok-4.6-20260810",
-      "Tokens": 0.014206
+      "Tokens": "0.014206"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.042807
+      "Tokens": "0.042807"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.016774
+      "Tokens": "0.016774"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.953948
+      "Tokens": "0.953948"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.0518
+      "Tokens": "0.0518"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "Others",
-      "Tokens": 91.231447
+      "Tokens": "91.231447"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "anthropic/claude-4.8-opus-20260528",
-      "Tokens": 14.633237
+      "Tokens": "14.633237"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 49.366379
+      "Tokens": "49.366379"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 27.790186
+      "Tokens": "27.790186"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 13.199234
+      "Tokens": "13.199234"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 54.101991
+      "Tokens": "54.101991"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 12.843331
+      "Tokens": "12.843331"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 9.204952
+      "Tokens": "9.204952"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 13.740049
+      "Tokens": "13.740049"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 22.306871
+      "Tokens": "22.306871"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 96.837295
+      "Tokens": "96.837295"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 0.199044
+      "Tokens": "0.199044"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 2.996494
+      "Tokens": "2.996494"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.000854
+      "Tokens": "0.000854"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "tencent/hy3-20260706",
-      "Tokens": 8.427759
+      "Tokens": "8.427759"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "tencent/hy4-preview-20260827",
-      "Tokens": 0.013281
+      "Tokens": "0.013281"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "x-ai/grok-4.5-20260708",
-      "Tokens": 0.033344
+      "Tokens": "0.033344"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.009132
+      "Tokens": "0.009132"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "Others",
-      "Tokens": 3.748006
+      "Tokens": "3.748006"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.189997
+      "Tokens": "1.189997"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 1.055026
+      "Tokens": "1.055026"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 2.778682
+      "Tokens": "2.778682"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 2.068027
+      "Tokens": "2.068027"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.5-20260423",
-      "Tokens": 0.679369
+      "Tokens": "0.679369"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 28.041898
+      "Tokens": "28.041898"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 72.546131
+      "Tokens": "72.546131"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 2.390486
+      "Tokens": "2.390486"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "x-ai/grok-4.6-20260810",
-      "Tokens": 1.580951
+      "Tokens": "1.580951"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 2.182076
+      "Tokens": "2.182076"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "Others",
-      "Tokens": 3.449953
+      "Tokens": "3.449953"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v3.2-20251201",
-      "Tokens": 0.92943
+      "Tokens": "0.92943"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 1.594215
+      "Tokens": "1.594215"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 13.205283
+      "Tokens": "13.205283"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 3.577345
+      "Tokens": "3.577345"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "google/gemini-2.5-flash-lite",
-      "Tokens": 1.131546
+      "Tokens": "1.131546"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 3.775303
+      "Tokens": "3.775303"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 9.26418
+      "Tokens": "9.26418"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "xiaomi/mimo-v2.5-pro-20260422",
-      "Tokens": 11.502134
+      "Tokens": "11.502134"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 3.438905
+      "Tokens": "3.438905"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 2.997764
+      "Tokens": "2.997764"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "Others",
-      "Tokens": 49.689851
+      "Tokens": "49.689851"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 4.266145
+      "Tokens": "4.266145"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 15.30964
+      "Tokens": "15.30964"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 18.369411
+      "Tokens": "18.369411"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 4.62308
+      "Tokens": "4.62308"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 7.148795
+      "Tokens": "7.148795"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 12.872646
+      "Tokens": "12.872646"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
-      "Tokens": 7.5558
+      "Tokens": "7.5558"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 12.499018
+      "Tokens": "12.499018"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 5.225845
+      "Tokens": "5.225845"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 7.305167
+      "Tokens": "7.305167"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "Others",
-      "Tokens": 73.207043
+      "Tokens": "73.207043"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 7.244631
+      "Tokens": "7.244631"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 40.556015
+      "Tokens": "40.556015"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 11.291899
+      "Tokens": "11.291899"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "openai/gpt-5.5-20260423",
-      "Tokens": 8.917389
+      "Tokens": "8.917389"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 13.178873
+      "Tokens": "13.178873"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 12.85946
+      "Tokens": "12.85946"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "x-ai/grok-4.6-20260810",
-      "Tokens": 14.052523
+      "Tokens": "14.052523"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 7.107276
+      "Tokens": "7.107276"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 7.477774
+      "Tokens": "7.477774"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 33.658837
+      "Tokens": "33.658837"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "Others",
-      "Tokens": 2.648708
+      "Tokens": "2.648708"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 2.53967
+      "Tokens": "2.53967"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 8.50162
+      "Tokens": "8.50162"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 1.245415
+      "Tokens": "1.245415"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 10.260732
+      "Tokens": "10.260732"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "poolside/laguna-xs-2.1-20260625",
-      "Tokens": 3.488387
+      "Tokens": "3.488387"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "stepfun/step-3.7-flash-20260528",
-      "Tokens": 1.265406
+      "Tokens": "1.265406"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "tencent/hy3-20260706",
-      "Tokens": 1.789553
+      "Tokens": "1.789553"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "upstage/solar-pro4-20260810",
-      "Tokens": 1.042631
+      "Tokens": "1.042631"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.913024
+      "Tokens": "0.913024"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 4.899212
+      "Tokens": "4.899212"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "Others",
-      "Tokens": 363.530914
+      "Tokens": "363.530914"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 198.999342
+      "Tokens": "198.999342"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 309.435003
+      "Tokens": "309.435003"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 50.080787
+      "Tokens": "50.080787"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 94.718476
+      "Tokens": "94.718476"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 42.82287
+      "Tokens": "42.82287"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 44.120666
+      "Tokens": "44.120666"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "stepfun/step-3.7-flash-20260528",
-      "Tokens": 59.577439
+      "Tokens": "59.577439"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "tencent/hy3-20260706",
-      "Tokens": 189.326938
+      "Tokens": "189.326938"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "upstage/solar-pro4-20260810",
-      "Tokens": 86.689546
+      "Tokens": "86.689546"
     },
     {
       "Date": "2026-08-28",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 224.563164
+      "Tokens": "224.563164"
     },
     {
       "Date": "2026-08-28",
@@ -428517,91 +428937,91 @@
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.051396
+      "Tokens": "0.051396"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.029624
+      "Tokens": "0.029624"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.379289
+      "Tokens": "1.379289"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.053033
+      "Tokens": "0.053033"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 1.221192
+      "Tokens": "1.221192"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.022742
+      "Tokens": "0.022742"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 0.133828
+      "Tokens": "0.133828"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.056627
+      "Tokens": "0.056627"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.031101
+      "Tokens": "0.031101"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.231861
+      "Tokens": "0.231861"
     },
     {
       "Date": "2026-08-29",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.125987
+      "Tokens": "0.125987"
     },
     {
       "Date": "2026-08-29",
@@ -429965,91 +430385,91 @@
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.046463
+      "Tokens": "0.046463"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.05703
+      "Tokens": "0.05703"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.416154
+      "Tokens": "2.416154"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.030489
+      "Tokens": "0.030489"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 0.012074
+      "Tokens": "0.012074"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.521052
+      "Tokens": "0.521052"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.012107
+      "Tokens": "0.012107"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.06325
+      "Tokens": "0.06325"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.016739
+      "Tokens": "0.016739"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.296686
+      "Tokens": "0.296686"
     },
     {
       "Date": "2026-08-30",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.169937
+      "Tokens": "0.169937"
     },
     {
       "Date": "2026-08-30",
@@ -431421,91 +431841,91 @@
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.076221
+      "Tokens": "0.076221"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.063312
+      "Tokens": "0.063312"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.776924
+      "Tokens": "1.776924"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.035465
+      "Tokens": "0.035465"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.835208
+      "Tokens": "0.835208"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.033144
+      "Tokens": "0.033144"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.092092
+      "Tokens": "0.092092"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.084152
+      "Tokens": "0.084152"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.047436
+      "Tokens": "0.047436"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.45412
+      "Tokens": "0.45412"
     },
     {
       "Date": "2026-08-31",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.143298
+      "Tokens": "0.143298"
     },
     {
       "Date": "2026-08-31",
@@ -432869,91 +433289,91 @@
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.109247
+      "Tokens": "0.109247"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 0.032601
+      "Tokens": "0.032601"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.092097
+      "Tokens": "0.092097"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.179654
+      "Tokens": "1.179654"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 0.057901
+      "Tokens": "0.057901"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.831203
+      "Tokens": "0.831203"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.01866
+      "Tokens": "0.01866"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 0.040172
+      "Tokens": "0.040172"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.032559
+      "Tokens": "0.032559"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.740974
+      "Tokens": "0.740974"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.14205
+      "Tokens": "0.14205"
     },
     {
       "Date": "2026-09-01",
@@ -434317,91 +434737,91 @@
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.103089
+      "Tokens": "0.103089"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 0.02708
+      "Tokens": "0.02708"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.144957
+      "Tokens": "0.144957"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 0.791171
+      "Tokens": "0.791171"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 0.022124
+      "Tokens": "0.022124"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.43024
+      "Tokens": "0.43024"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.050498
+      "Tokens": "0.050498"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.027476
+      "Tokens": "0.027476"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.049574
+      "Tokens": "0.049574"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.823837
+      "Tokens": "0.823837"
     },
     {
       "Date": "2026-09-02",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.093379
+      "Tokens": "0.093379"
     },
     {
       "Date": "2026-09-02",
@@ -435773,91 +436193,91 @@
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.098466
+      "Tokens": "0.098466"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.102489
+      "Tokens": "0.102489"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.164799
+      "Tokens": "1.164799"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.031375
+      "Tokens": "0.031375"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 0.348324
+      "Tokens": "0.348324"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 0.062125
+      "Tokens": "0.062125"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.691645
+      "Tokens": "0.691645"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.057501
+      "Tokens": "0.057501"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.084962
+      "Tokens": "0.084962"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.643897
+      "Tokens": "0.643897"
     },
     {
       "Date": "2026-09-03",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.09897
+      "Tokens": "0.09897"
     },
     {
       "Date": "2026-09-03",
@@ -437237,91 +437657,91 @@
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.058089
+      "Tokens": "0.058089"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.151293
+      "Tokens": "0.151293"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.376451
+      "Tokens": "1.376451"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 0.076858
+      "Tokens": "0.076858"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 0.025398
+      "Tokens": "0.025398"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.669405
+      "Tokens": "0.669405"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.055816
+      "Tokens": "0.055816"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 0.032314
+      "Tokens": "0.032314"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.070606
+      "Tokens": "0.070606"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.207035
+      "Tokens": "0.207035"
     },
     {
       "Date": "2026-09-04",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.349891
+      "Tokens": "0.349891"
     },
     {
       "Date": "2026-09-04",
@@ -438733,91 +439153,91 @@
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.056923
+      "Tokens": "0.056923"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.077123
+      "Tokens": "0.077123"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.106798
+      "Tokens": "2.106798"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.024343
+      "Tokens": "0.024343"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 0.016781
+      "Tokens": "0.016781"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.742995
+      "Tokens": "0.742995"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.15068
+      "Tokens": "0.15068"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.117095
+      "Tokens": "0.117095"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.014675
+      "Tokens": "0.014675"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.074075
+      "Tokens": "0.074075"
     },
     {
       "Date": "2026-09-05",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.328725
+      "Tokens": "0.328725"
     },
     {
       "Date": "2026-09-05",
@@ -440189,91 +440609,91 @@
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.126334
+      "Tokens": "0.126334"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.174574
+      "Tokens": "0.174574"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.807878
+      "Tokens": "1.807878"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.070444
+      "Tokens": "0.070444"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "minimax/minimax-m2.7-20260318",
-      "Tokens": 0.136392
+      "Tokens": "0.136392"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.679706
+      "Tokens": "0.679706"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.450647
+      "Tokens": "0.450647"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 0.054859
+      "Tokens": "0.054859"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.060074
+      "Tokens": "0.060074"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.029506
+      "Tokens": "0.029506"
     },
     {
       "Date": "2026-09-06",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 1.379101
+      "Tokens": "1.379101"
     },
     {
       "Date": "2026-09-06",
@@ -441637,91 +442057,91 @@
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.11228
+      "Tokens": "0.11228"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.110812
+      "Tokens": "0.110812"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.593448
+      "Tokens": "2.593448"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.027091
+      "Tokens": "0.027091"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "minimax/minimax-m2.7-20260318",
-      "Tokens": 0.019625
+      "Tokens": "0.019625"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 0.02411
+      "Tokens": "0.02411"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.716902
+      "Tokens": "0.716902"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.041096
+      "Tokens": "0.041096"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.09627
+      "Tokens": "0.09627"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.265626
+      "Tokens": "0.265626"
     },
     {
       "Date": "2026-09-07",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.218758
+      "Tokens": "0.218758"
     },
     {
       "Date": "2026-09-07",
@@ -443093,91 +443513,91 @@
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.063485
+      "Tokens": "0.063485"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.091757
+      "Tokens": "0.091757"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.400803
+      "Tokens": "2.400803"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.468342
+      "Tokens": "0.468342"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "nvidia/nemotron-3.5-lightning-20260807",
-      "Tokens": 0.016678
+      "Tokens": "0.016678"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.08772
+      "Tokens": "0.08772"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 0.031513
+      "Tokens": "0.031513"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.201266
+      "Tokens": "0.201266"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.193248
+      "Tokens": "0.193248"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.448319
+      "Tokens": "0.448319"
     },
     {
       "Date": "2026-09-08",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.239312
+      "Tokens": "0.239312"
     },
     {
       "Date": "2026-09-08",
@@ -444573,91 +444993,91 @@
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.078039
+      "Tokens": "0.078039"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 0.022172
+      "Tokens": "0.022172"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.193731
+      "Tokens": "0.193731"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.950328
+      "Tokens": "1.950328"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.967139
+      "Tokens": "0.967139"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.01877
+      "Tokens": "0.01877"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.09322
+      "Tokens": "0.09322"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.805425
+      "Tokens": "0.805425"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.025607
+      "Tokens": "0.025607"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.310319
+      "Tokens": "0.310319"
     },
     {
       "Date": "2026-09-09",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.162107
+      "Tokens": "0.162107"
     },
     {
       "Date": "2026-09-09",
@@ -446045,91 +446465,91 @@
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.157096
+      "Tokens": "0.157096"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 0.031779
+      "Tokens": "0.031779"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.167431
+      "Tokens": "0.167431"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.77504
+      "Tokens": "2.77504"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.148648
+      "Tokens": "0.148648"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.984462
+      "Tokens": "0.984462"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 0.054795
+      "Tokens": "0.054795"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.052191
+      "Tokens": "0.052191"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.632312
+      "Tokens": "0.632312"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.316563
+      "Tokens": "0.316563"
     },
     {
       "Date": "2026-09-10",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.267954
+      "Tokens": "0.267954"
     },
     {
       "Date": "2026-09-10",
@@ -447509,91 +447929,91 @@
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.049311
+      "Tokens": "0.049311"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.328307
+      "Tokens": "0.328307"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.644193
+      "Tokens": "2.644193"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 0.734021
+      "Tokens": "0.734021"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.163406
+      "Tokens": "0.163406"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.825107
+      "Tokens": "0.825107"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "qwen/qwen3.8-flash-20260826",
-      "Tokens": 0.048031
+      "Tokens": "0.048031"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.028579
+      "Tokens": "0.028579"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.43316
+      "Tokens": "0.43316"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.52087
+      "Tokens": "0.52087"
     },
     {
       "Date": "2026-09-11",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.27553
+      "Tokens": "0.27553"
     },
     {
       "Date": "2026-09-11",
@@ -448893,91 +449313,91 @@
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.068491
+      "Tokens": "0.068491"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.121072
+      "Tokens": "0.121072"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.469821
+      "Tokens": "1.469821"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.026379
+      "Tokens": "0.026379"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 2.885549
+      "Tokens": "2.885549"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 1.025973
+      "Tokens": "1.025973"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 1.391154
+      "Tokens": "1.391154"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.083416
+      "Tokens": "0.083416"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.595304
+      "Tokens": "0.595304"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.227842
+      "Tokens": "0.227842"
     },
     {
       "Date": "2026-09-12",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.195972
+      "Tokens": "0.195972"
     },
     {
       "Date": "2026-09-12",
@@ -450181,91 +450601,91 @@
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.139094
+      "Tokens": "0.139094"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.086592
+      "Tokens": "0.086592"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.315642
+      "Tokens": "1.315642"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.180539
+      "Tokens": "0.180539"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 1.803888
+      "Tokens": "1.803888"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.353239
+      "Tokens": "0.353239"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.846862
+      "Tokens": "0.846862"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.071388
+      "Tokens": "0.071388"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.278441
+      "Tokens": "0.278441"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.281002
+      "Tokens": "0.281002"
     },
     {
       "Date": "2026-09-13",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.236153
+      "Tokens": "0.236153"
     },
     {
       "Date": "2026-09-13",
@@ -451469,91 +451889,91 @@
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.110839
+      "Tokens": "0.110839"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.062265
+      "Tokens": "0.062265"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.713488
+      "Tokens": "1.713488"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.104139
+      "Tokens": "0.104139"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 1.730617
+      "Tokens": "1.730617"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.674803
+      "Tokens": "0.674803"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.191451
+      "Tokens": "0.191451"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-pro-20260709",
-      "Tokens": 0.020473
+      "Tokens": "0.020473"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.804006
+      "Tokens": "0.804006"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.338519
+      "Tokens": "0.338519"
     },
     {
       "Date": "2026-09-14",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.065222
+      "Tokens": "0.065222"
     },
     {
       "Date": "2026-09-14",
@@ -452765,91 +453185,91 @@
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.101232
+      "Tokens": "0.101232"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.239769
+      "Tokens": "0.239769"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.711842
+      "Tokens": "1.711842"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 1.655205
+      "Tokens": "1.655205"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.036689
+      "Tokens": "0.036689"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.428914
+      "Tokens": "0.428914"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.02951
+      "Tokens": "0.02951"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.165883
+      "Tokens": "0.165883"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.604025
+      "Tokens": "0.604025"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.138598
+      "Tokens": "0.138598"
     },
     {
       "Date": "2026-09-15",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.204417
+      "Tokens": "0.204417"
     },
     {
       "Date": "2026-09-15",
@@ -454045,91 +454465,91 @@
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.078805
+      "Tokens": "0.078805"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.145939
+      "Tokens": "0.145939"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.735
+      "Tokens": "1.735"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 4.273083
+      "Tokens": "4.273083"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.555067
+      "Tokens": "0.555067"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.032713
+      "Tokens": "0.032713"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.323486
+      "Tokens": "0.323486"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.270766
+      "Tokens": "0.270766"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 0.044011
+      "Tokens": "0.044011"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.453509
+      "Tokens": "0.453509"
     },
     {
       "Date": "2026-09-16",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.370488
+      "Tokens": "0.370488"
     },
     {
       "Date": "2026-09-16",
@@ -455349,91 +455769,91 @@
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.149157
+      "Tokens": "0.149157"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.224763
+      "Tokens": "0.224763"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.708327
+      "Tokens": "2.708327"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 5.25294
+      "Tokens": "5.25294"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.79865
+      "Tokens": "0.79865"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-pro-20260709",
-      "Tokens": 0.126799
+      "Tokens": "0.126799"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.102739
+      "Tokens": "0.102739"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.040745
+      "Tokens": "0.040745"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.173071
+      "Tokens": "0.173071"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.143321
+      "Tokens": "0.143321"
     },
     {
       "Date": "2026-09-17",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 1.094271
+      "Tokens": "1.094271"
     },
     {
       "Date": "2026-09-17",
@@ -456629,91 +457049,91 @@
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.15042
+      "Tokens": "0.15042"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.409812
+      "Tokens": "0.409812"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.349244
+      "Tokens": "1.349244"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 6.102256
+      "Tokens": "6.102256"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.041063
+      "Tokens": "0.041063"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.535554
+      "Tokens": "0.535554"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-pro-20260709",
-      "Tokens": 0.162317
+      "Tokens": "0.162317"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 0.047395
+      "Tokens": "0.047395"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.145156
+      "Tokens": "0.145156"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.050356
+      "Tokens": "0.050356"
     },
     {
       "Date": "2026-09-18",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.568091
+      "Tokens": "0.568091"
     },
     {
       "Date": "2026-09-18",
@@ -457909,91 +458329,91 @@
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.118771
+      "Tokens": "0.118771"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.106065
+      "Tokens": "0.106065"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.30746
+      "Tokens": "1.30746"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 8.302003
+      "Tokens": "8.302003"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.042102
+      "Tokens": "0.042102"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k2.6-20260420",
-      "Tokens": 0.026044
+      "Tokens": "0.026044"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.990483
+      "Tokens": "0.990483"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 0.021758
+      "Tokens": "0.021758"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.124367
+      "Tokens": "0.124367"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.612006
+      "Tokens": "0.612006"
     },
     {
       "Date": "2026-09-19",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.365347
+      "Tokens": "0.365347"
     },
     {
       "Date": "2026-09-19",
@@ -459197,91 +459617,91 @@
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.097158
+      "Tokens": "0.097158"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.101216
+      "Tokens": "0.101216"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.891619
+      "Tokens": "1.891619"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 8.496467
+      "Tokens": "8.496467"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 0.788371
+      "Tokens": "0.788371"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.027693
+      "Tokens": "0.027693"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "x-ai/grok-4.6-20260810",
-      "Tokens": 0.021114
+      "Tokens": "0.021114"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 0.020217
+      "Tokens": "0.020217"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.100696
+      "Tokens": "0.100696"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.383237
+      "Tokens": "0.383237"
     },
     {
       "Date": "2026-09-20",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.496097
+      "Tokens": "0.496097"
     },
     {
       "Date": "2026-09-20",
@@ -460477,91 +460897,91 @@
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.496736
+      "Tokens": "0.496736"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.554718
+      "Tokens": "0.554718"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 5.340804
+      "Tokens": "5.340804"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 7.948546
+      "Tokens": "7.948546"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.408517
+      "Tokens": "0.408517"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 1.726829
+      "Tokens": "1.726829"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.229278
+      "Tokens": "0.229278"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.671833
+      "Tokens": "0.671833"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.38092
+      "Tokens": "0.38092"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.66868
+      "Tokens": "0.66868"
     },
     {
       "Date": "2026-09-21",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.796686
+      "Tokens": "0.796686"
     },
     {
       "Date": "2026-09-21",
@@ -461677,91 +462097,91 @@
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.160531
+      "Tokens": "0.160531"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 0.040571
+      "Tokens": "0.040571"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 0.043433
+      "Tokens": "0.043433"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 1.617671
+      "Tokens": "1.617671"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.039846
+      "Tokens": "0.039846"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 13.375528
+      "Tokens": "13.375528"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 2.752017
+      "Tokens": "2.752017"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.33005
+      "Tokens": "0.33005"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.33823
+      "Tokens": "0.33823"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.690811
+      "Tokens": "0.690811"
     },
     {
       "Date": "2026-09-22",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 1.366221
+      "Tokens": "1.366221"
     },
     {
       "Date": "2026-09-22",
@@ -462821,91 +463241,91 @@
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.20918
+      "Tokens": "0.20918"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.362312
+      "Tokens": "2.362312"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 11.907795
+      "Tokens": "11.907795"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.148009
+      "Tokens": "0.148009"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 2.98979
+      "Tokens": "2.98979"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 0.076636
+      "Tokens": "0.076636"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.080456
+      "Tokens": "0.080456"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "qwen/qwen3.7-flash-20260727",
-      "Tokens": 0.283985
+      "Tokens": "0.283985"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.220322
+      "Tokens": "0.220322"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 1.158606
+      "Tokens": "1.158606"
     },
     {
       "Date": "2026-09-23",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 1.866996
+      "Tokens": "1.866996"
     },
     {
       "Date": "2026-09-23",
@@ -463965,91 +464385,91 @@
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.217206
+      "Tokens": "0.217206"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.457524
+      "Tokens": "2.457524"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 13.385302
+      "Tokens": "13.385302"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 2.89695
+      "Tokens": "2.89695"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 0.177915
+      "Tokens": "0.177915"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-6-sol-20260922",
-      "Tokens": 0.210595
+      "Tokens": "0.210595"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "qwen/qwen3.7-flash-20260727",
-      "Tokens": 0.048523
+      "Tokens": "0.048523"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.053069
+      "Tokens": "0.053069"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.227992
+      "Tokens": "0.227992"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 1.349356
+      "Tokens": "1.349356"
     },
     {
       "Date": "2026-09-24",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.546893
+      "Tokens": "0.546893"
     },
     {
       "Date": "2026-09-24",
@@ -465093,91 +465513,91 @@
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.217527
+      "Tokens": "0.217527"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
-      "Tokens": 0.040014
+      "Tokens": "0.040014"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 2.611693
+      "Tokens": "2.611693"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 14.569871
+      "Tokens": "14.569871"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.068585
+      "Tokens": "0.068585"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 8.303845
+      "Tokens": "8.303845"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-6-sol-20260922",
-      "Tokens": 0.041519
+      "Tokens": "0.041519"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.115179
+      "Tokens": "0.115179"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.296948
+      "Tokens": "0.296948"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 1.521731
+      "Tokens": "1.521731"
     },
     {
       "Date": "2026-09-25",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 1.022106
+      "Tokens": "1.022106"
     },
     {
       "Date": "2026-09-25",
@@ -466133,91 +466553,91 @@
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "Others",
-      "Tokens": 0.100477
+      "Tokens": "0.100477"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 0.029774
+      "Tokens": "0.029774"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 3.207333
+      "Tokens": "3.207333"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "deepseek/deepseek-v4.1-flash-20260910",
-      "Tokens": 17.043373
+      "Tokens": "17.043373"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "google/gemini-3.8-flash-20260902",
-      "Tokens": 0.031109
+      "Tokens": "0.031109"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 22.561601
+      "Tokens": "22.561601"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "openai/gpt-6-sol-20260922",
-      "Tokens": 0.148416
+      "Tokens": "0.148416"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "thinkingmachines/inkling-20260715",
-      "Tokens": 0.068972
+      "Tokens": "0.068972"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5-20260211",
-      "Tokens": 0.259474
+      "Tokens": "0.259474"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.302735
+      "Tokens": "0.302735"
     },
     {
       "Date": "2026-09-26",
-      "App_ID": 2368812,
+      "App_ID": "2368812",
       "App_Title": "Letta",
       "App_Slug": "letta",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 0.459989
+      "Tokens": "0.459989"
     },
     {
       "Date": "2026-09-26",
@@ -466906,6 +467326,950 @@
       "App_Slug": "hermes-agent",
       "Model": "z-ai/glm-5.3-flash-20260826",
       "Tokens": 173.649349
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "Others",
+      "Tokens": 4.498256
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "anthropic/claude-fable-5.1-20260831",
+      "Tokens": 1.144826
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 1.142989
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 35.695388
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "google/gemini-3.8-flash-20260902",
+      "Tokens": 1.025789
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "meta/muse-spark-1.3-contributor-20260902",
+      "Tokens": 0.665076
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "moonshotai/kimi-k3-20260715",
+      "Tokens": 1.484999
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 0.605471
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "xiaomi/mimo-v2.6-pro-ultraspeed-20260921",
+      "Tokens": 0.556102
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "z-ai/glm-5.2-20260616",
+      "Tokens": 2.601244
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 1.344584
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "Others",
+      "Tokens": 13.628434
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 22.65611
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 3.66993
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "meta/muse-spark-1.3-contributor-20260902",
+      "Tokens": 74.0098
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 5.742356
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 7.807575
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 691.45282
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "xiaomi/mimo-v2.5-20260422",
+      "Tokens": 3.920326
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "xiaomi/mimo-v2.6-flash-20260921",
+      "Tokens": 76.843427
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "xiaomi/mimo-v2.6-pro-20260921",
+      "Tokens": 9.730258
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 17.432742
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "Others",
+      "Tokens": 46.440407
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "cohere/north-mini-code-20260617",
+      "Tokens": 6.754201
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 23.840292
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "dots-studio/dots-3-note-preview-20260813",
+      "Tokens": 53.657957
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "inclusionai/ling-3.0-flash-fin-20260827",
+      "Tokens": 16.446801
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "inclusionai/ling-3.0-flash-sante-20260904",
+      "Tokens": 9.026958
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
+      "Tokens": 13.537095
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 159.644116
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 89.449213
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 439.838164
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 10.884756
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "Others",
+      "Tokens": 88.059767
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-fable-5.1-20260831",
+      "Tokens": 20.661572
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 38.491769
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-sonnet-5-20260630",
+      "Tokens": 23.7879
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 115.799298
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "google/gemini-3.8-flash-20260902",
+      "Tokens": 12.538847
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 10.009967
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 175.09374
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "tencent/hy4-preview-20260827",
+      "Tokens": 41.533018
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 32.097254
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 67.823332
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "google/gemini-3-flash-preview-20251217",
+      "Tokens": 0.000854
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "google/gemini-3.7-flash-20260813",
+      "Tokens": 4.906839
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 6.535541
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 7.990558
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "tencent/hy3-20260706",
+      "Tokens": 0.890384
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "x-ai/grok-4.5-20260708",
+      "Tokens": 0.033038
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "x-ai/grok-4.7-20260916",
+      "Tokens": 0.228532
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 53.530038
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "Others",
+      "Tokens": 7.5756
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 129.28382
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "meta/muse-spark-1.3-contributor-20260902",
+      "Tokens": 1.380184
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 11.238861
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-5.6-sol-20260709",
+      "Tokens": 6.866606
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-astra-20260903",
+      "Tokens": 52.036754
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 14.980245
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-sol-20260922",
+      "Tokens": 27.29595
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 20.318536
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 0.834237
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 1.395214
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "Others",
+      "Tokens": 7.181719
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "deepseek/deepseek-v4-pro-20260813",
+      "Tokens": 4.678267
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 3.916644
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "google/gemini-3.8-flash-20260902",
+      "Tokens": 1.656455
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.5-20260422",
+      "Tokens": 10.74246
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.5-pro-20260422",
+      "Tokens": 3.221083
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.6-flash-20260921",
+      "Tokens": 8.682016
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.6-pro-20260921",
+      "Tokens": 12.048202
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5.2-20260616",
+      "Tokens": 1.536735
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 1.616284
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 7.198758
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "Others",
+      "Tokens": 53.628937
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 11.500731
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 12.918553
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4-pro-20260423",
+      "Tokens": 3.421527
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 34.619106
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "minimax/minimax-m3-20260531",
+      "Tokens": 10.605091
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
+      "Tokens": 4.798174
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 7.666229
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 11.494341
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 4.52878
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 21.767722
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "Others",
+      "Tokens": 53.45181
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 8.853217
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 7.184825
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 13.150225
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 189.580492
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 6.211075
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 35.80846
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "openai/gpt-6-sol-20260922",
+      "Tokens": 5.909808
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 81.496673
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 13.930114
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 43.868896
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "Others",
+      "Tokens": 5.959076
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 1.000349
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 1.215475
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 5.161937
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "inclusionai/ling-3.0-flash-fin-20260827",
+      "Tokens": 1.699672
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "inclusionai/ling-3.0-flash-sante-20260904",
+      "Tokens": 1.174858
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 3.852673
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "poolside/laguna-xs-2.1-20260625",
+      "Tokens": 3.892473
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 19.3675
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "upstage/solar-pro4-20260810",
+      "Tokens": 1.083277
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 1.531899
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "Others",
+      "Tokens": 406.160102
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 37.810972
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 66.556641
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 103.67848
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 336.793186
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 50.448221
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 37.451513
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 40.288774
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 313.159235
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "upstage/solar-pro4-20260810",
+      "Tokens": 196.755358
+    },
+    {
+      "Date": "2026-09-27",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 140.148108
     }
   ],
   "provider_usage": [
@@ -617341,120 +618705,120 @@
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "deepseek",
-      "Tokens": 2623.873093,
-      "Share_In_Category": 0.16971868
+      "Tokens": "2623.873093",
+      "Share_In_Category": "0.16971868"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "minimax",
-      "Tokens": 696.514427,
-      "Share_In_Category": 0.0450523
+      "Tokens": "696.514427",
+      "Share_In_Category": "0.0450523"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "nvidia",
-      "Tokens": 636.42652,
-      "Share_In_Category": 0.04116566
+      "Tokens": "636.42652",
+      "Share_In_Category": "0.04116566"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "openai",
-      "Tokens": 1576.527457,
-      "Share_In_Category": 0.10197374
+      "Tokens": "1576.527457",
+      "Share_In_Category": "0.10197374"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "others",
-      "Tokens": 5359.060969,
-      "Share_In_Category": 0.34663747
+      "Tokens": "5359.060969",
+      "Share_In_Category": "0.34663747"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "tencent",
-      "Tokens": 965.636352,
-      "Share_In_Category": 0.06245978
+      "Tokens": "965.636352",
+      "Share_In_Category": "0.06245978"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "xiaomi",
-      "Tokens": 1548.313343,
-      "Share_In_Category": 0.10014878
+      "Tokens": "1548.313343",
+      "Share_In_Category": "0.10014878"
     },
     {
       "Date": "2026-08-28",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "z-ai",
-      "Tokens": 2053.77946,
-      "Share_In_Category": 0.13284359
+      "Tokens": "2053.77946",
+      "Share_In_Category": "0.13284359"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "deepseek",
-      "Tokens": 702.775147,
-      "Share_In_Category": 0.20793874
+      "Tokens": "702.775147",
+      "Share_In_Category": "0.20793874"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "nvidia",
-      "Tokens": 92.0426,
-      "Share_In_Category": 0.02723378
+      "Tokens": "92.0426",
+      "Share_In_Category": "0.02723378"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "openai",
-      "Tokens": 251.305313,
-      "Share_In_Category": 0.0743568
+      "Tokens": "251.305313",
+      "Share_In_Category": "0.0743568"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "others",
-      "Tokens": 1326.493787,
-      "Share_In_Category": 0.39248606
+      "Tokens": "1326.493787",
+      "Share_In_Category": "0.39248606"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "tencent",
-      "Tokens": 259.256721,
-      "Share_In_Category": 0.07670948
+      "Tokens": "259.256721",
+      "Share_In_Category": "0.07670948"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "xiaomi",
-      "Tokens": 308.758195,
-      "Share_In_Category": 0.09135609
+      "Tokens": "308.758195",
+      "Share_In_Category": "0.09135609"
     },
     {
       "Date": "2026-08-28",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "z-ai",
-      "Tokens": 439.090233,
-      "Share_In_Category": 0.12991904
+      "Tokens": "439.090233",
+      "Share_In_Category": "0.12991904"
     },
     {
       "Date": "2026-08-29",
@@ -620751,6 +622115,134 @@
       "Author": "z-ai",
       "Tokens": 301.808633,
       "Share_In_Category": 0.07561193
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "deepseek",
+      "Tokens": 3677.151769,
+      "Share_In_Category": 0.19544686
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "nvidia",
+      "Tokens": 739.185987,
+      "Share_In_Category": 0.03928899
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "openai",
+      "Tokens": 1603.14914,
+      "Share_In_Category": 0.0852101
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "others",
+      "Tokens": 5866.81274,
+      "Share_In_Category": 0.31183105
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "stealth",
+      "Tokens": 4228.620733,
+      "Share_In_Category": 0.22475837
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "tencent",
+      "Tokens": 731.98286,
+      "Share_In_Category": 0.03890613
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "xiaomi",
+      "Tokens": 966.535607,
+      "Share_In_Category": 0.05137301
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "z-ai",
+      "Tokens": 1000.636013,
+      "Share_In_Category": 0.0531855
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "deepseek",
+      "Tokens": 825.22266,
+      "Share_In_Category": 0.20119964
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "nvidia",
+      "Tokens": 126.598373,
+      "Share_In_Category": 0.03086627
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "openai",
+      "Tokens": 334.013956,
+      "Share_In_Category": 0.08143679
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "others",
+      "Tokens": 1404.874498,
+      "Share_In_Category": 0.34252604
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "stealth",
+      "Tokens": 868.598133,
+      "Share_In_Category": 0.21177513
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "tencent",
+      "Tokens": 122.6028,
+      "Share_In_Category": 0.0298921
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "xiaomi",
+      "Tokens": 197.619399,
+      "Share_In_Category": 0.04818209
+    },
+    {
+      "Date": "2026-09-27",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "z-ai",
+      "Tokens": 221.98174,
+      "Share_In_Category": 0.05412193
     }
   ]
 }
