@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T11:15:08.077019+00:00",
+  "generated_at": "2026-10-02T10:47:55.699207+00:00",
   "sources": {
     "rankings": "https://openrouter.ai/rankings",
     "apps": "https://openrouter.ai/apps",
@@ -111280,8 +111280,8 @@
     {
       "Date": "2026-09-30",
       "Author": "anthropic",
-      "Tokens": 1068.652242,
-      "Share": 0.04383726
+      "Tokens": 1068.657868,
+      "Share": 0.04383805
     },
     {
       "Date": "2026-09-30",
@@ -111335,7 +111335,7 @@
       "Date": "2026-09-30",
       "Author": "cohere",
       "Tokens": 17.656552,
-      "Share": 0.00072429
+      "Share": 0.0007243
     },
     {
       "Date": "2026-09-30",
@@ -111353,13 +111353,13 @@
       "Date": "2026-09-30",
       "Author": "deepseek",
       "Tokens": 5233.621687,
-      "Share": 0.21468879
+      "Share": 0.21469152
     },
     {
       "Date": "2026-09-30",
       "Author": "dots-studio",
       "Tokens": 63.355612,
-      "Share": 0.00259892
+      "Share": 0.00259895
     },
     {
       "Date": "2026-09-30",
@@ -111376,8 +111376,8 @@
     {
       "Date": "2026-09-30",
       "Author": "google",
-      "Tokens": 1057.920758,
-      "Share": 0.04339705
+      "Tokens": 1057.920759,
+      "Share": 0.0433976
     },
     {
       "Date": "2026-09-30",
@@ -111407,7 +111407,7 @@
       "Date": "2026-09-30",
       "Author": "inclusionai",
       "Tokens": 81.00354,
-      "Share": 0.00332285
+      "Share": 0.00332289
     },
     {
       "Date": "2026-09-30",
@@ -111418,8 +111418,8 @@
     {
       "Date": "2026-09-30",
       "Author": "intfloat",
-      "Tokens": 0.230241,
-      "Share": 9.44e-06
+      "Tokens": 0.021734,
+      "Share": 8.9e-07
     },
     {
       "Date": "2026-09-30",
@@ -111455,13 +111455,13 @@
       "Date": "2026-09-30",
       "Author": "meta",
       "Tokens": 253.610726,
-      "Share": 0.01040338
+      "Share": 0.01040352
     },
     {
       "Date": "2026-09-30",
       "Author": "meta-llama",
-      "Tokens": 20.659122,
-      "Share": 0.00084746
+      "Tokens": 20.659123,
+      "Share": 0.00084747
     },
     {
       "Date": "2026-09-30",
@@ -111473,19 +111473,19 @@
       "Date": "2026-09-30",
       "Author": "minimax",
       "Tokens": 202.657328,
-      "Share": 0.00831322
+      "Share": 0.00831333
     },
     {
       "Date": "2026-09-30",
       "Author": "mistralai",
       "Tokens": 45.109003,
-      "Share": 0.00185042
+      "Share": 0.00185044
     },
     {
       "Date": "2026-09-30",
       "Author": "moonshotai",
       "Tokens": 300.032862,
-      "Share": 0.01230767
+      "Share": 0.01230783
     },
     {
       "Date": "2026-09-30",
@@ -111508,14 +111508,14 @@
     {
       "Date": "2026-09-30",
       "Author": "nvidia",
-      "Tokens": 818.681681,
-      "Share": 0.0335832
+      "Tokens": 818.574095,
+      "Share": 0.03357922
     },
     {
       "Date": "2026-09-30",
       "Author": "openai",
       "Tokens": 3007.800958,
-      "Share": 0.12338323
+      "Share": 0.1233848
     },
     {
       "Date": "2026-09-30",
@@ -111533,7 +111533,7 @@
       "Date": "2026-09-30",
       "Author": "poolside",
       "Tokens": 153.130458,
-      "Share": 0.00628158
+      "Share": 0.00628166
     },
     {
       "Date": "2026-09-30",
@@ -111545,7 +111545,7 @@
       "Date": "2026-09-30",
       "Author": "qwen",
       "Tokens": 411.79665,
-      "Share": 0.01689234
+      "Share": 0.01689256
     },
     {
       "Date": "2026-09-30",
@@ -111569,7 +111569,7 @@
       "Date": "2026-09-30",
       "Author": "respan",
       "Tokens": 9.559772,
-      "Share": 0.00039215
+      "Share": 0.00039216
     },
     {
       "Date": "2026-09-30",
@@ -111605,7 +111605,7 @@
       "Date": "2026-09-30",
       "Author": "stealth",
       "Tokens": 5331.621827,
-      "Share": 0.21870886
+      "Share": 0.21871164
     },
     {
       "Date": "2026-09-30",
@@ -111617,7 +111617,7 @@
       "Date": "2026-09-30",
       "Author": "tencent",
       "Tokens": 1445.27101,
-      "Share": 0.05928657
+      "Share": 0.05928733
     },
     {
       "Date": "2026-09-30",
@@ -111635,7 +111635,7 @@
       "Date": "2026-09-30",
       "Author": "thinkingmachines",
       "Tokens": 51.291054,
-      "Share": 0.00210401
+      "Share": 0.00210404
     },
     {
       "Date": "2026-09-30",
@@ -111647,7 +111647,7 @@
       "Date": "2026-09-30",
       "Author": "typesafe",
       "Tokens": 508.095566,
-      "Share": 0.02084263
+      "Share": 0.02084289
     },
     {
       "Date": "2026-09-30",
@@ -111665,13 +111665,13 @@
       "Date": "2026-09-30",
       "Author": "upstage",
       "Tokens": 178.052449,
-      "Share": 0.0073039
+      "Share": 0.007304
     },
     {
       "Date": "2026-09-30",
       "Author": "voyageai",
       "Tokens": 21.004154,
-      "Share": 0.00086161
+      "Share": 0.00086162
     },
     {
       "Date": "2026-09-30",
@@ -111683,261 +111683,705 @@
       "Date": "2026-09-30",
       "Author": "x-ai",
       "Tokens": 116.847646,
-      "Share": 0.00479322
+      "Share": 0.00479328
     },
     {
       "Date": "2026-09-30",
       "Author": "xiaomi",
       "Tokens": 1863.424043,
-      "Share": 0.07643966
+      "Share": 0.07644063
     },
     {
       "Date": "2026-09-30",
       "Author": "z-ai",
       "Tokens": 2080.50998,
-      "Share": 0.08534476
+      "Share": 0.08534584
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "aion-labs",
+      "Tokens": 1.246033,
+      "Share": 5.314e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "amazon",
+      "Tokens": 3.620488,
+      "Share": 0.00015441
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "anthracite-org",
+      "Tokens": 0.041085,
+      "Share": 1.75e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "anthropic",
+      "Tokens": 976.112749,
+      "Share": 0.04163102
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "apodex",
+      "Tokens": 4.12584,
+      "Share": 0.00017597
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "arcee-ai",
+      "Tokens": 0.067226,
+      "Share": 2.87e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "baai",
+      "Tokens": 3.432172,
+      "Share": 0.00014638
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "baidu",
+      "Tokens": 0.016364,
+      "Share": 7e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "black-forest-labs",
+      "Tokens": 0.206819,
+      "Share": 8.82e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "bytedance",
+      "Tokens": 0.031289,
+      "Share": 1.33e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "bytedance-seed",
+      "Tokens": 2.334954,
+      "Share": 9.959e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "canopylabs",
+      "Tokens": 1.1e-05,
+      "Share": 0.0
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "cognitivecomputations",
+      "Tokens": 0.147376,
+      "Share": 6.29e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "cohere",
+      "Tokens": 15.602227,
+      "Share": 0.00066543
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "deepgram",
+      "Tokens": 0.00076,
+      "Share": 3e-08
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "deepseek",
+      "Tokens": 5280.25217,
+      "Share": 0.22520171
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "dots-studio",
+      "Tokens": 56.706314,
+      "Share": 0.00241851
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "fireworks",
+      "Tokens": 0.573491,
+      "Share": 2.446e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "fish-audio",
+      "Tokens": 0.001977,
+      "Share": 8e-08
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "google",
+      "Tokens": 1041.777088,
+      "Share": 0.04443159
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "gryphe",
+      "Tokens": 0.094411,
+      "Share": 4.03e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "hexgrad",
+      "Tokens": 0.003529,
+      "Share": 1.5e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "ibm-granite",
+      "Tokens": 3.639348,
+      "Share": 0.00015522
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "inception",
+      "Tokens": 6.881571,
+      "Share": 0.0002935
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "inclusionai",
+      "Tokens": 73.68493,
+      "Share": 0.00314265
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "inference-net",
+      "Tokens": 0.098344,
+      "Share": 4.19e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "intfloat",
+      "Tokens": 0.130715,
+      "Share": 5.57e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "jaredpalmer",
+      "Tokens": 0.102466,
+      "Share": 4.37e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "krea",
+      "Tokens": 0.015435,
+      "Share": 6.6e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "liquid",
+      "Tokens": 2.837822,
+      "Share": 0.00012103
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "mancer",
+      "Tokens": 0.000593,
+      "Share": 3e-08
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "meituan",
+      "Tokens": 1.505486,
+      "Share": 6.421e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "meta",
+      "Tokens": 271.667449,
+      "Share": 0.01158656
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "meta-llama",
+      "Tokens": 16.943014,
+      "Share": 0.00072262
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "microsoft",
+      "Tokens": 0.297689,
+      "Share": 1.27e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "minimax",
+      "Tokens": 175.970377,
+      "Share": 0.0075051
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "mistralai",
+      "Tokens": 38.926319,
+      "Share": 0.0016602
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "moonshotai",
+      "Tokens": 238.079551,
+      "Share": 0.01015405
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "morph",
+      "Tokens": 0.014837,
+      "Share": 6.3e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "nex-agi",
+      "Tokens": 0.194232,
+      "Share": 8.28e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "nousresearch",
+      "Tokens": 0.340251,
+      "Share": 1.451e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "nvidia",
+      "Tokens": 890.177285,
+      "Share": 0.03796588
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "openai",
+      "Tokens": 3043.409578,
+      "Share": 0.12980081
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "perceptron",
+      "Tokens": 4.086716,
+      "Share": 0.0001743
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "perplexity",
+      "Tokens": 3.688192,
+      "Share": 0.0001573
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "poolside",
+      "Tokens": 146.480866,
+      "Share": 0.00624738
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "prism-ml",
+      "Tokens": 0.010166,
+      "Share": 4.3e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "qwen",
+      "Tokens": 421.560649,
+      "Share": 0.01797948
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "recraft",
+      "Tokens": 0.054395,
+      "Share": 2.32e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "rekaai",
+      "Tokens": 0.013808,
+      "Share": 5.9e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "relace",
+      "Tokens": 0.003829,
+      "Share": 1.6e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "respan",
+      "Tokens": 4.40367,
+      "Share": 0.00018782
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "sakana",
+      "Tokens": 0.111896,
+      "Share": 4.77e-06
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "sao10k",
+      "Tokens": 0.80679,
+      "Share": 3.441e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "scaledown",
+      "Tokens": 2e-06,
+      "Share": 0.0
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "sentence-transformers",
+      "Tokens": 0.262466,
+      "Share": 1.119e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "sesame",
+      "Tokens": 2e-06,
+      "Share": 0.0
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "sourceful",
+      "Tokens": 0.010245,
+      "Share": 4.4e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "stealth",
+      "Tokens": 5166.688702,
+      "Share": 0.22035825
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "stepfun",
+      "Tokens": 1.93528,
+      "Share": 8.254e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "tencent",
+      "Tokens": 897.008853,
+      "Share": 0.03825725
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "thedrummer",
+      "Tokens": 0.375787,
+      "Share": 1.603e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "thenlper",
+      "Tokens": 0.008473,
+      "Share": 3.6e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "thinkingmachines",
+      "Tokens": 53.214216,
+      "Share": 0.00226958
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "togethercomputer",
+      "Tokens": 0.377198,
+      "Share": 1.609e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "typesafe",
+      "Tokens": 503.135218,
+      "Share": 0.02145862
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "unbiased",
+      "Tokens": 1.375041,
+      "Share": 5.865e-05
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "undi95",
+      "Tokens": 0.014301,
+      "Share": 6.1e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "upstage",
+      "Tokens": 59.078568,
+      "Share": 0.00251969
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "voyageai",
+      "Tokens": 24.612024,
+      "Share": 0.0010497
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "writer",
+      "Tokens": 0.015034,
+      "Share": 6.4e-07
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "x-ai",
+      "Tokens": 95.754115,
+      "Share": 0.00408389
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "xiaomi",
+      "Tokens": 1687.675337,
+      "Share": 0.07197902
+    },
+    {
+      "Date": "2026-10-01",
+      "Author": "z-ai",
+      "Tokens": 2222.694395,
+      "Share": 0.09479748
     }
   ],
   "apps": [
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 2,
       "App_ID": 3067167,
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Origin_URL": "https://hermes-agent.nousresearch.com/",
       "Categories": "personal-agent;cli-agent",
-      "Total_Tokens": 2070186604497,
-      "Total_Requests": 19890157,
+      "Total_Tokens": 2026758101876,
+      "Total_Requests": 18990065,
       "Created_At": "2026-03-12T23:26:33.624Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 3,
       "App_ID": 2262242,
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Origin_URL": "https://kilocode.ai/",
       "Categories": "cli-agent;ide-extension",
-      "Total_Tokens": 1182971951101,
-      "Total_Requests": 15075425,
+      "Total_Tokens": 1135165165283,
+      "Total_Requests": 11310811,
       "Created_At": "2025-04-09T15:16:20.620Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 4,
-      "App_ID": 2627404,
-      "App_Title": "Claude Code",
-      "App_Slug": "claude-code",
-      "Origin_URL": "https://claude.ai/code",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Origin_URL": "https://openai.com/codex/",
       "Categories": "cli-agent",
-      "Total_Tokens": 1074938499895,
-      "Total_Requests": 10389850,
-      "Created_At": "2025-12-23T22:23:47.378Z"
+      "Total_Tokens": 1113191508621,
+      "Total_Requests": 11369209,
+      "Created_At": "2026-01-10T03:00:25.305Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 5,
       "App_ID": 190604,
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Origin_URL": "https://cline.bot/",
       "Categories": "ide-extension;cli-agent",
-      "Total_Tokens": 1054124853964,
-      "Total_Requests": 6802797,
+      "Total_Tokens": 1073429678199,
+      "Total_Requests": 7727474,
       "Created_At": "2024-10-09T07:53:24.932Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 8,
-      "App_ID": 2668297,
-      "App_Title": "Codex",
-      "App_Slug": "codex",
-      "Origin_URL": "https://openai.com/codex/",
+      "Date": "2026-10-01",
+      "Rank": 6,
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Origin_URL": "https://claude.ai/code",
       "Categories": "cli-agent",
-      "Total_Tokens": 698735142068,
-      "Total_Requests": 7496000,
-      "Created_At": "2026-01-10T03:00:25.305Z"
+      "Total_Tokens": 1057061462212,
+      "Total_Requests": 10292752,
+      "Created_At": "2025-12-23T22:23:47.378Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 9,
       "App_ID": 2853275,
       "App_Title": "pi",
       "App_Slug": "pi",
       "Origin_URL": "https://pi.dev/",
       "Categories": "cli-agent",
-      "Total_Tokens": 467550597872,
-      "Total_Requests": 4495514,
+      "Total_Tokens": 451381120003,
+      "Total_Requests": 4138163,
       "Created_At": "2026-02-15T08:18:07.110Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 10,
       "App_ID": 3682314,
       "App_Title": "omp",
       "App_Slug": null,
       "Origin_URL": "https://omp.sh/",
       "Categories": "cli-agent",
-      "Total_Tokens": 422568344368,
-      "Total_Requests": 2514996,
+      "Total_Tokens": 422192485108,
+      "Total_Requests": 2421494,
       "Created_At": "2026-05-15T19:18:27.144Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 11,
       "App_ID": 3909382,
       "App_Title": "Command Code",
       "App_Slug": null,
       "Origin_URL": "https://commandcode.ai/",
       "Categories": "programming-app;cli-agent;ide-extension;native-app-builder;personal-agent",
-      "Total_Tokens": 379173570403,
-      "Total_Requests": 5031662,
+      "Total_Tokens": 416956791327,
+      "Total_Requests": 4883846,
       "Created_At": "2026-05-29T15:20:36.924Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
       "Rank": 12,
-      "App_ID": 4706207,
-      "App_Title": "DeepSeek Harness",
-      "App_Slug": null,
-      "Origin_URL": "https://github.com/deepseek-ai/deepseek-harness",
-      "Categories": "",
-      "Total_Tokens": 258803398816,
-      "Total_Requests": 1741143,
-      "Created_At": "2026-08-14T02:52:48.939Z"
-    },
-    {
-      "Date": "2026-09-30",
-      "Rank": 13,
       "App_ID": 4137556,
       "App_Title": "Freebuff",
       "App_Slug": null,
       "Origin_URL": "https://freebuff.com/",
       "Categories": "",
-      "Total_Tokens": 254981420342,
-      "Total_Requests": 1734360,
+      "Total_Tokens": 324338331085,
+      "Total_Requests": 2227765,
       "Created_At": "2026-06-18T22:24:38.005Z"
     },
     {
-      "Date": "2026-09-30",
+      "Date": "2026-10-01",
+      "Rank": 13,
+      "App_ID": 4706207,
+      "App_Title": "DeepSeek Harness",
+      "App_Slug": null,
+      "Origin_URL": "https://github.com/deepseek-ai/deepseek-harness",
+      "Categories": "",
+      "Total_Tokens": 267700654397,
+      "Total_Requests": 1721100,
+      "Created_At": "2026-08-14T02:52:48.939Z"
+    },
+    {
+      "Date": "2026-10-01",
       "Rank": 14,
       "App_ID": 2725608,
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Origin_URL": "https://openclaw.ai/",
       "Categories": "personal-agent;cli-agent",
-      "Total_Tokens": 203793060917,
-      "Total_Requests": 2643291,
+      "Total_Tokens": 202800017713,
+      "Total_Requests": 2619740,
       "Created_At": "2026-01-30T06:12:11.182Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 17,
-      "App_ID": 2823243,
-      "App_Title": "ZCode",
-      "App_Slug": null,
-      "Origin_URL": "https://zcode.z.ai/",
-      "Categories": "programming-app",
-      "Total_Tokens": 123245377709,
-      "Total_Requests": 601886,
-      "Created_At": "2026-02-12T03:46:38.223Z"
-    },
-    {
-      "Date": "2026-09-30",
-      "Rank": 19,
+      "Date": "2026-10-01",
+      "Rank": 18,
       "App_ID": 3003505,
       "App_Title": "Strix",
       "App_Slug": null,
       "Origin_URL": "https://strix.ai/",
       "Categories": "cli-agent",
-      "Total_Tokens": 95253402191,
-      "Total_Requests": 812861,
+      "Total_Tokens": 103922490032,
+      "Total_Requests": 917315,
       "Created_At": "2026-03-05T16:55:52.446Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 20,
-      "App_ID": 2938662,
-      "App_Title": "Nous Research API",
-      "App_Slug": "nous-research-api",
-      "Origin_URL": "https://api.nousresearch.com/",
-      "Categories": "general-chat",
-      "Total_Tokens": 95012817476,
-      "Total_Requests": 2998972,
-      "Created_At": "2026-02-26T06:16:33.177Z"
+      "Date": "2026-10-01",
+      "Rank": 19,
+      "App_ID": 2823243,
+      "App_Title": "ZCode",
+      "App_Slug": null,
+      "Origin_URL": "https://zcode.z.ai/",
+      "Categories": "programming-app",
+      "Total_Tokens": 100219251607,
+      "Total_Requests": 458862,
+      "Created_At": "2026-02-12T03:46:38.223Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 21,
+      "Date": "2026-10-01",
+      "Rank": 20,
       "App_ID": 189563,
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Origin_URL": "https://docs.all-hands.dev/",
       "Categories": "cli-agent",
-      "Total_Tokens": 79587783753,
-      "Total_Requests": 888082,
+      "Total_Tokens": 77892964612,
+      "Total_Requests": 1228673,
       "Created_At": "2024-09-24T08:02:50.387Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 22,
+      "Date": "2026-10-01",
+      "Rank": 21,
       "App_ID": 2699842,
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Origin_URL": "https://www.isekai.world/",
       "Categories": "game",
-      "Total_Tokens": 71578488406,
-      "Total_Requests": 1234171,
+      "Total_Tokens": 73645014803,
+      "Total_Requests": 1281530,
       "Created_At": "2026-01-21T19:15:22.288Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 23,
+      "Date": "2026-10-01",
+      "Rank": 22,
       "App_ID": 4580044,
       "App_Title": "HighLevel",
       "App_Slug": null,
       "Origin_URL": "https://www.gohighlevel.com/",
       "Categories": "",
-      "Total_Tokens": 62721714757,
-      "Total_Requests": 1186628,
+      "Total_Tokens": 70363892881,
+      "Total_Requests": 1244743,
       "Created_At": "2026-07-31T15:56:03.697Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 24,
-      "App_ID": 4513490,
-      "App_Title": "Chess Reasoner Trace Generator",
-      "App_Slug": null,
-      "Origin_URL": "https://github.com/chess-reasoner",
-      "Categories": "",
-      "Total_Tokens": 58812733515,
-      "Total_Requests": 15244201,
-      "Created_At": "2026-07-25T05:57:53.112Z"
+      "Date": "2026-10-01",
+      "Rank": 23,
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Origin_URL": "https://api.nousresearch.com/",
+      "Categories": "general-chat",
+      "Total_Tokens": 50044771060,
+      "Total_Requests": 2282683,
+      "Created_At": "2026-02-26T06:16:33.177Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 25,
+      "Date": "2026-10-01",
+      "Rank": 24,
       "App_ID": 2637375,
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Origin_URL": "https://lemonade.gg/",
       "Categories": "programming-app",
-      "Total_Tokens": 50034923746,
-      "Total_Requests": 907956,
+      "Total_Tokens": 47804562763,
+      "Total_Requests": 872897,
       "Created_At": "2025-12-28T17:23:36.463Z"
     },
     {
-      "Date": "2026-09-30",
-      "Rank": 26,
+      "Date": "2026-10-01",
+      "Rank": 25,
       "App_ID": 4132065,
       "App_Title": "Hello Minds, powered by Ethoswarm",
       "App_Slug": null,
       "Origin_URL": "https://www.hellominds.ai/",
       "Categories": "roleplay;personal-agent;creative-writing",
-      "Total_Tokens": 46606726916,
-      "Total_Requests": 300311,
+      "Total_Tokens": 40930599067,
+      "Total_Requests": 270174,
       "Created_At": "2026-06-18T14:24:30.601Z"
+    },
+    {
+      "Date": "2026-10-01",
+      "Rank": 26,
+      "App_ID": 4725308,
+      "App_Title": "Proto Agent",
+      "App_Slug": null,
+      "Origin_URL": "https://proto.erp.ai/",
+      "Categories": "personal-agent;general-chat;cli-agent;programming-app",
+      "Total_Tokens": 40005797014,
+      "Total_Requests": 157836,
+      "Created_At": "2026-08-16T08:57:45.322Z"
     }
   ],
   "app_model_usage": [
@@ -434239,267 +434683,267 @@
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "Others",
-      "Tokens": 3.257075
+      "Tokens": "3.257075"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 11.572851
+      "Tokens": "11.572851"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 0.646707
+      "Tokens": "0.646707"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 0.691369
+      "Tokens": "0.691369"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 0.952395
+      "Tokens": "0.952395"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 0.851434
+      "Tokens": "0.851434"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 3.268435
+      "Tokens": "3.268435"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "z-ai/glm-4.7-flash-20260119",
-      "Tokens": 0.607879
+      "Tokens": "0.607879"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 1.888368
+      "Tokens": "1.888368"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 2.394999
+      "Tokens": "2.394999"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 189563,
+      "App_ID": "189563",
       "App_Title": "OpenHands",
       "App_Slug": "openhands",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 2.589701
+      "Tokens": "2.589701"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "Others",
-      "Tokens": 8.703904
+      "Tokens": "8.703904"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 2.568747
+      "Tokens": "2.568747"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 2.486709
+      "Tokens": "2.486709"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 27.864233
+      "Tokens": "27.864233"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 139.035021
+      "Tokens": "139.035021"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 8.121011
+      "Tokens": "8.121011"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 5.904887
+      "Tokens": "5.904887"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 6.616227
+      "Tokens": "6.616227"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 20.559254
+      "Tokens": "20.559254"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 4.394944
+      "Tokens": "4.394944"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 190604,
+      "App_ID": "190604",
       "App_Title": "Cline",
       "App_Slug": "cline",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 154.042293
+      "Tokens": "154.042293"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "Others",
-      "Tokens": 42.847306
+      "Tokens": "42.847306"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 14.736612
+      "Tokens": "14.736612"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "dots-studio/dots-3-note-preview-20260813",
-      "Tokens": 11.140623
+      "Tokens": "11.140623"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "inclusionai/ling-3.0-flash-fin-20260827",
-      "Tokens": 7.656646
+      "Tokens": "7.656646"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "minimax/minimax-m2.7-20260318",
-      "Tokens": 8.87541
+      "Tokens": "8.87541"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 142.144
+      "Tokens": "142.144"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
-      "Tokens": 6.958123
+      "Tokens": "6.958123"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
-      "Tokens": 37.256649
+      "Tokens": "37.256649"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "nvidia/nemotron-3.5-lightning-20260807",
-      "Tokens": 6.428127
+      "Tokens": "6.428127"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 94.091373
+      "Tokens": "94.091373"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2262242,
+      "App_ID": "2262242",
       "App_Title": "Kilo Code",
       "App_Slug": "kilo-code",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 15.369575
+      "Tokens": "15.369575"
     },
     {
       "Date": "2026-09-01",
@@ -434679,659 +435123,659 @@
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "Others",
-      "Tokens": 80.096944
+      "Tokens": "80.096944"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "anthropic/claude-4.8-opus-20260528",
-      "Tokens": 15.489068
+      "Tokens": "15.489068"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "anthropic/claude-opus-5-20260723",
-      "Tokens": 43.025826
+      "Tokens": "43.025826"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 34.131376
+      "Tokens": "34.131376"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 13.801903
+      "Tokens": "13.801903"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "minimax/minimax-m2.7-20260318",
-      "Tokens": 8.664636
+      "Tokens": "8.664636"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 84.733045
+      "Tokens": "84.733045"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "tencent/hy4-preview-20260827",
-      "Tokens": 65.862439
+      "Tokens": "65.862439"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 33.152823
+      "Tokens": "33.152823"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 24.845279
+      "Tokens": "24.845279"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2627404,
+      "App_ID": "2627404",
       "App_Title": "Claude Code",
       "App_Slug": "claude-code",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 296.099484
+      "Tokens": "296.099484"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "google/gemini-3-flash-preview-20251217",
-      "Tokens": 0.187705
+      "Tokens": "0.187705"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 2.274179
+      "Tokens": "2.274179"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 28.995807
+      "Tokens": "28.995807"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "tencent/hy3-20260706",
-      "Tokens": 8.348861
+      "Tokens": "8.348861"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2637375,
+      "App_ID": "2637375",
       "App_Title": "Lemonade",
       "App_Slug": "lemonade",
       "Model": "x-ai/grok-4.5-20260708",
-      "Tokens": 0.022779
+      "Tokens": "0.022779"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "Others",
-      "Tokens": 3.984827
+      "Tokens": "3.984827"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "anthropic/claude-4.6-sonnet-20260217",
-      "Tokens": 0.926874
+      "Tokens": "0.926874"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 1.492142
+      "Tokens": "1.492142"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 0.928104
+      "Tokens": "0.928104"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 3.241163
+      "Tokens": "3.241163"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 1.773994
+      "Tokens": "1.773994"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 61.848315
+      "Tokens": "61.848315"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 65.914149
+      "Tokens": "65.914149"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-sol-pro-20260709",
-      "Tokens": 1.189555
+      "Tokens": "1.189555"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "openai/gpt-5.6-terra-20260709",
-      "Tokens": 3.701254
+      "Tokens": "3.701254"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2668297,
+      "App_ID": "2668297",
       "App_Title": "Codex",
       "App_Slug": "codex",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 2.284685
+      "Tokens": "2.284685"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "Others",
-      "Tokens": 3.504446
+      "Tokens": "3.504446"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v3.2-20251201",
-      "Tokens": 0.780894
+      "Tokens": "0.780894"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 1.727669
+      "Tokens": "1.727669"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 8.294669
+      "Tokens": "8.294669"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "deepseek/deepseek-v4-pro-20260813",
-      "Tokens": 4.828541
+      "Tokens": "4.828541"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "google/gemini-2.5-flash-lite",
-      "Tokens": 1.230068
+      "Tokens": "1.230068"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "openai/gpt-oss-safeguard-20b",
-      "Tokens": 0.751399
+      "Tokens": "0.751399"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "xiaomi/mimo-v2.5-20260422",
-      "Tokens": 11.879789
+      "Tokens": "11.879789"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "xiaomi/mimo-v2.5-pro-20260422",
-      "Tokens": 13.342286
+      "Tokens": "13.342286"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 3.552841
+      "Tokens": "3.552841"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2699842,
+      "App_ID": "2699842",
       "App_Title": "ISEKAI ZERO",
       "App_Slug": "isekai-zero",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 5.949337
+      "Tokens": "5.949337"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "Others",
-      "Tokens": 55.091233
+      "Tokens": "55.091233"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 3.993014
+      "Tokens": "3.993014"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 14.817718
+      "Tokens": "14.817718"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 22.312749
+      "Tokens": "22.312749"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 5.178569
+      "Tokens": "5.178569"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 4.659517
+      "Tokens": "4.659517"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 15.401416
+      "Tokens": "15.401416"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 11.036635
+      "Tokens": "11.036635"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "z-ai/glm-5.2-20260616",
-      "Tokens": 5.153019
+      "Tokens": "5.153019"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 3.587048
+      "Tokens": "3.587048"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2725608,
+      "App_ID": "2725608",
       "App_Title": "OpenClaw",
       "App_Slug": "openclaw",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 11.467874
+      "Tokens": "11.467874"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "Others",
-      "Tokens": 56.903267
+      "Tokens": "56.903267"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "anthropic/claude-sonnet-5-20260630",
-      "Tokens": 6.658687
+      "Tokens": "6.658687"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 8.442234
+      "Tokens": "8.442234"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 36.466152
+      "Tokens": "36.466152"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "google/gemini-3.7-flash-20260813",
-      "Tokens": 6.367102
+      "Tokens": "6.367102"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 6.728364
+      "Tokens": "6.728364"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "moonshotai/kimi-k3-20260715",
-      "Tokens": 7.619493
+      "Tokens": "7.619493"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 18.284535
+      "Tokens": "18.284535"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "openai/gpt-5.6-sol-20260709",
-      "Tokens": 14.106613
+      "Tokens": "14.106613"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 12.181005
+      "Tokens": "12.181005"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2853275,
+      "App_ID": "2853275",
       "App_Title": "pi",
       "App_Slug": "pi",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 56.125976
+      "Tokens": "56.125976"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "Others",
-      "Tokens": 3.005372
+      "Tokens": "3.005372"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 3.207881
+      "Tokens": "3.207881"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 5.37315
+      "Tokens": "5.37315"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 1.560929
+      "Tokens": "1.560929"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "inclusionai/ling-3.0-flash-fin-20260827",
-      "Tokens": 3.50912
+      "Tokens": "3.50912"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 5.850264
+      "Tokens": "5.850264"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "poolside/laguna-xs-2.1-20260625",
-      "Tokens": 0.960652
+      "Tokens": "0.960652"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "stepfun/step-3.7-flash-20260528",
-      "Tokens": 0.895047
+      "Tokens": "0.895047"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "upstage/solar-pro4-20260810",
-      "Tokens": 1.471226
+      "Tokens": "1.471226"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "z-ai/glm-5.3-20260816",
-      "Tokens": 0.685012
+      "Tokens": "0.685012"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 2938662,
+      "App_ID": "2938662",
       "App_Title": "Nous Research API",
       "App_Slug": "nous-research-api",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 5.737898
+      "Tokens": "5.737898"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "Others",
-      "Tokens": 380.262906
+      "Tokens": "380.262906"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "deepseek/deepseek-v4-flash-20260423",
-      "Tokens": 218.031895
+      "Tokens": "218.031895"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "deepseek/deepseek-v4-flash-20260731",
-      "Tokens": 246.721173
+      "Tokens": "246.721173"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "deepseek/deepseek-v4-pro-20260423",
-      "Tokens": 46.390037
+      "Tokens": "46.390037"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "inclusionai/ling-3.0-flash-fin-20260827",
-      "Tokens": 32.610033
+      "Tokens": "32.610033"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "minimax/minimax-m3-20260531",
-      "Tokens": 125.396744
+      "Tokens": "125.396744"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "openai/gpt-5.6-luna-20260709",
-      "Tokens": 43.012671
+      "Tokens": "43.012671"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "poolside/laguna-s-2.1-20260720",
-      "Tokens": 45.610795
+      "Tokens": "45.610795"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "stepfun/step-3.7-flash-20260528",
-      "Tokens": 82.227678
+      "Tokens": "82.227678"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "upstage/solar-pro4-20260810",
-      "Tokens": 129.451005
+      "Tokens": "129.451005"
     },
     {
       "Date": "2026-09-01",
-      "App_ID": 3067167,
+      "App_ID": "3067167",
       "App_Title": "Hermes Agent",
       "App_Slug": "hermes-agent",
       "Model": "z-ai/glm-5.3-flash-20260826",
-      "Tokens": 256.38413
+      "Tokens": "256.38413"
     },
     {
       "Date": "2026-09-01",
@@ -472788,6 +473232,950 @@
       "App_Slug": "hermes-agent",
       "Model": "z-ai/glm-5.3-flash-20260826",
       "Tokens": 146.264675
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "Others",
+      "Tokens": 5.250698
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "anthropic/claude-4.8-opus-20260528",
+      "Tokens": 2.408486
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 3.156536
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 1.121149
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 55.495819
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "google/gemini-3.8-flash-20260902",
+      "Tokens": 4.22486
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "moonshotai/kimi-k3-20260715",
+      "Tokens": 0.62531
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 0.792988
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 0.837753
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 2.273493
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 189563,
+      "App_Title": "OpenHands",
+      "App_Slug": "openhands",
+      "Model": "xiaomi/mimo-v2.6-flash-20260921",
+      "Tokens": 1.705872
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "Others",
+      "Tokens": 22.347467
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 3.981056
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 24.219459
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 3.727628
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "meta/muse-spark-1.3-contributor-20260902",
+      "Tokens": 77.316073
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 3.100888
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 6.683425
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 825.538193
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "xiaomi/mimo-v2.6-flash-20260921",
+      "Tokens": 84.466108
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "xiaomi/mimo-v2.6-pro-20260921",
+      "Tokens": 9.645465
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 190604,
+      "App_Title": "Cline",
+      "App_Slug": "cline",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 12.403916
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "Others",
+      "Tokens": 56.672054
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 6.766589
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 38.122074
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "dots-studio/dots-3-note-preview-20260813",
+      "Tokens": 36.041014
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "inclusionai/ling-3.0-flash-sante-20260904",
+      "Tokens": 10.180555
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
+      "Tokens": 14.496686
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 89.846608
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 68.714749
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "qwen/qwen3.8-27b-20260814",
+      "Tokens": 6.872088
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 797.451973
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2262242,
+      "App_Title": "Kilo Code",
+      "App_Slug": "kilo-code",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 10.00217
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "Others",
+      "Tokens": 134.961246
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-fable-5.1-20260831",
+      "Tokens": 32.757109
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-opus-5-20260723",
+      "Tokens": 23.665977
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 97.858367
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-sonnet-5-20260630",
+      "Tokens": 24.849896
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "anthropic/claude-sonnet-5.5-20260928",
+      "Tokens": 25.934808
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 181.393117
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "moonshotai/kimi-k3-20260715",
+      "Tokens": 25.59846
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 313.989818
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 39.456586
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2627404,
+      "App_Title": "Claude Code",
+      "App_Slug": "claude-code",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 156.596078
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "google/gemini-3-flash-preview-20251217",
+      "Tokens": 0.000556
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "google/gemini-3.7-flash-20260813",
+      "Tokens": 3.71763
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 3.260643
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 5.736708
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "tencent/hy3-20260706",
+      "Tokens": 0.528682
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "x-ai/grok-4.5-20260708",
+      "Tokens": 0.016098
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "x-ai/grok-4.7-20260916",
+      "Tokens": 0.104946
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2637375,
+      "App_Title": "Lemonade",
+      "App_Slug": "lemonade",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 34.439299
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "Others",
+      "Tokens": 42.17187
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 84.216768
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "meta/muse-spark-1.3-contributor-20260902",
+      "Tokens": 35.090382
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 58.702821
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-5.6-sol-20260709",
+      "Tokens": 40.973936
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-astra-20260903",
+      "Tokens": 407.171485
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 341.595964
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-luna-pro-20260922",
+      "Tokens": 18.759222
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6-sol-20260922",
+      "Tokens": 24.982718
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "openai/gpt-6.1-sol-20260929",
+      "Tokens": 29.55222
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2668297,
+      "App_Title": "Codex",
+      "App_Slug": "codex",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 29.974123
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "Others",
+      "Tokens": 6.938646
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "deepseek/deepseek-v4-pro-20260813",
+      "Tokens": 4.313936
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 3.92184
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.5-20260422",
+      "Tokens": 8.234065
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.5-pro-20260422",
+      "Tokens": 6.980415
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.6-flash-20260921",
+      "Tokens": 15.017902
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "xiaomi/mimo-v2.6-pro-20260921",
+      "Tokens": 17.073205
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5-20260211",
+      "Tokens": 1.547804
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5.2-20260616",
+      "Tokens": 1.378335
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 1.513526
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2699842,
+      "App_Title": "ISEKAI ZERO",
+      "App_Slug": "isekai-zero",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 6.725341
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "Others",
+      "Tokens": 67.000642
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 13.0307
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 13.113506
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4-pro-20260423",
+      "Tokens": 5.043558
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 42.584123
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "minimax/minimax-m3-20260531",
+      "Tokens": 8.751327
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "nvidia/nemotron-3-super-120b-a12b-20230311",
+      "Tokens": 5.992925
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 5.686806
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 17.456348
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 5.70284
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2725608,
+      "App_Title": "OpenClaw",
+      "App_Slug": "openclaw",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 18.437243
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "Others",
+      "Tokens": 87.015484
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 20.531718
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "anthropic/claude-sonnet-5.5-20260928",
+      "Tokens": 8.110049
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 7.6559
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 15.399634
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 123.018845
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "openai/gpt-5.6-sol-20260709",
+      "Tokens": 8.221123
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 16.772461
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 96.612663
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "z-ai/glm-5.3-20260816",
+      "Tokens": 15.710301
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2853275,
+      "App_Title": "pi",
+      "App_Slug": "pi",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 52.332942
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "Others",
+      "Tokens": 8.804302
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 1.202573
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 2.389962
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 1.636997
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 6.783672
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "google/gemini-3.8-flash-20260902",
+      "Tokens": 1.000056
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 1.245648
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "openai/gpt-5.6-luna-20260709",
+      "Tokens": 2.496628
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 2.690297
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 18.286313
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 2938662,
+      "App_Title": "Nous Research API",
+      "App_Slug": "nous-research-api",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 3.508323
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "Others",
+      "Tokens": 423.227749
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "anthropic/claude-opus-5.5-20260921",
+      "Tokens": 36.711399
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4-flash-20260423",
+      "Tokens": 78.369827
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4-flash-20260731",
+      "Tokens": 125.666031
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4-pro-20260423",
+      "Tokens": 27.542648
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "deepseek/deepseek-v4.1-flash-20260910",
+      "Tokens": 453.756915
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
+      "Tokens": 41.125626
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "openai/gpt-6-luna-20260922",
+      "Tokens": 41.456272
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "poolside/laguna-s-2.1-20260720",
+      "Tokens": 39.367689
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "stealth/space-bunny-alpha",
+      "Tokens": 618.089339
+    },
+    {
+      "Date": "2026-10-01",
+      "App_ID": 3067167,
+      "App_Title": "Hermes Agent",
+      "App_Slug": "hermes-agent",
+      "Model": "z-ai/glm-5.3-flash-20260826",
+      "Tokens": 141.476581
     }
   ],
   "provider_usage": [
@@ -623711,128 +625099,128 @@
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "deepseek",
-      "Tokens": 2644.89824,
-      "Share_In_Category": 0.16167265
+      "Tokens": "2644.89824",
+      "Share_In_Category": "0.16167265"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "google",
-      "Tokens": 546.949941,
-      "Share_In_Category": 0.03343299
+      "Tokens": "546.949941",
+      "Share_In_Category": "0.03343299"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "minimax",
-      "Tokens": 992.828773,
-      "Share_In_Category": 0.06068788
+      "Tokens": "992.828773",
+      "Share_In_Category": "0.06068788"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "openai",
-      "Tokens": 1684.97532,
-      "Share_In_Category": 0.10299619
+      "Tokens": "1684.97532",
+      "Share_In_Category": "0.10299619"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "others",
-      "Tokens": 6235.89534,
-      "Share_In_Category": 0.38117676
+      "Tokens": "6235.89534",
+      "Share_In_Category": "0.38117676"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "tencent",
-      "Tokens": 1841.227049,
-      "Share_In_Category": 0.11254727
+      "Tokens": "1841.227049",
+      "Share_In_Category": "0.11254727"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "xiaomi",
-      "Tokens": 550.184765,
-      "Share_In_Category": 0.03363072
+      "Tokens": "550.184765",
+      "Share_In_Category": "0.03363072"
     },
     {
       "Date": "2026-09-01",
       "Category": "natural-language",
       "Category_Label": "Natural Language",
       "Author": "z-ai",
-      "Tokens": 1862.629919,
-      "Share_In_Category": 0.11385554
+      "Tokens": "1862.629919",
+      "Share_In_Category": "0.11385554"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "deepseek",
-      "Tokens": 579.551845,
-      "Share_In_Category": 0.18223188
+      "Tokens": "579.551845",
+      "Share_In_Category": "0.18223188"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "google",
-      "Tokens": 111.583659,
-      "Share_In_Category": 0.0350859
+      "Tokens": "111.583659",
+      "Share_In_Category": "0.0350859"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "minimax",
-      "Tokens": 190.706,
-      "Share_In_Category": 0.0599648
+      "Tokens": "190.706",
+      "Share_In_Category": "0.0599648"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "openai",
-      "Tokens": 180.139993,
-      "Share_In_Category": 0.05664247
+      "Tokens": "180.139993",
+      "Share_In_Category": "0.05664247"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "others",
-      "Tokens": 1303.087685,
-      "Share_In_Category": 0.40973749
+      "Tokens": "1303.087685",
+      "Share_In_Category": "0.40973749"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "tencent",
-      "Tokens": 346.635811,
-      "Share_In_Category": 0.10899473
+      "Tokens": "346.635811",
+      "Share_In_Category": "0.10899473"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "xiaomi",
-      "Tokens": 113.101711,
-      "Share_In_Category": 0.03556323
+      "Tokens": "113.101711",
+      "Share_In_Category": "0.03556323"
     },
     {
       "Date": "2026-09-01",
       "Category": "programming-language",
       "Category_Label": "Programming",
       "Author": "z-ai",
-      "Tokens": 355.492201,
-      "Share_In_Category": 0.11177949
+      "Tokens": "355.492201",
+      "Share_In_Category": "0.11177949"
     },
     {
       "Date": "2026-09-02",
@@ -627129,6 +628517,134 @@
       "Author": "z-ai",
       "Tokens": 331.067251,
       "Share_In_Category": 0.07055988
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "deepseek",
+      "Tokens": 4598.310153,
+      "Share_In_Category": 0.20841752
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "nvidia",
+      "Tokens": 629.7488,
+      "Share_In_Category": 0.02854324
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "openai",
+      "Tokens": 1059.004319,
+      "Share_In_Category": 0.04799917
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "others",
+      "Tokens": 7549.7934,
+      "Share_In_Category": 0.34219293
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "stealth",
+      "Tokens": 5168.794093,
+      "Share_In_Category": 0.23427459
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "tencent",
+      "Tokens": 524.267601,
+      "Share_In_Category": 0.02376233
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "xiaomi",
+      "Tokens": 1032.723653,
+      "Share_In_Category": 0.046808
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "natural-language",
+      "Category_Label": "Natural Language",
+      "Author": "z-ai",
+      "Tokens": 1500.331144,
+      "Share_In_Category": 0.06800222
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "deepseek",
+      "Tokens": 1034.581796,
+      "Share_In_Category": 0.22067091
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "nvidia",
+      "Tokens": 140.563613,
+      "Share_In_Category": 0.02998149
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "openai",
+      "Tokens": 226.651065,
+      "Share_In_Category": 0.04834349
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "others",
+      "Tokens": 1658.107499,
+      "Share_In_Category": 0.35366569
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "stealth",
+      "Tokens": 1000.985693,
+      "Share_In_Category": 0.21350503
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "typesafe",
+      "Tokens": 94.628732,
+      "Share_In_Category": 0.02018382
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "xiaomi",
+      "Tokens": 185.721656,
+      "Share_In_Category": 0.03961346
+    },
+    {
+      "Date": "2026-10-01",
+      "Category": "programming-language",
+      "Category_Label": "Programming",
+      "Author": "z-ai",
+      "Tokens": 347.106983,
+      "Share_In_Category": 0.07403611
     }
   ]
 }
