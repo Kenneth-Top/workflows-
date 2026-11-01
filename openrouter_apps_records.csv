@@ -1,21 +1,21 @@
 ﻿Date,Rank,App_ID,App_Title,App_Slug,Origin_URL,Categories,Total_Tokens,Total_Requests,Created_At
-2026-10-30,3,2627404,Claude Code,claude-code,https://claude.ai/code,cli-agent,1572597299382,15085703,2025-12-23T22:23:47.378Z
-2026-10-30,4,3067167,Hermes Agent,hermes-agent,https://hermes-agent.nousresearch.com/,personal-agent;cli-agent,1839131662017,17807419,2026-03-12T23:26:33.624Z
-2026-10-30,5,2262242,Kilo Code,kilo-code,https://kilocode.ai/,cli-agent;ide-extension,714113380814,6923385,2025-04-09T15:16:20.620Z
-2026-10-30,6,2725608,OpenClaw,openclaw,https://openclaw.ai/,personal-agent;cli-agent,707646190837,4868190,2026-01-30T06:12:11.182Z
-2026-10-30,7,2668297,Codex,codex,https://openai.com/codex/,cli-agent,698162935489,9378005,2026-01-10T03:00:25.305Z
-2026-10-30,8,2853275,pi,pi,https://pi.dev/,cli-agent,536541960980,5694894,2026-02-15T08:18:07.110Z
-2026-10-30,10,169295,Portkey AI,portkey-ai,https://portkey.ai/,programming-app,394593975204,20136230,2023-12-18T09:15:55.739Z
-2026-10-30,11,3003505,Strix,,https://strix.ai/,cli-agent,298430529685,2728548,2026-03-05T16:55:52.446Z
-2026-10-30,12,4706207,DeepSeek Harness,,https://github.com/deepseek-ai/deepseek-harness,,285664061263,2101401,2026-08-14T02:52:48.939Z
-2026-10-30,13,3682314,omp,,https://omp.sh/,cli-agent,273818321201,1805242,2026-05-15T19:18:27.144Z
-2026-10-30,15,190604,Cline,cline,https://cline.bot/,ide-extension;cli-agent,138854280883,2285114,2024-10-09T07:53:24.932Z
-2026-10-30,16,4137556,Freebuff,,https://freebuff.com/,,130179530964,1142549,2026-06-18T22:24:38.005Z
-2026-10-30,17,4913981,MeGPT mind,,https://megpt.app/,,112661241086,2835259,2026-09-03T21:37:49.342Z
-2026-10-30,19,2524738,LangChain,langchain,https://docs.langchain.com/,,94464506406,1885426,2025-11-07T08:17:49.811Z
-2026-10-30,20,4725308,Proto Agent,,https://proto.erp.ai/,personal-agent;general-chat;cli-agent;programming-app;native-app-builder,89115253691,861280,2026-08-16T08:57:45.322Z
-2026-10-30,21,2699842,ISEKAI ZERO,isekai-zero,https://www.isekai.world/,game,86719875970,1241292,2026-01-21T19:15:22.288Z
-2026-10-30,23,189563,OpenHands,openhands,https://docs.all-hands.dev/,cli-agent,85964155034,933484,2024-09-24T08:02:50.387Z
-2026-10-30,24,4780809,CodeGPT,,https://codegpt.co/,ide-extension;cli-agent;cloud-agent,69707775885,378588,2026-08-21T21:07:36.114Z
-2026-10-30,25,4580044,HighLevel,,https://www.gohighlevel.com/,,63555406559,1079458,2026-07-31T15:56:03.697Z
-2026-10-30,27,4749832,Aura,,https://geniusplugin.vercel.app/,ide-extension;programming-app,54875876794,457223,2026-08-18T22:08:01.426Z
+2026-10-31,3,3067167,Hermes Agent,hermes-agent,https://hermes-agent.nousresearch.com/,personal-agent;cli-agent,1610305714824,15400425,2026-03-12T23:26:33.624Z
+2026-10-31,4,2627404,Claude Code,claude-code,https://claude.ai/code,cli-agent,1124236732143,12250653,2025-12-23T22:23:47.378Z
+2026-10-31,5,2262242,Kilo Code,kilo-code,https://kilocode.ai/,cli-agent;ide-extension,680598373507,6373245,2025-04-09T15:16:20.620Z
+2026-10-31,6,2725608,OpenClaw,openclaw,https://openclaw.ai/,personal-agent;cli-agent,607642508631,4096642,2026-01-30T06:12:11.182Z
+2026-10-31,7,2853275,pi,pi,https://pi.dev/,cli-agent,424573063649,4426059,2026-02-15T08:18:07.110Z
+2026-10-31,9,2668297,Codex,codex,https://openai.com/codex/,cli-agent,246630101460,4536718,2026-01-10T03:00:25.305Z
+2026-10-31,10,3682314,omp,,https://omp.sh/,cli-agent,242092103526,1463977,2026-05-15T19:18:27.144Z
+2026-10-31,12,4706207,DeepSeek Harness,,https://github.com/deepseek-ai/deepseek-harness,,218741662735,1378512,2026-08-14T02:52:48.939Z
+2026-10-31,13,3003505,Strix,,https://strix.ai/,cli-agent,214155686584,1817117,2026-03-05T16:55:52.446Z
+2026-10-31,14,190604,Cline,cline,https://cline.bot/,ide-extension;cli-agent,116727606173,1379853,2024-10-09T07:53:24.932Z
+2026-10-31,15,4913981,MeGPT mind,,https://megpt.app/,,107692133428,2698196,2026-09-03T21:37:49.342Z
+2026-10-31,16,4725308,Proto Agent,,https://proto.erp.ai/,personal-agent;general-chat;cli-agent;programming-app;native-app-builder,93168007404,839278,2026-08-16T08:57:45.322Z
+2026-10-31,17,4137556,Freebuff,,https://freebuff.com/,,88250776971,807619,2026-06-18T22:24:38.005Z
+2026-10-31,18,189563,OpenHands,openhands,https://docs.all-hands.dev/,cli-agent,87035624572,1015971,2024-09-24T08:02:50.387Z
+2026-10-31,20,2524738,LangChain,langchain,https://docs.langchain.com/,,83111596538,1177287,2025-11-07T08:17:49.811Z
+2026-10-31,21,2699842,ISEKAI ZERO,isekai-zero,https://www.isekai.world/,game,82027030096,1162534,2026-01-21T19:15:22.288Z
+2026-10-31,22,169295,Portkey AI,portkey-ai,https://portkey.ai/,programming-app,81400190416,19451150,2023-12-18T09:15:55.739Z
+2026-10-31,23,4132065,"Hello Minds, powered by Ethoswarm",,https://www.hellominds.ai/,roleplay;personal-agent;creative-writing,80201444245,1028371,2026-06-18T14:24:30.601Z
+2026-10-31,24,4780809,CodeGPT,,https://codegpt.co/,ide-extension;cli-agent;cloud-agent,66231212762,347257,2026-08-21T21:07:36.114Z
+2026-10-31,25,4749832,Aura,,https://geniusplugin.vercel.app/,ide-extension;programming-app,54981053926,430362,2026-08-18T22:08:01.426Z
